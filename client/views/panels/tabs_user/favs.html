@@ -1,0 +1,17 @@
+
+<template name="tab_favs">
+	{{#if favorites.length}}
+		<label>{{i18n 'ui.labels.favsplaces'}}</label>
+		<ul class="list-group list-items">
+			{{#each favorites}}
+			<li class="list-group-item">
+				{{#with newPlace this}}
+					{{> item_favorite}}
+				{{/with}}
+			</li>
+			{{/each}}
+		</ul>
+	{{else}}
+		<label class="text-gray"><i>{{i18n 'ui.labels.nofavs'}}</i></label>				
+	{{/if}}
+</template>

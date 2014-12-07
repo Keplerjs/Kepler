@@ -1,0 +1,54 @@
+
+<template name="popup_place">
+	<a class="btn btn-block btn-default popup-tit" href="#">
+		{{#if name}}<b>{{name}}</b>{{else}}<i>{{i18n 'ui.labels.noname'}}</i>{{/if}}
+		<!-- <span class="pull-right"><i class="icon icon-ar-right"></i></span> -->
+	</a>
+	<div class="btn-group">
+		{{#if isOutdoor}}
+			{{#if tracks}}<a class="btn btn-sm btn-default popup-btn-tracks" href="#"><i class="icon icon-gpx"></i></a>{{/if}}
+		{{/if}}
+		{{#if pois}}<a class="btn btn-sm btn-default popup-btn-pois" href="#"><i class="icon icon-pois"></i></a>{{/if}}
+		{{#if checkinsCount}}<a class="btn btn-sm btn-default popup-btn-checkins" href="#"><i class="icon icon-users"></i></a>{{/if}}
+	</div>
+	<div class="btn btn-xs btn-default disabled pull-right popup-btn-star">
+		<i class="icon icon-{{#if getRank}}star{{else}}unstar{{/if}}"></i> 
+		<span class="badge {{#unless getRank}}bg-gray{{/unless}}">{{getRank}}</span>
+	</div>
+	{{#if editPlaces}}
+		{{> popup_edit}}
+	{{/if}}
+</template>
+
+<template name="popup_edit">
+	<div class="clearfix">&nbsp;</div>
+	<div class="btn-group popup-actions">
+		<a class="btn btn-xs btn-default popup-move" href="#">Move</a> 
+		<a class="btn btn-xs btn-default popup-clone" href="#">Clone</a> 
+		<a class="btn btn-xs btn-default popup-del" href="#">Delete</a>	
+	</div>
+	<div class="clearfix">
+		{{#if ele}} {{ele}}m {{/if}}
+		{{#if esp}} {{humanAzimut esp}}({{esp}}°) {{/if}}
+	</div>
+</template>
+
+<template name="popup_track">
+	<div class="popup-track">
+		{{#if time}}<i class="icon icon-time"></i> {{i18n 'ui.labels.time'}} {{humanTime time}} <br />{{/if}}
+		{{#if len}}<i class="icon icon-len"></i> {{i18n 'ui.labels.len'}} {{humanDistance len}} <br />{{/if}}
+		{{#if dis}}
+			{{#if isSalita}}
+			<i class="icon icon-sal"></i> {{i18n 'ui.labels.asc'}} {{humanDistance dis 1 }}
+			{{else}}
+			<i class="icon icon-dis"></i> {{i18n 'ui.labels.desc'}} {{humanDistance dis 1 }}
+			{{/if}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="popup_poi">
+	<div class="popup-poi">
+		{{#if name}}<h4>{{name}}</h4>{{/if}}
+	</div>
+</template>

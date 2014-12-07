@@ -1,0 +1,57 @@
+
+#login-dropdown-list {
+	position: static;
+	background: none;
+	border: none;
+	overflow: hidden;
+	box-shadow: none;
+	border-radius: 0;
+	padding: 20px 0;
+	width: auto;
+	margin: 0;
+	text-align: center;
+	list-style: none;
+}
+#login-dropdown-list .dropdown-menu {
+	margin: 0 10px;
+	border-radius: 8px;	
+	box-shadow: none;
+	width: auto;
+	max-width: auto;
+	background: rgba(255, 255, 255, 0.6);	
+}
+
+#login-dropdown-list .or-text {
+	display: none;
+}
+
+#login-dropdown-list .dropdown-toggle,
+#login-dropdown-list .dropdown-menu {
+	position: static;
+	left: auto;
+	right: auto;
+	clear: both;
+	float: none;
+	display: block;
+	height: auto;
+	overflow: hidden;
+}
+
+/*.login-buttons-dropdown-align-right#login-buttons + li .dropdown-menu {
+	float: none;
+	right: auto;
+	margin: 10px auto;
+	overflow: hidden;
+	height: auto;
+	box-shadow: none;
+	border-radius: 8px;
+}
+*/
+
+#login-dropdown-list .dropdown-toggle {
+	display: none;
+}
+
+
+
+

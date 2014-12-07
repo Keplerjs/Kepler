@@ -1,0 +1,39 @@
+
+<template name="panel_friends">
+
+	<div class="panel-heading">
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-1">
+				<form role="form">
+					<div class="form-group has-feedback">
+						<input class="form-control users-inp-search" type="text" placeholder="{{i18n 'ui.labels.findusers'}}" /> 
+						<a class="form-control-feedback users-btn-search">
+							<i class="icon icon-search"></i>
+						</a>
+					</div>
+				</form>
+			</div>
+			<div class="col-xs-5">
+				<div class="pull-right">
+					{{> switch_online}}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-body list-group list-items">
+		{{> users_list}}
+	</div>
+</template>
+
+<template name="switch_online">
+	<input id="switch_online" type="checkbox" />
+</template>
+
+<template name="users_list">
+	{{#each friends}}
+		<li class="list-group-item">
+		{{> item_friend}}
+		</li>
+	{{/each}}
+</template>
+

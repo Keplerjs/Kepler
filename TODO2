@@ -1,0 +1,46 @@
+
+
+mostrare indicazione con direzione e distanza quando si è nei pressi del place, messaggio tipo:
+il place si trova 230m alla tua destra usando leaflet-compass
+
+pulsante stampa di panel place
+
+API
+https://github.com/mstn/meteor-collectionapi
+
+calcolare previsione esposizione al vento usando direzione del vento dal meteo + dati aspect
+
+collegare convers ai POI per dare possibilita di commentare i POIs
+forse anche checkin nei POI
+
+cercare se ce una mappa online per determinare il tipo di roccia in una zona
+
+UTIlizzare iphone links per telefonare ad amici nella pagina di un utente!
+http://developer.apple.com/library/ios/#featuredarticles/iPhoneURLScheme_Reference/Articles/PhoneLinks.html#//apple_ref/doc/uid/TP40007893-SW1
+
+ADS google map
+http://wpquestions.com/question/showChrono/id/7766
+
+VEDI MEGLIO:
+http://www.8a.nu/
+
+MAPPA OFFLINE:
+http://www.html5today.it/tutorial/html5-application-cache-tutorial-navigare-offline-html5
+https://github.com/SilviaTerra/offline_map_poc
+
+
+IDEA QR:
+fare tanti qr adesivi da mettere sulle places con il link che porta alla pagina climbo!
+ma solo dopo che sono state inserire parecchie vie nel db!
+si puo mettere un QR per ogni via o per ogni settore
+anche senza segnale gps, aprendo il codice qr che riporta alla mappa sul sito,
+puo capire dove si trova e capire dove sono gli altri settori.
+
+IDEA augmented reality:
+inquadrando la via sara possibile localizzare sullo schermo i passaggi chiave e la posizione esatte di rinvii e catena
+
+IDEA carpull:
+mettere sistema di carpull per raggiungere le places!!!!
+
+cambiare namespace
+KEPLER! kepl.er

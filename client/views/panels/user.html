@@ -1,0 +1,84 @@
+
+<template name="panel_user">
+
+{{#with user}}
+
+	<div class="panel-heading">
+		<div class="user-item {{#unless isOnline}}offline{{/unless}}">
+			<a class="btn pull-left user-btn-name" href="#">{{name}}</a>
+			<span class="pull-right">
+				{{#if isOnline}}
+				<b class="text-green">online</b>
+				{{else}}
+				<b class="text-white">offline</b>
+				{{/if}}
+				<i class="icon icon-{{#if isOnline}}online{{else}}offline{{/if}}{{#if mob}}-mob{{/if}} user-device"></i> 
+			</span>
+		</div>
+	</div>
+	<div class="panel-body">
+
+	{{> panel_bio}}
+	<br />
+
+	<div class="row">
+		<div class="col-xs-12">
+			{{> user_buttons2}}
+		</div>
+	</div>
+	
+	{{#if or getLoc checkinPlace}}
+	<label>{{i18n 'ui.labels.userplace'}}</label>	
+	<ul class="list-group list-items">
+		<li class="list-group-item">
+			{{> user_buttons}}
+		</li>
+	</ul>
+	{{/if}}
+	
+	<ul class="nav nav-tabs">
+		<li class="active">
+			<a href="#tab_friends" data-toggle="tab">
+				<i class="icon icon-users"></i> <small>{{i18n 'ui.btns.friends'}}</small>
+			</a>
+		</li>			
+		{{#if isFriend}}
+		<li class="user-btn-star">
+			<a href="#tab_histuser" data-toggle="tab">
+				<i class="icon icon-hist"></i> <small>{{i18n 'ui.btns.hist'}}</small>
+			</a>
+		</li>
+		<li class="user-btn-star">
+			<a href="#tab_favs" data-toggle="tab">
+				<i class="icon icon-star"></i> <small>{{i18n 'ui.btns.favs'}}</small>
+			</a>
+		</li>
+		<li class="user-btn-cal">
+			<a href="#tab_eventsuser" data-toggle="tab">
+				<i class="icon icon-cal"></i> <small>{{i18n 'ui.btns.events'}}</small>
+			</a>
+		</li>
+		{{/if}}
+	</ul>
+
+	<div class="tab-content">
+		<br />
+		<div class="tab-pane active" id="tab_friends">
+			{{> tab_friends}}		
+		</div>
+		{{#if isFriend}}
+		<div class="tab-pane" id="tab_histuser">
+			{{> tab_histuser}}
+		</div>
+		<div class="tab-pane" id="tab_favs">
+			{{> tab_favs}}
+		</div>
+		<div class="tab-pane" id="tab_eventsuser">
+			{{> tab_eventsuser}}
+		</div>
+		{{/if}}
+	</div>
+</div>	
+{{/with}}
+
+</template>

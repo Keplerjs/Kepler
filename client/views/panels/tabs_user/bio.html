@@ -1,0 +1,18 @@
+
+<template name="panel_bio">
+
+	<div class="row">
+		<div class="col-xs-4">
+			<img class="img-thumbnail user-avatar-big" src="{{avatar}}" />
+		</div>
+		<div class="col-xs-8">
+			<label>{{i18n 'ui.labels.signupdate'}}:</label> <time>{{humanTimeUTC createdAt 1}}</time><br />
+			{{#if city}}<label>{{i18n 'ui.labels.city'}}:</label> {{cap city}}<br />{{/if}}
+			{{#if likeplaces.length}}
+				<label>{{i18n 'ui.labels.likeplaces'}}:</label>
+				{{likeplaces}}
+			{{/if}}
+		</div>
+	</div>
+
+</template>

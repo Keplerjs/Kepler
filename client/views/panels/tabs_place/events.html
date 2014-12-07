@@ -1,0 +1,14 @@
+
+<template name="tab_events">
+	{{#if events.length}}
+		<ul class="list-group">				
+			{{#each events}}
+			<li class="list-group-item">
+				[evento]
+			</li>
+			{{/each}}
+		</ul>
+	{{else}}
+		<label class="text-gray"><i>Nessun evento in programma</i></label>
+	{{/if}}
+</template>

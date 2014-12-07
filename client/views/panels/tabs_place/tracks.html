@@ -1,0 +1,17 @@
+
+<template name="panel_tracks">
+
+	{{#if tracksAccess}}
+	<div id="panel_tracks" class="list-group">
+		<span class="list-group-item active">		
+			<i class="icon icon-gpx"></i> {{i18n 'ui.tabs.gpx'}}
+		</span>
+		{{#each tracksAccess}}
+		<a class="list-group-item panel-btn-tracks" href="#">
+			{{> popup_track}}
+		</a>
+		{{/each}}
+	</div>
+	{{/if}}
+
+</template>

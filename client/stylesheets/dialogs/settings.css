@@ -1,0 +1,14 @@
+
+#settings .loading-default #fileavatar {
+	visibility: hidden;
+}
+
+#settings #likeplaces .btn {
+	margin-bottom: 5px;
+	padding: 5px;
+	text-align: left;
+}
+
+#settings #likeplaces .btn.active {
+	border: 1px solid #428bca;
+}

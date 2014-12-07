@@ -1,0 +1,93 @@
+
+.user-item,
+.friend-item,
+.place-item,
+.favorite-item,
+.place-btn-name,
+.conver-item {
+	height: auto;
+	overflow: hidden;
+}
+.user-btn-name,
+.place-btn-name {
+	text-transform:capitalize;	
+	font-weight: bold;
+	font-size: 14px;
+	padding: 0;
+	margin: 0;
+	line-height: 30px;
+}
+
+.user-btn-name u {
+	text-decoration: none;
+	margin-left: 2px;
+}
+
+.row .user-btns,
+.row .place-btns {
+	margin-bottom: 15px;
+}
+
+/* item user */
+.user-device {
+	/*margin: 7px 2px;*/
+	line-height: 30px;
+	vertical-align: middle;
+}
+.user-avatar {
+	height: 30px;
+	width: 30px;
+	border-radius: 2px;
+}
+.user-avatar-big {
+	height: 80px;
+	width: 80px;
+}
+
+/* item place */
+.place-btn-checkins .badge:not(.bg-gray) {
+	color:#fff;
+	background-color:#F69714;
+}
+.popup-btn-star .badge:not(.bg-gray),
+.place-btn-star .badge:not(.bg-gray) {
+	color:#fff;
+	background-color:#FCD865;
+}
+.place-btn-convers .badge:not(.bg-gray) {
+	color: #fff;
+	background-color: #98D3E3;
+}
+.place-btn-checkin {
+	width:78px;
+	padding-left:6px;
+}
+
+/* item conver */
+.conver-item .conver-btn-title {
+	font-weight: bold;
+	padding: 5px 0;
+	color: #666;
+}
+.conver-item .conver-btn-title:hover {
+	color: #000;
+}
+.conver-item time {
+	font-size: small;
+	color: #aaa;
+}
+.conver-item .place-item,
+.conver-item .conver-users {
+	float: left;
+}
+
+.sector-btn-name {
+	font-size: 1em;
+	font-weight: bold;
+	float: left;
+}
+.sector-desc {
+	padding-top: 6px;
+	font-size: 12px;
+	line-height: 14px;
+}

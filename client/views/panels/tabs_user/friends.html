@@ -1,0 +1,32 @@
+
+<template name="tab_friends">
+	{{#if friendsCommon}}
+		<label>{{i18n 'ui.labels.friendscomm'}}</label>
+		<ul class="list-group list-items">
+			{{#each friendsCommon}}
+			<li class="list-group-item">
+				{{#with newUser this}}
+					{{> item_user}}
+				{{/with}}
+			</li>
+			{{/each}}
+		</ul>
+	{{else}}
+		<label class="text-gray"><i>{{i18n 'ui.labels.nofriendscomm'}}</i></label>
+	{{/if}}
+
+	{{#if isFriend}}
+		{{#if friendsOther}}
+		<label>{{i18n 'ui.labels.friendsother'}}</label>
+		<ul class="list-group list-items">
+			{{#each friendsOther}}
+			<li class="list-group-item">
+				{{#with newUser this}}
+					{{> item_user}}
+				{{/with}}
+			</li>
+			{{/each}}
+		</ul>
+		{{/if}}
+	{{/if}}
+</template>

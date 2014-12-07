@@ -1,0 +1,29 @@
+
+<template name="tab_checkin">
+	
+	{{#if place}}
+	{{#with place}}
+	<ul class="list-group" id="tab_checkin">
+		<li class="list-group-item active text-center">
+			{{> item_place}}
+		</li>
+		<li class="list-group-item">
+			
+			<div class="row">
+				<div class="col-xs-12">
+					{{> place_buttons}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					{{> place_buttons2}}
+				</div>
+			</div>	
+					
+		</li>
+	</ul>
+	{{/with}}
+	{{/if}}
+
+</template>
+

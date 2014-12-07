@@ -1,0 +1,33 @@
+	
+
+<template name="item_conver">
+
+	<div class="conver-item">
+		<div class="pull-left">
+			{{#if placeId}}
+				<span class="conver-author">
+				{{#with newUser userId}}
+					{{> item_user}}
+				{{/with}}
+				</span>
+				{{#with newPlace placeId}}
+					{{> item_place}}
+				{{/with}}
+			{{else}}
+				{{#each usersIds}}
+					{{#with newUser this}}
+						{{> item_user}}
+					{{/with}}
+				{{/each}}
+			{{/if}}
+			<a class="btn conver-btn-title" href="#">{{{tit}}}</a>			
+		</div>
+		<div class="pull-right conver-btns">
+			<time>{{humanTime lastMsg.updateAt 1}}</time>
+			<label data-convid="{{_id}}" class="btn btn-sm btn-default conver-btn-del">
+				<i class="icon icon-del"></i>
+			</label>
+		</div>
+	</div>
+
+</template>

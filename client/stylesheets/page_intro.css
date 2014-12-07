@@ -1,0 +1,39 @@
+
+#page_intro {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow-y:scroll;
+	background: url('/images/back.png') repeat-x top right #f7f7ff;
+}
+/*@media(min-width:992px){
+	#intro_wrap {
+		background: rgba(247, 247, 255, 0.7);
+		box-shadow: 0 0 .7em #b5ddff;		
+		border:2px solid #88bae1;
+		border-radius:10px;
+		margin-top: 15px;		
+	}
+}
+#intro_wrap {
+	background: none;
+}*/
+
+#logo {
+	cursor:pointer;
+	height:160px;
+	border:none;
+	margin:15px auto;
+}
+
+#slogan {
+	clear: both;
+	margin-bottom: 1em;
+	font-size: .85em;
+	letter-spacing: 2px;
+	color:#0660A0;
+	text-shadow: 0 0 3px #b5ddff;
+}
+

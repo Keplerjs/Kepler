@@ -1,0 +1,58 @@
+
+<template name="panel_weather">
+
+	<ul class="list-group">
+		<li class="list-group-item active">
+			<i class="icon icon-weather"></i> {{i18n 'ui.tabs.forecasts'}}
+		</li>
+		<li class="list-group-item">
+			{{#if weather}}
+				{{> panel_weather_forecast}}
+			{{else}}
+				<div class="text-center">
+					<img src="/images/loader-lg.gif" />
+				</div>
+			{{/if}}
+		</li>
+	</ul>
+
+</template>
+
+
+<template name="panel_weather_forecast">
+		
+	<div class="row">
+		<div class="col-xs-12">
+			<input id="slider_weather" type="text" value="0" data-slider-value="0" data-slider-min="0" data-slider-max="3" data-slider-step="1" />
+		</div>
+	</div>
+
+	<br />
+
+	{{#each weather}}
+		<div class="weather_day" style="display:none">
+			<div class="row">
+				<div class="col-xs-12 text-primary"><b>{{humanDate date}}</b></div>
+			</div>
+			<div class="row weather-icons">
+				<div class="col-xs-3"><i class="sky-icon {{icon}}"></i></div>
+				<div class="col-xs-3"><i class="wind-icon {{humanAzimut wind.ang 1}}"></i></div>
+				<div class="col-xs-3"><i class="temp-icon"></i></div>
+				<div class="col-xs-3"><i class="umid-icon"></i></div>
+			</div>
+			<div class="row weather-labels">
+				<div class="col-xs-3">Prob. {{prob}}%</div>
+				<div class="col-xs-3">
+					<small class="text-nowrap">{{humanAzimut wind.ang}}</small>
+					<br />
+					{{wind.vel}}Km/h
+				</div>
+				<div class="col-xs-3">
+					<i class="temp-min">{{temp.min}}°C</i>&nbsp;<i class="temp-max">{{temp.max}}°C</i>
+				</div>
+				<div class="col-xs-3">Umid. {{humid}}%</div>
+			</div>
+		</div>
+	{{/each}}
+
+</template>

@@ -1,0 +1,82 @@
+
+<template name="panel_place">
+
+{{#with place}}
+
+	<div class="panel-heading">
+		<div class="place-item">
+			{{> item_place}}
+			<span class="pull-right">
+				<i class="marker-icon marker-{{type}}"></i>
+			</span>
+		</div>
+	</div>
+	<div class="panel-body">
+	
+		<div class="row">
+			<div class="col-xs-12">
+				{{> place_buttons}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				{{> place_buttons2}}
+			</div>
+		</div>
+
+		<ul class="nav nav-tabs">
+			<li class="active">
+				<a href="#tab_info" data-toggle="tab">
+					<i class="icon icon-placeinfo"></i> <small>{{i18n 'ui.btns.info'}}</small>
+				</a>
+			</li>
+			<li>
+				<a href="#tab_hist" data-toggle="tab">
+					<i class="icon icon-hist"></i> <small>{{i18n 'ui.btns.hist'}}</small>
+				</a>
+			</li>
+			<li class="place-btn-weather">
+				<a href="#tab_weather" data-toggle="tab">
+					<i class="icon icon-weather"></i> <small>{{i18n 'ui.btns.weather'}}</small>
+				</a>
+			</li>
+			<li class="place-btn-events">
+				<a href="#tab_events" data-toggle="tab">
+					<i class="icon icon-cal"></i> <small>{{i18n 'ui.btns.events'}}</small>
+				</a>
+			</li>			
+		</ul>
+
+		<div class="tab-content">
+			<br />
+
+			<div class="tab-pane active" id="tab_info">
+				
+				{{> panel_info}}
+
+				{{#if isOutdoor}}
+
+					{{> panel_geoinfo}}
+					{{> panel_tracks}}
+					
+				{{/if}}
+
+				{{> panel_pois}}
+
+				{{> tab_streetview}}
+
+			</div>
+			<div class="tab-pane" id="tab_hist">
+				{{> panel_hist}}
+			</div>	
+			<div class="tab-pane" id="tab_weather">
+				{{> panel_weather}}
+			</div>
+			<div class="tab-pane" id="tab_events">
+				{{> tab_events}}
+			</div>
+		</div>
+	</div>	
+{{/with}}
+
+</template>

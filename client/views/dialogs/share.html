@@ -1,0 +1,20 @@
+
+<template name="dialog_share">
+
+	<div class="modal" id="dialog_share">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{{#with place}}
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title"><i class="icon icon-share"></i> Condividi {{cap name}}</h4>
+				</div>
+				<div class="modal-body">
+					condividi luogo
+				</div>
+				{{/with}}
+			</div>
+		</div>
+	</div>
+
+</template>

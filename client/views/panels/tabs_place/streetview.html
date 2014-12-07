@@ -1,0 +1,19 @@
+
+<template name="tab_streetview">
+
+	<div id="tab_streetview" class="list-group">
+		<span class="list-group-item active">
+			<i class="icon icon-stview"></i> {{i18n 'ui.tabs.stview'}}
+		</span>
+		{{#if getStview}}
+			<span class="list-group-item">
+				<img class="place-img-stview" src="{{getStview}}" />
+			</span>
+		{{else}}
+		<a class="list-group-item place-btn-stview" href="#" target="_blank">
+			<i class="icon icon-parking"></i> <span>{{i18n 'ui.btns.stview'}}</span>
+		</a>
+		{{/if}}
+	</div>
+
+</template>

@@ -1,0 +1,74 @@
+
+<template name="item_place">
+	<a class="btn place-btn-name" href="#">
+		{{#if name}} {{name}} {{else}}<i>{{i18n 'ui.labels.noname'}}</i>{{/if}}
+	</a>
+</template>
+
+<template name="item_favorite">
+	<div class="favorite-item">
+		<div class="pull-left">
+			{{> item_place}}
+		</div>
+		<div class="pull-right">
+			{{> place_buttons}}
+		</div>
+	</div>
+</template>
+
+<template name="place_search_tip">
+	<div class="pull-left">
+		{{> item_place}}
+	</div>
+	<div class="btn-group pull-right">
+		<i class="btn btn-xs disabled text-muted">{{cap prov}} &bull; {{cap reg}}</i>
+		<label class="btn btn-xs place-btn-map">
+			<i class="icon icon-map"></i>
+		</label>
+	</div>
+</template>
+
+<template name="place_buttons">	
+	<div class="place-btns">
+		<div class="btn-group" data-toggle="buttons">
+			<label class="btn btn-sm btn-default place-btn-checkin {{#if isCheckin}}checkin{{else}}uncheckin{{/if}}">
+				<input type="checkbox" checked={{isCheckin}} />
+				<i class="icon icon-{{#if isCheckin}}checkin{{else}}uncheckin{{/if}}"></i>
+				{{#if isCheckin}}<span class="text-primary">{{i18n 'ui.btns.checkin'}}</span>{{else}}<span class="text-muted">{{i18n 'ui.btns.uncheckin'}}</span>{{/if}}
+			</label>
+			<label class="btn btn-sm btn-default place-btn-checkins">
+				<i class="icon icon-{{#if checkinsCount}}users{{else}}unusers{{/if}}"></i>
+				<span class="badge {{#unless checkinsCount}}bg-gray{{/unless}}">{{checkinsCount}}</span>
+			</label>
+			<label class="btn btn-sm btn-default place-btn-star">
+				<i class="icon icon-{{#if isFavorite}}star{{else}}unstar{{/if}}"></i>
+				<span class="badge {{#unless getRank}}bg-gray{{/unless}}">{{getRank}}</span>
+				<input type="checkbox" checked={{isFavorite}} />
+			</label>
+			<label class="btn btn-sm btn-default place-btn-map">
+				<i class="icon icon-map"></i>
+			</label>
+		</div>
+	</div>
+</template>
+
+<template name="place_buttons2">
+	<div class="place-btns">
+		<div class="btn-group" data-toggle="buttons">
+			<a class="btn btn-sm btn-default place-btn-convers" href="#">
+				<i class="icon icon-mes"></i> <span>{{i18n 'ui.btns.wall'}}</span> 
+				<span class="badge {{#unless convers.length}}bg-gray{{/unless}}">{{convers.length}}</span>
+			</a>
+			<a class="btn btn-sm btn-default place-btn-sectors" href="#">
+				<i class="icon icon-sectors"></i> <span>{{i18n 'ui.btns.sectors'}}</span>
+			</a>
+<!-- 			<a class="btn btn-sm btn-default place-btn-photos" href="#">
+				<i class="icon icon-photos"></i> <span>{{i18n 'ui.btns.photos'}}</span>
+			</a>			 -->
+			<a class="btn btn-sm btn-default disabled place-btn-share" href="#">
+				<i class="icon icon-share"></i>
+			</a>
+		</div>
+	</div>
+</template>
+

@@ -1,0 +1,19 @@
+
+#social-icons a {
+	background:url("/images/sprite-social.min.png") no-repeat 0 0;
+	display:inline-block;
+	width:32px;
+	height:32px;
+	border-radius:4px;	
+	margin:5px;
+	opacity:0.5;
+}
+#social-icons a:hover {	opacity:0.9; }
+#social-icons a.social-icon_tw{background-position:0 0;}
+#social-icons a.social-icon_tw:hover{background-position:0 -33px;}
+#social-icons a.social-icon_fb{background-position:-32px 0;}
+#social-icons a.social-icon_fb:hover{background-position:-32px -33px;}
+#social-icons a.social-icon_gp{background-position:-64px 0;}
+#social-icons a.social-icon_gp:hover{background-position:-64px -33px;}
+#social-icons a.social-icon_tu{background-position:-96px 0;}
+#social-icons a.social-icon_tu:hover{background-position:-96px -33px;}

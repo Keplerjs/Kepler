@@ -1,0 +1,17 @@
+
+<template name="tab_histuser">
+	{{#if hist.length}}
+		<label>{{i18n 'ui.labels.histplaces'}}</label>
+		<ul class="list-group list-items">
+			{{#each hist}}
+			<li class="list-group-item">
+				{{#with newPlace this}}
+					{{> item_favorite}}
+				{{/with}}
+			</li>
+			{{/each}}
+		</ul>
+	{{else}}
+		<label class="text-gray"><i>{{i18n 'ui.labels.nohist'}}</i></label>
+	{{/if}}
+</template>

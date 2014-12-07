@@ -1,0 +1,34 @@
+
+#user.panel {
+	border-left: 2px solid #bbb;
+}
+#user > .panel-heading {
+	padding-left: 30px;
+	border-color: #bbb;
+	background-image: -webkit-linear-gradient(top,#ccc 0,#bbb 100%);
+	background-image: linear-gradient(to bottom,#ccc 0,#bbb 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ccc', endColorstr='#bbb', GradientType=0);	
+}
+#user > .panel-heading .user-btn-name {
+	font-size: 1.2em;
+	color: #fff;
+}
+
+#user > .panel-heading .user-device {
+	margin: 6px;
+}
+
+#user .user-btns .place-btn-checkin,
+#user .user-btns .place-btn-star,
+#tab_histuser .place-btn-checkin,
+#tab_histuser .place-btn-checkins,
+#tab_favs .place-btn-checkin,
+#tab_favs .place-btn-checkins {
+	display: none;
+}
+
+#user .user-info {
+	margin: 20px auto;
+}
+

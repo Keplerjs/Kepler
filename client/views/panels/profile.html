@@ -1,0 +1,57 @@
+
+<template name="panel_profile">
+
+{{#if currentUser}}
+
+	{{#with currentUser}}
+	<div class="panel-heading panel-gray">
+		{{> item_user}}
+	</div>
+	<div class="panel-body">
+
+		{{> tab_checkin}}
+
+		<div class="list-group">
+			<a class="list-group-item btn-gray profile-btn-notif" href="#">
+				<i class="icon icon-notif"></i>
+				 {{i18n 'ui.btns.notif'}} 
+				<span class="badge">{{notif.length}}</span>
+			</a>			
+			<a class="list-group-item btn-gray profile-btn-stars" href="#">
+				<i class="icon icon-star"></i>
+				 {{i18n 'ui.btns.favs'}} 
+				<span class="badge">{{favorites.length}}</span>
+			</a>
+			<a class="list-group-item btn-gray profile-btn-convers" href="#">
+				<i class="icon icon-mes"></i>
+				 {{i18n 'ui.btns.convers'}} 
+				<span class="badge">{{convers.length}}</span>
+			</a>
+		</div>
+
+
+		<div class="list-group">
+			<a class="list-group-item btn-gray profile-btn-sets" href="#">
+				<i class="icon icon-sets"></i> 
+				{{i18n 'ui.btns.sets'}}
+			</a>
+		</div>
+
+		<br /><br />
+
+		<div class="list-group">
+			<a class="list-group-item btn-gray profile-btn-logout" href="#">
+				<i class="icon icon-logout"></i> 
+				{{i18n 'ui.btns.logout'}}
+			</a>
+		</div>
+	</div>
+	{{/with}}
+
+{{else}}
+
+	{{> loginButtons}}
+
+{{/if}}
+
+</template>

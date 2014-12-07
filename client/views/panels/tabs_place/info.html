@@ -1,0 +1,38 @@
+
+<template name="panel_info">
+
+	<ul class="list-group">
+		{{#if type}}
+		<li class="list-group-item place-desc">
+			<i>{{i18n 'ui.labels.type'}}:</i> {{placeType type}}
+		</li>
+		{{/if}}
+		{{#if desc}}
+		<li class="list-group-item place-desc">
+			<i>{{i18n 'ui.labels.descr'}}: </i><br />
+			{{desc}}
+		</li>
+		{{/if}}
+		<li class="list-group-item container-fluid">
+			<div class="row">
+				<div class="col-xs-7 place-place">
+					{{#if reg}}<i>{{i18n 'ui.labels.reg'}}: </i>{{reg}}<br />{{/if}}
+					{{#if prov}}<i>{{i18n 'ui.labels.prov'}}: </i>{{prov}}<br />{{/if}}
+					{{#if com}}<i>{{i18n 'ui.labels.com'}}: </i>{{com}}<br />{{/if}}
+					{{#if near}}<i>{{i18n 'ui.labels.loc'}}: </i><br /><b class="text-nowrap">{{near}}</b>{{/if}}
+				</div>
+				<div class="col-xs-5 text-right">
+					<a class="btn btn-sm btn-default" href="{{navUrl loc}}" target="_blank">
+						<i class="icon icon-nav"></i> <span>{{i18n 'ui.btns.nav'}}</span>
+					</a>
+				</div>
+			</div>
+		</li>
+		{{#if warn}}
+		<li class="list-group-item alert alert-warning alert-dismissable place-warn">
+			<i class="icon icon-danger"></i> {{warn}}
+		</li>
+		{{/if}}
+	</ul>
+
+</template>

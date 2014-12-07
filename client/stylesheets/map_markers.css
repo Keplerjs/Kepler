@@ -1,0 +1,74 @@
+
+
+/* MARKER ICON ANIMATION */
+/*.leaflet-div-icon {
+	position: relative;
+}
+*/
+.marker-anim {
+	display: none;
+	position: absolute;
+	height: 30px;
+	width: 70px;
+	left: -22px;
+	bottom: -15px;
+}
+
+.marker-gps {
+	opacity: 0;
+	display: none;
+}
+
+.marker-cluster {
+	border-radius: 0;
+}
+
+/* MARKER BADGES */
+.marker-checkins,
+.marker-cluster .marker-checkins {
+	color:#fff;
+	text-shadow: 1px 1px 1px #b00;	
+	background:#F69714;
+	border: 1px solid #d66;
+	font-weight:bold;
+	font-family:Serif;
+	font-size:11px;
+	width:14px;
+	height:14px;
+	border-radius: 6px;		
+	line-height:11px;
+	padding: 1px 1px 0 0;	
+	text-align:center;
+	position:absolute;
+	left:-2px;
+	bottom:-2px;
+}
+.marker-cluster .cluster-num {
+	color:#fff;
+	/*background:rgba(95,156,209,1);*/
+	border:0px solid #0d0;/*#0069b3;*/	
+	font-weight:bold;
+	font-family:Serif;
+	font-size:11px;
+	width:12px;
+	height:12px;
+	line-height:11px;	
+	text-align:center;
+	text-shadow: 1px 1px 2px #103a57;
+	position:absolute;
+	left:-2px;
+	bottom:0;
+}
+
+/* MARKER DRAGGABLE */
+.marker-handledrag {
+	border: 2px solid rgba(224,104,0, 0.6);
+	border-radius: 12px;
+	border-top-left-radius: 0;
+	position: absolute;
+	bottom: -45px;
+	right: -30px;
+	height: 37px;
+	width: 38px;	
+	cursor: move;
+}

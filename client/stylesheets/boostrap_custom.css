@@ -1,0 +1,170 @@
+/* * {
+	text-shadow:none; 
+	box-shadow: none;
+}*/
+.btn {
+	text-shadow:none;
+}
+.list-group-item.active,
+.btn-primary {
+	color: #fff;
+	text-transform: capitalize;
+}
+
+.btn.btn-danger,
+.btn.btn-danger:hover {
+	font-weight: bold;
+	color: #fff;
+}
+
+
+.form-horizontal .has-feedback .icon.form-control-feedback {
+	position: absolute;
+	top: 8px;
+	right: 24px;
+	line-height: 18px;
+}
+.has-feedback .form-control {
+	padding-right: 18px;
+}
+
+.list-group.list-items .list-group-item {
+	padding: 4px;
+}
+
+.bg-gray {
+	background-color: #ccc;
+}
+.text-white {
+	color: #fff;
+}
+.text-gray {
+	color: #ccc;
+}
+.text-green {
+	color: #5cb85c
+}
+
+.btn-default {
+	color: #428bca;
+}
+.btn-default .badge {
+	background-color: #ccc;
+}
+
+/* profile buttons */
+.btn-gray,
+.panel-heading.panel-gray,
+a.btn-gray {
+	color: #fff;
+	background-color: #777;
+	border-color: #555;
+	background-image: -webkit-linear-gradient(top,#888 0,#777 100%);
+	background-image: linear-gradient(to bottom,#888 0,#777 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#888', endColorstr='#777', GradientType=0);
+}
+a.btn-gray:hover {
+	color: #fff;
+	background-color: #888;
+	background-image: -webkit-linear-gradient(top,#888 0,#888 100%);
+	background-image: linear-gradient(to bottom,#888 0,#888 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#888', endColorstr='#888', GradientType=0);
+}
+
+.btn-gray .badge {
+	background-color: #999;
+}
+
+.nav-tabs > li > a {
+	padding: 6px 4px; /* panel_place */
+}
+
+/* MODAL */
+
+.modal {
+	z-index: 3040;
+}
+.modal-content {
+	border: 2px solid #428bca;
+}
+.modal-backdrop {
+	z-index: 2040
+}
+.modal-header {
+	background-color: #428bca;
+	border-color: #428bca;
+	background-image: -webkit-linear-gradient(top,#428bca 0,#357ebd 100%);
+	background-image: linear-gradient(to bottom,#428bca 0,#357ebd 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff428bca', endColorstr='#ff357ebd', GradientType=0);
+	/* primary */
+	color: #fff;
+	border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+}
+.modal-header .close {
+	color: #ddd;
+	font-size: 25pt;
+	line-height: 1em;
+	opacity: 1;
+	text-shadow:none;
+}
+.modal-header .close:hover {
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+}
+.modal-title .icon {
+	vertical-align: top;
+}
+
+
+/* SLIDER */
+
+.slider-handle {
+	position: absolute;
+	width: 28px;
+	height: 28px;
+	opacity: 1;
+	background-color: #428bca;
+	border: 1px solid #3278b3;
+}
+
+.slider.slider-horizontal .slider-track {
+	height: 20px;
+	margin-top: -10px;
+}
+
+
+/* SWITCH */
+
+.bootstrap-switch {
+	margin:6px;
+	border: 1px solid #888;
+	background-color: #ccc;
+	border-radius: 8px;
+	overflow: hidden;
+}
+.bootstrap-switch.bootstrap-switch-focused {
+	box-shadow: none;
+	border-color: #777;
+}
+.bootstrap-switch > div > label,
+.bootstrap-switch.bootstrap-switch-on > div > label,
+.bootstrap-switch.bootstrap-switch-off > div > label,
+.bootstrap-switch.bootstrap-switch-off .bootstrap-switch-label {
+	background-color: #ccc;
+	border-radius: 6px;
+}
+
+.bootstrap-switch.bootstrap-switch-on .bootstrap-switch-label {
+  border-radius: 6px;
+}
+.bootstrap-switch .bootstrap-switch-handle-on {
+	border: 1px solid #3c983c;
+	border-radius: 6px;	
+}
+.bootstrap-switch .bootstrap-switch-handle-off {
+	border: 1px solid #aaa;
+	border-radius: 6px;
+}

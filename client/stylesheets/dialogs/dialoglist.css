@@ -1,0 +1,27 @@
+
+
+#dialoglist .modal-body {
+	padding: 0;
+}
+#dialoglist .list-group {
+	margin: 0;
+}
+#dialoglist .list-group-item:first-child {
+	border-radius: 0;
+}
+
+/*#dialoglist.convers .user-btn-name b, */
+#dialoglist.favorites .place-btn-star,
+#dialoglist.favorites .place-btn-checkin,
+#dialoglist.convers_profile .place-btns,
+#dialoglist.convers_profile .conver-author,
+#dialoglist.convers_place .place-btn-name,
+#dialoglist.convers_place .conver-btns {
+	display: none;
+}
+
+
+#dialoglist.favorites .place-btn-checkins {
+	border-bottom-left-radius: 3px;
+	border-top-left-radius: 3px;
+}

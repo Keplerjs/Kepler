@@ -1,0 +1,17 @@
+
+<template name="panel_hist">
+	{{#if hist.length}}		
+		<label>Visite recenti</label>
+		<ul class="list-group list-items">		
+			{{#each hist}}
+			<li class="list-group-item">
+				{{#with newUser this}}
+					{{> item_user}}
+				{{/with}}
+			</li>
+			{{/each}}
+		</ul>		
+	{{else}}
+		<label class="text-gray"><i>Nessun visita di recente</i></label>
+	{{/if}}
+</template>

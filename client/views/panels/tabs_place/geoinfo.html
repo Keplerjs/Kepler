@@ -1,0 +1,17 @@
+
+<template name="panel_geoinfo">
+	
+	<ul class="list-group">
+		<li class="list-group-item active">		
+			<i class="icon icon-geo"></i> {{i18n 'ui.tabs.geo'}}
+		</li>
+		<li class="list-group-item panel-geoinfo">
+			{{#if esp}}<i class="icon icon-esp"></i> {{i18n 'ui.labels.esp'}} {{humanAzimut esp}} <br />{{/if}}
+			{{#if periodo}}<i class="icon icon-cal"></i> {{i18n 'ui.labels.season'}} {{periodo}}<br />{{/if}}
+			{{#if ombra}}<i class="icon icon-esp"></i> {{i18n 'ui.labels.shadow'}} {{ombra}}<br />{{/if}}
+			{{#if ele}}<i class="icon icon-ele"></i> {{i18n 'ui.labels.ele'}} {{ele}}m <br />{{/if}}
+			{{#if loc}}<i class="icon icon-sun"></i> {{i18n 'ui.labels.sunrise'}} {{sunrise loc}} - {{i18n 'ui.labels.sunset'}} {{sunset loc}} <br />{{/if}}
+		</li>
+	</ul>
+
+</template>
