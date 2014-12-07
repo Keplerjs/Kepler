@@ -1,5 +1,5 @@
 
-Messages = new Meteor.Collection('convers_msgs');
+Messages = new Meteor.Collection('messages');
 //TODO rinomina in ConversMsgs
 
 getMsgsByConver = function(convId) {

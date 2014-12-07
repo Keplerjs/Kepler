@@ -1,4 +1,5 @@
 {
+	"debug": false,
 	"urls": {
 		"aspect": "http://localhost/maps/dem/aspect.php",
 		"elevation": "http://localhost/maps/dem/elevation.php"

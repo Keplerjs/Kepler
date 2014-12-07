@@ -9,9 +9,9 @@ Climbo.Place.include({
 
 	loadPois: function(tipo,show) {
 
-		show = _.isUndefined(show) ? true : false;
-
 		var self = this;
+		
+		show = _.isUndefined(show) ? true : false;
 
 		function addPoiPlace(pois, loc, tipo) {
 			if(tipo)

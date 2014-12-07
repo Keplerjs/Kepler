@@ -1,6 +1,4 @@
 /*
-	classe Place
-
 	loc: []		//lat,lng
 	name: ''	//place title
 	type: ''	//rock	indoor	boulder	long
@@ -20,80 +18,85 @@
 	pois: -1		//numero pois
 	tracks/pois se === -1 fai richiesta ...ByLoc
 */
-Climbo.Place = function(placeId)
-{
-	var self = this;
+Climbo.Place = Climbo.Class.extend({
 
-	self.id = placeId;	//id stringa
-	self.data = {};		//dati orignali dal db
-	self.tmpl = Template.item_place;
-	//template usato nelle liste, TODO rinominare in itemTmpl
+	data: {},					//dati orignali dal db
+	cache: {},					//caching for remote data	
+	tmpl: Template.item_place,	//template usato nelle liste
 
-	self.cache = {};
+	init: function(placeId) {
 
-//REACTIVE SOURCES:
-	self._dep = new Deps.Dependency();
-	self.rData = function() {	//Data Reactive Source
-		self._dep.depend();
-		//TODO raggruppare dati reattivi in self.rdata
-		//e usare solo quelli come sorgente reattiva
-		//TODO ritornare solo dati reattivi: checkins,stars,weather
-		return self;
-	};
-	self.update = function(comp) {	//sincronizza istanza con dati nel db
+		var self = this;
 
-		self.data = Places.findOne(new Meteor.Collection.ObjectID(self.id));
-		
-		//FIXME a volte: findOne ritorna null... xke forse i dati non vengono scaricati in tempo
-		//FIXME forse per il bug precendete a volte scade la computation di e autorun i stoppa
+		self.id = placeId;
 
-		_.extend(self, self.data, self.cache);
+	//REACTIVE SOURCES:
+		self._dep = new Deps.Dependency();
+		self.rData = function() {	//Data Reactive Source
+			self._dep.depend();
+			//TODO raggruppare dati reattivi in self.rdata
+			//e usare solo quelli come sorgente reattiva
+			//TODO ritornare solo dati reattivi: checkins,stars,weather
+			return self;
+		};
+		self.update = function(comp) {	//sincronizza istanza con dati nel db
 
-		if(comp && comp.stopped)
-			console.log('place autorun STOPPED',self.id,self.name,self.data);
+			self.data = Places.findOne(new Meteor.Collection.ObjectID(self.id));
+			
+			//FIXME a volte: findOne ritorna null... xke forse i dati non vengono scaricati in tempo
+			//FIXME forse per il bug precendete a volte scade la computation di e autorun i stoppa
 
-		self._dep.changed();
-	};
-	Deps.autorun( self.update );
+			_.extend(self, self.data, self.cache);
 
-//MAP OBJECTS:
-	self.icon$ = L.DomUtil.create('div');
-	self.icon = new L.NodeIcon({
-		className: (self.name ? 'marker-'+self.type : 'marker-gray'),
-		nodeHtml: self.icon$
-	});
-	self.marker = new L.Marker(self.loc, {icon: self.icon});
-	self.marker.place = self;
-	self.marker.on('add', function() {
-			UI.insert(UI.renderWithData(Template.marker_checkins, self), self.icon$);
-			//renderizza il template dopo l'inserimento nel DOM
-		})
-		.on('click mousedown', function(e) {
-			if(!this._popup) {
-				self.popup$ = L.DomUtil.create('div','popup-place');
-				UI.insert(UI.renderWithData(Template.popup_place, self), self.popup$);
-				this.bindPopup(self.popup$, { closeButton:false, minWidth:180, maxWidth:320 });
-			}
-		})
-		.on('dblclick', function(e) {
-			self.loadPanel();
+			if(comp && comp.stopped)
+				console.log('place autorun STOPPED',self.id, self.name, self.data);
+
+			self._dep.changed();
+		};
+		Deps.autorun( self.update );
+
+	//MAP OBJECTS:
+		self.icon$ = L.DomUtil.create('div');
+		self.icon = new L.NodeIcon({
+			className: (self.name ? 'marker-'+self.type : 'marker-gray'),
+			nodeHtml: self.icon$
 		});
+		self.marker = new L.Marker(self.loc, {icon: self.icon});
+		self.marker.place = self;
+		self.marker.on('add', function() {
+				UI.insert(UI.renderWithData(Template.marker_checkins, self), self.icon$);
+				//renderizza il template dopo l'inserimento nel DOM
+			})
+			.on('click mousedown', function(e) {
+				if(!this._popup) {
+					self.popup$ = L.DomUtil.create('div','popup-place');
+					UI.insert(UI.renderWithData(Template.popup_place, self), self.popup$);
+					this.bindPopup(self.popup$, { closeButton:false, minWidth:180, maxWidth:320 });
+				}
+			})
+			.on('dblclick', function(e) {
+				self.loadPanel();
+			});
+
+	},//end of init()
 
 //PUBLIC METHODS:
-	self.loadLoc = function() {
-		// if(Climbo.map.layers.cluster.hasLayer(self.marker))
-		// 	Climbo.map.layers.cluster.zoomToShowLayer(self.marker);
-		// 	//var cen = markerClusterGroup.getVisibleParent(self.marker).getLatLng());
-		self.marker.addTo(Climbo.map.layers.cluster);//patch! per caricare marker di place non scaricati da layerjson
-		Climbo.map.loadLoc(self.loc);
+	loadLoc: function() {
+		// if(Climbo.map.layers.cluster.hasLayer(this.marker))
+		// 	Climbo.map.layers.cluster.zoomToShowLayer(this.marker);
+		// 	//var cen = markerClusterGroup.getVisibleParent(this.marker).getLatLng());
+		this.marker.addTo(Climbo.map.layers.cluster);//patch! per caricare marker di place non scaricati da layerjson
+		Climbo.map.loadLoc(this.loc);
 
 		setTimeout(function() {
-			self.marker.fire('click');	//crea e apre il popup
-			self.icon.animate();
+			this.marker.fire('click');	//crea e apre il popup
+			this.icon.animate();
 		},400);
-	};
+	},
 	
-	self.loadPanel = function() {
+	loadPanel: function() {
+
+		var self = this;
 
 		Meteor.subscribe('placeById', self.id, function() {	//carica tutti i dati della place
 			
@@ -103,11 +106,13 @@ Climbo.Place = function(placeId)
 
 			Climbo.map.loadPanelPlace(self.id);
 		});
-	};
+	},
 
-	self.loadCheckins = function() {
+	loadCheckins: function() {
 
-		if(self.checkins.length===0) return;
+		var self = this;
+
+		if(this.checkins.length===0) return;
 
 		Meteor.subscribe('usersByIds', self.checkins, function() {
 			Climbo.dialogList.show({
@@ -117,37 +122,35 @@ Climbo.Place = function(placeId)
 				sortby: 'username'
 			});
 		});
-	};
+	},
 
-	self.isOutdoor = function() {
-		return self.type != 'indoor';
-	};
+	isOutdoor: function() {
+		return this.type != 'indoor';
+	},
 
-	self.isCheckin = function() {
-		//return Meteor.user() && (Meteor.user().checkin === self.id);
+	isCheckin: function() {
+		//return Meteor.user() && (Meteor.user().checkin === this.id);
 		var place = Climbo.profile.getCheckin();
-		return place && place.id === self.id;
-	};
+		return place && place.id === this.id;
+	},
 	
-	self.isFavorite = function() {
-		return Meteor.user() && _.contains(Meteor.user().favorites, self.id);
-	};
+	isFavorite: function() {
+		return Meteor.user() && _.contains(Meteor.user().favorites, this.id);
+	},
 
-	self.checkinsCount = function() {
-		self._dep.depend();
-		return self.checkins && self.checkins.length;
-	};
+	checkinsCount: function() {
+		this._dep.depend();
+		return this.checkins && this.checkins.length;
+	},
 
-	self.getRank = function() {
-		self._dep.depend();
-		return self.rank;
-	};
-};
+	getRank: function() {
+		this._dep.depend();
+		return this.rank;
+	}
+});
 
-Climbo.Place.include = function (props) {
-	_.extend(this.prototype, props);
-};
 
+//TODO include in Climbo.Class.newItem
 Climbo.newPlace = function(placeId)
 {
 	if(!placeId) return null;
