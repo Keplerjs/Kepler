@@ -6,9 +6,11 @@
 
 Climbo.User = Climbo.Class.extend({
 
+	id: null,
 	data: {},					//dati orignali dal db
 	cache: {},					//caching for remote data	
 	tmpl: Template.item_user,	//template usato nelle liste
+	type: 'user',
 
 	init: function(userId) {
 
@@ -122,11 +124,11 @@ Climbo.User = Climbo.Class.extend({
 	}
 });
 
-Climbo.newUser = function(userId)
+Climbo.newUser = function(id)
 {
-	if(!userId) return null;
-	if(!Climbo.usersById[ userId ])
-		Climbo.usersById[ userId ] = new Climbo.User(userId);
-	Climbo.usersByName[ Climbo.usersById[ userId ].username ] = Climbo.usersById[ userId ];
-	return Climbo.usersById[ userId ];
+	if(!id) return null;
+	var i = 'user_'+id;
+	if(!Climbo.itemsById[i])
+		Climbo.itemsById[i] = new Climbo.User(id);
+	return Climbo.itemsById[i];
 };

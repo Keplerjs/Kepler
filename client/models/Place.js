@@ -20,9 +20,11 @@
 */
 Climbo.Place = Climbo.Class.extend({
 
+	id: null,
 	data: {},					//dati orignali dal db
 	cache: {},					//caching for remote data	
 	tmpl: Template.item_place,	//template usato nelle liste
+	type: 'place',
 
 	init: function(placeId) {
 
@@ -149,14 +151,13 @@ Climbo.Place = Climbo.Class.extend({
 	}
 });
 
-
-//TODO include in Climbo.Class.newItem
-Climbo.newPlace = function(placeId)
+//TODO move to Climbo.Class.newItem()
+Climbo.newPlace = function(id)
 {
-	if(!placeId) return null;
-	if(!Climbo.placesById[ placeId ])
-		Climbo.placesById[ placeId ] = new Climbo.Place(placeId);
-	Climbo.placesByName[ (Climbo.placesById[ placeId ].name || placeId) ] = Climbo.placesById[ placeId ];
-	return Climbo.placesById[ placeId ];
+	if(!id) return null;
+	var i = 'place_'+id;
+	if(!Climbo.itemsById[i])
+		Climbo.itemsById[i] = new Climbo.Place(id);
+	return Climbo.itemsById[i];
 };
 
