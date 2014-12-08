@@ -7,6 +7,7 @@ Climbo.profile = {
 
 	initialized: false,
 
+	id: null,
 	data: {},
 	user: null,		//my istance of Climbo.User
 	placeCheckin: null,
@@ -34,8 +35,8 @@ Climbo.profile = {
 			if(!userData)	//userData not logget
 				return false;	//unset profile.user, profile.id, Climbo.profile.data
 
-			Climbo.profile.data = userData;
 			Climbo.profile.id = userData._id;
+			Climbo.profile.data = userData;
 			Climbo.profile.user = Climbo.newUser(userData._id);
 			Climbo.profile.user.update();
 

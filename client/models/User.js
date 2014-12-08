@@ -124,6 +124,7 @@ Climbo.User = Climbo.Class.extend({
 	}
 });
 
+//TODO move to Climbo.Class.newItem()
 Climbo.newUser = function(id)
 {
 	if(!id) return null;
