@@ -4,25 +4,52 @@
 //TODO Climbo.destroyUser = function(userId) {};//eliminare anche marker popup e icon
 //TODO nuovo campo near by geonames, se loc attivo senza checkin
 
-Climbo.User = function(userId)
-{
-	var self = this;
+Climbo.User = Climbo.Class.extend({
 
-	self.id = userId;		//mongoid
-	self.data = {};			//dati originali dal db vedi server/accounts.js
-	self.tmpl = Template.item_user;	//template usato nelle liste
-	
-	self._dep = new Deps.Dependency();
+	data: {},					//dati orignali dal db
+	cache: {},					//caching for remote data	
+	tmpl: Template.item_user,	//template usato nelle liste
 
-//METODI PUBBLICI
-	
-	//TODO rinominare in rData o reactiveData
-	self.rData = function() {	//Data Reactive Source
-		self._dep.depend();
-		return self;
-	};
+	init: function(userId) {
 
-	self.loadPanel = function() {
+		var self = this;
+
+		self.id = userId;		//mongoid
+		self._dep = new Deps.Dependency();
+		self.rData = function() {	//Data Reactive Source
+			self._dep.depend();
+			return self;
+		};
+
+		self.update = function(comp) {	//sincronizza istanza con dati nel db
+			
+			self.data = Meteor.users.findOne(self.id);
+
+			_.extend(self, self.data);
+
+			if(self.isMe()) {
+				if(self.loc)
+					self.showMarker();
+				else
+					self.hideMarker();
+			}
+			else {
+				if(self.online && self.loc && !self.checkin)
+					self.showMarker();
+				else
+					self.hideMarker();
+			}
+
+			self._dep.changed();
+		};
+
+		Deps.autorun( self.update );	//TODO aggiornare solo se amico
+	},
+
+	loadPanel: function() {
+		
+		var self = this;
+
 		if(!self.isMe())
 			Meteor.subscribe('userById', self.id, function() {
 				
@@ -30,14 +57,19 @@ Climbo.User = function(userId)
 
 				Climbo.map.loadPanelUser(self.id);
 			});
-	};
-	self.loadLoc = function() {
-		if(self.loc) {
-			Climbo.map.loadLoc(self.loc);
-			self.icon.animate();
+	},
+
+	loadLoc: function() {
+		if(this.loc) {
+			Climbo.map.loadLoc(this.loc);
+			this.icon.animate();
 		}
-	};
-	self.showMarker = function() {
+	},
+
+	showMarker: function() {
+
+		var self = this;
+
 		if(!self.marker)
 		{
 			self.icon = new L.NodeIcon({className: 'marker-'+(self.isMe()?'profile':'friend') });
@@ -56,61 +88,39 @@ Climbo.User = function(userId)
 		self.marker.setLatLng(self.loc);
 		self.marker.addTo(Climbo.map.leafletMap);
 		self.marker._bringToFront();
-	};
-	self.hideMarker = function() {
-		if(self.marker)
-			Climbo.map.leafletMap.removeLayer(self.marker);
-	};
-	self.isFriend = function() {
-		return Climbo.profile.hasFriend(self.id);
-	};
-	self.isMe = function() {
-		return Climbo.profile.id === self.id;
-	};
-	self.isOnline = function() {
-		self._dep.depend();
-		if(Climbo.profile.getOnline() && self.isFriend())
-			return self.online;
-	};
-	self.getLoc = function() {
-		self._dep.depend();
-		if(Climbo.profile.getOnline() && self.isFriend() && self.online)
-			return self.loc;
-	};
-	self.checkinPlace = function() {
-		self._dep.depend();
-		if(Climbo.profile.getOnline() && self.isFriend() && self.online)
-			return self.checkin ? Climbo.newPlace(self.checkin).rData() : null;
-	};
+	},
 
-	self.update = function(comp) {	//sincronizza istanza con dati nel db
-		
-		self.data = Meteor.users.findOne(self.id);
+	hideMarker: function() {
+		if(this.marker)
+			Climbo.map.leafletMap.removeLayer(this.marker);
+	},
 
-		_.extend(self, self.data);
+	isFriend: function() {
+		return Climbo.profile.hasFriend(this.id);
+	},
 
-		if(self.isMe()) {
-			if(self.loc)
-				self.showMarker();
-			else
-				self.hideMarker();
-		}
-		else {
-			if(self.online && self.loc && !self.checkin)
-				self.showMarker();
-			else
-				self.hideMarker();
-		}
+	isMe: function() {
+		return Climbo.profile.id === this.id;
+	},
 
-		self._dep.changed();
-	};
+	isOnline: function() {
+		this._dep.depend();
+		if(Climbo.profile.getOnline() && this.isFriend())
+			return this.online;
+	},
 
-	Deps.autorun( self.update );	//TODO aggiornare solo se amico
-};
+	getLoc: function() {
+		this._dep.depend();
+		if(Climbo.profile.getOnline() && this.isFriend() && this.online)
+			return this.loc;
+	},
 
-Climbo.User.include = function (props) {
-	_.extend(this.prototype, props);
-};
+	checkinPlace: function() {
+		this._dep.depend();
+		if(Climbo.profile.getOnline() && this.isFriend() && this.online)
+			return this.checkin ? Climbo.newPlace(this.checkin).rData() : null;
+	}
+});
 
 Climbo.newUser = function(userId)
 {

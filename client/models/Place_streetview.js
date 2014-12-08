@@ -22,6 +22,7 @@ Climbo.Place.include({
 				}
 			});
 	},
+	
 	getStview: function() {	//deve essere sempre un metodo reattivo
 		this._dep.depend();
 		return this.stview;
