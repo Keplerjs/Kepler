@@ -5,4 +5,5 @@ node_modules
 .meteor
 smart.lock
 packages
-public/users/*
+public/users
+public/node_modules
