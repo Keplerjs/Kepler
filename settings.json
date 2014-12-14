@@ -5,7 +5,7 @@
 		"elevation": "http://localhost/maps/dem/elevation.php"
 	},
 	"dirs": {
-		"static": "/var/www/climbo/climbo.net_static/"
+		"static": "/var/www/climbo/static.climbo.net/"
 	},
 	"public": {
 		"urls": {
