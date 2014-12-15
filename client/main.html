@@ -16,15 +16,26 @@
 	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/apple-touch-icon-152.png" />
 </head> 
 
-<body>
-{{#if currentUser}}
-	<!-- inserendo la variabile currentUser qui, se viene modificata una sola proprieta
-		dell'utente viene rigenerata l'intera pagina e la map in quanto currentUser è reattiva -->
-	{{> page_map}}
+<template name="layout">
+  
+    {{> yield}}
 
-{{else}}
+	{{> dialog_list}}
 
-	{{> page_intro}}
+	{{> dialog_conver}}
 
-{{/if}}
-</body>
+	{{> dialog_settings}}
+
+	{{> dialog_share}}
+
+	{{> dialog_message}}
+
+</template>
+
+<template name="page_loading">
+	<div id="page_loading" class="loading-lg">
+		<br /><br /><br />
+		<h1 class="text-center">Climbo Loading...</h1>
+		<br /><br />
+	</div>
+</template>

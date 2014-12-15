@@ -12,17 +12,17 @@
 		{{> tab_checkin}}
 
 		<div class="list-group">
-			<a class="list-group-item btn-gray profile-btn-notif" href="#">
+			<a class="list-group-item btn-gray profile-btn-notif" href="/notif">
 				<i class="icon icon-notif"></i>
 				 {{i18n 'ui.btns.notif'}} 
 				<span class="badge">{{notif.length}}</span>
 			</a>			
-			<a class="list-group-item btn-gray profile-btn-stars" href="#">
+			<a class="list-group-item btn-gray profile-btn-stars" href="/favorites">
 				<i class="icon icon-star"></i>
 				 {{i18n 'ui.btns.favs'}} 
 				<span class="badge">{{favorites.length}}</span>
 			</a>
-			<a class="list-group-item btn-gray profile-btn-convers" href="#">
+			<a class="list-group-item btn-gray profile-btn-convers" href="/convers">
 				<i class="icon icon-mes"></i>
 				 {{i18n 'ui.btns.convers'}} 
 				<span class="badge">{{convers.length}}</span>
@@ -31,7 +31,7 @@
 
 
 		<div class="list-group">
-			<a class="list-group-item btn-gray profile-btn-sets" href="#">
+			<a class="list-group-item btn-gray profile-btn-sets" href="/settings">
 				<i class="icon icon-sets"></i> 
 				{{i18n 'ui.btns.sets'}}
 			</a>
@@ -40,7 +40,7 @@
 		<br /><br />
 
 		<div class="list-group">
-			<a class="list-group-item btn-gray profile-btn-logout" href="#">
+			<a class="list-group-item btn-gray profile-btn-logout" href="/logout">
 				<i class="icon icon-logout"></i> 
 				{{i18n 'ui.btns.logout'}}
 			</a>

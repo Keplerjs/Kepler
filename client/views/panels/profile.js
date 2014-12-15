@@ -1,4 +1,4 @@
-
+/*
 
 Template.panel_profile.events({
 	'click .profile-btn-stars': function() {
@@ -11,9 +11,9 @@ Template.panel_profile.events({
 		Climbo.profile.loadConvers();	
 	},		
 	'click .profile-btn-sets': function() {
-		$('#settings').modal('show');
+		//$('#settings').modal('show');
 	},
 	'click .profile-btn-logout': function() {
 		Climbo.profile.logout();
 	}
-});
+});*/
