@@ -4,23 +4,32 @@ Router.configure({
 	loadingTemplate: 'page_loading'
 });
 
+Router.onBeforeAction(function(pause){
+
+	if(!(Meteor.loggingIn() || Meteor.user()))
+		Router.go('intro');
+
+	this.next();
+
+}, {except: ['intro', 'forgotpassword', 'resetPassword', 'verifyEmail']});
+
+
 Router.map(function() {
 
 	this.route('root', {
 		path: '/',
 		template: 'page_map', 
-		/*action: function() {
+		onBeforeAction: function() {
 			
-		//	this.render();
-		}*/
+			this.next();
+		}
 	});
 
     this.route('intro', {
 		path: '/intro',
 		template: 'page_intro',
 		onBeforeAction: function() {
-			if(Meteor.user())
-				Router.go('root');
+			
 			this.next();
 		}
 	});
@@ -31,9 +40,10 @@ Router.map(function() {
 		onBeforeAction: function() {
 			
 			Climbo.profile.loadSettings();
-//this.next();
-			//if(this.ready())
-			this.next();
+			//open Modal 
+
+			this.ready();
+			//this.next();
 		}
 	});
 
@@ -41,16 +51,10 @@ Router.map(function() {
 		path: '/logout',
 		template: 'page_intro',
 		onBeforeAction: function () {
-			Meteor.logout();
-			this.next();
+
+			Climbo.profile.logout();
+			
+			Router.go('root');
 		}
 	});
 });
-
-/*Router.onAfterAction(function() {
-
-	setTimeout(function () {
-		$("body").scrollTop(0);
-	},100);
-
-});*/
