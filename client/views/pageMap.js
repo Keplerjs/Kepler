@@ -1,7 +1,7 @@
 
-Template.page_map.rendered = function() {
+Template.pageMap.rendered = function() {
 	
-	//console.log('page_map rendered');
+	//console.log('pageMap rendered');
 
 	if(!Climbo.map.initialized)
 		Climbo.map.initMap(Meteor.settings.public.map, function(map) {
@@ -11,7 +11,3 @@ Template.page_map.rendered = function() {
 
 };
 
-Template.page_map.destroyed = function() {
-	console.log('page_map.destroyed');
-	//TODO Climbo.map.destroyMap();
-};

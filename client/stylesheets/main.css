@@ -3,8 +3,8 @@ html, body {
 	overflow: hidden;
 	background: #f9f9f9;
 }
-#page_404,
-#page_loading {
+#page404,
+#pageLoading {
 	background-color: #333;
 	color:#f80;
 	text-shadow:none;

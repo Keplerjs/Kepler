@@ -3,12 +3,12 @@
 	visibility: hidden;
 }
 
-#settings #likeplaces .btn {
-	margin-bottom: 5px;
-	padding: 5px;
-	text-align: left;
+#settings .dropdown-menu {
+	border: none;
+	background: none;
+	padding: 5px 0;
+	border-radius: 0
 }
-
-#settings #likeplaces .btn.active {
-	border: 1px solid #428bca;
+#settings #login-dropdown-list .dropdown-menu {
+	margin: 0
 }

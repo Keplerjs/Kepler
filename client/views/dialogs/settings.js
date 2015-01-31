@@ -5,7 +5,7 @@
 Template.settings_account.helpers({
 	types: function() {
 		return _.map(Climbo.i18n.ui.places, function(v, type) {
-			return {type: type, val: v, liked: _.contains(Climbo.profile.data.likeplaces, type) };
+			return {type: type, name: v, liked: _.contains(Climbo.profile.data.likeplaces, type) };
 		});
 	},
 	email: function() {
@@ -54,11 +54,13 @@ Template.settings_account.events({
 		Meteor.users.update(Meteor.userId(), { $set:{city: e.target.value} });
 	}, Meteor.settings.public.typeDelay),
 
-	'click #likeplaces .btn': _.debounce(function(e) {
+	'click #likeplaces a': _.debounce(function(e) {
 		e.preventDefault();
-		var typePlace = $(e.target).data('type');
+		var typePlace = $(e.originalEvent.target).data('type');
 
-		if(_.contains(Climbo.profile.data.likeplaces,typePlace))
+		console.log(e.originalEvent.target)
+
+		if(_.contains(Climbo.profile.data.likeplaces, typePlace))
 			Meteor.users.update(Meteor.userId(), { $pull:{likeplaces: typePlace} });
 		else
 			Meteor.users.update(Meteor.userId(), { $addToSet:{likeplaces: typePlace} });

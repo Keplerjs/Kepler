@@ -1,7 +1,7 @@
 
 Router.configure({
 	layoutTemplate: 'layout',
-	loadingTemplate: 'page_loading'
+	loadingTemplate: 'pageLoading'
 });
 
 Router.onBeforeAction(function(pause){
@@ -11,23 +11,21 @@ Router.onBeforeAction(function(pause){
 
 	this.next();
 
-}, {except: ['intro', 'forgotpassword', 'resetPassword', 'verifyEmail']});
+}, {except: ['pageIntro', 'forgotpassword', 'resetPassword', 'verifyEmail']});
 
 
 Router.map(function() {
 
-	this.route('root', {
+	this.route('pageMap', {
 		path: '/',
-		template: 'page_map', 
 		onBeforeAction: function() {
 			
 			this.next();
 		}
 	});
 
-    this.route('intro', {
+    this.route('pageIntro', {
 		path: '/intro',
-		template: 'page_intro',
 		onBeforeAction: function() {
 			
 			this.next();
@@ -36,25 +34,24 @@ Router.map(function() {
 
 	this.route('settings', {
 		path: '/settings',
-		template: 'page_map',
+		template: 'pageMap',
 		onBeforeAction: function() {
 			
 			Climbo.profile.loadSettings();
 			//open Modal 
 
-			this.ready();
-			//this.next();
+			//this.ready();
+			this.next();
 		}
 	});
 
 	this.route('logout', {
 		path: '/logout',
-		template: 'page_intro',
 		onBeforeAction: function () {
 
 			Climbo.profile.logout();
 			
-			Router.go('root');
+			Router.go('pageIntro');
 		}
 	});
 });

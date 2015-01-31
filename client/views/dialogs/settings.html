@@ -28,7 +28,7 @@
 				<input id="fileavatar" class="form-control" type="file" />
 				<label class="text-danger"></label>
 			</div>
-		</div>		
+		</div>
 		<div class="form-group">
 			<label class="col-xs-3 control-label">{{i18n 'ui.labels.username'}}</label>
 			<div class="col-xs-9">
@@ -48,10 +48,10 @@
 			<div class="col-xs-9">
 				<input id="city" class="form-control" type="text" value="{{city}}">
 			</div>
-		</div>		
+		</div>
 		<div class="form-group">
 			<label for="email" class="col-xs-3 control-label">{{i18n 'ui.labels.email'}}</label>
-			<div class="col-xs-9 has-feedback" style="margin-bottom:8px">
+			<div class="col-xs-9 has-feedback">
 				<input disabled="disabled" id="email" class="form-control" type="email" data-value="{{email.address}}" value="{{email.address}}">
 				<span style="display:none" class="form-control-feedback icon icon-del"></span>
 			</div>
@@ -65,13 +65,17 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="type" class="col-xs-4">{{i18n 'ui.labels.likeplaces'}}</label>
-			<div id="likeplaces" class="col-xs-12">
+			<label class="col-xs-3 control-label">{{i18n 'ui.labels.likeplaces'}}</label>
+			<div id="likeplaces" class="col-xs-9 col-xs-offset-3">
 			{{#each types}}
-				<a class="btn btn-lg col-xs-6 {{#if liked}}active{{/if}}" data-type="{{type}}">
-					<i class=" icon icon-marker marker-{{type}}"></i>{{val}}
-				</a>
+				<a data-type="{{type}}" class="label {{#if liked}}label-primary{{else}}bg-gray{{/if}}">{{name}}</a> 
 			{{/each}}
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-3 control-label">{{i18n 'ui.labels.account'}}</label>
+			<div class="col-xs-9 col-xs-offset-3">
+			{{> loginButtons}}
 			</div>
 		</div>
 	</form>
