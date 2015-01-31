@@ -14,7 +14,7 @@
    inkscape:export-xdpi="90"
    inkscape:export-filename="/home/z4k/www/climbo.net/public/images/sprite.png"
    sodipodi:docname="sprite.svg"
-   inkscape:version="0.47 r22583"
+   inkscape:version="0.48.3.1 r9886"
    version="1.1"
    id="svg2"
    height="600"
@@ -27,13 +27,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="6.363961"
-     inkscape:cx="129.03439"
-     inkscape:cy="113.26499"
+     inkscape:cx="63.399069"
+     inkscape:cy="65.672378"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="1335"
-     inkscape:window-height="716"
+     inkscape:window-width="1332"
+     inkscape:window-height="714"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -15425,14 +15425,14 @@
          inkscape:flatsided="false"
          inkscape:rounded="0"
          inkscape:randomized="0"
-         d="m 297.6326,474.84593 -15.51313,-30.84764 -34.13167,-5.22141 24.54403,-24.28631 -5.58141,-34.07466 30.68218,15.83788 30.68217,-15.83788 -5.58141,34.07466 24.54404,24.2863 -34.13167,5.22142 -15.51313,30.84764 z"
+         d="m 297.6326,474.84593 -15.51313,-30.84764 -34.13167,-5.22141 24.54403,-24.28631 -5.58141,-34.07466 30.68218,15.83788 30.68217,-15.83788 -5.58141,34.07466 24.54404,24.2863 -34.13167,5.22142 z"
          transform="matrix(0.3478964,0,0,-0.3478964,116.9068,645.60326)" />
       <path
          inkscape:export-ydpi="35.211422"
          inkscape:export-xdpi="35.211422"
          inkscape:export-filename="/home/z4k/www/climbo/images/star.png"
          transform="matrix(0.3478964,0,0,-0.3478964,116.9068,645.60326)"
-         d="m 297.6326,474.84593 -15.51313,-30.84764 -34.13167,-5.22141 24.54403,-24.28631 -5.58141,-34.07466 30.68218,15.83788 30.68217,-15.83788 -5.58141,34.07466 24.54404,24.2863 -34.13167,5.22142 -15.51313,30.84764 z"
+         d="m 297.6326,474.84593 -15.51313,-30.84764 -34.13167,-5.22141 24.54403,-24.28631 -5.58141,-34.07466 30.68218,15.83788 30.68217,-15.83788 -5.58141,34.07466 24.54404,24.2863 -34.13167,5.22142 z"
          inkscape:randomized="0"
          inkscape:rounded="0"
          inkscape:flatsided="false"
@@ -15474,7 +15474,7 @@
          inkscape:export-xdpi="35.211422"
          inkscape:export-filename="/home/z4k/www/climbo/images/unstar.png"
          transform="matrix(0.3478964,0,0,-0.3478964,173.41213,645.60326)"
-         d="m 297.6326,474.84593 -15.51313,-30.84764 -34.13167,-5.22141 24.54403,-24.28631 -5.58141,-34.07466 30.68218,15.83788 30.68217,-15.83788 -5.58141,34.07466 24.54404,24.2863 -34.13167,5.22142 -15.51313,30.84764 z"
+         d="m 297.6326,474.84593 -15.51313,-30.84764 -34.13167,-5.22141 24.54403,-24.28631 -5.58141,-34.07466 30.68218,15.83788 30.68217,-15.83788 -5.58141,34.07466 24.54404,24.2863 -34.13167,5.22142 z"
          inkscape:randomized="0"
          inkscape:rounded="0"
          inkscape:flatsided="false"
@@ -15505,7 +15505,7 @@
          inkscape:flatsided="false"
          inkscape:rounded="0"
          inkscape:randomized="0"
-         d="m 297.6326,474.84593 -15.51313,-30.84764 -34.13167,-5.22141 24.54403,-24.28631 -5.58141,-34.07466 30.68218,15.83788 30.68217,-15.83788 -5.58141,34.07466 24.54404,24.2863 -34.13167,5.22142 -15.51313,30.84764 z"
+         d="m 297.6326,474.84593 -15.51313,-30.84764 -34.13167,-5.22141 24.54403,-24.28631 -5.58141,-34.07466 30.68218,15.83788 30.68217,-15.83788 -5.58141,34.07466 24.54404,24.2863 -34.13167,5.22142 z"
          transform="matrix(0.3478964,0,0,-0.3478964,173.41213,645.60326)" />
     </g>
     <g
@@ -15517,7 +15517,7 @@
        transform="translate(673.61042,302.07312)">
       <path
          transform="matrix(0.9332127,0,0,0.9332127,123.42566,-373.82506)"
-         d="m -182.1517,916.43558 -4.19034,-1.60789 -0.11808,4.48668 -3.25605,-3.08907 -1.82607,4.09996 -1.82606,-4.09996 -3.25606,3.08907 -0.11808,-4.48668 -4.19033,1.60789 1.60789,-4.19034 -4.48668,-0.11808 3.08906,-3.25605 -4.09995,-1.82607 4.09995,-1.82606 -3.08906,-3.25606 4.48668,-0.11808 -1.60789,-4.19033 4.19033,1.60789 0.11808,-4.48668 3.25606,3.08906 1.82606,-4.09995 1.82607,4.09995 3.25605,-3.08906 0.11808,4.48668 4.19034,-1.60789 -1.60789,4.19033 4.48668,0.11808 -3.08907,3.25606 4.09996,1.82606 -4.09996,1.82607 3.08907,3.25605 -4.48668,0.11808 1.60789,4.19034 z"
+         d="m -182.1517,916.43558 -4.19034,-1.60789 -0.11808,4.48668 -3.25605,-3.08907 -1.82607,4.09996 -1.82606,-4.09996 -3.25606,3.08907 -0.11808,-4.48668 -4.19033,1.60789 1.60789,-4.19034 -4.48668,-0.11808 3.08906,-3.25605 -4.09995,-1.82607 4.09995,-1.82606 -3.08906,-3.25606 4.48668,-0.11808 -1.60789,-4.19033 4.19033,1.60789 0.11808,-4.48668 3.25606,3.08906 1.82606,-4.09995 1.82607,4.09995 3.25605,-3.08906 0.11808,4.48668 4.19034,-1.60789 -1.60789,4.19033 4.48668,0.11808 -3.08907,3.25606 4.09996,1.82606 -4.09996,1.82607 3.08907,3.25605 -4.48668,0.11808 z"
          inkscape:randomized="0"
          inkscape:rounded="0"
          inkscape:flatsided="false"
@@ -19084,7 +19084,7 @@
          inkscape:export-xdpi="33.199844"
          inkscape:export-filename="/home/z4k/www/climbo.net/public/images/alert-warning.png"
          transform="matrix(1.1802919,0,0,-1.3918003,241.51652,810.63486)"
-         d="m 291.33823,422.43238 -18.11474,-31.37564 36.22947,0 -18.11473,31.37564 z"
+         d="m 291.33823,422.43238 -18.11474,-31.37564 36.22947,0 z"
          inkscape:randomized="0"
          inkscape:rounded="0"
          inkscape:flatsided="true"
@@ -19124,7 +19124,7 @@
          inkscape:export-xdpi="37"
          inkscape:export-filename="/home/z4k/www/climbo/images/sun.png"
          transform="matrix(0.21094265,-0.21094265,0.21094265,0.21094265,61.253681,35.044051)"
-         d="m 345.42516,428.44124 -26.72665,-24.13379 3.81512,35.8078 -7.43683,-35.23417 -17.9608,31.21158 14.69361,-32.8763 -32.8763,14.69361 31.21158,-17.9608 -35.23417,-7.43683 35.8078,3.81512 -24.13379,-26.72665 26.72664,24.13379 -3.81511,-35.80779 7.43682,35.23417 17.9608,-31.21158 -14.6936,32.87629 32.87629,-14.6936 -31.21158,17.9608 35.23417,7.43682 -35.80779,-3.81511 24.13379,26.72664 z"
+         d="m 345.42516,428.44124 -26.72665,-24.13379 3.81512,35.8078 -7.43683,-35.23417 -17.9608,31.21158 14.69361,-32.8763 -32.8763,14.69361 31.21158,-17.9608 -35.23417,-7.43683 35.8078,3.81512 -24.13379,-26.72665 26.72664,24.13379 -3.81511,-35.80779 7.43682,35.23417 17.9608,-31.21158 -14.6936,32.87629 32.87629,-14.6936 -31.21158,17.9608 35.23417,7.43682 -35.80779,-3.81511 z"
          inkscape:randomized="0"
          inkscape:rounded="0"
          inkscape:flatsided="false"
@@ -20195,7 +20195,7 @@
          inkscape:flatsided="false"
          inkscape:rounded="0"
          inkscape:randomized="0"
-         d="m 297.6326,474.84593 -15.51313,-30.84764 -34.13167,-5.22141 24.54403,-24.28631 -5.58141,-34.07466 30.68218,15.83788 30.68217,-15.83788 -5.58141,34.07466 24.54404,24.2863 -34.13167,5.22142 -15.51313,30.84764 z"
+         d="m 297.6326,474.84593 -15.51313,-30.84764 -34.13167,-5.22141 24.54403,-24.28631 -5.58141,-34.07466 30.68218,15.83788 30.68217,-15.83788 -5.58141,34.07466 24.54404,24.2863 -34.13167,5.22142 z"
          transform="matrix(0.3478964,0,0,-0.3478964,116.83863,862.42043)"
          inkscape:export-filename="/home/z4k/www/climbo/images/star.png"
          inkscape:export-xdpi="44.530777"
@@ -20256,11 +20256,12 @@
     </g>
     <path
        style="color:#000000;fill:#0069b3;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.60000002;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       d="m 105.56253,971.4219 -8.998918,-8.99885 -2.85492,2.85488 6.21045,6.21053 -6.14006,6.14 2.78844,2.78848 8.995008,-8.99504 z"
+       d="m 105.04171,971.4219 -8.998922,-8.99885 -2.85492,2.85488 6.21045,6.21053 -6.14006,6.14 2.78844,2.78848 8.995012,-8.99504 z"
        id="rect5238"
        inkscape:export-filename="/home/z4k/www/climbo_meteor/public/images/bottom.png"
        inkscape:export-xdpi="16.125132"
-       inkscape:export-ydpi="16.125132" />
+       inkscape:export-ydpi="16.125132"
+       inkscape:connector-curvature="0" />
     <g
        id="g6148"
        transform="matrix(0.36514052,0,0,0.36514052,108.50812,532.79506)">
@@ -20408,7 +20409,7 @@
          inkscape:flatsided="false"
          inkscape:rounded="0"
          inkscape:randomized="0"
-         d="m 356.4246,439.44068 -37.91222,-35.04244 2.47456,51.56729 -6.51759,-51.21357 -31.25119,41.09345 27.92668,-43.4213 -50.35417,11.39154 49.30376,-15.31173 -45.89587,-23.64061 47.61105,19.96238 -19.96238,-47.61105 23.64061,45.89587 15.31172,-49.30376 -11.39153,50.35417 43.4213,-27.92668 -41.09346,31.25119 51.21358,6.51759 -51.5673,-2.47456 35.04245,37.91222 z"
+         d="m 356.4246,439.44068 -37.91222,-35.04244 2.47456,51.56729 -6.51759,-51.21357 -31.25119,41.09345 27.92668,-43.4213 -50.35417,11.39154 49.30376,-15.31173 -45.89587,-23.64061 47.61105,19.96238 -19.96238,-47.61105 23.64061,45.89587 15.31172,-49.30376 -11.39153,50.35417 43.4213,-27.92668 -41.09346,31.25119 51.21358,6.51759 -51.5673,-2.47456 z"
          transform="matrix(0.05296439,-0.01401326,0.01180042,0.05350092,231.32829,529.04058)"
          inkscape:export-filename="/home/z4k/www/climbo/images/sun.png"
          inkscape:export-xdpi="37"
@@ -21188,7 +21189,7 @@
          inkscape:export-xdpi="42.044464"
          inkscape:export-filename="/home/z4k/www/climbo/images/unstar.png"
          transform="matrix(0.3478964,0,0,-0.3478964,117.09795,910.36941)"
-         d="m 297.6326,474.84593 -15.51313,-30.84764 -34.13167,-5.22141 24.54403,-24.28631 -5.58141,-34.07466 30.68218,15.83788 30.68217,-15.83788 -5.58141,34.07466 24.54404,24.2863 -34.13167,5.22142 -15.51313,30.84764 z"
+         d="m 297.6326,474.84593 -15.51313,-30.84764 -34.13167,-5.22141 24.54403,-24.28631 -5.58141,-34.07466 30.68218,15.83788 30.68217,-15.83788 -5.58141,34.07466 24.54404,24.2863 -34.13167,5.22142 z"
          inkscape:randomized="0"
          inkscape:rounded="0"
          inkscape:flatsided="false"
@@ -21224,7 +21225,7 @@
          inkscape:flatsided="false"
          inkscape:rounded="0"
          inkscape:randomized="0"
-         d="m 297.6326,474.84593 -15.51313,-30.84764 -34.13167,-5.22141 24.54403,-24.28631 -5.58141,-34.07466 30.68218,15.83788 30.68217,-15.83788 -5.58141,34.07466 24.54404,24.2863 -34.13167,5.22142 -15.51313,30.84764 z"
+         d="m 297.6326,474.84593 -15.51313,-30.84764 -34.13167,-5.22141 24.54403,-24.28631 -5.58141,-34.07466 30.68218,15.83788 30.68217,-15.83788 -5.58141,34.07466 24.54404,24.2863 -34.13167,5.22142 z"
          transform="matrix(0.3478964,0,0,-0.3478964,117.09795,910.36941)"
          inkscape:export-filename="/home/z4k/www/climbo/images/unstar.png"
          inkscape:export-xdpi="42.044464"
@@ -21235,8 +21236,9 @@
        inkscape:export-xdpi="16.125132"
        inkscape:export-filename="/home/z4k/www/climbo_meteor/public/images/bottom.png"
        id="path8018"
-       d="m 93.708692,1001.3773 8.998918,-8.99891 2.85492,2.85488 -6.210458,6.21053 6.140068,6.14 -2.78844,2.7885 -8.995008,-8.995 z"
-       style="color:#000000;fill:#0069b3;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.60000002;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+       d="m 93.187868,1001.3773 8.998922,-8.99891 2.85492,2.85488 -6.210462,6.21053 6.140072,6.14 -2.78844,2.7885 -8.995012,-8.995 z"
+       style="color:#000000;fill:#0069b3;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.60000002;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       inkscape:connector-curvature="0" />
     <g
        id="g4296"
        transform="matrix(0.10574089,0,0,0.10574089,-168.44897,671.27325)"
@@ -22183,5 +22185,21 @@
          d="m 104.27109,944.07742 -2.04645,2.29042 -8.266155,-7.38568 2.04646,-2.29042 8.266145,7.38568 z"
          style="color:#000000;fill:#c00000;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:0;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
     </g>
+    <path
+       inkscape:export-ydpi="16.125132"
+       inkscape:export-xdpi="16.125132"
+       inkscape:export-filename="/home/z4k/www/climbo_meteor/public/images/bottom.png"
+       id="path5981"
+       d="m 74.938311,971.4219 -8.998918,-8.99885 -2.85492,2.85488 6.21045,6.21053 -6.14006,6.14 2.78844,2.78848 8.995008,-8.99504 z"
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ececec;stroke-width:0.2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;stroke-miterlimit:4;stroke-dasharray:none"
+       inkscape:connector-curvature="0" />
+    <path
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ececec;stroke-width:0.2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 63.084473,1001.3773 8.998918,-8.99891 2.85492,2.85488 -6.210458,6.21053 6.140068,6.14 -2.78844,2.7885 -8.995007,-8.995 z"
+       id="path5983"
+       inkscape:export-filename="/home/z4k/www/climbo_meteor/public/images/bottom.png"
+       inkscape:export-xdpi="16.125132"
+       inkscape:export-ydpi="16.125132"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>

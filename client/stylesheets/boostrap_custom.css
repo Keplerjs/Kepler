@@ -81,6 +81,10 @@ a.btn-gray:hover {
 	padding: 6px 4px; /* panel_place */
 }
 
+/* PAGES*/
+section.container {
+	padding-top: 100px;
+}
 /* MODAL */
 
 .modal {

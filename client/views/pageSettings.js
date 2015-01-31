@@ -2,7 +2,7 @@
 
 //http://avatars.io/
 
-Template.settings_account.helpers({
+Template.pageSettings.helpers({
 	types: function() {
 		return _.map(Climbo.i18n.ui.places, function(v, type) {
 			return {type: type, name: v, liked: _.contains(Climbo.profile.data.likeplaces, type) };
@@ -16,7 +16,7 @@ Template.settings_account.helpers({
 
 //TODO metodo profile.setSettings
 
-Template.settings_account.events({
+Template.pageSettings.events({
 
 	'keyup #name': _.debounce(function(e) {
 		var feed$ = $(e.target).next('.form-control-feedback');

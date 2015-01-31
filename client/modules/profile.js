@@ -186,9 +186,6 @@ Climbo.profile = {
 				});
 			//});
 	},
-	loadSettings: function() {
-		$('#settings').modal('show');
-	},
 	logout: function() {
 		Climbo.profile.setOnline(false);
 		Meteor.logout(function(err) {

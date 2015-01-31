@@ -1,0 +1,74 @@
+
+<template name="pageSettings">
+
+	{{> navbar}}
+
+	<section class="container" id="pageSettings">
+
+	{{#with currentUser}}
+		<form class="form-horizontal" role="form">
+			<div class="form-group">
+				<div class="col-sm-3 col-xs-5 text-right">
+					<img class="img-thumbnail user-avatar-big" src="{{avatar}}" />
+				</div>
+				<div class="col-sm-9 col-xs-7">
+					<label for="fileavatar">{{i18n 'ui.btns.avatar'}}</label>
+					<input id="fileavatar" class="form-control" type="file" />
+					<label class="text-danger"></label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-3 control-label">{{i18n 'ui.labels.username'}}</label>
+				<div class="col-xs-9">
+					<!-- <span class="text-muted">http://climbo.net/</span> -->
+					<label class="text-primary control-label">{{username}}</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="name" class="col-xs-3 control-label">{{i18n 'ui.labels.name'}}</label>
+				<div class="col-xs-9 has-feedback">
+					<input id="name" class="form-control" type="text" value="{{name}}">
+					<span style="display:none" class="form-control-feedback icon icon-del"></span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="city" class="col-xs-3 control-label">{{i18n 'ui.labels.city'}}</label>
+				<div class="col-xs-9">
+					<input id="city" class="form-control" type="text" value="{{city}}">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="email" class="col-xs-3 control-label">{{i18n 'ui.labels.email'}}</label>
+				<div class="col-xs-9 has-feedback">
+					<input disabled="disabled" id="email" class="form-control" type="email" data-value="{{email.address}}" value="{{email.address}}">
+					<span style="display:none" class="form-control-feedback icon icon-del"></span>
+				</div>
+				<div class="col-xs-9 col-xs-offset-3">
+				{{#if email.verified}}
+					<span class="text-green"><i class="icon icon-success"></i> {{i18n 'ui.btns.verified'}}</span>
+				{{else}}
+					<!-- <a class="btn btn-sm btn-danger" href="#"><i class="icon icon-warning"></i> {{i18n 'ui.btns.verify'}}</a> -->
+					<span class="text-danger"><i class="icon icon-warning"></i> {{i18n 'ui.btns.verify'}}</span>
+				{{/if}}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-3 control-label">{{i18n 'ui.labels.likeplaces'}}</label>
+				<div id="likeplaces" class="col-xs-9 col-xs-offset-3">
+				{{#each types}}
+					<a data-type="{{type}}" class="label {{#if liked}}label-primary{{else}}bg-gray{{/if}}">{{name}}</a> 
+				{{/each}}
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-3 control-label">{{i18n 'ui.labels.account'}}</label>
+				<div class="col-xs-9 col-xs-offset-3">
+				{{> loginButtons}}
+				</div>
+			</div>
+		</form>
+	{{/with}}
+
+	</section>
+
+</template>

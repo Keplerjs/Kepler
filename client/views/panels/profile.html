@@ -12,17 +12,17 @@
 		{{> tab_checkin}}
 
 		<div class="list-group">
-			<a class="list-group-item btn-gray profile-btn-notif" href="/notif">
+			<a class="list-group-item btn-gray" href="/notifs">
 				<i class="icon icon-notif"></i>
 				 {{i18n 'ui.btns.notif'}} 
 				<span class="badge">{{notif.length}}</span>
 			</a>			
-			<a class="list-group-item btn-gray profile-btn-stars" href="/favorites">
+			<a class="list-group-item btn-gray" href="/favorites">
 				<i class="icon icon-star"></i>
 				 {{i18n 'ui.btns.favs'}} 
 				<span class="badge">{{favorites.length}}</span>
 			</a>
-			<a class="list-group-item btn-gray profile-btn-convers" href="/convers">
+			<a class="list-group-item btn-gray" href="/convers">
 				<i class="icon icon-mes"></i>
 				 {{i18n 'ui.btns.convers'}} 
 				<span class="badge">{{convers.length}}</span>
@@ -31,30 +31,24 @@
 
 
 		<div class="list-group">
-			<a class="list-group-item btn-gray profile-btn-sets" href="/settings">
+			<a class="list-group-item btn-gray" href="/settings">
 				<i class="icon icon-sets"></i> 
 				{{i18n 'ui.btns.sets'}}
-			</a>
+			</a>			
 		</div>
 
-		<br /><br />
-
-		<a href="/intro">intro</a>
-
-		<br /><br />
-
 		<div class="list-group">
-			<a class="list-group-item btn-gray profile-btn-logout" href="/logout">
+			<a class="list-group-item btn-gray" href="/intro">
+				<i class="icon icon-home"></i> 
+				{{i18n 'ui.btns.home'}}
+			</a>
+			<a class="list-group-item btn-gray" href="/logout">
 				<i class="icon icon-logout"></i> 
 				{{i18n 'ui.btns.logout'}}
 			</a>
 		</div>
 	</div>
 	{{/with}}
-
-{{else}}
-
-	{{> loginButtons}}
 
 {{/if}}
 

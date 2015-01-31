@@ -8,16 +8,23 @@
 		<img id="logo" src="/images/climbo-200.png" />
 		
 		<em id="slogan" class="clearfix">The Climbers Community</em>
-	
-		{{> loginButtons}}
 
+		<br />
 		{{#if currentUser}}
-		<a class="btn btn-lg btn-primary intro-btn-enter" href="/">Entra</a>
+			<a class="btn btn-lg btn-primary" href="/">{{i18n 'ui.btns.enter'}}</a>
+		{{else}}
+			{{> loginButtons}}
 		{{/if}}
+		<br />
+		<br />		
 
 		{{> social_icons}}
 
-		<small class="text-muted"><i>&copy;2014 Climbo.net</i></small>
+		<small class="text-muted">
+			<i>&copy;2014 Climbo.net</i>
+			&nbsp;&bull;&nbsp;
+			<a href="http://blog.climbo.net/">Blog</a>
+		</small>
 
 	</div>
 
