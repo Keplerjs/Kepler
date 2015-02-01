@@ -1,0 +1,20 @@
+
+<template name="pageList">
+
+	{{> navbar}}
+
+	<section class="container {{className}}" id="pageList">
+		<div class="header-item">
+			{{header}}
+		</div>
+		<div class="list-group list-items">
+		{{#each items}}
+			<div class="list-group-item">
+			{{> Template.dynamic template=this.template}}
+			</div>
+		{{/each}}
+		</div>
+	</section>
+
+</template>
+

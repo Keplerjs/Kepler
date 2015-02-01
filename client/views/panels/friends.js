@@ -33,8 +33,8 @@ Template.switch_online.rendered = function() {
 	this.$('#switch_online').bootstrapSwitch({
 		state: Climbo.profile.getOnline(),
 		onColor: 'success',
-		onText: '&nbsp;Online&nbsp;',
-		offText: '&nbsp;Offline&nbsp;',
+		onText: 'Online',
+		offText: 'Offline',
 		size: 'small',
 		onSwitchChange: function (e, stat) {
 			Climbo.profile.setOnline(stat);

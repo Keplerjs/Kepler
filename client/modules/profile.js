@@ -13,6 +13,9 @@ Climbo.profile = {
 	placeCheckin: null,
 	friends: [],	//istances of friends
 	convers: [],	//convers
+	favorites: [],	//favorites istances of places
+	notifs: [],		//notifs of user
+	//TODO rename fields in db notif to notifs
 
 	_deps: {
 		online: new Deps.Dependency(),
@@ -132,7 +135,7 @@ Climbo.profile = {
 			Climbo.profile.placeCheckin = null;
 	},
 	loadFriends: function() {
-		if(Climbo.profile.data.friends && Climbo.profile.data.friends.length > 0)
+		if(!_.isEmpty(Climbo.profile.data.friends))
 			Meteor.subscribe('friendsByIds', Climbo.profile.data.friends, function() {
 				Climbo.profile.friends = _.map(Climbo.profile.data.friends, Climbo.newUser);
 				Climbo.profile._deps.friends.changed();
@@ -142,49 +145,25 @@ Climbo.profile = {
 			Climbo.profile.friends = [];
 	},
 	loadConvers: function() {
-		if(Climbo.profile.data.convers && Climbo.profile.data.convers.length > 0)
-			Meteor.subscribe('conversByIds', Climbo.profile.data.convers, function() {
-				
-				Climbo.profile.convers = getConversByIds(Climbo.profile.data.convers).fetch();
+		if(!_.isEmpty(Climbo.profile.data.convers))
+			return Meteor.subscribe('conversByIds', Climbo.profile.data.convers, function() {
 
-				Climbo.dialogList.show({
-					title: '<i class="icon icon-mes"></i> Messaggi',
-					className: 'convers_profile',
-					template: 'item_conver',
-					items: Climbo.profile.convers,
-					//TODO lastMsg sortby: 'updateAt',
-					desc: true
-				});
+				Climbo.profile.convers = getConversByIds(Climbo.profile.data.convers).fetch();
 			});
-		else
-			Climbo.profile.convers = [];
 	},
 	loadFavorites: function() {
-		if(Climbo.profile.data.favorites.length > 0)
-			Meteor.subscribe('placesByIds', Climbo.profile.data.favorites, function() {
-				Climbo.dialogList.show({
-					title: '<i class="icon icon-star"></i> '+Climbo.i18n.ui.titles.favs,
-					className: 'favorites',
-					template: 'item_favorite',
-					items: _.map(Climbo.profile.data.favorites, Climbo.newPlace),
-					sortby: 'name'
-				});
-			});
-	},	
-	loadNotif: function() {
-		if(Climbo.profile.data.notif.length > 0)
-			//Meteor.subscribe('notifsByIds', Climbo.profile.data.convers, function() {
+		if(!_.isEmpty(Climbo.profile.data.favorites))
+			return Meteor.subscribe('placesByIds', Climbo.profile.data.favorites, function() {
 				
-				Climbo.dialogList.show({
-					title: '<i class="icon icon-notif"></i> Notifiche',
-					className: 'notif',
-					template: 'item_notif',
-					items: _.map(Climbo.profile.data.notif, function(convId) {
-						//item.tmpl = Template.item_notif;
-						return null;
-					})
-				});
-			//});
+				Climbo.profile.favorites = _.map(Climbo.profile.data.favorites, Climbo.newPlace);
+			});
+	},
+	loadNotifs: function() {
+/*		TODO
+		if(!_.isEmpty(Climbo.profile.data.notifs))
+			return Meteor.subscribe('notifsByIds', Climbo.profile.data.convers, function() {
+				Climbo.profile.notifs = getNotifsByIds(Climbo.profile.data.notif).fetch();
+			});*/
 	},
 	logout: function() {
 		Climbo.profile.setOnline(false);

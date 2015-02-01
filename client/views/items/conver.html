@@ -20,11 +20,11 @@
 					{{/with}}
 				{{/each}}
 			{{/if}}
-			<a class="btn conver-btn-title" href="#">{{{tit}}}</a>			
+			<a class="btn conver-btn-title" href="/convers/{{_id}}">{{{tit}}}</a>			
 		</div>
 		<div class="pull-right conver-btns">
 			<time>{{humanTime lastMsg.updateAt 1}}</time>
-			<label data-convid="{{_id}}" class="btn btn-sm btn-default conver-btn-del">
+			<label class="btn btn-sm btn-default conver-btn-del">
 				<i class="icon icon-del"></i>
 			</label>
 		</div>

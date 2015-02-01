@@ -19,7 +19,7 @@ Climbo.convers = {
 	// },
 	show: function(convId) {
 		if(!convId) return false;
-		var dialog$ = $('#dialogconver'),
+		var dialog$ = $('#dialogConver'),
 			title$ = dialog$.find('.modal-title');
 		
 		Meteor.subscribe('converById', convId, function() { //TODO converWithUser
@@ -33,8 +33,7 @@ Climbo.convers = {
 			title$.html('<i class="icon icon-mes"></i> '+ placeName + title  );
 			
 			Session.set('dialogConverId', convId);
-			
-			Climbo.dialogList.hide();
+
 			dialog$.modal();
 			dialog$.find('.conver-input textarea').focus();
 		});
@@ -60,7 +59,6 @@ Climbo.convers = {
 		if(!_.str.isBlank(body))
 			addMsgToConver(convId, body);
 			// Meteor.call('addMsgToConver', convId, body, function(err) {
-				
 			// });
 	},
 
@@ -69,11 +67,9 @@ Climbo.convers = {
 	},
 
 	hide: function() {
-		var dialog$ = $('#dialogconver'),
+		var dialog$ = $('#dialogConver'),
 		 	title$ = dialog$.find('.modal-title'),
 			list$ = dialog$.find('.modal-body');
-
-		console.log('Climbo.convers.hide');
 
 		dialog$.modal('hide');
 		title$.empty();

@@ -7,10 +7,10 @@ Session.set('dialogShareId', null);
 
 
 Meteor.startup(function() {
-
+/*
 	Deps.autorun(function () {
 		console.log('CONNECTION',Meteor.status().status);
-	});
+	});*/
 
 	Deps.autorun(function () {
 		

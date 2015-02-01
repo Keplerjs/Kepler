@@ -1,27 +1,27 @@
 
-#dialogconver .modal-footer {
+#dialogConver .modal-footer {
 	padding: 0;
 	margin: 0;
 }
 
-#dialogconver .modal-body {
+#dialogConver .modal-body {
 	padding: 0;
 	margin: 0;
 	height: 250px;
 	overflow-y: scroll;
 }
-#dialogconver .list-group-item:first-child {
+#dialogConver .list-group-item:first-child {
 	height: 220px;
 }
-#dialogconver .list-group-item:last-child {
+#dialogConver .list-group-item:last-child {
 	padding-bottom: 10px;
 }
 
-#dialogconver .msg-item {
+#dialogConver .msg-item {
 	padding: 2px 2px 0 2px;
 	overflow: hidden;
 }
-#dialogconver .conver-btn-more {
+#dialogConver .conver-btn-more {
 	text-align: left;
 	color:#428bca;
 }

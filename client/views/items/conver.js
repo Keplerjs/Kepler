@@ -31,10 +31,3 @@ Template.item_conver.helpers({
 			return Climbo.i18n.ui.titles.msgpriv;
 	}
 });
-
-Template.item_conver.events({
-	'click .conver-btn-title': function(e, tmpl) {
-		e.preventDefault();
-		Climbo.convers.show(this._id);
-	}
-});
