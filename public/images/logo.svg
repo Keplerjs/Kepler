@@ -14,7 +14,7 @@
    inkscape:export-xdpi="10.47403"
    inkscape:export-filename="/home/z4k/www/climbo/images/climb-icon-long.png"
    sodipodi:docname="logo.svg"
-   inkscape:version="0.47 r22583"
+   inkscape:version="0.48.3.1 r9886"
    version="1.1"
    id="svg2"
    height="1488.189"
@@ -32,8 +32,8 @@
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1335"
-     inkscape:window-height="716"
+     inkscape:window-width="1332"
+     inkscape:window-height="714"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -10316,7 +10316,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -11118,5 +11118,19 @@
        inkscape:export-filename="/home/z4k/Scrivania/logo.png"
        inkscape:export-xdpi="86.50769"
        inkscape:export-ydpi="86.50769" />
+    <path
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccscccccsscssssccsscc"
+       d="m -1323.2971,78.033995 103.3306,-105.22586 79.5872,79.06117 c 18.3192,18.19825 60.2597,24.10527 92.1991,-10.0718 l 185.92066,186.000835 55.18621,-67.86532 -178.02307,-179.219205 -13.24761,-279.063565 162.89889,-167.57754 c 35.24758,-36.25984 -13.77472,-105.11415 -64.09506,-53.01316 l -294.92592,305.36274 -101.8122,-100.34537 c -42.3735,-41.76308 -97.462,11.74986 -50.1394,55.95579 l 107.4626,100.38518 c 18.3957,17.18415 49.5676,35.3615 79.4497,13.15933 l 27.0694,-24.28395 1.6472,123.786635 -51.0904,-43.41766 c -36.1919,-30.756625 -68.3781,-13.986575 -87.382,7.02108 l -95.4074,105.46652 41.3715,53.88415"
+       style="color:#000000;fill:#808080;fill-opacity:1;stroke:none;stroke-width:3.4000001;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="path4519" />
+    <path
+       inkscape:export-ydpi="55.329205"
+       inkscape:export-xdpi="55.329205"
+       inkscape:export-filename="/home/z4k/www/climbo/logos/climbo-300.png"
+       id="path4564"
+       d="m -1166.1997,-475.06308 c -46.4275,0 -84.0532,37.68662 -84.0532,84.11431 0,46.42797 37.6257,84.0536 84.0532,84.0536 46.4284,0 84.0539,-37.62563 84.0539,-84.0536 0,-46.42769 -37.6255,-84.11431 -84.0539,-84.11431 z"
+       style="fill:#fda238;fill-opacity:1;stroke:#0169b4;stroke-width:12.14177322;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>

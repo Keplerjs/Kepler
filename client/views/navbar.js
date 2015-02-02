@@ -1,7 +1,8 @@
 
 Template.navbar.helpers({
 	title: function() {
-		return Climbo.i18n.ui.titles[ Router.current().route.getName() ];
+		//console.log('navbar',Template.parentData());
+		return this.title || Climbo.i18n.ui.titles[ Router.current().route.getName() ];
 	}
 });
 

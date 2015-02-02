@@ -13,7 +13,7 @@ Template.pageList.helpers({
 					return item ? item[this.sortBy] : 0;
 				});
 
-		if(this.sortDesc)
+		if(this.items && this.sortDesc)
 			this.items.reverse();
 
 		return _.map(this.items, function(item) {

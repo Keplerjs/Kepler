@@ -45,9 +45,9 @@
 				<span class="badge {{#unless getRank}}bg-gray{{/unless}}">{{getRank}}</span>
 				<input type="checkbox" checked={{isFavorite}} />
 			</label>
-			<label class="btn btn-sm btn-default place-btn-map">
+			<a class="btn btn-sm btn-default place-btn-map" href="/place/{{id}}/map">
 				<i class="icon icon-map"></i>
-			</label>
+			</a>
 		</div>
 	</div>
 </template>
@@ -55,17 +55,17 @@
 <template name="place_buttons2">
 	<div class="place-btns">
 		<div class="btn-group" data-toggle="buttons">
-			<a class="btn btn-sm btn-default place-btn-convers" href="#">
+			<a class="btn btn-sm btn-default" href="/place/{{id}}/convers">
 				<i class="icon icon-mes"></i> <span>{{i18n 'ui.btns.wall'}}</span> 
 				<span class="badge {{#unless convers.length}}bg-gray{{/unless}}">{{convers.length}}</span>
 			</a>
-			<a class="btn btn-sm btn-default place-btn-sectors" href="#">
+			<a class="btn btn-sm btn-default place-btn-sectors" href="/place/{{id}}/sectors">
 				<i class="icon icon-sectors"></i> <span>{{i18n 'ui.btns.sectors'}}</span>
 			</a>
 <!-- 			<a class="btn btn-sm btn-default place-btn-photos" href="#">
 				<i class="icon icon-photos"></i> <span>{{i18n 'ui.btns.photos'}}</span>
 			</a>			 -->
-			<a class="btn btn-sm btn-default disabled place-btn-share" href="#">
+			<a class="btn btn-sm btn-default disabled place-btn-share" href="/place/{{id}}/share">
 				<i class="icon icon-share"></i>
 			</a>
 		</div>

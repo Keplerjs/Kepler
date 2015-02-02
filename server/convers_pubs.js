@@ -40,3 +40,25 @@ Meteor.publish('converById', function(convId) {
 	else
 		this.ready();	
 });
+
+
+Meteor.publish('conversByPlace', function(placeId) {
+
+	console.log('Pub: conversByPlace', placeId);
+
+	if(this.userId && placeId)
+	{
+		var conversCur = getConversByPlace(placeId),
+			conversData = conversCur.fetch(),
+			usersIds = _.uniq(_.flatten( _.pluck(conversData, 'usersIds') ));
+			//TODO estrarre solo gli ultimi 3-4
+
+		return [
+			//TODO add place Cur
+			conversCur,
+			getUsersByIds( _.last(usersIds,3) )
+		];
+	}
+	else
+		this.ready();	
+});

@@ -11,6 +11,10 @@ getConversByIds = function(convIds) {
 	return Convers.find({_id: {$in: convIds} }, { fields: Climbo.perms.converItem });
 };
 
+getConversByPlace = function(placeId) {
+	return Convers.find({placeId: placeId }, { fields: Climbo.perms.converItem });
+};
+
 //TODO
 Convers.allow({
 	insert: function(userId, doc) {

@@ -27,9 +27,6 @@ Template.place_buttons.events({
 });
 
 Template.place_buttons2.events({
-	'click .place-btn-convers': function(e, tmpl) {
-		this.loadConvers();
-	},
 	'click .place-btn-sectors': function(e, tmpl) {
 		this.loadSectors();
 	},

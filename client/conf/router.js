@@ -4,7 +4,7 @@ Router.configure({
 	loadingTemplate: 'pageLoading'
 });
 
-Router.onBeforeAction(function(pause){
+Router.onBeforeAction(function(){
 
 	if(!(Meteor.loggingIn() || Meteor.user()))
 		Router.go('intro');
@@ -47,13 +47,7 @@ Router.map(function() {
 	});
 
     this.route('pageIntro', {
-		path: '/intro',
-		onBeforeAction: function() {
-	/*		if(Meteor.loggingIn() || Meteor.user())
-				Router.go('pageMap');*/
-
-			this.next();
-		}
+		path: '/intro'
 	});
 
 	this.route('pageNotifs', {
@@ -113,6 +107,24 @@ Router.map(function() {
 /*		,data: function() {
 			return Tickets.findOne(this.params.ticketId);
 		}*/
+	});
+
+	this.route('pagePlaceConvers', {
+		path: '/place/:placeId/convers',
+		template: 'pageList',
+		waitOn: function() {
+			return Meteor.subscribe('conversByPlace', this.params.placeId);
+		},
+		data: function() {
+			return {
+				//title: '<i class="icon icon-mes"></i> '+_.template(Climbo.i18n.ui.titles.pagePlaceConvers, self),
+				//header: {placeId: self.id, tmpl: Template.conver_new},
+				className: 'pagePlaceConvers',
+				itemsTemplate: 'item_conver',
+				items: getConversByPlace(this.params.placeId).fetch(),
+				sortDesc: true
+			};
+		}
 	});
 
 	this.route('pageSettings', {

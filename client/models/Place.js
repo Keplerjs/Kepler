@@ -32,7 +32,7 @@ Climbo.Place = Climbo.Class.extend({
 
 		self.id = placeId;
 
-	//REACTIVE SOURCES:
+		//REACTIVE SOURCES:
 		self._dep = new Deps.Dependency();
 		self.rData = function() {	//Data Reactive Source
 			self._dep.depend();
@@ -57,7 +57,7 @@ Climbo.Place = Climbo.Class.extend({
 		};
 		Deps.autorun( self.update );
 
-	//MAP OBJECTS:
+		//MAP OBJECTS:
 		self.icon$ = L.DomUtil.create('div');
 		self.icon = new L.NodeIcon({
 			className: (self.name ? 'marker-'+self.type : 'marker-gray'),
@@ -82,7 +82,7 @@ Climbo.Place = Climbo.Class.extend({
 
 	},//end of init()
 
-//PUBLIC METHODS:
+	//PUBLIC METHODS:
 	loadLoc: function() {
 		// if(Climbo.map.layers.cluster.hasLayer(this.marker))
 		// 	Climbo.map.layers.cluster.zoomToShowLayer(this.marker);
