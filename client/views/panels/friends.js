@@ -16,7 +16,7 @@ Template.panel_friends.rendered = function() {
 		},
 		sourceNode: function(user) {
 			var userItem$ = $('<li class="list-group-item"></li>');
-			UI.insert(UI.renderWithData(Template.item_user, user), userItem$[0]);
+			Blaze.renderWithData(Template.item_user, user, userItem$[0]);
 			return userItem$;
 		}
 	});

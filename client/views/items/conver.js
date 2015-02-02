@@ -18,9 +18,7 @@ Template.item_conver.rendered = function() {
 
 Template.item_conver.helpers({
 	usersIds: function() {
-		var users = _.last(_.without(this.usersIds, Climbo.profile.id), 3);
-		console.log(this.usersIds);
-		return users;
+		return _.last(_.without(this.usersIds, Climbo.profile.id), 3);
 	},
 	tit: function() {
 		if(this.placeId)

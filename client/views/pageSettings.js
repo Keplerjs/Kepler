@@ -58,8 +58,6 @@ Template.pageSettings.events({
 		e.preventDefault();
 		var typePlace = $(e.originalEvent.target).data('type');
 
-		console.log(e.originalEvent.target)
-
 		if(_.contains(Climbo.profile.data.likeplaces, typePlace))
 			Meteor.users.update(Meteor.userId(), { $pull:{likeplaces: typePlace} });
 		else

@@ -22,8 +22,6 @@ Template.panel_tracks.helpers({
 
 		if(!rdata || !_.isArray(rdata.tracks)) return false;//non togliere
 
-console.log(rdata.tracks);
-
 		var tracks = _.filter(rdata.tracks, function(track) {
 			return track && track.properties.tipo==='access';
 		});

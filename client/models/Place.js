@@ -50,9 +50,6 @@ Climbo.Place = Climbo.Class.extend({
 
 			_.extend(self, self.data, self.cache);
 
-			if(comp && comp.stopped)
-				console.log('place autorun STOPPED',self.id, self.name, self.data);
-
 			self._dep.changed();
 		};
 		Deps.autorun( self.update );
@@ -66,13 +63,13 @@ Climbo.Place = Climbo.Class.extend({
 		self.marker = new L.Marker(self.loc, {icon: self.icon});
 		self.marker.place = self;
 		self.marker.on('add', function() {
-				UI.insert(UI.renderWithData(Template.marker_checkins, self), self.icon$);
+				Blaze.renderWithData(Template.marker_checkins, self, self.icon$);
 				//renderizza il template dopo l'inserimento nel DOM
 			})
 			.on('click mousedown', function(e) {
 				if(!this._popup) {
 					self.popup$ = L.DomUtil.create('div','popup-place');
-					UI.insert(UI.renderWithData(Template.popup_place, self), self.popup$);
+					Blaze.renderWithData(Template.popup_place, self, self.popup$);
 					this.bindPopup(self.popup$, { closeButton:false, minWidth:180, maxWidth:320 });
 				}
 			})

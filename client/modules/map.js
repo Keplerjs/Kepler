@@ -39,7 +39,7 @@ layers.cluster = new L.MarkerClusterGroup({
 			return getCheckinsCountByPlaces(placeIds);
 		};
 		
-		UI.insert(UI.renderWithData(Template.marker_cluster, cluster), icon$);
+		Blaze.renderWithData(Template.marker_cluster, cluster, icon$);
 		return new L.NodeIcon({className:'marker-cluster', nodeHtml: icon$ });
 	},
 	maxClusterRadius: 40,
@@ -85,7 +85,7 @@ layers.geojson = new L.GeoJSONAutoClear(null, {
 		
 		if(tmpl) {
 			popup$ = document.createElement('div');
-			UI.insert(UI.renderWithData(tmpl, feature.properties), popup$);
+			Blaze.renderWithData(tmpl, feature.properties, popup$);
 			layer.bindPopup(popup$, {closeButton:false} );
 		}
 	}
@@ -133,11 +133,9 @@ controls.gps = L.control.gps({
 	Climbo.profile.setLoc(null);
 })
 .on('gpslocated', function(e) {
-	//console.log('gpslocated',e.latlng.toString());
 	Climbo.profile.setLoc([e.latlng.lat,e.latlng.lng]);
 })
 .on('gpsactivated', function(e) {	//run after gpslocated
-	//console.log('gpsactivated',e);
 	Climbo.alerts.show(Climbo.i18n.ui.alerts.gpson,'success');
 	Climbo.profile.user.icon.animate();
 });
@@ -175,7 +173,7 @@ controls.search = L.control.search({
 	},
 	callTip: function(key, data) {
 		var tip = L.DomUtil.create('div','search-tip');
-		UI.insert(UI.renderWithData(Template.place_search_tip, data), tip);
+		Blaze.renderWithData(Template.place_search_tip, data, tip);
 		return tip;
 	}
 })
@@ -187,7 +185,7 @@ controls.search = L.control.search({
 controls.alerts = _.extend(L.control({position:'topright'}), {
 	onAdd: function(map) {
 		var tmpDiv = L.DomUtil.create('div','leaflet-control leaflet-control-alerts');
-		UI.insert(UI.render(Template.control_alerts), tmpDiv);
+		Blaze.render(Template.control_alerts, tmpDiv);
 		return tmpDiv;
 	}
 });
@@ -196,7 +194,7 @@ controls.alerts = _.extend(L.control({position:'topright'}), {
 buttons.status = _.extend(L.control({position:'topleft'}), {
 	onAdd: function(map) {
 		var tmpDiv = L.DomUtil.create('div','leaflet-control leaflet-control-status');
-		UI.insert(UI.render(Template.control_status), tmpDiv);
+		Blaze.render(Template.control_status, tmpDiv);
 		return tmpDiv;
 	}
 });
@@ -204,7 +202,7 @@ buttons.status = _.extend(L.control({position:'topleft'}), {
 buttons.profile = _.extend(L.control({position:'bottomleft'}), {
 	onAdd: function(map) {
 		var tmpDiv = L.DomUtil.create('div','leaflet-control leaflet-control-profile');
-		UI.insert(UI.render(Template.control_profile), tmpDiv);
+		Blaze.render(Template.control_profile, tmpDiv);
 		return tmpDiv;
 	}
 });
@@ -212,7 +210,7 @@ buttons.profile = _.extend(L.control({position:'bottomleft'}), {
 buttons.friends = _.extend(L.control({position:'bottomright'}), {
 	onAdd: function(map) {
 		var tmpDiv = L.DomUtil.create('div','leaflet-control leaflet-control-friends');
-		UI.insert(UI.render(Template.control_friends), tmpDiv);
+		Blaze.render(Template.control_friends, tmpDiv);
 		return tmpDiv;
 	}
 });
@@ -232,8 +230,6 @@ Climbo.map = {
 
 	initMap: function(opts, callbackMap) {		//render map and add controls/layers
 
-		//console.log('Climbo.map.initMap');
-
 		Climbo.map.initialized = true;
 		
 		Climbo.map.leafletMap = map = L.map('map', {
@@ -251,8 +247,6 @@ Climbo.map = {
 		panels.place = L.control.sidebar('place', {position: 'right', autoPan:false});			
 		panels.user = L.control.sidebar('user', {position: 'right', autoPan:false});
 		//initilized after DOM ready
-
-console.log('initMap',map);
 
 		_.invoke([
 			panels.profile, panels.friends, panels.place, panels.user,

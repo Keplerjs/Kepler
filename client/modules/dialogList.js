@@ -37,13 +37,12 @@ Climbo.dialogList = {
 			opts.items.reverse();
 		
 		if(opts.header)
-			UI.insert( UI.renderWithData(opts.header.tmpl, opts.header), header$.get(0) );
+			Blaze.renderWithData(opts.header.tmpl, opts.header, header$.get(0) );
 
 		_.each(opts.items, function(item) {
-			UI.insert(
-				UI.renderWithData(Template.dialog_list_item,
-				_.extend(item, {tmpl: opts.template ? Template[opts.template] : item.tmpl })
-			), list$.get(0) );
+			Blaze.renderWithData(Template.dialog_list_item,
+				_.extend(item, {tmpl: opts.template ? Template[opts.template] : item.tmpl }),
+				list$.get(0) );
 		});
 
 		dialog$.modal();

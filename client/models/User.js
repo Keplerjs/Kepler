@@ -79,7 +79,7 @@ Climbo.User = Climbo.Class.extend({
 			.on('click', function(e) {
 				if(!this._popup) {
 					self.popup$ = L.DomUtil.create('div','popup-user');
-					UI.insert(UI.renderWithData(Template.item_user, self), self.popup$);
+					Blaze.renderWithData(Template.item_user, self, self.popup$);
 					this.bindPopup(self.popup$, { closeButton:false });
 				}
 			})

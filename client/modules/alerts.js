@@ -28,7 +28,7 @@ Climbo.alerts = {
 			maxAlerts = 3;
 		
 		if(list$.get(0))
-			UI.insert(UI.renderWithData(Template.item_alert,{msg: html, type: type}), list$.get(0), last$);
+			Blaze.renderWithData(Template.item_alert,{msg: html, type: type}, list$.get(0), last$);
 
 		if(nAlerts >= maxAlerts) {
 			list$.find('.alert:nth-last-child('+(1+nAlerts-maxAlerts)+')').slideUp('fast',function(){ $(this).remove(); });
