@@ -232,12 +232,15 @@ Climbo.map = {
 
 		Climbo.map.initialized = true;
 		
-		Climbo.map.leafletMap = map = L.map('map', L.Util.extend(opts, {
-			zoomControl: false,
-			attributionControl: false,
+		map = L.map('map', L.Util.extend(opts, {
+			maxBounds: L.latLngBounds(opts.maxBounds),
 			center: L.latLng(opts.center),
-			maxBounds: L.latLngBounds(opts.maxbbox)
+			attributionControl: false,
+			zoomControl: false
 		}) );
+
+		if(opts.bounds)
+			map.fitBounds(L.latLngBounds(opts.bounds));
 
 		panels.profile = L.control.sidebar('profile', {position: 'left',  autoPan:false});
 		panels.friends = L.control.sidebar('friends', {position: 'right', autoPan:false});
