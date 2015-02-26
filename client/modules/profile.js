@@ -12,7 +12,6 @@ Climbo.profile = {
 	user: null,		//my istance of Climbo.User
 	placeCheckin: null,
 	friends: [],	//istances of friends
-	convers: [],	//convers
 	favorites: [],	//favorites istances of places
 	notifs: [],		//notifs of user
 	//TODO rename fields in db notif to notifs
@@ -23,18 +22,17 @@ Climbo.profile = {
 		friends: new Deps.Dependency()
 	},
 
-	initProfile: function() {
+	initProfile: function(callbackProfile) {
 
-		//console.log('Climbo.profile.initProfile');
-
+		if(Climbo.profile.initialized)
+			return false;
+		
 		Climbo.profile.initialized = true;
 
 		Deps.autorun(function(comp) {
 
 			var userData = Meteor.user();
 			
-			//console.log('Climbo.profile.autorun',userData);
-
 			if(!userData)	//userData not logget
 				return false;	//unset profile.user, profile.id, Climbo.profile.data
 
@@ -55,6 +53,9 @@ Climbo.profile = {
 			$('#friends #switch_online').bootstrapSwitch('state', Climbo.profile.data.online);
 			//patch for sync online state after switch_online.rendered
 		});
+
+		if($.isFunction(callbackProfile))
+			callbackProfile(Climbo.profile);
 	},
 	getOnline: function() {
 		Climbo.profile._deps.online.depend();
@@ -144,13 +145,6 @@ Climbo.profile = {
 		else
 			Climbo.profile.friends = [];
 	},
-	loadConvers: function() {
-		if(!_.isEmpty(Climbo.profile.data.convers))
-			return Meteor.subscribe('conversByIds', Climbo.profile.data.convers, function() {
-
-				Climbo.profile.convers = getConversByIds(Climbo.profile.data.convers).fetch();
-			});
-	},
 	loadFavorites: function() {
 		if(!_.isEmpty(Climbo.profile.data.favorites))
 			return Meteor.subscribe('placesByIds', Climbo.profile.data.favorites, function() {
@@ -169,7 +163,6 @@ Climbo.profile = {
 		Climbo.profile.setOnline(false);
 		Meteor.logout(function(err) {
 			//TODO esegui Climbo.map.destroyMap();
-			Climbo.profile.initialized = false;
 		});
 	}
 };

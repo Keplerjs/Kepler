@@ -87,3 +87,11 @@
 	font-size: 12px;
 	line-height: 14px;
 }
+
+
+ .item-conver-new {
+ 	background: #eee;
+ 	margin:0;
+ 	padding: 8px 4px;
+ 	overflow: hidden;
+ }

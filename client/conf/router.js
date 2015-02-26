@@ -7,43 +7,29 @@ Router.configure({
 Router.onBeforeAction(function(){
 
 	if(!(Meteor.loggingIn() || Meteor.user()))
-		Router.go('intro');
+		Router.go('pageIntro');
 
 	this.next();
 
-}, {except: ['pageIntro', 'forgotpassword', 'resetPassword', 'verifyEmail']});
-
-//TODO Router.setTemplateNameConverter(function (str) { return str; });
-
-/*
-Template.panel_profile.events({
-	'click .profile-btn-stars': function() {
-		Climbo.profile.loadFavorites();
-	},
-});
-	pageSettings: "Impostazioni profilo",
-	pageFavorites: "Luoghi preferiti",
-	pageConvers: "Messaggi",
-	pageConversPlace: "Bacheca di",
-	pageConversPrivate: "Conversazione privata",
-	pageCheckins: "Climbers a",
-	pageSectors: "Settori a"
-*/
-
+}, {except: ['pageIntro', 'forgotPassword', 'resetPassword', 'verifyEmail']});
 
 Router.map(function() {
 
 	this.route('pageMap', {
 		path: '/',
+		template: 'pageMap',
 		onBeforeAction: function() {
 			this.next();
 		}
-/*		,action: function () {
+		,action: function () {
+
+			console.log('render pageMap');
+
 			if(this.ready())
 				this.render();
 			else
 				this.render('pageLoading');
-		}*/
+		}
 	});
 
     this.route('pageIntro', {
@@ -86,27 +72,39 @@ Router.map(function() {
 		path: '/convers',
 		template: 'pageList',
 		waitOn: function() {
-			return Climbo.profile.loadConvers();
+			return Meteor.subscribe('conversByIds', Climbo.profile.data.convers);
 		},
 		data: function() {
 			return {
 				className: 'pageConvers',
-				itemsTemplate: 'item_conver',				
-				items: Climbo.profile.convers,
+				itemsTemplate: 'itemConver',
+				items: getConversByIds(Climbo.profile.data.convers).fetch(),
 				sortDesc: true
 			};
 		}
 	});
-
+	
 	this.route('pageConver', {
 		path: '/convers/:convId',
-		template: 'pageList',
-		onBeforeAction: function() {
-			Climbo.convers.show(this.params.convId);
+		template: 'pageConver',
+		waitOn: function() {
+			return Meteor.subscribe('converById', this.params.convId);
+		},
+		data: function() {
+			var convData = getConverById(this.params.convId).fetch()[0];
+/*
+var convData = getConverById(convId).fetch()[0],
+title = convData.title || Climbo.i18n.ui.titles.msgpriv,
+place = Climbo.newPlace(convData.placeId),
+placeName = convData.placeId ? _.str.capitalize(place.name)+': ' : '',
+usersItems = _.map(convData.usersIds, Climbo.newUser);
+title$.html('<i class="icon icon-mes"></i> '+ placeName + title  );
+*/
+			convData.title = convData.title || Climbo.i18n.ui.titles.pageConver;
+			convData.usersItems = _.map(convData.usersIds, Climbo.newUser);
+
+			return convData;
 		}
-/*		,data: function() {
-			return Tickets.findOne(this.params.ticketId);
-		}*/
 	});
 
 	this.route('pagePlaceConvers', {
@@ -118,9 +116,12 @@ Router.map(function() {
 		data: function() {
 			return {
 				//title: '<i class="icon icon-mes"></i> '+_.template(Climbo.i18n.ui.titles.pagePlaceConvers, self),
-				//header: {placeId: self.id, tmpl: Template.conver_new},
 				className: 'pagePlaceConvers',
-				itemsTemplate: 'item_conver',
+				header: {
+					template: 'itemConverNew',
+					data: {placeId: this.params.placeId}
+				},
+				itemsTemplate: 'itemConver',
 				items: getConversByPlace(this.params.placeId).fetch(),
 				sortDesc: true
 			};

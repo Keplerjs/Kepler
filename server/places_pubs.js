@@ -2,7 +2,7 @@
 Meteor.publish('placesByBBox', function(bbox) {
 	if(this.userId) {
 		var cur = getPlacesByBBox(bbox);
-		console.log('Pub: placesByBBox ', cur.count() , bbox);
+		console.log('Pub: placesByBBox ', cur.count() );
 		return cur;
 	}
 	else

@@ -2,9 +2,6 @@
 	"debug": false,
 	"public": {
 		"editPlaces": false,
-		"urls": {
-			"static": "http://static.climbo.local/"
-		},
 		"searchMinLen": 1,
 		"typeDelay": 300,		
 		"maxTracks": 2,
@@ -25,7 +22,10 @@
 			"maxZoom": 19,
 			"center": [42.319851, 12.701923],
 			"maxBounds": [[36.282794, 5.361328], [47.542735, 21.071777]]
-		}		
+		},
+		"urls": {
+			"static": "http://static.climbo.local/"
+		}
 	},
 	"urls": {
 		"aspect": "http://localhost/maps/dem/aspect.php",

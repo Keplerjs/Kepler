@@ -230,6 +230,9 @@ Climbo.map = {
 
 	initMap: function(opts, callbackMap) {		//render map and add controls/layers
 
+		if(Climbo.map.initialized)
+			return false;
+		
 		Climbo.map.initialized = true;
 		
 		map = L.map('map', L.Util.extend(opts, {
@@ -238,9 +241,6 @@ Climbo.map = {
 			attributionControl: false,
 			zoomControl: false
 		}) );
-
-		if(opts.bounds)
-			map.fitBounds(L.latLngBounds(opts.bounds));
 
 		panels.profile = L.control.sidebar('profile', {position: 'left',  autoPan:false});
 		panels.friends = L.control.sidebar('friends', {position: 'right', autoPan:false});
@@ -304,9 +304,6 @@ Climbo.map = {
 		Session.set('panelPlaceId', placeId );
 		//TODO spostare in Climbo.Place.loadPanel()
 		
-		Climbo.dialogList.hide();
-		Climbo.convers.hide();
-		
 		if(panelAutoClose())
 			panels.profile.hide();
 		
@@ -329,9 +326,6 @@ Climbo.map = {
 		Session.set('panelUserId', userId );
 		//TODO spostare in Climbo.User.loadPanel()
 
-		Climbo.dialogList.hide();
-		Climbo.convers.hide();
-
 		if(panelAutoClose())
 			panels.profile.hide();
 		
@@ -341,9 +335,6 @@ Climbo.map = {
 	},
 
 	loadLoc: function(loc) {
-
-		Climbo.dialogList.hide();
-		Climbo.convers.hide();
 
 		if(panelAutoClose())
 			_.invoke(panels,'hide');

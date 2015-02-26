@@ -9,7 +9,7 @@ getMsgsByConver = function(convId) {
 addMsgToConver = function(convId, body) {
 
 	var convData = Convers.findOne(convId),
-		lastMsg = convData.lastMsg,
+		lastMsg = convData && convData.lastMsg,
 		newMsg = {
 			'convId': convId,
 			'userId': Meteor.userId(),

@@ -4,10 +4,12 @@
 	{{> navbar}}
 
 	<section class="container {{className}}" id="pageList">
-		<div class="header-item">
-			{{header}}
-		</div>
 		<div class="list-group list-items">
+		{{#if header}}
+			<div class="list-group-item header-item">
+				{{> Template.dynamic template=this.header.template data=this.header.data}}
+			</div>
+		{{/if}}
 		{{#each items}}
 			<div class="list-group-item">
 			{{> Template.dynamic template=this.template}}

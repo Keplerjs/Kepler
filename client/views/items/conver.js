@@ -1,6 +1,5 @@
 
-
-Template.item_conver.rendered = function() {
+Template.itemConver.rendered = function() {
 	
 	this.$('.conver-btn-del').btsConfirmButton({
 			msg: Climbo.i18n.ui.btns.converdel
@@ -16,7 +15,7 @@ Template.item_conver.rendered = function() {
 		});
 };
 
-Template.item_conver.helpers({
+Template.itemConver.helpers({
 	usersIds: function() {
 		return _.last(_.without(this.usersIds, Climbo.profile.id), 3);
 	},
@@ -27,5 +26,23 @@ Template.item_conver.helpers({
 			return '<small class="text-gray">'+_.str.quote(_.str.truncate(_.str.stripTags(this.lastMsg.body), 30))+'</small>';
 		else
 			return Climbo.i18n.ui.titles.msgpriv;
+	}
+});
+
+Template.itemConverNew.events({
+	'click .conver-btn-new': function(e,tmpl) {
+		e.preventDefault();
+		var title = _.str.clean(tmpl.$('.conver-txt-new').val());
+		
+		if(!_.str.isBlank(title))
+			Climbo.convers.newConverInPlace(title, this.placeId);
+		//ricarica elenco convers di place
+	},
+	'keydown .conver-txt-new': function(e,tmpl) {
+		if(e.keyCode===13)//enter
+		{
+			e.preventDefault();
+			tmpl.$('.conver-btn-new').trigger('click');
+		}
 	}
 });
