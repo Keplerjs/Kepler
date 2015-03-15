@@ -17,11 +17,13 @@ export PORT=8800
 if [ $MYIP = '127.0.0.1' ]; then
 	echo $MYIP
 	export ROOT_URL="http://climbo.local:$PORT"
-	mrt run --port $PORT $OPTS --settings settings.json
+	#mrt run --port $PORT $OPTS --settings settings.json
+	meteor --port $PORT --production --settings settings.json
 #	mrt run --port $PORT $OPTS --settings settings.json --production
 else
 	export ROOT_URL="http://climbo.net"
-	mrt run --port $PORT $OPTS --production --settings settings.json
+	#mrt run --port $PORT $OPTS --production --settings settings.json
+	meteor --port $PORT --production --settings settings.json
 #	mrt run --port $PORT --settings settings.json
 # 2>&1 > $LOG &
 #--raw-logs 2> $ERR 1> $LOG &

@@ -3,9 +3,6 @@
 fields con valore -1 sono da riempire in seguito, vedi tracks e pois
 da utenti o da processo esterno
 
-PHP MONGO:
-sudo pecl upgrade mongo
-
 spostamento fields profile fuori:
 db.item.find(conditions...).forEach( function (doc) {
   doc.field1 = doc.field2; 

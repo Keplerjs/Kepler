@@ -1,3 +1,9 @@
+
+
+POI BASATI SU OVERPASS
+https://www.npmjs.com/package/query-overpass#usage
+
+
 KADIRA MONITOR:
 	mrt add kadira
 Add following code to server/kadira.js
