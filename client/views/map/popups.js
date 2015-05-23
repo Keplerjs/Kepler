@@ -17,9 +17,17 @@ Template.popup_place.events({
 	},
 	'click .popup-btn-checkins': function(e,tmpl) {
 		this.loadCheckins();
-	}
+	},
 //	debug actions
-	,'click .popup-move': function(e,tmpl) {
+	'click .popup-clone': function(e,tmpl) {
+		if(Meteor.settings.public.editPlaces)
+			Meteor.call('clonePlace', this.id, function(err, newPlaceId) {
+				Meteor.subscribe('placeByIds', [newPlaceId], function() {	//carica tutti i dati della place
+					Climbo.newPlace(newPlaceId);//.loadLoc();
+				});
+			});
+	},
+	'click .popup-move': function(e,tmpl) {
 		if(Meteor.settings.public.editPlaces) {
 			
 			//TODO conferma dragdrop
@@ -37,15 +45,7 @@ Template.popup_place.events({
 
 			this.marker.switchDrag();			
 		}
-	},
-	'click .popup-clone': function(e,tmpl) {
-		if(Meteor.settings.public.editPlaces)
-			Meteor.call('clonePlace', this.id, function(err, newPlaceId) {
-				Meteor.subscribe('placeByIds', [newPlaceId], function() {	//carica tutti i dati della place
-					Climbo.newPlace(newPlaceId);
-				});
-			});
-	},
+	},	
 	'click .popup-del': function(e,tmpl) {
 		if(Meteor.settings.public.editPlaces) {
 			var that = this,

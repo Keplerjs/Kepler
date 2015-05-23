@@ -1,6 +1,5 @@
 {
   "packages": {
-    "googlemaps-server": {},
     "device-detection": {},
     "accounts-ui-bootstrap-3": {},
     "imagemagick": {}

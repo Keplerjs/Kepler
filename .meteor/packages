@@ -9,10 +9,11 @@ accounts-google
 email
 standard-app-packages
 http
-googlemaps-server
 device-detection
 accounts-ui-bootstrap-3
 coffeescript
 imagemagick
 iron:router
 
+cunneen:json-editor
+stefcud:googlemaps-server

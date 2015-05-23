@@ -98,7 +98,7 @@ Meteor.methods({
 		if(!Meteor.settings.public.editPlaces) return null;
 
 		var place = getPlaceById(placeId).fetch()[0],
-			offset = 0.005;
+			offset = 0.008;
 
 		place.loc[0] += offset;
 		place.loc[1] += offset;
