@@ -1,6 +1,5 @@
 {
   "packages": {
-    "device-detection": {},
     "accounts-ui-bootstrap-3": {},
     "imagemagick": {}
   }
