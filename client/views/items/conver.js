@@ -2,7 +2,7 @@
 Template.itemConver.rendered = function() {
 	
 	this.$('.conver-btn-del').btsConfirmButton({
-			msg: Climbo.i18n.ui.btns.converdel
+			msg: i18n('ui.btns.converdel')
 		}, function(e) {
 			
 			var btn$ = $(e.target),
@@ -25,7 +25,7 @@ Template.itemConver.helpers({
 		else if(this.lastMsg)
 			return '<small class="text-gray">'+_.str.quote(_.str.truncate(_.str.stripTags(this.lastMsg.body), 30))+'</small>';
 		else
-			return Climbo.i18n.ui.titles.msgpriv;
+			return i18n('ui.titles.msgpriv');
 	}
 });
 

@@ -117,11 +117,11 @@ layers.places = new L.LayerJSON({
 
 controls.zoom = L.control.zoom();
 
-controls.attrib = L.control.attribution({prefix: Climbo.i18n.ui.controls.attrib, position:'topright' });
+controls.attrib = L.control.attribution({prefix: i18n('ui.controls.attrib'), position:'topright' });
 
 controls.gps = L.control.gps({
-	title: Climbo.i18n.ui.controls.gps.title,
-	textErr: Climbo.i18n.ui.controls.gps.error,
+	title: i18n('ui.controls.gps.title'),
+	textErr: i18n('ui.controls.gps.error'),
 	marker: new L.Marker([0,0], {
 		icon: L.divIcon({className: 'marker-gps'})
 	}),
@@ -136,15 +136,15 @@ controls.gps = L.control.gps({
 	Climbo.profile.setLoc([e.latlng.lat,e.latlng.lng]);
 })
 .on('gpsactivated', function(e) {	//run after gpslocated
-	Climbo.alerts.show(Climbo.i18n.ui.alerts.gpson,'success');
+	Climbo.alerts.show(i18n('ui.alerts.gpson'),'success');
 	Climbo.profile.user.icon.animate();
 });
 
 controls.search = L.control.search({
 	zoom: 15,
 	minLength: Meteor.settings.public.searchMinLen,		
-	text: Climbo.i18n.ui.controls.search.text,
-	textErr: Climbo.i18n.ui.controls.search.error,
+	text: i18n('ui.controls.search.text'),
+	textErr: i18n('ui.controls.search.error'),
 	autoType: false, tipAutoSubmit: true, delayType: 800,	
 	autoCollapse: false, autoCollapseTime: 6000,
 	animateLocation: true, markerLocation: false,

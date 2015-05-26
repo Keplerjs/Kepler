@@ -9,11 +9,11 @@ accounts-google
 email
 standard-app-packages
 http
-accounts-ui-bootstrap-3
 coffeescript
-imagemagick
 iron:router
 
 cunneen:json-editor
 stefcud:googlemaps-server
 mystor:device-detection
+ian:accounts-ui-bootstrap-3
+anti:i18n

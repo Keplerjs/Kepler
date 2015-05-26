@@ -13,7 +13,7 @@ Climbo.alerts = {
 
 	show: function(html, type) {
 
-		//TODO forse includere _.template(Climbo.i18n.ui.alerts.XXX,data)
+		//TODO forse includere _.template(i18n('ui.alerts.XXX'),data)
 		//in modo da usare Climbo.alerts.show(idalert,data)
 		
 		if(Meteor.settings.public.showAlerts === false || html==='') return false;
@@ -72,14 +72,14 @@ Climbo.alerts = {
 					//console.log('CHANGED',user.username,fields);
 
 					if(fields.online)
-						Climbo.alerts.show(_.template(Climbo.i18n.ui.alerts.useronline, user),'success');
+						Climbo.alerts.show(_.template(i18n('ui.alerts.useronline'), user),'success');
 
 					if(fields.loc)
-						Climbo.alerts.show(_.template(Climbo.i18n.ui.alerts.usergps, user),'map-user');
+						Climbo.alerts.show(_.template(i18n('ui.alerts.usergps'), user),'map-user');
 
 					if(fields.checkin) {
-						user.placename = Climbo.newPlace(fields.checkin).name || Climbo.i18n.ui.labels.noname;
-						Climbo.alerts.show(_.template(Climbo.i18n.ui.alerts.usercheckin, user),'checkin');
+						user.placename = Climbo.newPlace(fields.checkin).name || i18n('ui.labels.noname');
+						Climbo.alerts.show(_.template(i18n('ui.alerts.usercheckin'), user),'checkin');
 					}
 				}
 			});
@@ -98,7 +98,7 @@ Climbo.alerts = {
 
 // 		 	if(fields.checkins.length > 1 && !_.contains(fields.checkins,Climbo.profile.id))
 // 				Climbo.alerts.show(_.template(
-// 						Climbo.i18n.ui.alerts.placecheckins, {
+// 						i18n('ui.alerts.placecheckins'), {
 // 							name: place.name,
 // 							users: fields.checkins.length
 // 						}),'users');

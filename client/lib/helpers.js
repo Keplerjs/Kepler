@@ -8,10 +8,6 @@ UI.registerHelper('or', function() {
 	return _.some(_.initial(arguments));
 });
 
-UI.registerHelper('i18n', function(path) {
-	return Climbo.util.getPath(Climbo.i18n, path);
-});
-
 UI.registerHelper('newUser', function(id) {
 	return Climbo.newUser(id);
 });
@@ -69,7 +65,7 @@ UI.registerHelper('sunset', function(ll) {
 });
 
 UI.registerHelper('placeType', function(type) {
-	return Climbo.i18n.ui.places[type] || '';
+	return i18n('ui.places.'+type) || '';
 });
 
 UI.registerHelper('navUrl', function(loc) {

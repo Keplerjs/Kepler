@@ -23,7 +23,7 @@ Template.user_buttons.events({
 Template.user_buttons2.rendered = function() {
 	
 	this.$('.user-btn-del').btsConfirmButton({
-			msg: Climbo.i18n.ui.btns.delfriend
+			msg: i18n('ui.btns.delfriend')
 		}, function(e) {
 			Climbo.profile.removeFriend($(e.target).data('userid'));
 		});

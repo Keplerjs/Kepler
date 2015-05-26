@@ -14,7 +14,7 @@ Template.panel_pois.helpers({
 			return {
 				tipo: tipo,
 				count: val,
-				titolo: Climbo.i18n.ui.pois[tipo]
+				titolo: i18n('ui.pois.'+tipo)
 			};
 		});
 	}

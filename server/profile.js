@@ -146,7 +146,8 @@ Meteor.methods({
 
 		if(!this.userId) return null;
 
-		var fs = Npm.require('fs');
+		var imagemagick = Npm.require('imagemagick'),
+			fs = Npm.require('fs');
 
 		var name = Meteor.user().username +'_'+ Climbo.util.timeUnix(),
 			filename = Climbo.util.sanitizeFilename(name),
@@ -164,7 +165,7 @@ Meteor.methods({
 		//
 		console.log('uploadAvatar: resizing...');
 		try {
-			Imagemagick.crop({
+			imagemagick.crop({
 				srcPath: filebig,
 				dstPath: filemin,
 				width: 160,

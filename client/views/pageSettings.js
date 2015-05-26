@@ -4,7 +4,7 @@
 
 Template.pageSettings.helpers({
 	types: function() {
-		return _.map(Climbo.i18n.ui.places, function(v, type) {
+		return _.map( i18n('ui.places'), function(v, type) {
 			return {type: type, name: v, liked: _.contains(Climbo.profile.data.likeplaces, type) };
 		});
 	},
@@ -75,7 +75,7 @@ Template.pageSettings.events({
 
 		if(!Climbo.util.valid.image(file))
 			input$.next().text(
-				Climbo.i18n.errors.imageNotValid +
+				i18n('errors.imageNotValid') +
 				Climbo.util.human.filesize(Meteor.settings.public.maxImageSize)
 			);
 		else

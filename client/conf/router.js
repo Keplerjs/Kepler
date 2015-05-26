@@ -94,13 +94,13 @@ Router.map(function() {
 			var convData = getConverById(this.params.convId).fetch()[0];
 /*
 var convData = getConverById(convId).fetch()[0],
-title = convData.title || Climbo.i18n.ui.titles.msgpriv,
+title = convData.title || i18n('ui.titles.msgpriv'),
 place = Climbo.newPlace(convData.placeId),
 placeName = convData.placeId ? _.str.capitalize(place.name)+': ' : '',
 usersItems = _.map(convData.usersIds, Climbo.newUser);
 title$.html('<i class="icon icon-mes"></i> '+ placeName + title  );
 */
-			convData.title = convData.title || Climbo.i18n.ui.titles.pageConver;
+			convData.title = convData.title || i18n('ui.titles.pageConver');
 			convData.usersItems = _.map(convData.usersIds, Climbo.newUser);
 
 			return convData;
@@ -115,7 +115,7 @@ title$.html('<i class="icon icon-mes"></i> '+ placeName + title  );
 		},
 		data: function() {
 			return {
-				//title: '<i class="icon icon-mes"></i> '+_.template(Climbo.i18n.ui.titles.pagePlaceConvers, self),
+				//title: '<i class="icon icon-mes"></i> '+_.template(i18n('ui.titles.pagePlaceConvers'), self),
 				className: 'pagePlaceConvers',
 				header: {
 					template: 'itemConverNew',
