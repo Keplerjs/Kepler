@@ -174,7 +174,7 @@ Meteor.methods({
 			});
 		} catch(e) {
 			console.log('uploadAvatar: error ', e);
-			return Climbo.i18n.errors.imageNotValid;
+			return i18n('errors.imageNotValid');
 		}
 		console.log('uploadAvatar: resized', filemin);
 

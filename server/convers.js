@@ -66,7 +66,7 @@ delConver = function(convId) {
 		var leaveMsg = {
 			'userId': Meteor.userId(),
 			'createdAt': Climbo.util.timeUnix(),
-			'body': _.template(Climbo.i18n.ui.alerts.userleaveconv, Meteor.user())
+			'body': _.template(i18n('ui.alerts.userleaveconv'), Meteor.user())
 		};
 		Messages.insert(leaveMsg);
 		Meteor.users.update({_id: Meteor.userId() }, {
