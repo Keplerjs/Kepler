@@ -2,7 +2,6 @@ climbo.log
 climbo.pid
 npm-debug.log
 node_modules
-.meteor
 smart.lock
 packages
 public/users
