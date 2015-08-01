@@ -1,6 +1,6 @@
 
 <template name="popup_place">
-	<a class="btn btn-block btn-default popup-tit" href="#">
+	<a href="/place/{{id}}" class="btn btn-block btn-default popup-tit">
 		{{#if name}}<b>{{name}}</b>{{else}}<i>{{i18n 'ui.labels.noname'}}</i>{{/if}}
 		<!-- <span class="pull-right"><i class="icon icon-ar-right"></i></span> -->
 	</a>

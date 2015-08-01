@@ -6,9 +6,9 @@ Template.popup_place.helpers({
 });
 
 Template.popup_place.events({
-	'click .popup-tit': function(e,tmpl) {
+/*	'click .popup-tit': function(e,tmpl) {
 		this.loadPanel();
-	},
+	},*/
 	'click .popup-btn-tracks': function(e,tmpl) {
 		this.loadTracks();
 	},

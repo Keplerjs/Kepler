@@ -3,8 +3,6 @@ Template.pageMap.onRendered(function() {
 	
 	console.log('pageMap rendered');
 
-	console.log(this)
-
 	Climbo.map.initMap(Meteor.settings.public.map, function(map) {
 		console.log('Climbo.map.initMap callback');
 		Climbo.map.enableBBox();	//abilita caricamento markers

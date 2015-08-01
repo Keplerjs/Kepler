@@ -84,6 +84,10 @@ a.btn-gray:hover {
 	background: #999;
 }
 
+.panel-primary > .panel-heading a {
+	color: #fff
+}
+
 
 .btn-gray .badge {
 	background-color: #999;

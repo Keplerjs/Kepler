@@ -72,5 +72,5 @@ UI.registerHelper('navUrl', function(loc) {
 	//REF: https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html
 	//TODO da cambiare secondo il device
 
-	return "http://maps.apple.com/?ll="+loc.join(',');
+	return "http://maps.apple.com/?ll="+(loc?loc.join(','):'');
 });

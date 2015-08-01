@@ -72,9 +72,6 @@ Climbo.Place = Climbo.Class.extend({
 					Blaze.renderWithData(Template.popup_place, self, self.popup$);
 					this.bindPopup(self.popup$, { closeButton:false, minWidth:180, maxWidth:320 });
 				}
-			})
-			.on('dblclick', function(e) {
-				self.loadPanel();
 			});
 
 	},//end of init()
@@ -91,20 +88,6 @@ Climbo.Place = Climbo.Class.extend({
 			this.marker.fire('click');	//crea e apre il popup
 			this.icon.animate();
 		},400);
-	},
-	
-	loadPanel: function() {
-
-		var self = this;
-
-		Meteor.subscribe('placeById', self.id, function() {	//carica tutti i dati della place
-			
-			self.loadTracks(false);
-			self.loadPois(null,false);
-			//load in self.cache without show on map
-
-			Climbo.map.loadPanelPlace(self.id);
-		});
 	},
 
 	loadCheckins: function() {

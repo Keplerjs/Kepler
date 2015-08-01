@@ -35,19 +35,6 @@ Template.control_status.events({
 	}
 });
 
-//TODO spostare gestione eventi dentro Climbo.map.js con leaflet
-Template.control_profile.events({
-	'click a': function(e) {
-		Climbo.map.loadPanelProfile();
-	}
-});
-
-Template.control_friends.events({
-	'click a': function(e) {
-		Climbo.map.loadPanelFriends();
-	}
-});
-
 /* ALERTS */
 
 Template.control_alerts.events({

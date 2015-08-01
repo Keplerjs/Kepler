@@ -118,8 +118,10 @@
 }
 
 /* GPS */
-.leaflet-control-gps {
+.leaflet-control.leaflet-control-gps {
 	float: right;
+	clear: both;
+	z-index: 10;
 }
 .leaflet-control-gps .gps-button,
 .leaflet-control-gps .gps-button:hover {

@@ -54,6 +54,49 @@ Router.map(function() {
 		}
 	});
 
+	this.route('place', {
+		path: '/place/:placeId',
+		yieldRegions: {
+			'panelPlace': {to: 'sidebar'}
+		},
+		waitOn: function() {
+			return Meteor.subscribe('placeById', this.params.placeId);
+		},
+		data: function() {
+			return {
+				place: Climbo.newPlace(this.params.placeId)
+			}
+		}
+	});
+
+	this.route('place', {
+		path: '/place/:placeId/map',
+		onBeforeAction: function() {
+			Climbo.newPlace(this.params.placeId).loadLoc();
+		}
+	});	
+
+	this.route('pagePlaceConvers', {
+		path: '/place/:placeId/convers',
+		template: 'pageList',
+		waitOn: function() {
+			return Meteor.subscribe('conversByPlace', this.params.placeId);
+		},
+		data: function() {
+			return {
+				//title: '<i class="icon icon-mes"></i> '+_.template(i18n('ui.titles.pagePlaceConvers'), self),
+				className: 'pagePlaceConvers',
+				header: {
+					template: 'itemConverNew',
+					data: {placeId: this.params.placeId}
+				},
+				itemsTemplate: 'itemConver',
+				items: getConversByPlace(this.params.placeId).fetch(),
+				sortDesc: true
+			};
+		}
+	});
+
 	this.route('pageNotifs', {
 		path: '/notifications',
 		template: 'pageList',
@@ -122,27 +165,6 @@ title$.html('<i class="icon icon-mes"></i> '+ placeName + title  );
 			convData.usersItems = _.map(convData.usersIds, Climbo.newUser);
 
 			return convData;
-		}
-	});
-
-	this.route('pagePlaceConvers', {
-		path: '/place/:placeId/convers',
-		template: 'pageList',
-		waitOn: function() {
-			return Meteor.subscribe('conversByPlace', this.params.placeId);
-		},
-		data: function() {
-			return {
-				//title: '<i class="icon icon-mes"></i> '+_.template(i18n('ui.titles.pagePlaceConvers'), self),
-				className: 'pagePlaceConvers',
-				header: {
-					template: 'itemConverNew',
-					data: {placeId: this.params.placeId}
-				},
-				itemsTemplate: 'itemConver',
-				items: getConversByPlace(this.params.placeId).fetch(),
-				sortDesc: true
-			};
 		}
 	});
 

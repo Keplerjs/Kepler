@@ -256,10 +256,6 @@ Climbo.map = {
 		Climbo.map.leafletMap.remove();
 	},
 
-	loadPanelProfile: function() {
-		//TODO go to route
-		console.log('loadPanelProfile')
-	},
 	loadPanelPlace: function(placeId) {
 		
 		console.log('loadPanelPlace')
