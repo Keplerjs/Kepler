@@ -24,8 +24,6 @@
 .marker-anim,
 .icon,
 .leaflet-marker-icon,
-.control-profile,
-.control-friends,
 .control-waiting,
 .control-connected,
 .control-disconnected,
@@ -82,8 +80,6 @@
 .control-connected{ background-position: 0 -150px;  } 
 .control-waiting,
 .control-disconnect{ background-position: 0 -180px;  } 
-.control-profile{ background-position: 0 -210px;  } 
-.control-friends{ background-position: 0 -240px;  }
 
 /* MARKER */
 .marker-cluster{ background-position: -30px 0; } 
@@ -103,6 +99,10 @@
 
 /* MARKER POIS */
 .marker-poi{ background-position: -30px -360px; }
+
+/* ICON UI */
+.icon-profile{ background-position: 0 -210px;  } 
+.icon-friends{ background-position: 0 -240px;  }
 
 /* ICON POIS */
 .icon-parking{ background-position: -60px 0; } 

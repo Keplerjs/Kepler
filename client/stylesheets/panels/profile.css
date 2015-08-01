@@ -1,12 +1,4 @@
 
-#profile.panel {
-	border-right: 2px solid #888;
-	background:#999;
-}
-#profile > .panel-heading {
-	padding-right: 30px;
-}
-
 #profile .user-btn-name {
 	font-size: 1.2em;
 	color: #fff;

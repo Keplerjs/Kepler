@@ -12,7 +12,7 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    inkscape:export-ydpi="90"
    inkscape:export-xdpi="90"
-   inkscape:export-filename="/home/z4k/www/climbo.net/public/images/sprite.png"
+   inkscape:export-filename="/home/z4k/www/climbo/climbo.net/public/images/sprite.png"
    sodipodi:docname="sprite.svg"
    inkscape:version="0.48.3.1 r9886"
    version="1.1"
@@ -26,14 +26,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="6.363961"
-     inkscape:cx="63.399069"
-     inkscape:cy="65.672378"
+     inkscape:zoom="12.727922"
+     inkscape:cx="22.395317"
+     inkscape:cy="370.74468"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="1332"
-     inkscape:window-height="714"
+     inkscape:window-width="1886"
+     inkscape:window-height="1026"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -15098,7 +15098,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -17562,18 +17562,6 @@
            style="color:#000000;fill:#638419;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.79999995;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
       </g>
     </g>
-    <rect
-       style="opacity:0;color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       id="rect4766"
-       width="26.277546"
-       height="15.842753"
-       x="1.9205763"
-       y="659.56909"
-       rx="1.7805362"
-       ry="1.4837039"
-       inkscape:export-filename="/home/z4k/www/climbo/images/connect.png"
-       inkscape:export-xdpi="33"
-       inkscape:export-ydpi="33" />
     <g
        id="g4885"
        transform="matrix(0.36663481,0,0,0.36663481,-48.492245,663.9824)"
@@ -17875,14 +17863,15 @@
        inkscape:export-filename="/home/z4k/www/climbo_meteor/public/images/control-profile.png"
        inkscape:export-xdpi="28.914925"
        inkscape:export-ydpi="28.914925"
-       transform="matrix(0.31394806,0,0,0.32341595,-137.70881,461.61012)">
+       transform="matrix(0.2077873,0,0,0.20332229,-92.257461,535.9506)">
       <path
          inkscape:export-ydpi="11.868132"
          inkscape:export-xdpi="11.868132"
          inkscape:export-filename="/home/z4k/www/climbo/images/profile.png"
          style="fill:url(#linearGradient6828);fill-opacity:1;stroke:#939393;stroke-width:9.5771656;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.99215896;stroke-dasharray:none"
          d="m 487.16198,627.66418 c -11.45511,0 -20.73057,7.93098 -20.73057,17.69777 0,9.76686 9.27551,17.67785 20.73057,17.67792 11.45527,0 20.75058,-7.91106 20.75052,-17.67792 0,-9.76679 -9.29525,-17.69777 -20.75052,-17.69777 z m -20.25172,42.71818 c -5.30993,0 -12.7451,6.2016 -13.2085,12.989 -0.43045,6.30458 -0.89791,14.54209 -1.29691,21.86786 l 15.58284,0 1.53634,-14.8047 0.21948,14.8047 36.71247,0 0.0598,-15.32346 0.27934,15.32346 14.0066,0 c -0.39926,-7.33936 -0.88593,-15.59609 -1.31686,-21.90777 -0.46346,-6.7874 -7.91853,-12.94903 -13.22846,-12.94909 l -39.34619,0 z"
-         id="path5607" />
+         id="path5607"
+         inkscape:connector-curvature="0" />
       <path
          sodipodi:nodetypes="csssccsccccccccsccc"
          inkscape:export-ydpi="11.868132"
@@ -17890,7 +17879,8 @@
          inkscape:export-filename="/home/z4k/www/climbo/images/profile.png"
          id="path5584"
          d="m 487.16198,627.66418 c -11.45511,0 -20.73057,7.93098 -20.73057,17.69777 0,9.76686 9.27551,17.67785 20.73057,17.67792 11.45527,0 20.75058,-7.91106 20.75052,-17.67792 0,-9.76679 -9.29525,-17.69777 -20.75052,-17.69777 z m -20.25172,42.71818 c -5.30993,0 -12.7451,6.2016 -13.2085,12.989 -0.43045,6.30458 -0.89791,14.54209 -1.29691,21.86786 l 15.58284,0 1.53634,-16.27908 0.21948,16.27908 36.71247,0 0.0598,-16.27908 0.27934,16.27908 14.0066,0 c -0.39926,-7.33936 -0.88593,-15.59609 -1.31686,-21.90777 -0.46346,-6.7874 -7.91853,-12.94903 -13.22846,-12.94909 l -39.34619,0 3e-5,0 z"
-         style="fill:url(#linearGradient6830);fill-opacity:1;stroke:#e06800;stroke-width:3.56267452;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+         style="fill:url(#linearGradient6830);fill-opacity:1;stroke:#e06800;stroke-width:3.56267452;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         inkscape:connector-curvature="0" />
     </g>
     <g
        id="g5719"
@@ -18124,7 +18114,7 @@
        inkscape:export-ydpi="45.540592"
        inkscape:export-xdpi="45.540592"
        inkscape:export-filename="/home/z4k/www/climbo_meteor/public/images/control-users.png"
-       transform="matrix(0.25969079,0,0,0.28318818,-111.20108,522.0622)"
+       transform="matrix(0.16587544,0,0,0.19472346,-72.498775,573.66761)"
        id="g5707">
       <path
          style="fill:url(#linearGradient6832);fill-opacity:1;stroke:#939393;stroke-width:8;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.99215686;stroke-dasharray:none"
@@ -18133,14 +18123,16 @@
          sodipodi:nodetypes="csssccsssccccccccccccccccc"
          inkscape:export-filename="/home/z4k/www/climbo/images/users.png"
          inkscape:export-xdpi="15.44475"
-         inkscape:export-ydpi="15.44475" />
+         inkscape:export-ydpi="15.44475"
+         inkscape:connector-curvature="0" />
       <path
          inkscape:export-ydpi="15.44475"
          inkscape:export-xdpi="15.44475"
          inkscape:export-filename="/home/z4k/www/climbo/images/users.png"
          id="path5711"
          d="m 467.94032,618.60681 c -10.37061,0 -18.77517,7.17742 -18.77517,16.01956 0,8.84215 8.40456,16.00794 18.77517,16.00794 10.37075,0 18.77524,-7.16579 18.77524,-16.00794 0,-8.84214 -8.40449,-16.01956 -18.77524,-16.01956 z"
-         style="fill:url(#linearGradient6834);fill-opacity:1;stroke:#e06800;stroke-width:3.22538018;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+         style="fill:url(#linearGradient6834);fill-opacity:1;stroke:#e06800;stroke-width:3.22538018;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         inkscape:connector-curvature="0" />
       <path
          inkscape:export-ydpi="15.44475"
          inkscape:export-xdpi="15.44475"
@@ -18148,14 +18140,16 @@
          sodipodi:nodetypes="ccccsssszz"
          id="path5714"
          d="m 487.14825,663.60132 0,22.69927 29.78141,0 0.18045,-20.14633 9.93703,13.01108 c 4.34542,5.68968 14.32629,2.78497 9.07302,-5.52924 l -10.751,-17.01532 c -3.56204,-5.63755 -5.26232,-5.49092 -13.77435,-5.49092 l -14.05743,0 c -7.36712,0 -10.38913,3.57885 -10.38913,12.47146 z"
-         style="fill:url(#linearGradient6836);fill-opacity:1;stroke:#b3b3b3;stroke-width:2.62587643;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+         style="fill:url(#linearGradient6836);fill-opacity:1;stroke:#b3b3b3;stroke-width:2.62587643;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         inkscape:connector-curvature="0" />
       <path
          style="fill:url(#linearGradient6838);fill-opacity:1;stroke:#e06800;stroke-width:2.11887622;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          d="m 505.40149,626.165 c -6.81286,0 -12.33414,4.71512 -12.33414,10.52386 0,5.80875 5.52128,10.51624 12.33414,10.51624 6.81294,0 12.33418,-4.70749 12.33418,-10.51624 0,-5.80874 -5.52124,-10.52386 -12.33418,-10.52386 z"
          id="path5717"
          inkscape:export-filename="/home/z4k/www/climbo/images/users.png"
          inkscape:export-xdpi="15.44475"
-         inkscape:export-ydpi="15.44475" />
+         inkscape:export-ydpi="15.44475"
+         inkscape:connector-curvature="0" />
       <path
          sodipodi:nodetypes="ccccsccc"
          id="path5719"
@@ -18163,7 +18157,8 @@
          style="color:#000000;fill:url(#linearGradient6840);fill-opacity:1;fill-rule:nonzero;stroke:#cccccc;stroke-width:2.66000009;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
          inkscape:export-filename="/home/z4k/www/climbo/images/users.png"
          inkscape:export-xdpi="15.44475"
-         inkscape:export-ydpi="15.44475" />
+         inkscape:export-ydpi="15.44475"
+         inkscape:connector-curvature="0" />
       <path
          sodipodi:nodetypes="cc"
          style="fill:none;stroke:#bdbdbd;stroke-width:3.02074194;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
@@ -18171,7 +18166,8 @@
          id="path5721"
          inkscape:export-filename="/home/z4k/www/climbo/images/users.png"
          inkscape:export-xdpi="15.44475"
-         inkscape:export-ydpi="15.44475" />
+         inkscape:export-ydpi="15.44475"
+         inkscape:connector-curvature="0" />
       <path
          inkscape:export-ydpi="15.44475"
          inkscape:export-xdpi="15.44475"
@@ -18179,7 +18175,8 @@
          id="path5723"
          d="M 483.31394,697.37283 482.4068,674.12587"
          style="fill:none;stroke:#bdbdbd;stroke-width:3.02074194;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-         sodipodi:nodetypes="cc" />
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0" />
     </g>
     <g
        id="g5992"

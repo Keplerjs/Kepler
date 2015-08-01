@@ -5,13 +5,7 @@ var map = null,
 	initialized = false,
 	layers = {},
 	controls = {},
-	buttons = {},
-	panels = {};
-
-function panelAutoClose() {	//larghezza minima per auto chiusura panels
-	return $(window).width() < 600;
-	//TODO misurare larghezza panels con metodo .getOffset()
-}
+	buttons = {};
 
 L.GeoJSONAutoClear = L.GeoJSON.extend({
 	onAdd: function(map) {
@@ -115,11 +109,18 @@ layers.places = new L.LayerJSON({
 });
 ////LAYERS/
 
-controls.zoom = L.control.zoom();
+controls.zoom = L.control.zoom({
+	position: 'topright',
+	zoomOutText: '',
+	zoomInText: ''	
+});
 
-controls.attrib = L.control.attribution({prefix: i18n('ui.controls.attrib'), position:'topright' });
+controls.attrib = L.control.attribution({
+	prefix: i18n('ui.controls.attrib')
+});
 
 controls.gps = L.control.gps({
+	position: 'topright',
 	title: i18n('ui.controls.gps.title'),
 	textErr: i18n('ui.controls.gps.error'),
 	marker: new L.Marker([0,0], {
@@ -142,6 +143,7 @@ controls.gps = L.control.gps({
 
 controls.search = L.control.search({
 	zoom: 15,
+	position: 'topright',
 	minLength: Meteor.settings.public.searchMinLen,		
 	text: i18n('ui.controls.search.text'),
 	textErr: i18n('ui.controls.search.error'),
@@ -182,7 +184,7 @@ controls.search = L.control.search({
 	this._input.blur();
 });
 
-controls.alerts = _.extend(L.control({position:'topright'}), {
+controls.alerts = _.extend(L.control({position:'topleft'}), {
 	onAdd: function(map) {
 		var tmpDiv = L.DomUtil.create('div','leaflet-control leaflet-control-alerts');
 		Blaze.render(Template.control_alerts, tmpDiv);
@@ -191,26 +193,10 @@ controls.alerts = _.extend(L.control({position:'topright'}), {
 });
 ////CONTROLS/
 
-buttons.status = _.extend(L.control({position:'topleft'}), {
+buttons.status = _.extend(L.control({position:'topright'}), {
 	onAdd: function(map) {
 		var tmpDiv = L.DomUtil.create('div','leaflet-control leaflet-control-status');
 		Blaze.render(Template.control_status, tmpDiv);
-		return tmpDiv;
-	}
-});
-
-buttons.profile = _.extend(L.control({position:'bottomleft'}), {
-	onAdd: function(map) {
-		var tmpDiv = L.DomUtil.create('div','leaflet-control leaflet-control-profile');
-		Blaze.render(Template.control_profile, tmpDiv);
-		return tmpDiv;
-	}
-});
-
-buttons.friends = _.extend(L.control({position:'bottomright'}), {
-	onAdd: function(map) {
-		var tmpDiv = L.DomUtil.create('div','leaflet-control leaflet-control-friends');
-		Blaze.render(Template.control_friends, tmpDiv);
 		return tmpDiv;
 	}
 });
@@ -221,8 +207,6 @@ Climbo.map = {
 	initialized: initialized,
 
 	leafletMap: map,
-
-	panels: panels,
 
 	controls: controls,
 
@@ -241,33 +225,15 @@ Climbo.map = {
 			attributionControl: false,
 			zoomControl: false
 		}) );
-
-		panels.profile = L.control.sidebar('profile', {position: 'left',  autoPan:false});
-		panels.friends = L.control.sidebar('friends', {position: 'right', autoPan:false});
-		panels.place = L.control.sidebar('place', {position: 'right', autoPan:false});			
-		panels.user = L.control.sidebar('user', {position: 'right', autoPan:false});
-		//initilized after DOM ready
+		
+		Climbo.map.leafletMap = map;
 
 		_.invoke([
-			panels.profile, panels.friends, panels.place, panels.user,
-			controls.search, controls.gps, controls.zoom, controls.attrib, controls.alerts,
-			buttons.status, buttons.profile, buttons.friends,
-			layers.base, layers.geojson, layers.cluster
+			layers.base, layers.geojson, layers.cluster,			
+			controls.search, controls.gps, controls.zoom, buttons.status,
+			controls.alerts, controls.attrib
+			//buttons.status, buttons.profile, buttons.friends,
 		],'addTo', map);
-
-
-		//TODO if(Meteor.Device.isPhone())
-			// map
-			// .on('click', function(e) {
-			// 	panels.place.hide();
-			// 	panels.friends.hide();
-			// 	panels.user.hide();
-			// })
-			// .on('popupopen', function(e) {
-			// 	var px = map.project(e.popup._latlng);
-			// 	px.y -= e.popup._container.clientHeight/2
-			// 	map.panTo(map.unproject(px),{animate: true});
-			// });
 
 		//Fix solo per Safari evento resize! quando passa a schermo intero
 		$(window).on('orientationchange resize', function(e) {
@@ -289,55 +255,29 @@ Climbo.map = {
 	},
 
 	loadPanelProfile: function() {
-		if(panelAutoClose())
-		{
-			panels.place.hide();
-			panels.friends.hide();
-			panels.user.hide();
-		}
-		panels.profile.toggle();
+		//TODO go to route
+		console.log('loadPanelProfile')
 	},
 	loadPanelPlace: function(placeId) {
 		
-		panels.place.hide();
+		console.log('loadPanelPlace')
 
 		Session.set('panelPlaceId', placeId );
-		//TODO spostare in Climbo.Place.loadPanel()
-		
-		if(panelAutoClose())
-			panels.profile.hide();
-		
-		panels.friends.hide();
-		panels.user.hide();
-		panels.place.show();
 	},
 	loadPanelFriends: function() {
-		if(panelAutoClose())
-			panels.profile.hide();
 		
-		panels.place.hide();
-		panels.user.hide();
-		panels.friends.toggle();
+		console.log('loadPanelFriends');
 	},
 	loadPanelUser: function(userId) {
 
-		panels.user.hide();
+		console.log('loadPanelUser');
 
 		Session.set('panelUserId', userId );
-		//TODO spostare in Climbo.User.loadPanel()
-
-		if(panelAutoClose())
-			panels.profile.hide();
-		
-		panels.place.hide();
-		panels.friends.hide();
-		panels.user.show();
 	},
 
 	loadLoc: function(loc) {
 
-		if(panelAutoClose())
-			_.invoke(panels,'hide');
+		//HIDE ALL PANELS
 		
 		map.setView(loc, 15);
 	},
@@ -346,8 +286,7 @@ Climbo.map = {
 
 		geoData = L.Util.isArray(geoData) ? geoData : [geoData];
 
-		if(panelAutoClose())
-			Climbo.map.panels.place.hide();
+		//TODO close panel place
 
 		map.closePopup();
 

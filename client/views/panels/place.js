@@ -1,12 +1,12 @@
 
-Template.panel_place.helpers({
+Template.panelPlace.helpers({
 	place: function() {
 		if( Session.get('panelPlaceId') )
 			return Climbo.newPlace( Session.get('panelPlaceId') );
 	}
 });
 
-Template.panel_place.events({	
+Template.panelPlace.events({	
 	'click .place-btn-weather': function(e, tmpl) {
 		e.preventDefault();
 		this.loadWeather();

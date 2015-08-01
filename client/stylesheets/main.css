@@ -30,3 +30,10 @@ body {
 .loading-bar {
 	background: url('/images/loader-bar.gif') no-repeat center center #fff;
 }
+
+.container-full {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	border:1px solid red;
+}

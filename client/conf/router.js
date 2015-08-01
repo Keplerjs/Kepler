@@ -1,10 +1,11 @@
 
 Router.configure({
-	layoutTemplate: 'layout',
+	layoutTemplate: 'layoutMap',
 	loadingTemplate: 'pageLoading'
 });
 
 Router.onBeforeAction(function(){
+
 
 	if(!(Meteor.loggingIn() || Meteor.user()))
 		Router.go('pageIntro');
@@ -13,17 +14,50 @@ Router.onBeforeAction(function(){
 
 }, {except: ['pageIntro', 'forgotPassword', 'resetPassword', 'verifyEmail']});
 
+Router.onAfterAction(function(){
+
+	var sidebarRoutes = ['profile','friends','place','user'];
+
+	if( _.contains(sidebarRoutes, this.route.getName()) )
+		$('#sidebar').removeClass('collapsed');
+});
+
 Router.map(function() {
 
 	this.route('pageMap', {
 		path: '/',
-		template: 'pageMap',
-		onBeforeAction: function() {
-			this.next();
-		}
-		,action: function () {
+		action: function() {
 
-			console.log('render pageMap');
+			if(this.ready())
+				this.render();
+			else
+				this.render('pageLoading');
+		},
+		onAfterAction:  function() {
+			$('#sidebar').addClass('collapsed');
+		}
+	});
+
+	this.route('profile', {
+		path: '/profile',
+		yieldRegions: {
+			'panelProfile': {to: 'sidebar'},
+		},		
+		action: function () {
+
+			if(this.ready())
+				this.render();
+			else
+				this.render('pageLoading');
+		}	
+	});
+
+	this.route('friends', {
+		path: '/friends',
+		yieldRegions: {
+			'panelFriends': {to: 'sidebar'}
+		},
+		action: function () {
 
 			if(this.ready())
 				this.render();
@@ -31,7 +65,7 @@ Router.map(function() {
 				this.render('pageLoading');
 		}
 	});
-
+ 
     this.route('pageIntro', {
 		path: '/intro'
 	});

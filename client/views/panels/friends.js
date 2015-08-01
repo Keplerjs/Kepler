@@ -1,5 +1,5 @@
 
-Template.panel_friends.rendered = function() {
+Template.panelFriends.rendered = function() {
 	
 	this.$('.list-group').btsListFilter('.users-inp-search', {
 		itemChild: '.user-btn-name',

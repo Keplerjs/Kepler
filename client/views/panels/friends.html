@@ -1,9 +1,10 @@
 
-<template name="panel_friends">
+<template name="panelFriends">
 
+<div id="friends" class="panel panel-white">
 	<div class="panel-heading">
 		<div class="row">
-			<div class="col-xs-6 col-xs-offset-1">
+			<div class="col-xs-6">
 				<form role="form">
 					<div class="form-group has-feedback">
 						<input class="form-control users-inp-search" type="text" placeholder="{{i18n 'ui.labels.findusers'}}" /> 
@@ -23,6 +24,8 @@
 	<div class="panel-body list-group list-items">
 		{{> users_list}}
 	</div>
+</div>
+	
 </template>
 
 <template name="switch_online">

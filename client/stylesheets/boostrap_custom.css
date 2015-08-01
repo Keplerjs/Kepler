@@ -54,8 +54,8 @@
 
 /* profile buttons */
 .btn-gray,
-.panel-heading.panel-gray,
-a.btn-gray {
+a.btn-gray,
+.panel-gray > .panel-heading {
 	color: #fff;
 	background-color: #777;
 	border-color: #555;
@@ -72,6 +72,19 @@ a.btn-gray:hover {
 	background-repeat: repeat-x;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#888', endColorstr='#888', GradientType=0);
 }
+
+.panel-gray .panel-body {
+	background: #999;
+}
+
+.panel-white > .panel-heading {
+	border-color: #bbb;
+	background-image: -webkit-linear-gradient(top,#ccc 0,#bbb 100%);
+	background-image: linear-gradient(to bottom,#ccc 0,#bbb 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ccc', endColorstr='#bbb', GradientType=0);	
+}
+
 
 .btn-gray .badge {
 	background-color: #999;
@@ -143,7 +156,7 @@ section.container {
 /* SWITCH */
 
 .bootstrap-switch {
-	margin: 3px;
+	margin: 0;
 	border: 1px solid #888;
 	background-color: #ccc;
 	border-radius: 8px;

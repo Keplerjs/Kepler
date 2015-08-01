@@ -1,20 +1,4 @@
 
-#friends.panel {
-	border-left: 2px solid #bbb;
-}
-
-#friends > .panel-heading {
-	border-color: #bbb;
-	background-image: -webkit-linear-gradient(top,#ccc 0,#bbb 100%);
-	background-image: linear-gradient(to bottom,#ccc 0,#bbb 100%);
-	background-repeat: repeat-x;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ccc', endColorstr='#bbb', GradientType=0);	
-}
-
-#friends > .panel-body {
-	padding: 0;
-}
-
 /* friend offline */
 #friends .friend-item.offline .user-avatar {
 	opacity: 0.6;
@@ -38,10 +22,14 @@
 #friends .form-control-feedback {
 	top: 0;
 }
+#friends .form-group {
+	margin: 0;
+	padding: 0;
+}
 
 #friends .users-inp-search {
 	border-radius: 8px;
 	border: 1px solid #aaa;
-	margin: 2px;
+	margin: 0;
 	box-shadow: 2px 2px 4px #ddd inset;
 }
