@@ -213,45 +213,47 @@ Climbo.map = {
 	layers: layers,
 
 	initMap: function(opts, callbackMap) {		//render map and add controls/layers
+		
+		console.log('initMap');
 
-		if(Climbo.map.initialized)
-			return false;
-		
 		Climbo.map.initialized = true;
-		
-		map = L.map('map', L.Util.extend(opts, {
+
+		Climbo.map.leafletMap = L.map('map', L.Util.extend(opts, {
 			maxBounds: L.latLngBounds(opts.maxBounds),
 			center: L.latLng(opts.center),
 			attributionControl: false,
 			zoomControl: false
 		}) );
-		
-		Climbo.map.leafletMap = map;
 
 		_.invoke([
 			layers.base, layers.geojson, layers.cluster,			
 			controls.search, controls.gps, controls.zoom, buttons.status,
 			controls.alerts, controls.attrib
 			//buttons.status, buttons.profile, buttons.friends,
-		],'addTo', map);
+		],'addTo', Climbo.map.leafletMap);
 
 		//Fix solo per Safari evento resize! quando passa a schermo intero
 		$(window).on('orientationchange resize', function(e) {
 			$(window).scrollTop(0);
-			map.invalidateSize(false);
+			Climbo.map.leafletMap.invalidateSize(false);
 		});
 
 		if($.isFunction(callbackMap))
-			callbackMap(map);
-
-		return map;
+			//Climbo.map.leafletMap.on('load', function() {
+				callbackMap(Climbo.map.leafletMap);
+			//});
 	},
 
 	enableBBox: function() {
-		map.addLayer(layers.places);
+		Climbo.map.leafletMap.addLayer(layers.places);
 	},
 	disableBBox: function() {
-		map.removeLayer(layers.places);
+		Climbo.map.leafletMap.removeLayer(layers.places);
+	},
+
+	destroyMap: function() {
+		//TODO other desotry methods
+		Climbo.map.leafletMap.remove();
 	},
 
 	loadPanelProfile: function() {

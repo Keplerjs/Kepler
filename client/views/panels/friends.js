@@ -1,5 +1,5 @@
 
-Template.panelFriends.rendered = function() {
+Template.panelFriends.onRendered(function() {
 	
 	this.$('.list-group').btsListFilter('.users-inp-search', {
 		itemChild: '.user-btn-name',
@@ -20,7 +20,7 @@ Template.panelFriends.rendered = function() {
 			return userItem$;
 		}
 	});
-};
+});
 
 Template.users_list.helpers({	//lista sia amici che utenti cercati
 	friends: function() {
@@ -28,7 +28,7 @@ Template.users_list.helpers({	//lista sia amici che utenti cercati
 	}
 });
 
-Template.switch_online.rendered = function() {
+Template.switch_online.onRendered(function() {
 	
 	this.$('#switch_online').bootstrapSwitch({
 		state: Climbo.profile.getOnline(),
@@ -40,4 +40,4 @@ Template.switch_online.rendered = function() {
 			Climbo.profile.setOnline(stat);
 		}
 	});
-};
+});

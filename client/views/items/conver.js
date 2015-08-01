@@ -1,5 +1,5 @@
 
-Template.itemConver.rendered = function() {
+Template.itemConver.onRendered(function() {
 	
 	this.$('.conver-btn-del').btsConfirmButton({
 			msg: i18n('ui.btns.converdel')
@@ -13,7 +13,7 @@ Template.itemConver.rendered = function() {
 			if(list$.is(':empty'))
 				Climbo.dialogList.hide();		
 		});
-};
+});
 
 Template.itemConver.helpers({
 	usersIds: function() {

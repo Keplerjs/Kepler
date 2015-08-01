@@ -1,15 +1,18 @@
 
-Template.pageMap.rendered = function() {
+Template.pageMap.onRendered(function() {
 	
 	console.log('pageMap rendered');
 
+	console.log(this)
+
 	Climbo.map.initMap(Meteor.settings.public.map, function(map) {
-		//console.log('Climbo.map.initMap callback');
-		//Climbo.map.enableBBox();	//abilita caricamento markers
+		console.log('Climbo.map.initMap callback');
+		Climbo.map.enableBBox();	//abilita caricamento markers
 	});
 
-};
+});
 
-Template.pageMap.destroyed = function() {
+Template.pageMap.onDestroyed(function() {
 	console.log("pageMap.destroyed");
-};
+	Climbo.map.destroyMap();
+});

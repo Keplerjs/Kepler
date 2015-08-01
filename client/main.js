@@ -18,21 +18,6 @@ Meteor.startup(function() {
 
 				Climbo.profile.initProfile(function() {
 
-					// 	Climbo.map.initMap(Meteor.settings.public.map, function(map) {
-					// 		Climbo.map.enableBBox();	//abilita caricamento markers
-					// 	});
-
-			//DEBUGGING:
-					if(Meteor.Device.isDesktop())
-					setTimeout(function() {
-						//Climbo.map.loadPanelPlace('50223dc356d80c330e00000a');
-						if(Climbo.map.initilized){
-							Climbo.map.loadPanelFriends();
-							Climbo.map.loadPanelProfile();
-						}
-						//Climbo.map.loadPanelUser('pn5FqCGT6ACXLfRW8');
-						//Climbo.convers.show('GkeopcPuQ9XdL9mhj');
-					},1000);
 				});
 			});
 		}

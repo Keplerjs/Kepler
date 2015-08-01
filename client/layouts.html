@@ -5,7 +5,7 @@
 
 	{{> pageMap}}
 
-	<div id="sidebar" class="sidebar">
+	<div id="sidebar" class="sidebar collapsed">
         <!-- Nav tabs -->
         <ul class="sidebar-tabs" role="tablist">
             <li><a href="/intro"   role="tab" title="{{i18n 'ui.btns.home'}}"><i class="icon icon-home"></i></a></li>
@@ -25,4 +25,10 @@
     </div>
 
 </div>
+</template>
+
+<template name="layoutLogin">
+	<div class="container-full">
+	    {{> yield}}
+	</div>
 </template>

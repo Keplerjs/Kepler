@@ -6,7 +6,7 @@ Template.panel_weather.helpers({
 	}
 });
 
-Template.panel_weather_forecast.rendered = function() {
+Template.panel_weather_forecast.onRendered(function() {
 
 	var days$ = this.$('.weather_day');
 
@@ -17,4 +17,4 @@ Template.panel_weather_forecast.rendered = function() {
 			days$.hide().eq(e.value).show();
 		})
 		.parent().css({width:'97%'});
-};
+});

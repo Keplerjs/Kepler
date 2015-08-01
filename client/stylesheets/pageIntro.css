@@ -1,7 +1,8 @@
 
-#pageIntro {
+#intro {
 	min-height: 100%;
 	background: url('/images/back.png') repeat-x top right #f7f7ff;
+	background-attachment: fixed;
 }
 
 #logo {

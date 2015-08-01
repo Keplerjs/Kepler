@@ -1,5 +1,5 @@
 
-Template.control_status.rendered = function(){
+Template.control_status.onRendered(function(){
 	
 	//console.log('control_status rendered',Meteor.status().connected);
 
@@ -10,7 +10,7 @@ Template.control_status.rendered = function(){
 		setTimeout(function() {
 			div$.fadeOut('slow');
 		}, 3000);
-};
+});
 
 Template.control_status.helpers({
 	status: function() {
@@ -56,8 +56,8 @@ Template.control_alerts.events({
 	}
 });
 
-Template.item_alert.rendered = function() {
+Template.item_alert.onRendered(function() {
 	$(this.firstNode).alert().slideDown(function(){
 		$(this).fadeTo('slow',1);
 	});
-};
+});

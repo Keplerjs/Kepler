@@ -1,4 +1,13 @@
 
+Template.user_buttons2.onRendered(function() {
+	
+	this.$('.user-btn-del').btsConfirmButton({
+			msg: i18n('ui.btns.delfriend')
+		}, function(e) {
+			Climbo.profile.removeFriend($(e.target).data('userid'));
+		});
+});
+
 Template.item_user.events({
 	'click .user-btn-name': function(e,tmpl) {
 		this.loadPanel && this.loadPanel();
@@ -19,15 +28,6 @@ Template.user_buttons.events({
 		tmpl.data.loadLoc();
 	}	
 });
-
-Template.user_buttons2.rendered = function() {
-	
-	this.$('.user-btn-del').btsConfirmButton({
-			msg: i18n('ui.btns.delfriend')
-		}, function(e) {
-			Climbo.profile.removeFriend($(e.target).data('userid'));
-		});
-};
 
 Template.user_buttons2.events({
 	'click .user-btn-add': function(e, tmpl) {

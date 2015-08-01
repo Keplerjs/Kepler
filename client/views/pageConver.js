@@ -1,7 +1,7 @@
 
-Template.converInput.rendered = function() {
+Template.converInput.onRendered(function() {
 	this.$('textarea').expandTextarea();
-};
+});
 
 Template.converInput.events({
 	'keydown textarea': function(e,tmpl) {
@@ -41,8 +41,8 @@ Template.converMsgs.events({
 	}
 });
 
-Template.itemMsg.rendered = function() {
+Template.itemMsg.onRendered(function() {
 	var list$ = $(this.firstNode).parents('.list-group');
 	list$.scrollTop( list$.prop("scrollHeight") );
 	//autoscroll ad ogni nuovo messaggio
-};
+});
