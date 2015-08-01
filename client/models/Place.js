@@ -78,15 +78,12 @@ Climbo.Place = Climbo.Class.extend({
 
 	//PUBLIC METHODS:
 	loadLoc: function() {
-		// if(Climbo.map.layers.cluster.hasLayer(this.marker))
-		// 	Climbo.map.layers.cluster.zoomToShowLayer(this.marker);
-		// 	//var cen = markerClusterGroup.getVisibleParent(this.marker).getLatLng());
-		this.marker.addTo(Climbo.map.layers.cluster);//patch! per caricare marker di place non scaricati da layerjson
-		Climbo.map.loadLoc(this.loc);
-
+		var self = this;
+		self.marker.addTo(Climbo.map.layers.cluster);//patch! per caricare marker di place non scaricati da layerjson
+		Climbo.map.loadLoc(self.loc);
 		setTimeout(function() {
-			this.marker.fire('click');	//crea e apre il popup
-			this.icon.animate();
+			self.marker.fire('click');	//loadpopup
+			self.icon.animate();
 		},400);
 	},
 

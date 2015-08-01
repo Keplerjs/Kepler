@@ -274,10 +274,8 @@ Climbo.map = {
 	},
 
 	loadLoc: function(loc) {
-
-		//HIDE ALL PANELS
-		
-		map.setView(loc, 15);
+		//TODO HIDE ALL PANELS
+		Climbo.map.leafletMap.setView(loc, 15);
 	},
 
 	loadGeojson: function(geoData) {
@@ -286,13 +284,13 @@ Climbo.map = {
 
 		//TODO close panel place
 
-		map.closePopup();
+		Climbo.map.leafletMap.closePopup();
 
 		layers.geojson.clearLayers();
 		for(var i in geoData)
 			layers.geojson.addData(geoData[i]);
 	
 		var bb = layers.geojson.getBounds();
-		map.setView(bb.getCenter(), map.getBoundsZoom(bb) - 1);
+		Climbo.map.leafletMap.setView(bb.getCenter(), Climbo.map.leafletMap.getBoundsZoom(bb) - 1);
 	}
 };

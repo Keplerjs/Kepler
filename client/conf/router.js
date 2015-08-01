@@ -16,8 +16,8 @@ Router.onBeforeAction(function(){
 Router.onAfterAction(function(){
 
 	var route = this.route.getName(),
-		sidebarRoutes = ['profile','friends','place','user'],
-		sidebarRoutesNo = ['intro','map']
+		sidebarRoutes = ['profile','friends','place','user','placePanel'],
+		sidebarRoutesNo = ['intro','map','placeMap']
 
 	if( _.contains(sidebarRoutes, route) )
 		$('#sidebar').removeClass('collapsed');
@@ -54,7 +54,7 @@ Router.map(function() {
 		}
 	});
 
-	this.route('place', {
+	this.route('placePanel', {
 		path: '/place/:placeId',
 		yieldRegions: {
 			'panelPlace': {to: 'sidebar'}
@@ -69,13 +69,18 @@ Router.map(function() {
 		}
 	});
 
-	this.route('place', {
+	this.route('placeMap', {
 		path: '/place/:placeId/map',
-		onBeforeAction: function() {
+		//layoutTemplate: 'layoutMap',
+		waitOn: function() {
+			return Meteor.subscribe('placesByIds', [this.params.placeId]);
+		},
+		action: function() {
+			console.log(this)
 			Climbo.newPlace(this.params.placeId).loadLoc();
 		}
 	});	
-
+/*
 	this.route('pagePlaceConvers', {
 		path: '/place/:placeId/convers',
 		template: 'pageList',
@@ -153,14 +158,6 @@ Router.map(function() {
 		},
 		data: function() {
 			var convData = getConverById(this.params.convId).fetch()[0];
-/*
-var convData = getConverById(convId).fetch()[0],
-title = convData.title || i18n('ui.titles.msgpriv'),
-place = Climbo.newPlace(convData.placeId),
-placeName = convData.placeId ? _.str.capitalize(place.name)+': ' : '',
-usersItems = _.map(convData.usersIds, Climbo.newUser);
-title$.html('<i class="icon icon-mes"></i> '+ placeName + title  );
-*/
 			convData.title = convData.title || i18n('ui.titles.pageConver');
 			convData.usersItems = _.map(convData.usersIds, Climbo.newUser);
 
@@ -170,7 +167,7 @@ title$.html('<i class="icon icon-mes"></i> '+ placeName + title  );
 
 	this.route('pageSettings', {
 		path: '/settings'
-	});
+	});*/
 
 	this.route('logout', {
 		path: '/logout',
