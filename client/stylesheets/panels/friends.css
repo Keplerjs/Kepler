@@ -27,9 +27,15 @@
 	padding: 0;
 }
 
-#friends .users-inp-search {
-	border-radius: 8px;
-	border: 1px solid #aaa;
-	margin: 0;
-	box-shadow: 2px 2px 4px #ddd inset;
+#friends .list-group-item {
+	border:none;
+	border-radius: 0;
+	border-bottom:1px solid #ddd;
+	border-width: 1px;
+	margin: 1px 0;
+}
+
+#friends .list-group-item:first-child,
+#friends .list-group-item:last-child {
+	border:none;
 }

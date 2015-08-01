@@ -10,10 +10,10 @@
 .leaflet-right.leaflet-bottom .leaflet-control,
 .leaflet-right.leaflet-top .leaflet-control {
 	margin: 3px;
-	box-shadow: 0 0 6px rgba(0,0,0,0.3);
-	border: 2px solid rgba(95,156,209,1);
-	background-color:rgba(255,255,255,0.6);
-	border-radius:6px;
+	box-shadow: 0 0 6px rgba(0,0,0,0.4);
+	background-color:rgba(255,255,255,0.8);
+	border-radius:5px;
+	border: 2px solid #4F96CA;	
 }
 
 
@@ -118,11 +118,12 @@
 }
 
 /* GPS */
-
+.leaflet-control-gps {
+	float: right;
+}
 .leaflet-control-gps .gps-button,
 .leaflet-control-gps .gps-button:hover {
 	display:block;
-	float:left;
 	width:30px;
 	height:30px;
 	border-radius:4px;

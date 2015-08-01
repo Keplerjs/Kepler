@@ -73,16 +73,15 @@ a.btn-gray:hover {
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#888', endColorstr='#888', GradientType=0);
 }
 
-.panel-gray .panel-body {
-	background: #999;
-}
-
 .panel-white > .panel-heading {
-	border-color: #bbb;
+	border-color: #aaa;
 	background-image: -webkit-linear-gradient(top,#ccc 0,#bbb 100%);
 	background-image: linear-gradient(to bottom,#ccc 0,#bbb 100%);
 	background-repeat: repeat-x;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ccc', endColorstr='#bbb', GradientType=0);	
+}
+.panel-gray > .panel-body {
+	background: #999;
 }
 
 

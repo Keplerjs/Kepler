@@ -3,25 +3,19 @@
 
 <div id="friends" class="panel panel-white">
 	<div class="panel-heading">
-		<div class="row">
-			<div class="col-xs-6">
-				<form role="form">
-					<div class="form-group has-feedback">
-						<input class="form-control users-inp-search" type="text" placeholder="{{i18n 'ui.labels.findusers'}}" /> 
-						<a class="form-control-feedback users-btn-search">
-							<i class="icon icon-search"></i>
-						</a>
-					</div>
-				</form>
-			</div>
-			<div class="col-xs-5">
-				<div class="pull-right">
-					{{> switch_online}}
-				</div>
-			</div>
-		</div>
+		{{> switch_online}}
 	</div>
 	<div class="panel-body list-group list-items">
+		<li class="list-group-item">
+			<form role="form">
+				<div class="form-group has-feedback">
+					<input class="form-control users-inp-search" type="text" placeholder="{{i18n 'ui.labels.findusers'}}" /> 
+					<a class="form-control-feedback users-btn-search">
+						<i class="icon icon-search"></i>
+					</a>
+				</div>
+			</form>
+		</li>
 		{{> users_list}}
 	</div>
 </div>
