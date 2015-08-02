@@ -24,9 +24,6 @@
 .marker-anim,
 .icon,
 .leaflet-marker-icon,
-.control-waiting,
-.control-connected,
-.control-disconnected,
 .leaflet-control-search .search-cancel,
 .leaflet-control-search .search-button,
 .leaflet-control-search .search-button:hover,
@@ -77,9 +74,6 @@
 .leaflet-touch .leaflet-bar a.leaflet-control-zoom-out {
 	background-position: 0 -120px;
 }
-.control-connected{ background-position: 0 -150px;  } 
-.control-waiting,
-.control-disconnect{ background-position: 0 -180px;  } 
 
 /* MARKER */
 .marker-cluster{ background-position: -30px 0; } 
@@ -103,6 +97,13 @@
 /* ICON UI */
 .icon-profile{ background-position: 0 -210px;  } 
 .icon-friends{ background-position: 0 -240px;  }
+
+.icon-status-connected{ background-position: 0 -152px;  } 
+.icon-status-failed,
+.icon-status-offline,
+.icon-status-waiting,
+.icon-status-connecting,
+.icon-status-disconnect{ background-position: 0 -170px;  } 
 
 /* ICON POIS */
 .icon-parking{ background-position: -60px 0; } 

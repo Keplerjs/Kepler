@@ -173,16 +173,6 @@
 }
 */
 
-/* BUTTONS */
-.leaflet-control.leaflet-control-status a,
-.leaflet-control.leaflet-control-profile a,
-.leaflet-control.leaflet-control-friends a {
-	text-align: center;
-	display: block;
-	height: 30px;
-	width: 30px;
-}
-
 /* ALERTS */
 
  .leaflet-left.leaflet-top .leaflet-control-alerts {

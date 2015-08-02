@@ -4,21 +4,7 @@
 var map = null,
 	initialized = false,
 	layers = {},
-	controls = {},
-	buttons = {};
-
-L.GeoJSONAutoClear = L.GeoJSON.extend({
-	onAdd: function(map) {
-			L.GeoJSON.prototype.onAdd.call(this, map);
-			var that = this;
-			map.on('zoomend', function(e) {
-				if( _.size(that._layers) )
-					if(e.target.getZoom() < e.target.getBoundsZoom(that.getBounds())-2)
-						that.clearLayers();
-				console.info('zoom:'+e.target.getZoom());
-			});
-		}
-	});//layer geojson autopulente quando si fa zoom out
+	controls = {};
 
 layers.base = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
 
@@ -43,20 +29,15 @@ layers.cluster = new L.MarkerClusterGroup({
 
 layers.geojson = new L.GeoJSONAutoClear(null, {
 	style: function (feature) {
-		
 		if(feature.properties.tipo=='place')	//punto della place relativa ai pois
 			return {color: '#f33', weight: 5, opacity:0.7};
-		
 		else if(feature.properties.tipo=='access')	//tracciato avvicinamento
 			return {color: '#66f', weight: 8, opacity:0.7};
-		
 		else
 			return {color: '#b6f', weight: 5, opacity:0.7};
 	},
 	pointToLayer: function(feature, latlng) {	//costruisce marker POI
-		
 		//TODO tracciare linea dritta da place ad ogni POI
-
 		if(feature.properties.tipo==='place')	//evidenzia place nei pois
 			return new L.CircleMarker(latlng, {radius:20});
 		else
@@ -70,13 +51,10 @@ layers.geojson = new L.GeoJSONAutoClear(null, {
 	},
 	onEachFeature: function (feature, layer) {
 		var tmpl, popup$;
-
 		if(feature.geometry.type=='LineString')
 			tmpl = Template['popup_track'];
-
 		else if(feature.geometry.type=='Point' && feature.properties.name )
 			tmpl = Template['popup_poi'];
-		
 		if(tmpl) {
 			popup$ = document.createElement('div');
 			Blaze.renderWithData(tmpl, feature.properties, popup$);
@@ -193,15 +171,6 @@ controls.alerts = _.extend(L.control({position:'topleft'}), {
 });
 ////CONTROLS/
 
-buttons.status = _.extend(L.control({position:'topright'}), {
-	onAdd: function(map) {
-		var tmpDiv = L.DomUtil.create('div','leaflet-control leaflet-control-status');
-		Blaze.render(Template.control_status, tmpDiv);
-		return tmpDiv;
-	}
-});
-//BUTTONS/
-
 Climbo.map = {
 
 	initialized: initialized,
@@ -227,9 +196,8 @@ Climbo.map = {
 
 		_.invoke([
 			layers.base, layers.geojson, layers.cluster,			
-			controls.search, controls.gps, controls.zoom, buttons.status,
+			controls.search, controls.gps, controls.zoom,
 			controls.alerts, controls.attrib
-			//buttons.status, buttons.profile, buttons.friends,
 		],'addTo', Climbo.map.leafletMap);
 
 		//Fix solo per Safari evento resize! quando passa a schermo intero

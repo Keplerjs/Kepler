@@ -1,31 +1,38 @@
 
 <template name="layoutMap">
+	<div class="container-full">
 
-<div class="container-full">
+		{{> pageMap}}
 
-	{{> pageMap}}
+		<div id="sidebar" class="sidebar collapsed">
+	        <!-- Nav tabs -->
+	        <ul class="sidebar-tabs" role="tablist">
+	            <li><a href="/intro"   role="tab" title="{{i18n 'ui.btns.home'}}"><i class="icon icon-home"></i></a></li>
+	            <li><a href="/profile" role="tab" title="{{i18n 'ui.btns.profile'}}"><i class="icon icon-profile"></i></a></li>
+	            <li><a href="/friends" role="tab" title="{{i18n 'ui.btns.friends'}}"><i class="icon icon-friends"></i></a></li>
+	            <li><a href="/convers" role="tab" title="{{i18n 'ui.btns.convers'}}"><i class="icon icon-mes"></i></a></li>
+            	{{> buttonStatus}}
+	        </ul>
+	        <!-- Tab panes -->
+	        <div class="sidebar-content active">
+	            <div class="sidebar-pane active">
+					
+					{{> yield "sidebar"}}
 
-	<div id="sidebar" class="sidebar collapsed">
-        <!-- Nav tabs -->
-        <ul class="sidebar-tabs" role="tablist">
-            <li><a href="/intro"   role="tab" title="{{i18n 'ui.btns.home'}}"><i class="icon icon-home"></i></a></li>
-            <li><a href="/profile" role="tab" title="{{i18n 'ui.btns.profile'}}"><i class="icon icon-profile"></i></a></li>
-            <li><a href="/friends" role="tab" title="{{i18n 'ui.btns.friends'}}"><i class="icon icon-friends"></i></a></li>
-            <li><a href="/convers" role="tab" title="{{i18n 'ui.btns.convers'}}"><i class="icon icon-mes"></i></a></li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="sidebar-content active">
-            <div class="sidebar-pane active">
-				
-				{{> yield "sidebar"}}
+					<a class="sidebar-close">&times;</a>
+	            </div>
+	        </div>
+	    </div>
 
-				<a class="sidebar-close">&times;</a>
-            </div>
-        </div>
-    </div>
-
-</div>
+	</div>
 </template>
+
+<template name="buttonStatus">
+{{#with connectionStatus}}
+	<li class="btn-connection" style="{{#if connected}}opacity:0{{else}}opacity:1{{/if}}"><a href="#" title="{{status}}"><i class="icon icon-status-{{status}}"></i></a></li>
+{{/with}}
+</template>
+
 
 <template name="layoutPage">
 	<div class="container">

@@ -1,7 +1,7 @@
 {
 	"debug": true,
 	"public": {
-		"editPlaces": true,
+		"editPlaces": false,
 		"searchMinLen": 1,
 		"typeDelay": 300,		
 		"maxTracks": 2,
