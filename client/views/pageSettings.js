@@ -3,14 +3,14 @@
 //http://avatars.io/
 
 Template.pageSettings.helpers({
-	types: function() {
-		return _.map( i18n('ui.places'), function(v, type) {
-			return {type: type, name: v, liked: _.contains(Climbo.profile.data.likeplaces, type) };
+	places: function() {
+		return _.map(Meteor.settings.public.activePlaces, function(type) {
+			return {
+				type: type,				
+				name: i18n('ui.places.'+type),				
+				liked: _.contains(Meteor.user().likeplaces, type)
+			};
 		});
-	},
-	email: function() {
-		if(Climbo.profile.data.emails)
-			return Climbo.profile.data.emails[0];
 	}
 });
 
@@ -28,7 +28,7 @@ Template.pageSettings.events({
 		}
 	}, Meteor.settings.public.typeDelay),
 
-	'keyup #email': _.debounce(function(e) {
+/*	'keyup #email': _.debounce(function(e) {
 		var val = $(e.target).val(),
 			oldval = $(e.target).data('value'),
 			feed$ = $(e.target).next('.form-control-feedback');
@@ -37,7 +37,6 @@ Template.pageSettings.events({
 			feed$.show();
 		else {
 			feed$.hide();
-
 			//TODO
 			// Meteor.users.update(Meteor.userId(), {
 			// 	$set: {
@@ -48,7 +47,7 @@ Template.pageSettings.events({
 			// 	}
 			// });
 		}
-	}, Meteor.settings.public.typeDelay),
+	}, Meteor.settings.public.typeDelay),*/
 
 	'keyup #city': _.debounce(function(e) {
 		Meteor.users.update(Meteor.userId(), { $set:{city: e.target.value} });
@@ -56,12 +55,14 @@ Template.pageSettings.events({
 
 	'click #likeplaces a': _.debounce(function(e) {
 		e.preventDefault();
-		var typePlace = $(e.originalEvent.target).data('type');
+		var $a = $(e.originalEvent.target),
+			type = $a.data('type'),
+			liked = $a.data('liked');
 
-		if(_.contains(Climbo.profile.data.likeplaces, typePlace))
-			Meteor.users.update(Meteor.userId(), { $pull:{likeplaces: typePlace} });
+		if(liked)
+			Meteor.users.update(Meteor.userId(), { $pull: {likeplaces: type} });
 		else
-			Meteor.users.update(Meteor.userId(), { $addToSet:{likeplaces: typePlace} });
+			Meteor.users.update(Meteor.userId(), { $addToSet: {likeplaces: type} });
 
 	}, Meteor.settings.public.typeDelay),
 

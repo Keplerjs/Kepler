@@ -57,6 +57,9 @@ Climbo.profile = {
 		if($.isFunction(callbackProfile))
 			callbackProfile(Climbo.profile);
 	},
+	getData: function() {
+		return Meteor.user();
+	},
 	getOnline: function() {
 		Climbo.profile._deps.online.depend();
 		return !!Climbo.profile.data.online;
@@ -72,7 +75,7 @@ Climbo.profile = {
 	hasFriend: function(userId) {
 		Climbo.profile._deps.friends.depend();
 		return _.contains(Climbo.profile.data.friends, userId);
-	},	
+	},
 
 	setLoc: function(loc) {
 		// loc = loc || null;

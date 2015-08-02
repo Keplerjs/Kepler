@@ -1,14 +1,14 @@
 
-#pageSettings .loading-default #fileavatar {
+#settings .loading-default #fileavatar {
 	visibility: hidden;
 }
 
-#pageSettings .dropdown-menu {
+#settings .dropdown-menu {
 	border: none;
 	background: none;
 	padding: 5px 0;
 	border-radius: 0
 }
-#pageSettings #login-dropdown-list .dropdown-menu {
+#settings #login-dropdown-list .dropdown-menu {
 	margin: 0
 }

@@ -35,7 +35,7 @@ Router.map(function() {
     this.route('intro', {
 		path: '/intro',
 		template: 'pageIntro',
-		layoutTemplate: 'layoutLogin'
+		layoutTemplate: 'layoutPage'
 
 	});
 
@@ -80,8 +80,42 @@ Router.map(function() {
 		}
 	});
 
+	this.route('convers', {
+		path: '/convers',
+		template: 'pageList',
+		layoutTemplate: 'layoutPage',	
+		waitOn: function() {
+			return Meteor.subscribe('conversByIds', Climbo.profile.data.convers);
+		},
+		data: function() {
+			return {
+				className: 'pageConvers',
+				itemsTemplate: 'itemConver',
+				items: getConversByIds(Climbo.profile.data.convers).fetch(),
+				sortDesc: true
+			};
+		}
+	});
+	
+/*	this.route('conver', {
+		path: '/convers/:convId',
+		template: 'pageConver',
+		waitOn: function() {
+			return Meteor.subscribe('converById', this.params.convId);
+		},
+		data: function() {
+			var convData = getConverById(this.params.convId).fetch()[0];
+			convData.title = convData.title || i18n('ui.titles.pageConver');
+			convData.usersItems = _.map(convData.usersIds, Climbo.newUser);
+
+			return convData;
+		}
+	});*/
+
 	this.route('settings', {
-		path: '/settings'
+		path: '/settings',
+		template: 'pageSettings',
+		layoutTemplate: 'layoutPage'
 	});
 
 /*
@@ -135,37 +169,6 @@ Router.map(function() {
 				sortDesc: true,
 				sortBy: 'name'
 			};
-		}
-	});
-	
-	this.route('pageConvers', {
-		path: '/convers',
-		template: 'pageList',
-		waitOn: function() {
-			return Meteor.subscribe('conversByIds', Climbo.profile.data.convers);
-		},
-		data: function() {
-			return {
-				className: 'pageConvers',
-				itemsTemplate: 'itemConver',
-				items: getConversByIds(Climbo.profile.data.convers).fetch(),
-				sortDesc: true
-			};
-		}
-	});
-	
-	this.route('pageConver', {
-		path: '/convers/:convId',
-		template: 'pageConver',
-		waitOn: function() {
-			return Meteor.subscribe('converById', this.params.convId);
-		},
-		data: function() {
-			var convData = getConverById(this.params.convId).fetch()[0];
-			convData.title = convData.title || i18n('ui.titles.pageConver');
-			convData.usersItems = _.map(convData.usersIds, Climbo.newUser);
-
-			return convData;
 		}
 	});
 */

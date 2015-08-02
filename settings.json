@@ -16,6 +16,7 @@
 		"gpsMinShift": 40,
 		"showAlerts": true,
 		"maxImageSize": 2800000,
+		"loadLocZoom": 15,
 		"map": {
 			"zoom": 10,
 			"minZoom": 10,
@@ -25,7 +26,13 @@
 		},
 		"urls": {
 			"static": "http://static.climbo.local/"
-		}
+		},
+		"activePlaces": [
+			"rock","boulder","indoor","long"
+		],
+		"deactivePlaces": [
+			"ice","iron","water","trad","dry","bigwall","building","pool","alp","club","market"
+		]
 	},
 	"urls": {
 		"aspect": "http://localhost/maps/dem/aspect.php",

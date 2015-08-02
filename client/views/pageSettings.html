@@ -3,7 +3,7 @@
 
 	{{> navbar}}
 
-	<section class="container" id="pageSettings">
+	<section class="container" id="settings">
 
 	{{#with currentUser}}
 		<form class="form-horizontal" role="form">
@@ -39,24 +39,26 @@
 			</div>
 			<div class="form-group">
 				<label for="email" class="col-xs-3 control-label">{{i18n 'ui.labels.email'}}</label>
-				<div class="col-xs-9 has-feedback">
-					<input disabled="disabled" id="email" class="form-control" type="email" data-value="{{email.address}}" value="{{email.address}}">
-					<span style="display:none" class="form-control-feedback icon icon-del"></span>
-				</div>
-				<div class="col-xs-9 col-xs-offset-3">
-				{{#if email.verified}}
-					<span class="text-green"><i class="icon icon-success"></i> {{i18n 'ui.btns.verified'}}</span>
-				{{else}}
-					<!-- <a class="btn btn-sm btn-danger" href="#"><i class="icon icon-warning"></i> {{i18n 'ui.btns.verify'}}</a> -->
-					<span class="text-danger"><i class="icon icon-warning"></i> {{i18n 'ui.btns.verify'}}</span>
-				{{/if}}
-				</div>
+				{{#each emails}}
+					<div class="col-xs-9 has-feedback">
+						<input disabled="disabled" id="email" class="form-control" type="email" data-value="{{address}}" value="{{address}}">
+						<span style="display:none" class="form-control-feedback icon icon-del"></span>
+					</div>
+					<div class="col-xs-9 col-xs-offset-3">
+					{{#if verified}}
+						<span class="text-green"><i class="icon icon-success"></i> {{i18n 'ui.btns.verified'}}</span>
+					{{else}}
+						<!-- <a class="btn btn-sm btn-danger" href="#"><i class="icon icon-warning"></i> {{i18n 'ui.btns.verify'}}</a> -->
+						<span class="text-danger"><i class="icon icon-warning"></i> {{i18n 'ui.btns.verify'}}</span>
+					{{/if}}
+					</div>
+				{{/each}}
 			</div>
 			<div class="form-group">
 				<label class="col-xs-3 control-label">{{i18n 'ui.labels.likeplaces'}}</label>
 				<div id="likeplaces" class="col-xs-9 col-xs-offset-3">
-				{{#each types}}
-					<a data-type="{{type}}" class="label {{#if liked}}label-primary{{else}}bg-gray{{/if}}">{{name}}</a> 
+				{{#each places}}
+					<a data-type="{{type}}" data-liked="{{liked}}" class="label {{#if liked}}label-primary{{else}}bg-gray{{/if}}">{{name}}</a> 
 				{{/each}}
 				</div>
 			</div>
