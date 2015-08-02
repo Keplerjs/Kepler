@@ -79,7 +79,7 @@ Climbo.Place = Climbo.Class.extend({
 	//PUBLIC METHODS:
 	loadLoc: function() {
 		var self = this;
-		self.marker.addTo(Climbo.map.layers.cluster);//patch! per caricare marker di place non scaricati da layerjson
+		self.marker.addTo(Climbo.map.layers.markers);//patch! per caricare marker di place non scaricati da layerjson
 		Climbo.map.loadLoc(self.loc);
 		setTimeout(function() {
 			self.marker.fire('click');

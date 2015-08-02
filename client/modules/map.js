@@ -6,8 +6,6 @@ var map = null,
 	layers = {},
 	controls = {};
 
-layers.base = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-
 layers.cluster = new L.MarkerClusterGroup({
 	iconCreateFunction: function(cluster) {
 		var icon$ = L.DomUtil.create('div');
@@ -182,11 +180,12 @@ Climbo.map = {
 			maxBounds: L.latLngBounds(opts.maxBounds),
 			center: L.latLng(opts.center),
 			attributionControl: false,
-			zoomControl: false
+			zoomControl: false,
+			layers: L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
 		}) );
 
 		_.invoke([
-			layers.base, layers.geojson, layers.cluster,			
+			layers.geojson, layers.cluster,
 			controls.search, controls.gps, controls.zoom, controls.attrib
 		],'addTo', Climbo.map.leafletMap);
 
