@@ -16,7 +16,7 @@ Climbo.alert = {
 		//TODO forse includere _.template(i18n('ui.alerts.XXX'),data)
 		//in modo da usare Climbo.alert.show(idalert,data)
 		
-		if(Meteor.settings.public.showAlerts === false || html==='') return false;
+		//if(Meteor.settings.public.showAlerts === false || html==='') return false;
 		
 		type = type || 'info';	//success, info, warning, danger
 

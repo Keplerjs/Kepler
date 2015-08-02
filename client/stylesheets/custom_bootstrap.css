@@ -94,6 +94,7 @@ a.btn-gray:hover {
 	background: #999;
 }
 
+.panel-white > .panel-heading a,
 .panel-gray > .panel-heading a,
 .panel-primary > .panel-heading a {
 	font-size: 1.2em;

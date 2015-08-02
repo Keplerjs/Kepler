@@ -106,15 +106,17 @@ controls.gps = L.control.gps({
 		Climbo.alert.show(err,'warn');
 	}
 })
-.on('gpsdeactivated', function(e) {
-	Climbo.profile.setLoc(null);
-})
-.on('gpslocated', function(e) {
-	Climbo.profile.setLoc([e.latlng.lat,e.latlng.lng]);
-})
-.on('gpsactivated', function(e) {	//run after gpslocated
-	Climbo.alert.show(i18n('ui.alerts.gpson'),'success');
-	Climbo.profile.user.icon.animate();
+.on({
+	gpsdeactivated: function(e) {
+		Climbo.profile.setLoc(null);
+	},
+	gpslocated: function(e) {
+		Climbo.profile.setLoc([e.latlng.lat,e.latlng.lng]);
+	},
+	gpsactivated: function(e) {	//run after gpslocated
+		Climbo.alert.show(i18n('ui.alerts.gpson'),'success');
+		Climbo.profile.user.icon.animate();
+	}
 });
 
 controls.search = L.control.search({

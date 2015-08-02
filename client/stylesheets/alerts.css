@@ -36,14 +36,14 @@
 	margin: 3px 3px 6px 3px;
 	padding: 6px 24px 2px 6px;
 	box-shadow: 0 0 6px rgba(0,0,0,0.3);
-	background-color:rgba(255,255,255,0.7);
-	border-radius:6px;
+	background-color:rgba(255,255,255,0.8);
+	border-radius:5px;
 	font-size: 14px;
 	min-height: 40px;
 }
 #alertlist .alerts-btn-close {
-	background-color:rgba(255,255,255,0.6);
-	border-radius:6px;
+	background-color:rgba(255,255,255,0.5);
+	border-radius:5px;
 }
 #alertlist .close {
 	font-size: 32px;

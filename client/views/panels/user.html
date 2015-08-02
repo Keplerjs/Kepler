@@ -1,22 +1,23 @@
 
 <template name="panelUser">
 
-<div id="user" class="panel">
+<div id="user" class="panel panel-white">
 	<div class="panel-heading">
 		<div class="user-item {{#unless isOnline}}offline{{/unless}}">
 			<a class="btn pull-left user-btn-name" href="/user/{{id}}">{{name}}</a>
-			<span class="pull-right">
-				{{#if isOnline}}
-				<b class="text-green">online</b>
-				{{else}}
-				<b class="text-white">offline</b>
-				{{/if}}
-				<i class="icon icon-{{#if isOnline}}online{{else}}offline{{/if}}{{#if mob}}-mob{{/if}} user-device"></i> 
-			</span>
 		</div>
 	</div>
 	<div class="panel-body">
 
+		<span class="pull-right">
+			{{#if isOnline}}
+			<b class="text-green">online</b>
+			{{else}}
+			<b class="text-white">offline</b>
+			{{/if}}
+			<i class="icon icon-{{#if isOnline}}online{{else}}offline{{/if}}{{#if mob}}-mob{{/if}} user-device"></i> 
+		</span>
+		
 		{{> panel_bio}}
 		<br />
 
