@@ -1,5 +1,5 @@
 /*
-	Climbo.profile è il modulo di gestione dell' utente loggatoq
+	Questo è il modulo di gestione dell' utente loggato
 	e di tutti i dati reattivi collegati all'utente: favorites, friends, checkin 
 */
 
@@ -12,7 +12,6 @@ Climbo.profile = {
 	user: null,		//my istance of Climbo.User
 	placeCheckin: null,
 	friends: [],	//istances of friends
-	favorites: [],	//favorites istances of places
 	notifs: [],		//notifs of user
 	//TODO rename fields in db notif to notifs
 
@@ -147,13 +146,6 @@ Climbo.profile = {
 			});
 		else
 			Climbo.profile.friends = [];
-	},
-	loadFavorites: function() {
-		if(!_.isEmpty(Climbo.profile.data.favorites))
-			return Meteor.subscribe('placesByIds', Climbo.profile.data.favorites, function() {
-				
-				Climbo.profile.favorites = _.map(Climbo.profile.data.favorites, Climbo.newPlace);
-			});
 	},
 	loadNotifs: function() {
 /*		TODO

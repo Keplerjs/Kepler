@@ -275,7 +275,9 @@ Climbo.map = {
 
 	loadLoc: function(loc) {
 		//TODO HIDE ALL PANELS
-		Climbo.map.leafletMap.setView(loc, Meteor.settings.public.loadLocZoom);
+
+		if(loc && Climbo.util.valid.loc(loc))
+			Climbo.map.leafletMap.setView(loc, Meteor.settings.public.loadLocZoom);
 	},
 
 	loadGeojson: function(geoData) {
