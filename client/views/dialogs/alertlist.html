@@ -1,0 +1,18 @@
+
+<template name="alertList">
+	<div id="alertlist">
+		<div class="text-right">
+			<a class="btn btn-xs btn-default alerts-btn-close" style="display:none" href="#">
+				<big>&times;</big> {{i18n 'ui.btns.closeall'}}
+			</a>
+		</div>
+		<div class="list-alerts"></div>		
+	</div>
+</template>
+
+<template name="item_alert">
+	<div class="alert text-{{type}} alert-dismissable" style="display:none;opacity:0">
+		<a class="close" data-dismiss="alert">&times;</a>
+		<div><i class="icon icon-{{type}}"></i> {{{msg}}}</div>
+	</div>
+</template>

@@ -126,7 +126,7 @@ Climbo.profile = {
 			Meteor.subscribe('placeById', Climbo.profile.data.checkin, function() {
 				Climbo.profile.placeCheckin = Climbo.newPlace(Climbo.profile.data.checkin);
 				Climbo.profile._deps.checkin.changed();
-				//Climbo.alerts.observePlaces([Climbo.profile.data.checkin]);
+				//Climbo.alert.observePlaces([Climbo.profile.data.checkin]);
 			});
 		else
 			Climbo.profile.placeCheckin = null;

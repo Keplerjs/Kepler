@@ -70,8 +70,6 @@ layers.places = new L.LayerJSON({
 
 		var sub = Meteor.subscribe('placesByBBox', bbox, function() {
 			callback( Places.find().fetch() );
-			//FIXME usare $within
-			//Climbo.alerts.observePlaces([Climbo.profile.data.checkin]);
 		});
 
 		return {
@@ -105,7 +103,7 @@ controls.gps = L.control.gps({
 		icon: L.divIcon({className: 'marker-gps'})
 	}),
 	callErr: function(err) {
-		Climbo.alerts.show(err,'warn');
+		Climbo.alert.show(err,'warn');
 	}
 })
 .on('gpsdeactivated', function(e) {
@@ -115,7 +113,7 @@ controls.gps = L.control.gps({
 	Climbo.profile.setLoc([e.latlng.lat,e.latlng.lng]);
 })
 .on('gpsactivated', function(e) {	//run after gpslocated
-	Climbo.alerts.show(i18n('ui.alerts.gpson'),'success');
+	Climbo.alert.show(i18n('ui.alerts.gpson'),'success');
 	Climbo.profile.user.icon.animate();
 });
 
@@ -162,15 +160,6 @@ controls.search = L.control.search({
 	this._input.blur();
 });
 
-controls.alerts = _.extend(L.control({position:'topleft'}), {
-	onAdd: function(map) {
-		var tmpDiv = L.DomUtil.create('div','leaflet-control leaflet-control-alerts');
-		Blaze.render(Template.control_alerts, tmpDiv);
-		return tmpDiv;
-	}
-});
-////CONTROLS/
-
 Climbo.map = {
 
 	initialized: initialized,
@@ -196,8 +185,7 @@ Climbo.map = {
 
 		_.invoke([
 			layers.base, layers.geojson, layers.cluster,			
-			controls.search, controls.gps, controls.zoom,
-			controls.alerts, controls.attrib
+			controls.search, controls.gps, controls.zoom, controls.attrib
 		],'addTo', Climbo.map.leafletMap);
 
 		//Fix solo per Safari evento resize! quando passa a schermo intero
