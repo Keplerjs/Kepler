@@ -35,7 +35,7 @@ Router.map(function() {
     this.route('intro', {
 		path: '/intro',
 		template: 'pageIntro',
-		layoutTemplate: 'layoutPage'
+		layoutTemplate: 'layoutFull'
 
 	});
 

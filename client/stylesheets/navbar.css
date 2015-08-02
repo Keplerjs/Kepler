@@ -1,3 +1,16 @@
 #navbar {
-	box-shadow: 0 0 14px rgba(0,0,0,0.5);
+	height: 50px;
+}
+#navbar .breadcrumb {
+	background: #428bca;
+	border:1px solid #529bda;
+	font-size: 1.2em;
+	font-weight: bold;
+	padding: 5px;
+	margin-top: 8px;
+}
+
+#navbar .breadcrumb a,
+#navbar .breadcrumb li {
+	color: #fff;
 }

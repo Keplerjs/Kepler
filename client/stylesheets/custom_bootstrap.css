@@ -35,6 +35,16 @@
 .bg-gray {
 	background-color: #ccc;
 }
+.bg-primary {
+	background-color: #428bca;
+	border-color: #428bca;
+	background-image: -webkit-linear-gradient(top,#428bca 0,#357ebd 100%);
+	background-image: linear-gradient(to bottom,#428bca 0,#357ebd 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff428bca', endColorstr='#ff357ebd', GradientType=0);
+	/* primary */
+	color: #fff;
+}
 .text-white {
 	color: #fff;
 }
@@ -100,8 +110,9 @@ a.btn-gray:hover {
 }
 
 /* PAGES*/
-section.container {
-	padding-top: 100px;
+section {
+	margin-top: 70px;
+	background: #fff;
 }
 /* MODAL */
 

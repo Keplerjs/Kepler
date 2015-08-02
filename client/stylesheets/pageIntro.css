@@ -1,8 +1,9 @@
 
 #intro {
 	min-height: 100%;
-	background: url('/images/back.png') repeat-x top right #f7f7ff;
+	background: url('/images/back.png') repeat-x top right #f9f9f9;
 	background-attachment: fixed;
+	overflow: hidden;
 }
 
 #logo {
