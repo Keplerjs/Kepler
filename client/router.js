@@ -16,7 +16,7 @@ Router.onBeforeAction(function(){
 Router.onAfterAction(function(){
 
 	var route = this.route.getName(),
-		sidebarRoutes = ['profile','friends','place','user','placePanel'],
+		sidebarRoutes = ['profile','friends','userPanel','placePanel'],
 		sidebarRoutesNo = ['intro','map','placeMap']
 
 	if( _.contains(sidebarRoutes, route) )
@@ -50,7 +50,15 @@ Router.map(function() {
 		path: '/friends',
 		yieldRegions: {
 			'panelFriends': {to: 'sidebar'}
-		}
+		},
+		waitOn: function() {
+			return Meteor.subscribe('friendsByIds', Climbo.profile.data.friends);
+		},
+		data: function() {
+			return {
+				friends: _.map(Climbo.profile.data.friends, Climbo.newUser)
+			};
+		}	
 	});
 
 	this.route('placePanel', {
@@ -63,9 +71,7 @@ Router.map(function() {
 			return Meteor.subscribe('placeById', this.params.placeId);
 		},
 		data: function() {
-			return {
-				place: Climbo.newPlace(this.params.placeId)
-			}
+			return Climbo.newPlace(this.params.placeId);
 		}
 	});
 
@@ -78,6 +84,20 @@ Router.map(function() {
 		onBeforeAction: function() {
 			Climbo.newPlace(this.params.placeId).loadLoc();
 			this.next();
+		}
+	});
+
+	this.route('userPanel', {
+		path: '/user/:userId',
+		template: 'panelUser',
+		yieldRegions: {
+			'panelUser': {to: 'sidebar'}
+		},
+		waitOn: function() {
+			return Meteor.subscribe('userById', this.params.userId);
+		},
+		data: function() {
+			return Climbo.newUser(this.params.userId);
 		}
 	});
 

@@ -11,7 +11,6 @@ Climbo.profile = {
 	data: {},
 	user: null,		//my istance of Climbo.User
 	placeCheckin: null,
-	friends: [],	//istances of friends
 	notifs: [],		//notifs of user
 	//TODO rename fields in db notif to notifs
 
@@ -46,7 +45,6 @@ Climbo.profile = {
 			//TODO Meteor.settings.public.profile = _.defaults(Meteor.settings.public.profile, userData.settings);
 			
 			//TODO rifare le subscribe solo se cambia il valore dopo autorun
-			Climbo.profile.loadFriends();
 			Climbo.profile.loadCheckin();
 
 			$('#friends #switch_online').bootstrapSwitch('state', Climbo.profile.data.online);
@@ -66,10 +64,6 @@ Climbo.profile = {
 	getCheckin: function() {
 		Climbo.profile._deps.checkin.depend();
 		return Climbo.profile.placeCheckin;
-	},
-	getFriends: function() {
-		Climbo.profile._deps.friends.depend();
-		return Climbo.profile.friends;
 	},
 	hasFriend: function(userId) {
 		Climbo.profile._deps.friends.depend();
@@ -136,16 +130,6 @@ Climbo.profile = {
 			});
 		else
 			Climbo.profile.placeCheckin = null;
-	},
-	loadFriends: function() {
-		if(!_.isEmpty(Climbo.profile.data.friends))
-			Meteor.subscribe('friendsByIds', Climbo.profile.data.friends, function() {
-				Climbo.profile.friends = _.map(Climbo.profile.data.friends, Climbo.newUser);
-				Climbo.profile._deps.friends.changed();
-				//Climbo.alerts.observeUsers(Climbo.profile.data.friends);
-			});
-		else
-			Climbo.profile.friends = [];
 	},
 	loadNotifs: function() {
 /*		TODO

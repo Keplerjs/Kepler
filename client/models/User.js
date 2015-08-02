@@ -27,7 +27,8 @@ Climbo.User = Climbo.Class.extend({
 			
 			self.data = Meteor.users.findOne(self.id);
 
-			_.extend(self, self.data);
+			//_.extend(self, self.data);
+			_.extend(self, self.data, self.cache);
 
 			if(self.isMe()) {
 				if(self.loc)
@@ -44,21 +45,7 @@ Climbo.User = Climbo.Class.extend({
 
 			self._dep.changed();
 		};
-
 		Deps.autorun( self.update );	//TODO aggiornare solo se amico
-	},
-
-	loadPanel: function() {
-		
-		var self = this;
-
-		if(!self.isMe())
-			Meteor.subscribe('userById', self.id, function() {
-				
-				self.update(); //patch per caricare amici
-
-				Climbo.map.loadPanelUser(self.id);
-			});
 	},
 
 	loadLoc: function() {
@@ -82,9 +69,6 @@ Climbo.User = Climbo.Class.extend({
 					Blaze.renderWithData(Template.item_user, self, self.popup$);
 					this.bindPopup(self.popup$, { closeButton:false });
 				}
-			})
-			.on('dblclick', function(e) {
-				self.loadPanel();
 			});
 		}
 		self.marker.setLatLng(self.loc);

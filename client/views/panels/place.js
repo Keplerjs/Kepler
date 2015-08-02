@@ -1,11 +1,11 @@
-/*
-Template.panelPlace.helpers({
-	place: function() {
-		if( Session.get('panelPlaceId') )
-			return Climbo.newPlace( Session.get('panelPlaceId') );
-	}
+
+
+Template.panelPlace.onRendered(function() {
+
+	console.log('panelPlace onRendered',this.data)
+
 });
-*/
+
 Template.panelPlace.events({	
 	'click .place-btn-weather': function(e, tmpl) {
 		e.preventDefault();

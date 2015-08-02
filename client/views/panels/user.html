@@ -1,11 +1,10 @@
 
-<template name="panel_user">
+<template name="panelUser">
 
-{{#with user}}
 <div id="user" class="panel">
 	<div class="panel-heading">
 		<div class="user-item {{#unless isOnline}}offline{{/unless}}">
-			<a class="btn pull-left user-btn-name" href="#">{{name}}</a>
+			<a class="btn pull-left user-btn-name" href="/user/{{id}}">{{name}}</a>
 			<span class="pull-right">
 				{{#if isOnline}}
 				<b class="text-green">online</b>
@@ -80,6 +79,5 @@
 		</div>
 	</div>		
 </div>
-{{/with}}
 
 </template>

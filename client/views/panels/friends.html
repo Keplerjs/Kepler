@@ -16,7 +16,11 @@
 				</div>
 			</form>
 		</li>
-		{{> users_list}}
+		{{#each friends}}
+			<li class="list-group-item">
+			{{> item_friend}}
+			</li>
+		{{/each}}
 	</div>
 </div>
 	
@@ -25,12 +29,3 @@
 <template name="switch_online">
 	<input id="switch_online" type="checkbox" />
 </template>
-
-<template name="users_list">
-	{{#each friends}}
-		<li class="list-group-item">
-		{{> item_friend}}
-		</li>
-	{{/each}}
-</template>
-

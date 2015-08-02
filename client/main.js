@@ -1,11 +1,3 @@
-
-//global reactive sources
-Session.set('panelPlaceId', null);
-Session.set('panelUserId', null);
-Session.set('dialogConverId', null);
-Session.set('dialogShareId', null);
-
-
 Meteor.startup(function() {
 
 	Deps.autorun(function () {

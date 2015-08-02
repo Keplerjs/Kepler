@@ -1,12 +1,12 @@
 
-Template.panel_user.helpers({
-	user: function() {
-		if( Session.get('panelUserId') )
-			return Climbo.newUser( Session.get('panelUserId') ).rData();
-	}
+
+Template.panelUser.onRendered(function() {
+
+	console.log('panelUser onRendered',this.data)
+
 });
 
-Template.panel_user.events({
+Template.panelUser.events({
 	'click .nav-tabs a': function(e, tmpl) {
 		e.preventDefault();
 		$(e.currentTarget).tab('show');

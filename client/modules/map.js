@@ -255,24 +255,7 @@ Climbo.map = {
 		//TODO other desotry methods
 		Climbo.map.leafletMap.remove();
 	},
-
-	loadPanelPlace: function(placeId) {
-		
-		console.log('loadPanelPlace')
-
-		Session.set('panelPlaceId', placeId );
-	},
-	loadPanelFriends: function() {
-		
-		console.log('loadPanelFriends');
-	},
-	loadPanelUser: function(userId) {
-
-		console.log('loadPanelUser');
-
-		Session.set('panelUserId', userId );
-	},
-
+	
 	loadLoc: function(loc) {
 		//TODO HIDE ALL PANELS
 

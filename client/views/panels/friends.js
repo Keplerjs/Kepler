@@ -22,12 +22,6 @@ Template.panelFriends.onRendered(function() {
 	});
 });
 
-Template.users_list.helpers({	//lista sia amici che utenti cercati
-	friends: function() {
-		return Climbo.profile.getFriends();
-	}
-});
-
 Template.switch_online.onRendered(function() {
 	
 	this.$('#switch_online').bootstrapSwitch({
