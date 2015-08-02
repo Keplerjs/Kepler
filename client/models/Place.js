@@ -64,7 +64,7 @@ Climbo.Place = Climbo.Class.extend({
 		self.marker.place = self;
 		self.marker.on('add', function() {
 				Blaze.renderWithData(Template.marker_checkins, self, self.icon$);
-				//renderizza il template dopo l'inserimento nel DOM
+				//render the template after dom append
 			})
 			.on('click mousedown', function(e) {
 				if(!this._popup) {
@@ -74,7 +74,7 @@ Climbo.Place = Climbo.Class.extend({
 				}
 			});
 
-	},//end of init()
+	},
 
 	//PUBLIC METHODS:
 	loadLoc: function() {
@@ -82,7 +82,7 @@ Climbo.Place = Climbo.Class.extend({
 		self.marker.addTo(Climbo.map.layers.cluster);//patch! per caricare marker di place non scaricati da layerjson
 		Climbo.map.loadLoc(self.loc);
 		setTimeout(function() {
-			self.marker.fire('click');	//loadpopup
+			self.marker.fire('click');
 			self.icon.animate();
 		},400);
 	},

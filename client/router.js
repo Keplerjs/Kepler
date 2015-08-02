@@ -29,8 +29,7 @@ Router.onAfterAction(function(){
 Router.map(function() {
 
 	this.route('map', {
-		path: '/',
-		layoutTemplate: 'layoutMap'
+		path: '/'
 	});
 
     this.route('intro', {
@@ -56,6 +55,7 @@ Router.map(function() {
 
 	this.route('placePanel', {
 		path: '/place/:placeId',
+		template: 'panelPlace',
 		yieldRegions: {
 			'panelPlace': {to: 'sidebar'}
 		},
@@ -76,10 +76,14 @@ Router.map(function() {
 			return Meteor.subscribe('placesByIds', [this.params.placeId]);
 		},
 		action: function() {
-			console.log(this)
 			Climbo.newPlace(this.params.placeId).loadLoc();
 		}
-	});	
+	});
+
+	this.route('settings', {
+		path: '/settings'
+	});
+
 /*
 	this.route('pagePlaceConvers', {
 		path: '/place/:placeId/convers',
@@ -164,11 +168,7 @@ Router.map(function() {
 			return convData;
 		}
 	});
-
-	this.route('pageSettings', {
-		path: '/settings'
-	});*/
-
+*/
 	this.route('logout', {
 		path: '/logout',
 		onBeforeAction: function () {

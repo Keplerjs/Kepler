@@ -3,14 +3,14 @@
 
 	<ul class="list-group">
 		{{#if type}}
-		<li class="list-group-item place-desc">
+		<li class="list-group-item">
 			<i>{{i18n 'ui.labels.type'}}:</i> {{placeType type}}
 		</li>
 		{{/if}}
 		{{#if desc}}
-		<li class="list-group-item place-desc">
+		<li class="list-group-item">
 			<i>{{i18n 'ui.labels.descr'}}: </i><br />
-			{{desc}}
+			<p class="place-desc">{{desc}}</p>
 		</li>
 		{{/if}}
 		<li class="list-group-item container-fluid">

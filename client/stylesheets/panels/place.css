@@ -1,24 +1,9 @@
 
-#place.panel {
-	border-left: 2px solid #428bca;
-}
-#place > .panel-heading {
-	padding-left: 30px;
-}
-#place > .panel-heading .place-btn-name {
-	font-size: 1.2em;
-}
-
-#place .panel-heading .icon {
-	vertical-align: middle;
-	margin: -1px;
-}
 #place .place-place {
 	text-transform:capitalize;
 }
-
 #place .place-desc {
-	/*padding: 4px;*/
+	font-size: small;
 }
 #place .place-warn {
 	/*padding:4px 14px 4px 4px;*/
@@ -29,10 +14,4 @@
 	border-top-right-radius: 0;
 	border-top-left-radius: 0;
 	color:#b22;
-}
-#place .place-warn .close {
-	position: absolute;
-	top: 0;
-	right: 0;
-	color: #b33;
 }

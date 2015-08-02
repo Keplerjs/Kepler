@@ -85,7 +85,8 @@ a.btn-gray:hover {
 }
 
 .panel-primary > .panel-heading a {
-	color: #fff
+	font-size: 1.2em;
+	color: #fff;
 }
 
 

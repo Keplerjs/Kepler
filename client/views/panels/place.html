@@ -4,12 +4,8 @@
 {{#with place}}
 <div id="place" class="panel panel-primary">
 	<div class="panel-heading">
-		<div class="place-item">
-			{{> item_place}}
-			<span class="pull-right">
-				<i class="marker-icon marker-{{type}}"></i>
-			</span>
-		</div>
+		<i class="icon icon-marker marker-{{type}} pull-left"></i>
+		{{> item_place}}
 	</div>
 	<div class="panel-body">
 	
