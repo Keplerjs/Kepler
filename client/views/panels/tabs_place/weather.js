@@ -2,7 +2,7 @@
 
 Template.panel_weather.helpers({
 	weather: function() {
-		return this.rData().weather;
+		return this.weather;
 	}
 });
 

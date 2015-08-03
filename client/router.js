@@ -56,7 +56,9 @@ Router.map(function() {
 		},
 		data: function() {
 			return {
-				friends: _.map(Climbo.profile.data.friends, Climbo.newUser)
+				friends: _.map(Climbo.profile.data.friends, function(userId) {
+					return Climbo.newUser(userId).rData();
+				})
 			};
 		}	
 	});
@@ -71,7 +73,8 @@ Router.map(function() {
 			return Meteor.subscribe('placeById', this.params.placeId);
 		},
 		data: function() {
-			return Climbo.newPlace(this.params.placeId);
+			//return reactiveVar
+			return Climbo.newPlace(this.params.placeId).rData();
 		}
 	});
 
@@ -93,12 +96,6 @@ Router.map(function() {
 				sortDesc: true
 			};
 		}
-			/*Climbo.dialogList.show({
-				title: '<i class="icon icon-users"></i> Climbers a '+ _.str.capitalize(self.name),
-				className: 'checkins',
-				items: _.map(self.checkins, Climbo.newUser),
-				sortby: 'username'
-			});*/	
 	});
 
 	this.route('placeMap', {

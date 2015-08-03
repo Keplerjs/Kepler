@@ -4,7 +4,10 @@
 var map = null,
 	initialized = false,
 	layers = {},
-	controls = {};
+	controls = {},
+	baseLayerUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+	//baseLayerUrl = 'http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
+	//baseLayerUrl = 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png';
 
 layers.cluster = new L.MarkerClusterGroup({
 	iconCreateFunction: function(cluster) {
@@ -179,7 +182,7 @@ Climbo.map = {
 			center: L.latLng(opts.center),
 			attributionControl: false,
 			zoomControl: false,
-			layers: L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+			layers: L.tileLayer(baseLayerUrl)
 		}) );
 
 		_.invoke([

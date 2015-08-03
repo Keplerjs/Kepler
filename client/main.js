@@ -15,16 +15,4 @@ Meteor.startup(function() {
 		}
 		//TODO loader gif durante loggingIn
 	});
-
-	//TODO
-	// $(window).on('onbeforeunload', function (event) {
-	// 	var message = 'Sure you want to leave?';
-	// 	if (typeof event == 'undefined') {
-	// 	event = window.event;
-	// 	}
-	// 	if (event) {
-	// 	event.returnValue = message;
-	// 	}
-	// 	return message;
-	// }	
 });

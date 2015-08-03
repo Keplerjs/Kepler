@@ -2,11 +2,9 @@
 Template.panel_pois.helpers({
 	poisGroups: function() {	//raggruppa pois per tipo e mostra il numero
 
-		var rdata = this.rData();
+		if(!_.isArray(this.pois)) return false;//non togliere
 
-		if(!rdata || !_.isArray(rdata.pois)) return false;//non togliere
-
-		var counts = _.countBy(rdata.pois, function(poi) {
+		var counts = _.countBy(this.pois, function(poi) {
 			return poi.properties.tipo;
 		});
 
