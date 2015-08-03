@@ -87,22 +87,6 @@ Climbo.Place = Climbo.Class.extend({
 		},400);
 	},
 
-	loadCheckins: function() {
-
-		var self = this;
-
-		if(this.checkins.length===0) return;
-
-		Meteor.subscribe('usersByIds', self.checkins, function() {
-			Climbo.dialogList.show({
-				title: '<i class="icon icon-users"></i> Climbers a '+ _.str.capitalize(self.name),
-				className: 'checkins',
-				items: _.map(self.checkins, Climbo.newUser),
-				sortby: 'username'
-			});
-		});
-	},
-
 	isOutdoor: function() {
 		return this.type != 'indoor';
 	},

@@ -75,9 +75,35 @@ Router.map(function() {
 		}
 	});
 
+	this.route('placeCheckins', {
+		path: '/place/:placeId/checkins',
+		template: 'pageList',
+		layoutTemplate: 'layoutPage',	
+		waitOn: function() {
+			var place = Climbo.newPlace(this.params.placeId);
+			return Meteor.subscribe('usersByIds', place.checkins);
+		},
+		data: function() {
+			var place = Climbo.newPlace(this.params.placeId);
+			return {
+				title: i18n('ui.titles.placeCheckins')+place.name,
+				className: 'checkins',
+				itemsTemplate: 'item_user',
+				items: _.map(place.checkins, Climbo.newUser),
+				sortDesc: true
+			};
+		}
+			/*Climbo.dialogList.show({
+				title: '<i class="icon icon-users"></i> Climbers a '+ _.str.capitalize(self.name),
+				className: 'checkins',
+				items: _.map(self.checkins, Climbo.newUser),
+				sortby: 'username'
+			});*/	
+	});
+
 	this.route('placeMap', {
 		path: '/place/:placeId/map',
-		//layoutTemplate: 'layoutMap',
+		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			return Meteor.subscribe('placesByIds', [this.params.placeId]);
 		},

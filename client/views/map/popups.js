@@ -6,17 +6,11 @@ Template.popup_place.helpers({
 });
 
 Template.popup_place.events({
-/*	'click .popup-tit': function(e,tmpl) {
-		this.loadPanel();
-	},*/
 	'click .popup-btn-tracks': function(e,tmpl) {
 		this.loadTracks();
 	},
 	'click .popup-btn-pois': function(e,tmpl) {
 		this.loadPois();
-	},
-	'click .popup-btn-checkins': function(e,tmpl) {
-		this.loadCheckins();
 	},
 //	debug actions
 	'click .popup-clone': function(e,tmpl) {

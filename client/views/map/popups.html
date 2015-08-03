@@ -9,7 +9,7 @@
 			{{#if tracks}}<a class="btn btn-sm btn-default popup-btn-tracks" href="#"><i class="icon icon-gpx"></i></a>{{/if}}
 		{{/if}}
 		{{#if pois}}<a class="btn btn-sm btn-default popup-btn-pois" href="#"><i class="icon icon-pois"></i></a>{{/if}}
-		{{#if checkinsCount}}<a class="btn btn-sm btn-default popup-btn-checkins" href="#"><i class="icon icon-users"></i></a>{{/if}}
+		{{#if checkinsCount}}<a class="btn btn-sm btn-default" href="/place/{{id}}/checkins"><i class="icon icon-users"></i></a>{{/if}}
 	</div>
 	<div class="btn btn-xs btn-default disabled pull-right popup-btn-star">
 		<i class="icon icon-{{#if getRank}}star{{else}}unstar{{/if}}"></i> 
