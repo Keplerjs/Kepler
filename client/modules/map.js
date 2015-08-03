@@ -71,9 +71,7 @@ layers.places = new L.LayerJSON({
 		});
 
 		return {
-			abort: function() {
-				sub.stop();
-			}
+			abort: sub.stop
 		};
 	},
 	dataToMarker: function(data) {	//eseguito una sola volta per ogni place
@@ -112,8 +110,8 @@ controls.gps = L.control.gps({
 		Climbo.profile.setLoc([e.latlng.lat,e.latlng.lng]);
 	},
 	gpsactivated: function(e) {	//run after gpslocated
-		Climbo.alert.show(i18n('ui.alerts.gpson'),'success');
 		Climbo.profile.user.icon.animate();
+		Climbo.alert.show(i18n('ui.alerts.gpson'),'success');		
 	}
 });
 
@@ -209,8 +207,8 @@ Climbo.map = {
 	},
 
 	destroyMap: function() {
-		//TODO other desotry methods
 		Climbo.map.leafletMap.remove();
+		Climbo.map.layers.places.clearLayers();
 	},
 	
 	loadLoc: function(loc) {

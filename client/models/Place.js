@@ -133,8 +133,8 @@ Climbo.newPlace = function(id)
 {
 	if(!id) return null;
 	var i = 'place_'+id;
-	if(!Climbo.itemsById[i])
-		Climbo.itemsById[i] = new Climbo.Place(id);
-	return Climbo.itemsById[i];
+	if(!Climbo.placesById[i])
+		Climbo.placesById[i] = new Climbo.Place(id);
+	return Climbo.placesById[i];
 };
 

@@ -113,7 +113,7 @@ Climbo.newUser = function(id)
 {
 	if(!id) return null;
 	var i = 'user_'+id;
-	if(!Climbo.itemsById[i])
-		Climbo.itemsById[i] = new Climbo.User(id);
-	return Climbo.itemsById[i];
+	if(!Climbo.usersById[i])
+		Climbo.usersById[i] = new Climbo.User(id);
+	return Climbo.usersById[i];
 };
