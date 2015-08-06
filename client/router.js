@@ -126,8 +126,11 @@ Router.map(function() {
 
 	this.route('convers', {
 		path: '/convers',
-		template: 'pageList',
-		layoutTemplate: 'layoutPage',	
+		template: 'panelList',
+		layoutTemplate: 'layoutMap',
+		yieldRegions: {
+			'panelList': {to: 'sidebar'}
+		},
 		waitOn: function() {
 			return Meteor.subscribe('conversByIds', Climbo.profile.data.convers);
 		},

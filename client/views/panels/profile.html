@@ -1,7 +1,7 @@
 
 <template name="panelProfile">
 
-<div id="profile" class="panel panel-gray">
+<div id="profile" class="panel panel-white">
 {{#if currentUser}}
 	{{#with currentUser}}
 	<div class="panel-heading">
@@ -12,17 +12,17 @@
 		{{> tab_checkin}}
 
 		<div class="list-group">
-			<a class="list-group-item btn-gray" href="/notifications">
+			<a class="list-group-item" href="/notifications">
 				<i class="icon icon-notif"></i>
 				 {{i18n 'ui.btns.notif'}} 
 				<span class="badge">{{notif.length}}</span>
 			</a>			
-			<a class="list-group-item btn-gray" href="/favorites">
+			<a class="list-group-item" href="/favorites">
 				<i class="icon icon-star"></i>
 				 {{i18n 'ui.btns.favs'}} 
 				<span class="badge">{{favorites.length}}</span>
 			</a>
-			<a class="list-group-item btn-gray" href="/convers">
+			<a class="list-group-item" href="/convers">
 				<i class="icon icon-mes"></i>
 				 {{i18n 'ui.btns.convers'}} 
 				<span class="badge">{{convers.length}}</span>
@@ -31,14 +31,14 @@
 
 
 		<div class="list-group">
-			<a class="list-group-item btn-gray" href="/settings">
+			<a class="list-group-item" href="/settings">
 				<i class="icon icon-sets"></i> 
 				{{i18n 'ui.btns.sets'}}
 			</a>			
 		</div>
 
 		<div class="list-group">
-			<a class="list-group-item btn-gray" href="/logout">
+			<a class="list-group-item" href="/logout">
 				<i class="icon icon-logout"></i> 
 				{{i18n 'ui.btns.logout'}}
 			</a>

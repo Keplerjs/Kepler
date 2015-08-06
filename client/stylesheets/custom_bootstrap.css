@@ -58,7 +58,7 @@
 .btn-default {
 	color: #428bca;
 }
-.btn-default .badge {
+.badge.bg-gray {
 	background-color: #ccc;
 }
 
@@ -82,6 +82,9 @@ a.btn-gray:hover {
 	background-repeat: repeat-x;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#888', endColorstr='#888', GradientType=0);
 }
+a.btn-gray .badge {
+	background-color: #999;
+}
 
 .panel-white > .panel-heading {
 	border-color: #aaa;
@@ -90,6 +93,11 @@ a.btn-gray:hover {
 	background-repeat: repeat-x;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ccc', endColorstr='#bbb', GradientType=0);	
 }
+
+.panel-white > .panel-body {
+	background: none;
+}
+
 .panel-gray > .panel-body {
 	background: #999;
 }
@@ -99,11 +107,6 @@ a.btn-gray:hover {
 .panel-primary > .panel-heading a {
 	font-size: 1.2em;
 	color: #fff;
-}
-
-
-.btn-gray .badge {
-	background-color: #999;
 }
 
 .nav-tabs > li > a {

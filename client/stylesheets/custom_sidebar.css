@@ -1,23 +1,42 @@
 
 .sidebar {
-	box-shadow: 0 0 6px rgba(0,0,0,0.3);
+	position: absolute;
+    top: 10px;	
+    left: 10px;
 	z-index: 1000;
+    max-height: calc(100% - 20px);
+    overflow: hidden;
+	box-shadow: 0 0 6px rgba(0,0,0,0.3);
+	background: #eee;
 }
-.sidebar-map {
-    margin-left: 0;
+.sidebar .panel {
+	border-radius: 0;
+	border: none;
+	box-shadow: none;
 }
-.sidebar-content {
-  background: #eee;
-  overflow: hidden;
+.sidebar .panel-heading {
+	height: 50px;
+	border-radius: 0;
+}
+.sidebar .panel-body {
+	overflow-x: hidden;
+	overflow-y: auto;
+	background: none;
+	max-height: 400px;
 }
 
 .sidebar-close {
 	position: absolute;
-	top: 8px;
-	right: 10px;
+	top: 0;
+	right: 0;
 	display: block;
-	cursor: pointer;	
+	height: 26px;
+	width: 26px;
+	line-height: 26px;
+	text-align: center;
+	cursor: pointer;
 	color: #fff;
+	background: #eee;
 	text-shadow: 0 1px 0 #000;
 	font-size: 2em;
 	font-weight: bold;
@@ -28,58 +47,74 @@
 	color: #fff;
 	text-decoration: none;
 }
-
-.sidebar-tabs {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 40px;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: rgba(255,255,255,0.6);
+@media (min-width: 768px) {
+    .sidebar {
+        top: 10px;    	
+        left: 10px;
+        transition: max-width 100ms;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .sidebar {
+        width: 305px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .sidebar {
+        width: 390px;
+    }
+}
+@media (min-width: 1200px) {
+    .sidebar {
+        width: 460px;
+    }
 }
 
-.sidebar-tabs > li {
-    margin: 3px;
-	background-color:rgba(255,255,255,0.8);
-	border-radius: 5px;
-	width: 34px;
-	height: 34px;
-	border: 2px solid #4F96CA;
+@media (min-width: 768px) and (max-width: 991px) {
+    .sidebar-pane {
+        width: 265px;
+    }
 }
-
-.sidebar-tabs > li > a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  line-height: 34px;
-  color: inherit;
-  text-decoration: none;
-  text-align: center
+@media (min-width: 992px) and (max-width: 1199px) {
+    .sidebar-pane {
+        width: 350px;
+    }
 }
-.sidebar-pane {
-	padding: 0;
+@media (min-width: 1200px) {
+    .sidebar-pane {
+        width: 420px;
+    }
 }
-
-.sidebar-pane .panel {
-	position:absolute;
-	height: 100%;
-	width: 100%;
-	border-radius: 0;
-	border:none;
-	box-shadow: none;
+.sidebar-map {
+    margin-left: 40px;
 }
-.sidebar-pane .panel-heading {
-	height: 50px;
-	border-radius: 0;
+@media (min-width: 768px) {
+    .sidebar-map {
+        margin-left: 0;
+    }
 }
-.sidebar-pane .panel-body {
-	position: absolute;
-	top: 50px;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	overflow-y:scroll;
+@media (min-width: 768px) {
+    .sidebar.collapsed ~ .sidebar-map .leaflet-left {
+        left: 50px;
+    }
+}
+@media (min-width: 768px) {
+    .sidebar-map .leaflet-left {
+        transition: left 100ms;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .sidebar-map .leaflet-left {
+        left: 315px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .sidebar-map .leaflet-left {
+        left: 400px;
+    }
+}
+@media (min-width: 1200px) {
+    .sidebar-map .leaflet-left {
+        left: 470px;
+    }
 }

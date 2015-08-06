@@ -6,20 +6,20 @@
 
 		<div id="sidebar" class="sidebar collapsed">
 	        <!-- Nav tabs -->
-	        <ul class="sidebar-tabs" role="tablist">
-	            <li><a href="/intro"   role="tab" title="{{i18n 'ui.btns.home'}}"><i class="icon icon-home"></i></a></li>
-	            <li><a href="/profile" role="tab" title="{{i18n 'ui.btns.profile'}}"><i class="icon icon-profile"></i></a></li>
-	            <li><a href="/friends" role="tab" title="{{i18n 'ui.btns.friends'}}"><i class="icon icon-friends"></i></a></li>
-	            <li><a href="/convers" role="tab" title="{{i18n 'ui.btns.convers'}}"><i class="icon icon-mes"></i></a></li>
-            	{{> buttonStatus}}
+	        <ul class="nav nav-tabs" role="tablist">
+	            <li><a href="/intro" role="tab"><i class="icon icon-home"></i> </a></li>
+	            <li><a href="/profile" role="tab"><i class="icon icon-profile"></i> {{i18n 'ui.btns.profile'}}</a></li>
+	            <li><a href="/friends" role="tab"><i class="icon icon-friends"></i> {{i18n 'ui.btns.friends'}}</a></li>
+	            <li><a href="/convers" role="tab"><i class="icon icon-mes"></i> {{i18n 'ui.btns.convers'}}</a></li>
+            	<li class="active"><a href="/" role="tab"><i class="icon icon-map"></i> {{i18n 'ui.btns.places'}}</a></li>
 	        </ul>
+	        <a class="sidebar-close">&times;</a>
 	        <!-- Tab panes -->
-	        <div class="sidebar-content active">
-	            <div class="sidebar-pane active">
+	        <div class="tab-content">
+	            <div id="home" class="tab-pane fade in active" role="tabpanel">
 					
 					{{> yield "sidebar"}}
 
-					<a class="sidebar-close">&times;</a>
 	            </div>
 	        </div>
 	    </div>

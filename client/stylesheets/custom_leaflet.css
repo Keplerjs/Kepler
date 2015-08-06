@@ -9,11 +9,12 @@
 .leaflet-left.leaflet-bottom .leaflet-control,
 .leaflet-right.leaflet-bottom .leaflet-control,
 .leaflet-right.leaflet-top .leaflet-control {
-	margin: 3px;
+	margin: 5px;
+	padding: 2px;
 	box-shadow: 0 0 6px rgba(0,0,0,0.3);
 	background-color:rgba(255,255,255,0.8);
-	border-radius:5px;
-	border: 2px solid #4F96CA;	
+	border-radius:0;
+	border: none;
 }
 
 
@@ -63,7 +64,11 @@
 .leaflet-control-search .search-alert {
 	font-size:1.2em;
 } 
-
+.leaflet-right.leaflet-top .leaflet-control-search .search-tooltip {
+    position: absolute;
+    left: auto;
+    right: 30px;
+}
 
 /* ZOOM */
 
@@ -90,8 +95,8 @@
 	text-indent:-100px;
 	/*http://goo.gl/q90DK*/
 }
-.leaflet-bar a.leaflet-control-zoom-disabled,
-.leaflet-touch .leaflet-bar a.leaflet-control-zoom-disabled {
+.leaflet-control-zoom-in.leaflet-disabled,
+.leaflet-control-zoom-out.leaflet-disabled {
 	opacity: 0.5;
 }
 .leaflet-touch .leaflet-control-zoom-out {

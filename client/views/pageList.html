@@ -5,7 +5,14 @@
 
 	<section id="pageList" class="{{className}}">
 
-		<div class="list-group list-items">
+		{{> panelList}}
+		
+	</section>
+
+</template>
+
+<template name="panelList">
+	<div class="list-group list-items">
 		{{#if header}}
 			<div class="list-group-item header-item">
 				{{> Template.dynamic template=this.header.template data=this.header.data}}
@@ -16,9 +23,5 @@
 			{{> Template.dynamic template=this.template}}
 			</div>
 		{{/each}}
-		</div>
-		
-	</section>
-
+	</div>
 </template>
-
