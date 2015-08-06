@@ -1,9 +1,9 @@
 
 <template name="pageList">
-
+		
 	{{> navbar}}
 
-	<section id="pageList" class="{{className}}">
+	<section id="pageList">
 
 		{{> panelList}}
 		
@@ -12,16 +12,27 @@
 </template>
 
 <template name="panelList">
-	<div class="list-group list-items">
-		{{#if header}}
-			<div class="list-group-item header-item">
-				{{> Template.dynamic template=this.header.template data=this.header.data}}
+
+	<div class="panel panel-white">
+		<div class="panel-heading">
+			{{title}}
+		</div>
+		<div class="panel-body">
+
+			<div class="list-group list-items {{className}}">
+				{{#if header}}
+					<div class="list-group-item header-item">
+						{{> Template.dynamic template=this.header.template data=this.header.data}}
+					</div>
+				{{/if}}
+				{{#each items}}
+					<div class="list-group-item">
+					{{> Template.dynamic template=this.template}}
+					</div>
+				{{/each}}
 			</div>
-		{{/if}}
-		{{#each items}}
-			<div class="list-group-item">
-			{{> Template.dynamic template=this.template}}
-			</div>
-		{{/each}}
-	</div>
+		</div>
+	</div>	
+	
+
 </template>

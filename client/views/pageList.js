@@ -5,6 +5,10 @@
 //TODO inserirt option for showing columns instead rows
 
 Template.panelList.helpers({
+	title: function() {
+		//console.log('navbar',Template.parentData());
+		return this.title || i18n('ui.titles.'+ Router.current().route.getName() );
+	},	
 	items: function() {
 		var itemsTemplate = this.itemsTemplate;
 		

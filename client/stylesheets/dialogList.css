@@ -1,27 +1,23 @@
 
-
-#dialoglist .modal-body {
-	padding: 0;
-}
-#dialoglist .list-group {
+.list-items.list-group {
 	margin: 0;
 }
-#dialoglist .list-group-item:first-child {
+.list-items .list-group-item:first-child {
 	border-radius: 0;
 }
 
 /*#dialoglist.convers .user-btn-name b, */
-#dialoglist.favorites .place-btn-star,
-#dialoglist.favorites .place-btn-checkin,
-#dialoglist.convers_profile .place-btns,
-#dialoglist.convers_profile .conver-author,
-#dialoglist.convers_place .place-btn-name,
-#dialoglist.convers_place .conver-btns {
+.list-items.favorites .place-btn-star,
+.list-items.favorites .place-btn-checkin,
+.list-items.convers_profile .place-btns,
+.list-items.convers_profile .conver-author,
+.list-items.convers_place .place-btn-name,
+.list-items.convers_place .conver-btns {
 	display: none;
 }
 
 
-#dialoglist.favorites .place-btn-checkins {
+.list-items.favorites .place-btn-checkins {
 	border-bottom-left-radius: 3px;
 	border-top-left-radius: 3px;
 }

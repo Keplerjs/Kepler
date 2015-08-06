@@ -58,6 +58,12 @@
 .btn-default {
 	color: #428bca;
 }
+
+.badge,
+.btn-default .badge {
+	background-color: #bbb;
+}
+
 .badge.bg-gray {
 	background-color: #ccc;
 }
