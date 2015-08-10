@@ -16,15 +16,7 @@ Router.onBeforeAction(function(){
 
 Router.onAfterAction(function(){
 
-	var route = this.route.getName(),
-		sidebarRoutes = ['profile','friends','userPanel','placePanel'],
-		sidebarRoutesNo = ['intro','map','placeMap']
-
-	if( _.contains(sidebarRoutes, route) )
-		$('#sidebar').removeClass('collapsed');
-
-	else if( _.contains(sidebarRoutesNo, route) )
-		$('#sidebar').addClass('collapsed');
+	$('#sidebar').removeClass('collapsed');
 });
 
 Router.map(function() {
@@ -64,7 +56,7 @@ Router.map(function() {
 		}	
 	});
 
-	this.route('placePanel', {
+	this.route('place', {
 		path: '/place/:placeId',
 		layoutTemplate: 'layoutMap',		
 		template: 'panelPlace',
