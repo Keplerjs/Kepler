@@ -3,6 +3,7 @@ Router.configure({
 	layoutTemplate: 'layoutMap',
 	loadingTemplate: 'pageLoading'
 });
+//Router.setTemplateNameConverter(function (str) { return str; });
 
 Router.onBeforeAction(function(){
 

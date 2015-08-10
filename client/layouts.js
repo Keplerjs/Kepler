@@ -6,7 +6,7 @@ Template.layoutMap.events({
 	},
 	'click .sidebar-close': function(e, tmpl) {
 		//tmpl.$('#sidebar').addClass('collapsed');
-		tmpl.$('#sidebar > .tab-content').slideToggle('fast');
+		tmpl.$('#sidebar').toggleClass('collapsed');//.slideToggle('fast');
 	}
 });
 

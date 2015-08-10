@@ -1,6 +1,10 @@
 //https://github.com/meteor/meteor/blob/devel/packages/spacebars/README.md
 //http://stackoverflow.com/questions/22750022/defining-iterative-block-helpers-in-meteor-0-8
 
+Template.registerHelper('isActiveRoute', function(name) {
+	return Router.current().route.getName()===name ? 'active':'';
+});
+
 Template.registerHelper('connectionStatus', function() {
 	return Meteor.status();
 });
