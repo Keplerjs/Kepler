@@ -119,13 +119,12 @@ controls.gps = L.control.gps({
 });
 
 controls.search = L.control.search({
-	zoom: 15,
 	position: 'topright',
 	minLength: Meteor.settings.public.searchMinLen,		
 	text: i18n('ui.controls.search.text'),
 	textErr: i18n('ui.controls.search.error'),
 	autoType: false, tipAutoSubmit: true, delayType: 800,	
-	autoCollapse: false, autoCollapseTime: 6000,
+	autoCollapse: false, autoCollapseTime: 6000, zoom: 15,
 	animateLocation: true, markerLocation: false,
 	propertyLoc: 'loc',
 	propertyName: 'name',			

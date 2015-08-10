@@ -9,14 +9,14 @@
 .leaflet-left.leaflet-bottom .leaflet-control,
 .leaflet-right.leaflet-bottom .leaflet-control,
 .leaflet-right.leaflet-top .leaflet-control {
-	margin: 5px;
+	margin: 10px;
+	margin-bottom: 0;
 	padding: 2px;
 	box-shadow: 0 0 6px rgba(0,0,0,0.3);
 	background-color:rgba(255,255,255,0.8);
 	border-radius:0;
 	border: none;
 }
-
 
 /* SEARCH */
 .leaflet-control-search.search-load .search-input {
@@ -55,7 +55,6 @@
 	padding: 0 2px;
 	height: 32px;
 	overflow: hidden;
-	/*position: relative;*/
 }
 .leaflet-control-search .search-button:hover,
 .leaflet-control-search .search-tip-select {

@@ -1,8 +1,9 @@
 
 .sidebar {
 	position: absolute;
-    top: 10px;	
-    left: 10px;
+    top: 0;	
+    left: 0;
+    right: 60px;
 	z-index: 1000;
     max-height: calc(100% - 20px);
 	box-shadow: 0 0 6px rgba(0,0,0,0.3);
@@ -16,7 +17,7 @@
 .sidebar .nav-pills {
 	padding: 3px;
 }
-.sidebar .nav>li>a {
+.sidebar .nav > li > a {
     padding: 10px;
 }
 .sidebar .panel {
@@ -50,65 +51,23 @@
 	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj48cGF0aCBmaWxsPSIjOThhMmFlIiBkPSJNNSA3LjkzOEwxLjM5NiA1IDAgNi40MTdsNSA0LjA3IDUtNC4wN0w4LjYwNyA1IDUgNy45NHptNS02LjUyMkw4LjYwNy4wMDIgNSAyLjkzNyAxLjM5NiAwIDAgMS40MTZsNSA0LjA3IDUtNC4wN3oiLz48L3N2Zz4=);
 }
 
+.sidebar-map .leaflet-left {
+    left: 410px;
+}
+@media (max-width: 400px) {
+    .sidebar .nav > li > a > span {
+        display: none;
+    }
+}
 @media (min-width: 768px) {
     .sidebar {
-        top: 10px;    	
+        top: 10px;
         left: 10px;
-        transition: max-width 100ms;
-    }
-}
-@media (min-width: 768px) and (max-width: 991px) {
-    .sidebar {
-        width: 305px;
-    }
-}
-@media (min-width: 992px) and (max-width: 1199px) {
-    .sidebar {
-        width: 390px;
-    }
-}
-@media (min-width: 1200px) {
-    .sidebar {
+        right: auto;
         width: 460px;
     }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-    .sidebar-pane {
-        width: 265px;
-    }
-}
-@media (min-width: 992px) and (max-width: 1199px) {
-    .sidebar-pane {
-        width: 350px;
-    }
-}
-@media (min-width: 1200px) {
-    .sidebar-pane {
-        width: 420px;
-    }
-}
-.sidebar-map {
-    margin-left: 40px;
-}
-@media (min-width: 768px) {
     .sidebar-map {
         margin-left: 0;
-    }
-}
-@media (min-width: 768px) {
-    .sidebar.collapsed ~ .sidebar-map .leaflet-left {
-        left: 50px;
-    }
-}
-@media (min-width: 768px) {
-    .sidebar-map .leaflet-left {
-        transition: left 100ms;
-    }
-}
-@media (min-width: 768px) and (max-width: 991px) {
-    .sidebar-map .leaflet-left {
-        left: 315px;
     }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -117,7 +76,7 @@
     }
 }
 @media (min-width: 1200px) {
-    .sidebar-map .leaflet-left {
-        left: 470px;
+    .sidebar {
+        width: 460px;
     }
 }
