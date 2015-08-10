@@ -1,8 +1,8 @@
 
 <template name="panelPlace">
 
-<div id="place" class="panel panel-white">
-	<div class="panel-heading">
+<div id="place" class="panel">
+	<div class="panel-heading bg-primary">
 		<i class="icon icon-marker marker-{{type}} pull-left"></i>
 		{{> item_place}}
 	</div>
@@ -22,22 +22,22 @@
 		<ul class="nav nav-tabs">
 			<li class="active">
 				<a href="#tab_info" data-toggle="tab">
-					<i class="icon icon-placeinfo"></i> <small>{{i18n 'ui.btns.info'}}</small>
+					<i class="icon icon-placeinfo"></i> <span class="hidden-xs">{{i18n 'ui.btns.info'}}</span>
 				</a>
 			</li>
 			<li>
 				<a href="#tab_hist" data-toggle="tab">
-					<i class="icon icon-hist"></i> <small>{{i18n 'ui.btns.hist'}}</small>
+					<i class="icon icon-hist"></i> <span class="hidden-xs">{{i18n 'ui.btns.hist'}}</span>
 				</a>
 			</li>
 			<li class="place-btn-weather">
 				<a href="#tab_weather" data-toggle="tab">
-					<i class="icon icon-weather"></i> <small>{{i18n 'ui.btns.weather'}}</small>
+					<i class="icon icon-weather"></i> <span class="hidden-xs">{{i18n 'ui.btns.weather'}}</span>
 				</a>
 			</li>
 			<li class="place-btn-events">
 				<a href="#tab_events" data-toggle="tab">
-					<i class="icon icon-cal"></i> <small>{{i18n 'ui.btns.events'}}</small>
+					<i class="icon icon-cal"></i> <span class="hidden-xs">{{i18n 'ui.btns.events'}}</span>
 				</a>
 			</li>			
 		</ul>

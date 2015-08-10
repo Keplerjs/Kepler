@@ -13,7 +13,7 @@ Climbo.perms = {
 		name:1,username:1,avatar:1,friends:1,createdAt:1,likeplaces:1,gender:1,city:1
 	},	
 	friendItem: {
-		name:1,username:1,avatar:1,                                                   checkin:1,online:1,loc:1,mob:1
+		name:1,username:1,avatar:1,/*************************************************/checkin:1,online:1,loc:1,mob:1
 	},
 	userItem: {
 		name:1,username:1,avatar:1
@@ -29,7 +29,7 @@ Climbo.perms = {
 		loc:1,name:1,type:1,near:1,rank:1,checkins:1
 	},
 	placeSearch: {
-		loc:1,name:1,type:1,near:1,rank:1,                                 prov:1,reg:1
+		loc:1,name:1,type:1,near:1,rank:1,/*******************************/prov:1,reg:1
 	},
 //Convers
 	converDialog: {

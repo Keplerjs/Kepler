@@ -45,6 +45,15 @@
 	/* primary */
 	color: #fff;
 }
+.nav-pills>li.active>a,
+.nav-pills>li.active>a:focus,
+.nav-pills>li.active>a:hover {
+	background-color: #428bca
+}
+
+.bg-primary a {
+	color: #fff;
+}
 .text-white {
 	color: #fff;
 }
@@ -93,6 +102,7 @@ a.btn-gray .badge {
 }
 
 .panel-white > .panel-heading {
+	color: #fff;
 	border-color: #aaa;
 	background-image: -webkit-linear-gradient(top,#ccc 0,#bbb 100%);
 	background-image: linear-gradient(to bottom,#ccc 0,#bbb 100%);
@@ -183,14 +193,15 @@ section {
 
 .bootstrap-switch {
 	margin: 0;
-	border: 1px solid #888;
+	border: 1px solid;
 	background-color: #ccc;
-	border-radius: 8px;
+	border-radius: 6px;
 	overflow: hidden;
+	border-color: #ccc;
 }
 .bootstrap-switch.bootstrap-switch-focused {
 	box-shadow: none;
-	border-color: #777;
+	border-color: #ccc;
 }
 .bootstrap-switch > div > label,
 .bootstrap-switch.bootstrap-switch-on > div > label,

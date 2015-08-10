@@ -9,12 +9,13 @@
 .leaflet-left.leaflet-bottom .leaflet-control,
 .leaflet-right.leaflet-bottom .leaflet-control,
 .leaflet-right.leaflet-top .leaflet-control {
-	margin: 10px;
+	margin: 8px;
 	margin-bottom: 0;
 	padding: 2px;
 	box-shadow: 0 0 6px rgba(0,0,0,0.3);
-	background-color:rgba(255,255,255,0.8);
-	border-radius:0;
+	/*background-color:rgba(255,255,255,0.8);*/
+	background:#fff;
+	border-radius:4px;
 	border: none;
 }
 
@@ -66,7 +67,7 @@
 .leaflet-right.leaflet-top .leaflet-control-search .search-tooltip {
     position: absolute;
     left: auto;
-    right: 30px;
+    right: 0;
 }
 
 /* ZOOM */

@@ -8,6 +8,32 @@ getPlacesByIds = function(placesIds) {
 	return Places.find({_id: {$in: placesIds} }, { fields: Climbo.perms.placeItem });
 };
 
+getPlacesByBBox = function(bbox) {
+
+	//PATCH while minimongo not supporting $within $box queries
+	if(Meteor.isClient && L) {
+
+
+		console.log('getPlacesByBBox',bbox);
+
+		return {
+				fetch: function() {
+					return Places.find().fetch();
+				}
+			};
+
+/*		var pp = _.filter(Places.find().fetch(), function(place) {
+
+			return Climbo.util.geo.contains(bbox, place.loc);
+		});
+
+		console.log('getPlacesByBBox',pp);
+		return pp;*/
+	}
+	else if(Meteor.isServer) 
+		return Places.find({loc: {"$within": {"$box": bbox }} }, { fields: Climbo.perms.placeMarker });
+};
+
 getCheckinsCountByPlaces = function(placesIds) {
 	
 	var places = getPlacesByIds(placesIds).fetch();

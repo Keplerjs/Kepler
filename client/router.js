@@ -56,10 +56,29 @@ Router.map(function() {
 		}	
 	});
 
-	this.route('place', {
-		path: '/place/:placeId',
+	this.route('places', {
+		path: '/places',		
+		template: 'panelPlaces',
 		layoutTemplate: 'layoutMap',		
+		yieldRegions: {
+			'panelPlaces': {to: 'sidebar'}
+		},
+/*		waitOn: function() {
+			var bb = Climbo.map.getBBox();
+			console.log('bbox',bb)
+			return Meteor.subscribe('placesByBBox', bb );
+		},*/
+/*		data: function() {
+			return {
+				places: _.map(getPlacesByBBox( Climbo.map.getBBox() ), Climbo.newPlace)
+			};
+		}*/
+	});
+
+	this.route('place', {
+		path: '/place/:placeId',		
 		template: 'panelPlace',
+		layoutTemplate: 'layoutMap',		
 		yieldRegions: {
 			'panelPlace': {to: 'sidebar'}
 		},

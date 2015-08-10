@@ -70,7 +70,14 @@ layers.places = new L.LayerJSON({
 	callData: function(bbox, callback) {
 
 		var sub = Meteor.subscribe('placesByBBox', bbox, function() {
-			callback( Places.find().fetch() );
+			
+			//callback( Places.find().fetch() );
+			
+			var pp = getPlacesByBBox(bbox).fetch();
+			
+			console.log('callData',bbox, pp);
+
+			callback( pp );
 		});
 
 		return {
@@ -171,8 +178,6 @@ Climbo.map = {
 	layers: layers,
 
 	initMap: function(opts, callbackMap) {		//render map and add controls/layers
-		
-		console.log('initMap');
 
 		Climbo.map.initialized = true;
 
@@ -186,7 +191,10 @@ Climbo.map = {
 
 		_.invoke([
 			layers.geojson, layers.cluster,
-			controls.search, controls.gps, controls.zoom, controls.attrib
+			controls.gps,
+			controls.search,
+
+			controls.zoom, controls.attrib
 		],'addTo', Climbo.map.leafletMap);
 
 		//Fix solo per Safari evento resize! quando passa a schermo intero
@@ -201,6 +209,11 @@ Climbo.map = {
 			//});
 	},
 
+	getBBox: function() {
+		var bb = Climbo.map.leafletMap.getBounds().toBBoxString().split(',');
+		return [[parseFloat(bb[1]),parseFloat(bb[0])],
+				[parseFloat(bb[3]),parseFloat(bb[2])]];
+	},
 	enableBBox: function() {
 		Climbo.map.leafletMap.addLayer(layers.places);
 	},

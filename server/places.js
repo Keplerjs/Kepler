@@ -5,11 +5,6 @@
 //TODO togliere settori da dentro i document place, metterli su collection a parte insieme alle vie
 //TODO aggiungere caratteri di ricerca speciale, tipo ecco
 
-
-getPlacesByBBox = function(bbox) {
-	return Places.find({loc: {"$within": {"$box": bbox }} }, { fields: Climbo.perms.placeMarker });
-};
-
 getPlacesByCheckins = function(usersIds) {
 	return Places.find({checkins: {$in: usersIds} }, { fields: Climbo.perms.placeItem });
 };

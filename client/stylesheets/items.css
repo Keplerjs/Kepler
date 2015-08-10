@@ -38,6 +38,7 @@
 	height: 30px;
 	width: 30px;
 	border-radius: 2px;
+	background-color: #fff;
 }
 .user-avatar-big {
 	height: 80px;
@@ -55,7 +56,6 @@
 	background-color:#FCD865;
 }
 .place-btn-checkin {
-	width:78px;
 	padding-left:6px;
 }
 

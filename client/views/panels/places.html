@@ -1,0 +1,16 @@
+
+<template name="panelPlaces">
+
+<div id="places" class="panel">
+	<div class="panel-heading bg-primary">
+	</div>
+	<div class="panel-body">
+		{{#each places}}
+			<span class="btn btn-default">
+				{{> item_place}}
+			</span>
+		{{/each}}
+	</div>
+</div>		
+
+</template>

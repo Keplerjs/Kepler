@@ -17,7 +17,8 @@ if [ $MYIP = '127.0.0.1' ]; then
 	meteor --port $PORT --settings settings.json
 else
 	export ROOT_URL="http://climbo.net"
-	meteor --port $PORT --production --settings settings.json
+#	meteor --port $PORT --production --settings settings.json
+	meteor --port $PORT --settings settings.json
 # 2>&1 > $LOG &
 #--raw-logs 2> $ERR 1> $LOG &
 fi
