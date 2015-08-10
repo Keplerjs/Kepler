@@ -39,23 +39,6 @@ Router.map(function() {
 		}
 	});
 
-	this.route('friends', {
-		path: '/friends',
-		yieldRegions: {
-			'panelFriends': {to: 'sidebar'}
-		},
-		waitOn: function() {
-			return Meteor.subscribe('friendsByIds', Climbo.profile.data.friends);
-		},
-		data: function() {
-			return {
-				friends: _.map(Climbo.profile.data.friends, function(userId) {
-					return Climbo.newUser(userId).rData();
-				})
-			};
-		}	
-	});
-
 	this.route('places', {
 		path: '/places',		
 		template: 'panelPlaces',
@@ -65,12 +48,16 @@ Router.map(function() {
 		},
 		waitOn: function() {
 			var bb = Climbo.map.getBBox();
-			console.log('bbox',bb)
+			if(bb)
 			return Meteor.subscribe('placesByBBox', bb );
 		},
 		data: function() {
+			var bbox = Climbo.map.getBBox();
+			if(bbox)
 			return {
-				places: _.map(getPlacesByBBox( Climbo.map.getBBox() ), Climbo.newPlace)
+				places: _.map(getPlacesByBBox(bbox).fetch(), function(place) {
+					return Climbo.newPlace(place._id).rData();
+				})
 			};
 		}
 	});
@@ -121,6 +108,23 @@ Router.map(function() {
 				sortDesc: true
 			};
 		}
+	});
+
+	this.route('friends', {
+		path: '/friends',
+		yieldRegions: {
+			'panelFriends': {to: 'sidebar'}
+		},
+		waitOn: function() {
+			return Meteor.subscribe('friendsByIds', Climbo.profile.data.friends);
+		},
+		data: function() {
+			return {
+				friends: _.map(Climbo.profile.data.friends, function(userId) {
+					return Climbo.newUser(userId).rData();
+				})
+			};
+		}	
 	});
 
 	this.route('userPanel', {

@@ -5,11 +5,25 @@
 	<div class="panel-heading bg-primary">
 	</div>
 	<div class="panel-body">
-		{{#each places}}
-			<span class="btn btn-default">
-				{{> item_place}}
-			</span>
-		{{/each}}
+	{{#each places}}
+		<div class="well pull-left">
+			{{> item_place}}
+			<br />
+			<div class="btn-group">
+				<a class="btn btn-sm place-btn-checkins" href="/place/{{id}}/checkins">
+					<i class="icon icon-{{#if checkinsCount}}users{{else}}unusers{{/if}}"></i>
+					<span class="badge {{#unless checkinsCount}}bg-gray{{/unless}}">{{checkinsCount}}</span>
+				</a>
+				<a class="btn btn-sm place-btn-star">
+					<i class="icon icon-{{#if isFavorite}}star{{else}}unstar{{/if}}"></i>
+					<span class="badge {{#unless getRank}}bg-gray{{/unless}}">{{getRank}}</span>
+				</a>
+				<a class="btn btn-sm place-btn-map" href="/place/{{id}}/map">
+					<i class="icon icon-map"></i>
+				</a>
+			</div>
+		</div>
+	{{/each}}
 	</div>
 </div>		
 

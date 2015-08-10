@@ -67,17 +67,15 @@ layers.geojson = new L.GeoJSONAutoClear(null, {
 layers.places = new L.LayerJSON({
 	layerTarget: layers.cluster,
 	minShift: Meteor.settings.public.bboxMinShift,
+	caching: false,
 	callData: function(bbox, callback) {
+
+		Climbo.map._deps.bbox.changed();
 
 		var sub = Meteor.subscribe('placesByBBox', bbox, function() {
 			
 			//callback( Places.find().fetch() );
-			
-			var pp = getPlacesByBBox(bbox).fetch();
-			
-			console.log('callData',bbox, pp);
-
-			callback( pp );
+			callback( getPlacesByBBox(bbox).fetch() );
 		});
 
 		return {
@@ -177,6 +175,10 @@ Climbo.map = {
 
 	layers: layers,
 
+	_deps: {
+		bbox: new Deps.Dependency()
+	},
+
 	initMap: function(opts, callbackMap) {		//render map and add controls/layers
 
 		Climbo.map.initialized = true;
@@ -210,6 +212,8 @@ Climbo.map = {
 	},
 
 	getBBox: function() {
+		if(!Climbo.map.initialized) return null;
+		Climbo.map._deps.bbox.depend();
 		var bb = Climbo.map.leafletMap.getBounds().toBBoxString().split(',');
 		return [[parseFloat(bb[1]),parseFloat(bb[0])],
 				[parseFloat(bb[3]),parseFloat(bb[2])]];

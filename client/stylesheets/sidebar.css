@@ -32,14 +32,13 @@
     background-color: rgba(120,120,120,0.8);
 } 
 .sidebar .panel {
-    border-radius:4px;
 	border: none;
+	border-radius: 0;
 	box-shadow: none;
 	margin-bottom: 0;
 }
 .sidebar .panel-heading {
 	height: 50px;
-	border-radius: 0;
 }
 .sidebar .panel-body {
 	overflow-x: hidden;

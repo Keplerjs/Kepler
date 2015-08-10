@@ -11,24 +11,20 @@ getPlacesByIds = function(placesIds) {
 getPlacesByBBox = function(bbox) {
 
 	//PATCH while minimongo not supporting $within $box queries
-	if(Meteor.isClient && L) {
+	if(Meteor.isClient) {
 
-
-		console.log('getPlacesByBBox',bbox);
-
-		return {
-				fetch: function() {
-					return Places.find().fetch();
-				}
-			};
-
-/*		var pp = _.filter(Places.find().fetch(), function(place) {
+		var pp = _.filter(Places.find().fetch(), function(place) {
 
 			return Climbo.util.geo.contains(bbox, place.loc);
 		});
 
-		console.log('getPlacesByBBox',pp);
-		return pp;*/
+		console.log('getPlacesByBBox',bbox, pp);
+
+		return {
+			fetch: function() {
+				return pp;
+			}
+		};
 	}
 	else if(Meteor.isServer) 
 		return Places.find({loc: {"$within": {"$box": bbox }} }, { fields: Climbo.perms.placeMarker });
