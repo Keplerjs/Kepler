@@ -21,7 +21,7 @@ Accounts.onCreateUser(function(options, user) {
 		}],
 		avatar = '',
 		gender = null,
-		lang = null,
+		lang = Meteor.settings.public.langDef,
 		city = '',
 		likeplaces = ['rock'];		
 

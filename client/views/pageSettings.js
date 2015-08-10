@@ -11,9 +11,16 @@ Template.pageSettings.helpers({
 				liked: _.contains(Meteor.user().likeplaces, type)
 			};
 		});
+	},
+	langs: function() {
+		if(Meteor.user()) {
+			var lang = Meteor.user() && Meteor.user().lang;
+			return _.map(Meteor.settings.public.langs, function(val, key) {
+				return { key: key, val: val, active: key===lang };
+			});
+		}
 	}
 });
-
 //TODO metodo profile.setSettings
 
 Template.pageSettings.events({
@@ -65,6 +72,13 @@ Template.pageSettings.events({
 			Meteor.users.update(Meteor.userId(), { $addToSet: {likeplaces: type} });
 
 	}, Meteor.settings.public.typeDelay),
+
+
+	'change #lang': function(e) {
+		e.preventDefault();
+		var lang = $(e.currentTarget).val();
+		sMeteor.users.update(Meteor.userId(), { $set: {'lang': lang} });
+	},
 
 	'change #fileavatar': function(e) {
 		e.preventDefault();

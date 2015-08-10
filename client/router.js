@@ -63,16 +63,16 @@ Router.map(function() {
 		yieldRegions: {
 			'panelPlaces': {to: 'sidebar'}
 		},
-/*		waitOn: function() {
+		waitOn: function() {
 			var bb = Climbo.map.getBBox();
 			console.log('bbox',bb)
 			return Meteor.subscribe('placesByBBox', bb );
-		},*/
-/*		data: function() {
+		},
+		data: function() {
 			return {
 				places: _.map(getPlacesByBBox( Climbo.map.getBBox() ), Climbo.newPlace)
 			};
-		}*/
+		}
 	});
 
 	this.route('place', {

@@ -39,9 +39,11 @@ Climbo.profile = {
 			Climbo.profile.user = Climbo.newUser(userData._id);
 			Climbo.profile.user.update();
 
+			i18n.setLanguage(userData.lang);
+
 			if(this.firstRun && Climbo.map.leafletMap && Climbo.profile.data.locmap)
 				Climbo.map.leafletMap.setView(Climbo.profile.data.locmap, Meteor.settings.public.map.zoom);
-
+			
 			//TODO Meteor.settings.public.profile = _.defaults(Meteor.settings.public.profile, userData.settings);
 			
 			//TODO rifare le subscribe solo se cambia il valore dopo autorun

@@ -27,6 +27,14 @@
 		"urls": {
 			"static": "http://static.climbo.local/"
 		},
+		"langDef": "it",
+		"langs": {			
+			"it": "Italiano",
+			"en": "English",			
+			"fr": "Français",
+			"de": "Deutsch",
+			"es": "Español"
+		},		
 		"activePlaces": [
 			"rock","boulder","indoor","long"
 		],
