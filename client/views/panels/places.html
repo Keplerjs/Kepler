@@ -6,8 +6,10 @@
 	</div>
 	<div class="panel-body">
 	{{#each places}}
-		<div class="well pull-left">
+		<div class="well well-sm pull-left">
 			{{> item_place}}
+			<br />
+			<small>{{near}}</small>
 			<br />
 			<div class="btn-group">
 				<a class="btn btn-sm place-btn-checkins" href="/place/{{id}}/checkins">

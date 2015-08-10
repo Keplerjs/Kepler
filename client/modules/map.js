@@ -214,7 +214,11 @@ Climbo.map = {
 	getBBox: function() {
 		if(!Climbo.map.initialized) return null;
 		Climbo.map._deps.bbox.depend();
-		var bb = Climbo.map.leafletMap.getBounds().toBBoxString().split(',');
+		var bbox = Climbo.map.leafletMap.getBounds(),//.pad(-0.9),
+			bb = bbox.toBBoxString().split(',');
+		
+		//L.rectangle(bbox,{fill:false}).addTo(Climbo.map.leafletMap);
+
 		return [[parseFloat(bb[1]),parseFloat(bb[0])],
 				[parseFloat(bb[3]),parseFloat(bb[2])]];
 	},

@@ -1,4 +1,9 @@
 
-#places .panel-body > div {
-	margin: 0 0 5px 5px;
+#places .well {
+	margin: 0 0 15px 15px;
+	cursor: pointer;
+}
+
+#places .well:hover {
+	border:1px solid #428bca;
 }
