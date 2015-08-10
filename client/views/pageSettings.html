@@ -34,24 +34,24 @@
 			<div class="form-group">
 				<label for="city" class="col-xs-3 control-label">{{i18n 'ui.labels.city'}}</label>
 				<div class="col-xs-9">
-					<input id="city" class="form-control" type="text" value="{{city}}">
+					<input id="city" class="form-control" type="text" value="{{city}}" />
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="email" class="col-xs-3 control-label">{{i18n 'ui.labels.email'}}</label>
 				{{#each emails}}
-					<div class="col-xs-9 has-feedback">
-						<input disabled="disabled" id="email" class="form-control" type="email" data-value="{{address}}" value="{{address}}">
-						<span style="display:none" class="form-control-feedback icon icon-del"></span>
-					</div>
-					<div class="col-xs-9 col-xs-offset-3">
+				<div class="col-xs-9 col-xs-offset-3">
+				<div class="input-group">
+					<div class="input-group-addon">
 					{{#if verified}}
-						<span class="text-green"><i class="icon icon-success"></i> {{i18n 'ui.btns.verified'}}</span>
+						<span class="text-green"><i class="icon icon-success"></i></span>
 					{{else}}
-						<!-- <a class="btn btn-sm btn-danger" href="#"><i class="icon icon-warning"></i> {{i18n 'ui.btns.verify'}}</a> -->
-						<span class="text-danger"><i class="icon icon-warning"></i> {{i18n 'ui.btns.verify'}}</span>
-					{{/if}}
+						<a class="text-danger"><i class="icon icon-warning"></i></a>
+					{{/if}}						
 					</div>
+					<input disabled="disabled" id="email" class="form-control" type="email" data-value="{{address}}" value="{{address}}" />
+				</div>
+				</div>
 				{{/each}}
 			</div>
 			<div class="form-group">

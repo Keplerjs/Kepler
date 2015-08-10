@@ -77,7 +77,7 @@ Template.pageSettings.events({
 	'change #lang': function(e) {
 		e.preventDefault();
 		var lang = $(e.currentTarget).val();
-		sMeteor.users.update(Meteor.userId(), { $set: {'lang': lang} });
+		Meteor.users.update(Meteor.userId(), { $set: {'lang': lang} });
 	},
 
 	'change #fileavatar': function(e) {
