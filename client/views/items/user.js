@@ -1,4 +1,11 @@
 
+
+Template.item_user.helpers({
+	id: function() {
+		return this.id || this._id;
+	}
+});
+
 Template.user_buttons2.onRendered(function() {
 	
 	this.$('.user-btn-del').btsConfirmButton({

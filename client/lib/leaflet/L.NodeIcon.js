@@ -28,9 +28,10 @@ L.NodeIcon = L.Icon.extend({
 			.stop(true,true)
 			.show()
 			.delay(200)
-			.transition({scale:1.4})
-			.fadeOut(800)
-			.transition({scale:1});			
+			.transition({scale:1.45})
+			//.delay(100)
+			.transition({scale:1})
+			.fadeOut(900)
 	},
 
 	createShadow: function() {

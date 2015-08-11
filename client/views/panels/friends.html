@@ -6,9 +6,8 @@
 		{{> switch_online}}
 	</div>
 	<div class="panel-body list-group list-items">
-		<li class="list-group-item">
+		<div class="list-group-item">
 			<form role="form">
-
 				<div class="form-group has-feedback">
 					<input class="form-control users-inp-search" type="text" placeholder="{{i18n 'ui.labels.findusers'}}" /> 
 					<a class="form-control-feedback users-btn-search">
@@ -16,11 +15,11 @@
 					</a>
 				</div>
 			</form>
-		</li>
+		</div>
 		{{#each friends}}
-			<li class="list-group-item">
+		<div class="list-group-item">
 			{{> item_friend}}
-			</li>
+		</div>
 		{{/each}}
 	</div>
 </div>

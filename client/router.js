@@ -246,7 +246,7 @@ Router.map(function() {
 
 			Climbo.profile.logout();
 			
-			Router.go('pageIntro');
+			Router.go('intro');
 		}
 	});
 });

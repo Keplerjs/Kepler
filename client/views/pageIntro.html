@@ -10,7 +10,13 @@
 
 		<br />
 		{{#if currentUser}}
-			<a class="btn btn-primary" href="/">{{i18n 'ui.btns.enter'}}</a>
+			{{#with currentUser}}
+			<span class="btn btn-default">
+				{{> item_user}}
+			</span>
+				<br /><br />
+				<a class="btn btn-lg btn-primary" href="/">{{i18n 'ui.btns.enter'}}</a>
+			{{/with}}
 		{{else}}
 			{{> loginButtons}}
 		{{/if}}

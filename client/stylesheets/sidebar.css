@@ -41,7 +41,7 @@
 	height: 50px;
 }
 .sidebar .panel-body {
-	overflow-x: hidden;
+	overflow-x: hidden;						
 	overflow-y: auto;
 	background: none;
     height: 100%;
@@ -49,14 +49,15 @@
 
 .sidebar-close {
 	position: absolute;
-	top: 0;
+	top: 3px;
 	right: 0;
 	display: block;
 	height: 44px;
-	width: 30px;
+	width: 40px;
 	cursor: pointer;
     border-radius:4px;    
-	background: no-repeat #fff center center url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj48cGF0aCBmaWxsPSIjMTI0MTkxIiBkPSJNNiAzLjU1bDMuNjA0IDIuOTM1TDExIDUuMDcgNiAxIDEgNS4wN2wxLjM5NCAxLjQxNUw2IDMuNTV6bS01IDYuNTJsMS4zOTQgMS40MTVMNiA4LjU1bDMuNjA0IDIuOTM2TDExIDEwLjA3IDYgNmwtNSA0LjA3eiIvPjwvc3ZnPg==);
+	background: no-repeat center center url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj48cGF0aCBmaWxsPSIjMTI0MTkxIiBkPSJNNiAzLjU1bDMuNjA0IDIuOTM1TDExIDUuMDcgNiAxIDEgNS4wN2wxLjM5NCAxLjQxNUw2IDMuNTV6bS01IDYuNTJsMS4zOTQgMS40MTVMNiA4LjU1bDMuNjA0IDIuOTM2TDExIDEwLjA3IDYgNmwtNSA0LjA3eiIvPjwvc3ZnPg==);
+	background-size: 16px;
 }
 .sidebar.collapsed .sidebar-close {	
 	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj48cGF0aCBmaWxsPSIjOThhMmFlIiBkPSJNNSA3LjkzOEwxLjM5NiA1IDAgNi40MTdsNSA0LjA3IDUtNC4wN0w4LjYwNyA1IDUgNy45NHptNS02LjUyMkw4LjYwNy4wMDIgNSAyLjkzNyAxLjM5NiAwIDAgMS40MTZsNSA0LjA3IDUtNC4wN3oiLz48L3N2Zz4=);

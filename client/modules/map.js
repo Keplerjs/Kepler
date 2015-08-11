@@ -193,9 +193,8 @@ Climbo.map = {
 
 		_.invoke([
 			layers.geojson, layers.cluster,
-			controls.gps,
 			controls.search,
-
+			controls.gps,
 			controls.zoom, controls.attrib
 		],'addTo', Climbo.map.leafletMap);
 
@@ -230,8 +229,10 @@ Climbo.map = {
 	},
 
 	destroyMap: function() {
-		Climbo.map.leafletMap.remove();
-		Climbo.map.layers.places.clearLayers();
+		if(Climbo.map.initialized) {
+			Climbo.map.leafletMap.remove();
+			Climbo.map.layers.places.clearLayers();
+		}
 	},
 	
 	loadLoc: function(loc) {
