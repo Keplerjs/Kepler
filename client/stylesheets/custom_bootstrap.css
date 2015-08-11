@@ -35,6 +35,7 @@
 .bg-gray {
 	background-color: #ccc;
 }
+.list-group-item.active,
 .bg-primary {
 	background-color: #428bca;
 	border-color: #428bca;
@@ -51,7 +52,9 @@
 	background-color: #428bca
 }
 
-.bg-primary a {
+.bg-primary a,
+.bg-primary a:focus,
+.bg-primary a:hover {
 	color: #fff;
 }
 .text-white {
