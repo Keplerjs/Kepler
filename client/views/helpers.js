@@ -73,10 +73,3 @@ Template.registerHelper('sunset', function(ll) {
 Template.registerHelper('placeType', function(type) {
 	return i18n('ui.places.'+type) || '';
 });
-
-Template.registerHelper('navUrl', function(loc) {
-	//REF: https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html
-	//TODO da cambiare secondo il device
-
-	return "http://maps.apple.com/?ll="+(loc?loc.join(','):'');
-});

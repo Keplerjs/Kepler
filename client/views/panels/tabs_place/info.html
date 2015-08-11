@@ -24,9 +24,17 @@
 					{{/if}}
 				</address>
 				<div class="col-xs-5 text-right">
-					<a class="btn btn-sm btn-default" href="{{navUrl loc}}" target="_blank">
-						<i class="icon icon-nav"></i> <span>{{i18n 'ui.btns.nav'}}</span>
-					</a>
+					<div class="btn-group-vertical" role="group">
+						<a href="http://maps.apple.com/?ll={{loc.[0]}},{{loc.[1]}}" class="btn btn-sm btn-default" target="_blank">
+							<i class="icon icon-nav"></i> <span>{{i18n 'ui.btns.nav'}}</span>
+						</a>
+						<a href="http://maps.google.com/maps?z=15&amp;t=m&amp;q=loc:{{loc.[0]}}+{{loc.[1]}}" class="btn btn-sm btn-default" target="_blank">
+							<i class="icon icon-nav-goo"></i> <span>Google</span>
+						</a>						
+						<a href="http://osm.org/?mlat={{loc.[0]}}&amp;mlon={{loc.[1]}}#map=15/{{loc.[0]}}/{{loc.[1]}}" class="btn btn-sm btn-default" target="_blank">
+							<i class="icon icon-nav-osm"></i> <span>OSM</span>
+						</a>
+					</div>
 				</div>
 			</div>
 		</li>

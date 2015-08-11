@@ -182,6 +182,8 @@
 .icon-len{ background-position: -180px -210px;  } 
 .icon-time{ background-position: -180px -240px; } 
 .icon-sectors{ background-position: -180px -270px; } 
+.icon-nav-osm{ background-position: -180px -300px; } 
+.icon-nav-goo{ background-position: -180px -330px; } 
 
 .icon-lang-it{ background-position: -210px 0;      } 
 .icon-lang-fr{ background-position: -210px -30px;  }
