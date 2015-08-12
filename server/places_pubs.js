@@ -36,7 +36,7 @@ Meteor.publish('placeById', function(placeId) {
 
 		console.log('Pub: placeById', placeData.name);
 
-		return retCurs;;
+		return retCurs;
 	}
 	else
 		this.ready();	

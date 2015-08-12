@@ -24,6 +24,7 @@ L.NodeIcon = L.Icon.extend({
 
 	animate: function() {
 		//$(this.anim).stop(true,true).show().delay(800).fadeOut(2000);
+		//TODO stop other animations
 		$(this.anim)
 			.stop(true,true)
 			.show()

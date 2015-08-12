@@ -52,13 +52,19 @@ Router.map(function() {
 			return Meteor.subscribe('placesByBBox', bb );
 		},
 		data: function() {
+			
+			if(!Climbo.map.leafletMap) return false;
+
 			var bbox = Climbo.map.getBBox();
+
 			if(bbox)
-			return {
-				places: _.map(getPlacesByBBox(bbox).fetch(), function(place) {
-					return Climbo.newPlace(place._id).rData();
-				})
-			};
+				return {
+					places: _.compact(_.map(getPlacesByBBox(bbox).fetch(), function(place) {
+						var p = Climbo.newPlace(place._id);
+						if($(p.marker._icon).is(':visible'))
+							return p.rData();
+					}))
+				};
 		}
 	});
 
@@ -153,6 +159,7 @@ Router.map(function() {
 		},
 		data: function() {
 			return {
+				title: 'ciao',
 				className: 'pageConvers',
 				itemsTemplate: 'itemConver',
 				items: getConversByIds(Climbo.profile.data.convers).fetch(),
@@ -224,28 +231,11 @@ Router.map(function() {
 			};
 		}
 	});
-
-	this.route('pageNotifs', {
-		path: '/notifications',
-		template: 'pageList',
-		waitOn: function() {
-			return Climbo.profile.loadNotifs();
-		},
-		data: function() {
-			return {
-				className: 'pageNotifs',
-				itemsTemplate: 'item_notif',
-				items: Climbo.profile.notifs
-			};
-		}
-	});
 */
 	this.route('logout', {
 		path: '/logout',
 		onBeforeAction: function () {
-
 			Climbo.profile.logout();
-			
 			Router.go('intro');
 		}
 	});

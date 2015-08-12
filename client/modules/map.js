@@ -210,16 +210,25 @@ Climbo.map = {
 			//});
 	},
 
-	getBBox: function() {
+	getBBox: function(opts) {
 		if(!Climbo.map.initialized) return null;
-		Climbo.map._deps.bbox.depend();
-		var bbox = Climbo.map.leafletMap.getBounds(),//.pad(-0.9),
-			bb = bbox.toBBoxString().split(',');
 		
+		Climbo.map._deps.bbox.depend();
+
+		//TODO opts.visible
+
+		var bbox = Climbo.map.leafletMap.getBounds(),
+			sw = bbox.getSouthWest(),
+			ne = bbox.getNorthEast();
+/*			sideW = Climbo.ui.sidebar = this.$('#sidebar').width();
+			sideBox = 
 		//L.rectangle(bbox,{fill:false}).addTo(Climbo.map.leafletMap);
 
-		return [[parseFloat(bb[1]),parseFloat(bb[0])],
-				[parseFloat(bb[3]),parseFloat(bb[2])]];
+			pbox = map.getPixelBounds(),
+			h = pbox.getSize().y-,
+			w = pbox.getSize().x-;
+*/
+		return Climbo.util.geo.roundBbox([[sw.lat, sw.lng], [ne.lat, ne.lng]]);
 	},
 	enableBBox: function() {
 		Climbo.map.leafletMap.addLayer(layers.places);

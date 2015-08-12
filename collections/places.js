@@ -18,8 +18,6 @@ getPlacesByBBox = function(bbox) {
 			return Climbo.util.geo.contains(bbox, place.loc);
 		});
 
-		console.log('getPlacesByBBox',bbox, pp);
-
 		return {
 			fetch: function() {
 				return pp;

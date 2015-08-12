@@ -47,10 +47,11 @@ Climbo.profile = {
 			//TODO Meteor.settings.public.profile = _.defaults(Meteor.settings.public.profile, userData.settings);
 			
 			//TODO rifare le subscribe solo se cambia il valore dopo autorun
-			Climbo.profile.loadCheckin();
+			//Climbo.profile.loadCheckin();
+			
+			Climbo.profile.placeCheckin = Climbo.newPlace(Climbo.profile.data.checkin);
 
 			$('#friends #switch_online').bootstrapSwitch('state', Climbo.profile.data.online);
-			//patch for sync online state after switch_online.rendered
 		});
 
 		if($.isFunction(callbackProfile))
@@ -65,7 +66,8 @@ Climbo.profile = {
 	},
 	getCheckin: function() {
 		Climbo.profile._deps.checkin.depend();
-		return Climbo.profile.placeCheckin;
+		if(Climbo.profile.placeCheckin)
+			return Climbo.profile.placeCheckin.rData();
 	},
 	hasFriend: function(userId) {
 		Climbo.profile._deps.friends.depend();
@@ -123,7 +125,8 @@ Climbo.profile = {
 		fileReader.readAsBinaryString(blob);
 	},
 
-	loadCheckin: function() {
+/*	loadCheckin: function() {
+		//move server side placeById in pub currentUser
 		if(Climbo.profile.data.checkin)
 			Meteor.subscribe('placeById', Climbo.profile.data.checkin, function() {
 				Climbo.profile.placeCheckin = Climbo.newPlace(Climbo.profile.data.checkin);
@@ -132,14 +135,7 @@ Climbo.profile = {
 			});
 		else
 			Climbo.profile.placeCheckin = null;
-	},
-	loadNotifs: function() {
-/*		TODO
-		if(!_.isEmpty(Climbo.profile.data.notifs))
-			return Meteor.subscribe('notifsByIds', Climbo.profile.data.convers, function() {
-				Climbo.profile.notifs = getNotifsByIds(Climbo.profile.data.notif).fetch();
-			});*/
-	},
+	},*/
 	logout: function() {
 		Climbo.profile.setOnline(false);
 		Meteor.logout(function(err) {

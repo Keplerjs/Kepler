@@ -1,4 +1,8 @@
 
+Template.layoutMap.onRendered(function() {
+	Climbo.ui.sidebar = this.$('#sidebar');
+});
+
 Template.layoutMap.events({
 	'click .sidebar-close': function(e, tmpl) {
 		e.preventDefault();
