@@ -98,8 +98,11 @@ Router.map(function() {
 
 	this.route('placeCheckins', {
 		path: '/place/:placeId/checkins',
-		template: 'pageList',
-		layoutTemplate: 'layoutPage',	
+		template: 'panelList',
+		layoutTemplate: 'layoutMap',
+		yieldRegions: {
+			'panelList': {to: 'sidebar'}
+		},
 		waitOn: function() {
 			var place = Climbo.newPlace(this.params.placeId);
 			return Meteor.subscribe('usersByIds', place.checkins);
@@ -107,7 +110,7 @@ Router.map(function() {
 		data: function() {
 			var place = Climbo.newPlace(this.params.placeId);
 			return {
-				title: i18n('ui.titles.placeCheckins')+place.name,
+				title: i18n('ui.titles.checkins')+place.name,
 				className: 'checkins',
 				itemsTemplate: 'item_user',
 				items: _.map(place.checkins, Climbo.newUser),
@@ -159,7 +162,7 @@ Router.map(function() {
 		},
 		data: function() {
 			return {
-				title: 'ciao',
+				title: i18n('ui.titles.convers'),
 				className: 'pageConvers',
 				itemsTemplate: 'itemConver',
 				items: getConversByIds(Climbo.profile.data.convers).fetch(),

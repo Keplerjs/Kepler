@@ -133,7 +133,7 @@ controls.search = L.control.search({
 	animateLocation: true, markerLocation: false,
 	propertyLoc: 'loc',
 	propertyName: 'name',			
-	callData: function(text, callback) {
+	sourceData: function(text, callback) {
 		var sub = Meteor.subscribe('placesByName', text, function() {
 			var //places = Places.find({name: new RegExp('^'+text,'i') }).fetch(),
 				places = getPlacesByName(text).fetch(),
@@ -148,11 +148,13 @@ controls.search = L.control.search({
 			abort: sub.stop
 		};
 	},
-	filterJSON: function(items) {
+	formatData: function(items) {
 		var dataItems = _.map(items, function(item) {
 			return _.extend(L.latLng(item.loc), item);
 		});
-		return _.indexBy(dataItems,'name');
+		var i = _.indexBy(dataItems,'name');
+		console.log(i)
+		return i;
 	},
 	callTip: function(key, data) {
 		var tip = L.DomUtil.create('div','search-tip');

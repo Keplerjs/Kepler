@@ -2,8 +2,12 @@
 <template name="panelFriends">
 
 <div id="friends" class="panel">
-	<div class="panel-heading text-right bg-primary">
+	<div class="panel-heading bg-primary">
+
+		{{i18n 'ui.titles.friends'}}
+		<div class="pull-right">
 		{{> switch_online}}
+		</div>
 	</div>
 	<div class="panel-body list-group list-items">
 		<div class="list-group-item">

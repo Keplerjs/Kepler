@@ -20,12 +20,19 @@
 }
 
 /* SEARCH */
+.leaflet-control-search.search-exp,
+.leaflet-control-search.search-exp .search-tip,
+.leaflet-control-search.search-exp .search-tooltip {
+	min-width: 280px;
+}
+.leaflet-control-search.search-exp .search-input  {
+	min-width: 260px
+}
 .leaflet-control-search.search-load .search-input {
 	background: url('/images/loader-default.gif') no-repeat center right #fff;
 }
 .leaflet-control-search .search-tooltip {
 	max-height:200px; /* (.search-tip height * 5) */
-	min-width: 310px;
 	overflow-y:scroll;
 }
 .leaflet-control-search .search-input {
