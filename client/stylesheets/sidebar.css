@@ -43,7 +43,8 @@
 	margin-bottom: 0;
 }
 .sidebar .panel-heading {
-	height: 50px;
+	height: 42px;
+	padding: 5px;
 }
 .sidebar .panel-body {
 	overflow-x: hidden;						
