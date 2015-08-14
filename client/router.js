@@ -52,7 +52,6 @@ Router.map(function() {
 		layoutTemplate: 'layoutMap',
 		template:'panelFriends',
 		waitOn: function() {
-			console.log('waitOn friends', Climbo.profile.data.friends)
 			return Meteor.subscribe('friendsByIds', Climbo.profile.data.friends);
 		},
 		data: function() {
@@ -224,21 +223,21 @@ Router.map(function() {
 		}
 	});
 	
-/*	this.route('conver', {
+	this.route('conver', {
 		path: '/convers/:convId',
 		template: 'pageConver',
-		layoutTemplate: 'layoutMap',
+		layoutTemplate: 'layoutPage',
 		waitOn: function() {
 			return Meteor.subscribe('converById', this.params.convId);
 		},
 		data: function() {
 			var convData = getConverById(this.params.convId).fetch()[0];
-			convData.title = convData.title || i18n('ui.titles.pageConver');
-			convData.usersItems = _.map(convData.usersIds, Climbo.newUser);
-
-			return convData;
+			return {
+				title: convData.title || i18n('ui.titles.conver'),
+			};
 		}
-	});*/
+	});
+
 	this.route('settings', {
 		path: '/settings',
 		template: 'pageSettings',
