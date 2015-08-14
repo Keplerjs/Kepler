@@ -63,7 +63,43 @@ Router.map(function() {
 			};
 		}	
 	});
-	
+
+	this.route('favorites', {
+		path: '/favorites',
+		template: 'panelList',
+		layoutTemplate: 'layoutMap',
+		waitOn: function() {
+			return Meteor.subscribe('placesByIds', Climbo.profile.data.favorites);
+		},
+		data: function() {
+			return {
+				className: 'favorites',
+				itemsTemplate: 'item_favorite',
+				items: _.map(Climbo.profile.data.favorites, Climbo.newPlace),
+				sortDesc: true,
+				sortBy: 'name'
+			};
+		}
+	});
+
+	this.route('notifications', {
+		path: '/notifications',
+		template: 'panelList',
+		layoutTemplate: 'layoutMap',
+/*		waitOn: function() {
+			return Meteor.subscribe('placesByIds', Climbo.profile.data.favorites);
+		},*/
+		data: function() {
+			return {
+				title: i18n('ui.titles.notifications'),
+				className: 'notifications',
+				items: []
+				/*itemsTemplate: 'item_notif',
+				items: Climbo.profile.data.notifs*/
+			};
+		}
+	});
+
 	this.route('places', {
 		path: '/places',		
 		template: 'panelPlaces',
@@ -203,25 +239,6 @@ Router.map(function() {
 			return convData;
 		}
 	});*/
-
-	this.route('favorites', {
-		path: '/favorites',
-		template: 'panelList',
-		layoutTemplate: 'layoutMap',
-		waitOn: function() {
-			return Meteor.subscribe('placesByIds', Climbo.profile.data.favorites);
-		},
-		data: function() {
-			return {
-				className: 'favorites',
-				itemsTemplate: 'item_favorite',
-				items: _.map(Climbo.profile.data.favorites, Climbo.newPlace),
-				sortDesc: true,
-				sortBy: 'name'
-			};
-		}
-	});
-
 	this.route('settings', {
 		path: '/settings',
 		template: 'pageSettings',
