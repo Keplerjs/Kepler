@@ -46,9 +46,6 @@ Climbo.profile = {
 			
 			//TODO Meteor.settings.public.profile = _.defaults(Meteor.settings.public.profile, userData.settings);
 			
-			//TODO rifare le subscribe solo se cambia il valore dopo autorun
-			//Climbo.profile.loadCheckin();
-			
 			Climbo.profile.placeCheckin = Climbo.newPlace(Climbo.profile.data.checkin);
 
 			$('#friends #switch_online').bootstrapSwitch('state', Climbo.profile.data.online);
@@ -78,8 +75,8 @@ Climbo.profile = {
 		// loc = loc || null;
 		// var shift = Climbo.util.geo.distance(Climbo.profile.data.loclast, loc);
 		// if(loc===null || shift >= Meteor.settings.public.gpsMinShift)
-		//problemi quando loclast==loc(appena si accende il gps)
-			Meteor.call('setUserLoc', loc);
+		//problems when loclast===loc(just gps switched on)
+		Meteor.call('setUserLoc', loc);
 	},
 	setOnline: function(online) {
 		online = online ? 1 : 0;
@@ -124,18 +121,6 @@ Climbo.profile = {
 		}
 		fileReader.readAsBinaryString(blob);
 	},
-
-/*	loadCheckin: function() {
-		//move server side placeById in pub currentUser
-		if(Climbo.profile.data.checkin)
-			Meteor.subscribe('placeById', Climbo.profile.data.checkin, function() {
-				Climbo.profile.placeCheckin = Climbo.newPlace(Climbo.profile.data.checkin);
-				Climbo.profile._deps.checkin.changed();
-				//Climbo.alert.observePlaces([Climbo.profile.data.checkin]);
-			});
-		else
-			Climbo.profile.placeCheckin = null;
-	},*/
 	logout: function() {
 		Climbo.profile.setOnline(false);
 		Meteor.logout(function(err) {

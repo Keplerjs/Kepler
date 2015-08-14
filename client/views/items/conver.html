@@ -3,14 +3,9 @@
 	<div class="conver-item">
 		<div class="pull-left">
 			{{#if placeId}}
-				<span class="conver-author">
 				{{#with newUser userId}}
 					{{> item_user}}
 				{{/with}}
-				</span>
-<!-- 				{{! #with newPlace placeId}}
-					{{! > item_place}}
-				{{! /with}} -->
 			{{else}}
 				{{#each usersIds}}
 					{{#with newUser this}}
@@ -21,6 +16,11 @@
 			<a class="btn conver-btn-title" href="/convers/{{_id}}">{{{tit}}}</a>			
 		</div>
 		<div class="pull-right conver-btns">
+			{{#if placeId}}
+				{{#with newPlace placeId}}
+					<small>{{name}}</small>
+				{{/with}}
+			{{/if}}
 			<time>{{humanTime lastMsg.updateAt 1}}</time>
 			<label class="btn btn-sm btn-default conver-btn-del">
 				<i class="icon icon-del"></i>

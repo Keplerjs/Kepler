@@ -1,18 +1,15 @@
-html, body {
-	height: 100%;
-}
-body {
-	overflow: hidden;
-	overflow-y:scroll;
-}
+
 #page404,
 #pageLoading {
-	background-color: #333;
-	color:#f80;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;	
+	background-color: #ddd;
 	text-shadow:none;
 	text-align: center;
+	color: #f80;	
 }
-
 
 .loading-sm {
 	background: url('/images/loader-sm.gif') no-repeat center center #fff;

@@ -8,6 +8,7 @@ getConverById = function(convId) {
 };
 
 getConversByIds = function(convIds) {
+	console.log('getConversByIds', convIds)
 	return Convers.find({_id: {$in: convIds} }, { fields: Climbo.perms.converItem });
 };
 

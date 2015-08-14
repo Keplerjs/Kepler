@@ -14,14 +14,3 @@ Template.place_buttons.events({
 	}
 });
 
-Template.place_buttons2.events({
-	'click .place-btn-sectors': function(e, tmpl) {
-		this.loadSectors();
-	},
-	'click .place-btn-photos': function(e, tmpl) {
-		alert('photos dialog');
-	},
-	'click .place-btn-share': function(e, tmpl) {
-		Session.set('dialogShareId', this.id );
-	},	
-});

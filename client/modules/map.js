@@ -183,6 +183,8 @@ Climbo.map = {
 
 	initMap: function(opts, callbackMap) {		//render map and add controls/layers
 
+		if(Climbo.map.initialized) return false;
+
 		Climbo.map.initialized = true;
 
 		Climbo.map.leafletMap = L.map('map', L.Util.extend(opts, {
@@ -241,6 +243,7 @@ Climbo.map = {
 
 	destroyMap: function() {
 		if(Climbo.map.initialized) {
+			Climbo.map.initialized = false;
 			Climbo.map.leafletMap.remove();
 			Climbo.map.layers.places.clearLayers();
 		}

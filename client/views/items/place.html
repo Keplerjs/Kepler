@@ -59,13 +59,13 @@
 				<i class="icon icon-mes"></i> <span class="hidden-xs">{{i18n 'ui.btns.wall'}}</span> 
 				<span class="badge {{#unless convers.length}}bg-gray{{/unless}}">{{convers.length}}</span>
 			</a>
-			<a class="btn btn-sm btn-default place-btn-sectors" href="/place/{{id}}/sectors">
+			<a class="btn btn-sm btn-default disabled" href="/place/{{id}}/sectors">
 				<i class="icon icon-sectors"></i> <span class="hidden-xs">{{i18n 'ui.btns.sectors'}}</span>
 			</a>
-<!-- 			<a class="btn btn-sm btn-default place-btn-photos" href="#">
-				<i class="icon icon-photos"></i> <span>{{i18n 'ui.btns.photos'}}</span>
-			</a>			 -->
-			<a class="btn btn-sm btn-default disabled place-btn-share" href="/place/{{id}}/share">
+ 			<a class="btn btn-sm btn-default disabled" href="#">
+				<i class="icon icon-photos"></i> <span class="hidden-xs">{{i18n 'ui.btns.photos'}}</span>
+			</a>
+			<a class="btn btn-sm btn-default disabled" href="/place/{{id}}/share">
 				<i class="icon icon-share"></i>
 			</a>
 		</div>

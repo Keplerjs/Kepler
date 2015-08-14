@@ -1,8 +1,20 @@
 
+<template name="layoutFull">
+	<div class="container-full">
+	    {{> yield}}
+	</div>
+</template>
+
+<template name="layoutPage">
+	<div class="container">
+	    {{> yield}}
+	</div>
+</template>
+
 <template name="layoutMap">
 	<div class="container-full">
 
-		{{> pageMap}}
+		{{> map}}
 
 		<div id="sidebar" class="sidebar">
 	        <!-- Nav tabs -->
@@ -16,7 +28,7 @@
 	        <div class="tab-content">
 	            <div id="home" class="tab-pane fade in active" role="tabpanel">
 					
-					{{> yield "sidebar"}}
+					{{> yield}}
 
 	            </div>
 	        </div>
@@ -32,17 +44,4 @@
 {{#with connectionStatus}}
 	<li class="btn-connection" style="{{#if connected}}opacity:0{{else}}opacity:1{{/if}}"><a href="#" title="{{status}}"><i class="icon icon-status-{{status}}"></i></a></li>
 {{/with}}
-</template>
-
-<template name="layoutPage">
-	<div class="container">
-	    {{> yield}}
-	</div>
-</template>
-
-
-<template name="layoutFull">
-	<div class="container-full">
-	    {{> yield}}
-	</div>
 </template>

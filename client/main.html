@@ -18,8 +18,16 @@
 
 <template name="pageLoading">
 	<div id="pageLoading" class="loading-lg">
-		<br /><br /><br />
-		<h1 class="text-center">Climbo Loading...</h1>
-		<br /><br />
+		<div class="">
+			<h1>{{i18n 'ui.appname'}} {{i18n 'ui.labels.loading'}}</h1>
+		</div>
+	</div>
+</template>
+
+<template name="page404">
+	<div id="page404">
+		<div class="">
+			<h1>Page Not Found</h1>
+		</div>
 	</div>
 </template>
