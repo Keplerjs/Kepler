@@ -34,7 +34,11 @@
 			<a class="btn btn-sm btn-default place-btn-checkin {{#if isCheckin}}checkin{{else}}uncheckin{{/if}}">
 				<input type="checkbox" checked={{isCheckin}} />
 				<i class="icon icon-{{#if isCheckin}}checkin{{else}}uncheckin{{/if}}"></i>
-				{{#if isCheckin}}<span class="text-primary hidden-xs">{{i18n 'ui.btns.checkin'}}</span>{{else}}<span class="text-muted hidden-xs">{{i18n 'ui.btns.uncheckin'}}</span>{{/if}}
+				{{#if isCheckin}}
+				<span class="text-primary">{{i18n 'ui.btns.checkin'}}</span>
+				{{else}}
+				<span class="text-muted">{{i18n 'ui.btns.uncheckin'}}</span>
+				{{/if}}
 			</a>
 			<a class="btn btn-sm btn-default place-btn-checkins" href="/place/{{id}}/checkins">
 				<i class="icon icon-{{#if checkinsCount}}users{{else}}unusers{{/if}}"></i>
@@ -56,7 +60,7 @@
 	<div class="place-btns">
 		<div class="btn-group" data-toggle="buttons">
 			<a class="btn btn-sm btn-default" href="/place/{{id}}/convers">
-				<i class="icon icon-mes"></i> <span class="hidden-xs">{{i18n 'ui.btns.wall'}}</span> 
+				<i class="icon icon-mes"></i> <span>{{i18n 'ui.btns.wall'}}</span> 
 				<span class="badge {{#unless convers.length}}bg-gray{{/unless}}">{{convers.length}}</span>
 			</a>
 			<a class="btn btn-sm btn-default disabled" href="/place/{{id}}/sectors">
