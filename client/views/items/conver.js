@@ -1,17 +1,17 @@
 
 Template.itemConver.onRendered(function() {
 	
+	var convid = this.data._id;
+
 	this.$('.conver-btn-del').btsConfirmButton({
 			msg: i18n('ui.btns.converdel')
 		}, function(e) {
 			
 			var btn$ = $(e.target),
 				list$ = btn$.parents('.list-group');
-			
-			Climbo.conver.delConver( btn$.data('convid') );		
+
+			Climbo.conver.delConver( convid );		
 			btn$.parents('.list-group-item').remove();
-			if(list$.is(':empty'))
-				Climbo.dialogList.hide();		
 		});
 });
 

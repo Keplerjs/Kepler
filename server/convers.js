@@ -113,6 +113,8 @@ Meteor.methods({
 		
 		if(!this.userId || !convId) return null;
 
+		console.log('delConver',convId);
+
 		return delConver(convId);
 	}
 });
