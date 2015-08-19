@@ -8,7 +8,7 @@ Template.itemConver.onRendered(function() {
 			var btn$ = $(e.target),
 				list$ = btn$.parents('.list-group');
 			
-			Climbo.convers.delConver( btn$.data('convid') );		
+			Climbo.conver.delConver( btn$.data('convid') );		
 			btn$.parents('.list-group-item').remove();
 			if(list$.is(':empty'))
 				Climbo.dialogList.hide();		
@@ -35,7 +35,7 @@ Template.itemConverNew.events({
 		var title = _.str.clean(tmpl.$('.conver-txt-new').val());
 		
 		if(!_.str.isBlank(title))
-			Climbo.convers.newConverInPlace(title, this.placeId);
+			Climbo.conver.newConverInPlace(title, this.placeId);
 		//ricarica elenco convers di place
 	},
 	'keydown .conver-txt-new': function(e,tmpl) {

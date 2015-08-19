@@ -4,35 +4,35 @@
 	<ul class="list-group">
 		{{#if type}}
 		<li class="list-group-item">
-			<i>{{i18n 'ui.labels.type'}}:</i> {{placeType type}}
+			<label>{{i18n 'ui.labels.type'}}</label> {{placeType type}}
 		</li>
 		{{/if}}
 		{{#if desc}}
 		<li class="list-group-item">
-			<i>{{i18n 'ui.labels.descr'}}: </i><br />
+			<label>{{i18n 'ui.labels.descr'}}</label><br />
 			<p class="place-desc">{{desc}}</p>
 		</li>
 		{{/if}}
 		<li class="list-group-item container-fluid">
 			<div class="row">
 				<address class="col-xs-7 place-place">
-					{{#if reg}}<label>{{i18n 'ui.labels.reg'}}:</label> {{reg}}<br />{{/if}}
-					{{#if prov}}<label>{{i18n 'ui.labels.prov'}}:</label> {{prov}}<br />{{/if}}
-					{{#if com}}<label>{{i18n 'ui.labels.com'}}:</label> {{com}}<br />{{/if}}
-					{{#if near}}<label>{{i18n 'ui.labels.loc'}}:</label>
+					{{#if reg}}<label>{{i18n 'ui.labels.reg'}}</label> {{reg}}<br />{{/if}}
+					{{#if prov}}<label>{{i18n 'ui.labels.prov'}}</label> {{prov}}<br />{{/if}}
+					{{#if com}}<label>{{i18n 'ui.labels.com'}}</label> {{com}}<br />{{/if}}
+					{{#if near}}<label>{{i18n 'ui.labels.loc'}}</label>
 					<br /><span class="text-nowrap">{{near}}</span>
 					{{/if}}
 				</address>
 				<div class="col-xs-5 text-right">
 					<div class="btn-group-vertical" role="group">
 						<a href="http://maps.apple.com/?ll={{loc.[0]}},{{loc.[1]}}" class="btn btn-sm btn-default" target="_blank">
-							<i class="icon icon-nav"></i> <span>{{i18n 'ui.btns.nav'}}</span>
+							<i class="icon icon-nav"></i>&nbsp;<span class="hidden-xs">{{i18n 'ui.btns.nav'}}</span>
 						</a>
 						<a href="http://maps.google.com/maps?z=15&amp;t=m&amp;q=loc:{{loc.[0]}}+{{loc.[1]}}" class="btn btn-sm btn-default" target="_blank">
-							<i class="icon icon-nav-goo"></i> <span>Google</span>
+							<i class="icon icon-nav-goo"></i>&nbsp;<span class="hidden-xs">Google</span>
 						</a>						
 						<a href="http://osm.org/?mlat={{loc.[0]}}&amp;mlon={{loc.[1]}}#map=15/{{loc.[0]}}/{{loc.[1]}}" class="btn btn-sm btn-default" target="_blank">
-							<i class="icon icon-nav-osm"></i> <span>OSM</span>
+							<i class="icon icon-nav-osm"></i>&nbsp;<span class="hidden-xs">OSM</span>
 						</a>
 					</div>
 				</div>

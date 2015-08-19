@@ -5,11 +5,11 @@
 	http://ichord.github.io/At.js/
 */
 
-Climbo.convers = {
+Climbo.conver = {
 
 	loadConverWithUser: function(userId) {
 		Meteor.call('getConverWithUser', userId, function(err, convId) {
-			Climbo.convers.show(convId);
+			Climbo.conver.show(convId);
 		});
 	},
 

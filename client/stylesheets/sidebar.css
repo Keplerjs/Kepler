@@ -30,8 +30,8 @@
     height: 34px;	
 }
 .sidebar > .nav > li > a {
-	padding: 4px;
-	margin: 2px;
+	padding: 3px 4px;
+	margin: 3px 0 3px 3px;
 }
 .sidebar.collapsed > .nav > li > .active {
     background-color: rgba(120,120,120,0.8);
@@ -80,8 +80,8 @@
 }
 @media (min-width: 768px) {
     .sidebar {
-        top: 8px;
-        left: 8px;
+        top: 4px;
+        left: 4px;
         right: auto;
         width: 460px;
     }

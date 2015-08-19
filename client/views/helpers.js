@@ -24,10 +24,6 @@ Template.registerHelper('newPlace', function(id) {
 
 ///Climbo.util..
 
-Template.registerHelper('cap', function(text) {
-	return _.str.capitalize(text);
-});
-
 Template.registerHelper('humanAzimut', function(ang, tiny) {
 	return Climbo.util.human.azimut(ang, parseInt(tiny));
 });

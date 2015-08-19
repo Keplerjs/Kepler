@@ -1,6 +1,3 @@
-/*
-	modulo che genera un finestra modale con un elenco di elementi generici: places o utenti conversazioni
-*/
 
 //TODO inserirt option for showing columns instead rows
 

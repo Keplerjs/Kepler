@@ -24,6 +24,6 @@ Template.user_buttons2.events({
 	},
 	'click .user-btn-mes': function(e, tmpl) {
 		//TODO convert in route
-		Climbo.convers.loadConverWithUser(this.id);
+		Climbo.conver.loadConverWithUser(this.id);
 	}
 });

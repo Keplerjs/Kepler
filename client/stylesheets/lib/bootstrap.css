@@ -1,7 +1,6 @@
-/* * {
-	text-shadow:none; 
-	box-shadow: none;
-}*/
+/*
+	Bootstrap CUSTOMIZATIONS
+*/
 .btn {
 	text-shadow:none;
 }
@@ -15,6 +14,10 @@
 .btn.btn-danger:hover {
 	font-weight: bold;
 	color: #fff;
+}
+
+.btn-group-vertical .icon {
+	float: left;
 }
 
 
