@@ -51,6 +51,7 @@
 	overflow-y: auto;
 	background: none;
     height: 100%;
+    padding: 8px;
 }
 
 .sidebar-close {

@@ -1,23 +1,16 @@
-#pageConver {
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	overflow-y: scroll
-}
-#pageConver .list-group-item:first-child {
+
+#conver .list-group-item:first-child {
 	height: 120px;
 }
-#pageConver .list-group-item:last-child {
+#conver .list-group-item:last-child {
 	padding-bottom: 10px;
 }
 
-#pageConver .msg-item {
+#conver .msg-item {
 	padding: 2px 2px 0 2px;
 	overflow: hidden;
 }
-#pageConver .conver-btn-more {
+#conver .conver-btn-more {
 	text-align: left;
 	color:#428bca;
 }

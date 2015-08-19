@@ -1,0 +1,46 @@
+
+<template name="panelConver">
+
+	<div id="conver" class="panel">
+		<div class="panel-heading bg-primary">
+			{{{title}}}
+		</div>
+		<div class="panel-body">
+
+			<div class="list-group">
+				{{> converMsgs}}
+			</div>
+			<div class="row">
+				{{> converInput}}
+			</div>
+		</div>
+	</div>
+
+</template>
+
+<template name="converMsgs">
+	{{#each msgsLast}}
+		{{> itemMsg}}
+	{{/each}}
+</template>
+
+<!-- TODO move to /client/views/items/ -->
+<template name="itemMsg">	
+	<div class="list-group-item msg-item">
+		<div>
+			{{#with newUser userId}}
+				{{> item_user}}
+			{{/with}}
+			<div class="msg-body">{{{body}}}</div>
+		</div>
+		<time>{{humanTime updateAt 1}}</time>
+    </div>
+</template>
+
+<template name="converInput">
+	<form class="conver-input">
+		<div class="col-xs-12">
+			<textarea name="body" placeholder="{{i18n 'ui.labels.msgnew'}}"  maxlength="300" aria-expanded="true" aria-label="{{i18n 'ui.labels.msgnew'}}"></textarea>
+		</div>
+	</form>
+</template>

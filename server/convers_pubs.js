@@ -26,16 +26,13 @@ Meteor.publish('converById', function(convId) {
 		console.log('Pub: converById', convId);
 
 		var convCur = getConverById(convId),
-			convData = convCur.fetch()[0],
-			retCurs = [];
+			convData = convCur.fetch()[0];
 		
-		retCurs.push( convCur );
-
-		retCurs.push( getMsgsByConver(convId) );
-
-		retCurs.push( getUsersByIds(convData.usersIds) );
-
-		return retCurs;
+		return [
+			convCur,
+			getMsgsByConver( convId ),
+			getUsersByIds( convData.usersIds )
+		];
 	}
 	else
 		this.ready();	

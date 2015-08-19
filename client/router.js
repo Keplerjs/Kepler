@@ -112,15 +112,16 @@ Router.map(function() {
 			
 			if(!Climbo.map.leafletMap) return false;
 
-			var bbox = Climbo.map.getBBox();
+			var bbox = Climbo.map.getBBox(),
+				places = _.map(getPlacesByBBox(bbox).fetch(), function(place) {
+					var p = Climbo.newPlace(place._id);
+					if($(p.marker._icon).is(':visible'))
+						return p.rData();
+				});
 
 			if(bbox)
 				return {
-					places: _.compact(_.map(getPlacesByBBox(bbox).fetch(), function(place) {
-						var p = Climbo.newPlace(place._id);
-						if($(p.marker._icon).is(':visible'))
-							return p.rData();
-					}))
+					places: _.sortBy(_.compact(places), 'name')
 				};
 		}
 	});
@@ -224,17 +225,16 @@ Router.map(function() {
 	});
 	
 	this.route('conver', {
-		path: '/convers/:convId',
-		template: 'pageConver',
-		layoutTemplate: 'layoutPage',
+		path: '/conver/:convId',
+		template: 'panelConver',
+		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			return Meteor.subscribe('converById', this.params.convId);
 		},
 		data: function() {
 			var convData = getConverById(this.params.convId).fetch()[0];
-			return {
-				title: convData.title || i18n('ui.titles.conver'),
-			};
+			convData.title = convData.title || i18n('ui.titles.conver');
+			return convData;
 		}
 	});
 

@@ -15,7 +15,7 @@ Climbo.conver = {
 
 	newConverInPlace: function(placeId, title) {
 		Meteor.call('newConverInPlace', placeId, title, function(err, convId) {
-			Router.go('pageConver',{convId: convId});
+			Router.go('conver',{convId: convId});
 		});
 	},
 
