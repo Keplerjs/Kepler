@@ -195,12 +195,12 @@ section {
 /* SWITCH */
 
 .bootstrap-switch {
-	margin: 0;
+	margin: 4px;
 	border: 1px solid;
 	background-color: #ccc;
-	border-radius: 6px;
 	overflow: hidden;
 	border-color: #ccc;
+	border-radius: 4px;	
 }
 .bootstrap-switch.bootstrap-switch-focused {
 	box-shadow: none;
@@ -212,17 +212,17 @@ section {
 .bootstrap-switch.bootstrap-switch-on .bootstrap-switch-label,
 .bootstrap-switch.bootstrap-switch-off .bootstrap-switch-label {
 	background-color: #ccc;
-	border-radius: 6px;
+	border-radius: 4px;
 }
 
 .bootstrap-switch.bootstrap-switch-on .bootstrap-switch-label {
-  border-radius: 6px;
+  border-radius: 4px;
 }
 .bootstrap-switch .bootstrap-switch-handle-on {
 	border: 1px solid #3c983c;
-	border-radius: 6px;	
+	border-radius: 4px;	
 }
 .bootstrap-switch .bootstrap-switch-handle-off {
 	border: 1px solid #aaa;
-	border-radius: 6px;
+	border-radius: 4px;
 }

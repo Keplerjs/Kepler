@@ -11,14 +11,14 @@
     overflow: hidden;
     padding: 6px;
 }
-.sidebar .tab-content {
+.sidebar > .tab-content {
 	margin-top: 6px;
 	box-shadow: 0 0 5px rgba(0,0,0,0.3);
     border-radius:4px;
     max-height: calc(100% - 40px);
     overflow-y: auto
 }
-.sidebar.collapsed .tab-content {
+.sidebar.collapsed > .tab-content {
 	height: 0;
 	overflow: hidden;
 	transition: height 100ms;
@@ -29,11 +29,11 @@
 	box-shadow: 0 0 5px rgba(0,0,0,0.3);    
     height: 34px;	
 }
-.sidebar .nav > li > a {
+.sidebar > .nav > li > a {
 	padding: 4px;
 	margin: 2px;
 }
-.sidebar.collapsed .nav > li > .active {
+.sidebar.collapsed > .nav > li > .active {
     background-color: rgba(120,120,120,0.8);
 } 
 .sidebar .panel {

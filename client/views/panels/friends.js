@@ -29,7 +29,7 @@ Template.switch_online.onRendered(function() {
 		onColor: 'success',
 		onText: 'Online',
 		offText: 'Offline',
-		size: 'small',
+		size: 'mini',
 		onSwitchChange: function (e, stat) {
 			Climbo.profile.setOnline(stat);
 		}
