@@ -1,5 +1,5 @@
 
-Template.panel_tracks.helpers({
+Template.tab_tracks.helpers({
 	tracksAccess: function() {
 
 /*	TODO usare quando si fa subscribe on Climbo.Place.loadTracks()!
@@ -32,7 +32,7 @@ Template.panel_tracks.helpers({
 	}
 });
 
-Template.panel_tracks.events({
+Template.tab_tracks.events({
 	'click .panel-btn-tracks': function(e, tmpl) {
 		tmpl.data.loadTracks();
 	}

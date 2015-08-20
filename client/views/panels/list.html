@@ -1,7 +1,7 @@
 
 <template name="panelList">
 
-	<div class="panel">
+	<div id="panelList" class="panel {{className}}">
 		<div class="panel-heading bg-primary">
 			{{{title}}}
 		</div>
@@ -14,7 +14,7 @@
 			{{/if}}
 			{{#if items.length}}
 			<br />
-			<div class="list-group list-items {{className}}">
+			<div class="list-group list-items">
 				{{#each items}}
 					<div class="list-group-item">
 					{{> Template.dynamic template=this.template}}

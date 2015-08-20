@@ -1,5 +1,5 @@
 
-Template.panel_pois.helpers({
+Template.tab_pois.helpers({
 	poisGroups: function() {	//raggruppa pois per tipo e mostra il numero
 
 		if(!_.isArray(this.pois)) return false;//non togliere
@@ -18,7 +18,7 @@ Template.panel_pois.helpers({
 	}
 });
 
-Template.panel_pois.events({
+Template.tab_pois.events({
 	'click .panel-btn-pois': function(e, tmpl) {
 		tmpl.data.loadPois(this.tipo);
 	}

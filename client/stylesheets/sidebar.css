@@ -81,8 +81,8 @@
 }
 @media (min-width: 768px) {
     .sidebar {
-        top: 4px;
-        left: 4px;
+        top: 0;
+        left: 0;
         right: auto;
         width: 460px;
     }

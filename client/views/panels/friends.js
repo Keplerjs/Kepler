@@ -25,11 +25,9 @@ Template.panelFriends.onRendered(function() {
 Template.switch_online.onRendered(function() {
 	
 	this.$('#switch_online').bootstrapSwitch({
+		size: 'mini',		
+		onColor: 'success',		
 		state: Climbo.profile.getOnline(),
-		onColor: 'success',
-		onText: 'Online',
-		offText: 'Offline',
-		size: 'mini',
 		onSwitchChange: function (e, stat) {
 			Climbo.profile.setOnline(stat);
 		}

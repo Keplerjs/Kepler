@@ -49,8 +49,8 @@ Router.map(function() {
 
 	this.route('friends', {
 		path: '/friends',
+		template: 'panelFriends',		
 		layoutTemplate: 'layoutMap',
-		template:'panelFriends',
 		waitOn: function() {
 			return Meteor.subscribe('friendsByIds', Climbo.profile.data.friends);
 		},
@@ -182,13 +182,13 @@ Router.map(function() {
 			var place = Climbo.newPlace(this.params.placeId);
 			return {
 				title: i18n('ui.titles.placeConvers')+'<a href="/place/'+this.params.placeId+'"><b>'+place.name+'</b></a>',
-				className: 'panelConvers',
+				className: 'placeConvers',
 				itemsTemplate: 'itemConver',
 				items: getConversByPlace(this.params.placeId).fetch(),
 				sortDesc: true,
 				header: {
 					template: 'itemConverNew',
-					data: {placeId: this.params.placeId}
+					data: place
 				}
 			};
 		}
@@ -216,7 +216,7 @@ Router.map(function() {
 		data: function() {
 			return {
 				title: i18n('ui.titles.convers'),
-				className: 'panelConvers',
+				className: 'convers',
 				itemsTemplate: 'itemConver',
 				items: getConversByIds(Climbo.profile.data.convers).fetch(),
 				sortDesc: true

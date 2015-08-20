@@ -1,5 +1,5 @@
 
-/* friend offline */
+
 #friends .friend-item.offline .user-avatar {
 	opacity: 0.6;
 }
@@ -19,15 +19,8 @@
 	border-top-left-radius: 3px;
 }
 
-#friends .form-control-feedback {
-	top: 0;
-}
-#friends .form-group {
-	margin: 0;
-	padding: 0;
-}
-
 #friends .list-group-item {
+	clear: both;
 	border:none;
 	border-radius: 0;
 	border-bottom:1px solid #ddd;

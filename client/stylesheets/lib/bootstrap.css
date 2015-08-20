@@ -131,6 +131,12 @@ a.btn-gray .badge {
 	color: #fff;
 }
 
+.panel-heading h4 {
+	text-transform: capitalize;
+	font-size: 14px;
+	font-weight: bold;
+}
+
 .nav-tabs > li > a {
 	padding: 6px 4px; /* panel_place */
 }

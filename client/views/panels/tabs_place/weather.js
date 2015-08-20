@@ -1,12 +1,5 @@
 
-
-Template.panel_weather.helpers({
-	weather: function() {
-		return this.weather;
-	}
-});
-
-Template.panel_weather_forecast.onRendered(function() {
+Template.tab_weather_forecast.onRendered(function() {
 
 	var days$ = this.$('.weather_day');
 

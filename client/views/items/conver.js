@@ -35,8 +35,7 @@ Template.itemConverNew.events({
 		var title = _.str.clean(tmpl.$('.conver-txt-new').val());
 		
 		if(!_.str.isBlank(title))
-			Climbo.conver.newConverInPlace(title, this.placeId);
-		//ricarica elenco convers di place
+			Climbo.conver.newConverInPlace(title, this.id);
 	},
 	'keydown .conver-txt-new': function(e,tmpl) {
 		if(e.keyCode===13)//enter
