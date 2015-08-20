@@ -7,18 +7,21 @@
 		</div>
 		<div class="panel-body">
 
+			{{#if header}}
+				<div class="header-item">
+					{{> Template.dynamic template=this.header.template data=this.header.data}}
+				</div>
+			{{/if}}
+			{{#if items.length}}
+			<br />
 			<div class="list-group list-items {{className}}">
-				{{#if header}}
-					<div class="list-group-item header-item">
-						{{> Template.dynamic template=this.header.template data=this.header.data}}
-					</div>
-				{{/if}}
 				{{#each items}}
 					<div class="list-group-item">
 					{{> Template.dynamic template=this.template}}
 					</div>
 				{{/each}}
 			</div>
+			{{/if}}
 		</div>
 	</div>	
 	

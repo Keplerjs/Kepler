@@ -18,7 +18,7 @@
 		<div class="pull-right conver-btns">
 			{{#if placeId}}
 				{{#with newPlace placeId}}
-					<small>{{name}}</small>
+					{{> item_place}}
 				{{/with}}
 			{{/if}}
 			<time>{{humanTime lastMsg.updateAt 1}}</time>

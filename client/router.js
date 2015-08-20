@@ -185,11 +185,11 @@ Router.map(function() {
 				className: 'panelConvers',
 				itemsTemplate: 'itemConver',
 				items: getConversByPlace(this.params.placeId).fetch(),
-				sortDesc: true
-				/*,header: {
+				sortDesc: true,
+				header: {
 					template: 'itemConverNew',
 					data: {placeId: this.params.placeId}
-				}*/				
+				}
 			};
 		}
 	});

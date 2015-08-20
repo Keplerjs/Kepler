@@ -62,6 +62,7 @@
 /* item conver */
 .conver-item .conver-btn-title {
 	font-weight: bold;
+	font-size: small;
 	padding: 5px 0;
 	color: #666;
 }
