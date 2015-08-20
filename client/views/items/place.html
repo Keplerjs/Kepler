@@ -5,7 +5,7 @@
 	</a>
 </template>
 
-<template name="item_favorite">
+<template name="item_place_favorite">
 	<div class="favorite-item">
 		<div class="pull-left">
 			{{> item_place}}
@@ -22,7 +22,7 @@
 	</div>
 	<div class="btn-group pull-right">
 		<i class="btn btn-xs disabled text-muted text-capitalize">{{prov}} &bull; {{reg}}</i>
-		<label class="btn btn-xs place-btn-map">
+		<label class="btn btn-xs">
 			<i class="icon icon-map"></i>
 		</label>
 	</div>
@@ -45,7 +45,7 @@
 				<span class="badge {{#unless getRank}} bg-gray {{/unless}}">{{getRank}}</span>
 				<input type="checkbox" checked={{isFavorite}} />
 			</a>
-			<a class="btn btn-sm btn-default place-btn-map" href="/place/{{id}}/map">
+			<a class="btn btn-sm btn-default" href="/place/{{id}}/map">
 				<i class="icon icon-map"></i>
 			</a>
 		</div>
@@ -57,7 +57,7 @@
 		<div class="btn-group" data-toggle="buttons">
 			<a class="btn btn-sm btn-default" href="/place/{{id}}/convers">
 				<i class="icon icon-mes"></i> <span>{{i18n 'ui.btns.wall'}}</span> 
-				<span class="badge {{#unless convers.length}} bg-gray {{/unless}}">{{convers.length}}</span>
+				<span class="badge {{#unless conversCount}} bg-gray {{/unless}}">{{conversCount}}</span>
 			</a>
 			<a class="btn btn-sm btn-default disabled" href="/place/{{id}}/sectors">
 				<i class="icon icon-sectors"></i> <span class="hidden-xs">{{i18n 'ui.btns.sectors'}}</span>

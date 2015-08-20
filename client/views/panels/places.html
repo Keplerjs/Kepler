@@ -14,14 +14,14 @@
 			<br />
 			<div class="btn-group">
 				<a class="btn btn-sm place-btn-checkins" href="/place/{{id}}/checkins">
-					<i class="icon icon-{{#if checkinsCount}}users{{else}}unusers{{/if}}"></i>
-					<span class="badge {{#unless checkinsCount}}bg-gray{{/unless}}">{{checkinsCount}}</span>
+					<i class="icon {{#if checkinsCount}} icon-users {{else}} icon-unusers {{/if}}"></i>
+					<span class="badge {{#unless checkinsCount}} bg-gray {{/unless}}">{{checkinsCount}}</span>
 				</a>
 				<a class="btn btn-sm place-btn-star">
-					<i class="icon icon-{{#if isFavorite}}star{{else}}unstar{{/if}}"></i>
-					<span class="badge {{#unless getRank}}bg-gray{{/unless}}">{{getRank}}</span>
+					<i class="icon {{#if isFavorite}} icon-star {{else}} icon-unstar {{/if}}"></i>
+					<span class="badge {{#unless getRank}} bg-gray {{/unless}}">{{getRank}}</span>
 				</a>
-				<a class="btn btn-sm place-btn-map" href="/place/{{id}}/map">
+				<a class="btn btn-sm" href="/place/{{id}}/map">
 					<i class="icon icon-map"></i>
 				</a>
 			</div>

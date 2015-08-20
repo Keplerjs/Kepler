@@ -6,14 +6,19 @@
 	</a>
 	<div class="btn-group">
 		{{#if isOutdoor}}
-			{{#if tracks}}<a class="btn btn-sm btn-default" href="/place/{{id}}/tracks"><i class="icon icon-gpx"></i></a>{{/if}}
+			{{#if tracks}}
+			<a class="btn btn-sm btn-default" href="/place/{{id}}/tracks"><i class="icon icon-gpx"></i></a>
+			{{/if}}
 		{{/if}}
-		{{#if pois}}<a class="btn btn-sm btn-default" href="/place/{{id}}/pois"><i class="icon icon-pois"></i></a>{{/if}}
-		{{#if checkinsCount}}<a class="btn btn-sm btn-default" href="/place/{{id}}/checkins"><i class="icon icon-users"></i></a>{{/if}}
-	</div>
-	<div class="btn btn-xs btn-default disabled pull-right popup-btn-star">
-		<i class="icon icon-{{#if getRank}}star{{else}}unstar{{/if}}"></i> 
-		<span class="badge {{#unless getRank}}bg-gray{{/unless}}">{{getRank}}</span>
+		{{#if pois}}
+			<a class="btn btn-sm btn-default" href="/place/{{id}}/pois"><i class="icon icon-pois"></i></a>
+		{{/if}}
+		{{#if checkinsCount}}
+			<a class="btn btn-sm btn-default" href="/place/{{id}}/checkins"><i class="icon icon-users"></i></a>
+		{{/if}}
+		{{#if conversCount}}
+			<a class="btn btn-sm btn-default" href="/place/{{id}}/convers"><i class="icon icon-mes"></i></a>
+		{{/if}}		
 	</div>
 	{{#if editPlaces}}
 		{{> popup_edit}}

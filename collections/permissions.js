@@ -20,10 +20,10 @@ Climbo.perms = {
 	},
 //Places
 	placePanel: {
-		loc:1,name:1,type:1,near:1,rank:1,checkins:1,tracks:1,pois:1,com:1,prov:1,reg:1,desc:1,warn:1,ele:1,esp:1,naz:1,hist:1,convers:1,photos:1,sectors:1//,source: 1
+		loc:1,name:1,type:1,near:1,rank:1,checkins:1,tracks:1,pois:1,convers:1,com:1,prov:1,reg:1,desc:1,warn:1,ele:1,esp:1,naz:1,hist:1,photos:1,sectors:1//,source: 1
 	},
 	placeMarker: {
-		loc:1,name:1,type:1,near:1,rank:1,checkins:1,tracks:1,pois:1
+		loc:1,name:1,type:1,near:1,rank:1,checkins:1,tracks:1,pois:1,convers:1
 	},	
 	placeItem: {
 		loc:1,name:1,type:1,near:1,rank:1,checkins:1

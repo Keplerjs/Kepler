@@ -6,12 +6,12 @@
 	border-radius: 0;
 }
 
-.list-items.favorites .place-btn-star,
-.list-items.favorites .place-btn-checkin,
-.list-items.convers_profile .place-btns,
-.list-items.convers_profile .conver-author,
-.list-items.convers_place .place-btn-name,
-.list-items.convers_place .conver-btns {
+.convers .list-items .place-btns,
+.convers .list-items .conver-author,
+.favorites .list-items .place-btn-star,
+.favorites .list-items .place-btn-checkin,
+.placeConvers .list-items .place-btn-name,
+.placeConvers .list-items .conver-btns {
 	display: none;
 }
 

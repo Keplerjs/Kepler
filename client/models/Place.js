@@ -109,6 +109,10 @@ Climbo.Place = Climbo.Class.extend({
 		this._dep.depend();
 		return this.checkins && this.checkins.length;
 	},
+	conversCount: function() {
+		this._dep.depend();
+		return this.convers && this.convers.length;
+	},
 
 	getRank: function() {
 		this._dep.depend();

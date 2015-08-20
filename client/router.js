@@ -73,7 +73,7 @@ Router.map(function() {
 		data: function() {
 			return {
 				className: 'favorites',
-				itemsTemplate: 'item_favorite',
+				itemsTemplate: 'item_place_favorite',
 				items: _.map(Climbo.profile.data.favorites, Climbo.newPlace),
 				sortDesc: true,
 				sortBy: 'name'
