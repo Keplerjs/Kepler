@@ -141,12 +141,13 @@ Router.map(function() {
 
 	this.route('placeMap', {
 		path: '/place/:placeId/map',
+		template: 'emptyTmpl',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			return Meteor.subscribe('placesByIds', [this.params.placeId]);
 		},
 		onBeforeAction: function() {
-			Climbo.newPlace(this.params.placeId).loadLoc();
+			Climbo.newPlace( this.params.placeId ).loadLoc();
 			this.next();
 		}
 	});
