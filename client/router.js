@@ -232,6 +232,16 @@ Router.map(function() {
 		}
 	});
 
+	this.route('userConver', {
+		path: '/user/:userId/conver',
+		//template: 'panelConver',
+		layoutTemplate: 'layoutMap',
+		onBeforeAction: function() {
+			Climbo.conver.loadConverWithUser( this.params.userId );
+		}
+	});
+
+
 	this.route('convers', {
 		path: '/convers',
 		template: 'panelList',

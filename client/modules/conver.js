@@ -9,7 +9,7 @@ Climbo.conver = {
 
 	loadConverWithUser: function(userId) {
 		Meteor.call('getConverWithUser', userId, function(err, convId) {
-			Climbo.conver.show(convId);
+			Router.go('conver',{convId: convId});
 		});
 	},
 
