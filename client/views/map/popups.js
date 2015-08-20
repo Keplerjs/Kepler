@@ -6,12 +6,6 @@ Template.popup_place.helpers({
 });
 
 Template.popup_place.events({
-	'click .popup-btn-tracks': function(e,tmpl) {
-		this.loadTracks();
-	},
-	'click .popup-btn-pois': function(e,tmpl) {
-		this.loadPois();
-	},
 //	debug actions
 	'click .popup-clone': function(e,tmpl) {
 		if(Meteor.settings.public.editPlaces)

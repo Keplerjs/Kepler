@@ -134,7 +134,6 @@ Router.map(function() {
 			return Meteor.subscribe('placeById', this.params.placeId);
 		},
 		data: function() {
-			//return reactiveVar
 			return Climbo.newPlace(this.params.placeId).rData();
 		}
 	});
@@ -148,6 +147,32 @@ Router.map(function() {
 		},
 		onBeforeAction: function() {
 			Climbo.newPlace( this.params.placeId ).loadLoc();
+			this.next();
+		}
+	});
+
+	this.route('placePois', {
+		path: '/place/:placeId/pois',
+		template: 'emptyTmpl',
+		layoutTemplate: 'layoutMap',
+		waitOn: function() {
+			return Meteor.subscribe('placesByIds', [this.params.placeId]);
+		},
+		onBeforeAction: function() {
+			Climbo.newPlace( this.params.placeId ).loadPois();
+			this.next();
+		}
+	});
+
+	this.route('placeTracks', {
+		path: '/place/:placeId/tracks',
+		template: 'emptyTmpl',
+		layoutTemplate: 'layoutMap',
+		waitOn: function() {
+			return Meteor.subscribe('placesByIds', [this.params.placeId]);
+		},
+		onBeforeAction: function() {
+			Climbo.newPlace( this.params.placeId ).loadTracks();
 			this.next();
 		}
 	});
