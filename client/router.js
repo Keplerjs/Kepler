@@ -13,7 +13,7 @@ Router.onBeforeAction(function(){
 
 	this.next();
 
-}, {except: ['intro','forgotPassword', 'resetPassword', 'verifyEmail']});
+}, {except: ['intro'] });
 
 Router.waitOn(function() {
 
@@ -21,10 +21,6 @@ Router.waitOn(function() {
 
 		Climbo.profile.initProfile();
 	});
-});
-
-Router.onAfterAction(function() {
-	$('#sidebar').removeClass('collapsed');
 });
 
 Router.map(function() {

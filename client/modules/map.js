@@ -90,7 +90,7 @@ layers.places = new L.LayerJSON({
 ////LAYERS/
 
 controls.zoom = L.control.zoom({
-	position: 'topright',
+	position: 'bottomright',
 	zoomOutText: '',
 	zoomInText: ''	
 });
@@ -165,6 +165,9 @@ controls.search = L.control.search({
 .on('search_locationfound', function() {
 	//TODO patch da rimuovere quando L.Control.Search fa la blur da solo
 	this._input.blur();
+})
+.on('search_expanded', function() {
+	Router.go('map');
 });
 
 Climbo.map = {

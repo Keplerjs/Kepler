@@ -10,8 +10,7 @@
 .convers .list-items .conver-author,
 .favorites .list-items .place-btn-star,
 .favorites .list-items .place-btn-checkin,
-.placeConvers .list-items .place-btn-name,
-.placeConvers .list-items .conver-btns {
+.placeConvers .list-items .place-btn-name {
 	display: none;
 }
 

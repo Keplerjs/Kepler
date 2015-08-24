@@ -127,14 +127,25 @@ a.btn-gray .badge {
 .panel-white > .panel-heading a,
 .panel-gray > .panel-heading a,
 .panel-primary > .panel-heading a {
-	font-size: 1.2em;
 	color: #fff;
 }
 
 .panel-heading h4 {
 	text-transform: capitalize;
 	font-size: 14px;
+	margin: 0;
+	padding: 0;
+	line-height: 32px;
 	font-weight: bold;
+}
+
+.panel-heading .close {
+	line-height: 30px;
+	width: 26px;
+	text-align: center;
+	display: inline-block;
+	float: right;
+	opacity: 1
 }
 
 .nav-tabs > li > a {
@@ -146,43 +157,6 @@ section {
 	margin-top: 70px;
 	background: #fff;
 }
-/* MODAL */
-
-.modal {
-	z-index: 3040;
-}
-.modal-content {
-	border: 2px solid #428bca;
-}
-.modal-backdrop {
-	z-index: 2040
-}
-.modal-header {
-	background-color: #428bca;
-	border-color: #428bca;
-	background-image: -webkit-linear-gradient(top,#428bca 0,#357ebd 100%);
-	background-image: linear-gradient(to bottom,#428bca 0,#357ebd 100%);
-	background-repeat: repeat-x;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff428bca', endColorstr='#ff357ebd', GradientType=0);
-	/* primary */
-	color: #fff;
-	border-top-right-radius: 4px;
-	border-top-left-radius: 4px;
-}
-.modal-header .close {
-	color: #ddd;
-	font-size: 25pt;
-	line-height: 1em;
-	opacity: 1;
-	text-shadow:none;
-}
-.modal-header .close:hover {
-	text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
-}
-.modal-title .icon {
-	vertical-align: top;
-}
-
 
 /* SLIDER */
 

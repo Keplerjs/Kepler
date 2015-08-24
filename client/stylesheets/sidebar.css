@@ -8,7 +8,6 @@
 	z-index: 1000;
 	background: none;    
     height: calc(100% - 20px);
-    
     padding: 6px;	
 }
 .sidebar > .tab-content {
@@ -18,24 +17,17 @@
     max-height: calc(100% - 20px);
     overflow: hidden;
 }
-.sidebar.collapsed > .tab-content {
-	height: 0;
-	overflow: hidden;
-	transition: height 100ms;
-}
 .sidebar .nav-pills {
 	background:#fff;
     border-radius:4px;
 	box-shadow: 0 0 5px rgba(0,0,0,0.3);    
-    height: 34px;	
+    height: 40px;
+    padding: 4px;	
 }
 .sidebar > .nav > li > a {
-	padding: 3px 4px;
-	margin: 3px 0 3px 3px;
+	padding: 5px;
+	margin-right: 6px;
 }
-.sidebar.collapsed > .nav > li > .active {
-    background-color: rgba(120,120,120,0.8);
-} 
 .sidebar .panel {
 	border: none;
 	border-radius: 0;
@@ -43,7 +35,7 @@
 	margin-bottom: 0;
 }
 .sidebar .panel-heading {
-	height: 42px;
+	height: 40px;
 	padding: 5px;
 }
 .sidebar .panel-body {
@@ -52,33 +44,12 @@
     padding: 10px;
 
 position: absolute;
-top: 86px;
+top: 92px;
 left: 6px;
 right: 6px;
     max-height: calc(100% - 72px);
 	overflow-x: hidden;
 	overflow-y: scroll;
-}
-
-.sidebar.collapsed .panel-body {
-	position: static;
-}
-
-.sidebar-close {
-	position: absolute;
-	top: 6px;
-	right: 6px;
-	font-size: 22px;
-	text-align: center;
-	cursor: pointer;
-	height: 32px;
-	width: 32px;
-	color:#fff;
-	background: no-repeat center center url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj48cGF0aCBmaWxsPSIjMTI0MTkxIiBkPSJNNiAzLjU1bDMuNjA0IDIuOTM1TDExIDUuMDcgNiAxIDEgNS4wN2wxLjM5NCAxLjQxNUw2IDMuNTV6bS01IDYuNTJsMS4zOTQgMS40MTVMNiA4LjU1bDMuNjA0IDIuOTM2TDExIDEwLjA3IDYgNmwtNSA0LjA3eiIvPjwvc3ZnPg==);
-}
-.sidebar.collapsed .sidebar-close {	
-	top: 8px;
-	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDEyIDEyIj48cGF0aCBmaWxsPSIjOThhMmFlIiBkPSJNNSA3LjkzOEwxLjM5NiA1IDAgNi40MTdsNSA0LjA3IDUtNC4wN0w4LjYwNyA1IDUgNy45NHptNS02LjUyMkw4LjYwNy4wMDIgNSAyLjkzNyAxLjM5NiAwIDAgMS40MTZsNSA0LjA3IDUtNC4wN3oiLz48L3N2Zz4=);
 }
 
 .sidebar-map .leaflet-left {
