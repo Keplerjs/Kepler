@@ -199,11 +199,11 @@ Climbo.map = {
 		}) );
 
 		_.invoke([
-			layers.geojson, layers.cluster,
+			controls.attrib,
+			controls.zoom,
 			controls.gps,
 			controls.search,
-			controls.zoom,
-			controls.attrib
+			layers.geojson, layers.cluster			
 		],'addTo', Climbo.map.leafletMap);
 
 		//Fix solo per Safari evento resize! quando passa a schermo intero

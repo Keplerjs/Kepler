@@ -7,14 +7,16 @@
     width: 320px;
 	z-index: 1000;
 	background: none;    
-    height: calc(100% - 20px);
-    padding: 6px;	
+    height: auto;
+    padding: 6px;
 }
-.sidebar > .tab-content {
+.sidebar.expanded {
+	height: calc(100% - 20px);
+}
+.sidebar.expanded > .tab-content {
 	margin-top: 6px;
 	box-shadow: 0 0 5px rgba(0,0,0,0.3);
     border-radius:4px;
-    max-height: calc(100% - 20px);
     overflow: hidden;
 }
 .sidebar .nav-pills {
@@ -39,17 +41,17 @@
 	padding: 5px;
 }
 .sidebar .panel-body {
+	position: absolute;
+	top: 92px;
+	left: 6px;
+	right: 6px;
+
 	background: #fff;
     height: 100%;
     padding: 10px;
-
-position: absolute;
-top: 92px;
-left: 6px;
-right: 6px;
-    max-height: calc(100% - 72px);
+    max-height: calc(100% - 100px);
 	overflow-x: hidden;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 .sidebar-map .leaflet-left {
