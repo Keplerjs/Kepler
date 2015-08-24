@@ -7,6 +7,7 @@
 
 	{{#with currentUser}}
 		<form class="form-horizontal" role="form">
+
 			<div class="form-group">
 				<div class="col-sm-3 col-xs-5 text-right">
 					<img class="img-thumbnail user-avatar-big" src="{{avatar}}" />
@@ -17,6 +18,7 @@
 					<label class="text-danger"></label>
 				</div>
 			</div>
+
 			<div class="form-group">
 				<label class="col-xs-3 control-label">{{i18n 'ui.labels.username'}}</label>
 				<div class="col-xs-9">
@@ -24,6 +26,7 @@
 					<label class="text-primary control-label">{{username}}</label>
 				</div>
 			</div>
+
 			<div class="form-group">
 				<label for="name" class="col-xs-3 control-label">{{i18n 'ui.labels.name'}}</label>
 				<div class="col-xs-9 has-feedback">
@@ -31,12 +34,14 @@
 					<span style="display:none" class="form-control-feedback icon icon-del"></span>
 				</div>
 			</div>
+
 			<div class="form-group">
 				<label for="city" class="col-xs-3 control-label">{{i18n 'ui.labels.city'}}</label>
 				<div class="col-xs-9">
 					<input id="city" class="form-control" type="text" value="{{city}}" />
 				</div>
 			</div>
+
 			<div class="form-group">
 				<label for="email" class="col-xs-3 control-label">{{i18n 'ui.labels.email'}}</label>
 				{{#each emails}}
@@ -54,11 +59,21 @@
 				</div>
 				{{/each}}
 			</div>
+
 			<div class="form-group">
 				<label class="col-xs-3 control-label">{{i18n 'ui.labels.likeplaces'}}</label>
 				<div id="likeplaces" class="col-xs-9 col-xs-offset-3">
 				{{#each places}}
 					<a data-type="{{type}}" data-liked="{{liked}}" class="label {{#if liked}}label-primary{{else}}bg-gray{{/if}}">{{name}}</a> 
+				{{/each}}
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-xs-3 control-label">{{i18n 'ui.labels.layer'}}</label>
+				<div id="map-layers" class="col-xs-9 col-xs-offset-3">
+				{{#each layers}}					
+					<a class="btn btn-default btn-lg {{#if active}} active {{/if}}" data-layer="{{key}}" style="background:url('{{url}}')" href="#">{{name}}</a>
 				{{/each}}
 				</div>
 			</div>

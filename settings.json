@@ -24,6 +24,12 @@
 			"center": [42.319851, 12.701923],
 			"maxBounds": [[36.282794, 5.361328], [47.542735, 21.071777]]
 		},
+		"layerDef": "road",
+		"layers": {
+			"road": "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+			"land": "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
+			"sat": "http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png"
+		},
 		"urls": {
 			"static": "http://static.climbo.local/"
 		},

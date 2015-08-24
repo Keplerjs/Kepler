@@ -5,9 +5,7 @@ var map = null,
 	initialized = false,
 	layers = {},
 	controls = {},
-	baseLayerUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-	//baseLayerUrl = 'http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
-	//baseLayerUrl = 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png';
+	baseLayerUrl = Meteor.settings.public.layers.road;
 
 layers.cluster = new L.MarkerClusterGroup({
 	iconCreateFunction: function(cluster) {

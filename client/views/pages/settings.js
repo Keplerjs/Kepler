@@ -19,7 +19,21 @@ Template.pageSettings.helpers({
 				return { key: key, val: val, active: key===lang };
 			});
 		}
-	}
+	},
+	layers: function() {
+		if(Meteor.user()) {		
+			var layer = Meteor.user().settings.layer || Meteor.settings.public.layerDef;
+			return _.map(Meteor.settings.public.layers, function(val, key) {
+				return {
+					key: key,
+					val: val,
+					name: i18n('ui.layers.'+key),
+					active: key===layer,
+					url: _.template(val,{s:'a',z:'15',x:'17374',y:'11667'})
+				};
+			});
+		}
+	}	
 });
 //TODO metodo profile.setSettings
 
@@ -73,6 +87,15 @@ Template.pageSettings.events({
 
 	}, Meteor.settings.public.typeDelay),
 
+	'click #map-layers a': _.debounce(function(e) {
+		e.preventDefault();
+		var $a = $(e.originalEvent.target),
+			layer = $a.data('layer');
+	
+		if(layer)
+			Meteor.users.update(Meteor.userId(), { $set: {'settings.layer': layer} });
+
+	}, Meteor.settings.public.typeDelay),
 
 	'change #lang': function(e) {
 		e.preventDefault();
