@@ -41,11 +41,15 @@ Climbo.profile = {
 
 			i18n.setLanguage(userData.lang);
 
-			if(this.firstRun && Climbo.map.leafletMap && Climbo.profile.data.locmap)
-				Climbo.map.leafletMap.setView(Climbo.profile.data.locmap, Meteor.settings.public.map.zoom);
-			
-			//TODO Meteor.settings.public.profile = _.defaults(Meteor.settings.public.profile, userData.settings);
-			
+			if(this.firstRun) {
+				if(Climbo.map.leafletMap && Climbo.profile.data.locmap)
+					Climbo.map.leafletMap.setView(Climbo.profile.data.locmap, Meteor.settings.public.map.zoom);
+				
+				//TODO Meteor.settings.public.profile = _.defaults(Meteor.settings.public.profile, userData.settings);
+				if(userData.settings.layer && Climbo.map.initialized)
+					Climbo.map.setLayer(userData.settings.layer);
+			}
+
 			Climbo.profile.placeCheckin = Climbo.newPlace(Climbo.profile.data.checkin);
 
 			$('#friends #switch_online').bootstrapSwitch('state', Climbo.profile.data.online);

@@ -93,8 +93,10 @@ Template.pageSettings.events({
 			layer = $a.data('layer');
 	
 		if(layer)
-			Meteor.users.update(Meteor.userId(), { $set: {'settings.layer': layer} });
-
+			Meteor.users.update(Meteor.userId(), { $set: {'settings.layer': layer} }, function() {
+				Climbo.map.setLayer(layer);		
+			});
+		
 	}, Meteor.settings.public.typeDelay),
 
 	'change #lang': function(e) {

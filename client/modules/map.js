@@ -4,8 +4,7 @@
 var map = null,
 	initialized = false,
 	layers = {},
-	controls = {},
-	baseLayerUrl = Meteor.settings.public.layers.road;
+	controls = {};
 
 layers.cluster = new L.MarkerClusterGroup({
 	iconCreateFunction: function(cluster) {
@@ -178,6 +177,8 @@ Climbo.map = {
 
 	layers: layers,
 
+	baseLayer: L.tileLayer(Meteor.settings.public.layers.road),
+
 	_deps: {
 		bbox: new Deps.Dependency()
 	},
@@ -193,7 +194,7 @@ Climbo.map = {
 			center: L.latLng(opts.center),
 			attributionControl: false,
 			zoomControl: false,
-			layers: L.tileLayer(baseLayerUrl)
+			layers: Climbo.map.baseLayer
 		}) );
 
 		_.invoke([
@@ -249,6 +250,11 @@ Climbo.map = {
 			Climbo.map.leafletMap.remove();
 			Climbo.map.layers.places.clearLayers();
 		}
+	},
+
+	setLayer: function(layer) {
+		if( layer && Meteor.settings.public.layers.hasOwnProperty(layer) )
+			Climbo.map.baseLayer.setUrl( Meteor.settings.public.layers[ layer ] ).redraw();
 	},
 	
 	loadLoc: function(loc) {
