@@ -264,9 +264,7 @@ Router.map(function() {
 			return Meteor.subscribe('converById', this.params.convId);
 		},
 		data: function() {
-			var convData = getConverById(this.params.convId).fetch()[0];
-			convData.title = convData.title || i18n('ui.titles.conver');
-			return convData;
+			return getConverById(this.params.convId).fetch()[0];
 		}
 	});
 

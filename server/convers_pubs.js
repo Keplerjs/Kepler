@@ -27,7 +27,6 @@ Meteor.publish('converById', function(convId) {
 
 		var convCur = getConverById(convId),
 			convData = convCur.fetch()[0];
-		
 		return [
 			convCur,
 			getMsgsByConver( convId ),

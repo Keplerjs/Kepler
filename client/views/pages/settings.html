@@ -73,7 +73,7 @@
 				<label class="col-xs-3 control-label">{{i18n 'ui.labels.layer'}}</label>
 				<div id="map-layers" class="col-xs-9 col-xs-offset-3">
 				{{#each layers}}					
-					<a class="btn btn-default btn-lg {{#if active}} active {{/if}}" data-layer="{{key}}" style="background:url('{{url}}')" href="#">{{name}}</a>
+					<a class="btn btn-default btn-lg disabled {{#if active}} active {{/if}}" data-layer="{{key}}" style="background:url('{{url}}')" href="#">{{name}}</a>
 				{{/each}}
 				</div>
 			</div>
