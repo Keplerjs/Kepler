@@ -87,15 +87,13 @@ Template.pageSettings.events({
 
 	}, Meteor.settings.public.typeDelay),
 
-	'click #map-layers a': _.debounce(function(e) {
+	'click #maplayers a': _.debounce(function(e) {
 		e.preventDefault();
 		var $a = $(e.originalEvent.target),
 			layer = $a.data('layer');
 	
 		if(layer)
-			Meteor.users.update(Meteor.userId(), { $set: {'settings.layer': layer} }, function() {
-				Climbo.map.setLayer(layer);		
-			});
+			Meteor.users.update(Meteor.userId(), { $set: {'settings.layer': layer} });
 		
 	}, Meteor.settings.public.typeDelay),
 

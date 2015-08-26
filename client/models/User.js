@@ -51,7 +51,8 @@ Climbo.User = Climbo.Class.extend({
 	loadLoc: function() {
 		if(this.loc) {
 			Climbo.map.loadLoc(this.loc);
-			this.icon.animate();
+			if(this.icon)
+				this.icon.animate();
 		}
 	},
 

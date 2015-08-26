@@ -9,9 +9,10 @@ Climbo.profile = {
 
 	id: null,
 	data: {},
-	user: null,		//my istance of Climbo.User
+	user: null,			//my istance of Climbo.User
+	mapSets: null,		//map custom settings used in Climbo.map.initMap(...)
 	placeCheckin: null,
-	notifs: [],		//notifs of user
+	notifs: [],			//notifs of user
 	//TODO rename fields in db notif to notifs
 
 	_deps: {
@@ -39,20 +40,23 @@ Climbo.profile = {
 			Climbo.profile.user = Climbo.newUser(userData._id);
 			Climbo.profile.user.update();
 
+			Climbo.profile.mapSets = _.extend(Meteor.settings.public.map, {
+				layer: userData.settings.layer,
+				center: userData.locmap
+			});
+
+/*			if(Climbo.map.initialized)
+				Climbo.map.setOpts(Climbo.profile.mapSets);
+*/
+
 			i18n.setLanguage(userData.lang);
 
-			if(this.firstRun) {
-				if(Climbo.map.leafletMap && Climbo.profile.data.locmap)
-					Climbo.map.leafletMap.setView(Climbo.profile.data.locmap, Meteor.settings.public.map.zoom);
-				
-				//TODO Meteor.settings.public.profile = _.defaults(Meteor.settings.public.profile, userData.settings);
-				if(userData.settings.layer && Climbo.map.initialized)
-					Climbo.map.setLayer(userData.settings.layer);
-			}
 
-			Climbo.profile.placeCheckin = Climbo.newPlace(Climbo.profile.data.checkin);
+			
+			if(userData.checkin)
+				Climbo.profile.placeCheckin = Climbo.newPlace(userData.checkin);
 
-			$('#friends #switch_online').bootstrapSwitch('state', Climbo.profile.data.online);
+			$('#friends #switch_online').bootstrapSwitch('state', userData.online);
 		});
 
 		if($.isFunction(callbackProfile))

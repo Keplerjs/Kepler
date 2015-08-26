@@ -115,7 +115,8 @@ controls.gps = L.control.gps({
 		Climbo.profile.setLoc([e.latlng.lat,e.latlng.lng]);
 	},
 	gpsactivated: function(e) {	//run after gpslocated
-		Climbo.profile.user.icon.animate();
+		if(Climbo.profile.user && Climbo.profile.user.icon)
+			Climbo.profile.user.icon.animate();
 		Climbo.alert.show(i18n('ui.alerts.gpson'),'success');		
 	}
 });
@@ -149,9 +150,7 @@ controls.search = L.control.search({
 		var dataItems = _.map(items, function(item) {
 			return _.extend(L.latLng(item.loc), item);
 		});
-		var i = _.indexBy(dataItems,'name');
-		console.log(i)
-		return i;
+		return _.indexBy(dataItems,'name');
 	},
 	callTip: function(key, data) {
 		var tip = L.DomUtil.create('div','search-tip');
@@ -177,8 +176,6 @@ Climbo.map = {
 
 	layers: layers,
 
-	baseLayer: L.tileLayer(Meteor.settings.public.layers.road),
-
 	_deps: {
 		bbox: new Deps.Dependency()
 	},
@@ -189,21 +186,31 @@ Climbo.map = {
 
 		Climbo.map.initialized = true;
 
-		Climbo.map.leafletMap = L.map('map', L.Util.extend(opts, {
-			maxBounds: L.latLngBounds(opts.maxBounds),
-			center: L.latLng(opts.center),
+		opts = _.extend(Meteor.settings.public.map, opts);
+		opts = _.extend(opts, {
 			attributionControl: false,
-			zoomControl: false,
-			layers: Climbo.map.baseLayer
-		}) );
+			zoomControl: false,	
+			maxBounds: L.latLngBounds(opts.maxBounds),
+			center: L.latLng(opts.center)
+		});
+
+		Climbo.map.leafletMap = new L.Map('map', opts);
+
+		layers.baseLayer = new L.TileLayer( Meteor.settings.public.layers[opts.layer] );
 
 		_.invoke([
 			controls.attrib,
 			controls.zoom,
 			controls.gps,
+
+			//FIX CAUSE BUG WHEN FROM SETTINGS PAGE TO MAP PAGE
 			controls.search,
-			layers.geojson, layers.cluster			
+
+			layers.baseLayer,
+			layers.geojson,
+			layers.cluster			
 		],'addTo', Climbo.map.leafletMap);
+
 
 		//Fix solo per Safari evento resize! quando passa a schermo intero
 		$(window).on('orientationchange resize', function(e) {
@@ -212,17 +219,35 @@ Climbo.map = {
 		});
 
 		if($.isFunction(callbackMap))
-			//Climbo.map.leafletMap.on('load', function() {
-				callbackMap(Climbo.map.leafletMap);
-			//});
+			callbackMap(Climbo.map.leafletMap);
 	},
 
-	getBBox: function(opts) {
+	setOpts: function(opts) {
+		var m = Climbo.map.leafletMap;
+
+		opts = _.extend(Meteor.settings.public.map, opts);
+		opts = _.extend(opts, {
+			maxBounds: L.latLngBounds(opts.maxBounds),
+			center: L.latLng(opts.center)
+		})
+		m.setMaxBounds(opts.maxBounds);
+		m.setView(opts.center);
+
+		Climbo.map.layers.baseLayer.setUrl( Meteor.settings.public.layers[opts.layer] );
+	},
+
+	destroyMap: function() {
+		if(Climbo.map.initialized) {
+			Climbo.map.initialized = false;
+			Climbo.map.leafletMap.remove();
+			Climbo.map.layers.places.clearLayers();
+		}
+	},
+	
+	getBBox: function() {
 		if(!Climbo.map.initialized) return null;
 		
 		Climbo.map._deps.bbox.depend();
-
-		//TODO opts.visible
 
 		var bbox = Climbo.map.leafletMap.getBounds(),
 			sw = bbox.getSouthWest(),
@@ -244,22 +269,7 @@ Climbo.map = {
 		Climbo.map.leafletMap.removeLayer(layers.places);
 	},
 
-	destroyMap: function() {
-		if(Climbo.map.initialized) {
-			Climbo.map.initialized = false;
-			Climbo.map.leafletMap.remove();
-			Climbo.map.layers.places.clearLayers();
-		}
-	},
-
-	setLayer: function(layer) {
-		if( layer && Meteor.settings.public.layers.hasOwnProperty(layer) )
-			Climbo.map.baseLayer.setUrl( Meteor.settings.public.layers[ layer ] ).redraw();
-	},
-	
 	loadLoc: function(loc) {
-		//TODO HIDE ALL PANELS
-
 		if(loc && Climbo.util.valid.loc(loc))
 			Climbo.map.leafletMap.setView(loc, Meteor.settings.public.loadLocZoom);
 	},

@@ -13,18 +13,18 @@
 	margin: 0
 }
 
-#settings #map-layers .btn {
+#settings #maplayers .btn {
 	background-size:50% 50%;
 	color: #fff;
 	text-shadow:0 0 3px #000;
 	box-shadow: none;
 }
 
-#settings #map-layers .btn {
+#settings #maplayers .btn {
 	border:2px solid #fff;
-	opacity: 0.6
+	opacity: 0.8
 }
-#settings #map-layers .btn.active {
+#settings #maplayers .btn.active {
 	border:2px solid #337ab7;
 	opacity: 1
 }

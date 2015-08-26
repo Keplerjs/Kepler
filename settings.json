@@ -22,13 +22,15 @@
 			"minZoom": 10,
 			"maxZoom": 19,
 			"center": [42.319851, 12.701923],
-			"maxBounds": [[36.282794, 5.361328], [47.542735, 21.071777]]
+			"maxBounds": [[36.282794, 5.361328], [47.542735, 21.071777]],
+			"layer": "road"
 		},
-		"layerDef": "road",
 		"layers": {
 			"road": "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-			"land": "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
-			"sat": "http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png"
+			"cycle": "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
+			"transport": "http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png",
+			"landscape": "http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png",
+			"outdoors": "http://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png"
 		},
 		"urls": {
 			"static": "http://static.climbo.local/"

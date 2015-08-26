@@ -1,7 +1,7 @@
 
 Template.map.onRendered(function() {
-	Climbo.map.initMap(Meteor.settings.public.map, function(map) {
-		Climbo.map.enableBBox();	//abilita caricamento markers
+	Climbo.map.initMap(Climbo.profile.mapSets, function(map) {
+		Climbo.map.enableBBox();
 	});
 });
 
