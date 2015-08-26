@@ -26,7 +26,7 @@ Template.converMsgs.helpers({
 			//TODO refactoring with new API
 
 			var tmpl = Template.instance(),
-				list$ = $(tmpl.firstNode).parents('.list-group');
+				list$ = $(tmpl.firstNode).parents('.panel-body');
 			
 			list$.scrollTop( list$.prop('scrollHeight') );
 
@@ -42,7 +42,7 @@ Template.converMsgs.events({
 });
 
 Template.itemMsg.onRendered(function() {
-	var list$ = $(this.firstNode).parents('.list-group');
-	list$.scrollTop( list$.prop("scrollHeight") );
+	var list$ = $(this.firstNode).parents('.panel-body');
+	list$.scrollTop( list$.prop('scrollHeight') );
 	//autoscroll ad ogni nuovo messaggio
 });

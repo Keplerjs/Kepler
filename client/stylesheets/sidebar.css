@@ -43,15 +43,23 @@
 .sidebar .panel-body {
 	position: absolute;
 	top: 92px;
+	bottom: 40px;
 	left: 6px;
 	right: 6px;
 
 	background: #fff;
-    height: 100%;
     padding: 10px;
     max-height: calc(100% - 100px);
 	overflow-x: hidden;
 	overflow-y: auto;
+}
+.sidebar .panel-footer {
+	height: 40px;
+	padding: 3px;
+	position: absolute;
+	bottom: 0;
+	left: 6px;
+	right: 6px;
 }
 
 .sidebar-map .leaflet-left {

@@ -12,9 +12,10 @@
 				{{> converMsgs}}
 			</div>
 
-			{{> converInput}}
-
 		</div>
+		<div class="panel-footer">
+			{{> converInput}}
+		</div>		
 	</div>
 
 </template>
@@ -39,7 +40,7 @@
 </template>
 
 <template name="converInput">
-	<form class="conver-input">
+	<form id="converInput">
 		<div class="col-xs-12">
 			<textarea name="body" placeholder="{{i18n 'ui.labels.msgnew'}}"  maxlength="300" aria-expanded="true" aria-label="{{i18n 'ui.labels.msgnew'}}"></textarea>
 		</div>
