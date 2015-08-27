@@ -1,5 +1,9 @@
 #navbar {
 	height: 50px;
+	padding: 6px;
+}
+#navbar .container-fluid {
+	padding: 0;
 }
 #navbar .breadcrumb {
 	background: #428bca;
@@ -7,7 +11,7 @@
 	font-size: 1.2em;
 	font-weight: bold;
 	padding: 5px;
-	margin-top: 8px;
+	margin: 0;
 }
 
 #navbar .breadcrumb a,

@@ -56,12 +56,13 @@
 		</div>
 		{{else}}
 
-		<!-- TODO http://getbootstrap.com/javascript/#buttons -->
+		{{#unless isMe}}
 		<div class="btn-group pull-right" data-toggle="buttons">
 			<a data-userid="{{id}}" class="btn btn-sm btn-default user-btn-add" href="#">
 				<i class="icon icon-useradd"></i> <span>{{i18n 'ui.btns.addfriend'}}</span>
 			</a>
 		</div>
+		{{/unless}}
 		{{/if}}
 	</div>
 </template>

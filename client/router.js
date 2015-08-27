@@ -220,6 +220,10 @@ Router.map(function() {
 		path: '/user/:userId',
 		template: 'panelUser',
 		layoutTemplate: 'layoutMap',
+		onBeforeAction: function() {
+			if(this.params.userId===Meteor.userId())
+				Router.go('profile');
+		},
 		waitOn: function() {
 			return Meteor.subscribe('userById', this.params.userId);
 		},
@@ -233,7 +237,10 @@ Router.map(function() {
 		//template: 'panelConver',
 		layoutTemplate: 'layoutMap',
 		onBeforeAction: function() {
-			Climbo.conver.loadConverWithUser( this.params.userId );
+			if(this.params.userId===Meteor.userId())
+				Router.go('convers');
+			else
+				Climbo.conver.loadConverWithUser( this.params.userId );
 		}
 	});
 
