@@ -18,17 +18,3 @@
 	border-bottom-left-radius: 3px;
 	border-top-left-radius: 3px;
 }
-
-#friends .list-group-item {
-	clear: both;
-	border:none;
-	border-radius: 0;
-	border-bottom:1px solid #ddd;
-	border-width: 1px;
-	margin: 1px 0;
-}
-
-#friends .list-group-item:first-child,
-#friends .list-group-item:last-child {
-	border:none;
-}

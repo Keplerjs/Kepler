@@ -11,7 +11,7 @@
     padding: 6px;
 }
 .sidebar.expanded {
-	height: calc(100% - 20px);
+	height: calc(100% - 10px);
 }
 .sidebar.expanded > .tab-content {
 	margin-top: 6px;

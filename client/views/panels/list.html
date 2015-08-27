@@ -9,10 +9,9 @@
 		<div class="panel-body">
 
 			{{#if header}}
-				<div class="header-item">
-					{{> Template.dynamic template=this.header.template data=this.header.data}}
-				</div>
-				<br />
+			<div class="header-item">
+				{{> Template.dynamic template=this.header.template data=this.header.data}}
+			</div>
 			{{/if}}
 			{{#if items.length}}
 			<div class="list-group list-items">

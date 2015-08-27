@@ -1,6 +1,7 @@
 
-#conver .list-group {
+#conver .panel-body {
 	margin: 0;
+	padding: 0;
 }
 #conver .list-group-item:first-child {
 	height: 120px;
@@ -9,9 +10,10 @@
 	padding-bottom: 10px;
 }
 
-#conver .msg-item {
+#conver .list-group-item.msg-item {
 	padding: 2px 2px 0 2px;
 	overflow: hidden;
+	margin: 0;
 }
 #conver .conver-btn-more {
 	text-align: left;

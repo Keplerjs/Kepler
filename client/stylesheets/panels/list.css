@@ -1,9 +1,23 @@
 
+.header-item {
+	margin-bottom: 10px;
+}
 .list-items.list-group {
 	margin: 0;
+	box-shadow: none;	
+}
+.list-items .list-group-item {
+	clear: both;
+	border:none;
+	border-radius: 0;
+	border-bottom:1px solid #ddd;
+	margin: 1px 0;
 }
 .list-items .list-group-item:first-child {
-	border-radius: 0;
+	border-top:none;
+}
+.list-items .list-group-item:last-child {
+	border-bottom:none;
 }
 
 .convers .list-items .place-btns,
@@ -13,10 +27,3 @@
 .placeConvers .list-items .place-btn-name {
 	display: none;
 }
-
-
-.list-items.favorites .place-btn-checkins {
-	border-bottom-left-radius: 3px;
-	border-top-left-radius: 3px;
-}
-
