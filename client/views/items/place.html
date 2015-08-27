@@ -11,7 +11,7 @@
 			{{> item_place}}
 		</div>
 		<div class="pull-right">
-			{{> place_buttons}}
+			{{> place_btns}}
 		</div>
 	</div>
 </template>
@@ -28,39 +28,27 @@
 	</div>
 </template>
 
-<template name="place_buttons">	
-	<div class="place-btns">
-		<div class="btn-group" data-toggle="buttons">
-			<a class="btn btn-sm btn-default place-btn-checkin {{#if isCheckin}} checkin {{else}} uncheckin {{/if}}">
-				<input type="checkbox" checked={{isCheckin}} />
-				<i class="icon {{#if isCheckin}} icon-checkin {{else}} icon-uncheckin {{/if}}"></i>
-				<span class="{{#if isCheckin}} text-primary {{else}} text-muted {{/if}}">{{i18n 'ui.btns.checkin'}}</span>
-			</a>
-			<a class="btn btn-sm btn-default place-btn-checkins" href="/place/{{id}}/checkins">
-				<i class="icon {{#if checkinsCount}} icon-users {{else}} icon-unusers {{/if}}"></i>
-				<span class="badge {{#unless checkinsCount}} bg-gray {{/unless}}">{{checkinsCount}}</span>
-			</a>
-			<a class="btn btn-sm btn-default place-btn-star">
-				<i class="icon {{#if isFavorite}} icon-star {{else}} icon-unstar {{/if}}"></i>
-				<span class="badge {{#unless getRank}} bg-gray {{/unless}}">{{getRank}}</span>
-				<input type="checkbox" checked={{isFavorite}} />
-			</a>
-			<a class="btn btn-sm btn-default" href="/place/{{id}}/map">
-				<i class="icon icon-map"></i>
-			</a>
-		</div>
+<template name="place_btns">	
+	<div class="btn-group" data-toggle="buttons">
+		<a class="btn btn-sm btn-default place-btn-mes" href="/place/{{id}}/convers">
+			<i class="icon {{#if conversCount}} icon-mes {{else}} icon-unmes {{/if}}"></i>
+			<span class="badge {{#unless conversCount}} bg-gray {{/unless}}">{{conversCount}}</span>
+		</a>			
+		<a class="btn btn-sm btn-default place-btn-checkins" href="/place/{{id}}/checkins">
+			<i class="icon {{#if checkinsCount}} icon-users {{else}} icon-unusers {{/if}}"></i>
+			<span class="badge {{#unless checkinsCount}} bg-gray {{/unless}}">{{checkinsCount}}</span>
+		</a>
+		<a class="btn btn-sm btn-default" href="/place/{{id}}/map">
+			<i class="icon icon-map"></i>
+		</a>
 	</div>
 </template>
 
-<template name="place_buttons2">
+<template name="place_btns2">
 	<div class="place-btns">
 		<div class="btn-group" data-toggle="buttons">
-			<a class="btn btn-sm btn-default" href="/place/{{id}}/convers">
-				<i class="icon icon-mes"></i> <span>{{i18n 'ui.btns.convers'}}</span> 
-				<span class="badge {{#unless conversCount}} bg-gray {{/unless}}">{{conversCount}}</span>
-			</a>
 			<a class="btn btn-sm btn-default disabled" href="/place/{{id}}/sectors">
-				<i class="icon icon-sectors"></i> <span class="hidden-xs">{{i18n 'ui.btns.sectors'}}</span>
+				<i class="icon icon-sectors"></i> <span class="hidden-sm">{{i18n 'ui.btns.sectors'}}</span>
 			</a>
  			<a class="btn btn-sm btn-default disabled" href="/place/{{id}}/photos">
 				<i class="icon icon-photos"></i> <span class="hidden-xs">{{i18n 'ui.btns.photos'}}</span>
@@ -72,3 +60,33 @@
 	</div>
 </template>
 
+<template name="place_btns3">	
+	<div class="btn-group" data-toggle="buttons">
+		<a class="btn btn-sm btn-default place-btn-checkin">
+			<i class="icon {{#if isCheckin}} icon-checkin {{else}} icon-uncheckin {{/if}}"></i>
+			<span class="{{#if isCheckin}} text-primary {{else}} text-muted {{/if}}">{{i18n 'ui.btns.checkin'}}</span>
+			<input type="checkbox" checked={{isCheckin}} />
+		</a>
+		<a class="btn btn-sm btn-default place-btn-star">
+			<i class="icon {{#if isFavorite}} icon-star {{else}} icon-unstar {{/if}}"></i>
+			<span class="badge {{#unless getRank}} bg-gray {{/unless}}">{{getRank}}</span>
+			<input type="checkbox" checked={{isFavorite}} />
+		</a>		
+	</div>
+</template>
+
+<template name="place_btns_all">	
+	<div class="row">
+		<div class="col-sm-6">
+			{{> place_btns3}}
+		</div>	
+		<div class="col-sm-6">
+			{{> place_btns}}
+		</div>		
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			{{> place_btns2}}
+		</div>
+	</div>
+</template>

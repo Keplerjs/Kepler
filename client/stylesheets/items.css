@@ -23,11 +23,6 @@
 	margin-left: 2px;
 }
 
-.row .user-btns,
-.row .place-btns {
-	margin-bottom: 15px;
-}
-
 /* item user */
 .user-device {
 	/*margin: 7px 2px;*/
@@ -46,6 +41,10 @@
 }
 
 /* item place */
+.place-btn-mes .badge:not(.bg-gray) {
+	color:#fff;
+	background-color:#8BCEDF;
+}
 .place-btn-checkins .badge:not(.bg-gray) {
 	color:#fff;
 	background-color:#F69714;
@@ -54,9 +53,6 @@
 .place-btn-star .badge:not(.bg-gray) {
 	color:#fff;
 	background-color:#FCD865;
-}
-.place-btn-checkin {
-	padding-left:6px;
 }
 
 /* item conver */
@@ -70,14 +66,12 @@
 	color: #000;
 }
 .conver-item time {
-	font-size: small;
+	font-size: 11px;
 	color: #aaa;
 }
-.conver-item .place-item,
-.conver-item .conver-users {
-	float: left;
+.conver-item .place-btn-name {
+	font-size: 12px;
 }
-
 .sector-btn-name {
 	font-size: 1em;
 	font-weight: bold;

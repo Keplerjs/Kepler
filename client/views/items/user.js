@@ -1,4 +1,5 @@
-Template.user_buttons2.onRendered(function() {
+
+Template.user_btns2.onRendered(function() {
 	
 	this.$('.user-btn-del').btsConfirmButton({
 			msg: i18n('ui.btns.delfriend')
@@ -7,7 +8,7 @@ Template.user_buttons2.onRendered(function() {
 		});
 });
 
-Template.user_buttons2.events({
+Template.user_btns2.events({
 	'click .user-btn-add': function(e, tmpl) {
 		Climbo.profile.addFriend(this.id);
 	},

@@ -19,11 +19,3 @@
 .list-items .list-group-item:last-child {
 	border-bottom:none;
 }
-
-.convers .list-items .place-btns,
-.convers .list-items .conver-author,
-.favorites .list-items .place-btn-star,
-.favorites .list-items .place-btn-checkin,
-.placeConvers .list-items .place-btn-name {
-	display: none;
-}

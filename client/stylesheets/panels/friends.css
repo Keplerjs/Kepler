@@ -7,12 +7,6 @@
 	color: #888;
 }
 
-#friends .place-btn-star,
-#friends .place-btn-checkin,
-#friends .place-btn-checkins {
-	display: none;
-}
-
 #friends .user-btn-map,
 #friends .place-btn-map {
 	border-bottom-left-radius: 3px;

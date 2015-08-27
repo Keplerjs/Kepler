@@ -9,9 +9,10 @@
 	background: none;    
     height: auto;
     padding: 6px;
+    /*background: rgba(0,0,0,0.2)*/
 }
 .sidebar.expanded {
-	height: calc(100% - 10px);
+	height: calc(100%);
 }
 .sidebar.expanded > .tab-content {
 	margin-top: 6px;
@@ -43,15 +44,15 @@
 .sidebar .panel-body {
 	position: absolute;
 	top: 92px;
-	bottom: 40px;
 	left: 6px;
 	right: 6px;
+	bottom: 6px;	
 
 	background: #fff;
     padding: 10px;
     max-height: calc(100% - 100px);
 	overflow-x: hidden;
-	overflow-y: auto;
+	overflow-y: scroll;
 }
 .sidebar .panel-footer {
 	height: 40px;

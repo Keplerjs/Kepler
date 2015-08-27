@@ -11,21 +11,11 @@
 		<div class="well well-sm pull-left">
 			{{> item_place}}
 			<br />
+			<span class="label label-primary">{{placeType type}}</span>
+			<br />
 			<small>{{near}}</small>
 			<br />
-			<div class="btn-group">
-				<a class="btn btn-sm place-btn-checkins" href="/place/{{id}}/checkins">
-					<i class="icon {{#if checkinsCount}} icon-users {{else}} icon-unusers {{/if}}"></i>
-					<span class="badge {{#unless checkinsCount}} bg-gray {{/unless}}">{{checkinsCount}}</span>
-				</a>
-				<a class="btn btn-sm place-btn-star">
-					<i class="icon {{#if isFavorite}} icon-star {{else}} icon-unstar {{/if}}"></i>
-					<span class="badge {{#unless getRank}} bg-gray {{/unless}}">{{getRank}}</span>
-				</a>
-				<a class="btn btn-sm" href="/place/{{id}}/map">
-					<i class="icon icon-map"></i>
-				</a>
-			</div>
+			{{> place_btns}}
 		</div>
 	{{/each}}
 	</div>

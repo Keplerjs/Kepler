@@ -1,8 +1,5 @@
-#user .user-btns .place-btn-checkin,
 #user .user-btns .place-btn-star,
-#tab_histuser .place-btn-checkin,
 #tab_histuser .place-btn-checkins,
-#tab_favs .place-btn-checkin,
 #tab_favs .place-btn-checkins {
 	display: none;
 }

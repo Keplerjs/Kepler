@@ -16,10 +16,13 @@
 	color: #fff;
 }
 
+.panel-body .row .btn-group {
+	margin-bottom: 15px;
+}
+
 .btn-group-vertical .icon {
 	float: left;
 }
-
 
 .form-horizontal .has-feedback .icon.form-control-feedback {
 	position: absolute;
