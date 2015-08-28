@@ -41,6 +41,9 @@
 	height: 40px;
 	padding: 5px;
 }
+.sidebar .panel-heading > .back {
+	margin-right: 10px;
+}
 .sidebar .panel-body {
 	position: absolute;
 	top: 92px;

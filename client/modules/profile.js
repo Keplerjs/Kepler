@@ -16,9 +16,9 @@ Climbo.profile = {
 	//TODO rename fields in db notif to notifs
 
 	_deps: {
-		online: new Deps.Dependency(),
-		checkin: new Deps.Dependency(),
-		friends: new Deps.Dependency()
+		online: new Tracker.Dependency(),
+		checkin: new Tracker.Dependency(),
+		friends: new Tracker.Dependency()
 	},
 
 	initProfile: function(callbackProfile) {
@@ -28,7 +28,7 @@ Climbo.profile = {
 		
 		Climbo.profile.initialized = true;
 
-		Deps.autorun(function(comp) {
+		Tracker.autorun(function(comp) {
 
 			var userData = Meteor.user();
 			

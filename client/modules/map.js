@@ -177,7 +177,7 @@ Climbo.map = {
 	layers: layers,
 
 	_deps: {
-		bbox: new Deps.Dependency()
+		bbox: new Tracker.Dependency()
 	},
 
 	initMap: function(opts, callbackMap) {		//render map and add controls/layers

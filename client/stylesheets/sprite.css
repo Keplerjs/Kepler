@@ -132,10 +132,10 @@
 .icon-success { background-position: -90px -450px; }
 .icon-warning { background-position: -90px -480px; } 
 
-.icon-ar-right{ background-position: -90px -510px; } 
-.icon-ar-left{ background-position: -90px -540px; } 
-.icon-ar-bottom{ background-position: -90px -570px; } 
-.icon-ar-top{ background-position: -90px -600px; } 
+.icon-ar-right  { background-position: -90px -510px; } 
+.icon-ar-right-w{ background-position: -60px -510px; } 
+.icon-ar-left   { background-position: -90px -540px; } 
+.icon-ar-left-w { background-position: -60px -540px; } 
 
 /* ICON SOCIAL */
 .icon-online-mob{ background-position: -120px 0;  } 

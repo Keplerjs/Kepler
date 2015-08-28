@@ -1,6 +1,8 @@
 {
 	"debug": true,
 	"public": {
+		"siteName": "Climbo.net",
+		"siteEmail": "info@climbo.net",
 		"editPlaces": false,
 		"showAlerts": true,		
 		"searchMinLen": 1,

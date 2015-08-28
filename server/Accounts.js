@@ -9,6 +9,8 @@ Meteor.startup(function () {
 	Accounts.loginServiceConfiguration.insert(Meteor.settings.accounts.google);
 	//Accounts.loginServiceConfiguration.remove({service: 'twitter'});
 	//Accounts.loginServiceConfiguration.insert(Meteor.settings.accounts.twitter);
+	Accounts.emailTemplates.siteName = Meteor.settings.public.siteName;
+	Accounts.emailTemplates.from = Meteor.settings.public.siteEmail;
 });
 
 Accounts.onCreateUser(function(options, user) {

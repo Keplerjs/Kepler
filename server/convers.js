@@ -43,7 +43,7 @@ getConverWithUser = function(userId) {
 	if(convData)
 		return convData._id;
 	else
-		return newConver(null, null, userId);
+		return newConver(i18n('ui.titles.userConver'), null, userId);
 };
 
 delConver = function(convId) {

@@ -33,7 +33,7 @@ Climbo.Place = Climbo.Class.extend({
 		self.id = placeId;
 
 		//REACTIVE SOURCES:
-		self._dep = new Deps.Dependency();
+		self._dep = new Tracker.Dependency();
 		self.rData = function() {	//Data Reactive Source
 			self._dep.depend();
 			//TODO raggruppare dati reattivi in self.rdata
@@ -52,7 +52,7 @@ Climbo.Place = Climbo.Class.extend({
 
 			self._dep.changed();
 		};
-		Deps.autorun( self.update );
+		Tracker.autorun( self.update );
 
 		//MAP OBJECTS:
 		self.icon$ = L.DomUtil.create('div');

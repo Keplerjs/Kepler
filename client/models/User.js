@@ -17,7 +17,7 @@ Climbo.User = Climbo.Class.extend({
 		var self = this;
 
 		self.id = userId;		//mongoid
-		self._dep = new Deps.Dependency();
+		self._dep = new Tracker.Dependency();
 		self.rData = function() {	//Data Reactive Source
 			self._dep.depend();
 			return self;
@@ -45,7 +45,7 @@ Climbo.User = Climbo.Class.extend({
 
 			self._dep.changed();
 		};
-		Deps.autorun( self.update );	//TODO aggiornare solo se amico
+		Tracker.autorun( self.update );	//TODO aggiornare solo se amico
 	},
 
 	loadLoc: function() {

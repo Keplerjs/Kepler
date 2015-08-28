@@ -1,4 +1,6 @@
 
+//http://stackoverflow.com/questions/27542120/whats-the-difference-between-writing-routes-in-meteor-startup-and-not
+
 Router.configure({
 	layoutTemplate: 'layoutFull',
 	loadingTemplate: 'pageLoading',
@@ -147,32 +149,6 @@ Router.map(function() {
 		}
 	});
 
-	this.route('placePois', {
-		path: '/place/:placeId/pois',
-		template: 'emptyTmpl',
-		layoutTemplate: 'layoutMap',
-		waitOn: function() {
-			return Meteor.subscribe('placesByIds', [this.params.placeId]);
-		},
-		onBeforeAction: function() {
-			Climbo.newPlace( this.params.placeId ).loadPois();
-			this.next();
-		}
-	});
-
-	this.route('placeTracks', {
-		path: '/place/:placeId/tracks',
-		template: 'emptyTmpl',
-		layoutTemplate: 'layoutMap',
-		waitOn: function() {
-			return Meteor.subscribe('placesByIds', [this.params.placeId]);
-		},
-		onBeforeAction: function() {
-			Climbo.newPlace( this.params.placeId ).loadTracks();
-			this.next();
-		}
-	});
-
 	this.route('placeCheckins', {
 		path: '/place/:placeId/checkins',
 		template: 'panelList',
@@ -184,7 +160,7 @@ Router.map(function() {
 		data: function() {
 			var place = Climbo.newPlace(this.params.placeId);
 			return {
-				title: i18n('ui.titles.checkins')+place.name,
+				title: i18n('ui.titles.checkins')+'<a href="/place/'+this.params.placeId+'"><b>'+place.name+'</b></a>',
 				className: 'checkins',
 				itemsTemplate: 'item_user',
 				items: _.map(place.checkins, Climbo.newUser),
@@ -213,6 +189,32 @@ Router.map(function() {
 					data: place
 				}
 			};
+		}
+	});
+
+	this.route('placePois', {
+		path: '/place/:placeId/pois',
+		template: 'emptyTmpl',
+		layoutTemplate: 'layoutMap',
+		waitOn: function() {
+			return Meteor.subscribe('placesByIds', [this.params.placeId]);
+		},
+		onBeforeAction: function() {
+			Climbo.newPlace( this.params.placeId ).loadPois();
+			this.next();
+		}
+	});
+
+	this.route('placeTracks', {
+		path: '/place/:placeId/tracks',
+		template: 'emptyTmpl',
+		layoutTemplate: 'layoutMap',
+		waitOn: function() {
+			return Meteor.subscribe('placesByIds', [this.params.placeId]);
+		},
+		onBeforeAction: function() {
+			Climbo.newPlace( this.params.placeId ).loadTracks();
+			this.next();
 		}
 	});
 
@@ -245,7 +247,6 @@ Router.map(function() {
 				Climbo.conver.loadConverWithUser( this.params.userId );
 		}
 	});
-
 
 	this.route('convers', {
 		path: '/convers',
