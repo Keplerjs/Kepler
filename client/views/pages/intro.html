@@ -8,33 +8,35 @@
 		
 		<em id="slogan" class="clearfix">The Climbers Community</em>
 
-		<br />
+		<br /><br />
 		{{#if currentUser}}
 			{{#with currentUser}}
-			<span class="btn btn-default">
+			<div class="btn btn-default">
 				{{> item_user}}
-			</span>
-				<br /><br />
-				<a class="btn btn-lg btn-primary" href="/">{{i18n 'ui.btns.enter'}}</a>
+			</div>
 			{{/with}}
 		{{else}}
 			{{> loginButtons}}
 		{{/if}}
-		<br />
-		<br />		
+		<br /><br />
 
 		<div id="social-icons">
-			<a class="social-icon_tw ui-link" title="Twitter" target="_blank" href="https://twitter.com/climbo_net"></a>		
-			<a class="social-icon_fb ui-link" title="Facebook" target="_blank" href="https://www.facebook.com/ClimboNetCommunity"></a>
-			<a class="social-icon_gp ui-link" title="Google+" target="_blank" href="https://plus.google.com/+ClimboNetCommunity" rel="publisher"></a>
+			<a class="social-icon_tw" title="Twitter" target="_blank" href="https://twitter.com/climbo_net"></a>		
+			<a class="social-icon_fb" title="Facebook" target="_blank" href="https://www.facebook.com/ClimboNetCommunity"></a>
+			<a class="social-icon_gp" title="Google+" target="_blank" href="https://plus.google.com/+ClimboNetCommunity" rel="publisher"></a>
 			<!-- <a class="social-icon_tu ui-link" title="Tumblr" target="_blank" href="http://blog.climbo.net"></a> -->
 		</div>
+		<br /><br />
 
 		<small class="text-muted">
-			<i>&copy;2014 Climbo.net</i>
+			<i>&copy; 2014 Climbo.net</i>
 			&nbsp;&bull;&nbsp;
-			<a href="http://blog.climbo.net/">Blog</a>
+			<a href="#">about</a>
+			&nbsp;&bull;&nbsp;
+			<a href="http://blog.climbo.net/">blog</a>
 		</small>
+		<br />
+		<br />
 	</div>
 </div>
 

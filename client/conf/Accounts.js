@@ -27,7 +27,6 @@ accountsUIBootstrap3.map( i18n.getLanguage(), {
 	}
 });
 
-
-/*Meteor.startup(function() {
-	accountsUIBootstrap3.setLanguage( i18n.getLanguage() );
-});*/
+Accounts.onLogin(function() {
+	Router.go('profile');
+});

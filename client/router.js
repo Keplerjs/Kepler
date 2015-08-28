@@ -223,6 +223,8 @@ Router.map(function() {
 		onBeforeAction: function() {
 			if(this.params.userId===Meteor.userId())
 				Router.go('profile');
+			else
+				this.next();
 		},
 		waitOn: function() {
 			return Meteor.subscribe('userById', this.params.userId);

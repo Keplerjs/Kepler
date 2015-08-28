@@ -52,9 +52,9 @@
 	/* primary */
 	color: #fff;
 }
-.nav-pills>li.active>a,
-.nav-pills>li.active>a:focus,
-.nav-pills>li.active>a:hover {
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:focus,
+.nav-pills > li.active > a:hover {
 	background-color: #428bca
 }
 
