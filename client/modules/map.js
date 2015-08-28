@@ -153,6 +153,9 @@ controls.search = L.control.search({
 		return _.indexBy(dataItems,'name');
 	},
 	callTip: function(key, data) {
+
+//TODO disable default click in leaflet-search id calltip return a dom node
+
 		var tip = L.DomUtil.create('div','search-tip');
 		Blaze.renderWithData(Template.place_search_tip, data, tip);
 		return tip;

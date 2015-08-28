@@ -94,6 +94,7 @@
 	background-color:rgba(255,255,255,0.1);
 }
 .leaflet-bar a,
+.leaflet-bar a:hover,
 .leaflet-touch .leaflet-bar a {
 	background-color: none;
 	width: 30px;
@@ -101,6 +102,7 @@
 	color: #fff;
 	text-indent:-100px;
 	/*http://goo.gl/q90DK*/
+	border:none;
 }
 .leaflet-control-zoom-in.leaflet-disabled,
 .leaflet-control-zoom-out.leaflet-disabled {
