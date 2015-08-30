@@ -19,3 +19,5 @@ ian:accounts-ui-bootstrap-3
 anti:i18n
 twbs:bootstrap
 mrt:modernizr-meteor
+underscorestring:underscore.string
+alisalaah:suncalc
