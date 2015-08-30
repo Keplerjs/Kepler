@@ -19,14 +19,14 @@
 					<i class="icon icon-placeinfo"></i> <span class="hidden-xs">{{i18n 'ui.btns.info'}}</span>
 				</a>
 			</li>
-			<li>
-				<a href="#tab_hist" data-toggle="tab">
-					<i class="icon icon-hist"></i> <span class="hidden-xs">{{i18n 'ui.btns.hist'}}</span>
-				</a>
-			</li>
 			<li class="place-btn-weather">
 				<a href="#tab_weather" data-toggle="tab">
 					<i class="icon icon-weather"></i> <span class="hidden-xs">{{i18n 'ui.btns.weather'}}</span>
+				</a>
+			</li>			
+			<li>
+				<a href="#tab_hist" data-toggle="tab">
+					<i class="icon icon-hist"></i> <span class="hidden-xs">{{i18n 'ui.btns.hist'}}</span>
 				</a>
 			</li>
 			<li class="place-btn-events">
@@ -55,12 +55,12 @@
 				{{> tab_streetview}}
 
 			</div>
+			<div class="tab-pane" id="tab_weather">
+				{{> tab_weather}}
+			</div>			
 			<div class="tab-pane" id="tab_hist">
 				{{> tab_hist}}
 			</div>	
-			<div class="tab-pane" id="tab_weather">
-				{{> tab_weather}}
-			</div>
 			<div class="tab-pane" id="tab_events">
 				{{> tab_events}}
 			</div>

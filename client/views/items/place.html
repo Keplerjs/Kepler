@@ -30,14 +30,14 @@
 
 <template name="place_btns">	
 	<div class="btn-group" data-toggle="buttons">
-		<a class="btn btn-sm btn-default place-btn-mes" href="/place/{{id}}/convers">
-			<i class="icon {{#if conversCount}} icon-mes {{else}} icon-unmes {{/if}}"></i>
-			<span class="badge {{#unless conversCount}} bg-gray {{/unless}}">{{conversCount}}</span>
-		</a>			
 		<a class="btn btn-sm btn-default place-btn-checkins" href="/place/{{id}}/checkins">
 			<i class="icon {{#if checkinsCount}} icon-users {{else}} icon-unusers {{/if}}"></i>
 			<span class="badge {{#unless checkinsCount}} bg-gray {{/unless}}">{{checkinsCount}}</span>
 		</a>
+		<a class="btn btn-sm btn-default place-btn-mes" href="/place/{{id}}/convers">
+			<i class="icon {{#if conversCount}} icon-mes {{else}} icon-unmes {{/if}}"></i>
+			<span class="badge {{#unless conversCount}} bg-gray {{/unless}}">{{conversCount}}</span>
+		</a>		
 		<a class="btn btn-sm btn-default" href="/place/{{id}}/map">
 			<i class="icon icon-map"></i>
 		</a>

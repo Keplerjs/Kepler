@@ -13,6 +13,15 @@ Meteor.startup(function () {
 	Accounts.emailTemplates.from = Meteor.settings.public.siteEmail;
 });
 
+/*Accounts.validateNewUser(function (user) {
+	
+	console.log('validateNewUser',user);
+
+  if (user.username && user.username.length >= 3)
+    return true;
+  throw new Meteor.Error(403, "Username must have at least 3 characters");
+});*/
+
 Accounts.onCreateUser(function(options, user) {
 
 	var name = '',
