@@ -49,15 +49,18 @@ layers.geojson = new L.GeoJSONAutoClear(null, {
 		}
 	},
 	onEachFeature: function (feature, layer) {
-		var tmpl, popup$;
+		var tmpl, $popup;
+
 		if(feature.geometry.type=='LineString')
-			tmpl = Template['popup_track'];
+			tmpl = Template.popup_track;
+
 		else if(feature.geometry.type=='Point' && feature.properties.name )
-			tmpl = Template['popup_poi'];
+			tmpl = Template.popup_poi;
+
 		if(tmpl) {
-			popup$ = document.createElement('div');
-			Blaze.renderWithData(tmpl, feature.properties, popup$);
-			layer.bindPopup(popup$, {closeButton:false} );
+			$popup = L.DomUtil.create('div');
+			Blaze.renderWithData(tmpl, feature.properties, $popup);
+			layer.bindPopup($popup, {closeButton:false} );
 		}
 	}
 });
@@ -282,8 +285,6 @@ Climbo.map = {
 
 		geoData = L.Util.isArray(geoData) ? geoData : [geoData];
 
-		//TODO close panel place
-
 		Climbo.map.leafletMap.closePopup();
 
 		layers.geojson.clearLayers();
@@ -291,6 +292,7 @@ Climbo.map = {
 			layers.geojson.addData(geoData[i]);
 	
 		var bb = layers.geojson.getBounds();
+
 		Climbo.map.leafletMap.setView(bb.getCenter(), Climbo.map.leafletMap.getBoundsZoom(bb) - 1);
 	}
 };

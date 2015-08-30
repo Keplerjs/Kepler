@@ -9,6 +9,10 @@ Template.registerHelper('connectionStatus', function() {
 	return Meteor.status();
 });
 
+Template.registerHelper('settings', function(prop) {
+	return Climbo.util.getPath(Meteor.settings.public, prop);
+});
+
 //TODO nuovo helper {{#ifwith }}
 Template.registerHelper('or', function() {
 	return _.some(_.initial(arguments));

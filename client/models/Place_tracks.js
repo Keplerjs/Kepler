@@ -13,7 +13,10 @@ Climbo.Place.include({
 
 		var self = this;
 
-		function addPoiParking(track) {
+		function addInfo(track) {
+
+			track.properties.asc = track.properties.dis >= 0;
+
 			if(track.properties.tipo==='access')
 				return Climbo.util.geo.createFeatureColl([
 					track,
@@ -24,7 +27,7 @@ Climbo.Place.include({
 		}
 
 		if( self.tracks > 0 && self.cache.tracks && show)
-			Climbo.map.loadGeojson( _.map(self.cache.tracks, addPoiParking) );
+			Climbo.map.loadGeojson( _.map(self.cache.tracks, addInfo) );
 		else
 			Meteor.call('getTracksByLoc', self.loc, function(err, tracks) {
 
@@ -33,7 +36,7 @@ Climbo.Place.include({
 					self.cache.tracks = tracks;
 					self.update();
 					if(show)
-						Climbo.map.loadGeojson( _.map(tracks, addPoiParking) );
+						Climbo.map.loadGeojson( _.map(tracks, addInfo) );
 				}
 				else
 					self.cache.tracks = 0;

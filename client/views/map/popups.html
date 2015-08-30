@@ -20,7 +20,7 @@
 			<a class="btn btn-sm btn-default" href="/place/{{id}}/convers"><i class="icon icon-mes"></i></a>
 		{{/if}}		
 	</div>
-	{{#if editPlaces}}
+	{{#if settings 'editPlaces'}}
 		{{> popup_edit}}
 	{{/if}}
 </template>
@@ -29,12 +29,13 @@
 	<div class="clearfix">&nbsp;</div>
 	<div class="btn-group popup-actions">
 		<a class="btn btn-xs btn-default popup-move" href="#">Move</a> 
+		<a class="btn btn-xs btn-default popup-canc" style="display:none" href="#">Cancel</a>
 		<a class="btn btn-xs btn-default popup-clone" href="#">Clone</a> 
 		<a class="btn btn-xs btn-default popup-del" href="#">Delete</a>	
 	</div>
 	<div class="clearfix">
-		{{#if ele}} {{ele}}m {{/if}}
-		{{#if esp}} {{humanAzimut esp}}({{esp}}°) {{/if}}
+		{{#if ele}} ele: {{ele}}m {{/if}}
+		{{#if esp}} esp: {{esp}}° {{humanAzimut esp}} {{/if}}
 	</div>
 </template>
 
@@ -42,13 +43,13 @@
 	<div class="popup-track">
 		{{#if time}}<i class="icon icon-time"></i> {{i18n 'ui.labels.time'}} {{humanTime time}} <br />{{/if}}
 		{{#if len}}<i class="icon icon-len"></i> {{i18n 'ui.labels.len'}} {{humanDistance len}} <br />{{/if}}
-		{{#if dis}}
-			{{#if isSalita}}
-			<i class="icon icon-sal"></i> {{i18n 'ui.labels.asc'}} {{humanDistance dis 1 }}
-			{{else}}
-			<i class="icon icon-dis"></i> {{i18n 'ui.labels.desc'}} {{humanDistance dis 1 }}
-			{{/if}}
+
+		{{#if asc}}
+		<i class="icon icon-sal"></i> {{i18n 'ui.labels.asc'}} {{humanDistance dis 1 }}
+		{{else}}
+		<i class="icon icon-dis"></i> {{i18n 'ui.labels.desc'}} {{humanDistance dis 1 }}
 		{{/if}}
+
 	</div>
 </template>
 
