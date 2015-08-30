@@ -85,7 +85,10 @@
 	padding: 2px 4px;
     min-width: 16px;	
 }
-
+label {
+	color: #888;
+	font-size: 14px;
+}
 .badge,
 .btn-default .badge {
 	background-color: #bbb;

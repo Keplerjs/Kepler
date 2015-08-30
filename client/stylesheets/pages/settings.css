@@ -18,12 +18,14 @@
 	box-shadow: none;
 }
 #settings #maplayer label.btn {
-	background-size:50% 50%;
+	background-position: center center;
+	background-repeat: no-repeat;
 	color: #fff;
 	text-shadow:0 0 4px #000;
 	box-shadow: none;
 	border: 2px solid #fff;
-
+	margin: 0 2px 2px 0;
+	padding: 20px 10px;
 	border-radius: 4px;
 }
 #settings #maplayer label.btn.active {
