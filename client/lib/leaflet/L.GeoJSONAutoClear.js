@@ -1,4 +1,6 @@
-
+/*
+	layer geojson self clening on zoom out
+*/
 L.GeoJSONAutoClear = L.GeoJSON.extend({
 	options: {
 		zoomDiff: 2
@@ -13,4 +15,4 @@ L.GeoJSONAutoClear = L.GeoJSON.extend({
 					that.clearLayers();
 		});
 	}
-});//layer geojson autopulente quando si fa zoom out
+});

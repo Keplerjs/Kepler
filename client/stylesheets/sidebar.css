@@ -37,12 +37,9 @@
 	box-shadow: none;
 	margin-bottom: 0;
 }
-.sidebar .panel-heading {
+.panel-heading {
 	height: 40px;
 	padding: 5px;
-}
-.sidebar .panel-heading > .back {
-	margin-right: 10px;
 }
 .sidebar .panel-body {
 	position: absolute;
@@ -58,7 +55,7 @@
 	overflow-y: scroll;
 }
 .sidebar .panel-footer {
-	height: 40px;
+	min-height: 40px;
 	padding: 3px;
 	position: absolute;
 	bottom: 0;

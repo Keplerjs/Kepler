@@ -1,6 +1,9 @@
 #navbar {
-	height: 50px;
-	padding: 6px;
+	height: 40px;
+	padding: 0;
+}
+#navbar.navbar {
+	min-height: 40px;
 }
 #navbar .container-fluid {
 	padding: 0;

@@ -49,7 +49,7 @@ Climbo.profile = {
 				Climbo.map.setOpts(Climbo.profile.mapSets);
 */
 
-			i18n.setLanguage(userData.lang);
+			//TODO i18n.setLanguage(userData.lang);
 
 
 			

@@ -3,7 +3,7 @@
 	"public": {
 		"siteName": "Climbo.net",
 		"siteEmail": "info@climbo.net",
-		"editPlaces": true,
+		"editPlaces": false,
 		"accountCreation": true,
 		"showAlerts": true,		
 		"searchMinLen": 1,

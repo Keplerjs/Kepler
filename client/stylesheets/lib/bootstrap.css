@@ -58,6 +58,10 @@
 	background-color: #428bca
 }
 
+.backhist {
+	margin-right: 8px;
+}
+
 .bg-primary a,
 .bg-primary a:focus,
 .bg-primary a:hover {
@@ -75,6 +79,11 @@
 
 .btn-default {
 	color: #428bca;
+}
+
+.badge {
+	padding: 2px 4px;
+    min-width: 16px;	
 }
 
 .badge,
@@ -157,7 +166,7 @@ a.btn-gray .badge {
 
 /* PAGES*/
 section {
-	margin-top: 70px;
+	margin-top: 50px;
 	background: #fff;
 }
 
