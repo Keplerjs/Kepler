@@ -3,32 +3,52 @@
 //http://avatars.io/
 
 Template.pageSettings.helpers({
+	genders: function() {
+		if(Meteor.user()) {
+			var gender = Meteor.user() && (Meteor.user().gender || 'none');
+			return _.map({male:'male',female:'female',none:'none'}, function(val, k) {
+				return {
+					key: k,
+					val: val,
+					name: i18n('ui.genders.'+k),
+					active: gender===val
+				};
+			});
+		}
+	},	
 	places: function() {
-		return _.map(Meteor.settings.public.activePlaces, function(type) {
-			return {
-				type: type,				
-				name: i18n('ui.places.'+type),				
-				liked: _.contains(Meteor.user().likeplaces, type)
-			};
-		});
+		if(Meteor.user()) {
+			var places = Meteor.user() && Meteor.user().likeplaces;
+			return _.map(Meteor.settings.public.activePlaces, function(k) {
+				return {
+					val: k,
+					name: i18n('ui.places.'+k),
+					active: _.contains(places, k)
+				};
+			});
+		}
 	},
 	langs: function() {
 		if(Meteor.user()) {
 			var lang = Meteor.user() && Meteor.user().lang;
-			return _.map(Meteor.settings.public.langs, function(val, key) {
-				return { key: key, val: val, active: key===lang };
+			return _.map(Meteor.settings.public.langs, function(val, k) {
+				return {
+					key: k,
+					val: val,
+					active: k===lang
+				};
 			});
 		}
-	},
+	},	
 	layers: function() {
 		if(Meteor.user()) {		
 			var layer = Meteor.user().settings.layer || Meteor.settings.public.layerDef;
-			return _.map(Meteor.settings.public.layers, function(val, key) {
+			return _.map(Meteor.settings.public.layers, function(val, k) {
 				return {
-					key: key,
-					val: val,
-					name: i18n('ui.layers.'+key),
-					active: key===layer,
+					key: k,
+					val: k,
+					name: i18n('ui.layers.'+k),
+					active: k===layer,
 					url: _.template(val,{s:'a',z:'15',x:'17374',y:'11667'})
 				};
 			});
@@ -45,7 +65,7 @@ Template.pageSettings.events({
 			feed$.show();
 		else {
 			feed$.hide();
-			Meteor.users.update(Meteor.userId(), { $set:{name: e.target.value} });
+			Meteor.users.update(Meteor.userId(), { $set: {'name': e.target.value } });
 		}
 	}, Meteor.settings.public.typeDelay),
 
@@ -71,30 +91,28 @@ Template.pageSettings.events({
 	}, Meteor.settings.public.typeDelay),*/
 
 	'keyup #city': _.debounce(function(e) {
-		Meteor.users.update(Meteor.userId(), { $set:{city: e.target.value} });
+		Meteor.users.update(Meteor.userId(), { $set: {'city': $(e.currentTarget).val() } });
 	}, Meteor.settings.public.typeDelay),
 
-	'click #likeplaces a': _.debounce(function(e) {
-		e.preventDefault();
-		var $a = $(e.originalEvent.target),
-			type = $a.data('type'),
-			liked = $a.data('liked');
+	'change #likeplaces input': function(e) {
+		var val = $(e.currentTarget).val(),
+			liked = $(e.currentTarget).is(':checked');
 
-		if(liked)
-			Meteor.users.update(Meteor.userId(), { $pull: {likeplaces: type} });
+		if(!liked)
+			Meteor.users.update(Meteor.userId(), { $pull: {'likeplaces': val } });
 		else
-			Meteor.users.update(Meteor.userId(), { $addToSet: {likeplaces: type} });
+			Meteor.users.update(Meteor.userId(), { $addToSet: {'likeplaces': val } });
+	},
 
+	'change #maplayer input': _.debounce(function(e) {
+		e.preventDefault();
+		Meteor.users.update(Meteor.userId(), { $set: {'settings.layer': $(e.currentTarget).val() } });
 	}, Meteor.settings.public.typeDelay),
 
-	'click #maplayers a': _.debounce(function(e) {
+	'change #gender input': _.debounce(function(e) {
 		e.preventDefault();
-		var $a = $(e.originalEvent.target),
-			layer = $a.data('layer');
-	
-		if(layer)
-			Meteor.users.update(Meteor.userId(), { $set: {'settings.layer': layer} });
-		
+		Meteor.users.update(Meteor.userId(), { $set: {'gender': $(e.currentTarget).val() } });
+
 	}, Meteor.settings.public.typeDelay),
 
 	'change #lang': function(e) {
