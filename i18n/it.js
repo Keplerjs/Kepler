@@ -1,5 +1,3 @@
-//TODO convertire in file json o document mongo e dividere in lingue
-//creare dir /lib/i18n/it.json, en.json, ...
 
 i18n.map('it', {
 	ui: {
@@ -131,7 +129,7 @@ i18n.map('it', {
 			rock: "Falesia",
 			boulder: "Boulder",
 			indoor: "Palestra",
-			long: "Via lunga",	//TODO cambiare in 'route'
+			long: "Via lunga",
 			ice: "Ghiaccio",	
 			iron: "Via ferrata",
 			water: "Deep water",
