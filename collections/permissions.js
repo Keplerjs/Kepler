@@ -1,5 +1,5 @@
 /*
-	definizione dei fields nelle publish
+	definitions of fields in pubblications
 */
 Climbo.perms = {
 	currentUser: {

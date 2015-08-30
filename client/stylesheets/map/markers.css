@@ -1,10 +1,6 @@
 
-
 /* MARKER ICON ANIMATION */
-/*.leaflet-div-icon {
-	position: relative;
-}
-*/
+
 .marker-anim {
 	display: none;
 	position: absolute;
@@ -12,6 +8,16 @@
 	width: 70px;
 	left: -22px;
 	bottom: -15px;
+	transition: all .4s ease-out;
+}
+.marker-anim.animated {
+	display: block;
+	transition: all .4s ease-in;
+	transform: scale(1.45);
+}
+
+.marker-cluster .marker-anim {
+	display: none;
 }
 
 .marker-gps {

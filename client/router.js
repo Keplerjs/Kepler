@@ -112,7 +112,7 @@ Router.map(function() {
 
 			var bbox = Climbo.map.getBBox(),
 				places = _.map(getPlacesByBBox(bbox).fetch(), function(place) {
-					var p = Climbo.newPlace(place._id);
+					var p = Climbo.newPlace(place._id._str);
 					if($(p.marker._icon).is(':visible'))
 						return p.rData();
 				});

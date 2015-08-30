@@ -113,8 +113,7 @@ Climbo.User = Climbo.Class.extend({
 Climbo.newUser = function(id)
 {
 	if(!id) return null;
-	var i = 'user_'+id;
-	if(!Climbo.usersById[i])
-		Climbo.usersById[i] = new Climbo.User(id);
-	return Climbo.usersById[i];
+	if(!Climbo.usersById[id])
+		Climbo.usersById[id] = new Climbo.User(id);
+	return Climbo.usersById[id];
 };

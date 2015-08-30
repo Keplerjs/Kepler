@@ -17,3 +17,5 @@ stefcud:googlemaps-server
 mystor:device-detection
 ian:accounts-ui-bootstrap-3
 anti:i18n
+twbs:bootstrap
+mrt:modernizr-meteor

@@ -55,16 +55,14 @@ Climbo.Place = Climbo.Class.extend({
 		Tracker.autorun( self.update );
 
 		//MAP OBJECTS:
-		self.icon$ = L.DomUtil.create('div');
 		self.icon = new L.NodeIcon({
+			nodeHtml: L.DomUtil.create('div'),
 			className: (self.name ? 'marker-'+self.type : 'marker-gray'),
-			nodeHtml: self.icon$
 		});
 		self.marker = new L.Marker(self.loc, {icon: self.icon});
 		self.marker.place = self;
 		self.marker.on('add', function() {
-				Blaze.renderWithData(Template.marker_checkins, self, self.icon$);
-				//render the template after dom append
+				Blaze.renderWithData(Template.marker_checkins, self, self.icon.nodeHtml);
 			})
 			.on('click mousedown', function(e) {
 				if(!this._popup) {
@@ -124,9 +122,8 @@ Climbo.Place = Climbo.Class.extend({
 Climbo.newPlace = function(id)
 {
 	if(!id) return null;
-	var i = 'place_'+id;
-	if(!Climbo.placesById[i])
-		Climbo.placesById[i] = new Climbo.Place(id);
-	return Climbo.placesById[i];
+	if(!Climbo.placesById[id])
+		Climbo.placesById[id] = new Climbo.Place(id);
+	return Climbo.placesById[id];
 };
 

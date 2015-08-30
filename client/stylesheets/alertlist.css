@@ -1,7 +1,7 @@
 #alertlist {
 	position: fixed;
 	bottom: 15px;
-	right: 0;
+	left: 0;
 	z-index: 2000;
 	width: 300px;
 	border-radius: 0;

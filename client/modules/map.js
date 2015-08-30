@@ -8,17 +8,18 @@ var map = null,
 
 layers.cluster = new L.MarkerClusterGroup({
 	iconCreateFunction: function(cluster) {
-		var icon$ = L.DomUtil.create('div');
-
+		var $icon = L.DomUtil.create('div');
+		Blaze.renderWithData(Template.marker_cluster, cluster, $icon);
 		cluster.checkinsCount = function() {
 			var placeIds = _.map(cluster.getAllChildMarkers(), function(marker) {
 					return marker.place.id;
 				});
 			return getCheckinsCountByPlaces(placeIds);
-		};
-		
-		Blaze.renderWithData(Template.marker_cluster, cluster, icon$);
-		return new L.NodeIcon({className:'marker-cluster', nodeHtml: icon$ });
+		};		
+		return new L.NodeIcon({
+			nodeHtml: $icon,
+			className: 'marker-cluster'
+		});
 	},
 	maxClusterRadius: 40,
 	spiderfyDistanceMultiplier: 1.4,

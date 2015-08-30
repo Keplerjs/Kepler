@@ -15,24 +15,25 @@ L.NodeIcon = L.Icon.extend({
 	},
 	
 	createIcon: function(oldIcon) {
-		this.options.nodeHtml = this.options.nodeHtml || document.createElement('div');
-		var div = (oldIcon && oldIcon.tagName === 'DIV') ? oldIcon : this.options.nodeHtml;
-		this._setIconStyles(this.options.nodeHtml, 'icon');
-		this.anim = L.DomUtil.create('div','marker-anim', div);
-		return div;
+		this.nodeHtml = oldIcon ? oldIcon : (this.options.nodeHtml || L.DomUtil.create('div'));
+		this._setIconStyles(this.nodeHtml, 'icon');
+		this.anim = L.DomUtil.create('div','marker-anim', this.nodeHtml);
+		this.anim.style.display = 'none';
+		return this.nodeHtml;
 	},
 
 	animate: function() {
-		//$(this.anim).stop(true,true).show().delay(800).fadeOut(2000);
-		//TODO stop other animations
-		$(this.anim)
-			.stop(true,true)
-			.show()
-			.delay(200)
-			.transition({scale:1.45})
-			//.delay(100)
-			.transition({scale:1})
-			.fadeOut(900)
+		var anim = this.anim;
+		anim.style.display = 'block';
+		setTimeout(function() {
+			L.DomUtil.addClass(anim,'animated');
+		});
+		setTimeout(function() {
+			L.DomUtil.removeClass(anim,'animated');
+		}, 500);
+		setTimeout(function() {
+			anim.style.display = 'none';		
+		}, 900);		
 	},
 
 	createShadow: function() {
