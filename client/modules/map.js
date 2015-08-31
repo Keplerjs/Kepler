@@ -258,7 +258,7 @@ Climbo.map = {
 		var bbox = Climbo.map.leafletMap.getBounds(),
 			sw = bbox.getSouthWest(),
 			ne = bbox.getNorthEast();
-/*			sideW = Climbo.ui.sidebar = this.$('#sidebar').width();
+/* TODO		sideW = this.$('#sidebar').width();
 			sideBox = 
 		//L.rectangle(bbox,{fill:false}).addTo(Climbo.map.leafletMap);
 

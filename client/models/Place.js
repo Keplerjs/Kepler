@@ -1,23 +1,3 @@
-/*
-	loc: []		    //lat,lng
-	name: ''	    //place title
-	type: ''	    //rock	indoor	boulder	long
-	active: 0	    //place visibile
-	rank: 0		    //sommati di tutti i preferiti degli utenti
-	ele: 0		    //elevazione
-	esp: 0		    //esposione	 azimut
-	naz: ''		    //nazione
-	near: ''	    //localita
-	reg: ''		    //regione
-	checkins: [],	//utenti in place	
-	hist: [],		//checkins recenti
-	convers: []		//ids conversazioni in bacheca
-	sectors: []		//elenco id dei settori	
-	tracks: -1		//numero tracce
-	pois: -1		//numero pois
-	photos: []	
-	tracks/pois se === -1 fai richiesta ...ByLoc
-*/
 Climbo.Place = Climbo.Class.extend({
 
 	id: null,

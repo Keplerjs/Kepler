@@ -9,7 +9,7 @@
 
 Climbo.alert = {
 
-	timerHide: null,
+	_timerHide: null,
 
 	show: function(html, type) {
 
@@ -40,8 +40,8 @@ Climbo.alert = {
 		else
 			btnClose$.hide();
 
-		clearTimeout(Climbo.alert.timerHide);
-		Climbo.alert.timerHide = setTimeout(Climbo.alert.hide, 10000);
+		clearTimeout(Climbo.alert._timerHide);
+		Climbo.alert._timerHide = setTimeout(Climbo.alert.hide, 10000);
 	},
 
 	hide: function(id) {

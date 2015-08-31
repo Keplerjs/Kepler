@@ -33,11 +33,7 @@ Accounts.onCreateUser(function(options, user) {
 		avatar = '',
 		gender = null,
 		lang = Meteor.settings.public.langDef,
-		city = '',
-		likeplaces = ['rock'];		
-
-	
-	console.log('New Account:', options, user);
+		city = '';		
 
 	if(user.username)
 	{
@@ -77,30 +73,16 @@ Accounts.onCreateUser(function(options, user) {
 	// 	avatar = 'http://twitter.com/api/users/profile_image/'+username;
 	// }
 	
-	return _.extend(user, {
-		username: username,	//username used in urls
-		name: name,			//display name
+	var newuser = _.extend(user, Climbo.schemas.user, {
+		name: name,
+		username: username,
+		lang: lang,
 		emails: emails, 
 		avatar: avatar,
-		gender: gender,
-		lang: lang,
-		city: city,
-		likeplaces: likeplaces,	//tipologia climber i18n.places
-		//TODO rename in types
-
-		loc: null,			//current gps position
-		loclast: null,		//lat gps position
-		locmap: null,		//last center of map
-		checkin: null,		//id Place where I am
-		online: 0,			//stato di visibilita rispetto ai miei friends
-		onlinelast: null,	//last online status datetime
-		mob: 0,				//if my device is mobile
-		notif: [],			//notifiche, messaggi non letti, eventi in places preferite, nuovi friends	
-		favorites: [],		//id place preferiti		
-		friends: [],		//ids users friends
-		convers: [], 		//ids conversations publics and privates
-		hist: [],			//last places visited
-		events: [],			//places in calendar
-		settings: {}		//user custom settings
+		gender: gender
 	});
+
+	console.log('New Account:', options, newuser);
+
+	return newuser;
 });

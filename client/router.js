@@ -232,7 +232,6 @@ Router.map(function() {
 	});
 			/*Meteor.call('getSectorsByLoc', self.loc, function(err, sectors) {
 
-		Climbo.dialogList.show({
 			title: '<i class="icon icon-sectors"></i> Settori di '+ _.str.capitalize(self.name),
 			className: 'sectors',
 			items: _.map(sectors, function(sector) {
