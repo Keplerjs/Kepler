@@ -72,21 +72,3 @@
 .conver-item .place-btn-name {
 	font-size: 12px;
 }
-.sector-btn-name {
-	font-size: 1em;
-	font-weight: bold;
-	float: left;
-}
-.sector-desc {
-	padding-top: 6px;
-	font-size: 12px;
-	line-height: 14px;
-}
-
-
- .item-conver-new {
- 	background: #eee;
- 	margin:0;
- 	padding: 8px 4px;
- 	overflow: hidden;
- }

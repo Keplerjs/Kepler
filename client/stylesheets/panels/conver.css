@@ -2,12 +2,14 @@
 #conver .panel-body {
 	margin: 0;
 	padding: 0;
-}
-#conver .list-group-item:first-child {
-	height: 120px;
+    position: absolute;
+    top: 92px;
+    left: 6px;
+    right: 6px;
+    bottom: 40px;
 }
 #conver .list-group-item:last-child {
-	padding-bottom: 10px;
+	padding-bottom: 8px;
 }
 
 #conver .list-group-item.msg-item {
@@ -34,7 +36,6 @@
 }
 .msg-item time {
 	float: right;
-	padding-top: 5px;	
 	font-size: small;
 	color: #aaa;
 }
