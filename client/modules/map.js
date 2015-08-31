@@ -1,5 +1,5 @@
 /*
-	modulo gestione map, layers,controls e pannels
+	map module, layers,controls e panels
 */
 var map = null,
 	initialized = false,
@@ -9,13 +9,12 @@ var map = null,
 layers.cluster = new L.MarkerClusterGroup({
 	iconCreateFunction: function(cluster) {
 		var $icon = L.DomUtil.create('div');
-		Blaze.renderWithData(Template.marker_cluster, cluster, $icon);
 		cluster.checkinsCount = function() {
-			var placeIds = _.map(cluster.getAllChildMarkers(), function(marker) {
-					return marker.place.id;
-				});
-			return getCheckinsCountByPlaces(placeIds);
-		};		
+			return getCheckinsCountByPlaces(_.map(cluster.getAllChildMarkers(), function(marker) {
+				return marker.place.id;
+			}) );
+		};
+		Blaze.renderWithData(Template.marker_cluster, cluster, $icon);
 		return new L.NodeIcon({
 			nodeHtml: $icon,
 			className: 'marker-cluster'

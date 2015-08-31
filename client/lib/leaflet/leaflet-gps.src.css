@@ -1,14 +1,20 @@
-/*
- * Leaflet Gps Control 1.0.0
- * http://labs.easyblog.it/maps/leaflet-gps
- *
- * https://github.com/stefanocudini/leaflet-gps
- * https://bitbucket.org/zakis_/leaflet-gps 
- *
- * Copyright 2013, Stefano Cudini - stefano.cudini@gmail.com
- * Licensed under the MIT license.
+/* 
+ * Leaflet Control GPS v1.0.2 - 2015-03-31 
+ * 
+ * Copyright 2014 Stefano Cudini 
+ * stefano.cudini@gmail.com 
+ * http://labs.easyblog.it/ 
+ * 
+ * Licensed under the MIT license. 
+ * 
+ * Demos: 
+ * http://labs.easyblog.it/maps/leaflet-gps/ 
+ * 
+ * Source: 
+ * git@github.com:stefanocudini/leaflet-gps.git 
+ * 
  */
- 
+
 .leaflet-container .leaflet-control-gps {
 	position:relative;
 	float:left;
@@ -29,15 +35,15 @@
 	float:left;
 	width:26px;
 	height:26px;
-	background: url('gps-icon.png') no-repeat 2px 2px;
+	background: url('../images/gps-icon.png') no-repeat 2px 2px;
 	border-radius:4px;
 }
 .leaflet-control-gps .gps-button:hover,
 .leaflet-control-gps .gps-button.active:hover {
-	background: url('gps-icon.png') no-repeat 2px -24px #fff;
+	background: url('../images/gps-icon.png') no-repeat 2px -24px #fff;
 }
 .leaflet-control-gps .gps-button.active {
-	background: url('gps-icon.png') no-repeat 2px -50px #fff;
+	background: url('../images/gps-icon.png') no-repeat 2px -50px #fff;
 }
 
 .leaflet-control-gps .gps-alert {

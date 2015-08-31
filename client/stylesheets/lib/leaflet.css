@@ -18,6 +18,9 @@
 	border-radius:4px;
 	border: none;
 }
+.leaflet-right.leaflet-top .leaflet-control {
+	margin-bottom: 0;
+}
 
 /* SEARCH */
 .leaflet-control-search.search-exp,

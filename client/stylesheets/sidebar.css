@@ -3,7 +3,7 @@
 	position: absolute;
     top: 0;	
     left: 0;
-    right: 50px;
+    right: 48px;
     width: 320px;
 	z-index: 1000;
 	background: none;    
@@ -23,12 +23,18 @@
 .sidebar .nav-pills {
 	background:#fff;
     border-radius:4px;
-	box-shadow: 0 0 5px rgba(0,0,0,0.3);    
-    height: 40px;
-    padding: 4px;	
+	box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    padding: 0   
+}
+.sidebar > .nav > li {
+    background-color: #fff;
+    height: 34px;
+    margin: 4px 4px 2px 4px;
 }
 .sidebar > .nav > li > a.btn {
-	padding: 5px;
+	padding: 4px;
+    height: 32px;
+    margin: 0;
     font-size: 14px;
 }
 .sidebar .panel {
