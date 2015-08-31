@@ -27,9 +27,9 @@
     height: 40px;
     padding: 4px;	
 }
-.sidebar > .nav > li > a {
+.sidebar > .nav > li > a.btn {
 	padding: 5px;
-	margin-right: 5px;
+    font-size: 14px;
 }
 .sidebar .panel {
 	border: none;
