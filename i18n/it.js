@@ -1,4 +1,4 @@
-
+//TODO Assets.getText
 i18n.map('it', {
 	ui: {
 		titles: {
