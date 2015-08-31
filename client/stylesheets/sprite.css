@@ -35,7 +35,7 @@
 .leaflet-control-gps .gps-button:hover,
 .leaflet-control-gps .gps-button.active,
 .leaflet-control-gps .gps-button.active:hover {
-	background: url("/images/sprite.png") no-repeat;
+	background: url("/images/sprite.svg") no-repeat;
 }
 
 /* MARKER DRAG */
