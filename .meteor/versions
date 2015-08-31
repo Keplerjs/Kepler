@@ -24,6 +24,7 @@ facebook@1.2.1
 fastclick@1.0.3
 geojson-utils@1.0.3
 google@1.1.5
+herrhelms:meteor-leaflet-markercluster@0.0.2
 html-tools@1.0.4
 htmljs@1.0.4
 http@1.1.0
