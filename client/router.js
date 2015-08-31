@@ -218,6 +218,30 @@ Router.map(function() {
 		}
 	});
 
+	this.route('placeSectors', {
+		path: '/place/:placeId/sectors',
+		template: 'panelList',
+		layoutTemplate: 'layoutMap',
+/*		waitOn: function() {
+			return Meteor.subscribe('placesByIds', [this.params.placeId]);
+		},
+		onBeforeAction: function() {
+			
+			this.next();
+		}*/
+	});
+			/*Meteor.call('getSectorsByLoc', self.loc, function(err, sectors) {
+
+		Climbo.dialogList.show({
+			title: '<i class="icon icon-sectors"></i> Settori di '+ _.str.capitalize(self.name),
+			className: 'sectors',
+			items: _.map(sectors, function(sector) {
+				sector.tmpl = Template.item_sector;
+				return sector;
+			}),
+			sortBy: 'name'
+		});*/
+	
 	this.route('user', {
 		path: '/user/:userId',
 		template: 'panelUser',
