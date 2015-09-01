@@ -6,7 +6,9 @@
 //TODO aggiungere caratteri di ricerca speciale, tipo ecco
 
 getPlacesByCheckins = function(usersIds) {
-	return Places.find({checkins: {$in: usersIds} }, { fields: Climbo.perms.placeItem });
+	usersIds = _.isArray(usersIds) ? {$in: usersIds} : usersIds;
+	
+	return Places.find({checkins: usersIds }, { fields: Climbo.perms.placeItem });
 };
 
 getPlaceById = function(placeId) {

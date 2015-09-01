@@ -50,6 +50,7 @@ i18n.map('it', {
 			friendadd: "Aggiungi",
 			frienddel: "Rimuovi",
 			friendpending: "In Attesa...",
+			friendconfirm: "Conferma amicizia",
 			friendreceive: "Richiesta di amicizia",
 			friendblock: "Bloccato",
 			convers: "Messaggi",

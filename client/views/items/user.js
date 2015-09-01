@@ -12,6 +12,9 @@ Template.user_btns2.events({
 	'click .user-btn-add': function(e, tmpl) {
 		Climbo.profile.friendAdd(this.id);
 	},
+	'click .user-btn-confirm': function(e, tmpl) {
+		Climbo.profile.friendConfirm(this.id);
+	},	
 	'click .user-btn-del': function(e, tmpl) {
 		Climbo.profile.friendDel(this.id);
 	},

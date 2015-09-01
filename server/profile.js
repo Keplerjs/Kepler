@@ -3,18 +3,15 @@ getCurrentUser = function(userId) {
 	return Meteor.users.find(userId, { fields: Climbo.perms.currentUser });
 };
 
-friendAdd = function(addUserId) {
-	
-	if(!this.userId || this.userId===addUserId) return null;
-
+confirmFriend = function(userId, addUserId) {
 	//remove from pending
-	Meteor.users.update(this.userId, {$pull: {usersPending: pendUserId} });
-	Meteor.users.update(pendUserId, {$pull: {usersReceive: this.userId} });
+	Meteor.users.update(userId, {$pull: {usersReceive: addUserId} });
+	Meteor.users.update(addUserId, {$pull: {usersPending: userId} });
 	//add to freinds
-	Meteor.users.update(this.userId, {$addToSet: {friends: addUserId} });
-	Meteor.users.update(addUserId, {$addToSet: {friends: this.userId} });
+	Meteor.users.update(userId, {$addToSet: {friends: addUserId} });
+	Meteor.users.update(addUserId, {$addToSet: {friends: userId} });
 
-	console.log('friendAdd Added', this.userId, addUserId);
+	console.log('confirmFriend Added', userId, addUserId);
 }
 
 Meteor.methods({
@@ -69,6 +66,14 @@ Meteor.methods({
 		Meteor.users.update(pendUserId, {$addToSet: {usersReceive: this.userId} });
 
 		console.log('friendAdd Pending', this.userId, pendUserId);
+	},
+	friendConfirm: function(confirmUserId) {
+		
+		if(!this.userId || this.userId===confirmUserId) return null;
+
+		confirmFriend(this.userId, confirmUserId);
+
+		console.log('friendConfirm', this.userId, confirmUserId);
 	},
 	friendDel: function(delUserId) {
 

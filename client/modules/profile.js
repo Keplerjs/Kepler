@@ -18,7 +18,6 @@ Climbo.profile = {
 	_deps: {
 		online: new Tracker.Dependency(),
 		checkin: new Tracker.Dependency(),
-		friends: new Tracker.Dependency(),
 		pending: new Tracker.Dependency()
 	},
 
@@ -76,13 +75,28 @@ Climbo.profile = {
 			return Climbo.profile.placeCheckin.rData();
 	},
 	hasFriend: function(userId) {
-		Climbo.profile._deps.friends.depend();
 		return _.contains(Climbo.profile.data.friends, userId);
 	},
 	hasPending: function(userId) {
-		Climbo.profile._deps.pending.depend();
+		//Climbo.profile._deps.pending.depend();
 		return _.contains(Climbo.profile.data.usersPending, userId);
+	},
+	hasReceive: function(userId) {
+		//Climbo.profile._deps.pending.depend();
+		return _.contains(Climbo.profile.data.usersReceive, userId);
+	},
+	friendAdd: function(userId) {
+		Meteor.call('friendAdd', userId);
+	},
+	friendConfirm: function(userId) {
+		Meteor.call('friendConfirm', userId);
 	},	
+	friendDel: function(userId) {
+		Meteor.call('friendDel', userId);
+	},
+	userBlock: function(userId) {
+		//TODO
+	},
 
 	setLoc: function(loc) {
 		// loc = loc || null;
@@ -120,15 +134,6 @@ Climbo.profile = {
 	},
 	removeFavorite: function(placeId) {
 		Meteor.call('removeFavorite', placeId);
-	},
-	friendAdd: function(userId) {
-		Meteor.call('friendAdd', userId);
-	},
-	friendDel: function(userId) {
-		Meteor.call('friendDel', userId);
-	},
-	userBlock: function(userId) {
-		//TODO
 	},
 	uploadAvatar: function(blob, callback) {
 		var fileReader = new FileReader();
