@@ -25,7 +25,7 @@ getPlacesByBBox = function(bbox) {
 		};
 	}
 	else if(Meteor.isServer) 
-		return Places.find({loc: {"$within": {"$box": bbox }} }, { fields: Climbo.perms.placeMarker });
+		return Places.find({loc: {"$within": {"$box": bbox }} }, { fields: Climbo.perms.placeItem });
 };
 
 getCheckinsCountByPlaces = function(placesIds) {
@@ -43,20 +43,20 @@ getPlacesByName = function(initial) {
 	if(initial.length < Meteor.settings.public.searchMinLen)
 		return null;
 
-	var reg = new RegExp('^'+ initial, 'i'),
+	var ex = new RegExp('^'+ initial, 'i'),
 		curPlace = Places.find({$or: [
-				{name: reg},
-				{near: reg}
+				{name: ex},
+				{near: ex}
 			] }, { fields: Climbo.perms.placeSearch });
 
 	if(curPlace.count()===0)
 		curPlace = Places.find({
-				prov: reg
+				prov: ex
 			}, { fields: Climbo.perms.placeSearch });
 	
 	if(curPlace.count()===0)
 		curPlace = Places.find({
-				reg: reg
+				reg: ex
 			}, { fields: Climbo.perms.placeSearch });
 
 	return curPlace;

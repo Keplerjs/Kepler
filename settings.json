@@ -3,7 +3,7 @@
 	"public": {
 		"siteName": "Climbo.net",
 		"siteEmail": "info@climbo.net",
-		"showPlaces": false,
+		"showPlaces": true,
 		"editPlaces": false,
 		"accountCreation": true,
 		"showAlerts": true,		
@@ -16,6 +16,7 @@
 		"maxSectors": 200,
 		"maxSectorsDist": 100,
 		"maxHist": 3,
+		"maxAlerts": 5,
 		"checkinMaxDist": 300,
 		"bboxMinShift": 200,
 		"gpsMinShift": 40,

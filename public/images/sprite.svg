@@ -14,7 +14,7 @@
    inkscape:export-xdpi="90"
    inkscape:export-filename="/home/z4k/www/climbo/climbo.net/public/images/sprite.png"
    sodipodi:docname="sprite.svg"
-   inkscape:version="0.48.3.1 r9886"
+   inkscape:version="0.48.5 r10040"
    version="1.1"
    id="svg2"
    height="600"
@@ -26,15 +26,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="8.9999999"
-     inkscape:cx="197.0879"
-     inkscape:cy="269.10482"
+     inkscape:zoom="18"
+     inkscape:cx="132.6908"
+     inkscape:cy="493.77237"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="1886"
-     inkscape:window-height="1026"
-     inkscape:window-x="0"
+     inkscape:window-width="1242"
+     inkscape:window-height="964"
+     inkscape:window-x="1280"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:snap-global="false"
@@ -15579,14 +15579,6 @@
        inkscape:vp_z="1 : 0.5 : 1"
        inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
        id="perspective7298" />
-    <filter
-       id="filter7286"
-       inkscape:collect="always">
-      <feGaussianBlur
-         id="feGaussianBlur7288"
-         stdDeviation="4.2868936"
-         inkscape:collect="always" />
-    </filter>
     <linearGradient
        id="linearGradient5745-3-5">
       <stop
@@ -22612,7 +22604,7 @@
        inkscape:export-filename="/home/z4k/www/climbo_meteor/public/images/mini-star.png"
        inkscape:export-xdpi="29.354055"
        inkscape:export-ydpi="29.354055"
-       transform="matrix(0.45543258,0,0,0.46933054,28.667694,216.62243)">
+       transform="matrix(0.45543258,0,0,0.46933054,28.667694,216.45576)">
       <path
          sodipodi:type="star"
          style="color:#000000;fill:url(#linearGradient7943);fill-opacity:1;fill-rule:nonzero;stroke:#eca800;stroke-width:11.4976759;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;filter:url(#filter4964);enable-background:accumulate"
@@ -22639,7 +22631,8 @@
          transform="matrix(0.28131248,0,0,-0.27847361,136.65617,832.7331)"
          id="path5635"
          d="m 297.6326,474.84593 c -5.17104,-10.28255 -10.34208,-20.56509 -15.51313,-30.84764 -11.37722,-1.74047 -22.75445,-3.48094 -34.13167,-5.22141 8.18134,-8.09544 16.36269,-16.19088 24.54403,-24.28631 -1.86047,-11.35822 -3.72094,-22.71644 -5.58141,-34.07466 10.2274,5.2793 20.45479,10.55859 30.68218,15.83788 10.22739,-5.27929 20.45478,-10.55858 30.68217,-15.83788 -1.86047,11.35822 -3.72094,22.71644 -5.58141,34.07466 8.18135,8.09543 16.36269,16.19087 24.54404,24.2863 -11.37723,1.74047 -22.75445,3.48095 -34.13167,5.22142 -5.17105,10.28255 -10.34209,20.56509 -15.51313,30.84764 z"
-         style="color:#000000;fill:none;stroke:#ffd631;stroke-width:5.35925865;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;filter:url(#filter4964);enable-background:accumulate" />
+         style="color:#000000;fill:none;stroke:#ffd631;stroke-width:5.35925865;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;filter:url(#filter4964);enable-background:accumulate"
+         inkscape:connector-curvature="0" />
     </g>
     <g
        id="g6435">

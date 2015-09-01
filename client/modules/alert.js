@@ -13,11 +13,6 @@ Climbo.alert = {
 
 	show: function(html, type) {
 
-		//TODO forse includere _.template(i18n('ui.alerts.XXX'),data)
-		//in modo da usare Climbo.alert.show(idalert,data)
-		
-		//if(Meteor.settings.public.showAlerts === false || html==='') return false;
-		
 		type = type || 'info';	//success, info, warning, danger
 
 		var alerts$ = $('#alertlist'),
@@ -25,7 +20,7 @@ Climbo.alert = {
 			btnClose$ = alerts$.find('.alerts-btn-close'),
 			last$ = list$.get(0) ? list$.get(0).firstChild : null,
 			nAlerts = list$.find('.alert').length,
-			maxAlerts = 3;
+			maxAlerts = Meteor.settings.public.maxAlerts;
 		
 		if(list$.get(0))
 			Blaze.renderWithData(Template.item_alert,{msg: html, type: type}, list$.get(0), last$);

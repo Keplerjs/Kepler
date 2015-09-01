@@ -1,12 +1,13 @@
 #alertlist {
 	position: fixed;
-	bottom: 15px;
-	left: 0;
+	bottom: 2px;
+	left: 2px;
+	right: 50px;
 	z-index: 2000;
-	width: 300px;
 	border-radius: 0;
 	box-shadow: none;
 	background: none;
+	max-width: 320px;
 }
 #alertlist .alert {
 	margin: 3px 3px 6px 3px;
@@ -17,10 +18,6 @@
 	border: 2px solid #5F9CD1;
 	font-size: 14px;
 	min-height: 40px;
-}
-#alertlist .alerts-btn-close {
-	background-color:rgba(255,255,255,0.5);
-	border-radius:5px;
 }
 #alertlist .close {
 	font-size: 32px;

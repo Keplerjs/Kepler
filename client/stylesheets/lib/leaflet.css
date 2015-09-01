@@ -35,7 +35,7 @@
 	background: url('/images/loader-default.gif') no-repeat center right #fff;
 }
 .leaflet-control-search .search-tooltip {
-	max-height:200px; /* (.search-tip height * 5) */
+	max-height:206px; /* (.search-tip height * 5) */
 	overflow-y:scroll;
 }
 .leaflet-control-search .search-input {
@@ -63,8 +63,11 @@
 }
 .leaflet-control-search .search-tip {
 	background: #fff;
-	padding: 0 2px;
+	padding: 0 4px;
 	height: 32px;
+	line-height: 32px;
+	width: 100%;
+	margin: 2px 0;
 	overflow: hidden;
 }
 .leaflet-control-search .search-button:hover,
@@ -76,7 +79,7 @@
 } 
 .leaflet-right.leaflet-top .leaflet-control-search .search-tooltip {
     position: absolute;
-    left: auto;
+    left: 0;
     right: 0;
 }
 

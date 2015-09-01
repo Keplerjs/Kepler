@@ -1,7 +1,6 @@
 
 <template name="itemConver">
 	<div class="conver-item">
-		<div class="pull-left">
 			{{#if placeId}}
 				{{#with newUser userId}}
 					{{> item_user}}
@@ -14,7 +13,6 @@
 				{{/each}}
 			{{/if}}
 			<a class="btn conver-btn-title" href="/conver/{{_id}}">{{{tit}}}</a>			
-		</div>
 		<div class="pull-right">
 			{{#if placeId}}
 				{{#with newPlace placeId}}

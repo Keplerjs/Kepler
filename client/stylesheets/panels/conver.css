@@ -51,5 +51,6 @@
 	margin:0;	
 	padding:2px;
 	width:100%;
+	border: 1px solid #ccc;
 	border-radius: 4px;
 }

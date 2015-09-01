@@ -61,6 +61,10 @@
 	font-size: small;
 	padding: 5px 0;
 	color: #666;
+	max-width: 40%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .conver-item .conver-btn-title:hover {
 	color: #000;
@@ -69,6 +73,7 @@
 	font-size: 11px;
 	color: #aaa;
 }
+.conver-item .user-btn-name,
 .conver-item .place-btn-name {
 	font-size: 12px;
 }

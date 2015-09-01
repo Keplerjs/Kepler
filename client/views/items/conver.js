@@ -23,7 +23,7 @@ Template.itemConver.helpers({
 		if(this.placeId)
 			return _.str.truncate(this.title, 30);
 		else if(this.lastMsg)
-			return '<small class="text-gray">'+_.str.quote(_.str.truncate(_.str.stripTags(this.lastMsg.body), 30))+'</small>';
+			return '<small class="text-gray">'+_.str.truncate(_.str.stripTags(this.lastMsg.body), 30)+'</small>';
 		else
 			return i18n('ui.titles.msgpriv');
 	}

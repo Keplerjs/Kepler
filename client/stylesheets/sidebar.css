@@ -53,9 +53,8 @@
 	left: 6px;
 	right: 6px;
 	bottom: 6px;	
-
+    padding: 6px;
 	background: #fff;
-    padding: 10px;
     max-height: calc(100% - 100px);
 	overflow-x: hidden;
 	overflow-y: scroll;
