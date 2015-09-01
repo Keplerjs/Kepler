@@ -19,7 +19,8 @@
 	background: url('/images/loader-default.gif') no-repeat center center #fff;
 }
 
-.loading-lg {
+.loading-lg,
+.sidebar .panel-body.loading-lg {
 	background: url('/images/loader-lg.gif') no-repeat center center #fff;
 }
 

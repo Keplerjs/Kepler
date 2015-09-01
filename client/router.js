@@ -3,7 +3,7 @@
 
 Router.configure({
 	layoutTemplate: 'layoutFull',
-	loadingTemplate: 'pageLoading',
+	loadingTemplate: 'panelLoading',
 	notFoundTemplate: 'page404'
 });
 //Router.setTemplateNameConverter(function (str) { return str; });
@@ -36,7 +36,8 @@ Router.map(function() {
 	this.route('intro', {
 		path: '/intro',
 		template: 'pageIntro',
-		layoutTemplate: 'layoutFull'
+		layoutTemplate: 'layoutFull',
+		loadingTemplate: 'pageLoading',
 	});
 
 	this.route('profile', {
@@ -314,7 +315,8 @@ Router.map(function() {
 	this.route('settings', {
 		path: '/settings',
 		template: 'pageSettings',
-		layoutTemplate: 'layoutPage'
+		layoutTemplate: 'layoutPage',
+		loadingTemplate: 'pageLoading'
 	});
 
 	this.route('logout', {
