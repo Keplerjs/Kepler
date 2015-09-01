@@ -2,7 +2,7 @@
 Meteor.publish('usersByName', function(initial) {
 	if(this.userId) {
 		var cur = getUsersByName(initial);
-		console.log('Pub: usersByName', initial, cur.count() );
+		console.log('Pub: usersByName', "'"+initial+"'", cur ? cur.count() : 0 );
 		return cur;
 	}
 	else
