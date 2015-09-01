@@ -85,6 +85,9 @@ Climbo.User = Climbo.Class.extend({
 	isFriend: function() {
 		return Climbo.profile.hasFriend(this.id);
 	},
+	isPending: function() {
+		return Climbo.profile.hasPending(this.id);
+	},	
 
 	isMe: function() {
 		return Climbo.profile.id === this.id;

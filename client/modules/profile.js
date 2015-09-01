@@ -18,7 +18,8 @@ Climbo.profile = {
 	_deps: {
 		online: new Tracker.Dependency(),
 		checkin: new Tracker.Dependency(),
-		friends: new Tracker.Dependency()
+		friends: new Tracker.Dependency(),
+		pending: new Tracker.Dependency()
 	},
 
 	initProfile: function(callbackProfile) {
@@ -78,6 +79,10 @@ Climbo.profile = {
 		Climbo.profile._deps.friends.depend();
 		return _.contains(Climbo.profile.data.friends, userId);
 	},
+	hasPending: function(userId) {
+		Climbo.profile._deps.pending.depend();
+		return _.contains(Climbo.profile.data.usersPending, userId);
+	},	
 
 	setLoc: function(loc) {
 		// loc = loc || null;
@@ -116,11 +121,14 @@ Climbo.profile = {
 	removeFavorite: function(placeId) {
 		Meteor.call('removeFavorite', placeId);
 	},
-	addFriend: function(userId) {
-		Meteor.call('addFriend', userId);
+	friendAdd: function(userId) {
+		Meteor.call('friendAdd', userId);
 	},
-	removeFriend: function(userId) {
-		Meteor.call('removeFriend', userId);
+	friendDel: function(userId) {
+		Meteor.call('friendDel', userId);
+	},
+	userBlock: function(userId) {
+		//TODO
 	},
 	uploadAvatar: function(blob, callback) {
 		var fileReader = new FileReader();

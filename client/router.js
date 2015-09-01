@@ -271,6 +271,18 @@ Router.map(function() {
 		}
 	});
 
+/*	this.route('userConver', {
+		path: '/user/:userId/bid',
+		//template: 'panelConver',
+		layoutTemplate: 'layoutMap',
+		onBeforeAction: function() {
+			if(this.params.userId===Meteor.userId())
+				Router.go('convers');
+			
+			//TODO send invitation to going in place
+		}
+	});*/
+
 	this.route('convers', {
 		path: '/convers',
 		template: 'panelList',
