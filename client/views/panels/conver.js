@@ -12,7 +12,7 @@ Template.converInput.events({
 			
 			Climbo.conver.addMsgToConver(this._id, text$.val() );
 
-			text$.val('');
+			text$.val('').height('auto');
 		}
 	}
 });
