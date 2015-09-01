@@ -3,7 +3,7 @@
 	position: absolute;
     top: 0;	
     left: 0;
-    right: 48px;
+    right: 0;
     width: 320px;
 	z-index: 1000;
 	background: none;    
@@ -75,6 +75,9 @@
 @media (max-width: 400px) {
     .sidebar {
         width: auto;
+    }
+    .leaflet-right.leaflet-top {
+        padding-top: 50px;
     }
 }
 @media (min-width: 768px) {

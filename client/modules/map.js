@@ -207,11 +207,9 @@ Climbo.map = {
 		_.invoke([
 			controls.attrib,
 			controls.zoom,
-			controls.gps,
-
 			//FIX CAUSE BUG WHEN FROM SETTINGS PAGE TO MAP PAGE
 			controls.search,
-
+			controls.gps,
 			layers.baseLayer,
 			layers.geojson,
 			layers.cluster			
@@ -269,7 +267,8 @@ Climbo.map = {
 		return Climbo.util.geo.roundBbox([[sw.lat, sw.lng], [ne.lat, ne.lng]]);
 	},
 	enableBBox: function() {
-		Climbo.map.leafletMap.addLayer(layers.places);
+		if(Meteor.settings.public.showPlaces)
+			Climbo.map.leafletMap.addLayer(layers.places);
 	},
 	disableBBox: function() {
 		Climbo.map.leafletMap.removeLayer(layers.places);

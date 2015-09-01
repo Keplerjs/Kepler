@@ -44,11 +44,11 @@
 	background: #fff;
 	border:1px solid #006CB7;
 	border-radius:5px;
-	height:26px;
-	font-size: 1.4em;
-	line-height: 1.4em;
-	padding:0 .125em;
-	margin:2px;
+	height:28px;
+	font-size: 14px;
+	line-height: 14px;
+	padding:3px;
+	margin:1px 6px 1px 2px;
 }
 .leaflet-control-search .search-button:hover,
 .leaflet-control-search .search-button {
