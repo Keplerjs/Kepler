@@ -17,8 +17,7 @@ Climbo.profile = {
 
 	_deps: {
 		online: new Tracker.Dependency(),
-		checkin: new Tracker.Dependency(),
-		pending: new Tracker.Dependency()
+		checkin: new Tracker.Dependency()
 	},
 
 	initProfile: function(callbackProfile) {
@@ -51,8 +50,6 @@ Climbo.profile = {
 
 			//TODO i18n.setLanguage(userData.lang);
 
-
-			
 			if(userData.checkin)
 				Climbo.profile.placeCheckin = Climbo.newPlace(userData.checkin);
 
@@ -74,17 +71,23 @@ Climbo.profile = {
 		if(Climbo.profile.placeCheckin)
 			return Climbo.profile.placeCheckin.rData();
 	},
+
+	getFriends: function() {
+		return  _.map(_.compact(Climbo.profile.data.friends), function(userId) {
+			return Climbo.newUser(userId).rData();
+		});
+	},
+	
 	hasFriend: function(userId) {
 		return _.contains(Climbo.profile.data.friends, userId);
 	},
 	hasPending: function(userId) {
-		//Climbo.profile._deps.pending.depend();
 		return _.contains(Climbo.profile.data.usersPending, userId);
 	},
 	hasReceive: function(userId) {
-		//Climbo.profile._deps.pending.depend();
 		return _.contains(Climbo.profile.data.usersReceive, userId);
 	},
+
 	friendAdd: function(userId) {
 		Meteor.call('friendAdd', userId);
 	},

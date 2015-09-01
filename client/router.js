@@ -50,13 +50,11 @@ Router.map(function() {
 		template: 'panelFriends',		
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
-			return Meteor.subscribe('friendsByIds', Climbo.profile.data.friends);
+			return Meteor.subscribe('friendsByIds', Climbo.profile.data.friends );
 		},
 		data: function() {
 			return {
-				friends: _.map(Climbo.profile.data.friends, function(userId) {
-					return Climbo.newUser(userId).rData();
-				})
+				friends: Climbo.profile.getFriends()
 			};
 		}	
 	});
