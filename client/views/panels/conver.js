@@ -1,7 +1,6 @@
 
 Template.converInput.onRendered(function() {
-	//this.$('textarea').expandTextarea().focus();
-	this.$('textarea').autosize().focus();
+	autosize( this.find('textarea') );
 });
 
 Template.converInput.events({

@@ -15,7 +15,6 @@ boilerplate-generator@1.0.3
 callback-hook@1.0.3
 check@1.0.5
 coffeescript@1.0.6
-copleykj:jquery-autosize@1.17.8
 ddp@1.1.0
 deps@1.0.7
 ejson@1.0.6
@@ -79,5 +78,6 @@ ui@1.0.6
 underscore@1.0.3
 underscorestring:underscore.string@3.2.0
 url@1.0.4
+verron:autosize@3.0.8
 webapp@1.2.0
 webapp-hashing@1.0.3

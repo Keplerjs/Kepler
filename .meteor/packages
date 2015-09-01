@@ -19,6 +19,6 @@ twbs:bootstrap
 mrt:modernizr-meteor
 underscorestring:underscore.string
 alisalaah:suncalc
-copleykj:jquery-autosize
 bevanhunt:leaflet@=0.3.18
 stefcud:climbing-grade
+verron:autosize
