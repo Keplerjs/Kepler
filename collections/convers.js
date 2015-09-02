@@ -4,11 +4,10 @@ Convers = new Meteor.Collection('convers');
 getConverById = function(convId) {
 	//TODO ritorna solo ultimi 10 messaggi!!
 	//TODO fare funzione scaricare messaggi un po alla volta
-	return Convers.find(convId, { fields: Climbo.perms.converDialog });
+	return Convers.find(convId, { fields: Climbo.perms.converPanel });
 };
 
 getConversByIds = function(convIds) {
-	console.log('getConversByIds', convIds)
 	return Convers.find({_id: {$in: convIds} }, { fields: Climbo.perms.converItem });
 };
 

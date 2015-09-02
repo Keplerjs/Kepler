@@ -17,6 +17,8 @@ addMsgToConver = function(convId, body) {
 			'body': Climbo.util.sanitizeMsg(body)
 		};
 
+	//TODO use Climbo.schemas.converMsg
+
 	if(lastMsg && lastMsg.userId === newMsg.userId)	//append to my last msg
 	{
 		newMsg.body = lastMsg.body +'<br />'+ newMsg.body;

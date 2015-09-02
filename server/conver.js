@@ -12,7 +12,6 @@ newConver = function(title, placeId, usersIds) {
 
 	var convId = Convers.insert({
 		'title': title,			   //Topic(per le bacheche) o Oggetto(per le convers private)
-		//'updateAt': Climbo.util.timeUnix(),       //data ultimo messaggio
 		'placeId': placeId,        //se è null allora è una conversazione privata tra utenti
 		'userId': Meteor.userId(), //proprietario/mittente della conversazione
 		'usersIds': usersIds,      //partecipanti alla conversazione, TODO rinomina in followers
@@ -64,9 +63,9 @@ delConver = function(convId) {
 	else	//se non è il creatore della conver la abbandona
 	{
 		var leaveMsg = {
-			'userId': Meteor.userId(),
-			'createdAt': Climbo.util.timeUnix(),
-			'body': _.template(i18n('ui.alerts.userleaveconv'), Meteor.user())
+			updateAt: Climbo.util.timeUnix(),			
+			userId: Meteor.userId(),
+			body: _.template(i18n('ui.alerts.userleaveconv'), Meteor.user())
 		};
 		Messages.insert(leaveMsg);
 		Meteor.users.update({_id: Meteor.userId() }, {
