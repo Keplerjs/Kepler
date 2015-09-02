@@ -67,7 +67,7 @@ i18n.map('it', {
 			avatar: "Cambia foto",
 			verify: "Verifica",
 			verified: "Verificata",
-			logout: "Esci",
+			logout: "Disconnetti",
 			home: "Homepage",
 			enter: "Entra",
 			signup: "Registrati",

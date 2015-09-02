@@ -43,6 +43,7 @@ Router.map(function() {
 	this.route('profile', {
 		path: '/profile',
 		template: 'panelProfile',
+		//template: 'panelLoading',
 		layoutTemplate: 'layoutMap'
 	});
 
