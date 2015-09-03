@@ -12,7 +12,7 @@ Meteor.publish('placesByBBox', function(bbox) {
 Meteor.publish('placesByName', function(initial) {
 	if(this.userId) {
 		var cur = getPlacesByName(initial);
-		console.log('Pub: placesByName', initial, cur.count() );
+		console.log('Pub: placesByName', initial, cur ? cur.count() : 0 );
 		return cur;
 	}
 	else

@@ -354,6 +354,7 @@ L.Control.Search = L.Control.extend({
 		L.DomUtil.addClass(tip, 'search-tip');
 		tip._text = text; //value replaced in this._input and used by _autoType
 
+		if(this.options.tipAutoSubmit)
 		L.DomEvent
 			.disableClickPropagation(tip)		
 			.on(tip, 'click', L.DomEvent.stop, this)
@@ -362,8 +363,7 @@ L.Control.Search = L.Control.extend({
 				this._handleAutoresize();
 				this._input.focus();
 				this._hideTooltip();	
-				if(this.options.tipAutoSubmit)//go to location at once
-					this._handleSubmit();
+				this._handleSubmit();
 			}, this);
 
 		return tip;

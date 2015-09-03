@@ -133,7 +133,8 @@ controls.search = L.control.search({
 	autoCollapse: false, autoCollapseTime: 6000, zoom: 15,
 	animateLocation: true, markerLocation: false,
 	propertyLoc: 'loc',
-	propertyName: 'name',			
+	propertyName: 'name',	
+	tipAutoSubmit: false,			
 	sourceData: function(text, callback) {
 		var sub = Meteor.subscribe('placesByName', text, function() {
 			var //places = Places.find({name: new RegExp('^'+text,'i') }).fetch(),
@@ -164,7 +165,7 @@ controls.search = L.control.search({
 		return tip;
 	}
 })
-.on('search_locationfound', function() {
+.on('search_locationfound', function(e) {
 	//TODO patch da rimuovere quando L.Control.Search fa la blur da solo
 	this._input.blur();
 })
