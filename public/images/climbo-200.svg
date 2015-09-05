@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="200"
+   height="300"
+   id="svg4593"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="New document 5">
+  <defs
+     id="defs4595">
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3904"
+       id="linearGradient5470"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.43479732,0,0,0.43479732,-341.45493,665.05586)"
+       x1="1025.4833"
+       y1="637.61279"
+       x2="1025.4833"
+       y2="181.87138" />
+    <linearGradient
+       id="linearGradient3904">
+      <stop
+         id="stop3906"
+         offset="0"
+         style="stop-color:#0069b3;stop-opacity:1;" />
+      <stop
+         id="stop3908"
+         offset="1"
+         style="stop-color:#c7e0f7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="190.7351"
+     inkscape:cy="117.36675"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:snap-global="false"
+     inkscape:window-width="1242"
+     inkscape:window-height="964"
+     inkscape:window-x="1280"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4628"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata4598">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-752.36218)">
+    <text
+       inkscape:export-ydpi="55.329205"
+       inkscape:export-xdpi="55.329205"
+       inkscape:export-filename="/home/z4k/www/climbo/logos/climbo-300.png"
+       id="text3820"
+       y="1051.5494"
+       x="-2.5243285"
+       style="font-size:52.80892944px;font-style:normal;font-weight:bold;fill:#ad0009;fill-opacity:1;stroke:none;display:inline;filter:url(#filter4296);font-family:Bitstream Vera Sans;-inkscape-font-specification:OpenSymbol Bold"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#ad0009;fill-opacity:1;font-family:OpenSymbol;-inkscape-font-specification:OpenSymbol Bold"
+         y="1051.5494"
+         x="-2.5243285"
+         id="tspan3822"
+         sodipodi:role="line">Climbo</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:url(#linearGradient5470);fill-opacity:1;stroke:#0069b3;stroke-width:2.81276774;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
+       d="m 99.79698,793.50523 c -12.361604,0 -23.929166,3.35654 -33.85863,9.21183 0.318069,0.64441 0.610597,1.35197 0.861384,2.10957 l 6.381496,26.01811 72.92099,-18.68733 C 134.0984,800.60555 117.77208,793.50523 99.79698,793.50523 z m -48.397152,20.77933 c -11.383276,11.97513 -18.370864,28.16225 -18.370864,45.98875 0,9.76626 2.42179,20.44871 6.557243,32.04799 L 53.12265,868.76437 c 3.011351,-5.02255 7.360056,-6.29723 12.587137,-5.11573 l 17.421547,8.63168 0,-26.26422 -14.222026,3.88513 c -5.016514,0.42445 -9.400551,-2.20513 -10.635751,-7.26045 l -6.873729,-28.35622 z m 106.111662,12.39377 c -0.1353,0.0479 -0.26389,0.0972 -0.40437,0.14063 l -41.69929,12.90357 -0.2285,38.99199 30.81736,45.49652 c 12.24116,-24.49591 20.58597,-45.91368 20.58597,-63.93773 0,-12.25284 -3.31101,-23.72423 -9.07117,-33.59498 z m -93.454204,56.50146 c 0,0 -9.440099,16.34944 -16.419534,28.65506 12.997462,28.21363 32.87703,61.13889 52.159228,99.06215 12.85042,-25.26524 26.17646,-48.62709 37.51535,-69.93239 l -36.61876,-47.53579 c -6.262221,3.77375 -13.340605,3.09876 -17.896226,0.31644 l -6.012292,-3.67417 0.281283,76.54241 -7.102239,-13.16723 0,-66.00491 -5.90681,-4.26157 z"
+       id="path3978"
+       sodipodi:nodetypes="cccccccscccccccccccccscccccccccccc"
+       inkscape:export-filename="/home/z4k/Scrivania/logo.png"
+       inkscape:export-xdpi="86.507683"
+       inkscape:export-ydpi="86.507683" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#88bae1;fill-opacity:1;stroke:none;display:inline"
+       d="m 156.18279,827.44374 -39.56596,12.13145 -0.5975,26.15208 6.41694,-3.59313 2.98199,3.81538 5.59571,-10.9646 1.10599,2.68559 0.97299,-1.17001 4.56084,7.7931 9.53304,-16.16157 1.85322,3.53756 3.75965,-7.92711 12.23347,16.96551 c 0.20898,-12.17691 -3.04224,-23.55989 -8.85038,-33.26425 z"
+       id="path4109"
+       inkscape:transform-center-x="24.510495"
+       inkscape:transform-center-y="-13.524706"
+       sodipodi:nodetypes="cccccccccccccc"
+       inkscape:export-filename="/home/z4k/Scrivania/logo.png"
+       inkscape:export-xdpi="86.507683"
+       inkscape:export-ydpi="86.507683" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#88bae1;fill-opacity:1;stroke:none;display:inline"
+       d="m 50.959458,816.7478 c -10.233013,11.79324 -16.42454,27.09456 -16.42454,43.8188 l 8.944719,0.33079 2.46061,2.60733 6.73787,-7.45232 4.27693,3.50239 7.749344,-4.02675 19.764136,9.0673 0.140641,-19.26414 -15.799541,4.30016 c -0.696668,0.0586 -1.381747,0.0653 -2.050564,0.0194 -0.668933,-0.0458 -1.322737,-0.14428 -1.953022,-0.29187 -0.945486,-0.22135 -1.84737,-0.54991 -2.675616,-0.99233 -0.552089,-0.29496 -1.075824,-0.64155 -1.562322,-1.03126 -0.246968,-0.19782 -0.475189,-0.40097 -0.703024,-0.62266 -0.225246,-0.21773 -0.439193,-0.44043 -0.64458,-0.68101 -0.204991,-0.24084 -0.402,-0.49554 -0.585837,-0.75885 -0.736718,-1.05236 -1.297475,-2.27866 -1.640517,-3.67751 l -6.034687,-24.84752 0,-10e-6 z"
+       id="path4188"
+       sodipodi:nodetypes="ccccccccccsssssssccc"
+       inkscape:export-filename="/home/z4k/Scrivania/logo.png"
+       inkscape:export-xdpi="86.507683"
+       inkscape:export-ydpi="86.507683" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#0169b4;stroke-width:2.81276774;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
+       d="m 115.18474,878.71501 0.23087,-38.99588 41.68616,-12.89447 c 10.3911,-3.21515 6.58666,-19.07096 -4.94574,-16.2126 l -78.967321,20.22681 -6.386107,-26.01992 c -4.11232,-12.42251 -18.046493,-9.51839 -16.457111,5.06221 l 1.06e-4,0 7.93499,32.75926 c 1.235254,5.05531 5.608826,7.6937 10.62534,7.26925 l 14.226081,-3.886 0,26.2509"
+       id="path3982"
+       sodipodi:nodetypes="cccccccccccc"
+       inkscape:export-filename="/home/z4k/Scrivania/logo.png"
+       inkscape:export-xdpi="86.507683"
+       inkscape:export-ydpi="86.507683" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#fda238;fill-opacity:1;stroke:#0169b4;stroke-width:2.81276774;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
+       d="m 99.805753,779.18403 c -10.755454,0 -19.471823,8.73052 -19.471823,19.486 0,10.75545 8.716369,19.47185 19.471823,19.47185 10.755567,0 19.471957,-8.71639 19.471957,-19.47185 0,-10.75548 -8.71639,-19.486 -19.471957,-19.486 z"
+       id="path3980"
+       inkscape:export-filename="/home/z4k/Scrivania/logo.png"
+       inkscape:export-xdpi="86.507683"
+       inkscape:export-ydpi="86.507683" />
+  </g>
+</svg>
