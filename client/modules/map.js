@@ -126,15 +126,14 @@ controls.gps = L.control.gps({
 
 controls.search = L.control.search({
 	position: 'topright',
-	minLength: Meteor.settings.public.searchMinLen,		
-	text: i18n('ui.controls.search.text'),
-	textErr: i18n('ui.controls.search.error'),
-	autoType: false, tipAutoSubmit: true, delayType: 800,	
-	autoCollapse: false, autoCollapseTime: 6000, zoom: 15,
+	zoom: Meteor.settings.public.loadLocZoom,	
+	minLength: Meteor.settings.public.searchMinLen,
+	autoType: false, tipAutoSubmit: false, delayType: 800,
+	autoCollapse: false, autoCollapseTime: 6000,
 	animateLocation: true, markerLocation: false,
-	propertyLoc: 'loc',
-	propertyName: 'name',	
-	tipAutoSubmit: false,			
+	propertyLoc: 'loc', propertyName: 'name',
+	text: i18n('ui.controls.search.text'),
+	textErr: i18n('ui.controls.search.error'),	
 	sourceData: function(text, callback) {
 		var sub = Meteor.subscribe('placesByName', text, function() {
 			var //places = Places.find({name: new RegExp('^'+text,'i') }).fetch(),
@@ -156,10 +155,7 @@ controls.search = L.control.search({
 		});
 		return _.indexBy(dataItems,'name');
 	},
-	callTip: function(key, data) {
-
-//TODO disable default click in leaflet-search id calltip return a dom node
-
+	buildTip: function(key, data) {
 		var tip = L.DomUtil.create('div','search-tip');
 		Blaze.renderWithData(Template.place_search_tip, data, tip);
 		return tip;
