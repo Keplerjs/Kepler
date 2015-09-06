@@ -16,16 +16,18 @@
 				{{> Template.dynamic template=this.header.template data=this.header.data}}
 			</div>
 			{{/if}}
-			
-			{{#if items.length}}
+		
+		{{#if items.length}}	
 			<div class="list-group list-items">
 				{{#each items}}
 					<div class="list-group-item">
 					{{> Template.dynamic template=this.template}}
 					</div>
 				{{/each}}
-			</div>
-			{{/if}}
+			</div>				
+		{{else}}
+			<label class="text-gray">{{i18n 'ui.labels.nolistitems'}}</label>
+		{{/if}}
 		</div>
 	</div>	
 	

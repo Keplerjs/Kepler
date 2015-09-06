@@ -58,7 +58,18 @@
 }
 
 .backhist {
-	margin-right: 8px;
+	display: inline-block;
+	height: 26px;
+	width: 26px;
+	line-height: 26px;
+	text-align: center;
+	background-color: rgba(255,255,255,0.2);
+	border-radius: 4px;
+	margin: 0 10px 0 4px;
+}
+.backhist:hover,
+.backhist:active {
+	background-color: rgba(255,255,255,0.5);	
 }
 
 .bg-primary a,
@@ -144,6 +155,7 @@ a.btn-gray .badge {
 	color: #fff;
 }
 
+.navbar h4,
 .panel-heading h4 {
 	text-transform: capitalize;
 	font-size: 14px;
