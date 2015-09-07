@@ -10,8 +10,10 @@ Template.panelFriends.onRendered(function() {
 
 			Meteor.subscribe('usersByName', val, function() {
 				list$.removeClass('loading-lg');
-				var usersIds = _.pluck(getUsersByName(val).fetch(), '_id');
-				callback( _.map(usersIds, Climbo.newUser) );
+				var usersIds = _.pluck(getUsersByName(val).fetch(), '_id'),
+					users = _.map(usersIds, Climbo.newUser);
+				console.log(users)
+				callback( users );
 			});
 		},
 		sourceNode: function(user) {
