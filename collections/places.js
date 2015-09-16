@@ -10,6 +10,17 @@ getPlacesByIds = function(placesIds) {
 
 getPlacesByBBox = function(bbox) {
 
+//PATCH https://github.com/meteor/meteor/issues/1473
+/*Markers.find({
+  "address.location.0": {
+    $gt: xMin,
+    $lt: xMax
+  },
+  "address.location.1": {
+    $gt: yMin,
+    $lt: yMax
+  }
+});*/
 	//PATCH while minimongo not supporting $within $box queries
 	if(Meteor.isClient) {
 
