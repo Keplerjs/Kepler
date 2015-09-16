@@ -1,5 +1,8 @@
 /*
 	map module, layers,controls e panels
+
+	git@github.com:mWater/offline-leaflet-map.git
+	
 */
 var map = null,
 	initialized = false,
