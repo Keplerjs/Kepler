@@ -163,7 +163,8 @@ i18n.map('it', {
 			road: "Stradale",
 			cycle: "Ciclistica",
 			landscape: "Trekking",
-			transport: "Trasporti"			
+			transport: "Trasporti",
+			satellite: "Satellite"		
 		},
 		genders: {
 			male: "Maschio",
