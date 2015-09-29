@@ -106,6 +106,7 @@ Template.pageSettings.events({
 
 	'change #maplayer input': _.debounce(function(e) {
 		e.preventDefault();
+		console.log($(e.currentTarget).val())
 		Meteor.users.update(Meteor.userId(), { $set: {'settings.layer': $(e.currentTarget).val() } });
 	}, Meteor.settings.public.typeDelay),
 

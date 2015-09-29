@@ -44,9 +44,8 @@ Climbo.profile = {
 				center: userData.locmap
 			});
 
-/*			if(Climbo.map.initialized)
+			if(Climbo.map.initialized)
 				Climbo.map.setOpts(Climbo.profile.mapSets);
-*/
 
 			//TODO i18n.setLanguage(userData.lang);
 
