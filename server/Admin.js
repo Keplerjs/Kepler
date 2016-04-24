@@ -2,16 +2,18 @@
 	DEBUGGING FUNCTIONS
 */
 
-var userIsAdmin = function() {
-	if(!Meteor.userId()) return false;
+var userIsAdmin = function(userId) {
+	if(!userId) return false;
+	
 	console.log('userIsAdmin', Meteor.user().username)
+
 	return _.contains(Meteor.settings.adminUsers, Meteor.user().username);
 };
 
 Meteor.methods({
 	adminCreateUser: function(username) {
 		
-		if(!userIsAdmin()) return null;
+		if(!userIsAdmin(this.userId)) return null;
 
 		//TODO check User is Admin
 
@@ -28,7 +30,7 @@ Meteor.methods({
 	},
 	adminDeleteUser: function(username) {
 		
-		if(!userIsAdmin()) return null;
+		if(!userIsAdmin(this.userId)) return null;
 
 		var userData = Meteor.users.findOne({username: username}),
 			userId = userData._id;
@@ -40,15 +42,19 @@ Meteor.methods({
 	},
 	adminDeleteAllUsers: function() {
 		
-		if(!userIsAdmin()) return null;
+		if(!userIsAdmin(this.userId)) return null;
 
-		//Mateor.call('adminDeleteUser', username);
+		Meteor.users.find({_id: {$ne: this.userId }},{username:1}).forEach(function(user) {
+			console.log('user', user.username)
+			Meteor.call('adminDeleteUser', user.username);
+		});
+		
 
 		console.log('adminDeleteAllUsers');
 	},
 	adminCleanUserFriends: function(username) {
 		
-		if(!userIsAdmin()) return null;
+		if(!userIsAdmin(this.userId)) return null;
 
 		//TODO check User is Admin
 

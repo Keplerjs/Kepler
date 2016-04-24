@@ -192,20 +192,20 @@ Climbo.map = {
 
 		Climbo.map.initialized = true;
 
-		opts = _.extend(Meteor.settings.public.map, opts);
+		opts = _.extend(Meteor.settings.public.map, opts)
 		opts = _.extend(opts, {
 			attributionControl: false,
 			zoomControl: false,	
 			maxBounds: L.latLngBounds(opts.maxBounds),
 			center: L.latLng(opts.center),
-			layer: Meteor.settings.public.layers[opts.layer] || Meteor.settings.public.layerDef
+			layer: opts.layer || Meteor.settings.public.layerDef
 		});
 
 		Climbo.map.leafletMap = new L.Map('map', opts);
 
-		layers.baseLayer = new L.TileLayer( opts.layer );
+		layers.baseLayer = new L.TileLayer( Meteor.settings.public.layers[opts.layer] );
 
-		_.invoke([
+		var items = [
 			//controls.attrib,
 			controls.zoom,
 			//controls.search,
@@ -213,7 +213,9 @@ Climbo.map = {
 			layers.baseLayer,
 			layers.geojson,
 			layers.cluster			
-		],'addTo', Climbo.map.leafletMap);
+		];
+
+		_.invoke(items,'addTo', Climbo.map.leafletMap);
 
 		//Fix solo per Safari evento resize! quando passa a schermo intero
 		$(window).on('orientationchange resize', function(e) {
@@ -228,16 +230,15 @@ Climbo.map = {
 	setOpts: function(opts) {
 		var m = Climbo.map.leafletMap;
 
-		opts = _.extend(Meteor.settings.public.map, opts);
-		opts = _.extend(opts, {
+		opts = _.extend(Meteor.settings.public.map, opts, {
 			maxBounds: L.latLngBounds(opts.maxBounds),
 			center: L.latLng(opts.center),
-			layer: Meteor.settings.public.layers[opts.layer] || Meteor.settings.public.layerDef
+			layer: opts.layer || Meteor.settings.public.layerDef
 		})
 		m.setMaxBounds(opts.maxBounds);
 		m.setView(opts.center);
 
-		Climbo.map.layers.baseLayer.setUrl( opts.layer );
+		Climbo.map.layers.baseLayer.setUrl( Meteor.settings.public.layers[opts.layer]);
 	},
 
 	destroyMap: function() {
