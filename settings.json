@@ -1,10 +1,11 @@
 {
 	"debug": true,
+	"adminUsers": ["stef"],
 	"public": {
 		"siteName": "Climbo.net",
 		"siteEmail": "info@climbo.net",
 		"showPlaces": true,
-		"editPlaces": false,
+		"editPlaces": true,
 		"accountCreation": true,
 		"showAlerts": true,		
 		"searchMinLen": 1,

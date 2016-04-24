@@ -39,6 +39,7 @@ Template.registerHelper('humanTime', function(sec, ago) {
 Template.registerHelper('humanTimeUTC', function(dateutc, ago) {
 	var date = Climbo.util.dateUtcToLocal(new Date(Date.parse(dateutc))),
 		sec = Math.round(date.getTime()/1000);
+		console.log(date, ago)
 	return Climbo.util.human.time(sec, parseInt(ago));
 });
 

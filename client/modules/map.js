@@ -208,7 +208,6 @@ Climbo.map = {
 		_.invoke([
 			//controls.attrib,
 			controls.zoom,
-			//FIX CAUSE BUG WHEN FROM SETTINGS PAGE TO MAP PAGE
 			//controls.search,
 			controls.gps,
 			layers.baseLayer,
