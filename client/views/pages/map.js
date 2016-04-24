@@ -1,10 +1,10 @@
 
-Template.map.onRendered(function() {
+Template.pageMap.onRendered(function() {
 	Climbo.map.initMap(Climbo.profile.mapSets, function(map) {
 		Climbo.map.enableBBox();
 	});
 });
 
-Template.map.onDestroyed(function() {
+Template.pageMap.onDestroyed(function() {
 	Climbo.map.destroyMap();
 });

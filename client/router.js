@@ -29,7 +29,7 @@ Router.map(function() {
 
 	this.route('map', {
 		path: '/',
-		template: 'panelMap',
+		template: 'pageMap',
 		layoutTemplate: 'layoutMap'
 	});
 

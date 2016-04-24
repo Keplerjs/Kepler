@@ -17,7 +17,7 @@
 		"maxSectorsDist": 100,
 		"maxHist": 3,
 		"maxAlerts": 5,
-		"checkinMaxDist": 300,
+		"checkinMaxDist": 500,
 		"bboxMinShift": 200,
 		"gpsMinShift": 40,
 		"maxImageSize": 2800000,

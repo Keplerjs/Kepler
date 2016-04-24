@@ -130,8 +130,8 @@ controls.gps = L.control.gps({
 controls.search = L.control.search({
 	position: 'topright',
 	zoom: Meteor.settings.public.loadLocZoom,	
-	minLength: Meteor.settings.public.searchMinLen,
 	autoType: false, tipAutoSubmit: false, delayType: 800,
+	minLength: Meteor.settings.public.searchMinLen,	
 	autoCollapse: false, autoCollapseTime: 6000,
 	animateLocation: true, markerLocation: false,
 	propertyLoc: 'loc', propertyName: 'name',
@@ -207,13 +207,13 @@ Climbo.map = {
 
 		_.invoke([
 			//controls.attrib,
-			//controls.zoom,
+			controls.zoom,
 			//FIX CAUSE BUG WHEN FROM SETTINGS PAGE TO MAP PAGE
 			//controls.search,
-			//controls.gps,
+			controls.gps,
 			layers.baseLayer,
-			//layers.geojson,
-			//layers.cluster			
+			layers.geojson,
+			layers.cluster			
 		],'addTo', Climbo.map.leafletMap);
 
 		//Fix solo per Safari evento resize! quando passa a schermo intero

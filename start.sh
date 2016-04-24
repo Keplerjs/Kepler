@@ -12,7 +12,7 @@ export MONGO_URL=mongodb://localhost:27017/climbo
 export PORT=8800
 #export NODE_OPTIONS='--debug'
 
-if [ $MYIP = '127.0.0.1' ]; then
+if [ $MYIP = '127.0.1.1' ]; then
 	export ROOT_URL="http://climbo.local:$PORT"
 	meteor --port $PORT --settings settings.json
 else

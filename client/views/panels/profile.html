@@ -2,7 +2,9 @@
 <template name="panelProfile">
 
 <div id="profile" class="panel">
+
 {{#if currentUser}}
+
 	{{#with currentUser}}
 	<div class="panel-heading bg-primary">
 		<h4 class="pull-left"><img class="user-avatar" src="{{avatar}}" /> {{name}}</h4>
@@ -49,26 +51,11 @@
 		</div>
 	</div>
 	{{/with}}
+	
 {{/if}}
 </div>
 
 </template>
 
-<template name="tab_checkin">
-{{#if placeCheckin}}
-	{{#with placeCheckin}}
-	<ul class="list-group" id="tab_checkin">
-		<li class="list-group-item active text-center">
-			{{> item_place}}
-		</li>
-		<li class="list-group-item">
-			
-			{{> place_btns_all}}
-					
-		</li>
-	</ul>
-	{{/with}}
-{{/if}}
-</template>
 
 
