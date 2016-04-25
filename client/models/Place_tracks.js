@@ -20,7 +20,7 @@ Climbo.Place.include({
 			if(track.properties.tipo==='access')
 				return Climbo.util.geo.createFeatureColl([
 					track,
-					Climbo.util.geo.createFeature('Point',{tipo:'parking'},track.geometry.coordinates[0])
+					Climbo.util.geo.createFeature('Point', track.geometry.coordinates[0], {tipo:'parking'})
 				]);
 			else
 				return track;

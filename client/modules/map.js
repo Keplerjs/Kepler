@@ -30,10 +30,15 @@ layers.cluster = new L.MarkerClusterGroup({
 
 layers.geojson = new L.GeoJSONAutoClear(null, {
 	style: function (feature) {
-		if(feature.properties.tipo=='place')	//punto della place relativa ai pois
+		if(feature.properties.tipo=='place')		//cerchio place relativa ai pois
 			return {color: '#f33', weight: 5, opacity:0.7};
+		
+		else if(feature.properties.tipo=='poiline')	//linea place relativa ai pois
+			return {color: '#f33', weight: 4, opacity:0.7, dashArray: '1,6'};		
+
 		else if(feature.properties.tipo=='access')	//tracciato avvicinamento
 			return {color: '#66f', weight: 8, opacity:0.7};
+
 		else
 			return {color: '#b6f', weight: 5, opacity:0.7};
 	},
