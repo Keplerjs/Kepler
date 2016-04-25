@@ -36,16 +36,18 @@ Climbo.profile = {
 
 			Climbo.profile.id = userData._id;
 			Climbo.profile.data = userData;
-			Climbo.profile.user = Climbo.newUser(userData._id);
-			Climbo.profile.user.update();
 
-			Climbo.profile.mapSets = _.extend(Meteor.settings.public.map, {
-				layer: userData.settings.layer,
-				center: userData.locmap
-			});
-
-			if(Climbo.map.initialized)
+			if(Climbo.map.initialized) {
+				Climbo.profile.mapSets = _.extend(Meteor.settings.public.map, {
+					layer: userData.settings.layer,
+					center: userData.locmap
+				});
 				Climbo.map.setOpts(Climbo.profile.mapSets);
+
+				//show user marker quando la mappa è ancora pronta
+				Climbo.profile.user = Climbo.newUser(userData._id);
+				Climbo.profile.user.update();				
+			}
 
 			//TODO i18n.setLanguage(userData.lang);
 

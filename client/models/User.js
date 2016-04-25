@@ -73,8 +73,9 @@ Climbo.User = Climbo.Class.extend({
 			});
 		}
 		self.marker.setLatLng(self.loc);
-		self.marker.addTo(Climbo.map.leafletMap);
-		self.marker._bringToFront();
+		
+		if(Climbo.map.leafletMap)
+			self.marker.addTo(Climbo.map.leafletMap);
 	},
 
 	hideMarker: function() {

@@ -38,7 +38,9 @@ layers.geojson = new L.GeoJSONAutoClear(null, {
 			return {color: '#b6f', weight: 5, opacity:0.7};
 	},
 	pointToLayer: function(feature, latlng) {	//costruisce marker POI
+		
 		//TODO tracciare linea dritta da place ad ogni POI
+
 		if(feature.properties.tipo==='place')	//evidenzia place nei pois
 			return new L.CircleMarker(latlng, {radius:20});
 		else
@@ -77,7 +79,6 @@ layers.places = new L.LayerJSON({
 
 		var sub = Meteor.subscribe('placesByBBox', bbox, function() {
 			
-			//callback( Places.find().fetch() );
 			callback( getPlacesByBBox(bbox).fetch() );
 		});
 
@@ -86,7 +87,7 @@ layers.places = new L.LayerJSON({
 		};
 	},
 	dataToMarker: function(data) {	//eseguito una sola volta per ogni place
-		//FIXME! sparisce il contenuto dei popup nei markers in cache
+		//FIXME! sparisce il contenuto dei popup nei markers in cache	
 		return Climbo.newPlace(data._id._str).marker;
 	}
 });
@@ -192,7 +193,7 @@ Climbo.map = {
 
 		Climbo.map.initialized = true;
 
-		opts = _.extend(Meteor.settings.public.map, opts)
+		opts = _.extend(Meteor.settings.public.map, opts);
 		opts = _.extend(opts, {
 			attributionControl: false,
 			zoomControl: false,	
@@ -205,17 +206,16 @@ Climbo.map = {
 
 		layers.baseLayer = new L.TileLayer( Meteor.settings.public.layers[opts.layer] );
 
-		var items = [
+		_.invoke([
+			layers.baseLayer,		
 			//controls.attrib,
 			controls.zoom,
 			//controls.search,
 			controls.gps,
-			layers.baseLayer,
 			layers.geojson,
-			layers.cluster			
-		];
+			layers.cluster		
+		],'addTo', Climbo.map.leafletMap);
 
-		_.invoke(items,'addTo', Climbo.map.leafletMap);
 
 		//Fix solo per Safari evento resize! quando passa a schermo intero
 		$(window).on('orientationchange resize', function(e) {
