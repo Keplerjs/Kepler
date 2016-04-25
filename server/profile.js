@@ -163,7 +163,7 @@ Meteor.methods({
 
 		if(!this.userId) return null;
 
-		var imagemagick = Npm.require('imagemagick'),
+		var //Imagemagick = Npm.require('imagemagick'),
 			fs = Npm.require('fs');
 
 		var name = Meteor.user().username +'_'+ Climbo.util.timeUnix(),
@@ -177,12 +177,12 @@ Meteor.methods({
 		fs.writeFileSync(filebig, blob, 'binary');
 
 		//
-		//Imagemagick require: aptitude install imagemagick
-		//https://github.com/sylvaingi/meteor-imagemagick#resizeoptions
+		//Imagemagick require: aptitude install Imagemagick
+		//https://github.com/sylvaingi/meteor-Imagemagick#resizeoptions
 		//
 		console.log('uploadAvatar: resizing...');
 		try {
-			imagemagick.crop({
+			Imagemagick.crop({
 				srcPath: filebig,
 				dstPath: filemin,
 				width: 160,

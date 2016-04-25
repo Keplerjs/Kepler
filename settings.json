@@ -35,8 +35,7 @@
 			"road": "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
 			"cycle": "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
 			"landscape": "http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png",			
-			"transport": "http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png",
-			"satellite": "http://otile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.png"
+			"transport": "http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png"
 		},
 		"urls": {
 			"static": "http://static.climbo.local/"
