@@ -70,16 +70,6 @@ Meteor.methods({
 		//http://stackoverflow.com/questions/12569712/meteor-calling-an-asynchronous-function-inside-a-meteor-method-and-returning-th
 		//TODO usare Fiber e Future...	
 	},
-	// updatePlaceTracksPois: function() {
-		
-	// 	if(!this.userId) return null;
-
-	// 	// Tracks.find().forEach(function (track) {
-	// 	// 	setTrackProperties(track._id._str);
-	// 	// 	console.log('FOREACH setTrackProperties', track._id._str, track.properties.name);
-	// 	// });
-	// 	console.log('updateTracks END ');
-	// },
 	delPlace: function(placeId) {
 		if(!this.userId) return null;
 
@@ -108,5 +98,24 @@ Meteor.methods({
 		//Meteor.call('updatePlaceLoc',newId, place.loc);
 		console.log('clonePlace', placeId, newId);
 		return newId._str;
-	}
+	},
+	renamePlace: function(placeId, name) {
+		if(!this.userId) return null;
+
+		if(!Meteor.settings.public.editPlaces) return null;
+
+		Places.update({_id: new Meteor.Collection.ObjectID(placeId) }, {$set: {name: name} });
+
+		console.log('renamePlace', placeId);
+	},
+	// updatePlaceTracksPois: function() {
+		
+	// 	if(!this.userId) return null;
+
+	// 	// Tracks.find().forEach(function (track) {
+	// 	// 	setTrackProperties(track._id._str);
+	// 	// 	console.log('FOREACH setTrackProperties', track._id._str, track.properties.name);
+	// 	// });
+	// 	console.log('updateTracks END ');
+	// }	
 });

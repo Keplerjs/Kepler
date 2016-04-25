@@ -40,6 +40,14 @@ if(Meteor.settings.public.editPlaces)
 					Climbo.map.leafletMap.removeLayer(that.marker);
 				});
 			}
+		},
+		'click .popup-rename': function(e,tmpl) {
+			var that = this,
+				ret = confirm("Rinominare?");
+
+			if(ret) {
+				Meteor.call('renamePlace', that.id, e.target.value);
+			}
 		}
 	});
 }

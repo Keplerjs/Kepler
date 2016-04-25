@@ -5,7 +5,7 @@
 		"siteName": "Climbo.net",
 		"siteEmail": "info@climbo.net",
 		"showPlaces": true,
-		"editPlaces": true,
+		"editPlaces": false,
 		"accountCreation": true,
 		"showAlerts": true,		
 		"searchMinLen": 1,
