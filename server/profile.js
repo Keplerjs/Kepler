@@ -189,6 +189,8 @@ Meteor.methods({
 				height: 160,
 				quality: 0.8
 			});
+			fs.chmodSync(filemin, 0o755)
+
 		} catch(e) {
 			console.log('uploadAvatar: error ', e);
 			return i18n('errors.imageNotValid');
