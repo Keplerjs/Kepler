@@ -9,7 +9,7 @@
 // http://docs.mongodb.org/manual/core/capped-collections/
 
 
-Caches = {
+var Caches = {
 	elevation: new Meteor.Collection('cache_elevation', {idGeneration:'STRING'}),
 	provincia: new Meteor.Collection('cache_provincia', {idGeneration:'STRING'}),
 	nazione:  new Meteor.Collection('cache_nazione', {idGeneration:'STRING'}),
@@ -26,8 +26,6 @@ Climbo.cache = {
 		if(Caches[funcname])
 			Caches[funcname].upsert(key, {$set: {val: val} });
 		
-		//console.log('Climbo.cache.set() ',funcname,key,val);
-
 		return val;
 	},
 	get: function(funcname, key) {
@@ -35,8 +33,6 @@ Climbo.cache = {
 		if(_.isUndefined(Caches[funcname])) return null;
 
 		var cache = Caches[funcname].findOne(key) || {val:null};
-
-		//console.log('Climbo.cache.get() ',funcname,key, cache.val);
 
 		return cache.val;
 	}

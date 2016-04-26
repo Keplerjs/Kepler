@@ -1,5 +1,4 @@
 
-
 Meteor.publish('poisByPlace', function(placeId) {
 
 	if(this.userId) {

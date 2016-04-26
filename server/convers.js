@@ -102,12 +102,6 @@ Meteor.methods({
 
 		return newConver(title, placeId);
 	},
-	// addMsgToConver: function(convId, body) {
-		
-	// 	if(!this.userId || !convId) return null;
-
-	// 	return addMsgToConver(convId, body);
-	// },
 	delConver: function(convId) {
 		
 		if(!this.userId || !convId) return null;

@@ -1,8 +1,3 @@
-/*
-	query e metodi per recupero dei dati utenti
-*/
-
-//TODO creare funzione per verificare amicizia tra due user id
 
 getUsersByIds = function(usersIds) {
 

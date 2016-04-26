@@ -32,7 +32,6 @@ Meteor.publish('friendsByIds', function(usersIds) {
 		this.ready();
 });
 
-
 Meteor.publish('userById', function(userId) {
 
 	if(this.userId && userId)

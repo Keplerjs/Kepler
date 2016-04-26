@@ -1,19 +1,13 @@
-/*
-	DEBUGGING FUNCTIONS
-*/
 
-var isAdmin = function(userId) {
-	if(!userId) return false;
-	
-	console.log('isAdmin', Meteor.user().username)
-
+var isAdmin = function() {
+	if(!Meteor.user()) return false;
 	return _.contains(Meteor.settings.adminUsers, Meteor.user().username);
 };
 
 Meteor.methods({
 	adminCreateUser: function(username) {
 		
-		if(!isAdmin(this.userId)) return null;
+		if(!isAdmin()) return null;
 
 		//TODO check User is Admin
 
@@ -29,19 +23,20 @@ Meteor.methods({
 	},
 	adminDeleteUser: function(username) {
 		
-		if(!isAdmin(this.userId)) return null;
+		if(!isAdmin()) return null;
 
 		var userData = Meteor.users.findOne({username: username}),
 			userId = userData._id;
 
 		Meteor.users.update({_id: {$in: userData.friends }}, {$pull: {friends: userId} });
+		Places.update({_id: {$in: userData.hist }}, {$pull: {hist: userId} });
 		Meteor.users.remove(userId);
 
 		console.log('adminDeleteUser', username);
 	},
 	adminCleanUserFriends: function(username) {
 		
-		if(!isAdmin(this.userId)) return null;
+		if(!isAdmin()) return null;
 
 		var userData = Meteor.users.findOne({username: username}),
 			userId = userData._id;
@@ -60,7 +55,7 @@ Meteor.methods({
 	},
 	adminCreateFriendship: function(username1, username2) {
 		
-		if(!isAdmin(this.userId)) return null;
+		if(!isAdmin()) return null;
 
 		//TODO check User is Admin
 		var user1 = Meteor.users.findOne({username: username1}),
@@ -72,12 +67,12 @@ Meteor.methods({
 	},	
 	adminDeleteAllUsers: function() {
 		
-		if(!isAdmin(this.userId)) return null;
+		if(!isAdmin()) return null;
 
 		Meteor.users.find({_id: {$ne: this.userId }}).forEach(function(user) {
 			Meteor.call('adminDeleteUser', user.username);
 		});
 		
 		console.log('adminDeleteAllUsers');
-	}
+	}	
 });

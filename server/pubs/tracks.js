@@ -1,5 +1,4 @@
 
-
 Meteor.publish('tracksByIds', function(tracksIds) {
 
 	console.log('Pub: tracksByIds', tracksIds);
