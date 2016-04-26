@@ -177,12 +177,14 @@ Router.map(function() {
 			return Meteor.subscribe('conversByPlace', this.params.placeId);
 		},
 		data: function() {
-			var place = Climbo.newPlace(this.params.placeId);
+			var place = Climbo.newPlace(this.params.placeId),
+				convers = getConversByPlace(this.params.placeId).fetch();
+
 			return {
 				title: i18n('ui.titles.placeConvers')+'<a href="/place/'+this.params.placeId+'"><b>'+place.name+'</b></a>',
 				className: 'placeConvers',
 				itemsTemplate: 'itemConver',
-				items: getConversByPlace(this.params.placeId).fetch(),
+				items: convers,
 				sortDesc: true,
 				header: {
 					template: 'itemConverNew',
@@ -197,7 +199,7 @@ Router.map(function() {
 		template: 'emptyTmpl',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
-			return Meteor.subscribe('placesByIds', [this.params.placeId]);
+			return Meteor.subscribe('poisByPlace', this.params.placeId);
 		},
 		onBeforeAction: function() {
 			Climbo.newPlace( this.params.placeId ).loadPois();

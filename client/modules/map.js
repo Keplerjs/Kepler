@@ -233,6 +233,8 @@ Climbo.map = {
 	},
 
 	setOpts: function(opts) {
+		if(!Climbo.map.initialized) return null;
+		
 		var m = Climbo.map.leafletMap;
 
 		opts = _.extend(Meteor.settings.public.map, opts, {
@@ -273,6 +275,8 @@ Climbo.map = {
 		return Climbo.util.geo.roundBbox([[sw.lat, sw.lng], [ne.lat, ne.lng]]);
 	},
 	enableBBox: function() {
+		if(!Climbo.map.initialized) return null;
+
 		if(Meteor.settings.public.showPlaces)
 			Climbo.map.leafletMap.addLayer(layers.places);
 	},
@@ -281,19 +285,24 @@ Climbo.map = {
 	},
 
 	loadLoc: function(loc) {
+		if(!Climbo.map.initialized) return null;
+
 		if(loc && Climbo.util.valid.loc(loc))
 			Climbo.map.leafletMap.setView(loc, Meteor.settings.public.loadLocZoom);
 	},
 
 	loadGeojson: function(geoData) {
 
+		if(!Climbo.map.initialized) return null;
+
 		geoData = L.Util.isArray(geoData) ? geoData : [geoData];
 
 		Climbo.map.leafletMap.closePopup();
 
 		layers.geojson.clearLayers();
-		for(var i in geoData)
+		for(var i in geoData) {
 			layers.geojson.addData(geoData[i]);
+		}
 	
 		var bb = layers.geojson.getBounds();
 

@@ -1,12 +1,12 @@
 
 <template name="tab_pois">
 	
-	{{#if poisGroups}}
+	{{#if hasPois}}
 	<div class="list-group">
 		<span class="list-group-item active">
 			<i class="icon icon-pois"></i> {{i18n 'ui.tabs.pois'}}
 		</span>
-		{{#each poisGroups}}
+		{{#each getPoisGroups}}
 		<a class="list-group-item panel-btn-pois" href="#">
 			<i class="icon icon-{{tipo}}"></i>
 			{{titolo}} <span class="badge bg-gray">{{count}}</span>

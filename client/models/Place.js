@@ -25,9 +25,6 @@ Climbo.Place = Climbo.Class.extend({
 
 			self.data = Places.findOne(new Meteor.Collection.ObjectID(self.id));
 			
-			//FIXME a volte: findOne ritorna null... xke forse i dati non vengono scaricati in tempo
-			//FIXME forse per il bug precendete a volte scade la computation di e autorun i stoppa
-
 			_.extend(self, self.data, self.cache);
 
 			self._dep.changed();
@@ -104,6 +101,11 @@ Climbo.newPlace = function(id)
 	if(!id) return null;
 	if(!Climbo.placesById[id])
 		Climbo.placesById[id] = new Climbo.Place(id);
+	
+	//for debugging
+	var iname = Climbo.util.sanitizeFilename(Climbo.placesById[id].name);
+	Climbo.placesByName[iname || id] = Climbo.placesById[id];
+
 	return Climbo.placesById[id];
 };
 

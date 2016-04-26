@@ -1,13 +1,19 @@
 
 
-Meteor.publish('poisByLoc', function(loc) {
+Meteor.publish('poisByPlace', function(placeId) {
 
-	//TODO caching con Climbo.cache.js se necessario
+	if(this.userId) {
 
-	console.log('Pub: poisByLoc', loc);
+		var placeCur = getPlacesByIds([placeId]),
+			placeData = placeCur.fetch()[0];
 
-	if(this.userId)
-		return getPoisByLoc(loc);
+		console.log('Pub: poisByPlace', placeId, placeData);
+
+		return [
+			placeCur,
+			getPoisByLoc(placeData.loc)
+		];	
+	}
 	else
 		this.ready();	
 });

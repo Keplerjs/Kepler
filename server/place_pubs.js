@@ -34,6 +34,9 @@ Meteor.publish('placeById', function(placeId) {
 		if(placeData.hist.length > 0)
 			retCurs.push( getUsersByIds(placeData.hist) );
 
+		if(placeData.pois)
+			retCurs.push( getPoisByLoc(placeData.loc) );
+
 		console.log('Pub: placeById', placeData.name);
 
 		return retCurs;

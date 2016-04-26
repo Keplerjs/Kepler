@@ -1,50 +1,52 @@
 /*
 	class Place with POIs support
 */
+function placeWithPois(pois, loc, tipo) {
+
+	//decorate Poi markers with place circle and lines from place to pois
+	
+	if(tipo) {
+		pois = _.filter(pois, function(poi) {
+			return poi.properties.tipo===tipo;
+		});
+	}
+
+	var gloc = [loc[1], loc[0]],
+		poiPlace = Climbo.util.geo.createFeature('Point', gloc, {tipo:'place'});
+		coordLines = _.map(pois, function(poi) {
+			return [gloc, poi.geometry.coordinates];
+		}),
+		poiLines = Climbo.util.geo.createFeature('MultiLineString', coordLines, {tipo:'poiline'}),
+		features = _.union(pois, poiPlace, poiLines);
+
+	return Climbo.util.geo.createFeatureColl(features);
+}
+
 Climbo.Place.include({
-
-	cache: {
-		pois: null
+	hasPois: function(tipo) {
+		//TODO
+		return true;
 	},
+	loadPois: function(tipo) {
 
-	loadPois: function(tipo,show) {
+		var pois = getPoisByLoc(this.loc).fetch();
 
-		var self = this;
-		
-		show = _.isUndefined(show) ? true : false;
+		Climbo.map.loadGeojson( placeWithPois(pois, this.loc, tipo) );
+	},
+	getPoisGroups: function(tipo) {
 
-		function addPoiPlace(pois, loc, tipo) {
-			
-			if(tipo) {
-				pois = _.filter(pois, function(poi) {
-					return poi.properties.tipo===tipo;
-				});
-			}
+		var pois = getPoisByLoc(this.loc).fetch();
 
-			var loc = [loc[1], loc[0]],
-				poiPlace = Climbo.util.geo.createFeature('Point', loc, {tipo:'place'});
-				coordLines = _.map(pois, function(poi) {
-					return [loc, poi.geometry.coordinates];
-				}),
-				poiLines = Climbo.util.geo.createFeature('MultiLineString', coordLines, {tipo:'poiline'});
+		var types = _.countBy(pois, function(poi) {
+			return poi.properties.tipo;
+		});
 
-			return Climbo.util.geo.createFeatureColl(_.union(pois, poiPlace, poiLines));
-		}
-
-		if( self.pois && self.cache.pois && show) 
-			Climbo.map.loadGeojson( addPoiPlace(self.cache.pois, self.loc, tipo) );
-		else
-			Meteor.call('getPoisByLoc', self.loc, function(err, pois) {
-				
-				if(pois && pois.length>0)
-				{
-					self.cache.pois = pois;
-					self.update();
-					if(show)	
-						Climbo.map.loadGeojson( addPoiPlace(pois, self.loc, tipo) );
-				}
-				else
-					self.cache.pois = 0;
-			});
+		return _.map(types, function(val, tipo) {
+			return {
+				tipo: tipo,
+				count: val,
+				titolo: i18n('ui.pois.'+tipo)
+			};
+		});
 	}
 });

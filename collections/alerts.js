@@ -1,3 +1,4 @@
+
 Alerts = new Meteor.Collection('alerts');
 
 Alerts.allow({
