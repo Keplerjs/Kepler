@@ -4,10 +4,10 @@
 	git@github.com:mWater/offline-leaflet-map.git
 	
 */
-var map = null,
-	initialized = false,
-	layers = {},
+var layers = {},
 	controls = {};
+
+layers.baseLayer = new L.TileLayer('');
 
 layers.cluster = new L.MarkerClusterGroup({
 	iconCreateFunction: function(cluster) {
@@ -180,9 +180,9 @@ controls.search = L.control.search({
 
 Climbo.map = {
 
-	initialized: initialized,
+	initialized: false,
 
-	leafletMap: map,
+	leafletMap: null,
 
 	controls: controls,
 
@@ -194,22 +194,20 @@ Climbo.map = {
 
 	initMap: function(opts, callbackMap) {		//render map and add controls/layers
 
-		if(Climbo.map.initialized) return false;
+		var self = this;
 
-		Climbo.map.initialized = true;
+		if(self.initialized) return false;
 
-		opts = _.extend(Meteor.settings.public.map, opts);
-		opts = _.extend(opts, {
-			attributionControl: false,
-			zoomControl: false,	
-			maxBounds: L.latLngBounds(opts.maxBounds),
-			center: L.latLng(opts.center),
-			layer: opts.layer || Meteor.settings.public.layerDef
-		});
+		self.initialized = true;
 
-		Climbo.map.leafletMap = new L.Map('map', opts);
+		opts = _.defaults({}, opts, {
+			zoomControl: false,			
+			attributionControl: false
+		}, Meteor.settings.public.map);
 
-		layers.baseLayer = new L.TileLayer( Meteor.settings.public.layers[opts.layer] );
+		self.leafletMap = new L.Map('map', opts);
+		
+		self.setOpts(opts);
 
 		_.invoke([
 			layers.baseLayer,		
@@ -219,49 +217,45 @@ Climbo.map = {
 			controls.gps,
 			layers.geojson,
 			layers.cluster		
-		],'addTo', Climbo.map.leafletMap);
+		],'addTo', self.leafletMap);
 
 
 		//Fix solo per Safari evento resize! quando passa a schermo intero
 		$(window).on('orientationchange resize', function(e) {
 			$(window).scrollTop(0);
-			Climbo.map.leafletMap.invalidateSize(false);
+			self.leafletMap.invalidateSize(false);
 		});
 
 		if($.isFunction(callbackMap))
-			callbackMap(Climbo.map.leafletMap);
+			callbackMap(self.leafletMap);
 	},
 
 	setOpts: function(opts) {
-		if(!Climbo.map.initialized) return null;
+		var self = this;
+
+		if(!self.initialized) return null;
 		
-		var m = Climbo.map.leafletMap;
+		opts = _.extend(Meteor.settings.public.map, opts);
 
-		opts = _.extend(Meteor.settings.public.map, opts, {
-			maxBounds: L.latLngBounds(opts.maxBounds),
-			center: L.latLng(opts.center),
-			layer: opts.layer || Meteor.settings.public.layerDef
-		})
-		m.setMaxBounds(opts.maxBounds);
-		m.setView(opts.center);
-
-		Climbo.map.layers.baseLayer.setUrl( Meteor.settings.public.layers[opts.layer]);
+		self.leafletMap.setView(opts.center, opts.zoom);
+		console.log('setOpts', opts)
+		self.layers.baseLayer.setUrl( Meteor.settings.public.layers[opts.layer] );
 	},
 
 	destroyMap: function() {
-		if(Climbo.map.initialized) {
-			Climbo.map.initialized = false;
-			Climbo.map.leafletMap.remove();
-			Climbo.map.layers.places.clearLayers();
+		if(this.initialized) {
+			this.initialized = false;
+			this.leafletMap.remove();
+			this.layers.places.clearLayers();
 		}
 	},
 	
 	getBBox: function() {
-		if(!Climbo.map.initialized) return null;
+		if(!this.initialized) return null;
 		
-		Climbo.map._deps.bbox.depend();
+		this._deps.bbox.depend();
 
-		var bbox = Climbo.map.leafletMap.getBounds(),
+		var bbox = this.leafletMap.getBounds(),
 			sw = bbox.getSouthWest(),
 			ne = bbox.getNorthEast();
 /* TODO		sideW = this.$('#sidebar').width();
@@ -275,29 +269,29 @@ Climbo.map = {
 		return Climbo.util.geo.roundBbox([[sw.lat, sw.lng], [ne.lat, ne.lng]]);
 	},
 	enableBBox: function() {
-		if(!Climbo.map.initialized) return null;
+		if(!this.initialized) return null;
 
 		if(Meteor.settings.public.showPlaces)
-			Climbo.map.leafletMap.addLayer(layers.places);
+			this.leafletMap.addLayer(layers.places);
 	},
 	disableBBox: function() {
-		Climbo.map.leafletMap.removeLayer(layers.places);
+		this.leafletMap.removeLayer(layers.places);
 	},
 
 	loadLoc: function(loc) {
-		if(!Climbo.map.initialized) return null;
+		if(!this.initialized) return null;
 
 		if(loc && Climbo.util.valid.loc(loc))
-			Climbo.map.leafletMap.setView(loc, Meteor.settings.public.loadLocZoom);
+			this.leafletMap.setView(loc, Meteor.settings.public.loadLocZoom);
 	},
 
 	loadGeojson: function(geoData) {
 
-		if(!Climbo.map.initialized) return null;
+		if(!this.initialized) return null;
 
 		geoData = L.Util.isArray(geoData) ? geoData : [geoData];
 
-		Climbo.map.leafletMap.closePopup();
+		this.leafletMap.closePopup();
 
 		layers.geojson.clearLayers();
 		for(var i in geoData) {
@@ -306,6 +300,6 @@ Climbo.map = {
 	
 		var bb = layers.geojson.getBounds();
 
-		Climbo.map.leafletMap.setView(bb.getCenter(), Climbo.map.leafletMap.getBoundsZoom(bb) - 1);
+		this.leafletMap.setView(bb.getCenter(), this.leafletMap.getBoundsZoom(bb) - 1);
 	}
 };

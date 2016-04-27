@@ -22,6 +22,7 @@ Router.waitOn(function() {
 	return Meteor.subscribe('currentUser', function() {
 
 		Climbo.profile.initProfile();
+
 	});
 });
 

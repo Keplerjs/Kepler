@@ -8,9 +8,9 @@ Climbo.profile = {
 	initialized: false,
 
 	id: null,
+	user: null,			//my istance of Climbo.User	
 	data: {},
-	user: null,			//my istance of Climbo.User
-	mapSets: null,		//map custom settings used in Climbo.map.initMap(...)
+	mapSets: {},		//map custom settings used in Climbo.map.initMap(...)
 	placeCheckin: null,
 	notifs: [],			//notifs of user
 	//TODO rename fields in db notif to notifs
@@ -22,8 +22,7 @@ Climbo.profile = {
 
 	initProfile: function(callbackProfile) {
 
-		if(Climbo.profile.initialized)
-			return false;
+		if(Climbo.profile.initialized) return false;
 		
 		Climbo.profile.initialized = true;
 
@@ -37,17 +36,15 @@ Climbo.profile = {
 			Climbo.profile.id = userData._id;
 			Climbo.profile.data = userData;
 
-			if(Climbo.map.initialized) {
-				Climbo.profile.mapSets = _.extend(Meteor.settings.public.map, {
+			if(Climbo.map.initialized)
+				Climbo.map.setOpts({
 					layer: userData.settings.layer,
 					center: userData.locmap
 				});
-				Climbo.map.setOpts(Climbo.profile.mapSets);
 
-				//show user marker quando la mappa è ancora pronta
-				Climbo.profile.user = Climbo.newUser(userData._id);
-				Climbo.profile.user.update();				
-			}
+			//show user marker quando la mappa è ancora pronta
+			Climbo.profile.user = Climbo.newUser(userData._id);
+			Climbo.profile.user.update();				
 
 			//TODO i18n.setLanguage(userData.lang);
 
