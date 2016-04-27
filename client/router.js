@@ -73,13 +73,12 @@ Router.map(function() {
 			return Meteor.subscribe('placesByIds', Climbo.profile.data.favorites);
 		},
 		data: function() {
+			var places = _.map(Climbo.profile.data.favorites, Climbo.newPlace);
 			return {
 				title: i18n('ui.titles.favorites'),
 				className: 'favorites',
 				itemsTemplate: 'item_place_favorite',
-				items: _.map(Climbo.profile.data.favorites, Climbo.newPlace),
-				sortDesc: true,
-				sortBy: 'name'
+				items: _.sortBy(places, 'name')
 			};
 		}
 	});
@@ -91,12 +90,12 @@ Router.map(function() {
 			return Meteor.subscribe('placesByIds', Climbo.profile.data.hist);
 		},
 		data: function() {
+			var places = _.map(Climbo.profile.data.hist, Climbo.newPlace);
 			return {
 				title: i18n('ui.titles.histplaces'),
 				className: 'history',
 				itemsTemplate: 'item_place_favorite',
-				items: _.map(Climbo.profile.data.hist, Climbo.newPlace),
-				sortDesc: false
+				items: places.reverse()
 			};
 		}
 	});	
