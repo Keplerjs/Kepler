@@ -1,9 +1,19 @@
 {
 	"debug": true,
 	"adminUsers": ["stef"],
+	"dirs": {
+		"avatars": "/var/www/climbo/static.climbo.net/avatars/"
+	},	
 	"public": {
-		"siteName": "Climbo.net",
-		"siteEmail": "info@climbo.net",
+		"urls": {
+			"avatars": "/avatars/"
+		},
+		"website": {
+			"title": "Climbo.net",			
+			"domain": "climbo.net",			
+			"desc": "The Climbers Community",
+			"email": "info@climbo.net"
+		},
 		"showPlaces": true,
 		"editPlaces": false,
 		"accountCreation": true,
@@ -50,13 +60,7 @@
 		],
 		"deactivePlaces": [
 			"ice","iron","water","trad","dry","bigwall","building","pool","alp","club","market"
-		],
-		"urls": {
-			"avatars": "/avatars/"
-		}
-	},
-	"dirs": {
-		"avatars": "/var/www/climbo/static.climbo.net/avatars/"
+		]
 	},
 	"accounts": {
 		"facebook": {

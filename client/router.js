@@ -8,7 +8,7 @@ Router.configure({
 });
 //Router.setTemplateNameConverter(function (str) { return str; });
 
-Router.onBeforeAction(function(){
+Router.onBeforeAction(function() {
 
 	if(!(Meteor.loggingIn() || Meteor.user()))
 		Router.go('intro');
@@ -23,6 +23,10 @@ Router.waitOn(function() {
 
 		Climbo.profile.initProfile();
 	});
+});
+
+Router.onAfterAction(function(){
+	document.title = Meteor.settings.public.website.title;// +' - '+ this.route.getName();
 });
 
 Router.map(function() {
@@ -70,6 +74,7 @@ Router.map(function() {
 		},
 		data: function() {
 			return {
+				title: i18n('ui.titles.favorites'),
 				className: 'favorites',
 				itemsTemplate: 'item_place_favorite',
 				items: _.map(Climbo.profile.data.favorites, Climbo.newPlace),
@@ -78,6 +83,23 @@ Router.map(function() {
 			};
 		}
 	});
+	this.route('history', {
+		path: '/history',
+		template: 'panelList',
+		layoutTemplate: 'layoutMap',
+		waitOn: function() {
+			return Meteor.subscribe('placesByIds', Climbo.profile.data.hist);
+		},
+		data: function() {
+			return {
+				title: i18n('ui.titles.histplaces'),
+				className: 'history',
+				itemsTemplate: 'item_place_favorite',
+				items: _.map(Climbo.profile.data.hist, Climbo.newPlace),
+				sortDesc: false
+			};
+		}
+	});	
 
 	this.route('notifications', {
 		path: '/notifications',

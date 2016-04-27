@@ -64,7 +64,13 @@
 	<div class="btn-group" data-toggle="buttons">
 		<label class="btn btn-sm btn-default place-btn-checkin">
 			<i class="icon {{#if isCheckin}} icon-checkin {{else}} icon-uncheckin {{/if}}"></i>
-			<span class="{{#if isCheckin}} text-primary {{else}} text-muted {{/if}}">{{i18n 'ui.btns.checkin'}}</span>
+			<span class="{{#if isCheckin}} text-primary {{else}} text-muted {{/if}}">
+			{{#if isCheckin}}
+				{{i18n 'ui.btns.checkout'}}
+			{{else}}
+				{{i18n 'ui.btns.checkin'}}
+			{{/if}}
+			</span>
 			<input type="checkbox" checked={{isCheckin}} />
 		</label>
 		<label class="btn btn-sm btn-default place-btn-star">

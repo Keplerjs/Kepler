@@ -91,15 +91,15 @@ Accounts.onCreateUser(function(options, user) {
 	// }
 	
 	var newuser = _.extend(user, Climbo.schemas.user, {
+		username: username,		
 		name: name,
-		username: username,
 		lang: lang,
 		emails: emails, 
 		avatar: avatar,
 		gender: gender
 	});
 
-	console.log('New Account:', username);
+	console.log('New Account:', newuser);
 
 	return newuser;
 });

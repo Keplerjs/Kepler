@@ -15,8 +15,8 @@ export PORT=8800
 if [ $MYIP = '127.0.1.1' ]; then
 	echo "START DEV MODE"
 	export ROOT_URL="http://climbo.local:$PORT"
-#	meteor --port $PORT --settings settings.json
-	meteor --port $PORT --production --settings settings.json
+	meteor --port $PORT --settings settings.json
+#	meteor --port $PORT --production --settings settings.json
 else
 	echo "START PROD MODE"
 	export ROOT_URL="http://climbo.net"
