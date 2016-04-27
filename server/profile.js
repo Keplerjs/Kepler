@@ -163,44 +163,39 @@ Meteor.methods({
 
 		if(!this.userId) return null;
 
-		var //Imagemagick = Npm.require('imagemagick'),
-			fs = Npm.require('fs');
+		var fs = Npm.require('fs');
 
 		var name = Meteor.user().username +'_'+ Climbo.util.timeUnix(),
-			filename = Climbo.util.sanitizeFilename(name),
-			basedir = Meteor.settings.dirs.static+'/users/',
-			fileurl = Meteor.settings.public.urls.static+'/users/'+filename+'.jpg',
-			filebig = basedir + filename+'.big.jpg',
-			filemin = basedir + filename+'.jpg';
+			fileName = Climbo.util.sanitizeFilename(name),
+			filePath = Meteor.settings.dirs.avatars,
+			fileUrl  = Meteor.settings.public.urls.avatars,
+			fileBig = filePath + fileName + '.ori.jpg',
+			fileMin = fileName + '.jpg';
 
-		console.log('uploadAvatar: wrinting...', filebig);
-		fs.writeFileSync(filebig, blob, 'binary');
+		console.log('uploadAvatar: wrinting...', fileBig);
+		fs.writeFileSync(fileBig, blob, 'binary');
+		fs.chmodSync(fileBig, 0755);
 
-		//
-		//Imagemagick require: aptitude install Imagemagick
-		//https://github.com/sylvaingi/meteor-Imagemagick#resizeoptions
-		//
 		console.log('uploadAvatar: resizing...');
 		try {
 			Imagemagick.crop({
-				srcPath: filebig,
-				dstPath: filemin,
+				srcPath: fileBig,
+				dstPath: filePath + fileMin,
 				width: 160,
 				height: 160,
 				quality: 0.8
 			});
-			fs.chmodSync(filemin, 0o755)
-
-		} catch(e) {
+			fs.chmodSync(filePath + fileMin, 0755);
+		}
+		catch(e) {
 			console.log('uploadAvatar: error ', e);
 			return i18n('errors.imageNotValid');
 		}
-		console.log('uploadAvatar: resized', filemin);
+		console.log('uploadAvatar: resized', filePath + fileMin);
 
-		Meteor.users.update(this.userId, { $set: {avatar: fileurl} });
-		console.log('uploadAvatar: url ', fileurl);
+		Meteor.users.update(this.userId, { $set: {avatar: fileUrl + fileMin } });
+		console.log('uploadAvatar: url ', fileUrl + fileMin );
 
 		return false;
 	}
 });
-

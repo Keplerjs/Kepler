@@ -1,0 +1,8 @@
+
+Photo upload used on /server/profile.js
+
+https://github.com/sylvaingi/meteor-Imagemagick#resizeoptions
+
+Imagemagick require: aptitude install Imagemagick
+
+meteor add mrt:imagemagick OR var Imagemagick = Npm.require('imagemagick');

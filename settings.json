@@ -37,9 +37,6 @@
 			"landscape": "http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png",			
 			"transport": "http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png"
 		},
-		"urls": {
-			"static": "http://static.climbo.local/"
-		},
 		"langDef": "it",
 		"langs": {			
 			"it": "Italiano",
@@ -47,21 +44,20 @@
 			"fr": "Français",
 			"de": "Deutsch",
 			"es": "Español"
-		},		
+		},
 		"activePlaces": [
 			"rock","boulder","indoor","long"
 		],
 		"deactivePlaces": [
 			"ice","iron","water","trad","dry","bigwall","building","pool","alp","club","market"
-		]
-	},
-	"urls": {
-		"aspect": "http://localhost/maps/dem/aspect.php",
-		"elevation": "http://localhost/maps/dem/elevation.php"
+		],
+		"urls": {
+			"avatars": "/avatars/"
+		}
 	},
 	"dirs": {
-		"static": "/var/www/climbo/static.climbo.net/"
-	},	
+		"avatars": "/var/www/climbo/static.climbo.net/avatars/"
+	},
 	"accounts": {
 		"facebook": {
 			"service": "facebook",
@@ -77,7 +73,7 @@
 			"service": "twitter",
 			"consumerKey": "B3a4HBTdmjFOkf7S4J1k9SBsB",
 			"secret": "Qwijgho1wfn7amVdpRea5qVDmYnj46Zd2iX3XHRFsoIK6dryy9g"			
-		},		
+		},
 		"ipinfodbKey": "ac735b1e635d4ec5b0ba271b287eb42c2161eabfbbc53894cb6ea642c210befd",
 		"wundergroundKey": "6a7ab4b56e163782",
 		"geonamesUser": "climbo"

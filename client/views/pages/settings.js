@@ -126,11 +126,11 @@ Template.pageSettings.events({
 		e.preventDefault();
 
 		var input$ = $(e.target),
-			file = e.originalEvent.target.files[0];
+			blob = e.originalEvent.target.files[0];
 		
 		input$.next().text('');
 
-		if(!Climbo.util.valid.image(file))
+		if(!Climbo.util.valid.image(blob))
 			input$.next().text(
 				i18n('errors.imageNotValid') +
 				Climbo.util.human.filesize(Meteor.settings.public.maxImageSize)
@@ -138,7 +138,7 @@ Template.pageSettings.events({
 		else
 		{
 			input$.parent().addClass('loading-default');
-			Climbo.profile.uploadAvatar(file, function(err, ret) {
+			Climbo.profile.uploadAvatar(blob, function(err, ret) {
 				input$.parent().removeClass('loading-default');
 			});
 		}

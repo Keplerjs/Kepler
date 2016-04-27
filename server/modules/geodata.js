@@ -3,6 +3,11 @@
 
 	http://www.geonames.org/export/web-services.html
 */
+var urls = {
+		aspect: "http://localhost/maps/dem/aspect.php",
+		elevation: "http://localhost/maps/dem/elevation.php"
+	};
+
 Climbo.geodata = (function() {
 
 	var geonamesUser = Meteor.settings.accounts.geonamesUser,
@@ -14,7 +19,7 @@ Climbo.geodata = (function() {
 	{
 		var res, ret, src = {
 				par: 'aspect',
-				url: Meteor.settings.urls.aspect+'?lat='+ll[0]+'&lng='+ll[1]
+				url: urls.aspect+'?lat='+ll[0]+'&lng='+ll[1]
 			};
 
 		try {
@@ -37,7 +42,7 @@ Climbo.geodata = (function() {
 	{
 		var res, ret, src = {
 				par: 'ele',
-				url: Meteor.settings.urls.elevation+'?lat='+ll[0]+'&lng='+ll[1]
+				url: urls.elevation+'?lat='+ll[0]+'&lng='+ll[1]
 			};
 
 		try {
