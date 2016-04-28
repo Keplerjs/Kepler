@@ -7,14 +7,16 @@
 var layers = {},
 	controls = {};
 
-layers.baseLayer = new L.TileLayer('');
+layers.baselayer = new L.TileLayer(' ');
+
+layers.users = new L.LayerGroup();
 
 layers.cluster = new L.MarkerClusterGroup({
 	iconCreateFunction: function(cluster) {
 		var $icon = L.DomUtil.create('div');
 		cluster.checkinsCount = function() {
 			return getCheckinsCountByPlaces(_.map(cluster.getAllChildMarkers(), function(marker) {
-				return marker.place.id;
+				return marker.owner.id;
 			}) );
 		};
 		Blaze.renderWithData(Template.marker_cluster, cluster, $icon);
@@ -192,7 +194,7 @@ Climbo.map = {
 		bbox: new Tracker.Dependency()
 	},
 
-	initMap: function(opts, callbackMap) {		//render map and add controls/layers
+	initMap: function(opts, cb) {		//render map and add controls/layers
 
 		var self = this;
 
@@ -210,7 +212,7 @@ Climbo.map = {
 		self.setOpts(opts);
 
 		_.invoke([
-			layers.baseLayer,		
+			layers.baselayer,		
 			//controls.attrib,
 			controls.zoom,
 			//controls.search,
@@ -219,15 +221,16 @@ Climbo.map = {
 			layers.cluster		
 		],'addTo', self.leafletMap);
 
-
 		//Fix solo per Safari evento resize! quando passa a schermo intero
 		$(window).on('orientationchange resize', function(e) {
 			$(window).scrollTop(0);
 			self.leafletMap.invalidateSize(false);
 		});
 
-		if($.isFunction(callbackMap))
-			callbackMap(self.leafletMap);
+		if($.isFunction(cb))
+			cb.call(self);
+
+		return this;
 	},
 
 	setOpts: function(opts) {
@@ -235,11 +238,12 @@ Climbo.map = {
 
 		if(!self.initialized) return null;
 		
-		opts = _.extend(Meteor.settings.public.map, opts);
+		opts = _.defaults(opts, Meteor.settings.public.map);
 
 		self.leafletMap.setView(opts.center, opts.zoom);
 		console.log('setOpts', opts)
-		self.layers.baseLayer.setUrl( Meteor.settings.public.layers[opts.layer] );
+		self.layers.baselayer.setUrl( Meteor.settings.public.layers[opts.layer] );
+		return this;
 	},
 
 	destroyMap: function() {
@@ -248,6 +252,7 @@ Climbo.map = {
 			this.leafletMap.remove();
 			this.layers.places.clearLayers();
 		}
+		return this;
 	},
 	
 	getBBox: function() {
@@ -273,19 +278,40 @@ Climbo.map = {
 
 		if(Meteor.settings.public.showPlaces)
 			this.leafletMap.addLayer(layers.places);
+		return this;
 	},
 	disableBBox: function() {
 		this.leafletMap.removeLayer(layers.places);
+		return this;
 	},
 
-	loadLoc: function(loc) {
+	loadLoc: function(loc, cb) {
 		if(!this.initialized) return null;
 
 		if(loc && Climbo.util.valid.loc(loc))
 			this.leafletMap.setView(loc, Meteor.settings.public.loadLocZoom);
+
+		return this;
 	},
 
-	loadGeojson: function(geoData) {
+	loadMarker: function(item, cb) {
+		if(!this.initialized) return null;
+		
+		if(item.type==='place')
+			item.marker.addTo(this.layers.places);
+
+		else if(item.type==='user')
+			item.marker.addTo(this.layers.users);
+
+		if(_.isFunction(cb))
+			this.leafletMap.once("moveend zoomend", cb);
+		
+		this.loadLoc(item.data.loc);
+		
+		return this;
+	},
+
+	loadGeojson: function(geoData, cb) {
 
 		if(!this.initialized) return null;
 
@@ -301,5 +327,7 @@ Climbo.map = {
 		var bb = layers.geojson.getBounds();
 
 		this.leafletMap.setView(bb.getCenter(), this.leafletMap.getBoundsZoom(bb) - 1);
+
+		return this;
 	}
 };

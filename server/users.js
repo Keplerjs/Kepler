@@ -15,6 +15,8 @@ getFriendsByIds = function(usersIds) {
 
 	usersIds = _.isArray(usersIds) ? {$in: usersIds} : usersIds;
 
+//TODO show friend location only if me is online
+
 	return Meteor.users.find({_id: usersIds }, { fields: Climbo.perms.friendItem });
 };
 
