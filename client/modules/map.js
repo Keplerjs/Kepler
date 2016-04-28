@@ -137,7 +137,6 @@ controls.gps = L.control.gps({
 
 controls.search = L.control.search({
 	position: 'topright',
-	zoom: Meteor.settings.public.loadLocZoom,	
 	autoType: false, tipAutoSubmit: false, delayType: 800,
 	minLength: Meteor.settings.public.searchMinLen,	
 	autoCollapse: false, autoCollapseTime: 6000,
@@ -213,9 +212,9 @@ Climbo.map = {
 
 		_.invoke([
 			layers.baselayer,		
-			//controls.attrib,
+			controls.attrib,
 			controls.zoom,
-			//controls.search,
+			controls.search,
 			controls.gps,
 			layers.geojson,
 			layers.cluster		
