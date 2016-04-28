@@ -109,7 +109,7 @@ Climbo.profile = {
 	setOnline: function(online) {
 		online = online ? 1 : 0;
 		if(online !== Climbo.profile.data.online)
-			Meteor.users.update(Meteor.userId(), {
+			Users.update(Meteor.userId(), {
 				$set: {
 					online: parseFloat(online),
 					mob: parseFloat(Meteor.Device.isPhone() ? 1:0)

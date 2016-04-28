@@ -67,7 +67,7 @@ Template.pageSettings.events({
 		}
 		else {
 			feed$.hide();
-			Meteor.users.update(Meteor.userId(), { $set: {'name': val } });
+			Users.update(Meteor.userId(), { $set: {'name': val } });
 		}
 	}, Meteor.settings.public.typeDelay),
 
@@ -81,7 +81,7 @@ Template.pageSettings.events({
 		else {
 			feed$.hide();
 			//TODO
-			// Meteor.users.update(Meteor.userId(), {
+			// Users.update(Meteor.userId(), {
 			// 	$set: {
 			// 		emails: [{
 			// 			address: val,
@@ -94,7 +94,7 @@ Template.pageSettings.events({
 
 	'keyup #city': _.debounce(function(e) {
 		var val = $(e.currentTarget).val();
-		Meteor.users.update(Meteor.userId(), { $set: {'city': val } });
+		Users.update(Meteor.userId(), { $set: {'city': val } });
 	}, Meteor.settings.public.typeDelay),
 
 	'change #likeplaces input': function(e) {
@@ -102,28 +102,28 @@ Template.pageSettings.events({
 			liked = $(e.currentTarget).is(':checked');
 
 		if(!liked)
-			Meteor.users.update(Meteor.userId(), { $pull: {'likeplaces': val } });
+			Users.update(Meteor.userId(), { $pull: {'likeplaces': val } });
 		else
-			Meteor.users.update(Meteor.userId(), { $addToSet: {'likeplaces': val } });
+			Users.update(Meteor.userId(), { $addToSet: {'likeplaces': val } });
 	},
 
 	'change #maplayer input': _.debounce(function(e) {
 		e.preventDefault();
 		var val = $(e.currentTarget).val();
-		Meteor.users.update(Meteor.userId(), { $set: {'settings.layer': val } });
+		Users.update(Meteor.userId(), { $set: {'settings.layer': val } });
 	}, Meteor.settings.public.typeDelay),
 
 	'change #gender input': _.debounce(function(e) {
 		e.preventDefault();
 		var val = $(e.currentTarget).val();
-		Meteor.users.update(Meteor.userId(), { $set: {'gender': val } });
+		Users.update(Meteor.userId(), { $set: {'gender': val } });
 
 	}, Meteor.settings.public.typeDelay),
 
 	'change #lang': function(e) {
 		e.preventDefault();
 		var val = $(e.currentTarget).val();
-		Meteor.users.update(Meteor.userId(), { $set: {'lang': val} });
+		Users.update(Meteor.userId(), { $set: {'lang': val} });
 	},
 
 	'change #fileavatar': function(e) {

@@ -1,15 +1,15 @@
 
 getCurrentUser = function(userId) {
-	return Meteor.users.find(userId, { fields: Climbo.perms.currentUser });
+	return Users.find(userId, { fields: Climbo.perms.currentUser });
 };
 
 confirmFriends = function(userId, addUserId) {
 	//remove from pending
-	Meteor.users.update(userId, {$pull: {usersReceive: addUserId} });
-	Meteor.users.update(userId, {$addToSet: {friends: addUserId} });
+	Users.update(userId, {$pull: {usersReceive: addUserId} });
+	Users.update(userId, {$addToSet: {friends: addUserId} });
 	//add to friends list
-	Meteor.users.update(addUserId, {$pull: {usersPending: userId} });
-	Meteor.users.update(addUserId, {$addToSet: {friends: userId} });
+	Users.update(addUserId, {$pull: {usersPending: userId} });
+	Users.update(addUserId, {$addToSet: {friends: userId} });
 
 	console.log('confirmFriends Added', userId, addUserId);
 }
@@ -43,7 +43,7 @@ Meteor.methods({
 				else		//automatic check-out
 					Meteor.call('removeCheckin', userData.checkin);
 				
-				Meteor.users.update(this.userId, {
+				Users.update(this.userId, {
 					$set: {
 						loc: loc,
 						loclast: loc,
@@ -53,17 +53,17 @@ Meteor.methods({
 				console.log('setUserLoc'+Climbo.util.timeUnix(), _.pick(userData,'loc','loclast','checkin'), loc);
 			}
 			else
-				Meteor.users.update(this.userId, {$set: {loc: userData.loclast}});
+				Users.update(this.userId, {$set: {loc: userData.loclast}});
 		}
 		else
-			Meteor.users.update(this.userId, {$set: {loc: null}});
+			Users.update(this.userId, {$set: {loc: null}});
 	},
 	friendAdd: function(pendUserId) {
 		
 		if(!this.userId || this.userId===pendUserId) return null;
 
-		Meteor.users.update(this.userId, {$addToSet: {usersPending: pendUserId} });
-		Meteor.users.update(pendUserId, {$addToSet: {usersReceive: this.userId} });
+		Users.update(this.userId, {$addToSet: {usersPending: pendUserId} });
+		Users.update(pendUserId, {$addToSet: {usersReceive: this.userId} });
 
 		console.log('friendAdd Pending', this.userId, pendUserId);
 	},
@@ -79,8 +79,8 @@ Meteor.methods({
 
 		if(!this.userId) return null;
 
-		Meteor.users.update(this.userId, {$pull: {friends: delUserId} });
-		Meteor.users.update(delUserId, {$pull: {friends: this.userId} });
+		Users.update(this.userId, {$pull: {friends: delUserId} });
+		Users.update(delUserId, {$pull: {friends: this.userId} });
 		
 		console.log('friendDel', this.userId, delUserId);
 	},
@@ -106,7 +106,7 @@ Meteor.methods({
 				// 	hist: { $each: [this.userId], $slice: Meteor.settings.public.maxHist }
 				// }
 			});
-		Meteor.users.update(this.userId, {
+		Users.update(this.userId, {
 				$set: {
 					checkin: placeId,
 					//loc: null,
@@ -133,7 +133,7 @@ Meteor.methods({
 					checkins: this.userId
 				}
 			});
-		Meteor.users.update(this.userId, {
+		Users.update(this.userId, {
 				$set: {
 					checkin: null
 				}
@@ -146,7 +146,7 @@ Meteor.methods({
 		if(!this.userId) return null;
 
 		Places.update({_id: new Meteor.Collection.ObjectID(placeId)}, {$inc: {rank: 1} });
-		Meteor.users.update(this.userId, {$addToSet: {favorites: placeId} });
+		Users.update(this.userId, {$addToSet: {favorites: placeId} });
 		
 		console.log('addFavorite', this.userId, placeId);
 	},
@@ -155,7 +155,7 @@ Meteor.methods({
 		if(!this.userId) return null;
 
 		Places.update({_id: new Meteor.Collection.ObjectID(placeId), rank: {$gt: 0} }, {$inc: {rank: -1} });
-		Meteor.users.update(this.userId, {$pull: {favorites: placeId} });
+		Users.update(this.userId, {$pull: {favorites: placeId} });
 		
 		console.log('removeFavorite', this.userId, placeId);
 	},
@@ -193,7 +193,7 @@ Meteor.methods({
 		}
 		console.log('uploadAvatar: resized', filePath + fileMin);
 
-		Meteor.users.update(this.userId, { $set: {avatar: fileUrl + fileMin } });
+		Users.update(this.userId, { $set: {avatar: fileUrl + fileMin } });
 		console.log('uploadAvatar: url ', fileUrl + fileMin );
 
 		return false;

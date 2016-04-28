@@ -23,10 +23,10 @@ Meteor.methods({
 		
 		if(!isAdmin()) return null;
 
-		var userData = Meteor.users.findOne({username: username}),
+		var userData = Users.findOne({username: username}),
 			userId = userData._id;
 
-		Meteor.users.update({_id: {$in: userData.friends }}, {
+		Users.update({_id: {$in: userData.friends }}, {
 			$pull: {
 				friends: userId
 			}
@@ -36,7 +36,7 @@ Meteor.methods({
 				hist: userId
 			}
 		});
-		Meteor.users.remove(userId);
+		Users.remove(userId);
 
 		console.log('adminDeleteUser', username);
 	},
@@ -44,8 +44,8 @@ Meteor.methods({
 		
 		if(!isAdmin()) return null;
 
-		var user1 = Meteor.users.findOne({username: username1 }),
-			user2 = Meteor.users.findOne({username: username2 })
+		var user1 = Users.findOne({username: username1 }),
+			user2 = Users.findOne({username: username2 })
 			
 		confirmFriends(user1._id, user2._id);
 			
@@ -55,15 +55,15 @@ Meteor.methods({
 		
 		if(!isAdmin()) return null;
 
-		var userData = Meteor.users.findOne({username: username}),
+		var userData = Users.findOne({username: username}),
 			userId = userData._id;
 
-		Meteor.users.update({_id: {$in: userData.friends }}, {
+		Users.update({_id: {$in: userData.friends }}, {
 			$pull: {
 				friends: userId
 			}
 		});
-		Meteor.users.update({username: username}, {
+		Users.update({username: username}, {
 			$set: {
 				friends: [],
 				usersBlocked: [],			
@@ -78,10 +78,10 @@ Meteor.methods({
 		
 		if(!isAdmin()) return null;
 
-		Meteor.users.find({_id: {$ne: this.userId }}).forEach(function(user) {
+		Users.find({_id: {$ne: this.userId }}).forEach(function(user) {
 			Meteor.call('adminDeleteUser', user.username);
 		});
-		Meteor.users.update(this.userId, {
+		Users.update(this.userId, {
 			$set: {
 				friends: [],
 				usersBlocked: [],

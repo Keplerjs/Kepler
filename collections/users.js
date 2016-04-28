@@ -1,5 +1,7 @@
 
-Meteor.users.allow({
+Users = Meteor.users;
+
+Users.allow({
 	update: function (userId, doc, fieldNames, modifier) {
 		return userId && doc._id === userId;
 	}
@@ -12,7 +14,7 @@ getUsersByName = function(initial) {
 		return null;
 
 	var reg = new RegExp('^'+ initial, 'i'),
-		curUser = Meteor.users.find({
+		curUser = Users.find({
 			//$or: [{	//in futuro cerca per username
 				name: reg
 				//},{username: reg}

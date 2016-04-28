@@ -21,7 +21,7 @@ newConver = function(title, placeId, usersIds) {
 	if(placeId)
 		Places.update({_id: new Meteor.Collection.ObjectID(placeId) }, { $addToSet: {convers: convId} });
 
-	Meteor.users.update(Meteor.userId(), {$addToSet: {convers: convId} });
+	Users.update(Meteor.userId(), {$addToSet: {convers: convId} });
 	//la inserisce solo nei miei messaggi, finche non aggiungo un mesaggio
 
 	console.log('newConver', Meteor.user().username, title);
@@ -54,7 +54,7 @@ delConver = function(convId) {
 		Messages.remove({convId: convId});
 		//TODO rimuove solo proprietario senza far sparire la conver
 		//TODO rimuovere del tutto quando usersIds è vuoto
-		Meteor.users.update({_id: {$in: convData.usersIds}}, { $pull: {convers: convId} }, {multi: true});
+		Users.update({_id: {$in: convData.usersIds}}, { $pull: {convers: convId} }, {multi: true});
 		//nascondi agli altri utenti
 
 		if(convData.placeId)
@@ -68,7 +68,7 @@ delConver = function(convId) {
 			body: _.template(i18n('ui.alerts.userleaveconv'), Meteor.user())
 		};
 		Messages.insert(leaveMsg);
-		Meteor.users.update({_id: Meteor.userId() }, {
+		Users.update({_id: Meteor.userId() }, {
 			$pull: {
 				convers: convId
 			}

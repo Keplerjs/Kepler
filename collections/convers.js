@@ -24,7 +24,7 @@ Convers.allow({
 		
 		//se è una conver privata aggiorna destinatari
 		if(!doc.placeId)
-			Meteor.users.update({_id: {$in: doc.usersIds}}, {
+			Users.update({_id: {$in: doc.usersIds}}, {
 				$addToSet: {convers: doc._id}
 			}, {multi: true});
 		//TODO FIXME ottimizzare... non eseguire sempre ad ogni messaggio

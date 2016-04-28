@@ -25,7 +25,7 @@ Climbo.User = Climbo.Class.extend({
 
 		self.update = function(comp) {	//sincronizza istanza con dati nel db
 			
-			self.data = Meteor.users.findOne(self.id);
+			self.data = Users.findOne(self.id);
 
 			//_.extend(self, self.data);
 			_.extend(self, self.data, self.cache);
