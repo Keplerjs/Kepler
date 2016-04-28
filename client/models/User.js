@@ -51,7 +51,7 @@ Climbo.User = Climbo.Class.extend({
 	//PUBLIC METHODS:
 	loadLoc: function() {
 		var self = this;
-		Climbo.map.loadMarker(self, function() {
+		Climbo.map.loadItem(self, function() {
 			self.icon.animate();
 		});
 	},
@@ -64,7 +64,7 @@ Climbo.User = Climbo.Class.extend({
 		{
 			self.icon = new L.NodeIcon({className: 'marker-'+(self.isMe()?'profile':'friend') });
 			self.marker = new L.Marker(self.loc, {icon: self.icon});
-			self.marker.owner = self;
+			self.marker.item = self;
 			self.marker.on('click mousedown', function(e) {
 				if(!this._popup) {
 					self.popup$ = L.DomUtil.create('div','popup-user');

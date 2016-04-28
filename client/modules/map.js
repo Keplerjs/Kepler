@@ -5,7 +5,21 @@
 	
 */
 var layers = {},
-	controls = {};
+	controls = {},
+	styles = {
+		def: {		//default geojson style
+			color: '#b6f', weight: 5, opacity:0.7
+		},
+		access: {	//tracks
+			color: '#66f', weight: 8, opacity: 0.7
+		},
+		place: {	//circle around place
+			color: '#f33', weight: 4, opacity: 0.7, radius: 15,
+		},	
+		poiline: {	//line from place to pois
+			color: '#f33', weight: 4, opacity: 0.7, dashArray: '1,6'
+		}
+	};
 
 layers.baselayer = new L.TileLayer(' ');
 
@@ -15,9 +29,10 @@ layers.cluster = new L.MarkerClusterGroup({
 	iconCreateFunction: function(cluster) {
 		var $icon = L.DomUtil.create('div');
 		cluster.checkinsCount = function() {
-			return getCheckinsCountByPlaces(_.map(cluster.getAllChildMarkers(), function(marker) {
-				return marker.owner.id;
-			}) );
+			var places = _.map(cluster.getAllChildMarkers(), function(marker) {
+				return marker.item.id;
+			});
+			return getCheckinsCountByPlaces(places);
 		};
 		Blaze.renderWithData(Template.marker_cluster, cluster, $icon);
 		return new L.NodeIcon({
@@ -32,24 +47,12 @@ layers.cluster = new L.MarkerClusterGroup({
 
 layers.geojson = new L.GeoJSONAutoClear(null, {
 	style: function (feature) {
-		if(feature.properties.tipo=='place')		//cerchio place relativa ai pois
-			return {color: '#f33', weight: 5, opacity:0.7};
-		
-		else if(feature.properties.tipo=='poiline')	//linea place relativa ai pois
-			return {color: '#f33', weight: 4, opacity:0.7, dashArray: '1,6'};		
-
-		else if(feature.properties.tipo=='access')	//tracciato avvicinamento
-			return {color: '#66f', weight: 8, opacity:0.7};
-
-		else
-			return {color: '#b6f', weight: 5, opacity:0.7};
+		return styles[feature.properties.tipo || 'def'] || styles.def;
 	},
 	pointToLayer: function(feature, latlng) {	//costruisce marker POI
 		
-		//TODO tracciare linea dritta da place ad ogni POI
-
 		if(feature.properties.tipo==='place')	//evidenzia place nei pois
-			return new L.CircleMarker(latlng, {radius:20});
+			return new L.CircleMarker(latlng);
 		else
 		{
 			var iconPoi = L.DomUtil.create('div');
@@ -137,6 +140,7 @@ controls.gps = L.control.gps({
 
 controls.search = L.control.search({
 	position: 'topright',
+	zoom: Meteor.settings.public.loadLocZoom,	
 	autoType: false, tipAutoSubmit: false, delayType: 800,
 	minLength: Meteor.settings.public.searchMinLen,	
 	autoCollapse: false, autoCollapseTime: 6000,
@@ -212,9 +216,9 @@ Climbo.map = {
 
 		_.invoke([
 			layers.baselayer,		
-			controls.attrib,
+			//controls.attrib,
 			controls.zoom,
-			controls.search,
+			//controls.search,
 			controls.gps,
 			layers.geojson,
 			layers.cluster		
@@ -293,7 +297,7 @@ Climbo.map = {
 		return this;
 	},
 
-	loadMarker: function(item, cb) {
+	loadItem: function(item, cb) {
 		if(!this.initialized) return null;
 		
 		if(item.type==='place')
@@ -324,7 +328,10 @@ Climbo.map = {
 		}
 	
 		var bb = layers.geojson.getBounds();
-
+		
+		if(_.isFunction(cb))
+			this.leafletMap.once("moveend zoomend", cb);
+		
 		this.leafletMap.setView(bb.getCenter(), this.leafletMap.getBoundsZoom(bb) - 1);
 
 		return this;

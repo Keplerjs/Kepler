@@ -37,7 +37,7 @@ Climbo.Place = Climbo.Class.extend({
 			className: (self.name ? 'marker-'+self.type : 'marker-gray'),
 		});
 		self.marker = new L.Marker(self.loc, {icon: self.icon});
-		self.marker.owner = self;
+		self.marker.item = self;
 		self.marker.on('add', function() {
 				Blaze.renderWithData(Template.marker_checkins, self, self.icon.nodeHtml);
 			})
@@ -54,7 +54,7 @@ Climbo.Place = Climbo.Class.extend({
 	//PUBLIC METHODS:
 	loadLoc: function() {
 		var self = this;
-		Climbo.map.loadMarker(self, function() {
+		Climbo.map.loadItem(self, function() {
 			self.icon.animate();
 		});
 	},
