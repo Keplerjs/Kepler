@@ -42,7 +42,7 @@ Template.pageSettings.helpers({
 	},	
 	layers: function() {
 		if(Meteor.user()) {		
-			var layer = Meteor.user().settings.layer || Meteor.settings.public.layerDef;
+			var layer = Meteor.user().settings.layer || Meteor.settings.public.map.layer;
 			return _.map(Meteor.settings.public.layers, function(val, k) {
 				return {
 					key: k,
@@ -60,12 +60,14 @@ Template.pageSettings.helpers({
 Template.pageSettings.events({
 
 	'keyup #name': _.debounce(function(e) {
-		var feed$ = $(e.target).next('.form-control-feedback');
-		if(!Climbo.util.valid.nameUser(e.target.value))
+		var feed$ = $(e.target).next('.form-control-feedback'),
+			val = $(e.currentTarget).val();
+		if(!Climbo.util.valid.nameUser(e.target.value)) {
 			feed$.show();
+		}
 		else {
 			feed$.hide();
-			Meteor.users.update(Meteor.userId(), { $set: {'name': e.target.value } });
+			Users.update(Meteor.userId(), { $set: {'name': val } });
 		}
 	}, Meteor.settings.public.typeDelay),
 
@@ -79,7 +81,7 @@ Template.pageSettings.events({
 		else {
 			feed$.hide();
 			//TODO
-			// Meteor.users.update(Meteor.userId(), {
+			// Users.update(Meteor.userId(), {
 			// 	$set: {
 			// 		emails: [{
 			// 			address: val,
@@ -91,7 +93,8 @@ Template.pageSettings.events({
 	}, Meteor.settings.public.typeDelay),*/
 
 	'keyup #city': _.debounce(function(e) {
-		Meteor.users.update(Meteor.userId(), { $set: {'city': $(e.currentTarget).val() } });
+		var val = $(e.currentTarget).val();
+		Users.update(Meteor.userId(), { $set: {'city': val } });
 	}, Meteor.settings.public.typeDelay),
 
 	'change #likeplaces input': function(e) {
@@ -99,48 +102,43 @@ Template.pageSettings.events({
 			liked = $(e.currentTarget).is(':checked');
 
 		if(!liked)
-			Meteor.users.update(Meteor.userId(), { $pull: {'likeplaces': val } });
+			Users.update(Meteor.userId(), { $pull: {'likeplaces': val } });
 		else
-			Meteor.users.update(Meteor.userId(), { $addToSet: {'likeplaces': val } });
+			Users.update(Meteor.userId(), { $addToSet: {'likeplaces': val } });
 	},
 
 	'change #maplayer input': _.debounce(function(e) {
 		e.preventDefault();
-		console.log($(e.currentTarget).val())
-		Meteor.users.update(Meteor.userId(), { $set: {'settings.layer': $(e.currentTarget).val() } });
+		var val = $(e.currentTarget).val();
+		Users.update(Meteor.userId(), { $set: {'settings.layer': val } });
 	}, Meteor.settings.public.typeDelay),
 
 	'change #gender input': _.debounce(function(e) {
 		e.preventDefault();
-		Meteor.users.update(Meteor.userId(), { $set: {'gender': $(e.currentTarget).val() } });
+		var val = $(e.currentTarget).val();
+		Users.update(Meteor.userId(), { $set: {'gender': val } });
 
 	}, Meteor.settings.public.typeDelay),
 
 	'change #lang': function(e) {
 		e.preventDefault();
-		var lang = $(e.currentTarget).val();
-		Meteor.users.update(Meteor.userId(), { $set: {'lang': lang} });
+		var val = $(e.currentTarget).val();
+		Users.update(Meteor.userId(), { $set: {'lang': val} });
 	},
 
 	'change #fileavatar': function(e) {
 		e.preventDefault();
 
 		var input$ = $(e.target),
-			blob = e.originalEvent.target.files[0];
-		
-		input$.next().text('');
+			fileObj = e.originalEvent.target.files[0];
 
-		if(!Climbo.util.valid.image(blob))
-			input$.next().text(
-				i18n('errors.imageNotValid') +
-				Climbo.util.human.filesize(Meteor.settings.public.maxImageSize)
-			);
-		else
-		{
-			input$.parent().addClass('loading-default');
-			Climbo.profile.uploadAvatar(blob, function(err, ret) {
-				input$.parent().removeClass('loading-default');
-			});
-		}
+		input$.parent().addClass('loading-default');
+		
+		Climbo.profile.uploadAvatar(fileObj, function(err) {
+			
+			input$.parent().removeClass('loading-default');
+
+			input$.next().text( err ? err.message : '' )
+		});
 	}
 });

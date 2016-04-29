@@ -25,7 +25,7 @@ Climbo.User = Climbo.Class.extend({
 
 		self.update = function(comp) {	//sincronizza istanza con dati nel db
 			
-			self.data = Meteor.users.findOne(self.id);
+			self.data = Users.findOne(self.id);
 
 			//_.extend(self, self.data);
 			_.extend(self, self.data, self.cache);
@@ -48,12 +48,14 @@ Climbo.User = Climbo.Class.extend({
 		Tracker.autorun( self.update );	//TODO aggiornare solo se amico
 	},
 
+	//PUBLIC METHODS:
 	loadLoc: function() {
-		if(this.loc) {
-			Climbo.map.loadLoc(this.loc);
-			if(this.icon)
-				this.icon.animate();
-		}
+		var self = this;
+		Climbo.map
+			.loadItem(self)
+			.loadLoc(self.loc, function() {
+				self.icon.animate();
+			});
 	},
 
 	showMarker: function() {
@@ -63,8 +65,9 @@ Climbo.User = Climbo.Class.extend({
 		if(!self.marker)
 		{
 			self.icon = new L.NodeIcon({className: 'marker-'+(self.isMe()?'profile':'friend') });
-			self.marker = new L.Marker(self.loc, {icon: self.icon})
-			.on('click', function(e) {
+			self.marker = new L.Marker(self.loc, {icon: self.icon});
+			self.marker.item = self;
+			self.marker.on('click mousedown', function(e) {
 				if(!this._popup) {
 					self.popup$ = L.DomUtil.create('div','popup-user');
 					Blaze.renderWithData(Template.item_user, self, self.popup$);
@@ -72,15 +75,15 @@ Climbo.User = Climbo.Class.extend({
 				}
 			});
 		}
+
 		self.marker.setLatLng(self.loc);
 		
-		if(Climbo.map.leafletMap)
-			self.marker.addTo(Climbo.map.leafletMap);
+		Climbo.map.loadItem(self);
 	},
 
 	hideMarker: function() {
-		if(this.marker)
-			Climbo.map.leafletMap.removeLayer(this.marker);
+		if(this.marker && this.marker._map)
+			this.marker._map.removeLayer(this.marker);
 	},
 
 	isFriend: function() {
@@ -99,18 +102,21 @@ Climbo.User = Climbo.Class.extend({
 
 	isOnline: function() {
 		this._dep.depend();
+//TODO aggiuni this.isMe()
 		if(Climbo.profile.getOnline() && this.isFriend())
 			return this.online;
 	},
 
 	getLoc: function() {
 		this._dep.depend();
+//TODO aggiuni this.isMe()		
 		if(Climbo.profile.getOnline() && this.isFriend() && this.online)
 			return this.loc;
 	},
 
 	checkinPlace: function() {
 		this._dep.depend();
+//TODO aggiuni this.isMe()		
 		if(Climbo.profile.getOnline() && this.isFriend() && this.online)
 			return this.checkin ? Climbo.newPlace(this.checkin).rData() : null;
 	}
@@ -122,5 +128,10 @@ Climbo.newUser = function(id)
 	if(!id) return null;
 	if(!Climbo.usersById[id])
 		Climbo.usersById[id] = new Climbo.User(id);
+
+	//for debugging
+	var iname = Climbo.util.sanitizeFilename(Climbo.usersById[id].username);
+	Climbo.usersByName[iname || id] = Climbo.usersById[id];
+
 	return Climbo.usersById[id];
 };

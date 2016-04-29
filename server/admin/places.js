@@ -11,7 +11,7 @@ Meteor.methods({
 		var placeData = Places.findOne({name: placeName}),
 			placeId = placeData._id;
 
-		Meteor.users.update({_id: {$in: placeData.hist }}, {$pull: {hist: placeId} });
+		Users.update({_id: {$in: placeData.hist }}, {$pull: {hist: placeId} });
 		Places.update(placeId, {
 			$set: {
 				hist: []
@@ -19,5 +19,21 @@ Meteor.methods({
 		});
 
 		console.log('adminCleanPlaceHist', placeName);
-	}
+	},
+	adminCleanPlaceCheckins: function(placeName) {
+		
+		if(!isAdmin()) return null;
+
+		var placeData = Places.findOne({name: placeName}),
+			placeId = placeData._id;
+
+		Users.update({_id: {$in: placeData.checkins }}, {$set: {checkin: null} });
+		Places.update(placeId, {
+			$set: {
+				checkins: []
+			}
+		});
+
+		console.log('adminCleanPlaceHist', placeName);
+	}	
 });

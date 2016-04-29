@@ -1,9 +1,20 @@
 {
 	"debug": true,
 	"adminUsers": ["stef"],
+	"dirs": {
+		"uploads": "/var/www/climbo/static.climbo.net/uploads/",
+		"avatars": "/var/www/climbo/static.climbo.net/avatars/"
+	},
 	"public": {
-		"siteName": "Climbo.net",
-		"siteEmail": "info@climbo.net",
+		"urls": {
+			"avatars": "/static/avatars/"
+		},
+		"website": {
+			"title": "Climbo.net",			
+			"domain": "climbo.net",			
+			"desc": "The Climbers Community",
+			"email": "info@climbo.net"
+		},
 		"showPlaces": true,
 		"editPlaces": false,
 		"accountCreation": true,
@@ -21,26 +32,31 @@
 		"checkinMaxDist": 500,
 		"bboxMinShift": 200,
 		"gpsMinShift": 40,
-		"maxImageSize": 2800000,
-		"loadLocZoom": 15,
-		"map": {
-			"zoom": 10,
-			"minZoom": 10,
-			"maxZoom": 19,
-			"center": [42.419851, 12.701923],
-			"maxBounds": [[36.282794, 5.361328], [47.542735, 21.071777]]
+		"maxImageSize": 800000,
+		"avatarSize": {
+			"width": 140,
+			"height": 140,
+			"quality": 0.8
 		},
-		"layerDef": "road",
+		"loadLocZoom": 15,
 		"layers": {
 			"road": "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
 			"cycle": "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
 			"landscape": "http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png",			
 			"transport": "http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png"
+		},		
+		"map": {
+			"layer": "road",
+			"zoom": 10,
+			"minZoom": 10,
+			"maxZoom": 19,			
+			"center": [42.419851, 12.701923],
+			"maxBounds": [[36.282794, 5.361328], [47.542735, 21.071777]]
 		},
 		"langDef": "it",
-		"langs": {			
+		"langs": {
 			"it": "Italiano",
-			"en": "English",			
+			"en": "English",
 			"fr": "Français",
 			"de": "Deutsch",
 			"es": "Español"
@@ -51,12 +67,9 @@
 		"deactivePlaces": [
 			"ice","iron","water","trad","dry","bigwall","building","pool","alp","club","market"
 		],
-		"urls": {
-			"avatars": "/avatars/"
-		}
-	},
-	"dirs": {
-		"avatars": "/var/www/climbo/static.climbo.net/avatars/"
+		"rocks": [
+			"sandstone","granite","limestone","basalt","ice","other"
+		]
 	},
 	"accounts": {
 		"facebook": {

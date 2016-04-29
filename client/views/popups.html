@@ -5,10 +5,8 @@
 		<!-- <span class="pull-right"><i class="icon icon-ar-right"></i></span> -->
 	</a>
 	<div class="btn-group">
-		{{#if isOutdoor}}
-			{{#if tracks}}
-			<a class="btn btn-sm btn-default" href="/place/{{id}}/tracks"><i class="icon icon-gpx"></i></a>
-			{{/if}}
+		{{#if tracks}}
+		<a class="btn btn-sm btn-default" href="/place/{{id}}/tracks"><i class="icon icon-gpx"></i></a>
 		{{/if}}
 		{{#if pois}}
 			<a class="btn btn-sm btn-default" href="/place/{{id}}/pois"><i class="icon icon-pois"></i></a>

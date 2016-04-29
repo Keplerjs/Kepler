@@ -4,6 +4,7 @@ i18n.map('it', {
 		titles: {
 			settings: "Impostazioni",
 			favorites: "Luoghi preferiti",
+			histplaces: "Luoghi recenti",
 			friends: "Tuoi Amici",
 			places: "Luoghi nelle vicinanze",
 			convers: "Messaggi",
@@ -31,7 +32,8 @@ i18n.map('it', {
 			stview: "Street View"
 		},
 		btns: {
-			checkin: "Sei qui!",
+			checkin: "Entra qui!",
+			checkout:"Esci da qui",
 			wall: "Bacheca",
 			sectors: "Settori",
 			share: "Invia",
@@ -203,6 +205,6 @@ i18n.map('it', {
 	azimuth_short:
 		"north,nne,ne,ene,east,ese,se,sse,south,ssw,sw,wsw,west,wnw,nw,nnw,north",
 	errors: {
-		imageNotValid: "Immagine non valida, JPG/PNG, max "
+		imageNotValid: "Solo immagini JPG/PNG, max "
 	}	
 });

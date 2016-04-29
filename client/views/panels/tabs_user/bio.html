@@ -17,13 +17,13 @@
 			</div>
 			
 			
-			<label>{{i18n 'ui.labels.signupdate'}}</label> <time>{{humanTimeUTC createdAt 1}}</time>
+			<label>{{i18n 'ui.labels.signupdate'}}</label> <time>{{humanDateUTC createdAt}}</time>
 			<br />
 			{{#if city}}<label>{{i18n 'ui.labels.city'}}</label> <span class="text-capitalize">{{city}}</span><br />{{/if}}
 			{{#if places.length}}
 				<label>{{i18n 'ui.labels.likeplaces'}}</label>
 				{{#each places}}
-					<a class="label label-primary">{{this}}</a> 
+					<small class="">{{this}}</small>, 
 				{{/each}}
 			{{/if}}
 			

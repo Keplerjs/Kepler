@@ -12,21 +12,17 @@ function placeWithPois(pois, loc, tipo) {
 	}
 
 	var gloc = [loc[1], loc[0]],
-		poiPlace = Climbo.util.geo.createFeature('Point', gloc, {tipo:'place'});
+		placeCircle = Climbo.util.geo.createFeature('Point', gloc, {tipo:'placeCircle'});
 		coordLines = _.map(pois, function(poi) {
 			return [gloc, poi.geometry.coordinates];
 		}),
-		poiLines = Climbo.util.geo.createFeature('MultiLineString', coordLines, {tipo:'poiline'}),
-		features = _.union(pois, poiPlace, poiLines);
+		poiLines = Climbo.util.geo.createFeature('MultiLineString', coordLines, {tipo:'poiLine'}),
+		features = _.union(placeCircle, pois, poiLines);
 
 	return Climbo.util.geo.createFeatureColl(features);
 }
 
 Climbo.Place.include({
-	hasPois: function(tipo) {
-		//TODO
-		return true;
-	},
 	loadPois: function(tipo) {
 
 		var pois = getPoisByLoc(this.loc).fetch();

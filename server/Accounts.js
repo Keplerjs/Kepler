@@ -30,7 +30,7 @@ Accounts.onLogin(function(login) {
 		var ip = login.connection.clientAddress!='127.0.0.1' ? login.connection.clientAddress : login.connection.httpHeaders['x-real-ip'],
 			geoip = Climbo.geodata.geoip(ip);
 
-		Meteor.users.update(login.user._id, {$set: {locmap: geoip.loc }});
+		Users.update(login.user._id, {$set: {locmap: geoip.loc }});
 	}
 	console.log('Login:',login.user.username);
 });
@@ -91,15 +91,15 @@ Accounts.onCreateUser(function(options, user) {
 	// }
 	
 	var newuser = _.extend(user, Climbo.schemas.user, {
+		username: username,		
 		name: name,
-		username: username,
 		lang: lang,
 		emails: emails, 
 		avatar: avatar,
 		gender: gender
 	});
 
-	console.log('New Account:', username);
+	console.log('New Account:', newuser);
 
 	return newuser;
 });

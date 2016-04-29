@@ -1,7 +1,7 @@
 /* 
- * Leaflet Control Search v1.8.4 - 2015-09-05 
+ * Leaflet Control Search v1.9.7 - 2016-04-28 
  * 
- * Copyright 2015 Stefano Cudini 
+ * Copyright 2016 Stefano Cudini 
  * stefano.cudini@gmail.com 
  * http://labs.easyblog.it/ 
  * 
@@ -32,38 +32,38 @@ L.Control.Search = L.Control.extend({
 	//  searchText()			'Text searched'        search text by external code
 	//
 	options: {
-		url: '',					//url for search by ajax request, ex: "search.php?q={s}". Can be function that returns string for dynamic parameter setting
-		layer: null,				//layer where search markers(is a L.LayerGroup)				
-		sourceData: null,			//function that fill _recordsCache, passed searching text by first param and callback in second				
-		jsonpParam: null,			//jsonp param name for search by jsonp service, ex: "callback"
-		propertyLoc: 'loc',			//field for remapping location, using array: ['latname','lonname'] for select double fields(ex. ['lat','lon'] ) support dotted format: 'prop.subprop.title'
-		propertyName: 'title',		//property in marker.options(or feature.properties for vector layer) trough filter elements in layer,
-		formatData: null,			//callback for reformat all data from source to indexed data object
-		filterData: null,			//callback for filtering data from text searched, params: textSearch, allRecords
-		buildTip: null,				//function that return row tip html node(or html string), receive text tooltip in first param
-		container: '',				//container id to insert Search Control		
-		minLength: 1,				//minimal text length for autocomplete
-		initial: true,				//search elements only by initial text
-		casesesitive: false,		//search elements in case sensitive text
-		autoType: true,				//complete input with first suggested result and select this filled-in text.
-		delayType: 400,				//delay while typing for show tooltip
-		tooltipLimit: -1,			//limit max results to show in tooltip. -1 for no limit.
-		tipAutoSubmit: true,		//auto map panTo when click on tooltip
-		autoResize: true,			//autoresize on input change
-		collapsed: true,			//collapse search control at startup
-		autoCollapse: false,		//collapse search control after submit(on button or on tips if enabled tipAutoSubmit)
-		autoCollapseTime: 1200,		//delay for autoclosing alert and collapse after blur
-		zoom: null,					//zoom after pan to location found, default: map.getZoom()
-		position: 'topleft',
+		url: '',						//url for search by ajax request, ex: "search.php?q={s}". Can be function that returns string for dynamic parameter setting
+		layer: null,					//layer where search markers(is a L.LayerGroup)				
+		sourceData: null,				//function that fill _recordsCache, passed searching text by first param and callback in second				
+		//TODO implements uniq option 'sourceData' that recognizes source type: url,array,callback or layer				
+		jsonpParam: null,				//jsonp param name for search by jsonp service, ex: "callback"
+		propertyLoc: 'loc',				//field for remapping location, using array: ['latname','lonname'] for select double fields(ex. ['lat','lon'] ) support dotted format: 'prop.subprop.title'
+		propertyName: 'title',			//property in marker.options(or feature.properties for vector layer) trough filter elements in layer,
+		formatData: null,				//callback for reformat all data from source to indexed data object
+		filterData: null,				//callback for filtering data from text searched, params: textSearch, allRecords
+		moveToLocation: null,			//callback run on location found, params: latlng, title, map
+		buildTip: null,					//function that return row tip html node(or html string), receive text tooltip in first param
+		container: '',					//container id to insert Search Control		
+		minLength: 1,					//minimal text length for autocomplete
+		initial: true,					//search elements only by initial text
+		casesensitive: false,			//search elements in case sensitive text
+		autoType: true,					//complete input with first suggested result and select this filled-in text.
+		delayType: 400,					//delay while typing for show tooltip
+		tooltipLimit: -1,				//limit max results to show in tooltip. -1 for no limit.
+		tipAutoSubmit: true,			//auto map panTo when click on tooltip
+		autoResize: true,				//autoresize on input change
+		collapsed: true,				//collapse search control at startup
+		autoCollapse: false,			//collapse search control after submit(on button or on tips if enabled tipAutoSubmit)
+		autoCollapseTime: 1200,			//delay for autoclosing alert and collapse after blur
 		textErr: 'Location not found',	//error message
-		textCancel: 'Cancel',		//title in cancel button		
-		textPlaceholder: 'Search...',//placeholder value			
-		animateLocation: true,		//animate a circle over location found
-		circleLocation: true,		//draw a circle in location found
-		markerLocation: false,		//draw a marker in location found
-		markerIcon: new L.Icon.Default()//custom icon for maker location
-		//TODO add option for persist markerLoc after collapse!
-		//TODO implements uniq option 'sourceData' that recognizes source type: url,array,callback or layer		
+		textCancel: 'Cancel',		    //title in cancel button		
+		textPlaceholder: 'Search...',   //placeholder value			
+		animateLocation: true,		    //animate a circle over location found
+		circleLocation: true,		    //draw a circle in location found
+		markerLocation: false,		    //draw a marker in location found
+		hideMarkerOnCollapse: false,    //remove circle and marker on search control collapsed		
+		markerIcon: new L.Icon.Default(),//custom icon for maker location
+		position: 'topleft'
 		//TODO implement can do research on multiple sources layers and remote		
 		//TODO history: false,		//show latest searches in tooltip		
 	},
@@ -87,6 +87,7 @@ L.Control.Search = L.Control.extend({
 		this._layer = this.options.layer || new L.LayerGroup();
 		this._filterData = this.options.filterData || this._defaultFilterData;
 		this._formatData = this.options.formatData || this._defaultFormatData;
+		this._moveToLocation = this.options.moveToLocation || this._defaultMoveToLocation;
 		this._autoTypeTmp = this.options.autoType;	//useful for disable autoType temporarily in delete/backspace keydown
 		this._countertips = 0;		//number of tips items
 		this._recordsCache = {};	//key,value table! that store locations! format: key,latlng
@@ -223,7 +224,9 @@ L.Control.Search = L.Control.extend({
 			this._input.style.display = 'none';
 			this._cancel.style.display = 'none';			
 			L.DomUtil.removeClass(this._container, 'search-exp');		
-			//this._markerLoc.hide();//maybe unuseful
+			if (this.options.hideMarkerOnCollapse) {
+				this._markerLoc.hide();
+			}
 			this._map.off('dragstart click', this.collapse, this);
 		}
 		this.fire('search_collapsed');
@@ -376,19 +379,22 @@ L.Control.Search = L.Control.extend({
 
 	_defaultFilterData: function(text, records) {
 	
-		var regFilter = new RegExp("^[.]$|[\[\]|()*]",'g'),	//remove . * | ( ) ] [
-			I, regSearch,
-			frecords = {};
+		var I, icase, regSearch, frecords = {};
 
-		text = text.replace(regFilter,'');	  //sanitize text
+		text = text.replace(/[.*+?^${}()|[\]\\]/g, '');  //sanitize remove all special characters
+		if(text==='')
+			return [];
+
 		I = this.options.initial ? '^' : '';  //search only initial text
+		icase = !this.options.casesensitive ? 'i' : undefined;
 
-		regSearch = new RegExp(I + text, !this.options.casesesitive ? 'i' : undefined);
+		regSearch = new RegExp(I + text, icase);
 
 		//TODO use .filter or .map
-		for(var key in records)
+		for(var key in records) {
 			if( regSearch.test(key) )
 				frecords[key]= records[key];
+		}
 		
 		return frecords;
 	},
@@ -501,33 +507,44 @@ L.Control.Search = L.Control.extend({
 
 			if(layer instanceof L.Marker || layer instanceof L.CircleMarker)
 			{
-				if(that._getPath(layer.options,propName))
-				{
-					loc = layer.getLatLng();
-					loc.layer = layer;
-					retRecords[ that._getPath(layer.options,propName) ] = loc;			
+				try {
+					if(that._getPath(layer.options,propName))
+					{
+						loc = layer.getLatLng();
+						loc.layer = layer;
+						retRecords[ that._getPath(layer.options,propName) ] = loc;			
+						
+					}
+					else if(that._getPath(layer.feature.properties,propName)){
+	
+						loc = layer.getLatLng();
+						loc.layer = layer;
+						retRecords[ that._getPath(layer.feature.properties,propName) ] = loc;
+						
+					}
+					else
+						throw new Error("propertyName '"+propName+"' not found in marker");
 					
 				}
-				else if(that._getPath(layer.feature.properties,propName)){
-
-					loc = layer.getLatLng();
-					loc.layer = layer;
-					retRecords[ that._getPath(layer.feature.properties,propName) ] = loc;
-					
+				catch(err){
+					if (console) {}
 				}
-				else
-					throw new Error("propertyName '"+propName+"' not found in marker");
 			}
             else if(layer.hasOwnProperty('feature'))//GeoJSON
 			{
-				if(layer.feature.properties.hasOwnProperty(propName))
-				{
-					loc = layer.getBounds().getCenter();
-					loc.layer = layer;			
-					retRecords[ layer.feature.properties[propName] ] = loc;
+				try {
+					if(layer.feature.properties.hasOwnProperty(propName))
+					{
+						loc = layer.getBounds().getCenter();
+						loc.layer = layer;			
+						retRecords[ layer.feature.properties[propName] ] = loc;
+					}
+					else
+						throw new Error("propertyName '"+propName+"' not found in feature");
 				}
-				else
-					throw new Error("propertyName '"+propName+"' not found in feature");
+				catch(err){
+					if (console) {}
+				}
 			}
 			else if(layer instanceof L.LayerGroup)
             {
@@ -799,27 +816,31 @@ L.Control.Search = L.Control.extend({
 			return false;
 	},
 
-	showLocation: function(latlng, title) {	//set location on map from _recordsCache
-			
-		if(this.options.zoom)
-			this._map.setView(latlng, this.options.zoom);
-		else
-			this._map.panTo(latlng);
+	_defaultMoveToLocation: function(latlng, title, map) {
+		map.panTo(latlng);
+	},
 
-		if(this._markerLoc)
-		{
-			this._markerLoc.setLatLng(latlng);  //show circle/marker in location found
-			this._markerLoc.setTitle(title);
-			this._markerLoc.show();
-			if(this.options.animateLocation)
-				this._markerLoc.animate();
-			//TODO showLocation: start animation after setView or panTo, maybe with map.on('moveend')...	
-		}
-		
-		//FIXME autoCollapse option hide this._markerLoc before that visualized!!
-		if(this.options.autoCollapse)
-			this.collapse();
-		return this;
+	showLocation: function(latlng, title) {	//set location on map from _recordsCache
+		var self = this;
+
+		self._map.once('moveend zoomend', function(e) {
+
+			if(self._markerLoc) {
+				self._markerLoc.setLatLng(latlng);  //show circle/marker in location found
+				self._markerLoc.setTitle(title);
+				self._markerLoc.show();
+				if(self.options.animateLocation)
+					self._markerLoc.animate();
+			}
+			
+		});
+
+		self._moveToLocation(latlng, title, self._map);
+		//FIXME autoCollapse option hide self._markerLoc before that visualized!!
+		if(self.options.autoCollapse)
+			self.collapse();
+
+		return self;
 	}
 });
 
@@ -869,8 +890,7 @@ L.Control.Search.Marker = L.Marker.extend({
 	setTitle: function(title) {
 		title = title || '';
 		this.options.title = title;
-		if(this._icon)
-			this._icon.title = title;
+		this.bindPopup( title );
 		return this;
 	},
 

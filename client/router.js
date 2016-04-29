@@ -8,7 +8,7 @@ Router.configure({
 });
 //Router.setTemplateNameConverter(function (str) { return str; });
 
-Router.onBeforeAction(function(){
+Router.onBeforeAction(function() {
 
 	if(!(Meteor.loggingIn() || Meteor.user()))
 		Router.go('intro');
@@ -19,10 +19,18 @@ Router.onBeforeAction(function(){
 
 Router.waitOn(function() {
 
+//TODO!!!
+//WAIT MAP INTIALIZED!
 	return Meteor.subscribe('currentUser', function() {
 
 		Climbo.profile.initProfile();
+
 	});
+});
+
+
+Router.onAfterAction(function() {
+	document.title = Meteor.settings.public.website.title;// +' - '+ this.route.getName();
 });
 
 Router.map(function() {
@@ -69,15 +77,32 @@ Router.map(function() {
 			return Meteor.subscribe('placesByIds', Climbo.profile.data.favorites);
 		},
 		data: function() {
+			var places = _.map(Climbo.profile.data.favorites, Climbo.newPlace);
 			return {
+				title: i18n('ui.titles.favorites'),
 				className: 'favorites',
 				itemsTemplate: 'item_place_favorite',
-				items: _.map(Climbo.profile.data.favorites, Climbo.newPlace),
-				sortDesc: true,
-				sortBy: 'name'
+				items: _.sortBy(places, 'name')
 			};
 		}
 	});
+	this.route('history', {
+		path: '/history',
+		template: 'panelList',
+		layoutTemplate: 'layoutMap',
+		waitOn: function() {
+			return Meteor.subscribe('placesByIds', Climbo.profile.data.hist);
+		},
+		data: function() {
+			var places = _.map(Climbo.profile.data.hist, Climbo.newPlace);
+			return {
+				title: i18n('ui.titles.histplaces'),
+				className: 'history',
+				itemsTemplate: 'item_place_favorite',
+				items: places.reverse()
+			};
+		}
+	});	
 
 	this.route('notifications', {
 		path: '/notifications',
@@ -108,7 +133,7 @@ Router.map(function() {
 		},
 		data: function() {
 			
-			if(!Climbo.map.leafletMap) return false;
+			if(!Climbo.map.ready) return false;
 
 			var bbox = Climbo.map.getBBox(),
 				places = _.map(getPlacesByBBox(bbox).fetch(), function(place) {
@@ -117,10 +142,11 @@ Router.map(function() {
 						return p.rData();
 				});
 
-			if(bbox)
+			if(bbox) {
 				return {
 					places: _.sortBy(_.compact(places), 'name')
 				};
+			}
 		}
 	});
 
@@ -199,6 +225,10 @@ Router.map(function() {
 		template: 'emptyTmpl',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
+			
+			//FIX
+			//WAIT map initialized!!!
+
 			return Meteor.subscribe('poisByPlace', this.params.placeId);
 		},
 		onBeforeAction: function() {
@@ -212,7 +242,7 @@ Router.map(function() {
 		template: 'emptyTmpl',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
-			return Meteor.subscribe('placesByIds', [this.params.placeId]);
+			return Meteor.subscribe('tracksByPlace', [this.params.placeId]);
 		},
 		onBeforeAction: function() {
 			Climbo.newPlace( this.params.placeId ).loadTracks();

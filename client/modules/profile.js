@@ -1,16 +1,12 @@
-/*
-	Questo è il modulo di gestione dell' utente loggato
-	e di tutti i dati reattivi collegati all'utente: favorites, friends, checkin 
-*/
 
 Climbo.profile = {
 
-	initialized: false,
+	ready: false,
 
 	id: null,
+	user: null,			//my istance of Climbo.User	
 	data: {},
-	user: null,			//my istance of Climbo.User
-	mapSets: null,		//map custom settings used in Climbo.map.initMap(...)
+	mapSets: {},		//map custom settings used in Climbo.map.initMap(...)
 	placeCheckin: null,
 	notifs: [],			//notifs of user
 	//TODO rename fields in db notif to notifs
@@ -20,136 +16,168 @@ Climbo.profile = {
 		checkin: new Tracker.Dependency()
 	},
 
-	initProfile: function(callbackProfile) {
+	initProfile: function(cb) {
 
-		if(Climbo.profile.initialized)
-			return false;
+		var self = this;
+
+		if(self.ready) return this;
 		
-		Climbo.profile.initialized = true;
+		self.ready = true;
 
 		Tracker.autorun(function(comp) {
 
 			var userData = Meteor.user();
 			
 			if(!userData)	//userData not logget
-				return false;	//unset profile.user, profile.id, Climbo.profile.data
+				return false;	//unset profile.user, profile.id, self.data
 
-			Climbo.profile.id = userData._id;
-			Climbo.profile.data = userData;
+			self.id = userData._id;
+			self.data = userData;
 
-			if(Climbo.map.initialized) {
-				Climbo.profile.mapSets = _.extend(Meteor.settings.public.map, {
+			if(Climbo.map.ready)
+				Climbo.map.setOpts({
 					layer: userData.settings.layer,
 					center: userData.locmap
 				});
-				Climbo.map.setOpts(Climbo.profile.mapSets);
 
-				//show user marker quando la mappa è ancora pronta
-				Climbo.profile.user = Climbo.newUser(userData._id);
-				Climbo.profile.user.update();				
-			}
+			//show user marker quando la mappa è ancora pronta
+			self.user = Climbo.newUser(userData._id);
+			self.user.update();
 
 			//TODO i18n.setLanguage(userData.lang);
 
 			if(userData.checkin)
-				Climbo.profile.placeCheckin = Climbo.newPlace(userData.checkin);
+				self.placeCheckin = Climbo.newPlace(userData.checkin);
 
 			$('#friends #switch_online').bootstrapSwitch('state', userData.online);
 		});
 
-		if($.isFunction(callbackProfile))
-			callbackProfile(Climbo.profile);
+		if($.isFunction(cb)) cb.call(self);
+
+		return this;
 	},
 	getData: function() {
 		return Meteor.user();
 	},
 	getOnline: function() {
-		Climbo.profile._deps.online.depend();
-		return !!Climbo.profile.data.online;
+		this._deps.online.depend();
+		return !!this.data.online;
 	},
 	getCheckin: function() {
-		Climbo.profile._deps.checkin.depend();
-		if(Climbo.profile.placeCheckin)
-			return Climbo.profile.placeCheckin.rData();
+		this._deps.checkin.depend();
+		if(this.placeCheckin)
+			return this.placeCheckin.rData();
 	},
 
 	getFriends: function() {
-		return  _.map(_.compact(Climbo.profile.data.friends), function(userId) {
+		return  _.map(_.compact(this.data.friends), function(userId) {
 			return Climbo.newUser(userId).rData();
 		});
 	},
 	
 	hasFriend: function(userId) {
-		return _.contains(Climbo.profile.data.friends, userId);
+		return _.contains(this.data.friends, userId);
 	},
 	hasPending: function(userId) {
-		return _.contains(Climbo.profile.data.usersPending, userId);
+		return _.contains(this.data.usersPending, userId);
 	},
 	hasReceive: function(userId) {
-		return _.contains(Climbo.profile.data.usersReceive, userId);
+		return _.contains(this.data.usersReceive, userId);
 	},
 
 	friendAdd: function(userId) {
 		Meteor.call('friendAdd', userId);
+		return this;
 	},
 	friendConfirm: function(userId) {
 		Meteor.call('friendConfirm', userId);
+		return this;
 	},	
 	friendDel: function(userId) {
 		Meteor.call('friendDel', userId);
+		return this;
 	},
 	userBlock: function(userId) {
 		//TODO
+		return this;
 	},
 
 	setLoc: function(loc) {
 		// loc = loc || null;
-		// var shift = Climbo.util.geo.distance(Climbo.profile.data.loclast, loc);
+		// var shift = Climbo.util.geo.distance(this.data.loclast, loc);
 		// if(loc===null || shift >= Meteor.settings.public.gpsMinShift)
 		//problems when loclast===loc(just gps switched on)
 		Meteor.call('setUserLoc', loc);
+		return this;
 	},
 	setOnline: function(online) {
+		var self = this;
 		online = online ? 1 : 0;
-		if(online !== Climbo.profile.data.online)
-			Meteor.users.update(Meteor.userId(), {
+		if(online !== this.data.online)
+			Users.update(Meteor.userId(), {
 				$set: {
 					online: parseFloat(online),
 					mob: parseFloat(Meteor.Device.isPhone() ? 1:0)
 				}
 			}, function(err) {
-				Climbo.profile._deps.online.changed();
+				self._deps.online.changed();
 			});
+		return this;
 	},
 	addCheckin: function(placeId) {
+		var self = this;
 		Meteor.call('addCheckin',placeId, function() {
-			Climbo.profile.placeCheckin = Climbo.newPlace(placeId);
-			Climbo.profile._deps.checkin.changed();
+			self.placeCheckin = Climbo.newPlace(placeId);
+			self._deps.checkin.changed();
 		});
+		return this;
 	},
 	removeCheckin: function(placeId) {
+		var self = this;
 		Meteor.call('removeCheckin',placeId, function(err) {
-			Climbo.profile.placeCheckin = null;
-			Climbo.profile._deps.checkin.changed();			
+			self.placeCheckin = null;
+			self._deps.checkin.changed();			
 		});
+		return this;
 	},
 	addFavorite: function(placeId) {
 		Meteor.call('addFavorite', placeId);
+		return this;
 	},
 	removeFavorite: function(placeId) {
 		Meteor.call('removeFavorite', placeId);
+		return this;
 	},
-	uploadAvatar: function(blob, callback) {
-		var fileReader = new FileReader();
-		fileReader.onload = function(file) {
-			Meteor.call('uploadAvatar',file.target.result, callback);
+	uploadAvatar: function(fileObj, cb) {
+
+		if(!Climbo.util.valid.image(fileObj)) {
+			cb({
+				message: i18n('errors.imageNotValid') + Climbo.util.human.filesize(Meteor.settings.public.maxImageSize)
+			});
 		}
-		fileReader.readAsBinaryString(blob);
+		else {
+			if(!this.fileReader)
+				this.fileReader = new FileReader();
+			
+			this.fileReader.onload = function(e) {
+				Meteor.call('uploadAvatar', {
+					name: fileObj.name,
+					type: fileObj.type,
+					size: fileObj.size,
+					blob: e.target.result
+				}, cb);
+			}
+			this.fileReader.readAsBinaryString(fileObj);
+		}
+
+		return this;
 	},
 	logout: function() {
-		Climbo.profile.setOnline(false);
+		var self = this;
+		self.setOnline(false);
 		Meteor.logout(function(err) {
 			//TODO esegui Climbo.map.destroyMap();
 		});
+		return this;
 	}
 };

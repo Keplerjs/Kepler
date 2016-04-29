@@ -37,7 +37,7 @@ Climbo.Place = Climbo.Class.extend({
 			className: (self.name ? 'marker-'+self.type : 'marker-gray'),
 		});
 		self.marker = new L.Marker(self.loc, {icon: self.icon});
-		self.marker.place = self;
+		self.marker.item = self;
 		self.marker.on('add', function() {
 				Blaze.renderWithData(Template.marker_checkins, self, self.icon.nodeHtml);
 			})
@@ -54,18 +54,18 @@ Climbo.Place = Climbo.Class.extend({
 	//PUBLIC METHODS:
 	loadLoc: function() {
 		var self = this;
-		if(Climbo.util.valid.loc(self.loc))
-		{
-			self.marker.addTo(Climbo.map.layers.cluster);
-			//patch! per caricare marker di place non scaricati da layerjson
-			Climbo.map.loadLoc(self.loc);
-			setTimeout(function() {
-				self.marker.fire('click');
+		Climbo.map
+			.loadItem(self);
+		Climbo.map.loadLoc(self.loc, function() {
 				self.icon.animate();
-			},400);
-		}
+			});
 	},
 
+	hideMarker: function() {
+		if(this.marker && this.marker._map)
+			this.marker._map.removeLayer(this.marker);
+	},
+	
 	isOutdoor: function() {
 		return this.type != 'indoor';
 	},

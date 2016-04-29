@@ -63,7 +63,7 @@ Climbo.alert = {
 
 	observeUsers: function(usersIds) {
 		if(Meteor.settings.public.showAlerts)
-			Meteor.users.find({_id: {$in: usersIds} }).observeChanges({
+			Users.find({_id: {$in: usersIds} }).observeChanges({
 				changed: function(userId, fields) {
 					var user = Climbo.newUser(userId);
 					
