@@ -21,12 +21,14 @@
 		</div>
 		
 		{{#if or getLoc checkinPlace}}
-		<label>{{i18n 'ui.labels.userplace'}}</label>	
-		<ul class="list-group list-items">
-			<li class="list-group-item">
+		<div class="row">
+			<div class="col-xs-12 text-right">
+				<label class="pull-right">
+				{{i18n 'ui.labels.userplace'}}<br />
 				{{> user_btns}}
-			</li>
-		</ul>
+				</label>
+			</div>
+		</div>
 		{{/if}}
 		
 		<ul class="nav nav-tabs">

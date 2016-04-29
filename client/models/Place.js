@@ -54,11 +54,18 @@ Climbo.Place = Climbo.Class.extend({
 	//PUBLIC METHODS:
 	loadLoc: function() {
 		var self = this;
-		Climbo.map.loadItem(self, function() {
-			self.icon.animate();
-		});
+		Climbo.map
+			.loadItem(self);
+		Climbo.map.loadLoc(self.loc, function() {
+				self.icon.animate();
+			});
 	},
 
+	hideMarker: function() {
+		if(this.marker && this.marker._map)
+			this.marker._map.removeLayer(this.marker);
+	},
+	
 	isOutdoor: function() {
 		return this.type != 'indoor';
 	},

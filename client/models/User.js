@@ -51,9 +51,11 @@ Climbo.User = Climbo.Class.extend({
 	//PUBLIC METHODS:
 	loadLoc: function() {
 		var self = this;
-		Climbo.map.loadItem(self, function() {
-			self.icon.animate();
-		});
+		Climbo.map
+			.loadItem(self)
+			.loadLoc(self.loc, function() {
+				self.icon.animate();
+			});
 	},
 
 	showMarker: function() {
@@ -73,15 +75,15 @@ Climbo.User = Climbo.Class.extend({
 				}
 			});
 		}
+
 		self.marker.setLatLng(self.loc);
 		
-		if(Climbo.map.leafletMap)
-			self.marker.addTo(Climbo.map.leafletMap);
+		Climbo.map.loadItem(self);
 	},
 
 	hideMarker: function() {
-		if(this.marker)
-			Climbo.map.leafletMap.removeLayer(this.marker);
+		if(this.marker && this.marker._map)
+			this.marker._map.removeLayer(this.marker);
 	},
 
 	isFriend: function() {

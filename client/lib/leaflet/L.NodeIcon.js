@@ -23,16 +23,17 @@ L.NodeIcon = L.Icon.extend({
 	},
 
 	animate: function() {
-		var anim = this.anim;
-		anim.style.display = 'block';
+		var self = this;
+		if(!self.anim) return false;
+		self.anim.style.display = 'block';
 		setTimeout(function() {
-			L.DomUtil.addClass(anim,'animated');
+			L.DomUtil.addClass(self.anim,'animated');
 		});
 		setTimeout(function() {
-			L.DomUtil.removeClass(anim,'animated');
+			L.DomUtil.removeClass(self.anim,'animated');
 		}, 500);
 		setTimeout(function() {
-			anim.style.display = 'none';		
+			self.anim.style.display = 'none';		
 		}, 900);		
 	},
 

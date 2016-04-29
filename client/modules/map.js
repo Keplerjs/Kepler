@@ -1,9 +1,4 @@
-/*
-	map module, layers,controls e panels
 
-	git@github.com:mWater/offline-leaflet-map.git
-	
-*/
 var layers = {},
 	controls = {},
 	styles = {
@@ -13,10 +8,10 @@ var layers = {},
 		access: {	//tracks
 			color: '#66f', weight: 8, opacity: 0.7
 		},
-		place: {	//circle around place
+		placeCircle: {	//circle around place
 			color: '#f33', weight: 4, opacity: 0.7, radius: 15,
 		},	
-		poiline: {	//line from place to pois
+		poiLine: {	//line from place to pois
 			color: '#f33', weight: 4, opacity: 0.7, dashArray: '1,6'
 		}
 	};
@@ -26,6 +21,9 @@ layers.baselayer = new L.TileLayer(' ');
 layers.users = new L.LayerGroup();
 
 layers.cluster = new L.MarkerClusterGroup({
+	spiderfyDistanceMultiplier: 1.4,
+	showCoverageOnHover: false,
+	maxClusterRadius: 40,
 	iconCreateFunction: function(cluster) {
 		var $icon = L.DomUtil.create('div');
 		cluster.checkinsCount = function() {
@@ -39,10 +37,7 @@ layers.cluster = new L.MarkerClusterGroup({
 			nodeHtml: $icon,
 			className: 'marker-cluster'
 		});
-	},
-	maxClusterRadius: 40,
-	spiderfyDistanceMultiplier: 1.4,
-	showCoverageOnHover: false
+	}	
 });
 
 layers.geojson = new L.GeoJSONAutoClear(null, {
@@ -51,7 +46,7 @@ layers.geojson = new L.GeoJSONAutoClear(null, {
 	},
 	pointToLayer: function(feature, latlng) {	//costruisce marker POI
 		
-		if(feature.properties.tipo==='place')	//evidenzia place nei pois
+		if(feature.properties.tipo==='placeCircle')	//evidenzia place nei pois
 			return new L.CircleMarker(latlng);
 		else
 		{
@@ -129,7 +124,7 @@ controls.gps = L.control.gps({
 		Climbo.profile.setLoc(null);
 	},
 	gpslocated: function(e) {
-		Climbo.profile.setLoc([e.latlng.lat,e.latlng.lng]);
+		Climbo.profile.setLoc([e.latlng.lat, e.latlng.lng]);
 	},
 	gpsactivated: function(e) {	//run after gpslocated
 		if(Climbo.profile.user && Climbo.profile.user.icon)
@@ -140,18 +135,17 @@ controls.gps = L.control.gps({
 
 controls.search = L.control.search({
 	position: 'topright',
-	zoom: Meteor.settings.public.loadLocZoom,	
 	autoType: false, tipAutoSubmit: false, delayType: 800,
 	minLength: Meteor.settings.public.searchMinLen,	
-	autoCollapse: false, autoCollapseTime: 6000,
 	animateLocation: true, markerLocation: false,
+	autoCollapse: false, autoCollapseTime: 6000,	
 	propertyLoc: 'loc', propertyName: 'name',
 	text: i18n('ui.controls.search.text'),
 	textErr: i18n('ui.controls.search.error'),	
 	sourceData: function(text, callback) {
+
 		var sub = Meteor.subscribe('placesByName', text, function() {
-			var //places = Places.find({name: new RegExp('^'+text,'i') }).fetch(),
-				places = getPlacesByName(text).fetch(),
+			var places = getPlacesByName(text).fetch(),
 				placesSort = _.sortBy(places,function(item) {
 					return item.name + item.reg;
 				}),
@@ -159,6 +153,7 @@ controls.search = L.control.search({
 			
 			callback( _.map(placesIds, Climbo.newPlace) );
 		});
+
 		return {
 			abort: sub.stop
 		};
@@ -178,20 +173,19 @@ controls.search = L.control.search({
 .on('search_locationfound', function(e) {
 	//TODO patch da rimuovere quando L.Control.Search fa la blur da solo
 	this._input.blur();
+	//this._map.setZoom(Meteor.settings.public.loadLocZoom);
 })
 .on('search_expanded', function() {
 	Router.go('map');
 });
 
+
+
 Climbo.map = {
 
-	initialized: false,
+	ready: false,
 
 	leafletMap: null,
-
-	controls: controls,
-
-	layers: layers,
 
 	_deps: {
 		bbox: new Tracker.Dependency()
@@ -201,37 +195,39 @@ Climbo.map = {
 
 		var self = this;
 
-		if(self.initialized) return false;
+		if(self.ready) return this;
 
-		self.initialized = true;
+		self.ready = true;
 
-		opts = _.defaults({}, opts, {
+		self.leafletMap = new L.Map('map', _.extend(opts, {
 			zoomControl: false,			
 			attributionControl: false
-		}, Meteor.settings.public.map);
-
-		self.leafletMap = new L.Map('map', opts);
+		}) );
 		
 		self.setOpts(opts);
 
 		_.invoke([
-			layers.baselayer,		
-			//controls.attrib,
-			controls.zoom,
-			//controls.search,
+			layers.baselayer,
+			controls.search,
+			controls.zoom,			
 			controls.gps,
 			layers.geojson,
-			layers.cluster		
+			layers.cluster,
+			layers.users,
+			controls.attrib
 		],'addTo', self.leafletMap);
 
 		//Fix solo per Safari evento resize! quando passa a schermo intero
 		$(window).on('orientationchange resize', function(e) {
+
+		//TODO debounce
+
 			$(window).scrollTop(0);
 			self.leafletMap.invalidateSize(false);
 		});
 
 		if($.isFunction(cb))
-			cb.call(self);
+			self.leafletMap.whenReady(cb, self);
 
 		return this;
 	},
@@ -239,27 +235,27 @@ Climbo.map = {
 	setOpts: function(opts) {
 		var self = this;
 
-		if(!self.initialized) return null;
+		if(!self.ready) return this;
 		
 		opts = _.defaults(opts, Meteor.settings.public.map);
 
 		self.leafletMap.setView(opts.center, opts.zoom);
-		console.log('setOpts', opts)
-		self.layers.baselayer.setUrl( Meteor.settings.public.layers[opts.layer] );
+
+		layers.baselayer.setUrl( Meteor.settings.public.layers[opts.layer] );
 		return this;
 	},
 
 	destroyMap: function() {
-		if(this.initialized) {
-			this.initialized = false;
+		if(this.ready) {
+			this.ready = false;
 			this.leafletMap.remove();
-			this.layers.places.clearLayers();
+			layers.places.clearLayers();
 		}
 		return this;
 	},
 	
 	getBBox: function() {
-		if(!this.initialized) return null;
+		if(!this.ready) return this;
 		
 		this._deps.bbox.depend();
 
@@ -269,15 +265,15 @@ Climbo.map = {
 /* TODO		sideW = this.$('#sidebar').width();
 			sideBox = 
 		//L.rectangle(bbox,{fill:false}).addTo(Climbo.map.leafletMap);
-
 			pbox = map.getPixelBounds(),
 			h = pbox.getSize().y-,
 			w = pbox.getSize().x-;
+//TODO LOOK	at leaflet-geojson-selector
 */
 		return Climbo.util.geo.roundBbox([[sw.lat, sw.lng], [ne.lat, ne.lng]]);
 	},
 	enableBBox: function() {
-		if(!this.initialized) return null;
+		if(!this.ready) return this;
 
 		if(Meteor.settings.public.showPlaces)
 			this.leafletMap.addLayer(layers.places);
@@ -289,34 +285,34 @@ Climbo.map = {
 	},
 
 	loadLoc: function(loc, cb) {
-		if(!this.initialized) return null;
 
+		if(!this.ready) return this;
+
+		if(_.isFunction(cb))
+			this.leafletMap.once("moveend zoomend", cb);
+		
 		if(loc && Climbo.util.valid.loc(loc))
 			this.leafletMap.setView(loc, Meteor.settings.public.loadLocZoom);
 
 		return this;
 	},
 
-	loadItem: function(item, cb) {
-		if(!this.initialized) return null;
+	loadItem: function(item) {
+
+		if(!this.ready) return this;
 		
 		if(item.type==='place')
-			item.marker.addTo(this.layers.places);
+			item.marker.addTo( layers.places );
 
 		else if(item.type==='user')
-			item.marker.addTo(this.layers.users);
+			item.marker.addTo( layers.users );
 
-		if(_.isFunction(cb))
-			this.leafletMap.once("moveend zoomend", cb);
-		
-		this.loadLoc(item.data.loc);
-		
 		return this;
 	},
 
 	loadGeojson: function(geoData, cb) {
 
-		if(!this.initialized) return null;
+		if(!this.ready) return this;
 
 		geoData = L.Util.isArray(geoData) ? geoData : [geoData];
 
@@ -327,12 +323,14 @@ Climbo.map = {
 			layers.geojson.addData(geoData[i]);
 		}
 	
-		var bb = layers.geojson.getBounds();
-		
+		var bb = layers.geojson.getBounds(),
+			zoom = this.leafletMap.getBoundsZoom(bb),
+			loc = bb.getCenter();
+
 		if(_.isFunction(cb))
 			this.leafletMap.once("moveend zoomend", cb);
 		
-		this.leafletMap.setView(bb.getCenter(), this.leafletMap.getBoundsZoom(bb) - 1);
+		this.leafletMap.setView(loc, zoom-1);
 
 		return this;
 	}

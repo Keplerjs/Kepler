@@ -19,6 +19,8 @@ Router.onBeforeAction(function() {
 
 Router.waitOn(function() {
 
+//TODO!!!
+//WAIT MAP INTIALIZED!
 	return Meteor.subscribe('currentUser', function() {
 
 		Climbo.profile.initProfile();
@@ -26,7 +28,8 @@ Router.waitOn(function() {
 	});
 });
 
-Router.onAfterAction(function(){
+
+Router.onAfterAction(function() {
 	document.title = Meteor.settings.public.website.title;// +' - '+ this.route.getName();
 });
 
@@ -130,7 +133,7 @@ Router.map(function() {
 		},
 		data: function() {
 			
-			if(!Climbo.map.leafletMap) return false;
+			if(!Climbo.map.ready) return false;
 
 			var bbox = Climbo.map.getBBox(),
 				places = _.map(getPlacesByBBox(bbox).fetch(), function(place) {
@@ -139,10 +142,11 @@ Router.map(function() {
 						return p.rData();
 				});
 
-			if(bbox)
+			if(bbox) {
 				return {
 					places: _.sortBy(_.compact(places), 'name')
 				};
+			}
 		}
 	});
 
@@ -221,6 +225,10 @@ Router.map(function() {
 		template: 'emptyTmpl',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
+			
+			//FIX
+			//WAIT map initialized!!!
+
 			return Meteor.subscribe('poisByPlace', this.params.placeId);
 		},
 		onBeforeAction: function() {
@@ -234,7 +242,7 @@ Router.map(function() {
 		template: 'emptyTmpl',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
-			return Meteor.subscribe('placesByIds', [this.params.placeId]);
+			return Meteor.subscribe('tracksByPlace', [this.params.placeId]);
 		},
 		onBeforeAction: function() {
 			Climbo.newPlace( this.params.placeId ).loadTracks();

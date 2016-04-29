@@ -33,20 +33,19 @@ if(Meteor.settings.public.editPlaces)
 			});
 		},	
 		'click .popup-del': function(e,tmpl) {
-			var that = this,
+			var self = this,
 				ret = confirm("Eliminare?");
 			if(ret) {
-				Meteor.call('delPlace', that.id, function(err) {
-					Climbo.map.leafletMap.removeLayer(that.marker);
+				Meteor.call('delPlace', self.id, function(err) {
+					self.hideMarker();
 				});
 			}
 		},
 		'click .popup-rename': function(e,tmpl) {
-			var that = this,
-				ret = confirm("Rinominare?");
+			var ret = confirm("Rinominare?");
 
 			if(ret) {
-				Meteor.call('renamePlace', that.id, e.target.value);
+				Meteor.call('renamePlace', this.id, e.target.value);
 			}
 		}
 	});

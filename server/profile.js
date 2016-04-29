@@ -3,17 +3,6 @@ getCurrentUser = function(userId) {
 	return Users.find(userId, { fields: Climbo.perms.currentUser });
 };
 
-confirmFriends = function(userId, addUserId) {
-	//remove from pending
-	Users.update(userId, {$pull: {usersReceive: addUserId} });
-	Users.update(userId, {$addToSet: {friends: addUserId} });
-	//add to friends list
-	Users.update(addUserId, {$pull: {usersPending: userId} });
-	Users.update(addUserId, {$addToSet: {friends: userId} });
-
-	console.log('confirmFriends Added', userId, addUserId);
-}
-
 Meteor.methods({
 	setUserLoc: function(loc) {
 

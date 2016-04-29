@@ -3,16 +3,16 @@ Pois = new Meteor.Collection('pois');
 
 getPoisByLoc = function(ll) {
 
-	var Cond;
+	var where;
 	
 	if(Meteor.isClient) {
-		Cond = {
+		where = {
 			'$near': ll,
 			'$maxDistance': Meteor.settings.public.maxPoisDist
 		};
 	}
 	else if(Meteor.isServer) {
-		Cond = {
+		where = {
 			'$near': {
 				'$geometry': {
 					'type': 'Point',
@@ -24,7 +24,7 @@ getPoisByLoc = function(ll) {
 	}
 
 	return Pois.find({
-			'geometry.coordinates': Cond
+			'geometry.coordinates': where
 		});
 };
 
