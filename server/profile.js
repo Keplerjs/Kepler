@@ -88,7 +88,9 @@ Meteor.methods({
  				});
 
 		Places.update({_id: new Meteor.Collection.ObjectID(placeId)}, {
-				$addToSet: {checkins: this.userId, hist: this.userId}
+				$addToSet: {
+					checkins: this.userId, hist: this.userId
+				}
 				//TODO http://stackoverflow.com/questions/21466297/slice-array-in-mongodb-after-addtoset-update
 				// $addToSet: {
 				// 	checkins: this.userId,
@@ -168,11 +170,11 @@ Meteor.methods({
 			});
 
 		if(!Climbo.util.valid.image(fileObj)) {
-			console.log('uploadAvatar: error ', i18n('errors.imageNotValid'));
+			console.log('uploadAvatar: error ', _.omit(fileObj,'blob') );
 			throw new Meteor.Error(500, i18n('errors.imageNotValid') + Climbo.util.human.filesize(Meteor.settings.public.maxImageSize) );
 		}
 
-		console.log('uploadAvatar: wrinting...', filePath + fileBig);
+		console.log('uploadAvatar: wrinting...', fileBig);
 		fs.writeFileSync(filePath + fileBig, fileObj.blob, 'binary');
 		fs.chmodSync(filePath + fileBig, 0755);
 
@@ -191,11 +193,15 @@ Meteor.methods({
 				console.log('uploadAvatar: error ', e);
 				return i18n('errors.imageNotValid');
 			}
-			console.log('uploadAvatar: resized', filePath + fileMin);
+			console.log('uploadAvatar: resized', fileMin);
 		}
 
 
-		Users.update(this.userId, { $set: {avatar: fileUrl + fileMin } });
-		console.log('uploadAvatar: url ', fileUrl + fileMin );
+		Users.update(this.userId, {
+			$set: {
+				avatar: fileUrl + fileMin
+			}
+		});
+		console.log('uploadAvatar: url ', fileMin );
 	}
 });

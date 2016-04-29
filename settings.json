@@ -32,7 +32,7 @@
 		"checkinMaxDist": 500,
 		"bboxMinShift": 200,
 		"gpsMinShift": 40,
-		"maxImageSize": 800000,
+		"maxImageSize": 5800000,
 		"avatarSize": {
 			"width": 140,
 			"height": 140,

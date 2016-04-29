@@ -149,17 +149,14 @@ Climbo.profile = {
 		return this;
 	},
 	uploadAvatar: function(fileObj, cb) {
-
-		if(!Climbo.util.valid.image(fileObj)) {
-			cb({
-				message: i18n('errors.imageNotValid') + Climbo.util.human.filesize(Meteor.settings.public.maxImageSize)
-			});
-		}
-		else {
-			if(!this.fileReader)
-				this.fileReader = new FileReader();
+		
+		if(this.fileReader)
+			this.fileReader.abort();
+		else
+			this.fileReader = new FileReader();
 			
-			this.fileReader.onload = function(e) {
+		if(true || Climbo.util.valid.image(fileObj)) {
+			this.fileReader.onloadend = function(e) {
 				Meteor.call('uploadAvatar', {
 					name: fileObj.name,
 					type: fileObj.type,
@@ -169,6 +166,8 @@ Climbo.profile = {
 			}
 			this.fileReader.readAsBinaryString(fileObj);
 		}
+		else
+			cb({message: i18n('errors.imageNotValid') + Climbo.util.human.filesize(Meteor.settings.public.maxImageSize) });
 
 		return this;
 	},
