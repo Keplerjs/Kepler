@@ -148,12 +148,28 @@ Climbo.profile = {
 		Meteor.call('removeFavorite', placeId);
 		return this;
 	},
-	uploadAvatar: function(blob, callback) {
-		var fileReader = new FileReader();
-		fileReader.onload = function(file) {
-			Meteor.call('uploadAvatar',file.target.result, callback);
+	uploadAvatar: function(fileObj, cb) {
+
+		if(!Climbo.util.valid.image(fileObj)) {
+			cb({
+				message: i18n('errors.imageNotValid') + Climbo.util.human.filesize(Meteor.settings.public.maxImageSize)
+			});
 		}
-		fileReader.readAsBinaryString(blob);
+		else {
+			if(!this.fileReader)
+				this.fileReader = new FileReader();
+			
+			this.fileReader.onload = function(e) {
+				Meteor.call('uploadAvatar', {
+					name: fileObj.name,
+					type: fileObj.type,
+					size: fileObj.size,
+					blob: e.target.result
+				}, cb);
+			}
+			this.fileReader.readAsBinaryString(fileObj);
+		}
+
 		return this;
 	},
 	logout: function() {

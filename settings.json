@@ -2,11 +2,12 @@
 	"debug": true,
 	"adminUsers": ["stef"],
 	"dirs": {
+		"uploads": "/var/www/climbo/static.climbo.net/uploads/",
 		"avatars": "/var/www/climbo/static.climbo.net/avatars/"
-	},	
+	},
 	"public": {
 		"urls": {
-			"avatars": "/avatars/"
+			"avatars": "/static/avatars/"
 		},
 		"website": {
 			"title": "Climbo.net",			
@@ -31,7 +32,12 @@
 		"checkinMaxDist": 500,
 		"bboxMinShift": 200,
 		"gpsMinShift": 40,
-		"maxImageSize": 2800000,
+		"maxImageSize": 800000,
+		"avatarSize": {
+			"width": 140,
+			"height": 140,
+			"quality": 0.8
+		},
 		"loadLocZoom": 15,
 		"layers": {
 			"road": "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -60,6 +66,9 @@
 		],
 		"deactivePlaces": [
 			"ice","iron","water","trad","dry","bigwall","building","pool","alp","club","market"
+		],
+		"rocks": [
+			"sandstone","granite","limestone","basalt","ice","other"
 		]
 	},
 	"accounts": {

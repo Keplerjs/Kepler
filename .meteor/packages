@@ -19,7 +19,6 @@ twbs:bootstrap
 mrt:modernizr-meteor
 underscorestring:underscore.string
 alisalaah:suncalc
-stefcud:climbing-grade
 verron:autosize
 bevanhunt:leaflet@=0.3.18
 mrt:imagemagick

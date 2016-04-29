@@ -148,43 +148,54 @@ Meteor.methods({
 		
 		console.log('removeFavorite', this.userId, placeId);
 	},
-	uploadAvatar: function(blob) {
+	uploadAvatar: function(fileObj) {
 
 		if(!this.userId) return null;
 
 		var fs = Npm.require('fs');
 
-		var name = Meteor.user().username +'_'+ Climbo.util.timeUnix(),
-			fileName = Climbo.util.sanitizeFilename(name),
-			filePath = Meteor.settings.dirs.avatars,
-			fileUrl  = Meteor.settings.public.urls.avatars,
-			fileBig = filePath + fileName + '.ori.jpg',
-			fileMin = fileName + '.jpg';
-
-		console.log('uploadAvatar: wrinting...', fileBig);
-		fs.writeFileSync(fileBig, blob, 'binary');
-		fs.chmodSync(fileBig, 0755);
-
-		console.log('uploadAvatar: resizing...');
-		try {
-			Imagemagick.crop({
-				srcPath: fileBig,
+		var	filePath = Meteor.settings.dirs.avatars,
+			fileUrl = Meteor.settings.public.urls.avatars,
+			imgSize = Meteor.settings.public.avatarSize,
+			fileUid = Meteor.user().username +'_'+ Climbo.util.timeUnix(),
+			fileName = Climbo.util.sanitizeFilename( fileUid ),
+			fileMin = fileName + _.template('_{width}x{height}.min.jpg', imgSize),
+			fileBig = fileName + '.ori.jpg',
+			imgOpts = _.extend(imgSize, {
+				srcPath: filePath + fileBig,
 				dstPath: filePath + fileMin,
-				width: 160,
-				height: 160,
-				quality: 0.8
+				customArgs: ['-auto-orient']
 			});
-			fs.chmodSync(filePath + fileMin, 0755);
+
+		if(!Climbo.util.valid.image(fileObj)) {
+			console.log('uploadAvatar: error ', i18n('errors.imageNotValid'));
+			throw new Meteor.Error(500, i18n('errors.imageNotValid') + Climbo.util.human.filesize(Meteor.settings.public.maxImageSize) );
 		}
-		catch(e) {
-			console.log('uploadAvatar: error ', e);
-			return i18n('errors.imageNotValid');
+
+		console.log('uploadAvatar: wrinting...', filePath + fileBig);
+		fs.writeFileSync(filePath + fileBig, fileObj.blob, 'binary');
+		fs.chmodSync(filePath + fileBig, 0755);
+
+		if(!Imagemagick)
+			fileMin = fileBig;
+		else
+		{
+			console.log('uploadAvatar: resizing...');
+			try {
+
+				Imagemagick.crop(imgOpts);
+
+				fs.chmodSync(filePath + fileMin, 0755);
+			}
+			catch(e) {
+				console.log('uploadAvatar: error ', e);
+				return i18n('errors.imageNotValid');
+			}
+			console.log('uploadAvatar: resized', filePath + fileMin);
 		}
-		console.log('uploadAvatar: resized', filePath + fileMin);
+
 
 		Users.update(this.userId, { $set: {avatar: fileUrl + fileMin } });
 		console.log('uploadAvatar: url ', fileUrl + fileMin );
-
-		return false;
 	}
 });

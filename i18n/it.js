@@ -205,6 +205,6 @@ i18n.map('it', {
 	azimuth_short:
 		"north,nne,ne,ene,east,ese,se,sse,south,ssw,sw,wsw,west,wnw,nw,nnw,north",
 	errors: {
-		imageNotValid: "Immagine non valida, JPG/PNG, max "
+		imageNotValid: "Solo immagini JPG/PNG, max "
 	}	
 });

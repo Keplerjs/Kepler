@@ -130,21 +130,15 @@ Template.pageSettings.events({
 		e.preventDefault();
 
 		var input$ = $(e.target),
-			blob = e.originalEvent.target.files[0];
-		
-		input$.next().text('');
+			fileObj = e.originalEvent.target.files[0];
 
-		if(!Climbo.util.valid.image(blob))
-			input$.next().text(
-				i18n('errors.imageNotValid') +
-				Climbo.util.human.filesize(Meteor.settings.public.maxImageSize)
-			);
-		else
-		{
-			input$.parent().addClass('loading-default');
-			Climbo.profile.uploadAvatar(blob, function(err, ret) {
-				input$.parent().removeClass('loading-default');
-			});
-		}
+		input$.parent().addClass('loading-default');
+		
+		Climbo.profile.uploadAvatar(fileObj, function(err) {
+			
+			input$.parent().removeClass('loading-default');
+
+			input$.next().text( err ? err.message : '' )
+		});
 	}
 });
