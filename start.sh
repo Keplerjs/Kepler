@@ -9,7 +9,7 @@ OPTS="--raw-logs"
 
 MYIP=$( hostname -i | cut -f1 -d' ')
 export MONGO_URL=mongodb://localhost:27017/climbo
-export PORT=8800
+export PORT=9900
 #export NODE_OPTIONS='--debug'
 
 if [ $MYIP = '127.0.1.1' ]; then

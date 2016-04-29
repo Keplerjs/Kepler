@@ -6,3 +6,5 @@ smart.lock
 packages
 public/users
 public/node_modules
+nohup.out
+
