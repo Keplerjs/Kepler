@@ -52,6 +52,9 @@ Meteor.publish('userById', function(userId) {
 
 			placeIds = _.union(userData.hist, userData.favorites);
 
+//			if(userData.checkin)
+//				placeIds.push(userData.checkin);
+
 			retCurs.push( getPlacesByIds(placeIds) );
 
 			//TODO places events ed altre info

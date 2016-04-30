@@ -8,44 +8,56 @@ Router.configure({
 });
 //Router.setTemplateNameConverter(function (str) { return str; });
 
+Router.subscriptions(function() {
+	//console.log('main subscriptions');
+	this.wait( Meteor.subscribe('currentUser') );
+});
+
 Router.onBeforeAction(function() {
 
-	if(!(Meteor.loggingIn() || Meteor.user()))
-		Router.go('intro');
+	var self = this;
 
-	this.next();
+	if(this.ready()) {
+		
+		if(!Meteor.userId() || Meteor.loggingIn())
+			Router.go('intro');
+
+		//console.log('main onBeforeAction user',Meteor.user());
+
+		Climbo.profile.initProfile(function() {
+
+		});
+	}
+
+	self.next();
+	
+	
 
 }, {except: ['intro'] });
 
-Router.waitOn(function() {
-
-//TODO!!!
-//WAIT MAP INTIALIZED!
-	return Meteor.subscribe('currentUser', function() {
-
-		Climbo.profile.initProfile();
-
-	});
-});
-
-
 Router.onAfterAction(function() {
 	document.title = Meteor.settings.public.website.title;// +' - '+ this.route.getName();
+
+	if(this.ready())
+		Climbo.map.initMap(Meteor.settings.public.map, function() {
+			this.enableBBox();
+		});
 });
 
 Router.map(function() {
-
-	this.route('map', {
-		path: '/',
-		template: 'pageMap',
-		layoutTemplate: 'layoutMap'
-	});
 
 	this.route('intro', {
 		path: '/intro',
 		template: 'pageIntro',
 		layoutTemplate: 'layoutFull',
 		loadingTemplate: 'pageLoading',
+	});
+
+	this.route('map', {
+		path: '/',
+		template: 'pageMap',
+		layoutTemplate: 'layoutMap',
+		data: { hideSidebar: true }
 	});
 
 	this.route('profile', {
@@ -126,14 +138,9 @@ Router.map(function() {
 		path: '/places',		
 		template: 'panelPlaces',
 		layoutTemplate: 'layoutMap',
-		waitOn: function() {
-			var bb = Climbo.map.getBBox();
-			if(bb)
-				return Meteor.subscribe('placesByBBox', bb);
-		},
 		data: function() {
-			
-			if(!Climbo.map.ready) return false;
+			console.log('data')
+			if(!Climbo.map.ready) return null;
 
 			var bbox = Climbo.map.getBBox(),
 				places = _.map(getPlacesByBBox(bbox).fetch(), function(place) {
@@ -172,7 +179,8 @@ Router.map(function() {
 		onBeforeAction: function() {
 			Climbo.newPlace( this.params.placeId ).loadLoc();
 			this.next();
-		}
+		},
+		data: { hideSidebar: true }
 	});
 
 	this.route('placeCheckins', {
@@ -224,17 +232,15 @@ Router.map(function() {
 		path: '/place/:placeId/pois',
 		template: 'emptyTmpl',
 		layoutTemplate: 'layoutMap',
-		waitOn: function() {
-			
-			//FIX
-			//WAIT map initialized!!!
-
+		subscriptions: function() {
+			console.log('route subscriptions poisByPlace')
 			return Meteor.subscribe('poisByPlace', this.params.placeId);
 		},
-		onBeforeAction: function() {
+		onAfterAction: function() {
+			console.log('route onAfterAction', Places.findOne(this.params.placeId) )
 			Climbo.newPlace( this.params.placeId ).loadPois();
-			this.next();
-		}
+		},
+		data: { hideSidebar: true }
 	});
 
 	this.route('placeTracks', {
@@ -247,7 +253,8 @@ Router.map(function() {
 		onBeforeAction: function() {
 			Climbo.newPlace( this.params.placeId ).loadTracks();
 			this.next();
-		}
+		},
+		data: { hideSidebar: true }
 	});
 
 	this.route('placeSectors', {
@@ -277,14 +284,14 @@ Router.map(function() {
 		path: '/user/:userId',
 		template: 'panelUser',
 		layoutTemplate: 'layoutMap',
+		subscriptions: function() {
+			return Meteor.subscribe('userById', this.params.userId);
+		},		
 		onBeforeAction: function() {
 			if(this.params.userId===Meteor.userId())
 				Router.go('profile');
 			else
 				this.next();
-		},
-		waitOn: function() {
-			return Meteor.subscribe('userById', this.params.userId);
 		},
 		data: function() {
 			return Climbo.newUser(this.params.userId);

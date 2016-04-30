@@ -120,16 +120,14 @@ controls.gps = L.control.gps({
 	}
 })
 .on({
-	gpsdeactivated: function(e) {
+	gpsdisabled: function(e) {
 		Climbo.profile.setLoc(null);
 	},
 	gpslocated: function(e) {
 		Climbo.profile.setLoc([e.latlng.lat, e.latlng.lng]);
-	},
-	gpsactivated: function(e) {	//run after gpslocated
 		if(Climbo.profile.user && Climbo.profile.user.icon)
 			Climbo.profile.user.icon.animate();
-		Climbo.alert.show(i18n('ui.alerts.gpson'),'success');		
+		//Climbo.alert.show(i18n('ui.alerts.gpson'),'success');		
 	}
 });
 
@@ -254,24 +252,6 @@ Climbo.map = {
 		return this;
 	},
 	
-	getBBox: function() {
-		if(!this.ready) return this;
-		
-		this._deps.bbox.depend();
-
-		var bbox = this.leafletMap.getBounds(),
-			sw = bbox.getSouthWest(),
-			ne = bbox.getNorthEast();
-/* TODO		sideW = this.$('#sidebar').width();
-			sideBox = 
-		//L.rectangle(bbox,{fill:false}).addTo(Climbo.map.leafletMap);
-			pbox = map.getPixelBounds(),
-			h = pbox.getSize().y-,
-			w = pbox.getSize().x-;
-//TODO LOOK	at leaflet-geojson-selector
-*/
-		return Climbo.util.geo.roundBbox([[sw.lat, sw.lng], [ne.lat, ne.lng]]);
-	},
 	enableBBox: function() {
 		if(!this.ready) return this;
 
@@ -284,6 +264,19 @@ Climbo.map = {
 		return this;
 	},
 
+	getBBox: function() {
+		if(this.ready) {
+			this._deps.bbox.depend();
+
+			var bbox = this.leafletMap.getBounds(),
+				sw = bbox.getSouthWest(),
+				ne = bbox.getNorthEast();
+			//TODO LOOK	at leaflet-geojson-selector fox reduce bbox with openened panel
+
+			return Climbo.util.geo.roundBbox([[sw.lat, sw.lng], [ne.lat, ne.lng]]);
+		}
+	},
+	
 	loadLoc: function(loc, cb) {
 
 		if(!this.ready) return this;

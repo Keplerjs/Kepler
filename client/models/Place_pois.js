@@ -1,7 +1,7 @@
 /*
 	class Place with POIs support
 */
-function placeWithPois(pois, loc, tipo) {
+function poisToGeojson(pois, loc, tipo) {
 
 	//decorate Poi markers with place circle and lines from place to pois
 	
@@ -27,7 +27,7 @@ Climbo.Place.include({
 
 		var pois = getPoisByLoc(this.loc).fetch();
 
-		Climbo.map.loadGeojson( placeWithPois(pois, this.loc, tipo) );
+		Climbo.map.loadGeojson( poisToGeojson(pois, this.loc, tipo) );
 	},
 	getPoisGroups: function(tipo) {
 

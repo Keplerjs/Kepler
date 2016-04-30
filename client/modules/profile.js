@@ -26,30 +26,30 @@ Climbo.profile = {
 
 		Tracker.autorun(function(comp) {
 
-			var userData = Meteor.user();
+			self.id = Meteor.userId();
+			self.data = Meteor.user();
 			
-			if(!userData)	//userData not logget
-				return false;	//unset profile.user, profile.id, self.data
+			if(!self.data)
+				return false;
 
-			self.id = userData._id;
-			self.data = userData;
+			self.data = self.data;
 
 			if(Climbo.map.ready)
 				Climbo.map.setOpts({
-					layer: userData.settings.layer,
-					center: userData.locmap
+					layer: self.data.settings.layer,
+					center: self.data.locmap
 				});
 
 			//show user marker quando la mappa è ancora pronta
-			self.user = Climbo.newUser(userData._id);
+			self.user = Climbo.newUser(self.data._id);
 			self.user.update();
 
-			//TODO i18n.setLanguage(userData.lang);
+			//TODO i18n.setLanguage(self.data.lang);
 
-			if(userData.checkin)
-				self.placeCheckin = Climbo.newPlace(userData.checkin);
+			if(self.data.checkin)
+				self.placeCheckin = Climbo.newPlace(self.data.checkin);
 
-			$('#friends #switch_online').bootstrapSwitch('state', userData.online);
+			$('#friends #switch_online').bootstrapSwitch('state', self.data.online);
 		});
 
 		if($.isFunction(cb)) cb.call(self);
@@ -108,6 +108,7 @@ Climbo.profile = {
 		// if(loc===null || shift >= Meteor.settings.public.gpsMinShift)
 		//problems when loclast===loc(just gps switched on)
 		Meteor.call('setUserLoc', loc);
+		
 		return this;
 	},
 	setOnline: function(online) {

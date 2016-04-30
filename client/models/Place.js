@@ -24,6 +24,9 @@ Climbo.Place = Climbo.Class.extend({
 		self.update = function(comp) {	//sincronizza istanza con dati nel db
 
 			self.data = Places.findOne(new Meteor.Collection.ObjectID(self.id));
+
+			if(!self.data)
+				return false;
 			
 			_.extend(self, self.data, self.cache);
 

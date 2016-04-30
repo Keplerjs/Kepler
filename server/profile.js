@@ -9,6 +9,8 @@ Meteor.methods({
 		if(!this.userId) return null;
 
 		loc = loc || null;
+		
+		console.log('setUserLoc',loc);
 
 		if(loc)
 		{
