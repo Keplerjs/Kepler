@@ -99,7 +99,7 @@ Accounts.onCreateUser(function(options, user) {
 		gender: gender
 	});
 
-	console.log('New Account:', newuser);
+	console.log('New Account:', username);
 
 	return newuser;
 });

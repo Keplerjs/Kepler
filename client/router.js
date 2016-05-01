@@ -10,11 +10,10 @@ Router.configure({
 
 Router.subscriptions(function() {
 	//console.log('main subscriptions');
-	this.wait( Meteor.subscribe('currentUser') );
+	return Meteor.subscribe('currentUser');
 });
 
 Router.onBeforeAction(function() {
-
 	var self = this;
 
 	if(this.ready()) {
@@ -30,18 +29,14 @@ Router.onBeforeAction(function() {
 	}
 
 	self.next();
-	
-	
-
 }, {except: ['intro'] });
 
 Router.onAfterAction(function() {
 	document.title = Meteor.settings.public.website.title;// +' - '+ this.route.getName();
-
-/*	if(this.ready())
-		Climbo.map.initMap(Meteor.settings.public.map, function() {
-			this.enableBBox();
-		});//*/
+	//if(this.ready())
+	//	Climbo.map.initMap(Meteor.settings.public.map, function() {
+	//		this.enableBBox();
+	//	});//*/
 });
 
 Router.map(function() {
@@ -52,6 +47,40 @@ Router.map(function() {
 		layoutTemplate: 'layoutFull',
 		loadingTemplate: 'pageLoading',
 	});
+
+	this.route('about', {
+		path: '/about',
+		template: 'pageAbout',
+		layoutTemplate: 'layoutPage',
+		loadingTemplate: 'pageLoading',
+	});	
+
+	this.route('settings', {
+		path: '/settings',
+		template: 'pageSettings',
+		layoutTemplate: 'layoutPage',
+		loadingTemplate: 'pageLoading'
+	});
+
+	this.route('settingsBlocked', {
+		path: '/settings/blocked',
+		template: 'pageSettingsBlocked',
+		layoutTemplate: 'layoutPage',
+		loadingTemplate: 'pageLoading',
+		waitOn: function() {
+			return Meteor.subscribe('usersByIds', Climbo.profile.data.friends );
+		}
+	});	
+
+	this.route('logout', {
+		path: '/logout',
+		onBeforeAction: function () {
+			Climbo.profile.logout();
+			Router.go('intro');
+		}
+	});
+
+	//MAP PAGES
 
 	this.route('map', {
 		path: '/',
@@ -312,21 +341,6 @@ Router.map(function() {
 		},
 		data: function() {
 			return getConverById(this.params.convId).fetch()[0];
-		}
-	});
-
-	this.route('settings', {
-		path: '/settings',
-		template: 'pageSettings',
-		layoutTemplate: 'layoutPage',
-		loadingTemplate: 'pageLoading'
-	});
-
-	this.route('logout', {
-		path: '/logout',
-		onBeforeAction: function () {
-			Climbo.profile.logout();
-			Router.go('intro');
 		}
 	});
 });

@@ -1,11 +1,22 @@
 
 Places = new Meteor.Collection('falesie');
 
+getPlaceById = function(placeId) {
+	return Places.find({_id: new Meteor.Collection.ObjectID(placeId) }, { fields: Climbo.perms.placePanel });
+};
+
 getPlacesByIds = function(placesIds) {
 	placesIds = _.map(placesIds, function(id) {
 		return new Meteor.Collection.ObjectID(id);
 	});
 	return Places.find({_id: {$in: placesIds} }, { fields: Climbo.perms.placeItem });
+};
+
+
+getPlacesByCheckins = function(usersIds) {
+	usersIds = _.isArray(usersIds) ? {$in: usersIds} : usersIds;
+	
+	return Places.find({checkins: usersIds }, { fields: Climbo.perms.placeItem });
 };
 
 getPlacesByBBox = function(bbox) {
@@ -25,7 +36,13 @@ getPlacesByBBox = function(bbox) {
 		};
 	}
 	else if(Meteor.isServer) 
-		return Places.find({loc: {"$within": {"$box": bbox }} }, { fields: Climbo.perms.placeItem });
+		return Places.find({
+			loc: {
+				"$within": {
+					"$box": bbox
+				}
+			}
+		}, { fields: Climbo.perms.placeItem });
 };
 
 getCheckinsCountByPlaces = function(placesIds) {
@@ -44,7 +61,8 @@ getPlacesByName = function(initial) {
 		return null;
 
 	var ex = new RegExp('^'+ initial, 'i'),
-		curPlace = Places.find({$or: [
+		curPlace = Places.find({
+			$or: [
 				{name: ex},
 				{near: ex}
 			] }, { fields: Climbo.perms.placeSearch });

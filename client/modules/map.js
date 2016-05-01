@@ -170,9 +170,7 @@ controls.search = L.control.search({
 	}
 })
 .on('search_locationfound', function(e) {
-	//TODO patch da rimuovere quando L.Control.Search fa la blur da solo
 	this._input.blur();
-	//this._map.setZoom(Meteor.settings.public.loadLocZoom);
 })
 .on('search_expanded', function() {
 	Router.go('map');

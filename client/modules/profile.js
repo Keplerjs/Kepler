@@ -84,6 +84,9 @@ Climbo.profile = {
 	hasReceive: function(userId) {
 		return _.contains(this.data.usersReceive, userId);
 	},
+	hasBlocked: function(userId) {
+		return _.contains(this.data.usersBlocked, userId);
+	},	
 
 	friendAdd: function(userId) {
 		Meteor.call('friendAdd', userId);
@@ -97,8 +100,8 @@ Climbo.profile = {
 		Meteor.call('friendDel', userId);
 		return this;
 	},
-	userBlock: function(userId) {
-		//TODO
+	friendBlock: function(userId) {
+		Meteor.call('friendBlock', userId);
 		return this;
 	},
 

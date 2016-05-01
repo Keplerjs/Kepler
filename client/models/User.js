@@ -93,6 +93,9 @@ Climbo.User = Climbo.Class.extend({
 	isReceive: function() {
 		return Climbo.profile.hasReceive(this.id);
 	},	
+	isBlocked: function() {
+		return Climbo.profile.hasBlocked(this.id);
+	},
 
 	isMe: function() {
 		return Climbo.profile.id === this.id;

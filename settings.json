@@ -12,7 +12,8 @@
 			"title": "Climbo.net",			
 			"domain": "climbo.net",			
 			"desc": "The Climbers Community",
-			"email": "info@climbo.net"
+			"email": "info@climbo.net",
+			"copy": "(c)2016 Climbo.net"
 		},
 		"editPlaces": false,		
 		"showPlaces": true,
@@ -37,13 +38,6 @@
 			"height": 140,
 			"quality": 0.8
 		},
-		"loadLocZoom": 15,
-		"layers": {
-			"road": "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-			"cycle": "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
-			"landscape": "http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png",			
-			"transport": "http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png"
-		},		
 		"map": {
 			"layer": "road",
 			"zoom": 10,
@@ -52,6 +46,13 @@
 			"center": [42.419851, 12.701923],
 			"maxBounds": [[36.282794, 5.361328], [47.542735, 21.071777]]
 		},
+		"loadLocZoom": 15,
+		"layers": {
+			"road": "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+			"cycle": "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
+			"landscape": "http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png",			
+			"transport": "http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png"
+		},		
 		"langDef": "it",
 		"langs": {
 			"it": "Italiano",

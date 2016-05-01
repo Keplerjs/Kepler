@@ -6,7 +6,7 @@
 	
 		<img id="logo" src="/images/logo-200.png" />
 		
-		<em id="slogan" class="clearfix">The Climbers Community</em>
+		<em id="slogan" class="clearfix">{{settings 'website.desc'}}</em>
 
 		<br /><br />
 		{{#if currentUser}}
@@ -29,9 +29,9 @@
 		<br /><br />
 
 		<small class="text-muted">
-			<i>&copy; 2014 Climbo.net</i>
+			<i>{{settings 'website.copy'}}</i>
 			&nbsp;&bull;&nbsp;
-			<a href="#">about</a>
+			<a href="/about">about</a>
 		</small>
 		<br />
 		<br />

@@ -114,7 +114,14 @@
 						</select>
 					</div>
 				</div>
-			</div>	 
+			</div>
+
+			<div class="form-group">
+				<label class="col-xs-3 control-label">{{i18n 'ui.labels.privacy'}}</label>
+				<div class="col-xs-9 col-xs-offset-3">
+					<a class="btn btn-default" href="/settings/blocked">{{i18n 'ui.btns.usersblocked'}}</a>
+				</div>
+			</div>
 
 			<div class="form-group">
 				<label class="col-xs-3 control-label">{{i18n 'ui.labels.account'}}</label>
@@ -125,6 +132,32 @@
 		</form>
 	{{/with}}
 
+	</section>
+
+</template>
+
+<template name="pageSettingsBlocked">
+
+	{{> navbar}}
+
+	<section id="settingsBlocked">
+	{{#with currentUser}}
+		<div class="list-group col-sm-9 col-sm-offset-3">
+		{{#if usersBlocked.length}}
+			<ul class="list-group list-items">		
+				{{#each usersBlocked}}
+				<li class="list-group-item">
+					{{#with newUser this}}
+						{{> item_user}}
+					{{/with}}
+				</li>
+				{{/each}}
+			</ul>		
+		{{else}}
+			<label class="text-gray"></label>
+		{{/if}}
+		</div>
+	{{/with}}
 	</section>
 
 </template>

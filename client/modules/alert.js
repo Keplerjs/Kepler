@@ -50,7 +50,7 @@ Climbo.alert = {
 
 	observeConvers: function(conversIds) {
 		if(Meteor.settings.public.showAlerts)
-			Convers.find({_id: {$in: conversIds} }).observeChanges({
+			getConversByIds(conversIds).observeChanges({
 				added: function(convId, fields) {
 					var user = Climbo.newUser(fields.userId);
 
@@ -63,7 +63,7 @@ Climbo.alert = {
 
 	observeUsers: function(usersIds) {
 		if(Meteor.settings.public.showAlerts)
-			Users.find({_id: {$in: usersIds} }).observeChanges({
+			getUsersByIds(usersIds).observeChanges({
 				changed: function(userId, fields) {
 					var user = Climbo.newUser(userId);
 					

@@ -3,6 +3,7 @@ i18n.map('it', {
 	ui: {
 		titles: {
 			settings: "Impostazioni",
+			settingsBlocked: "Utenti bloccati",
 			favorites: "Luoghi preferiti",
 			histplaces: "Luoghi recenti",
 			friends: "Tuoi Amici",
@@ -54,7 +55,9 @@ i18n.map('it', {
 			friendpending: "In Attesa...",
 			friendconfirm: "Conferma amicizia",
 			friendreceive: "Richiesta di amicizia",
-			friendblock: "Bloccato",
+			friendblock: "Blocca",
+			usersblocked: "Utenti bloccati",
+			friendunblock: "Sblocca",
 			convers: "Messaggi",
 			places: "Luoghi",
 			profile: "Profilo",
@@ -112,6 +115,7 @@ i18n.map('it', {
 			lang: "Lingua",
 			layer: "Mappa",
 			account: "Account",
+			privacy: "Privacy",
 			likeplaces: "Tipologia",
 			userplace: "Si trova qui",
 			histplaces: "Luoghi recenti",

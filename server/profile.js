@@ -3,6 +3,17 @@ getCurrentUser = function(userId) {
 	return Users.find(userId, { fields: Climbo.perms.currentUser });
 };
 
+confirmFriends = function(userId, addUserId) {
+	//remove from pending
+	Users.update(userId, {$pull: {usersReceive: addUserId} });
+	Users.update(userId, {$addToSet: {friends: addUserId} });
+	//add to friends list
+	Users.update(addUserId, {$pull: {usersPending: userId} });
+	Users.update(addUserId, {$addToSet: {friends: userId} });
+
+	console.log('confirmFriends Added', userId, addUserId);
+};
+
 Meteor.methods({
 	setUserLoc: function(loc) {
 
@@ -22,7 +33,7 @@ Meteor.methods({
 				var nearPlace = Places.findOne({
 						loc: {
 							'$near': loc,
-							'$maxDistance': (Meteor.settings.public.checkinMaxDist/1000)/111.12
+							'$maxDistance': Climbo.util.geo.meters2rad(Meteor.settings.public.checkinMaxDist)
 						}
 					});
 
@@ -74,6 +85,16 @@ Meteor.methods({
 		Users.update(delUserId, {$pull: {friends: this.userId} });
 		
 		console.log('friendDel', this.userId, delUserId);
+	},
+	friendBlock: function(blockUserId) {
+
+		if(!this.userId) return null;
+		
+		Users.update(this.userId, {$pull: {friends: blockUserId} });
+		Users.update(blockUserId, {$pull: {friends: this.userId} });
+		Users.update(this.userId, {$addToSet: {usersBlocked: blockUserId} });
+
+		console.log('friendBlock', this.userId, blockUserId);
 	},
 	addCheckin: function(placeId) {
 

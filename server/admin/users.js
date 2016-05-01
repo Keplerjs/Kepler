@@ -5,19 +5,25 @@ var isAdmin = function() {
 };
 
 Meteor.methods({
-	adminCreateUser: function(username) {
+	adminCreateUser: function(usernames) {
 		
 		if(!isAdmin()) return null;
 
-		var userId = Accounts.createUser({
-			username: username,
-			password: username+username,
-			email: username+'@gmail.com'
-		});
+		usernames = _.isArray(usernames) ? usernames : [usernames];
 
-		confirmFriends(this.userId, userId);
+		for(var i in usernames) {
+			var username = usernames[i];
+			
+			var userId = Accounts.createUser({
+				username: username,
+				password: username+username,
+				email: username+'@gmail.com'
+			});
 
-		console.log('adminCreateUser', username, userId);	
+			confirmFriends(this.userId, userId);
+
+			console.log('adminCreateUser', username, userId);	
+		}
 	},
 	adminDeleteUser: function(username) {
 		
