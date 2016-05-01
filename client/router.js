@@ -2,7 +2,7 @@
 //http://stackoverflow.com/questions/27542120/whats-the-difference-between-writing-routes-in-meteor-startup-and-not
 
 Router.configure({
-layoutTemplate: 'layoutMap',
+	layoutTemplate: 'layoutMap',
 	loadingTemplate: 'panelLoading',
 	notFoundTemplate: 'page404'
 });
