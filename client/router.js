@@ -2,7 +2,7 @@
 //http://stackoverflow.com/questions/27542120/whats-the-difference-between-writing-routes-in-meteor-startup-and-not
 
 Router.configure({
-	layoutTemplate: 'layoutFull',
+layoutTemplate: 'layoutMap',
 	loadingTemplate: 'panelLoading',
 	notFoundTemplate: 'page404'
 });
@@ -38,10 +38,10 @@ Router.onBeforeAction(function() {
 Router.onAfterAction(function() {
 	document.title = Meteor.settings.public.website.title;// +' - '+ this.route.getName();
 
-	if(this.ready())
+/*	if(this.ready())
 		Climbo.map.initMap(Meteor.settings.public.map, function() {
 			this.enableBBox();
-		});
+		});//*/
 });
 
 Router.map(function() {
@@ -56,21 +56,20 @@ Router.map(function() {
 	this.route('map', {
 		path: '/',
 		template: 'pageMap',
-		layoutTemplate: 'layoutMap',
 		data: { hideSidebar: true }
 	});
 
 	this.route('profile', {
 		path: '/profile',
 		template: 'panelProfile',
-		//template: 'panelLoading',
-		layoutTemplate: 'layoutMap'
+		data: function() {
+			return Meteor.user();
+		}
 	});
 
 	this.route('friends', {
 		path: '/friends',
 		template: 'panelFriends',		
-		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			return Meteor.subscribe('friendsByIds', Climbo.profile.data.friends );
 		},
@@ -84,7 +83,6 @@ Router.map(function() {
 	this.route('favorites', {
 		path: '/favorites',
 		template: 'panelList',
-		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			return Meteor.subscribe('placesByIds', Climbo.profile.data.favorites);
 		},
@@ -101,7 +99,6 @@ Router.map(function() {
 	this.route('history', {
 		path: '/history',
 		template: 'panelList',
-		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			return Meteor.subscribe('placesByIds', Climbo.profile.data.hist);
 		},
@@ -119,10 +116,6 @@ Router.map(function() {
 	this.route('notifications', {
 		path: '/notifications',
 		template: 'panelList',
-		layoutTemplate: 'layoutMap',
-/*		waitOn: function() {
-			return Meteor.subscribe('placesByIds', Climbo.profile.data.favorites);
-		},*/
 		data: function() {
 			return {
 				title: i18n('ui.titles.notifications'),
@@ -134,12 +127,11 @@ Router.map(function() {
 		}
 	});
 
-	this.route('places', {
-		path: '/places',		
-		template: 'panelPlaces',
-		layoutTemplate: 'layoutMap',
+	this.route('nearby', {
+		path: '/nearby',		
+		template: 'panelNearby',
 		data: function() {
-			console.log('data')
+			
 			if(!Climbo.map.ready) return null;
 
 			var bbox = Climbo.map.getBBox(),
@@ -160,7 +152,6 @@ Router.map(function() {
 	this.route('place', {
 		path: '/place/:placeId',		
 		template: 'panelPlace',
-		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			return Meteor.subscribe('placeById', this.params.placeId);
 		},
@@ -172,7 +163,6 @@ Router.map(function() {
 	this.route('placeMap', {
 		path: '/place/:placeId/map',
 		template: 'emptyTmpl',
-		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			return Meteor.subscribe('placesByIds', [this.params.placeId]);
 		},
@@ -186,7 +176,6 @@ Router.map(function() {
 	this.route('placeCheckins', {
 		path: '/place/:placeId/checkins',
 		template: 'panelList',
-		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			var place = Climbo.newPlace(this.params.placeId);
 			return Meteor.subscribe('usersByIds', place.checkins);
@@ -206,7 +195,6 @@ Router.map(function() {
 	this.route('placeConvers', {
 		path: '/place/:placeId/convers',
 		template: 'panelList',
-		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			return Meteor.subscribe('conversByPlace', this.params.placeId);
 		},
@@ -231,13 +219,11 @@ Router.map(function() {
 	this.route('placePois', {
 		path: '/place/:placeId/pois',
 		template: 'emptyTmpl',
-		layoutTemplate: 'layoutMap',
 		subscriptions: function() {
 			console.log('route subscriptions poisByPlace')
 			return Meteor.subscribe('poisByPlace', this.params.placeId);
 		},
 		onAfterAction: function() {
-			console.log('route onAfterAction', Places.findOne(this.params.placeId) )
 			Climbo.newPlace( this.params.placeId ).loadPois();
 		},
 		data: { hideSidebar: true }
@@ -246,44 +232,24 @@ Router.map(function() {
 	this.route('placeTracks', {
 		path: '/place/:placeId/tracks',
 		template: 'emptyTmpl',
-		layoutTemplate: 'layoutMap',
-		waitOn: function() {
-			return Meteor.subscribe('tracksByPlace', [this.params.placeId]);
+		subscriptions: function() {
+			return Meteor.subscribe('tracksByPlace', this.params.placeId);
 		},
-		onBeforeAction: function() {
+		onAfterAction: function() {
 			Climbo.newPlace( this.params.placeId ).loadTracks();
-			this.next();
 		},
 		data: { hideSidebar: true }
 	});
 
+	/*TODO
 	this.route('placeSectors', {
 		path: '/place/:placeId/sectors',
 		template: 'panelList',
-		layoutTemplate: 'layoutMap',
-/*		waitOn: function() {
-			return Meteor.subscribe('placesByIds', [this.params.placeId]);
-		},
-		onBeforeAction: function() {
-			
-			this.next();
-		}*/
-	});
-			/*Meteor.call('getSectorsByLoc', self.loc, function(err, sectors) {
-
-			title: '<i class="icon icon-sectors"></i> Settori di '+ _.str.capitalize(self.name),
-			className: 'sectors',
-			items: _.map(sectors, function(sector) {
-				sector.tmpl = Template.item_sector;
-				return sector;
-			}),
-			sortBy: 'name'
-		});*/
+	});*/
 	
 	this.route('user', {
 		path: '/user/:userId',
 		template: 'panelUser',
-		layoutTemplate: 'layoutMap',
 		subscriptions: function() {
 			return Meteor.subscribe('userById', this.params.userId);
 		},		
@@ -301,7 +267,6 @@ Router.map(function() {
 	this.route('userConver', {
 		path: '/user/:userId/conver',
 		//template: 'panelConver',
-		layoutTemplate: 'layoutMap',
 		onBeforeAction: function() {
 			if(this.params.userId===Meteor.userId())
 				Router.go('convers');
@@ -310,10 +275,10 @@ Router.map(function() {
 		}
 	});
 
-/*	this.route('userConver', {
+	/*TODO
+	this.route('userConver', {
 		path: '/user/:userId/bid',
 		//template: 'panelConver',
-		layoutTemplate: 'layoutMap',
 		onBeforeAction: function() {
 			if(this.params.userId===Meteor.userId())
 				Router.go('convers');
@@ -325,7 +290,6 @@ Router.map(function() {
 	this.route('convers', {
 		path: '/convers',
 		template: 'panelList',
-		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			return Meteor.subscribe('conversByIds', Climbo.profile.data.convers);
 		},
@@ -343,7 +307,6 @@ Router.map(function() {
 	this.route('conver', {
 		path: '/conver/:convId',
 		template: 'panelConver',
-		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			return Meteor.subscribe('converById', this.params.convId);
 		},

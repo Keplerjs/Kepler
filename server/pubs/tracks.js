@@ -1,22 +1,18 @@
 
-Meteor.publish('tracksByIds', function(tracksIds) {
+Meteor.publish('tracksByPlace', function(placeId) {
 
-	console.log('Pub: tracksByIds', tracksIds);
+	if(this.userId) {
 
-	if(this.userId)
-		return getTracksByIds(tracksIds);
-	else
-		this.ready();	
-});
+		var placeCur = getPlacesByIds([placeId]),
+			placeData = placeCur.fetch()[0];
 
-Meteor.publish('tracksByLoc', function(loc) {
+		console.log('Pub: tracksByPlace', placeId);
 
-	//TODO caching con Climbo.cache.js se necessario
-
-	console.log('Pub: tracksByLoc', loc);
-
-	if(this.userId)
-		return getTracksByLoc(loc);
+		return [
+			placeCur,
+			getTracksByLoc(placeData.loc)
+		];	
+	}
 	else
 		this.ready();	
 });

@@ -1,0 +1,14 @@
+
+<template name="popup_edit">
+	<div class="btn-group popup-actions">
+		<a class="popup-move btn btn-xs btn-default" href="#">Move</a> 
+		<a class="popup-canc btn btn-xs btn-default" style="display:none" href="#">Cancel</a>
+		<a class="popup-clone btn btn-xs btn-default" href="#">Clone</a> 
+		<a class="popup-del btn btn-xs btn-default" href="#">Delete</a>
+		<input class="popup-rename form-control" type="text" value="{{name}}" />
+	</div>
+	<div class="clearfix">
+		{{#if ele}} ele: {{ele}}m {{/if}}
+		{{#if esp}} esp: {{esp}}° {{humanAzimut esp}} {{/if}}
+	</div>
+</template>

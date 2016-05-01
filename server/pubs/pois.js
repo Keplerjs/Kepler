@@ -6,7 +6,7 @@ Meteor.publish('poisByPlace', function(placeId) {
 		var placeCur = getPlacesByIds([placeId]),
 			placeData = placeCur.fetch()[0];
 
-		console.log('Pub: poisByPlace', placeId, placeData);
+		console.log('Pub: poisByPlace', placeId);
 
 		return [
 			placeCur,

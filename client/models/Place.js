@@ -3,8 +3,8 @@ Climbo.Place = Climbo.Class.extend({
 	id: null,
 	data: {},					//dati orignali dal db
 	cache: {},					//caching for remote data	
-	tmpl: Template.item_place,	//template usato nelle liste
 	type: 'place',
+	tmpl: Template.item_place,	//template for items list	
 
 	init: function(placeId) {
 
@@ -14,13 +14,11 @@ Climbo.Place = Climbo.Class.extend({
 
 		//REACTIVE SOURCES:
 		self._dep = new Tracker.Dependency();
-		self.rData = function() {	//Data Reactive Source
+		self.rData = function() {
 			self._dep.depend();
-			//TODO raggruppare dati reattivi in self.rdata
-			//e usare solo quelli come sorgente reattiva
-			//TODO ritornare solo dati reattivi: checkins,stars,weather
 			return self;
 		};
+
 		self.update = function(comp) {	//sincronizza istanza con dati nel db
 
 			self.data = Places.findOne(new Meteor.Collection.ObjectID(self.id));
@@ -28,7 +26,7 @@ Climbo.Place = Climbo.Class.extend({
 			if(!self.data)
 				return false;
 			
-			_.extend(self, self.data, self.cache);
+			_.extend(self, self.data);
 
 			self._dep.changed();
 		};

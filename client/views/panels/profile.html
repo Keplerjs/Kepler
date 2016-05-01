@@ -3,9 +3,6 @@
 
 <div id="profile" class="panel">
 
-{{#if currentUser}}
-
-	{{#with currentUser}}
 	<div class="panel-heading bg-primary">
 		<h4 class="pull-left"><img class="user-avatar" src="{{avatar}}" /> {{name}}</h4>
 		<a class="close pull-right" href="/">&times;</a>
@@ -56,9 +53,6 @@
 			</a>			
 		</div>
 	</div>
-	{{/with}}
-	
-{{/if}}
 </div>
 
 </template>

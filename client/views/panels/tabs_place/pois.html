@@ -3,13 +3,13 @@
 	
 	{{#if pois}}
 	<div class="list-group">
-		<span class="list-group-item active">
+		<a class="list-group-item active panel-btn-pois" href="/place/{{id}}/pois">
 			<i class="icon icon-pois"></i> {{i18n 'ui.tabs.pois'}}
-		</span>
-		{{#each getPoisGroups}}
+		</a>
+		{{#each getPoisList}}
 		<a class="list-group-item panel-btn-pois" href="#">
-			<i class="icon icon-{{tipo}}"></i>
-			{{titolo}} <span class="badge bg-gray">{{count}}</span>
+			<i class="icon icon-{{type}}"></i> {{title}}
+			<span class="badge bg-gray">{{count}}</span>
 		</a>
 		{{/each}}
 	</div>

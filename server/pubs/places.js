@@ -26,16 +26,21 @@ Meteor.publish('placeById', function(placeId) {
 	{
 		var placeCur = getPlaceById(placeId),
 			placeData = placeCur.fetch()[0],
-			retCurs = [],
-			userIds = [];
+			retCurs = [];
 
 		retCurs.push(placeCur);
 
 		if(placeData.hist.length > 0)
 			retCurs.push( getUsersByIds(placeData.hist) );
 
+		if(placeData.checkins.length > 0)
+			retCurs.push( getUsersByIds(placeData.checkins) );		
+
 		if(placeData.pois)
 			retCurs.push( getPoisByLoc(placeData.loc) );
+
+		if(placeData.tracks)
+			retCurs.push( getTracksByLoc(placeData.loc) );		
 
 		console.log('Pub: placeById', placeData.name);
 

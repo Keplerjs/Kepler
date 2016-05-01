@@ -1,58 +1,50 @@
-/*
-	class Place with Tracks support
-*/
-Climbo.Place.include({
 
-	cache: {
-		tracks: null
-	},
-	
-	loadTracks: function(show) {
-		
-		show = _.isUndefined(show) ? true : false;
+function tracksToGeojson(tracks, place, type) {
 
-		var self = this;
+	if(type) {
+		tracks = _.filter(tracks, function(feature) {
+			return feature.properties.tipo === type;
+		});
+	}
 
-		function addInfo(track) {
+	var parkPoints = [],
+		tracks = _.map(tracks, function(track) {
 
-			track.properties.asc = track.properties.dis >= 0;
+		track.properties.asc = track.properties.dis >= 0;
 
-			if(track.properties.tipo==='access')
-				return Climbo.util.geo.createFeatureColl([
-					track,
-					Climbo.util.geo.createFeature('Point', track.geometry.coordinates[0], {tipo:'parking'})
-				]);
-			else
-				return track;
+		if(track.properties.tipo==='access') {
+
+			track.properties.name = i18n('ui.tracks.'+track.properties.tipo);
+			
+			parkPoints.push( Climbo.util.geo.createFeature('Point', track.geometry.coordinates[0], {tipo:'parking'}) );
 		}
-
-		if( self.tracks > 0 && self.cache.tracks && show)
-			Climbo.map.loadGeojson( _.map(self.cache.tracks, addInfo) );
-		else
-			Meteor.call('getTracksByLoc', self.loc, function(err, tracks) {
-
-				if(tracks && tracks.length > 0)
-				{
-					self.cache.tracks = tracks;
-					self.update();
-					if(show)
-						Climbo.map.loadGeojson( _.map(tracks, addInfo) );
-				}
-				else
-					self.cache.tracks = 0;
-			});
-
-		//TODO: usare subscribe come con Convers!!!
 		
-		// Meteor.subscribe('tracksByLoc', self.loc, function() {
-		// 	var tracksIds = _.map(self.tracks, function(id) {
-		// 		return new Meteor.Collection.ObjectID(id);
-		// 	});
-		// 	//TODO self.cache.tracks = addPoiParking(tracks);
-		// 	//Climbo.map.loadGeojson(poi parking)
-		// 	_.each(Tracks.find({_id: {$in: tracksIds}}).fetch(), Climbo.map.loadGeojson);
-		// 	//self.update();
-		// });
+		return track;
+	});
 
+	var gloc = [place.loc[1], place.loc[0]],
+		placeCircle = Climbo.util.geo.createFeature('Point', gloc, {tipo:'placeCircle'});
+
+	var features = _.union(placeCircle, tracks, parkPoints);
+
+	return Climbo.util.geo.createFeatureColl(features);
+}
+
+Climbo.Place.include({
+	
+	loadTracks: function(trackId) {
+
+		var tracks;
+
+		if(trackId)
+			tracks = getTracksByIds([trackId]).fetch();
+		else
+			tracks = getTracksByLoc(this.loc).fetch();
+
+		Climbo.map.loadGeojson( tracksToGeojson(tracks, this) );
+	},
+	getTracksList: function() {
+
+		return getTracksByLoc(this.loc).fetch();
 	}
 });

@@ -10,6 +10,11 @@
 	text-transform: capitalize;
 }
 
+.list-group-item.disabled .icon,
+.list-group-item.disabled .badge {
+	opacity:.5;
+}
+
 .btn.btn-danger,
 .btn.btn-danger:hover {
 	font-weight: bold;
@@ -106,53 +111,6 @@ label {
 
 .badge.bg-gray {
 	background-color: #ccc;
-}
-
-/* profile buttons */
-.btn-gray,
-a.btn-gray,
-.panel-gray > .panel-heading {
-	color: #fff;
-	background-color: #777;
-	border-color: #555;
-	background-image: -webkit-linear-gradient(top,#888 0,#777 100%);
-	background-image: linear-gradient(to bottom,#888 0,#777 100%);
-	background-repeat: repeat-x;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#888', endColorstr='#777', GradientType=0);
-}
-a.btn-gray:hover {
-	color: #fff;
-	background-color: #888;
-	background-image: -webkit-linear-gradient(top,#888 0,#888 100%);
-	background-image: linear-gradient(to bottom,#888 0,#888 100%);
-	background-repeat: repeat-x;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#888', endColorstr='#888', GradientType=0);
-}
-a.btn-gray .badge {
-	background-color: #999;
-}
-
-.panel-white > .panel-heading {
-	color: #fff;
-	border-color: #aaa;
-	background-image: -webkit-linear-gradient(top,#ccc 0,#bbb 100%);
-	background-image: linear-gradient(to bottom,#ccc 0,#bbb 100%);
-	background-repeat: repeat-x;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ccc', endColorstr='#bbb', GradientType=0);	
-}
-
-.panel-white > .panel-body {
-	background: none;
-}
-
-.panel-gray > .panel-body {
-	background: #999;
-}
-
-.panel-white > .panel-heading a,
-.panel-gray > .panel-heading a,
-.panel-primary > .panel-heading a {
-	color: #fff;
 }
 
 .navbar h4,

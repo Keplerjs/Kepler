@@ -1,5 +1,5 @@
 
-Template.panelPlaces.events({	
+Template.panelNearby.events({	
 	'mouseenter .well': function(e, tmpl) {
 		e.preventDefault();
 		//this.marker.fire('click')

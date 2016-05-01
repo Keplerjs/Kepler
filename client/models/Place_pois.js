@@ -1,17 +1,15 @@
-/*
-	class Place with POIs support
-*/
-function poisToGeojson(pois, loc, tipo) {
 
-	//decorate Poi markers with place circle and lines from place to pois
+function poisToGeojson(pois, place, type) {
+
+	/* decorate Poi markers with place circle and lines from place to pois */
 	
-	if(tipo) {
-		pois = _.filter(pois, function(poi) {
-			return poi.properties.tipo===tipo;
+	if(type) {
+		pois = _.filter(pois, function(feature) {
+			return feature.properties.tipo === type;
 		});
 	}
 
-	var gloc = [loc[1], loc[0]],
+	var gloc = [place.loc[1], place.loc[0]],
 		placeCircle = Climbo.util.geo.createFeature('Point', gloc, {tipo:'placeCircle'});
 		coordLines = _.map(pois, function(poi) {
 			return [gloc, poi.geometry.coordinates];
@@ -23,25 +21,26 @@ function poisToGeojson(pois, loc, tipo) {
 }
 
 Climbo.Place.include({
-	loadPois: function(tipo) {
+
+	loadPois: function(type) {
 
 		var pois = getPoisByLoc(this.loc).fetch();
 
-		Climbo.map.loadGeojson( poisToGeojson(pois, this.loc, tipo) );
+		Climbo.map.loadGeojson( poisToGeojson(pois, this, type) );
 	},
-	getPoisGroups: function(tipo) {
+	
+	getPoisList: function() {
 
-		var pois = getPoisByLoc(this.loc).fetch();
-
-		var types = _.countBy(pois, function(poi) {
-			return poi.properties.tipo;
-		});
+		var pois = getPoisByLoc(this.loc).fetch(),
+			types = _.countBy(pois, function(feature) {
+				return feature.properties.tipo;
+			});
 
 		return _.map(types, function(val, tipo) {
 			return {
-				tipo: tipo,
+				type: tipo,
 				count: val,
-				titolo: i18n('ui.pois.'+tipo)
+				title: i18n('ui.pois.'+tipo)
 			};
 		});
 	}

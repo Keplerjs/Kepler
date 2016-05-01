@@ -60,13 +60,15 @@ layers.geojson = new L.GeoJSONAutoClear(null, {
 	onEachFeature: function (feature, layer) {
 		var tmpl, $popup;
 
-		if(feature.geometry.type=='LineString')
+		console.log(feature.properties)
+
+		if(feature.geometry.type==='LineString')
 			tmpl = Template.popup_track;
 
-		else if(feature.geometry.type=='Point' && feature.properties.name )
+		else if(feature.geometry.type==='Point')
 			tmpl = Template.popup_poi;
 
-		if(tmpl) {
+		if(tmpl && feature.properties.name) {
 			$popup = L.DomUtil.create('div');
 			Blaze.renderWithData(tmpl, feature.properties, $popup);
 			layer.bindPopup($popup, {closeButton:false} );
@@ -92,7 +94,6 @@ layers.places = new L.LayerJSON({
 		};
 	},
 	dataToMarker: function(data) {	//eseguito una sola volta per ogni place
-		//FIXME! sparisce il contenuto dei popup nei markers in cache	
 		return Climbo.newPlace(data._id._str).marker;
 	}
 });

@@ -6,7 +6,7 @@ i18n.map('it', {
 			favorites: "Luoghi preferiti",
 			histplaces: "Luoghi recenti",
 			friends: "Tuoi Amici",
-			places: "Luoghi nelle vicinanze",
+			nearby: "Luoghi nelle vicinanze",
 			convers: "Messaggi",
 			notifs: "Notifiche",
 			conver: "Conversazione",
@@ -25,9 +25,9 @@ i18n.map('it', {
 			userleaveconv: "<i class=\"text-muted\"> <b>{name}</b> ha lasciato la conversazione.</i>",
 		},
 		tabs: {
-			geo: "Geografia",
-			gpx: "Avvicinamento",
+			geo: "Geografia",			
 			pois: "Luoghi utili",
+			tracks: "Sentieri",
 			forecasts: "Previsioni meteo",
 			stview: "Street View"
 		},
@@ -132,6 +132,10 @@ i18n.map('it', {
 			water: "Fontana",
 			drink: "Dove bere!",
 			eat: "Dove mangiare"
+		},
+		tracks: {
+			access: "Avvicinamento",
+			other: "Altro",
 		},
 		places: {
 			rock: "Falesia",

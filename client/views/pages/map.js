@@ -1,7 +1,7 @@
 
 Template.pageMap.onRendered(function() {
 	console.log('Template.pageMap.onRendered')
-	/*Climbo.map.initMap(Meteor.settings.public.map, function() {
+	Climbo.map.initMap(Meteor.settings.public.map, function() {
 		this.enableBBox();
 	}); //*/
 });

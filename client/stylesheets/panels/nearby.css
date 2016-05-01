@@ -1,15 +1,15 @@
 
-#places .well {
+#nearby .well {
 	margin: 0 0 15px 15px;
 	cursor: pointer;
 	background: none;
 }
 
-#places .well:hover {
+#nearby .well:hover {
 	border:1px solid #428bca;
 }
 
-#places .place-btn-name {
+#nearby .place-btn-name {
 	font-size: 12px;
 	line-height: 12px;
 	display: inline;

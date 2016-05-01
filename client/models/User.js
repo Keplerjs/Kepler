@@ -8,9 +8,8 @@ Climbo.User = Climbo.Class.extend({
 
 	id: null,
 	data: {},					//dati orignali dal db
-	cache: {},					//caching for remote data	
-	tmpl: Template.item_user,	//template usato nelle liste
 	type: 'user',
+	tmpl: Template.item_user,	//template for items list	
 
 	init: function(userId) {
 
@@ -27,8 +26,7 @@ Climbo.User = Climbo.Class.extend({
 			
 			self.data = Users.findOne(self.id);
 
-			//_.extend(self, self.data);
-			_.extend(self, self.data, self.cache);
+			_.extend(self, self.data);
 
 			if(self.isMe()) {
 				if(self.loc)
