@@ -8,7 +8,7 @@ var urls = {
 		elevation: "http://localhost/maps/dem/elevation.php"
 	};
 
-Climbo.geodata = (function() {
+Kepler.geodata = (function() {
 
 	var geonamesUser = Meteor.settings.accounts.geonamesUser,
 		timeo = 20000;	//timeout connessioni http remote
@@ -259,59 +259,59 @@ Climbo.geodata = (function() {
 		},
 		elevation: function(ll) {
 
-			ll = Climbo.util.geo.roundLoc(ll, 8);
+			ll = K.util.geo.roundLoc(ll, 8);
 
-			var val = Climbo.cache.get('elevation', ll.join('_') );
+			var val = K.cache.get('elevation', ll.join('_') );
 
-			return val || Climbo.cache.set('elevation', ll.join('_'), elevationAPILocal(ll) );
+			return val || K.cache.set('elevation', ll.join('_'), elevationAPILocal(ll) );
 		},
 		aspect: function(ll) {
 			
-			ll = Climbo.util.geo.roundLoc(ll, 8);
+			ll = K.util.geo.roundLoc(ll, 8);
 
-			var val = Climbo.cache.get('aspect', ll.join('_') );
+			var val = K.cache.get('aspect', ll.join('_') );
 
-			return val || Climbo.cache.set('aspect', ll.join('_'), aspectAPILocal(ll) );
+			return val || K.cache.set('aspect', ll.join('_'), aspectAPILocal(ll) );
 		},
 		near: function(ll) {
 
-			ll = Climbo.util.geo.roundLoc(ll, 4);
+			ll = K.util.geo.roundLoc(ll, 4);
 
-			var val = Climbo.cache.get('near', ll.join('_') );
+			var val = K.cache.get('near', ll.join('_') );
 
-			return val || Climbo.cache.set('near', ll.join('_'), nearAPI(ll) );
+			return val || K.cache.set('near', ll.join('_'), nearAPI(ll) );
 		},
 		comune: function(ll) {
 
-			ll = Climbo.util.geo.roundLoc(ll, 6);
+			ll = K.util.geo.roundLoc(ll, 6);
 
-			var val = Climbo.cache.get('comune', ll.join('_') );
+			var val = K.cache.get('comune', ll.join('_') );
 
-			return val || Climbo.cache.set('comune', ll.join('_'), comuneAPI(ll) );
+			return val || K.cache.set('comune', ll.join('_'), comuneAPI(ll) );
 		},
 		provincia: function(ll) {
 
-			ll = Climbo.util.geo.roundLoc(ll, 6);
+			ll = K.util.geo.roundLoc(ll, 6);
 
-			var val = Climbo.cache.get('provincia', ll.join('_') );
+			var val = K.cache.get('provincia', ll.join('_') );
 
-			return val || Climbo.cache.set('provincia', ll.join('_'), provinciaAPI(ll) );
+			return val || K.cache.set('provincia', ll.join('_'), provinciaAPI(ll) );
 		},		
 		regione: function(ll) {
 
-			ll = Climbo.util.geo.roundLoc(ll, 2);
+			ll = K.util.geo.roundLoc(ll, 2);
 
-			var val = Climbo.cache.get('regione', ll.join('_') );
+			var val = K.cache.get('regione', ll.join('_') );
 
-			return val || Climbo.cache.set('regione', ll.join('_'), regioneAPI(ll) );
+			return val || K.cache.set('regione', ll.join('_'), regioneAPI(ll) );
 		},	
 		nazione: function(ll) {
 
-			ll = Climbo.util.geo.roundLoc(ll, 1);
+			ll = K.util.geo.roundLoc(ll, 1);
 
-			var val = Climbo.cache.get('nazione', ll.join('_') );
+			var val = K.cache.get('nazione', ll.join('_') );
 
-			return val || Climbo.cache.set('nazione', ll.join('_'), nazioneAPI(ll) );
+			return val || K.cache.set('nazione', ll.join('_'), nazioneAPI(ll) );
 		}
 	};
 }());
@@ -319,7 +319,7 @@ Climbo.geodata = (function() {
 	// function cittaAPILocal(initial)
 	// {
 	// 	Citta = new Meteor.Collection('citta');
-	//	initial = Climbo.util.sanitizeRegExp(initial);
+	//	initial = K.util.sanitizeRegExp(initial);
 	// 	return Citta.find({name: {$regex: new RegExp('^'+initial,'i')}},
 	// 					{
 	// 						fields:{name:1, loc:1, prov:1, _id:0},

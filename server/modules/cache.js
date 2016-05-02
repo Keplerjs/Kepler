@@ -20,7 +20,7 @@ var Caches = {
 	near: new Meteor.Collection('cache_near', {idGeneration:'STRING'})	
 };
 
-Climbo.cache = {
+Kepler.cache = {
 	set: function(funcname, key, val) {
 		
 		if(Caches[funcname])

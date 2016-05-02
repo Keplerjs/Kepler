@@ -1,12 +1,12 @@
 
-Climbo.profile = {
+Kepler.profile = {
 
 	ready: false,
 
 	id: null,
-	user: null,			//my istance of Climbo.User	
+	user: null,			//my istance of K.User	
 	data: {},
-	mapSets: {},		//map custom settings used in Climbo.map.initMap(...)
+	mapSets: {},		//map custom settings used in K.map.initMap(...)
 	placeCheckin: null,
 	notifs: [],			//notifs of user
 	//TODO rename fields in db notif to notifs
@@ -34,20 +34,20 @@ Climbo.profile = {
 
 			self.data = self.data;
 
-			if(Climbo.map.ready)
-				Climbo.map.setOpts({
+			if(K.map.ready)
+				K.map.setOpts({
 					layer: self.data.settings.layer,
 					center: self.data.locmap
 				});
 
 			//show user marker quando la mappa è ancora pronta
-			self.user = Climbo.newUser(self.data._id);
+			self.user = K.newUser(self.data._id);
 			self.user.update();
 
 			//TODO i18n.setLanguage(self.data.lang);
 
 			if(self.data.checkin)
-				self.placeCheckin = Climbo.newPlace(self.data.checkin);
+				self.placeCheckin = K.newPlace(self.data.checkin);
 
 			$('#friends #switch_online').bootstrapSwitch('state', self.data.online);
 		});
@@ -71,7 +71,7 @@ Climbo.profile = {
 
 	getFriends: function() {
 		return  _.map(_.compact(this.data.friends), function(userId) {
-			return Climbo.newUser(userId).rData();
+			return K.newUser(userId).rData();
 		});
 	},
 	
@@ -107,7 +107,7 @@ Climbo.profile = {
 
 	setLoc: function(loc) {
 		// loc = loc || null;
-		// var shift = Climbo.util.geo.distance(this.data.loclast, loc);
+		// var shift = K.util.geo.distance(this.data.loclast, loc);
 		// if(loc===null || shift >= Meteor.settings.public.gpsMinShift)
 		//problems when loclast===loc(just gps switched on)
 		Meteor.call('setUserLoc', loc);
@@ -131,7 +131,7 @@ Climbo.profile = {
 	addCheckin: function(placeId) {
 		var self = this;
 		Meteor.call('addCheckin',placeId, function() {
-			self.placeCheckin = Climbo.newPlace(placeId);
+			self.placeCheckin = K.newPlace(placeId);
 			self._deps.checkin.changed();
 		});
 		return this;
@@ -159,7 +159,7 @@ Climbo.profile = {
 		else
 			this.fileReader = new FileReader();
 			
-		if(true || Climbo.util.valid.image(fileObj)) {
+		if(true || K.util.valid.image(fileObj)) {
 			this.fileReader.onloadend = function(e) {
 				Meteor.call('uploadAvatar', {
 					name: fileObj.name,
@@ -171,7 +171,7 @@ Climbo.profile = {
 			this.fileReader.readAsBinaryString(fileObj);
 		}
 		else
-			cb({message: i18n('errors.imageNotValid') + Climbo.util.human.filesize(Meteor.settings.public.maxImageSize) });
+			cb({message: i18n('errors.imageNotValid') + K.util.human.filesize(Meteor.settings.public.maxImageSize) });
 
 		return this;
 	},
@@ -179,7 +179,7 @@ Climbo.profile = {
 		var self = this;
 		self.setOnline(false);
 		Meteor.logout(function(err) {
-			//TODO esegui Climbo.map.destroyMap();
+			//TODO esegui K.map.destroyMap();
 		});
 		return this;
 	}

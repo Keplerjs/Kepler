@@ -1,6 +1,6 @@
 
 Template.tab_checkin.helpers({
 	placeCheckin: function() {
-		return Climbo.profile.getCheckin();
+		return K.profile.getCheckin();
 	}
 });

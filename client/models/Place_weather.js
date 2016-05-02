@@ -1,7 +1,7 @@
 /*
 	class Place with Weather support
 */
-Climbo.Place.include({
+Kepler.Place.include({
 
 	cache: {
 		weather: null

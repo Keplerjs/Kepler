@@ -11,7 +11,7 @@ Template.panelFriends.onRendered(function() {
 			Meteor.subscribe('usersByName', val, function() {
 				list$.removeClass('loading-lg');
 				var usersIds = _.pluck(getUsersByName(val).fetch(), '_id'),
-					users = _.map(usersIds, Climbo.newUser);
+					users = _.map(usersIds, K.newUser);
 				console.log(users)
 				callback( users );
 			});
@@ -29,9 +29,9 @@ Template.switch_online.onRendered(function() {
 	this.$('#switch_online').bootstrapSwitch({
 		size: 'mini',		
 		onColor: 'success',		
-		state: Climbo.profile.getOnline(),
+		state: K.profile.getOnline(),
 		onSwitchChange: function (e, stat) {
-			Climbo.profile.setOnline(stat);
+			K.profile.setOnline(stat);
 		}
 	});
 });

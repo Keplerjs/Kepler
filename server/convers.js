@@ -63,7 +63,7 @@ delConver = function(convId) {
 	else	//se non è il creatore della conver la abbandona
 	{
 		var leaveMsg = {
-			updateAt: Climbo.util.timeUnix(),			
+			updateAt: K.util.timeUnix(),			
 			userId: Meteor.userId(),
 			body: _.template(i18n('ui.alerts.userleaveconv'), Meteor.user())
 		};
@@ -78,7 +78,7 @@ delConver = function(convId) {
 				usersIds: Meteor.userId()
 			},
 			$set: {
-				updateAt: Climbo.util.timeUnix(),
+				updateAt: K.util.timeUnix(),
 				lastMsg: leaveMsg
 			}
 		});

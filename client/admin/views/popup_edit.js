@@ -26,7 +26,7 @@ Template.popup_place.events({
 	'click .popup-clone': function(e,tmpl) {
 		Meteor.call('adminClonePlace', this.id, function(err, newPlaceId) {
 			Meteor.subscribe('placeByIds', [newPlaceId], function() {	//carica tutti i dati della place
-				Climbo.newPlace(newPlaceId);//.loadLoc();
+				K.newPlace(newPlaceId);//.loadLoc();
 			});
 		});
 	},	

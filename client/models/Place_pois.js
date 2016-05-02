@@ -10,23 +10,23 @@ function poisToGeojson(pois, place, type) {
 	}
 
 	var gloc = [place.loc[1], place.loc[0]],
-		placeCircle = Climbo.util.geo.createFeature('Point', gloc, {tipo:'placeCircle'});
+		placeCircle = K.util.geo.createFeature('Point', gloc, {tipo:'placeCircle'});
 		coordLines = _.map(pois, function(poi) {
 			return [gloc, poi.geometry.coordinates];
 		}),
-		poiLines = Climbo.util.geo.createFeature('MultiLineString', coordLines, {tipo:'poiLine'}),
+		poiLines = K.util.geo.createFeature('MultiLineString', coordLines, {tipo:'poiLine'}),
 		features = _.union(placeCircle, pois, poiLines);
 
-	return Climbo.util.geo.createFeatureColl(features);
+	return K.util.geo.createFeatureColl(features);
 }
 
-Climbo.Place.include({
+Kepler.Place.include({
 
 	loadPois: function(type) {
 
 		var pois = getPoisByLoc(this.loc).fetch();
 
-		Climbo.map.loadGeojson( poisToGeojson(pois, this, type) );
+		K.map.loadGeojson( poisToGeojson(pois, this, type) );
 	},
 	
 	getPoisList: function() {

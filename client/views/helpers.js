@@ -10,7 +10,7 @@ Template.registerHelper('connectionStatus', function() {
 });
 
 Template.registerHelper('settings', function(prop) {
-	return Climbo.util.getPath(Meteor.settings.public, prop);
+	return K.util.getPath(Meteor.settings.public, prop);
 });
 
 //TODO nuovo helper {{#ifwith }}
@@ -19,56 +19,54 @@ Template.registerHelper('or', function() {
 });
 
 Template.registerHelper('newUser', function(id) {
-	return Climbo.newUser(id);
+	return K.newUser(id);
 });
 
 Template.registerHelper('newPlace', function(id) {
-	return Climbo.newPlace(id);
+	return K.newPlace(id);
 });
 
-///Climbo.util..
-
 Template.registerHelper('humanAzimut', function(ang, tiny) {
-	return Climbo.util.human.azimut(ang, parseInt(tiny));
+	return K.util.human.azimut(ang, parseInt(tiny));
 });
 
 Template.registerHelper('humanTime', function(sec, ago) {
-	return Climbo.util.human.time(sec, parseInt(ago));
+	return K.util.human.time(sec, parseInt(ago));
 });
 
 Template.registerHelper('humanTimeUTC', function(dateutc, ago) {
-	var date = Climbo.util.dateUtcToLocal(new Date(Date.parse(dateutc))),
+	var date = K.util.dateUtcToLocal(new Date(Date.parse(dateutc))),
 		sec = Math.round(date.getTime()/1000);
 		console.log(date, ago)
-	return Climbo.util.human.time(sec, parseInt(ago));
+	return K.util.human.time(sec, parseInt(ago));
 });
 
 Template.registerHelper('humanDate', function(date) {
-	return Climbo.util.human.date(date);
+	return K.util.human.date(date);
 });
 
 Template.registerHelper('humanDateUTC', function(dateutc) {
-	var date = Climbo.util.dateUtcToLocal(new Date(Date.parse(dateutc))),
+	var date = K.util.dateUtcToLocal(new Date(Date.parse(dateutc))),
 		d = date.getDate(),
 		m = date.getMonth()+1,
 		y = date.getFullYear();
-	return Climbo.util.human.date(d+'-'+m+'-'+y);
+	return K.util.human.date(d+'-'+m+'-'+y);
 });
 
 Template.registerHelper('humanDistance', function(dis, sign) {
-	return Climbo.util.human.distance(dis, parseInt(sign));
+	return K.util.human.distance(dis, parseInt(sign));
 });
 
 Template.registerHelper('humanLatlng', function(loc) {
-	return Climbo.util.human.latlng(loc);
+	return K.util.human.latlng(loc);
 });
 
 Template.registerHelper('sunrise', function(ll) {
-	return Climbo.util.geo.sunrise(ll);
+	return K.util.geo.sunrise(ll);
 });
 
 Template.registerHelper('sunset', function(ll) {
-	return Climbo.util.geo.sunset(ll);
+	return K.util.geo.sunset(ll);
 });
 
 Template.registerHelper('placeType', function(type) {

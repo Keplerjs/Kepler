@@ -18,15 +18,15 @@ Meteor.methods({
 				track.geometry.type==="LineString" ) {
 				
 				var prop = track.properties || {},
-					geom = Climbo.util.geo.linestringClean(track.geometry),
+					geom = K.util.geo.linestringClean(track.geometry),
 					p1 = _.first(geom.coordinates),
 					p2 = _.last(geom.coordinates);
 
-				prop.len  = parseInt( Math.round( Climbo.util.geo.linestringLen(geom) ) );
-				prop.dis  = parseInt( Climbo.geodata.elevation([p2[1],p2[0]]) - Climbo.geodata.elevation([p1[1],p1[0]]) ); //negativo per discesa
-				prop.time = parseInt( Climbo.util.geo.timeTrack(prop.len, prop.dis) );
-				prop.start= Climbo.util.geo.createPoint(p1);
-				prop.end  = Climbo.util.geo.createPoint(p2);
+				prop.len  = parseInt( Math.round( K.util.geo.linestringLen(geom) ) );
+				prop.dis  = parseInt( K.geodata.elevation([p2[1],p2[0]]) - K.geodata.elevation([p1[1],p1[0]]) ); //negativo per discesa
+				prop.time = parseInt( K.util.geo.timeTrack(prop.len, prop.dis) );
+				prop.start= K.util.geo.createPoint(p1);
+				prop.end  = K.util.geo.createPoint(p2);
 			}
 			
 			Tracks.update(trackId, track);

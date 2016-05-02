@@ -1,7 +1,7 @@
 /*
 	class Place with Google StreetView support
 */
-Climbo.Place.include({
+Kepler.Place.include({
 
 	cache: {
 		stview: null

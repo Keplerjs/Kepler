@@ -37,15 +37,15 @@ weatherAPI = function(ll) {
 Meteor.methods({
 	getWeatherByLoc: function(ll) {
 
-		ll = Climbo.util.geo.roundLoc(ll, 1);
+		ll = K.util.geo.roundLoc(ll, 1);
 		
 		console.log("getWeatherByLoc()",ll);
 
-		var key = parseInt(Climbo.util.timeUnix()/(60*60*24*1))+'_'+ll.join('_');
+		var key = parseInt(K.util.timeUnix()/(60*60*24*1))+'_'+ll.join('_');
 		//daily hash
 
-		var val = Climbo.cache.get('weather', key );
+		var val = K.cache.get('weather', key );
 
-		return val || Climbo.cache.set('weather', key, weatherAPI(ll) );
+		return val || K.cache.set('weather', key, weatherAPI(ll) );
 	}
 });

@@ -3,11 +3,11 @@
 
 	disabilitare completamente moduolo se Meteor.settings.public.showAlerts === false
 
-	TODO convertire in modulo con pattern come Climbo.map.js
+	TODO convertire in modulo con pattern come modules/map.js
 	//TODO metodo per ridurre a icona(su un button leaflet) la alerts senza chiuderla
 */
 
-Climbo.alert = {
+Kepler.alert = {
 
 	_timerHide: null,
 
@@ -35,8 +35,8 @@ Climbo.alert = {
 		else
 			btnClose$.hide();
 
-		clearTimeout(Climbo.alert._timerHide);
-		Climbo.alert._timerHide = setTimeout(Climbo.alert.hide, 10000);
+		clearTimeout(K.alert._timerHide);
+		K.alert._timerHide = setTimeout(K.alert.hide, 10000);
 	},
 
 	hide: function(id) {
@@ -52,11 +52,11 @@ Climbo.alert = {
 		if(Meteor.settings.public.showAlerts)
 			getConversByIds(conversIds).observeChanges({
 				added: function(convId, fields) {
-					var user = Climbo.newUser(fields.userId);
+					var user = K.newUser(fields.userId);
 
 					console.log('observeConvers CHANGED',fields);
-					if(fields.userId != Climbo.profile.id)
-						Climbo.alert.show('Nuovo messaggio privato','mes');
+					if(fields.userId != K.profile.id)
+						K.alert.show('Nuovo messaggio privato','mes');
 				}
 			});
 	},
@@ -65,19 +65,19 @@ Climbo.alert = {
 		if(Meteor.settings.public.showAlerts)
 			getUsersByIds(usersIds).observeChanges({
 				changed: function(userId, fields) {
-					var user = Climbo.newUser(userId);
+					var user = K.newUser(userId);
 					
 					//console.log('CHANGED',user.username,fields);
 
 					if(fields.online)
-						Climbo.alert.show(_.template(i18n('ui.alerts.useronline'), user),'success');
+						K.alert.show(_.template(i18n('ui.alerts.useronline'), user),'success');
 
 					if(fields.loc)
-						Climbo.alert.show(_.template(i18n('ui.alerts.usergps'), user),'map-user');
+						K.alert.show(_.template(i18n('ui.alerts.usergps'), user),'map-user');
 
 					if(fields.checkin) {
-						user.placename = Climbo.newPlace(fields.checkin).name || i18n('ui.labels.noname');
-						Climbo.alert.show(_.template(i18n('ui.alerts.usercheckin'), user),'checkin');
+						user.placename = K.newPlace(fields.checkin).name || i18n('ui.labels.noname');
+						K.alert.show(_.template(i18n('ui.alerts.usercheckin'), user),'checkin');
 					}
 				}
 			});
@@ -90,12 +90,12 @@ Climbo.alert = {
 // 	Places.find({_id: {$in: placesIds} }).observeChanges({
 // 		changed: function(placeId, fields) {
 
-// 			var place = Climbo.newPlace(placeId._str);
+// 			var place = K.newPlace(placeId._str);
 			
 // 			console.log(fields.checkins);
 
-// 		 	if(fields.checkins.length > 1 && !_.contains(fields.checkins,Climbo.profile.id))
-// 				Climbo.alert.show(_.template(
+// 		 	if(fields.checkins.length > 1 && !_.contains(fields.checkins,K.profile.id))
+// 				K.alert.show(_.template(
 // 						i18n('ui.alerts.placecheckins'), {
 // 							name: place.name,
 // 							users: fields.checkins.length

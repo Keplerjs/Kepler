@@ -1,4 +1,5 @@
-Climbo.Place = Climbo.Class.extend({
+
+Kepler.Place = K.Class.extend({
 
 	id: null,
 	data: {},					//dati orignali dal db
@@ -55,9 +56,8 @@ Climbo.Place = Climbo.Class.extend({
 	//PUBLIC METHODS:
 	loadLoc: function() {
 		var self = this;
-		Climbo.map
-			.loadItem(self);
-		Climbo.map.loadLoc(self.loc, function() {
+		K.map.loadItem(self)
+			 .loadLoc(self.loc, function() {
 				self.icon.animate();
 			});
 	},
@@ -73,7 +73,7 @@ Climbo.Place = Climbo.Class.extend({
 
 	isCheckin: function() {
 		//return Meteor.user() && (Meteor.user().checkin === this.id);
-		var place = Climbo.profile.getCheckin();
+		var place = K.profile.getCheckin();
 		return place && place.id === this.id;
 	},
 	
@@ -96,17 +96,17 @@ Climbo.Place = Climbo.Class.extend({
 	}
 });
 
-//TODO move to Climbo.Class.newItem()
-Climbo.newPlace = function(id)
+//TODO move to K.Class.newItem()
+K.newPlace = function(id)
 {
 	if(!id) return null;
-	if(!Climbo.placesById[id])
-		Climbo.placesById[id] = new Climbo.Place(id);
+	if(!K.placesById[id])
+		K.placesById[id] = new K.Place(id);
 	
 	//for debugging
-	var iname = Climbo.util.sanitizeFilename(Climbo.placesById[id].name);
-	Climbo.placesByName[iname || id] = Climbo.placesById[id];
+	var iname = K.util.sanitizeFilename(K.placesById[id].name);
+	K.placesByName[iname || id] = K.placesById[id];
 
-	return Climbo.placesById[id];
+	return K.placesById[id];
 };
 

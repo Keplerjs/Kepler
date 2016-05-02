@@ -13,11 +13,11 @@ addMsgToConver = function(convId, body) {
 		newMsg = {
 			'convId': convId,
 			'userId': Meteor.userId(),
-			'updateAt': Climbo.util.timeUnix(),
-			'body': Climbo.util.sanitizeMsg(body)
+			'updateAt': K.util.timeUnix(),
+			'body': K.util.sanitizeMsg(body)
 		};
 
-	//TODO use Climbo.schemas.converMsg
+	//TODO use K.schemas.converMsg
 
 	if(lastMsg && lastMsg.userId === newMsg.userId)	//append to my last msg
 	{

@@ -159,7 +159,7 @@ i18n.map('it', {
 			market: "Negozio"
 		},
 		controls: {
-			attrib: "&copy;<small>2014</small> Climbo.net, map data <a href=\"http://osm.org/\">osm.org</a>",
+			attrib: "{copy}, <a href=\"http://osm.org/\">osm.org</a>",
 			search: {
 				text: "Cerca un luogo...",
 				error: "Falesia non trovata"

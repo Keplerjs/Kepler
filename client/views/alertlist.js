@@ -1,7 +1,7 @@
 
 Template.alertList.events({
 	'click .alerts-btn-close': function(e,tmpl) {
-		Climbo.alert.hide();
+		K.alert.hide();
 	}
 });
 

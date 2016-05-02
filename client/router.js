@@ -23,7 +23,7 @@ Router.onBeforeAction(function() {
 
 		//console.log('main onBeforeAction user',Meteor.user());
 
-		Climbo.profile.initProfile(function() {
+		K.profile.initProfile(function() {
 
 		});
 	}
@@ -34,7 +34,7 @@ Router.onBeforeAction(function() {
 Router.onAfterAction(function() {
 	document.title = Meteor.settings.public.website.title;// +' - '+ this.route.getName();
 	//if(this.ready())
-	//	Climbo.map.initMap(Meteor.settings.public.map, function() {
+	//	K.map.initMap(Meteor.settings.public.map, function() {
 	//		this.enableBBox();
 	//	});//*/
 });
@@ -68,14 +68,14 @@ Router.map(function() {
 		layoutTemplate: 'layoutPage',
 		loadingTemplate: 'pageLoading',
 		waitOn: function() {
-			return Meteor.subscribe('usersByIds', Climbo.profile.data.friends );
+			return Meteor.subscribe('usersByIds', K.profile.data.friends );
 		}
 	});	
 
 	this.route('logout', {
 		path: '/logout',
 		onBeforeAction: function () {
-			Climbo.profile.logout();
+			K.profile.logout();
 			Router.go('intro');
 		}
 	});
@@ -100,11 +100,11 @@ Router.map(function() {
 		path: '/friends',
 		template: 'panelFriends',
 		waitOn: function() {
-			return Meteor.subscribe('friendsByIds', Climbo.profile.data.friends );
+			return Meteor.subscribe('friendsByIds', K.profile.data.friends );
 		},
 		data: function() {
 			return {
-				friends: Climbo.profile.getFriends()
+				friends: K.profile.getFriends()
 			};
 		}	
 	});
@@ -113,10 +113,10 @@ Router.map(function() {
 		path: '/favorites',
 		template: 'panelList',
 		waitOn: function() {
-			return Meteor.subscribe('placesByIds', Climbo.profile.data.favorites);
+			return Meteor.subscribe('placesByIds', K.profile.data.favorites);
 		},
 		data: function() {
-			var places = _.map(Climbo.profile.data.favorites, Climbo.newPlace);
+			var places = _.map(K.profile.data.favorites, K.newPlace);
 			return {
 				title: i18n('ui.titles.favorites'),
 				className: 'favorites',
@@ -129,10 +129,10 @@ Router.map(function() {
 		path: '/history',
 		template: 'panelList',
 		waitOn: function() {
-			return Meteor.subscribe('placesByIds', Climbo.profile.data.hist);
+			return Meteor.subscribe('placesByIds', K.profile.data.hist);
 		},
 		data: function() {
-			var places = _.map(Climbo.profile.data.hist, Climbo.newPlace);
+			var places = _.map(K.profile.data.hist, K.newPlace);
 			return {
 				title: i18n('ui.titles.histplaces'),
 				className: 'history',
@@ -151,7 +151,7 @@ Router.map(function() {
 				className: 'notifications',
 				items: []
 				/*itemsTemplate: 'item_notif',
-				items: Climbo.profile.data.notifs*/
+				items: K.profile.data.notifs*/
 			};
 		}
 	});
@@ -161,11 +161,11 @@ Router.map(function() {
 		template: 'panelNearby',
 		data: function() {
 			
-			if(!Climbo.map.ready) return null;
+			if(!K.map.ready) return null;
 
-			var bbox = Climbo.map.getBBox(),
+			var bbox = K.map.getBBox(),
 				places = _.map(getPlacesByBBox(bbox).fetch(), function(place) {
-					var p = Climbo.newPlace(place._id._str);
+					var p = K.newPlace(place._id._str);
 					if($(p.marker._icon).is(':visible'))
 						return p.rData();
 				});
@@ -185,7 +185,7 @@ Router.map(function() {
 			return Meteor.subscribe('placeById', this.params.placeId);
 		},
 		data: function() {
-			return Climbo.newPlace(this.params.placeId).rData();
+			return K.newPlace(this.params.placeId).rData();
 		}
 	});
 
@@ -196,7 +196,7 @@ Router.map(function() {
 			return Meteor.subscribe('placesByIds', [this.params.placeId]);
 		},
 		onBeforeAction: function() {
-			Climbo.newPlace( this.params.placeId ).loadLoc();
+			K.newPlace( this.params.placeId ).loadLoc();
 			this.next();
 		},
 		data: { hideSidebar: true }
@@ -206,16 +206,16 @@ Router.map(function() {
 		path: '/place/:placeId/checkins',
 		template: 'panelList',
 		waitOn: function() {
-			var place = Climbo.newPlace(this.params.placeId);
+			var place = K.newPlace(this.params.placeId);
 			return Meteor.subscribe('usersByIds', place.checkins);
 		},
 		data: function() {
-			var place = Climbo.newPlace(this.params.placeId);
+			var place = K.newPlace(this.params.placeId);
 			return {
 				title: i18n('ui.titles.checkins')+'<a href="/place/'+this.params.placeId+'"><b>'+place.name+'</b></a>',
 				className: 'checkins',
 				itemsTemplate: 'item_user',
-				items: _.map(place.checkins, Climbo.newUser),
+				items: _.map(place.checkins, K.newUser),
 				sortDesc: true
 			};
 		}
@@ -228,7 +228,7 @@ Router.map(function() {
 			return Meteor.subscribe('conversByPlace', this.params.placeId);
 		},
 		data: function() {
-			var place = Climbo.newPlace(this.params.placeId),
+			var place = K.newPlace(this.params.placeId),
 				convers = getConversByPlace(this.params.placeId).fetch();
 
 			return {
@@ -253,7 +253,7 @@ Router.map(function() {
 			return Meteor.subscribe('poisByPlace', this.params.placeId);
 		},
 		onAfterAction: function() {
-			Climbo.newPlace( this.params.placeId ).loadPois();
+			K.newPlace( this.params.placeId ).loadPois();
 		},
 		data: { hideSidebar: true }
 	});
@@ -265,7 +265,7 @@ Router.map(function() {
 			return Meteor.subscribe('tracksByPlace', this.params.placeId);
 		},
 		onAfterAction: function() {
-			Climbo.newPlace( this.params.placeId ).loadTracks();
+			K.newPlace( this.params.placeId ).loadTracks();
 		},
 		data: { hideSidebar: true }
 	});
@@ -289,7 +289,7 @@ Router.map(function() {
 				this.next();
 		},
 		data: function() {
-			return Climbo.newUser(this.params.userId);
+			return K.newUser(this.params.userId);
 		}
 	});
 
@@ -300,7 +300,7 @@ Router.map(function() {
 			if(this.params.userId===Meteor.userId())
 				Router.go('convers');
 			else
-				Climbo.conver.loadConverWithUser( this.params.userId );
+				K.conver.loadConverWithUser( this.params.userId );
 		}
 	});
 
@@ -320,14 +320,14 @@ Router.map(function() {
 		path: '/convers',
 		template: 'panelList',
 		waitOn: function() {
-			return Meteor.subscribe('conversByIds', Climbo.profile.data.convers);
+			return Meteor.subscribe('conversByIds', K.profile.data.convers);
 		},
 		data: function() {
 			return {
 				title: i18n('ui.titles.convers'),
 				className: 'convers',
 				itemsTemplate: 'itemConver',
-				items: getConversByIds(Climbo.profile.data.convers).fetch(),
+				items: getConversByIds(K.profile.data.convers).fetch(),
 				sortDesc: true
 			};
 		}

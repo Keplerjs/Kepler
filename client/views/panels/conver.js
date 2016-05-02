@@ -10,7 +10,7 @@ Template.converInput.events({
 			e.preventDefault();
 			var text$ = tmpl.$('textarea');			
 			
-			Climbo.conver.addMsgToConver(this._id, text$.val() );
+			K.conver.addMsgToConver(this._id, text$.val() );
 
 			text$.val('').height('auto');
 		}

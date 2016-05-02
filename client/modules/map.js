@@ -82,7 +82,7 @@ layers.places = new L.LayerJSON({
 	caching: false,
 	callData: function(bbox, callback) {
 
-		Climbo.map._deps.bbox.changed();
+		K.map._deps.bbox.changed();
 
 		var sub = Meteor.subscribe('placesByBBox', bbox, function() {
 			
@@ -94,7 +94,7 @@ layers.places = new L.LayerJSON({
 		};
 	},
 	dataToMarker: function(data) {	//eseguito una sola volta per ogni place
-		return Climbo.newPlace(data._id._str).marker;
+		return K.newPlace(data._id._str).marker;
 	}
 });
 ////LAYERS/
@@ -106,7 +106,7 @@ controls.zoom = L.control.zoom({
 });
 
 controls.attrib = L.control.attribution({
-	prefix: i18n('ui.controls.attrib')
+	prefix: _.template( i18n('ui.controls.attrib'), {copy: Meteor.settings.public.website.copy})
 });
 
 controls.gps = L.control.gps({
@@ -117,18 +117,18 @@ controls.gps = L.control.gps({
 		icon: L.divIcon({className: 'marker-gps'})
 	}),
 	callErr: function(err) {
-		Climbo.alert.show(err,'warn');
+		K.alert.show(err,'warn');
 	}
 })
 .on({
 	gpsdisabled: function(e) {
-		Climbo.profile.setLoc(null);
+		K.profile.setLoc(null);
 	},
 	gpslocated: function(e) {
-		Climbo.profile.setLoc([e.latlng.lat, e.latlng.lng]);
-		if(Climbo.profile.user && Climbo.profile.user.icon)
-			Climbo.profile.user.icon.animate();
-		//Climbo.alert.show(i18n('ui.alerts.gpson'),'success');		
+		K.profile.setLoc([e.latlng.lat, e.latlng.lng]);
+		if(K.profile.user && K.profile.user.icon)
+			K.profile.user.icon.animate();
+		//K.alert.show(i18n('ui.alerts.gpson'),'success');		
 	}
 });
 
@@ -150,7 +150,7 @@ controls.search = L.control.search({
 				}),
 				placesIds = _.pluck(_.pluck(placesSort, '_id'),'_str');
 			
-			callback( _.map(placesIds, Climbo.newPlace) );
+			callback( _.map(placesIds, K.newPlace) );
 		});
 
 		return {
@@ -178,7 +178,7 @@ controls.search = L.control.search({
 
 
 
-Climbo.map = {
+Kepler.map = {
 
 	ready: false,
 
@@ -272,7 +272,7 @@ Climbo.map = {
 				ne = bbox.getNorthEast();
 			//TODO LOOK	at leaflet-geojson-selector fox reduce bbox with openened panel
 
-			return Climbo.util.geo.roundBbox([[sw.lat, sw.lng], [ne.lat, ne.lng]]);
+			return K.util.geo.roundBbox([[sw.lat, sw.lng], [ne.lat, ne.lng]]);
 		}
 	},
 	
@@ -283,7 +283,7 @@ Climbo.map = {
 		if(_.isFunction(cb))
 			this.leafletMap.once("moveend zoomend", cb);
 		
-		if(loc && Climbo.util.valid.loc(loc))
+		if(loc && K.util.valid.loc(loc))
 			this.leafletMap.setView(loc, Meteor.settings.public.loadLocZoom);
 
 		return this;

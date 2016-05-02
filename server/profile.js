@@ -1,6 +1,6 @@
 
 getCurrentUser = function(userId) {
-	return Users.find(userId, { fields: Climbo.perms.currentUser });
+	return Users.find(userId, { fields: K.perms.currentUser });
 };
 
 confirmFriends = function(userId, addUserId) {
@@ -26,14 +26,14 @@ Meteor.methods({
 		if(loc)
 		{
 			var userData = Meteor.user(),
-				shift = Climbo.util.geo.distance(userData.loclast, loc);
+				shift = K.util.geo.distance(userData.loclast, loc);
 
 			if(userData.loclast===null || shift >= Meteor.settings.public.gpsMinShift)
 			{
 				var nearPlace = Places.findOne({
 						loc: {
 							'$near': loc,
-							'$maxDistance': Climbo.util.geo.meters2rad(Meteor.settings.public.checkinMaxDist)
+							'$maxDistance': K.util.geo.meters2rad(Meteor.settings.public.checkinMaxDist)
 						}
 					});
 
@@ -52,7 +52,7 @@ Meteor.methods({
 						locmap: loc
 					}
 				});
-				console.log('setUserLoc'+Climbo.util.timeUnix(), _.pick(userData,'loc','loclast','checkin'), loc);
+				console.log('setUserLoc'+K.util.timeUnix(), _.pick(userData,'loc','loclast','checkin'), loc);
 			}
 			else
 				Users.update(this.userId, {$set: {loc: userData.loclast}});
@@ -182,8 +182,8 @@ Meteor.methods({
 		var	filePath = Meteor.settings.dirs.avatars,
 			fileUrl = Meteor.settings.public.urls.avatars,
 			imgSize = Meteor.settings.public.avatarSize,
-			fileUid = Meteor.user().username +'_'+ Climbo.util.timeUnix(),
-			fileName = Climbo.util.sanitizeFilename( fileUid ),
+			fileUid = Meteor.user().username +'_'+ K.util.timeUnix(),
+			fileName = K.util.sanitizeFilename( fileUid ),
 			fileMin = fileName + _.template('_{width}x{height}.min.jpg', imgSize),
 			fileBig = fileName + '.ori.jpg',
 			imgOpts = _.extend(imgSize, {
@@ -192,9 +192,9 @@ Meteor.methods({
 				customArgs: ['-auto-orient']
 			});
 
-		if(!Climbo.util.valid.image(fileObj)) {
+		if(!K.util.valid.image(fileObj)) {
 			console.log('uploadAvatar: error ', _.omit(fileObj,'blob') );
-			throw new Meteor.Error(500, i18n('errors.imageNotValid') + Climbo.util.human.filesize(Meteor.settings.public.maxImageSize) );
+			throw new Meteor.Error(500, i18n('errors.imageNotValid') + K.util.human.filesize(Meteor.settings.public.maxImageSize) );
 		}
 
 		console.log('uploadAvatar: wrinting...', fileBig);

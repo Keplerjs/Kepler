@@ -8,7 +8,7 @@ Users.allow({
 });
 
 getUsersByName = function(initial) {
-	initial = Climbo.util.sanitizeRegExp(initial);
+	initial = K.util.sanitizeRegExp(initial);
 
 	if(initial.length < Meteor.settings.public.searchMinLen)
 		return null;
@@ -19,7 +19,7 @@ getUsersByName = function(initial) {
 				name: reg
 				//},{username: reg}
 		//	]
-		}, { fields: Climbo.perms.userItem });
+		}, { fields: K.perms.userItem });
 
 	return curUser;	
 };
@@ -28,12 +28,12 @@ getUsersByIds = function(usersIds) {
 
 	usersIds = _.isArray(usersIds) ? {$in: usersIds} : usersIds;
 
-	return Users.find({_id: usersIds }, { fields: Climbo.perms.userItem });
+	return Users.find({_id: usersIds }, { fields: K.perms.userItem });
 };
 
 getUserById = function(userId) {
 
-	return Users.find(userId, { fields: Climbo.perms.userPanel });
+	return Users.find(userId, { fields: K.perms.userPanel });
 };
 
 getFriendsByIds = function(usersIds) {
@@ -42,9 +42,9 @@ getFriendsByIds = function(usersIds) {
 
 	//TODO show friend location only if me is online
 
-	return Users.find({_id: usersIds }, { fields: Climbo.perms.friendItem });
+	return Users.find({_id: usersIds }, { fields: K.perms.friendItem });
 };
 
 getFriendById = function(userId) {
-	return Users.find(userId, { fields: Climbo.perms.friendPanel });
+	return Users.find(userId, { fields: K.perms.friendPanel });
 };

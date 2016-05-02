@@ -1,10 +1,10 @@
 /*
 	Classe User
 */
-//TODO Climbo.destroyUser = function(userId) {};//eliminare anche marker popup e icon
+//TODO K.destroyUser = function(userId) {};//eliminare anche marker popup e icon
 //TODO nuovo campo near by geonames, se loc attivo senza checkin
 
-Climbo.User = Climbo.Class.extend({
+Kepler.User = K.Class.extend({
 
 	id: null,
 	data: {},					//dati orignali dal db
@@ -49,9 +49,8 @@ Climbo.User = Climbo.Class.extend({
 	//PUBLIC METHODS:
 	loadLoc: function() {
 		var self = this;
-		Climbo.map
-			.loadItem(self)
-			.loadLoc(self.loc, function() {
+		K.map.loadItem(self)
+			 .loadLoc(self.loc, function() {
 				self.icon.animate();
 			});
 	},
@@ -76,7 +75,7 @@ Climbo.User = Climbo.Class.extend({
 
 		self.marker.setLatLng(self.loc);
 		
-		Climbo.map.loadItem(self);
+		K.map.loadItem(self);
 	},
 
 	hideMarker: function() {
@@ -85,54 +84,54 @@ Climbo.User = Climbo.Class.extend({
 	},
 
 	isFriend: function() {
-		return Climbo.profile.hasFriend(this.id);
+		return K.profile.hasFriend(this.id);
 	},
 	isPending: function() {
-		return Climbo.profile.hasPending(this.id);
+		return K.profile.hasPending(this.id);
 	},
 	isReceive: function() {
-		return Climbo.profile.hasReceive(this.id);
+		return K.profile.hasReceive(this.id);
 	},	
 	isBlocked: function() {
-		return Climbo.profile.hasBlocked(this.id);
+		return K.profile.hasBlocked(this.id);
 	},
 
 	isMe: function() {
-		return Climbo.profile.id === this.id;
+		return K.profile.id === this.id;
 	},
 
 	isOnline: function() {
 		this._dep.depend();
 //TODO aggiuni this.isMe()
-		if(Climbo.profile.getOnline() && this.isFriend())
+		if(K.profile.getOnline() && this.isFriend())
 			return this.online;
 	},
 
 	getLoc: function() {
 		this._dep.depend();
 //TODO aggiuni this.isMe()		
-		if(Climbo.profile.getOnline() && this.isFriend() && this.online)
+		if(K.profile.getOnline() && this.isFriend() && this.online)
 			return this.loc;
 	},
 
 	checkinPlace: function() {
 		this._dep.depend();
 //TODO aggiuni this.isMe()		
-		if(Climbo.profile.getOnline() && this.isFriend() && this.online)
-			return this.checkin ? Climbo.newPlace(this.checkin).rData() : null;
+		if(K.profile.getOnline() && this.isFriend() && this.online)
+			return this.checkin ? K.newPlace(this.checkin).rData() : null;
 	}
 });
 
-//TODO move to Climbo.Class.newItem()
-Climbo.newUser = function(id)
+//TODO move to K.Class.newItem()
+K.newUser = function(id)
 {
 	if(!id) return null;
-	if(!Climbo.usersById[id])
-		Climbo.usersById[id] = new Climbo.User(id);
+	if(!K.usersById[id])
+		K.usersById[id] = new K.User(id);
 
 	//for debugging
-	var iname = Climbo.util.sanitizeFilename(Climbo.usersById[id].username);
-	Climbo.usersByName[iname || id] = Climbo.usersById[id];
+	var iname = K.util.sanitizeFilename(K.usersById[id].username);
+	K.usersByName[iname || id] = K.usersById[id];
 
-	return Climbo.usersById[id];
+	return K.usersById[id];
 };

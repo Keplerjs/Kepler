@@ -5,7 +5,7 @@
 	http://ichord.github.io/At.js/
 */
 
-Climbo.conver = {
+Kepler.conver = {
 
 	loadConverWithUser: function(userId) {
 		Meteor.call('getConverWithUser', userId, function(err, convId) {
@@ -21,7 +21,7 @@ Climbo.conver = {
 
 	addMsgToConver: function(convId, body) {	//TODO spostare lato server
 		
-		body = Climbo.util.sanitizeMsg(body);
+		body = K.util.sanitizeMsg(body);
 		//TODO move to Messages.allow
 
 		if(!_.str.isBlank(body))

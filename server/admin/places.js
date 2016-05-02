@@ -50,39 +50,39 @@ Meteor.methods({
 			},
 			esp: function(cb) {
 				Meteor.setTimeout(function() {
-			 		cb(null, Climbo.geodata.aspect(loc) );
+			 		cb(null, K.geodata.aspect(loc) );
 			 	},0);
 			},
 			ele: function(cb) {
 				Meteor.setTimeout(function() {
-			 		cb(null, Climbo.geodata.elevation(loc) );
+			 		cb(null, K.geodata.elevation(loc) );
 			 	},0);
 			},
 			near: function(cb) {
 				Meteor.setTimeout(function() {
-			 		cb(null, Climbo.geodata.near(loc) );
+			 		cb(null, K.geodata.near(loc) );
 			 	},0);
 			},
 			com: function(cb) {
 				Meteor.setTimeout(function() {
-			 		cb(null, Climbo.geodata.comune(loc) );
+			 		cb(null, K.geodata.comune(loc) );
 			 	},0);
 			},
 			prov: function(cb) {
 				Meteor.setTimeout(function() {
-			 		cb(null, Climbo.geodata.provincia(loc) );
+			 		cb(null, K.geodata.provincia(loc) );
 			 	},0);
 			},
 			reg: function(cb) {
 				Meteor.setTimeout(function() {
-			 		cb(null, Climbo.geodata.regione(loc) );
+			 		cb(null, K.geodata.regione(loc) );
 			 	},0);
 			}
 			//TODO
 			//tracks e pois
 		},
 		function(err, results) {
-			Places.update({_id: new Meteor.Collection.ObjectID(placeId)}, {$set: results});
+			Places.update(placeId, {$set: results});
 			console.log('setLoc', placeId, results);
 		});
 
@@ -95,7 +95,7 @@ Meteor.methods({
 
 		if(!Meteor.settings.public.editPlaces) return null;
 
-		Places.remove({_id: new Meteor.Collection.ObjectID(placeId) });
+		Places.remove(placeId);
 
 		console.log('delPlace', placeId);
 	},
@@ -124,7 +124,7 @@ Meteor.methods({
 
 		if(!Meteor.settings.public.editPlaces) return null;
 
-		Places.update({_id: new Meteor.Collection.ObjectID(placeId) }, {$set: {name: name} });
+		Places.update(placeId, {$set: {name: name} });
 
 		console.log('renamePlace', placeId);
 	}

@@ -16,21 +16,21 @@ function tracksToGeojson(tracks, place, type) {
 
 			track.properties.name = i18n('ui.tracks.'+track.properties.tipo);
 			
-			parkPoints.push( Climbo.util.geo.createFeature('Point', track.geometry.coordinates[0], {tipo:'parking'}) );
+			parkPoints.push( K.util.geo.createFeature('Point', track.geometry.coordinates[0], {tipo:'parking'}) );
 		}
 		
 		return track;
 	});
 
 	var gloc = [place.loc[1], place.loc[0]],
-		placeCircle = Climbo.util.geo.createFeature('Point', gloc, {tipo:'placeCircle'});
+		placeCircle = K.util.geo.createFeature('Point', gloc, {tipo:'placeCircle'});
 
 	var features = _.union(placeCircle, tracks, parkPoints);
 
-	return Climbo.util.geo.createFeatureColl(features);
+	return K.util.geo.createFeatureColl(features);
 }
 
-Climbo.Place.include({
+Kepler.Place.include({
 	
 	loadTracks: function(trackId) {
 
@@ -41,7 +41,7 @@ Climbo.Place.include({
 		else
 			tracks = getTracksByLoc(this.loc).fetch();
 
-		Climbo.map.loadGeojson( tracksToGeojson(tracks, this) );
+		K.map.loadGeojson( tracksToGeojson(tracks, this) );
 	},
 	getTracksList: function() {
 

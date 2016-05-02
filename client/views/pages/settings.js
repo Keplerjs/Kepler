@@ -62,7 +62,7 @@ Template.pageSettings.events({
 	'keyup #name': _.debounce(function(e) {
 		var feed$ = $(e.target).next('.form-control-feedback'),
 			val = $(e.currentTarget).val();
-		if(!Climbo.util.valid.nameUser(e.target.value)) {
+		if(!K.util.valid.nameUser(e.target.value)) {
 			feed$.show();
 		}
 		else {
@@ -76,7 +76,7 @@ Template.pageSettings.events({
 			oldval = $(e.target).data('value'),
 			feed$ = $(e.target).next('.form-control-feedback');
 
-		if(!Climbo.util.valid.email(val))
+		if(!K.util.valid.email(val))
 			feed$.show();
 		else {
 			feed$.hide();
@@ -134,7 +134,7 @@ Template.pageSettings.events({
 
 		input$.parent().addClass('loading-default');
 		
-		Climbo.profile.uploadAvatar(fileObj, function(err) {
+		K.profile.uploadAvatar(fileObj, function(err) {
 			
 			input$.parent().removeClass('loading-default');
 

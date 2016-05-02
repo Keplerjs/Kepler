@@ -10,14 +10,14 @@ Template.itemConver.onRendered(function() {
 			var btn$ = $(e.target),
 				list$ = btn$.parents('.list-group');
 
-			Climbo.conver.delConver( convid );		
+			K.conver.delConver( convid );		
 			btn$.parents('.list-group-item').remove();
 		});
 });
 
 Template.itemConver.helpers({
 	usersIds: function() {
-		return _.last(_.without(this.usersIds, Climbo.profile.id), 3);
+		return _.last(_.without(this.usersIds, K.profile.id), 3);
 	},
 	tit: function() {
 		if(this.placeId)
@@ -35,7 +35,7 @@ Template.itemConverNew.events({
 		var title = _.str.clean(tmpl.$('.conver-txt-new').val());
 		
 		if(!_.str.isBlank(title))
-			Climbo.conver.newConverInPlace(title, this.id);
+			K.conver.newConverInPlace(title, this.id);
 	},
 	'keydown .conver-txt-new': function(e,tmpl) {
 		if(e.keyCode===13)//enter
