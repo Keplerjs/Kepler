@@ -98,7 +98,7 @@ Router.map(function() {
 
 	this.route('friends', {
 		path: '/friends',
-		template: 'panelFriends',		
+		template: 'panelFriends',
 		waitOn: function() {
 			return Meteor.subscribe('friendsByIds', Climbo.profile.data.friends );
 		},
