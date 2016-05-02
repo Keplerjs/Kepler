@@ -4,15 +4,15 @@ Convers = new Meteor.Collection('convers');
 getConverById = function(convId) {
 	//TODO ritorna solo ultimi 10 messaggi!!
 	//TODO fare funzione scaricare messaggi un po alla volta
-	return Convers.find(convId, { fields: K.perms.converPanel });
+	return Convers.find(convId, { fields: K.fields.converPanel });
 };
 
 getConversByIds = function(convIds) {
-	return Convers.find({_id: {$in: convIds} }, { fields: K.perms.converItem });
+	return Convers.find({_id: {$in: convIds} }, { fields: K.fields.converItem });
 };
 
 getConversByPlace = function(placeId) {
-	return Convers.find({placeId: placeId }, { fields: K.perms.converItem });
+	return Convers.find({placeId: placeId }, { fields: K.fields.converItem });
 };
 
 //TODO

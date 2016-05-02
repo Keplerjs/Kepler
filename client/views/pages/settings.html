@@ -119,7 +119,9 @@
 			<div class="form-group">
 				<label class="col-xs-3 control-label">{{i18n 'ui.labels.privacy'}}</label>
 				<div class="col-xs-9 col-xs-offset-3">
-					<a class="btn btn-default" href="/settings/blocked">{{i18n 'ui.btns.usersblocked'}}</a>
+					<a class="btn btn-default" href="/settings/blocked">
+						<i class="icon icon-report"></i> {{i18n 'ui.btns.usersblocked'}}
+					</a>
 				</div>
 			</div>
 
@@ -142,7 +144,7 @@
 
 	<section id="settingsBlocked">
 	{{#with currentUser}}
-		<div class="list-group col-sm-9 col-sm-offset-3">
+		<div class="list-group col-sm-6 col-sm-offset-3">
 		{{#if usersBlocked.length}}
 			<ul class="list-group list-items">		
 				{{#each usersBlocked}}
@@ -154,7 +156,7 @@
 				{{/each}}
 			</ul>		
 		{{else}}
-			<label class="text-gray"></label>
+			<div class="text-gray text-center">{{i18n 'ui.labels.nolistitems'}}</div>
 		{{/if}}
 		</div>
 	{{/with}}

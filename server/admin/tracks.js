@@ -23,7 +23,7 @@ Meteor.methods({
 					p2 = _.last(geom.coordinates);
 
 				prop.len  = parseInt( Math.round( K.util.geo.linestringLen(geom) ) );
-				prop.dis  = parseInt( K.geodata.elevation([p2[1],p2[0]]) - K.geodata.elevation([p1[1],p1[0]]) ); //negativo per discesa
+				prop.dis  = parseInt( K.geoapi.elevation([p2[1],p2[0]]) - K.geoapi.elevation([p1[1],p1[0]]) ); //negativo per discesa
 				prop.time = parseInt( K.util.geo.timeTrack(prop.len, prop.dis) );
 				prop.start= K.util.geo.createPoint(p1);
 				prop.end  = K.util.geo.createPoint(p2);

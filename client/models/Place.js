@@ -3,7 +3,6 @@ Kepler.Place = K.Class.extend({
 
 	id: null,
 	data: {},					//dati orignali dal db
-	cache: {},					//caching for remote data	
 	type: 'place',
 	tmpl: Template.item_place,	//template for items list	
 

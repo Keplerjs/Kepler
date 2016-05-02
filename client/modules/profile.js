@@ -68,13 +68,11 @@ Kepler.profile = {
 		if(this.placeCheckin)
 			return this.placeCheckin.rData();
 	},
-
 	getFriends: function() {
 		return  _.map(_.compact(this.data.friends), function(userId) {
 			return K.newUser(userId).rData();
 		});
 	},
-	
 	hasFriend: function(userId) {
 		return _.contains(this.data.friends, userId);
 	},
@@ -86,8 +84,7 @@ Kepler.profile = {
 	},
 	hasBlocked: function(userId) {
 		return _.contains(this.data.usersBlocked, userId);
-	},	
-
+	},
 	friendAdd: function(userId) {
 		Meteor.call('friendAdd', userId);
 		return this;
@@ -104,14 +101,8 @@ Kepler.profile = {
 		Meteor.call('friendBlock', userId);
 		return this;
 	},
-
 	setLoc: function(loc) {
-		// loc = loc || null;
-		// var shift = K.util.geo.distance(this.data.loclast, loc);
-		// if(loc===null || shift >= Meteor.settings.public.gpsMinShift)
-		//problems when loclast===loc(just gps switched on)
 		Meteor.call('setUserLoc', loc);
-		
 		return this;
 	},
 	setOnline: function(online) {
@@ -150,29 +141,6 @@ Kepler.profile = {
 	},
 	removeFavorite: function(placeId) {
 		Meteor.call('removeFavorite', placeId);
-		return this;
-	},
-	uploadAvatar: function(fileObj, cb) {
-		
-		if(this.fileReader)
-			this.fileReader.abort();
-		else
-			this.fileReader = new FileReader();
-			
-		if(true || K.util.valid.image(fileObj)) {
-			this.fileReader.onloadend = function(e) {
-				Meteor.call('uploadAvatar', {
-					name: fileObj.name,
-					type: fileObj.type,
-					size: fileObj.size,
-					blob: e.target.result
-				}, cb);
-			}
-			this.fileReader.readAsBinaryString(fileObj);
-		}
-		else
-			cb({message: i18n('errors.imageNotValid') + K.util.human.filesize(Meteor.settings.public.maxImageSize) });
-
 		return this;
 	},
 	logout: function() {

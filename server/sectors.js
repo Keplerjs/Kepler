@@ -3,7 +3,7 @@ getSectorsByIds = function(sectorsIds) {
 	sectorsIds = _.map(sectorsIds, function(id) {
 		return new Meteor.Collection.ObjectID(id);
 	});
-	return Sectors.find({_id: {$in: sectorsIds} });//, { fields: K.perms.sectorItem });
+	return Sectors.find({_id: {$in: sectorsIds} });//, { fields: K.fields.sectorItem });
 };
 
 getSectorsByLoc = function(ll) {
@@ -13,7 +13,7 @@ getSectorsByLoc = function(ll) {
 					'$maxDistance': (Meteor.settings.public.maxSectorsDist/1000)/111.12
 				}
 		},{limit: Meteor.settings.public.maxSectors });
-	//TODO , { fields: K.perms.sectorItem });
+	//TODO , { fields: K.fields.sectorItem });
 };
 
 Meteor.methods({

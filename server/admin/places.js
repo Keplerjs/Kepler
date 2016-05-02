@@ -50,32 +50,32 @@ Meteor.methods({
 			},
 			esp: function(cb) {
 				Meteor.setTimeout(function() {
-			 		cb(null, K.geodata.aspect(loc) );
+			 		cb(null, K.geoapi.aspect(loc) );
 			 	},0);
 			},
 			ele: function(cb) {
 				Meteor.setTimeout(function() {
-			 		cb(null, K.geodata.elevation(loc) );
+			 		cb(null, K.geoapi.elevation(loc) );
 			 	},0);
 			},
 			near: function(cb) {
 				Meteor.setTimeout(function() {
-			 		cb(null, K.geodata.near(loc) );
+			 		cb(null, K.geoapi.near(loc) );
 			 	},0);
 			},
 			com: function(cb) {
 				Meteor.setTimeout(function() {
-			 		cb(null, K.geodata.comune(loc) );
+			 		cb(null, K.geoapi.comune(loc) );
 			 	},0);
 			},
 			prov: function(cb) {
 				Meteor.setTimeout(function() {
-			 		cb(null, K.geodata.provincia(loc) );
+			 		cb(null, K.geoapi.provincia(loc) );
 			 	},0);
 			},
 			reg: function(cb) {
 				Meteor.setTimeout(function() {
-			 		cb(null, K.geodata.regione(loc) );
+			 		cb(null, K.geoapi.regione(loc) );
 			 	},0);
 			}
 			//TODO

@@ -27,22 +27,22 @@ Template.registerHelper('newPlace', function(id) {
 });
 
 Template.registerHelper('humanAzimut', function(ang, tiny) {
-	return K.util.human.azimut(ang, parseInt(tiny));
+	return K.util.humanize.azimut(ang, parseInt(tiny));
 });
 
 Template.registerHelper('humanTime', function(sec, ago) {
-	return K.util.human.time(sec, parseInt(ago));
+	return K.util.humanize.time(sec, parseInt(ago));
 });
 
 Template.registerHelper('humanTimeUTC', function(dateutc, ago) {
 	var date = K.util.dateUtcToLocal(new Date(Date.parse(dateutc))),
 		sec = Math.round(date.getTime()/1000);
 		console.log(date, ago)
-	return K.util.human.time(sec, parseInt(ago));
+	return K.util.humanize.time(sec, parseInt(ago));
 });
 
 Template.registerHelper('humanDate', function(date) {
-	return K.util.human.date(date);
+	return K.util.humanize.date(date);
 });
 
 Template.registerHelper('humanDateUTC', function(dateutc) {
@@ -50,15 +50,15 @@ Template.registerHelper('humanDateUTC', function(dateutc) {
 		d = date.getDate(),
 		m = date.getMonth()+1,
 		y = date.getFullYear();
-	return K.util.human.date(d+'-'+m+'-'+y);
+	return K.util.humanize.date(d+'-'+m+'-'+y);
 });
 
 Template.registerHelper('humanDistance', function(dis, sign) {
-	return K.util.human.distance(dis, parseInt(sign));
+	return K.util.humanize.distance(dis, parseInt(sign));
 });
 
 Template.registerHelper('humanLatlng', function(loc) {
-	return K.util.human.latlng(loc);
+	return K.util.humanize.latlng(loc);
 });
 
 Template.registerHelper('sunrise', function(ll) {

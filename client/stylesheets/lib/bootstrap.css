@@ -4,12 +4,6 @@
 .btn {
 	text-shadow:none;
 }
-.list-group-item.active,
-.btn-primary {
-	color: #fff;
-	text-transform: capitalize;
-}
-
 .list-group-item.disabled .icon,
 .list-group-item.disabled .badge {
 	opacity:.5;
@@ -44,6 +38,11 @@
 
 .bg-gray {
 	background-color: #ccc;
+}
+.list-group-item.active {
+	color: #fff;
+	text-transform: capitalize;
+	padding: 5px 15px
 }
 .list-group-item.active,
 .bg-primary {

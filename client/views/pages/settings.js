@@ -1,7 +1,4 @@
 
-
-//http://avatars.io/
-
 Template.pageSettings.helpers({
 	genders: function() {
 		if(Meteor.user()) {
@@ -55,7 +52,6 @@ Template.pageSettings.helpers({
 		}
 	}	
 });
-//TODO metodo profile.setSettings
 
 Template.pageSettings.events({
 
@@ -134,7 +130,7 @@ Template.pageSettings.events({
 
 		input$.parent().addClass('loading-default');
 		
-		K.profile.uploadAvatar(fileObj, function(err) {
+		K.sets.uploadAvatar(fileObj, function(err) {
 			
 			input$.parent().removeClass('loading-default');
 

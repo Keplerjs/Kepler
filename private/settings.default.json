@@ -15,12 +15,12 @@
 			}	
 		},
 		"website": {
-			"title": "Climbo.net",			
+			"title": "Kepler",			
 			"domain": "climbo.net",			
-			"desc": "The Climbers Community",
-			"email": "info@climbo.net",
+			"desc": "The Community",
+			"email": "info@kepler",
 			"copy": "(c)2016 Climbo.net",
-			"logo": "/static/images/logo-200.png"
+			"logo": "/images/logo.svg"
 		},
 		"editPlaces": false,		
 		"showPlaces": true,

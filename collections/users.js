@@ -7,6 +7,10 @@ Users.allow({
 	}
 });
 
+getCurrentUser = function(userId) {
+	return Users.find(userId, { fields: K.fields.currentUser });
+};
+
 getUsersByName = function(initial) {
 	initial = K.util.sanitizeRegExp(initial);
 
@@ -19,7 +23,7 @@ getUsersByName = function(initial) {
 				name: reg
 				//},{username: reg}
 		//	]
-		}, { fields: K.perms.userItem });
+		}, { fields: K.fields.userItem });
 
 	return curUser;	
 };
@@ -28,12 +32,12 @@ getUsersByIds = function(usersIds) {
 
 	usersIds = _.isArray(usersIds) ? {$in: usersIds} : usersIds;
 
-	return Users.find({_id: usersIds }, { fields: K.perms.userItem });
+	return Users.find({_id: usersIds }, { fields: K.fields.userItem });
 };
 
 getUserById = function(userId) {
 
-	return Users.find(userId, { fields: K.perms.userPanel });
+	return Users.find(userId, { fields: K.fields.userPanel });
 };
 
 getFriendsByIds = function(usersIds) {
@@ -42,9 +46,9 @@ getFriendsByIds = function(usersIds) {
 
 	//TODO show friend location only if me is online
 
-	return Users.find({_id: usersIds }, { fields: K.perms.friendItem });
+	return Users.find({_id: usersIds }, { fields: K.fields.friendItem });
 };
 
 getFriendById = function(userId) {
-	return Users.find(userId, { fields: K.perms.friendPanel });
+	return Users.find(userId, { fields: K.fields.friendPanel });
 };

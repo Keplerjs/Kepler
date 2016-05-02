@@ -46,8 +46,6 @@ layers.places = new L.LayerJSON({
 	caching: false,
 	callData: function(bbox, callback) {
 
-		console.log('callData', (new Date).getTime(), bbox )
-
 		K.map._deps.bbox.changed();
 
 		var sub = Meteor.subscribe('placesByBBox', bbox, function() {
@@ -219,14 +217,13 @@ Kepler.map = {
 		],'addTo', self.leafletMap);
 
 		//Fix solo per Safari evento resize! quando passa a schermo intero
-		$(window).on('orientationchange resize', function(e) {
-
-		//TODO debounce
+		$(window).on('orientationchange resize', _.debounce(function(e) {
 
 			$(window).scrollTop(0);
-			console.log('invalidateSize', (new Date).getTime(), self.leafletMap.getSize() )
+			//console.log('invalidateSize', (new Date).getTime(), self.leafletMap.getSize() )
 			//self.leafletMap.invalidateSize(false);
-		});
+
+		}, Meteor.settings.public.typeDelay) );
 
 		if($.isFunction(cb))
 			self.leafletMap.whenReady(cb, self);

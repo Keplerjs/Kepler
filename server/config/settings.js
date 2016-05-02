@@ -1,5 +1,4 @@
 
-
 Meteor.startup(function() {
 
 	var fs = Npm.require('fs');

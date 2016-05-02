@@ -3,20 +3,17 @@
 
 	http://www.geonames.org/export/web-services.html
 */
-var urls = {
+var geonamesUser = Meteor.settings.accounts.geonamesUser,
+	timeo = 20000,	//timeout connessioni http remote
+	urls = {
 		aspect: "http://localhost/maps/dem/aspect.php",
 		elevation: "http://localhost/maps/dem/elevation.php"
-	};
+	};	
 
-Kepler.geodata = (function() {
+Kepler.geoapi = (function() {
 
-	var geonamesUser = Meteor.settings.accounts.geonamesUser,
-		timeo = 20000;	//timeout connessioni http remote
+	function aspectAPILocal(ll) {
 
-//TODO per tipi indoor near devere essere la citta grande piu vicina
-
-	function aspectAPILocal(ll)
-	{
 		var res, ret, src = {
 				par: 'aspect',
 				url: urls.aspect+'?lat='+ll[0]+'&lng='+ll[1]
@@ -38,8 +35,8 @@ Kepler.geodata = (function() {
 		return ret;
 	}
 
-	function elevationAPILocal(ll)
-	{
+	function elevationAPILocal(ll) {
+
 		var res, ret, src = {
 				par: 'ele',
 				url: urls.elevation+'?lat='+ll[0]+'&lng='+ll[1]
@@ -61,8 +58,8 @@ Kepler.geodata = (function() {
 		return ret;
 	}
 
-	function elevationAPIGeonames(ll)
-	{
+	function elevationAPIGeonames(ll) {
+
 		var res, ret, srcSRTM = {
 				par: 'srtm3',
 				url: 'http://api.geonames.org/srtm3JSON?'+
@@ -91,6 +88,7 @@ Kepler.geodata = (function() {
 	}
 
 	function nearAPI(ll) {
+
 		var res, ret, src = {
 				par: 'name',
 				url: 'http://api.geonames.org/findNearbyJSON?lang=IT&style=SHORT&'+
@@ -114,6 +112,7 @@ Kepler.geodata = (function() {
 	}
 
 	function comuneAPI(ll) {
+
 		var res, ret, src = {
 				par: 'adminName3',
 				url: 'http://api.geonames.org/countrySubdivisionJSON?lang=IT&level=3&'+
@@ -137,12 +136,14 @@ Kepler.geodata = (function() {
 	}
 
 	function provFromCode(code) {
+
 		code = code.toUpperCase();
 		var provs = JSON.parse(Assets.getText('province.json'));
 		return provs[code] ? provs[code].toLowerCase() : null;
 	}
 
 	function provinciaAPI(ll) {
+
 		var res, ret, src = {
 				par: 'address',
 				url: 'http://nominatim.openstreetmap.org/reverse?format=json&'+
@@ -166,6 +167,7 @@ Kepler.geodata = (function() {
 	}
 
 	function regioneAPI(ll) {
+
 		var res, ret, src = {
 				par: 'adminName1',
 				url: 'http://api.geonames.org/countrySubdivisionJSON?lang=IT&level=3&'+
@@ -216,7 +218,6 @@ Kepler.geodata = (function() {
 		return ret;
 	}
 
-
 	function geoipAPI(ip) {
 		//API: http://ipinfodb.com/ip_location_api.php
 		/*{
@@ -251,7 +252,7 @@ Kepler.geodata = (function() {
 		ret.loc = [parseFloat(ret.latitude), parseFloat(ret.longitude)];
 
 		return ret;
-	};
+	}
 
 	return {
 		geoip:  function(ip) {

@@ -8,7 +8,6 @@
 // TODO usare collection mongo di tipi capped:
 // http://docs.mongodb.org/manual/core/capped-collections/
 
-
 var Caches = {
 	elevation: new Meteor.Collection('cache_elevation', {idGeneration:'STRING'}),
 	provincia: new Meteor.Collection('cache_provincia', {idGeneration:'STRING'}),

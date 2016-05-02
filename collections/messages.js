@@ -10,14 +10,12 @@ addMsgToConver = function(convId, body) {
 
 	var convData = Convers.findOne(convId),
 		lastMsg = convData && convData.lastMsg,
-		newMsg = {
-			'convId': convId,
-			'userId': Meteor.userId(),
-			'updateAt': K.util.timeUnix(),
-			'body': K.util.sanitizeMsg(body)
-		};
-
-	//TODO use K.schemas.converMsg
+		newMsg = _.extend(K.schemas.converMsg, {
+			updateAt: K.util.timeUnix(),
+			userId: Meteor.userId(),
+			convId: convId,
+			body: K.util.sanitizeMsg(body)
+		});
 
 	if(lastMsg && lastMsg.userId === newMsg.userId)	//append to my last msg
 	{

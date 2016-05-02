@@ -2,21 +2,21 @@
 Places = new Meteor.Collection('falesie');
 
 getPlaceById = function(placeId) {
-	return Places.find({_id: new Meteor.Collection.ObjectID(placeId) }, { fields: K.perms.placePanel });
+	return Places.find({_id: new Meteor.Collection.ObjectID(placeId) }, { fields: K.fields.placePanel });
 };
 
 getPlacesByIds = function(placesIds) {
 	placesIds = _.map(placesIds, function(id) {
 		return new Meteor.Collection.ObjectID(id);
 	});
-	return Places.find({_id: {$in: placesIds} }, { fields: K.perms.placeItem });
+	return Places.find({_id: {$in: placesIds} }, { fields: K.fields.placeItem });
 };
 
 
 getPlacesByCheckins = function(usersIds) {
 	usersIds = _.isArray(usersIds) ? {$in: usersIds} : usersIds;
 	
-	return Places.find({checkins: usersIds }, { fields: K.perms.placeItem });
+	return Places.find({checkins: usersIds }, { fields: K.fields.placeItem });
 };
 
 getPlacesByBBox = function(bbox) {
@@ -42,7 +42,7 @@ getPlacesByBBox = function(bbox) {
 					"$box": bbox
 				}
 			}
-		}, { fields: K.perms.placeItem });
+		}, { fields: K.fields.placeItem });
 };
 
 getCheckinsCountByPlaces = function(placesIds) {
@@ -65,17 +65,17 @@ getPlacesByName = function(initial) {
 			$or: [
 				{name: ex},
 				{near: ex}
-			] }, { fields: K.perms.placeSearch });
+			] }, { fields: K.fields.placeSearch });
 
 	if(curPlace.count()===0)
 		curPlace = Places.find({
 				prov: ex
-			}, { fields: K.perms.placeSearch });
+			}, { fields: K.fields.placeSearch });
 	
 	if(curPlace.count()===0)
 		curPlace = Places.find({
 				reg: ex
-			}, { fields: K.perms.placeSearch });
+			}, { fields: K.fields.placeSearch });
 
 	return curPlace;
 };
