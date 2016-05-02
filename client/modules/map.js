@@ -40,6 +40,30 @@ layers.cluster = new L.MarkerClusterGroup({
 	}	
 });
 
+layers.places = new L.LayerJSON({
+	layerTarget: layers.cluster,
+	minShift: Meteor.settings.public.bboxMinShift,
+	caching: false,
+	callData: function(bbox, callback) {
+
+		console.log('callData', (new Date).getTime(), bbox )
+
+		K.map._deps.bbox.changed();
+
+		var sub = Meteor.subscribe('placesByBBox', bbox, function() {
+			
+			callback( getPlacesByBBox(bbox).fetch() );
+		});
+
+		return {
+			abort: sub.stop
+		};
+	},
+	dataToMarker: function(data) {	//eseguito una sola volta per ogni place
+		return K.newPlace(data._id._str).marker;
+	}
+});
+
 layers.geojson = new L.GeoJSONAutoClear(null, {
 	style: function (feature) {
 		return styles[feature.properties.tipo || 'def'] || styles.def;
@@ -73,28 +97,6 @@ layers.geojson = new L.GeoJSONAutoClear(null, {
 			Blaze.renderWithData(tmpl, feature.properties, $popup);
 			layer.bindPopup($popup, {closeButton:false} );
 		}
-	}
-});
-
-layers.places = new L.LayerJSON({
-	layerTarget: layers.cluster,
-	minShift: Meteor.settings.public.bboxMinShift,
-	caching: false,
-	callData: function(bbox, callback) {
-
-		K.map._deps.bbox.changed();
-
-		var sub = Meteor.subscribe('placesByBBox', bbox, function() {
-			
-			callback( getPlacesByBBox(bbox).fetch() );
-		});
-
-		return {
-			abort: sub.stop
-		};
-	},
-	dataToMarker: function(data) {	//eseguito una sola volta per ogni place
-		return K.newPlace(data._id._str).marker;
 	}
 });
 ////LAYERS/
@@ -169,11 +171,13 @@ controls.search = L.control.search({
 		return tip;
 	}
 })
-.on('search_locationfound', function(e) {
-	this._input.blur();
-})
-.on('search_expanded', function() {
-	Router.go('map');
+.on({
+	search_locationfound: function(e) {
+		this._input.blur();
+	},
+	search_expanded: function() {
+		Router.go('map');
+	}
 });
 
 
@@ -220,7 +224,8 @@ Kepler.map = {
 		//TODO debounce
 
 			$(window).scrollTop(0);
-			self.leafletMap.invalidateSize(false);
+			console.log('invalidateSize', (new Date).getTime(), self.leafletMap.getSize() )
+			//self.leafletMap.invalidateSize(false);
 		});
 
 		if($.isFunction(cb))
