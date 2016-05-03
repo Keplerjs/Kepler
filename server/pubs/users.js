@@ -17,10 +17,7 @@ Meteor.publish('userById', function(userId) {
 			if(userData.friends.length > 0)
 				retCurs = [ getUsersByIds( _.union(userId, userData.friends) ) ];
 
-			placeIds = _.union(userData.hist, userData.favorites);
-
-//			if(userData.checkin)
-//				placeIds.push(userData.checkin);
+			placeIds = _.union(userData.checkin, userData.hist, userData.favorites);
 
 			retCurs.push( getPlacesByIds(placeIds) );
 
