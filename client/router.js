@@ -16,19 +16,19 @@ Router.subscriptions(function() {
 Router.onBeforeAction(function() {
 	var self = this;
 
-	if(this.ready()) {
-		
-		if(!Meteor.userId() || Meteor.loggingIn())
-			Router.go('intro');
-
-		//console.log('main onBeforeAction user',Meteor.user());
-
+	if(!Meteor.user())
+	{
+	    if(Meteor.loggingIn())
+	    	this.render(this.loadingTemplate);
+	    else
+	    	Router.go('intro');
+	}
+	else {
 		K.profile.initProfile(function() {
-
+			self.next();
 		});
 	}
-
-	self.next();
+	  
 }, {except: ['intro'] });
 
 Router.onAfterAction(function() {

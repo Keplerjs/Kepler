@@ -20,7 +20,7 @@ Kepler.profile = {
 
 		var self = this;
 
-		if(self.ready) return this;
+		if(!Meteor.user() && self.ready) return this;
 		
 		self.ready = true;
 
@@ -29,16 +29,13 @@ Kepler.profile = {
 			self.id = Meteor.userId();
 			self.data = Meteor.user();
 			
-			if(!self.data)
-				return false;
+			if(!self.data)	//onlogout
+				return self.ready = false;
 
-			self.data = self.data;
-
-			if(K.map.ready)
-				K.map.setOpts({
-					layer: self.data.settings.layer,
-					center: self.data.locmap
-				});
+			K.map.setOpts({
+				layer: self.data.settings.layer,
+				center: self.data.locmap
+			});
 
 			//show user marker quando la mappa è ancora pronta
 			self.user = K.newUser(self.data._id);
@@ -146,8 +143,9 @@ Kepler.profile = {
 	logout: function() {
 		var self = this;
 		self.setOnline(false);
+		self.ready = false;
 		Meteor.logout(function(err) {
-			//TODO esegui K.map.destroyMap();
+			//TODO esegui K.map.destroyMap();			
 		});
 		return this;
 	}

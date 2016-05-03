@@ -30,11 +30,10 @@ Meteor.publish('placeById', function(placeId) {
 
 		retCurs.push(placeCur);
 
-		if(placeData.hist.length > 0)
-			retCurs.push( getUsersByIds(placeData.hist) );
-
-		if(placeData.checkins.length > 0)
-			retCurs.push( getUsersByIds(placeData.checkins) );		
+		var usersIds = _.union(placeData.hist, placeData.checkins);
+		if(usersIds.length > 0)
+			retCurs.push( getUsersByIds(usersIds) );
+		//publish one cursor for collection users
 
 		if(placeData.pois)
 			retCurs.push( getPoisByLoc(placeData.loc) );

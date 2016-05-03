@@ -15,7 +15,8 @@ i18n.map('it', {
 			placeConvers: "Conversazioni a ",
 			notifications: "Notifiche",			
 			checkins: "Persone a ",
-			sectors: "Settori a"
+			sectors: "Settori a",
+			login: "Accedi"
 		},
 		alerts: {
 			gpson: "Gli amici ora posso vedere la tua posizione!",
