@@ -16,10 +16,10 @@
 		},
 		"website": {
 			"title": "Kepler",			
-			"domain": "climbo.net",			
-			"desc": "The Community",
-			"email": "info@kepler",
-			"copy": "(c)2016 Climbo.net",
+			"domain": "kepler.meteor.com",			
+			"desc": "The Geo Social Netork",
+			"email": "keplerjs@gmail.com",
+			"copy": "powered by KeplerJs",
 			"logo": "/images/logo.svg"
 		},
 		"editPlaces": false,		

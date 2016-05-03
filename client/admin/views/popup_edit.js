@@ -1,11 +1,16 @@
 Template.popup_place.events({
 //	debug actions
 	'click .popup-move': function(e,tmpl) {
-		if(this.marker.draggable) {
-			var ll = this.marker.getLatLng(),
+		
+		var self = this;
+
+		if(self.marker.draggable) {
+			var ll = self.marker.getLatLng(),
 				newLoc = [ll.lat, ll.lng];
 			if(confirm("Aggiornare posizione???"))
-				Meteor.call('adminUpdatePlaceLoc', this.id, newLoc);
+				Meteor.call('adminUpdatePlaceLoc', self.id, newLoc, function(err) {
+					self.marker.setLatLng(newLoc);
+				});
 			
 			$(e.target).text('Move');
 			$(e.target).siblings('.popup-canc').hide();
@@ -16,7 +21,7 @@ Template.popup_place.events({
 			$(e.target).siblings('.popup-canc').show();
 		}
 
-		this.marker.drag();
+		self.marker.drag();
 	},
 	'click .popup-canc': function(e,tmpl) {
 		$(e.target).hide();
@@ -26,7 +31,8 @@ Template.popup_place.events({
 	'click .popup-clone': function(e,tmpl) {
 		Meteor.call('adminClonePlace', this.id, function(err, newPlaceId) {
 			Meteor.subscribe('placeByIds', [newPlaceId], function() {	//carica tutti i dati della place
-				K.newPlace(newPlaceId);//.loadLoc();
+				var place = K.newPlace(newPlaceId);//.loadLoc();
+				K.map.loadItem(place)
 			});
 		});
 	},	

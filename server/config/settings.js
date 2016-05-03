@@ -5,5 +5,4 @@ Meteor.startup(function() {
 
 	if(!fs.existsSync(Meteor.settings.dirs.avatars))
 		fs.mkdirSync(Meteor.settings.dirs.avatars, 0755);
-
 });

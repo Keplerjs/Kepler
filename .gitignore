@@ -1,5 +1,5 @@
-climbo.log
-climbo.pid
+app.log
+app.pid
 npm-debug.log
 node_modules
 smart.lock
