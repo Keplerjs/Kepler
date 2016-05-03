@@ -227,15 +227,3 @@
 	text-decoration: none;
 	letter-spacing: 1px;
 }
-/*.climbo-logomap {
-	position: absolute;
-	bottom: 24px;
-	right: 10px;
-	filter: alpha(opacity=60);
-	-khtml-opacity: 0.6;
-	-moz-opacity: 0.6;
-	opacity: 0.6;
-}*/
-/*@media all and (min-width:640) {
-	.leaflet-control.leaflet-control-attribution { display:none }
-}*/

@@ -4,7 +4,7 @@
 #installare meteorite con npm (https://npmjs.org/):
 #sudo -H npm install -g meteorite
 #https://github.com/oortcloud/meteorite#permission-woes
-LOG=climbo.log
-PID=climbo.pid
+LOG=app.log
+PID=app.pid
 
 rm -f $PID

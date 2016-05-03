@@ -3535,7 +3535,7 @@
        d="m -7333.9032,611.60905 c 7.7625,9.23464 2.8344,18.46929 0,27.70391 12.7479,-8.88222 42.9968,-26.36755 48.4072,-50.64171 5.435,-24.38381 7.4946,-81.14836 7.4946,-81.14836 l 14.4208,2.49347 -28.8416,-50.77598 -28.8416,50.77594 13.243,-1.31555 c 5.3216,19.84965 7.145,67.65974 0.7547,79.48774 -6.4851,12.00344 -11.6423,15.37944 -26.6371,23.42054 z"
        id="path3837"
        sodipodi:nodetypes="ccscccccsc"
-       inkscape:export-filename="/home/z4k/www/climbo/images/meteo/winds.png"
+       inkscape:export-filename="/images/meteo/winds.png"
        inkscape:export-xdpi="22.486439"
        inkscape:export-ydpi="22.486439" />
     <path
@@ -3543,7 +3543,7 @@
        id="path3843"
        d="m -7153.9953,594.12494 c 3.6376,11.50227 -4.4493,18.14807 -10.6019,25.59507 15.1766,-3.32769 49.8143,-7.90627 64.1022,-28.2622 14.3526,-20.44782 37.9782,-72.10325 37.9782,-72.10325 l 12.3689,7.82226 -7.215,-57.94809 -46.0773,35.87365 12.7384,3.85247 c -2.6796,20.37517 -19.2912,65.24372 -29.7214,73.72591 -10.585,8.60799 -16.6416,9.75343 -33.5721,11.44418 z"
        style="fill:url(#linearGradient3970);fill-opacity:1;stroke:#2a7fff;stroke-width:5.24933195;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       inkscape:export-filename="/home/z4k/www/climbo/images/meteo/winds.png"
+       inkscape:export-filename="/images/meteo/winds.png"
        inkscape:export-xdpi="22.486439"
        inkscape:export-ydpi="22.486439" />
     <path
@@ -3551,7 +3551,7 @@
        d="m -6965.8672,570.28281 c -1.0409,12.0188 -11.0555,15.06399 -19.5896,19.58963 15.2948,2.73345 49.048,11.75865 70.0381,-1.58004 21.0851,-13.39883 62.6801,-52.08107 62.6801,-52.08107 l 8.4339,11.96019 15.5099,-56.29813 -56.2981,15.50992 10.2945,8.43398 c -10.2729,17.79876 -42.7904,52.89494 -55.6727,56.73998 -13.0734,3.90205 -19.1072,2.64255 -35.3961,-2.27446 z"
        id="path3849"
        sodipodi:nodetypes="ccscccccsc"
-       inkscape:export-filename="/home/z4k/www/climbo/images/meteo/winds.png"
+       inkscape:export-filename="/images/meteo/winds.png"
        inkscape:export-xdpi="22.486439"
        inkscape:export-ydpi="22.486439" />
     <path
@@ -3559,7 +3559,7 @@
        id="path3855"
        d="m -6767.7113,543.71236 c -5.5611,10.70555 -15.9787,9.68653 -25.5951,10.60182 13.0845,8.37845 40.8146,29.63344 65.3115,25.34268 24.6076,-4.30999 77.8393,-24.13002 77.8393,-24.13002 l 3.215,14.27729 35.8737,-46.07729 -57.9481,-7.21506 6.2833,11.7315 c -16.3022,12.51265 -59.7752,32.49338 -73.1483,31.11589 -13.5715,-1.39793 -18.6641,-4.87062 -31.8313,-15.64681 z"
        style="fill:url(#linearGradient3978);fill-opacity:1;stroke:#2a7fff;stroke-width:5.24933195;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       inkscape:export-filename="/home/z4k/www/climbo/images/meteo/winds.png"
+       inkscape:export-filename="/images/meteo/winds.png"
        inkscape:export-xdpi="22.486439"
        inkscape:export-ydpi="22.486439" />
     <path
@@ -3567,7 +3567,7 @@
        d="m -6559.2471,518.45878 c -9.2346,7.7625 -18.4693,2.8344 -27.7039,0 8.8822,12.7479 26.3676,42.9968 50.6417,48.4072 24.3838,5.435 81.1484,7.4946 81.1484,7.4946 l -2.4935,14.4208 50.776,-28.8416 -50.7759,-28.8416 1.3155,13.243 c -19.8496,5.3216 -67.6597,7.145 -79.4877,0.7547 -12.0035,-6.4851 -15.3795,-11.6423 -23.4206,-26.6371 z"
        id="path3861"
        sodipodi:nodetypes="ccscccccsc"
-       inkscape:export-filename="/home/z4k/www/climbo/images/meteo/winds.png"
+       inkscape:export-filename="/images/meteo/winds.png"
        inkscape:export-xdpi="22.486439"
        inkscape:export-ydpi="22.486439" />
     <path
@@ -3575,7 +3575,7 @@
        id="path3867"
        d="m -6341.763,498.36662 c -11.5022,3.63767 -18.148,-4.44925 -25.595,-10.60183 3.3277,15.17661 7.9062,49.81429 28.2622,64.10217 20.4478,14.35256 72.1032,37.97824 72.1032,37.97824 l -7.8222,12.36887 57.948,-7.21504 -35.8736,-46.07727 -3.8525,12.73837 c -20.3751,-2.67961 -65.2437,-19.29114 -73.7259,-29.72138 -8.608,-10.58497 -9.7534,-16.64154 -11.4442,-33.57213 z"
        style="fill:url(#linearGradient3986);fill-opacity:1;stroke:#2a7fff;stroke-width:5.24933195;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       inkscape:export-filename="/home/z4k/www/climbo/images/meteo/winds.png"
+       inkscape:export-filename="/images/meteo/winds.png"
        inkscape:export-xdpi="22.486439"
        inkscape:export-ydpi="22.486439" />
     <path
@@ -3583,7 +3583,7 @@
        id="path3873"
        d="m -6117.9208,486.49479 c -12.0188,-1.04096 -15.064,-11.05553 -19.5897,-19.58962 -2.7334,15.2948 -11.7586,49.048 1.5801,70.03816 13.3988,21.08508 52.0811,62.68003 52.0811,62.68003 l -11.9602,8.4339 56.2981,15.50995 -15.5099,-56.2981 -8.434,10.29445 c -17.7988,-10.27289 -52.895,-42.79039 -56.74,-55.67267 -3.902,-13.07337 -2.6425,-19.10726 2.2745,-35.3961 z"
        style="fill:url(#linearGradient3990);fill-opacity:1;stroke:#2a7fff;stroke-width:5.24933195;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       inkscape:export-filename="/home/z4k/www/climbo/images/meteo/winds.png"
+       inkscape:export-filename="/images/meteo/winds.png"
        inkscape:export-xdpi="22.486439"
        inkscape:export-ydpi="22.486439" />
     <path
@@ -3591,7 +3591,7 @@
        d="m -5891.3506,484.65058 c -10.7055,-5.56112 -9.6865,-15.97872 -10.6018,-25.59508 -8.3784,13.08452 -29.6334,40.81461 -25.3427,65.31148 4.31,24.60758 24.13,77.83936 24.13,77.83936 l -14.2772,3.21494 46.0772,35.87368 7.2151,-57.94805 -11.7315,6.28329 c -12.5127,-16.3022 -32.4934,-59.77518 -31.1159,-73.14829 1.3979,-13.57147 4.8706,-18.66406 15.6468,-31.83133 z"
        id="path3881"
        sodipodi:nodetypes="ccscccccsc"
-       inkscape:export-filename="/home/z4k/www/climbo/images/meteo/winds.png"
+       inkscape:export-filename="/images/meteo/winds.png"
        inkscape:export-xdpi="22.486439"
        inkscape:export-ydpi="22.486439" />
     <path
@@ -3599,7 +3599,7 @@
        id="path3887"
        d="m -5666.0968,493.11486 c -7.7625,-9.23464 -2.8344,-18.46929 0,-27.70391 -12.7479,8.88222 -42.9968,26.36755 -48.4072,50.64171 -5.435,24.38381 -7.4946,81.14836 -7.4946,81.14836 l -14.4208,-2.49347 28.8416,50.77598 28.8416,-50.77594 -13.243,1.31555 c -5.3216,-19.84965 -7.145,-67.65974 -0.7547,-79.48774 6.4851,-12.00344 11.6423,-15.37944 26.6371,-23.42054 z"
        style="fill:url(#linearGradient3997);fill-opacity:1;stroke:#2a7fff;stroke-width:5.24933195;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       inkscape:export-filename="/home/z4k/www/climbo/images/meteo/winds.png"
+       inkscape:export-filename="/images/meteo/winds.png"
        inkscape:export-xdpi="22.486439"
        inkscape:export-ydpi="22.486439" />
     <path
@@ -3607,7 +3607,7 @@
        d="m -5446.0043,510.59892 c -3.6377,-11.50227 4.4492,-18.14807 10.6018,-25.59507 -15.1766,3.32769 -49.8143,7.90627 -64.1022,28.2622 -14.3525,20.44782 -37.9782,72.10325 -37.9782,72.10325 l -12.3689,-7.82226 7.215,57.94809 46.0773,-35.87365 -12.7384,-3.85247 c 2.6797,-20.37517 19.2912,-65.24372 29.7214,-73.72591 10.585,-8.60799 16.6416,-9.75343 33.5722,-11.44418 z"
        id="path3893"
        sodipodi:nodetypes="ccscccccsc"
-       inkscape:export-filename="/home/z4k/www/climbo/images/meteo/winds.png"
+       inkscape:export-filename="/images/meteo/winds.png"
        inkscape:export-xdpi="22.486439"
        inkscape:export-ydpi="22.486439" />
     <path
@@ -3615,7 +3615,7 @@
        id="path3899"
        d="m -5234.1328,534.44115 c 1.0409,-12.0188 11.0555,-15.06399 19.5896,-19.58963 -15.2948,-2.73345 -49.048,-11.75865 -70.0381,1.58004 -21.0851,13.39883 -62.6801,52.08107 -62.6801,52.08107 l -8.4339,-11.96019 -15.5099,56.29813 56.2981,-15.50992 -10.2945,-8.43398 c 10.2729,-17.79876 42.7904,-52.89494 55.6727,-56.73998 13.0734,-3.90205 19.1072,-2.64255 35.3961,2.27446 z"
        style="fill:url(#linearGradient4007);fill-opacity:1;stroke:#2a7fff;stroke-width:5.24933195;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       inkscape:export-filename="/home/z4k/www/climbo/images/meteo/winds.png"
+       inkscape:export-filename="/images/meteo/winds.png"
        inkscape:export-xdpi="22.486439"
        inkscape:export-ydpi="22.486439" />
     <path
@@ -3623,7 +3623,7 @@
        d="m -5032.2887,561.0115 c 5.5611,-10.70555 15.9787,-9.68653 25.5951,-10.60182 -13.0845,-8.37845 -40.8146,-29.63344 -65.3115,-25.34268 -24.6076,4.30999 -77.8393,24.13002 -77.8393,24.13002 l -3.215,-14.27729 -35.8737,46.07729 57.9481,7.21506 -6.2833,-11.7315 c 16.3022,-12.51265 59.7752,-32.49338 73.1483,-31.11589 13.5715,1.39793 18.6641,4.87062 31.8313,15.64681 z"
        id="path3905"
        sodipodi:nodetypes="ccscccccsc"
-       inkscape:export-filename="/home/z4k/www/climbo/images/meteo/winds.png"
+       inkscape:export-filename="/images/meteo/winds.png"
        inkscape:export-xdpi="22.486439"
        inkscape:export-ydpi="22.486439" />
     <path
@@ -3631,7 +3631,7 @@
        id="path3911"
        d="m -4840.7529,586.26518 c 9.2346,-7.7625 18.4693,-2.8344 27.7039,0 -8.8822,-12.7479 -26.3676,-42.9968 -50.6417,-48.4072 -24.3838,-5.435 -81.1484,-7.4946 -81.1484,-7.4946 l 2.4935,-14.4208 -50.776,28.8416 50.7759,28.8416 -1.3155,-13.243 c 19.8496,-5.3216 67.6597,-7.145 79.4877,-0.7547 12.0035,6.4851 15.3795,11.6423 23.4206,26.6371 z"
        style="fill:url(#linearGradient4015);fill-opacity:1;stroke:#2a7fff;stroke-width:5.24933195;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       inkscape:export-filename="/home/z4k/www/climbo/images/meteo/winds.png"
+       inkscape:export-filename="/images/meteo/winds.png"
        inkscape:export-xdpi="22.486439"
        inkscape:export-ydpi="22.486439" />
     <path
@@ -3639,7 +3639,7 @@
        d="m -4658.237,606.35736 c 11.5022,-3.63767 18.148,4.44925 25.595,10.60183 -3.3277,-15.17661 -7.9062,-49.81429 -28.2622,-64.10217 -20.4478,-14.35256 -72.1032,-37.97824 -72.1032,-37.97824 l 7.8222,-12.36887 -57.948,7.21504 35.8736,46.07727 3.8525,-12.73837 c 20.3751,2.67961 65.2437,19.29114 73.7259,29.72138 8.608,10.58497 9.7534,16.64154 11.4442,33.57213 z"
        id="path3919"
        sodipodi:nodetypes="ccscccccsc"
-       inkscape:export-filename="/home/z4k/www/climbo/images/meteo/winds.png"
+       inkscape:export-filename="/images/meteo/winds.png"
        inkscape:export-xdpi="22.486439"
        inkscape:export-ydpi="22.486439" />
     <path
@@ -3647,7 +3647,7 @@
        id="path3925"
        d="m -4482.0792,618.22917 c 12.0188,1.04096 15.064,11.05553 19.5897,19.58962 2.7334,-15.2948 11.7586,-49.048 -1.5801,-70.03816 -13.3988,-21.08508 -52.081,-62.68003 -52.081,-62.68003 l 11.9602,-8.4339 -56.2982,-15.50995 15.5099,56.2981 8.434,-10.29445 c 17.7988,10.27289 52.895,42.79039 56.74,55.67267 3.9021,13.07337 2.6426,19.10726 -2.2745,35.3961 z"
        style="fill:url(#linearGradient4022);fill-opacity:1;stroke:#2a7fff;stroke-width:5.24933195;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       inkscape:export-filename="/home/z4k/www/climbo/images/meteo/winds.png"
+       inkscape:export-filename="/images/meteo/winds.png"
        inkscape:export-xdpi="22.486439"
        inkscape:export-ydpi="22.486439" />
     <path
@@ -3655,13 +3655,13 @@
        d="m -4308.6495,620.0733 c 10.7055,5.56112 9.6865,15.97872 10.6018,25.59508 8.3784,-13.08452 29.6334,-40.81461 25.3427,-65.31148 -4.31,-24.60758 -24.13,-77.83936 -24.13,-77.83936 l 14.2772,-3.21494 -46.0772,-35.87368 -7.2151,57.94805 11.7315,-6.28329 c 12.5127,16.3022 32.4934,59.77518 31.1159,73.14829 -1.3979,13.57147 -4.8706,18.66406 -15.6468,31.83133 z"
        id="path3931"
        sodipodi:nodetypes="ccscccccsc"
-       inkscape:export-filename="/home/z4k/www/climbo/images/meteo/winds.png"
+       inkscape:export-filename="/images/meteo/winds.png"
        inkscape:export-xdpi="22.486439"
        inkscape:export-ydpi="22.486439" />
     <g
        id="g4916"
        transform="translate(3399.5082,3.2292994)"
-       inkscape:export-filename="/home/z4k/www/climbo/images/meteo/winds.png"
+       inkscape:export-filename="/images/meteo/winds.png"
        inkscape:export-xdpi="22.486439"
        inkscape:export-ydpi="22.486439">
       <path
@@ -3806,7 +3806,7 @@
        x="-7400"
        y="452.36197"
        ry="7.1398635"
-       inkscape:export-filename="/home/z4k/www/climbo/images/meteo/winds.png"
+       inkscape:export-filename="/images/meteo/winds.png"
        inkscape:export-xdpi="22.486439"
        inkscape:export-ydpi="22.486439" />
     <g
@@ -3832,7 +3832,7 @@
          transform="matrix(0.39181799,0,0,0.39181799,-869.81297,280.97126)"
          inkscape:export-ydpi="9.5176649"
          inkscape:export-xdpi="9.5176649"
-         inkscape:export-filename="/home/z4k/Scrivania/temp.png"
+         inkscape:export-filename="/Scrivania/temp.png"
          id="g3569">
         <path
            style="fill:none;stroke:#2a7fff;stroke-width:14;stroke-miterlimit:4;stroke-dasharray:none"
@@ -3872,7 +3872,7 @@
          transform="matrix(0.39181799,0,0,0.39181799,-869.81297,280.97126)"
          inkscape:export-ydpi="9.5176649"
          inkscape:export-xdpi="9.5176649"
-         inkscape:export-filename="/home/z4k/Scrivania/temp.png"
+         inkscape:export-filename="/Scrivania/temp.png"
          id="g3579">
         <path
            id="path4335"
@@ -3918,14 +3918,14 @@
     <g
        style="display:inline"
        id="g5455"
-       inkscape:export-filename="/home/z4k/www/climbo/images/humid.png"
+       inkscape:export-filename="/images/humid.png"
        inkscape:export-xdpi="18.279408"
        inkscape:export-ydpi="18.279408"
        transform="translate(-7496.5856,871.71997)">
       <g
          inkscape:export-ydpi="23.00717"
          inkscape:export-xdpi="23.00717"
-         inkscape:export-filename="/home/z4k/www/climbo/images/humid.png"
+         inkscape:export-filename="/images/humid.png"
          id="g5447">
         <path
            style="color:#000000;fill:url(#linearGradient5445);fill-opacity:1;fill-rule:nonzero;stroke:#2b7eff;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"

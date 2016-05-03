@@ -15,8 +15,9 @@
 			}	
 		},
 		"website": {
-			"title": "Climbo.net",			
-			"domain": "climbo.net",			
+			"title": "Climbo.net",
+			"domain": "climbo.net",
+			"domaindev": "climbo.local",
 			"desc": "The Climbers Community",
 			"email": "info@climbo.net",
 			"copy": "(c)2016 Climbo.net",

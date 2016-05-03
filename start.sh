@@ -8,6 +8,9 @@ OPTS="--raw-logs"
 SETS="settings.json"
 #OPTS="$OPTS --release blaze-rc1"
 
+DOMAINDEV=$( grep domaindev settings.json | cut -d'"' -f4)
+DOMAINPRO=$( grep domain settings.json | cut -d'"' -f4)
+
 MYIP=$( hostname -i | cut -f1 -d' ')
 export MONGO_URL="mongodb://localhost:27017/climbo"
 export PORT=8800
@@ -15,12 +18,12 @@ export PORT=8800
 
 if [ $MYIP = '127.0.1.1' ]; then
 	echo "START DEV MODE"
-	export ROOT_URL="http://climbo.local:$PORT"
+	export ROOT_URL="http://$DOMAINDEV:$PORT"
 	meteor --port $PORT --settings $SETS
 #	meteor --port $PORT --production --settings $SETS
 else
 	echo "START PROD MODE"
-	export ROOT_URL="http://climbo.net"
+	export ROOT_URL="http://$DOMAINPRO"
 	meteor --port $PORT --production --settings $SETS
 #	meteor --port $PORT --settings $SETS
 # 2>&1 > $LOG &
