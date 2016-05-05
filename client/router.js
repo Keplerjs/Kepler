@@ -20,8 +20,10 @@ Router.onBeforeAction(function() {
 	{
 	    if(Meteor.loggingIn())
 	    	this.render(this.loadingTemplate);
-	    else
+	    else {
+	    	console.log('Router.go INTRO')
 	    	Router.go('intro');
+	    }
 	}
 	else {
 		K.profile.initProfile(function() {

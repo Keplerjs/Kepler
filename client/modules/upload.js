@@ -1,6 +1,6 @@
 
-Kepler.sets = {
-	uploadAvatar: function(fileObj, cb) {
+Kepler.upload = {
+	avatar: function(fileObj, cb) {
 		
 		if(this.fileReader)
 			this.fileReader.abort();

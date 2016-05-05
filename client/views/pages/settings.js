@@ -130,7 +130,7 @@ Template.pageSettings.events({
 
 		input$.parent().addClass('loading-default');
 		
-		K.sets.uploadAvatar(fileObj, function(err) {
+		K.upload.avatar(fileObj, function(err) {
 			
 			input$.parent().removeClass('loading-default');
 
