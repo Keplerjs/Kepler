@@ -26,6 +26,9 @@ Kepler.User = K.Class.extend({
 			
 			self.data = Users.findOne(self.id);
 
+			if(!self.data)
+				return false;
+			
 			_.extend(self, self.data);
 
 			if(self.isMe()) {

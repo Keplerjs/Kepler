@@ -38,8 +38,6 @@ layers.cluster = new L.MarkerClusterGroup({
 			className: 'marker-cluster'
 		});
 	}	
-}).on('layeradd', function(e) {
-	console.log('layers.cluster layeradd', e.layer)
 });
 
 layers.places = new L.LayerJSON({
@@ -62,8 +60,6 @@ layers.places = new L.LayerJSON({
 	dataToMarker: function(data) {	//eseguito una sola volta per ogni place
 		return K.newPlace(data._id._str).marker;
 	}
-}).on('layeradd', function(e) {
-	console.log('layers.places layeradd', e.layer)
 });
 
 layers.geojson = new L.GeoJSONAutoClear(null, {
@@ -215,7 +211,6 @@ Kepler.map = {
 			controls.zoom,			
 			controls.gps,
 			layers.geojson,
-			layers.cluster,
 			layers.users,
 			controls.attrib
 		],'addTo', self.leafletMap);
@@ -259,13 +254,14 @@ Kepler.map = {
 	
 	enableBBox: function() {
 		if(!this.ready) return this;
-
-		if(Meteor.settings.public.showPlaces)
-			this.leafletMap.addLayer(layers.places);
+		this.leafletMap.addLayer(layers.cluster);
+		this.leafletMap.addLayer(layers.places);
 		return this;
 	},
 	disableBBox: function() {
+		if(!this.ready) return this;
 		this.leafletMap.removeLayer(layers.places);
+		this.leafletMap.removeLayer(layers.cluster);
 		return this;
 	},
 

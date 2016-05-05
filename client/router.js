@@ -8,8 +8,8 @@ Router.configure({
 });
 //Router.setTemplateNameConverter(function (str) { return str; });
 
-Router.subscriptions(function() {
-	//console.log('main subscriptions');
+Router.waitOn(function() {
+	console.log('main waitOn sub currentUser');
 	return Meteor.subscribe('currentUser');
 });
 
@@ -37,7 +37,8 @@ Router.onAfterAction(function() {
 	document.title = Meteor.settings.public.website.title;// +' - '+ this.route.getName();
 	//if(this.ready())
 	//	K.map.initMap(Meteor.settings.public.map, function() {
-	//		this.enableBBox();
+	//		if(Meteor.settings.public.showPlaces)
+	//			K.map.enableBBox();
 	//	});//*/
 });
 
@@ -142,7 +143,7 @@ Router.map(function() {
 				items: places.reverse()
 			};
 		}
-	});	
+	});
 
 	this.route('notifications', {
 		path: '/notifications',
@@ -250,9 +251,12 @@ Router.map(function() {
 	this.route('placePois', {
 		path: '/place/:placeId/pois',
 		template: 'emptyTmpl',
-		subscriptions: function() {
-			console.log('route subscriptions poisByPlace')
-			return Meteor.subscribe('poisByPlace', this.params.placeId);
+		waitOn: function() {
+			console.log('route waitOn poisByPlace')
+			return [
+				Meteor.subscribe('placeById', this.params.placeId),
+				Meteor.subscribe('poisByPlace', this.params.placeId)
+			];
 		},
 		onAfterAction: function() {
 			K.newPlace( this.params.placeId ).loadPois();
@@ -281,7 +285,7 @@ Router.map(function() {
 	this.route('user', {
 		path: '/user/:userId',
 		template: 'panelUser',
-		subscriptions: function() {
+		waitOn: function() {
 			return Meteor.subscribe('userById', this.params.userId);
 		},		
 		onBeforeAction: function() {
