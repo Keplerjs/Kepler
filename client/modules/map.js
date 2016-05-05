@@ -38,6 +38,8 @@ layers.cluster = new L.MarkerClusterGroup({
 			className: 'marker-cluster'
 		});
 	}	
+}).on('layeradd', function(e) {
+	console.log('layers.cluster layeradd', e.layer)
 });
 
 layers.places = new L.LayerJSON({
@@ -60,6 +62,8 @@ layers.places = new L.LayerJSON({
 	dataToMarker: function(data) {	//eseguito una sola volta per ogni place
 		return K.newPlace(data._id._str).marker;
 	}
+}).on('layeradd', function(e) {
+	console.log('layers.places layeradd', e.layer)
 });
 
 layers.geojson = new L.GeoJSONAutoClear(null, {

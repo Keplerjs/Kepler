@@ -31,8 +31,7 @@ Template.popup_place.events({
 	'click .popup-clone': function(e,tmpl) {
 		Meteor.call('adminClonePlace', this.id, function(err, newPlaceId) {
 			Meteor.subscribe('placeByIds', [newPlaceId], function() {	//carica tutti i dati della place
-				var place = K.newPlace(newPlaceId);//.loadLoc();
-				K.map.loadItem(place)
+				K.newPlace(newPlaceId).loadLoc();
 			});
 		});
 	},	

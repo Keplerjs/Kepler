@@ -82,7 +82,7 @@ Meteor.methods({
 			//tracks e pois
 		},
 		function(err, results) {
-			Places.update(placeId, {$set: results});
+			Places.update({_id: new Meteor.Collection.ObjectID(placeId) }, {$set: results});
 			console.log('setLoc', placeId, results);
 		});
 
@@ -95,7 +95,7 @@ Meteor.methods({
 
 		if(!Meteor.settings.public.editPlaces) return null;
 
-		Places.remove(placeId);
+		Places.remove({_id: new Meteor.Collection.ObjectID(placeId) });
 
 		console.log('delPlace', placeId);
 	},
@@ -124,7 +124,7 @@ Meteor.methods({
 
 		if(!Meteor.settings.public.editPlaces) return null;
 
-		Places.update(placeId, {$set: {name: name} });
+		Places.update({_id: new Meteor.Collection.ObjectID(placeId) }, {$set: {name: name} });
 
 		console.log('renamePlace', placeId);
 	}
