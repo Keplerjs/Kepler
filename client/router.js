@@ -37,10 +37,10 @@ Router.onBeforeAction(function() {
 
 	if(this.ready())
 	{
-		var mapOpts = _.extend(Meteor.settings.public.map, {
+		var mapOpts = _.defaults({
 				layer: K.profile.data.settings.layer,
 				center: K.profile.data.locmap
-			});
+			}, Meteor.settings.public.map);
 
 		K.map.initMap(mapOpts, function() {
 			this.enableBBox();
@@ -126,7 +126,24 @@ Router.map(function() {
 			};
 		}	
 	});
-
+	
+	this.route('convers', {
+		path: '/convers',
+		template: 'panelList',
+		waitOn: function() {
+			return Meteor.subscribe('conversByIds', K.profile.data.convers);
+		},
+		data: function() {
+			return {
+				title: i18n('titles.convers'),
+				className: 'convers',
+				itemsTemplate: 'itemConver',
+				items: getConversByIds(K.profile.data.convers).fetch(),
+				sortDesc: true
+			};
+		}
+	});
+	
 	this.route('nearby', {
 		path: '/nearby',		
 		template: 'panelNearby',
@@ -337,23 +354,6 @@ Router.map(function() {
 		}
 	});*/
 
-	this.route('convers', {
-		path: '/convers',
-		template: 'panelList',
-		waitOn: function() {
-			return Meteor.subscribe('conversByIds', K.profile.data.convers);
-		},
-		data: function() {
-			return {
-				title: i18n('titles.convers'),
-				className: 'convers',
-				itemsTemplate: 'itemConver',
-				items: getConversByIds(K.profile.data.convers).fetch(),
-				sortDesc: true
-			};
-		}
-	});
-	
 	this.route('conver', {
 		path: '/conver/:convId',
 		template: 'panelConver',

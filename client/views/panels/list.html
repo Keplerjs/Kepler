@@ -11,11 +11,11 @@
 		</div>
 		<div class="panel-body">
 
-			{{#if header}}
+		{{#if header}}
 			<div class="header-item">
 				{{> Template.dynamic template=this.header.template data=this.header.data}}
 			</div>
-			{{/if}}
+		{{/if}}
 		
 		{{#if items.length}}	
 			<div class="list-group list-items">

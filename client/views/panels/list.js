@@ -1,6 +1,4 @@
 
-//TODO inserirt option for showing columns instead rows
-
 Template.panelList.helpers({
 	items: function() {
 		var itemsTemplate = this.itemsTemplate;

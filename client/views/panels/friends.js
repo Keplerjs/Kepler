@@ -12,7 +12,6 @@ Template.panelFriends.onRendered(function() {
 				list$.removeClass('loading-lg');
 				var usersIds = _.pluck(getUsersByName(val).fetch(), '_id'),
 					users = _.map(usersIds, K.newUser);
-				console.log(users)
 				callback( users );
 			});
 		},
