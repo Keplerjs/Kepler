@@ -1,13 +1,30 @@
 //TODO Assets.getText
 i18n.map('it', {
+	website: {
+		title: "Climbo.net",
+		domain: "climbo.net",
+		domaindev: "climbo.local",
+		desc: "The Climbers Community",
+		email: "info@climbo.net",
+		copy: "(c)2016 Climbo.net",
+		logo: "/static/images/logo-200.png"
+	},
+	socials: {
+		tw: "https://twitter.com/climbo_net",
+		fb: "https://www.facebook.com/ClimboNetCommunity",
+		gp: "https://plus.google.com/+ClimboNetCommunity",
+		tu: "http://blog.climbo.net"
+	},		
 	ui: {
 		titles: {
+			intro: "Benvenuto",
+			profile: "Profilo",
 			settings: "Impostazioni",
 			settingsBlocked: "Utenti bloccati",
 			favorites: "Luoghi preferiti",
 			histplaces: "Luoghi recenti",
-			friends: "Tuoi Amici",
-			nearby: "Luoghi nelle vicinanze",
+			friends: "I Tuoi Amici",
+			nearby: "Luoghi vicini",
 			convers: "Messaggi",
 			notifs: "Notifiche",
 			conver: "Conversazione",

@@ -23,8 +23,7 @@
 			"copy": "(c)2016 Climbo.net",
 			"logo": "/static/images/logo-200.png"
 		},
-		"editPlaces": false,		
-		"showPlaces": true,
+		"editPlaces": false,
 		"accountCreation": true,
 		"showAlerts": true,		
 		"searchMinLen": 1,

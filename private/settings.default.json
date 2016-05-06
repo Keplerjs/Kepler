@@ -22,8 +22,7 @@
 			"copy": "powered by KeplerJs",
 			"logo": "/images/logo.svg"
 		},
-		"editPlaces": false,		
-		"showPlaces": true,
+		"editPlaces": false,
 		"accountCreation": true,
 		"showAlerts": true,		
 		"searchMinLen": 1,

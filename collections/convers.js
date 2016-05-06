@@ -8,6 +8,7 @@ getConverById = function(convId) {
 };
 
 getConversByIds = function(convIds) {
+	console.log(convIds)
 	return Convers.find({_id: {$in: convIds} }, { fields: K.fields.converItem });
 };
 

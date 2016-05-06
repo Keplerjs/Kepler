@@ -8,39 +8,49 @@ Router.configure({
 });
 //Router.setTemplateNameConverter(function (str) { return str; });
 
-Router.waitOn(function() {
-	console.log('main waitOn sub currentUser');
-	return Meteor.subscribe('currentUser');
+Router.subscriptions(function() {
+	this.subscribe('currentUser').wait();
 });
 
-Router.onBeforeAction(function() {
+Router.waitOn(function() {
 	var self = this;
 
-	if(!Meteor.user())
+	if(Meteor.user())
 	{
-	    if(Meteor.loggingIn())
-	    	this.render(this.loadingTemplate);
-	    else {
-	    	console.log('Router.go INTRO')
-	    	Router.go('intro');
-	    }
-	}
-	else {
 		K.profile.initProfile(function() {
 			self.next();
 		});
 	}
+	else
+	{
+		if(Meteor.loggingIn())
+			this.render(this.loadingTemplate);
+		else
+			Router.go('intro');
+	}
 	  
 }, {except: ['intro'] });
 
+//Router.onBeforeAction(function() {});
+
 Router.onAfterAction(function() {
-	document.title = Meteor.settings.public.website.title;// +' - '+ this.route.getName();
-	//if(this.ready())
-	//	K.map.initMap(Meteor.settings.public.map, function() {
-	//		if(Meteor.settings.public.showPlaces)
-	//			K.map.enableBBox();
-	//	});//*/
-});
+	document.title = i18n('ui.titles.'+this.route.getName() );
+
+	if(this.ready())
+	{
+		var mapOpts = _.extend(Meteor.settings.public.map, {
+				layer: K.profile.data.settings.layer,
+				center: K.profile.data.locmap
+			});
+
+		K.map.initMap(mapOpts, function() {
+			this.enableBBox();
+		});
+	}
+	else
+		this.render(this.loadingTemplate);
+	
+}, {except: ['intro','settings','settingsBlocked','about'] });//*/
 
 Router.map(function() {
 
@@ -103,13 +113,35 @@ Router.map(function() {
 		path: '/friends',
 		template: 'panelFriends',
 		waitOn: function() {
-			return Meteor.subscribe('friendsByIds', K.profile.data.friends );
+			return Meteor.subscribe('friendsByIds', K.profile.data.friends);
 		},
 		data: function() {
 			return {
 				friends: K.profile.getFriends()
 			};
 		}	
+	});
+
+	this.route('nearby', {
+		path: '/nearby',		
+		template: 'panelNearby',
+		data: function() {
+			
+			if(!K.map.ready) return null;
+
+			var bbox = K.map.getBBox(),
+				places = _.map(getPlacesByBBox(bbox).fetch(), function(place) {
+					var p = K.newPlace(place._id._str);
+					if($(p.marker._icon).is(':visible'))
+						return p.rData();
+				});
+
+			if(bbox) {
+				return {
+					places: _.sortBy(_.compact(places), 'name')
+				};
+			}
+		}
 	});
 
 	this.route('favorites', {
@@ -156,28 +188,6 @@ Router.map(function() {
 				/*itemsTemplate: 'item_notif',
 				items: K.profile.data.notifs*/
 			};
-		}
-	});
-
-	this.route('nearby', {
-		path: '/nearby',		
-		template: 'panelNearby',
-		data: function() {
-			
-			if(!K.map.ready) return null;
-
-			var bbox = K.map.getBBox(),
-				places = _.map(getPlacesByBBox(bbox).fetch(), function(place) {
-					var p = K.newPlace(place._id._str);
-					if($(p.marker._icon).is(':visible'))
-						return p.rData();
-				});
-
-			if(bbox) {
-				return {
-					places: _.sortBy(_.compact(places), 'name')
-				};
-			}
 		}
 	});
 

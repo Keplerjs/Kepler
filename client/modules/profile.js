@@ -28,14 +28,9 @@ Kepler.profile = {
 
 			self.id = Meteor.userId();
 			self.data = Meteor.user();
-			
+		
 			if(!self.data)	//onlogout
 				return self.ready = false;
-
-			K.map.setOpts({
-				layer: self.data.settings.layer,
-				center: self.data.locmap
-			});
 
 			//show user marker quando la mappa è ancora pronta
 			self.user = K.newUser(self.data._id);
