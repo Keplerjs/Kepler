@@ -4,7 +4,7 @@ Template.itemConver.onRendered(function() {
 	var convid = this.data._id;
 
 	this.$('.conver-btn-del').btsConfirmButton({
-			msg: i18n('ui.btns.converdel')
+			msg: i18n('btns.converdel')
 		}, function(e) {
 			
 			var btn$ = $(e.target),
@@ -25,7 +25,7 @@ Template.itemConver.helpers({
 		else if(this.lastMsg)
 			return '<small class="text-gray">'+_.str.truncate(_.str.stripTags(this.lastMsg.body), 30)+'</small>';
 		else
-			return i18n('ui.titles.msgpriv');
+			return i18n('titles.msgpriv');
 	}
 });
 

@@ -1,7 +1,7 @@
 
 <template name="tab_favs">
 	{{#if favorites.length}}
-		<label>{{i18n 'ui.labels.favsplaces'}}</label>
+		<label>{{i18n 'labels.favsplaces'}}</label>
 		<ul class="list-group list-items">
 			{{#each favorites}}
 			<li class="list-group-item">
@@ -12,6 +12,6 @@
 			{{/each}}
 		</ul>
 	{{else}}
-		<label class="text-gray"><i>{{i18n 'ui.labels.nofavs'}}</i></label>				
+		<label class="text-gray"><i>{{i18n 'labels.nofavs'}}</i></label>				
 	{{/if}}
 </template>

@@ -7,7 +7,7 @@ Template.pageSettings.helpers({
 				return {
 					key: k,
 					val: val,
-					name: i18n('ui.genders.'+k),
+					name: i18n('genders.'+k),
 					active: gender===val
 				};
 			});
@@ -19,7 +19,7 @@ Template.pageSettings.helpers({
 			return _.map(Meteor.settings.public.activePlaces, function(k) {
 				return {
 					val: k,
-					name: i18n('ui.places.'+k),
+					name: i18n('places.'+k),
 					active: _.contains(places, k)
 				};
 			});
@@ -44,7 +44,7 @@ Template.pageSettings.helpers({
 				return {
 					key: k,
 					val: k,
-					name: i18n('ui.layers.'+k),
+					name: i18n('layers.'+k),
 					active: k===layer,
 					url: _.template(val,{s:'a',z:'15',x:'17374',y:'11667'})
 				};
@@ -133,7 +133,6 @@ Template.pageSettings.events({
 		K.upload.avatar(fileObj, function(err) {
 			
 			input$.parent().removeClass('loading-default');
-
 			input$.next().text( err ? err.message : '' )
 		});
 	}

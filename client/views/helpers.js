@@ -70,5 +70,5 @@ Template.registerHelper('sunset', function(ll) {
 });
 
 Template.registerHelper('placeType', function(type) {
-	return i18n('ui.places.'+type) || '';
+	return i18n('places.'+type) || '';
 });

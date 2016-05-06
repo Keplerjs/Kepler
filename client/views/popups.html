@@ -1,7 +1,7 @@
 
 <template name="popup_place">
 	<a href="/place/{{id}}" class="btn btn-block btn-default popup-tit">
-		{{#if name}}<b>{{name}}</b>{{else}}<i>{{i18n 'ui.labels.noname'}}</i>{{/if}}
+		{{#if name}}<b>{{name}}</b>{{else}}<i>{{i18n 'labels.noname'}}</i>{{/if}}
 	</a>
 	<div class="btn-group">
 		{{#if tracks}}
@@ -26,14 +26,14 @@
 <template name="popup_track">
 	<span class="popup-track">
 		{{#if name}}<label>{{name}}</label><br />{{/if}}
-		{{#if time}}<i class="icon icon-time"></i> {{i18n 'ui.labels.time'}} {{humanTime time}} <br />{{/if}}
-		{{#if len}}<i class="icon icon-len"></i> {{i18n 'ui.labels.len'}} {{humanDistance len}} <br />{{/if}}
+		{{#if time}}<i class="icon icon-time"></i> {{i18n 'labels.time'}} {{humanTime time}} <br />{{/if}}
+		{{#if len}}<i class="icon icon-len"></i> {{i18n 'labels.len'}} {{humanDistance len}} <br />{{/if}}
 
 		{{#if asc}}
-		<i class="icon icon-sal"></i> {{i18n 'ui.labels.asc'}} {{humanDistance dis 1 }}
+		<i class="icon icon-sal"></i> {{i18n 'labels.asc'}} {{humanDistance dis 1 }}
 		{{else}}
 		{{#if dis}}
-		<i class="icon icon-dis"></i> {{i18n 'ui.labels.desc'}} {{humanDistance dis 1 }}
+		<i class="icon icon-dis"></i> {{i18n 'labels.desc'}} {{humanDistance dis 1 }}
 		{{/if}}
 		{{/if}}
 	</span>

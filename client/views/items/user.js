@@ -2,12 +2,12 @@
 Template.user_btns2.onRendered(function() {
 	
 	this.$('.user-btn-del').btsConfirmButton({
-			msg: i18n('ui.btns.frienddel')
+			msg: i18n('btns.frienddel')
 		}, function(e) {
 			K.profile.friendDel($(e.target).data('userid'));
 		});
 	this.$('.user-btn-block').btsConfirmButton({
-			msg: i18n('ui.btns.friendblock')
+			msg: i18n('btns.friendblock')
 		}, function(e) {
 			K.profile.friendBlock($(e.target).data('userid'));
 		});	

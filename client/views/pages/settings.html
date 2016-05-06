@@ -13,21 +13,21 @@
 					<img class="img-thumbnail user-avatar-big" src="{{avatar}}" />
 				</div>
 				<div class="col-sm-9 col-xs-7">
-					<label for="fileavatar">{{i18n 'ui.btns.avatar'}}</label>
+					<label for="fileavatar">{{i18n 'btns.avatar'}}</label>
 					<input id="fileavatar" class="form-control" type="file" />
 					<label class="text-danger"></label>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label class="col-xs-3 control-label">{{i18n 'ui.labels.username'}}</label>
+				<label class="col-xs-3 control-label">{{i18n 'labels.username'}}</label>
 				<div class="col-xs-9">
 					<label class="text-primary control-label">{{username}}</label>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="name" class="col-xs-3 control-label">{{i18n 'ui.labels.name'}}</label>
+				<label for="name" class="col-xs-3 control-label">{{i18n 'labels.name'}}</label>
 				<div class="col-xs-9 has-feedback">
 					<input id="name" class="form-control" type="text" value="{{name}}">
 					<span style="display:none" class="form-control-feedback icon icon-del"></span>
@@ -35,14 +35,14 @@
 			</div>
 
 			<div class="form-group">
-				<label for="city" class="col-xs-3 control-label">{{i18n 'ui.labels.city'}}</label>
+				<label for="city" class="col-xs-3 control-label">{{i18n 'labels.city'}}</label>
 				<div class="col-xs-9">
 					<input id="city" class="form-control" type="text" value="{{city}}" />
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="gender" class="col-xs-3 control-label">{{i18n 'ui.labels.gender'}}</label>
+				<label for="gender" class="col-xs-3 control-label">{{i18n 'labels.gender'}}</label>
 				<div class="col-xs-9">
 					<div id="gender" class="btn-group" data-toggle="buttons">
 					{{#each genders}}
@@ -56,7 +56,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="email" class="col-xs-3 control-label">{{i18n 'ui.labels.email'}}</label>
+				<label for="email" class="col-xs-3 control-label">{{i18n 'labels.email'}}</label>
 				{{#each emails}}
 				<div class="col-xs-9 col-xs-offset-3">
 					<div class="input-group">
@@ -74,7 +74,7 @@
 			</div>
 
 			<div class="form-group">
-				<label class="col-xs-3 control-label">{{i18n 'ui.labels.likeplaces'}}</label>
+				<label class="col-xs-3 control-label">{{i18n 'labels.likeplaces'}}</label>
 				<div class="col-xs-9 col-xs-offset-3">
 					<div id="likeplaces" class="btn-group" data-toggle="buttons">
 					{{#each places}}
@@ -88,7 +88,7 @@
 			</div>
 
 			<div class="form-group">
-				<label class="col-xs-3 control-label">{{i18n 'ui.labels.layer'}}</label>
+				<label class="col-xs-3 control-label">{{i18n 'labels.layer'}}</label>
 				<div class="col-xs-9 col-xs-offset-3">
 					<div id="maplayer" class="btn-group" data-toggle="buttons">
 					{{#each layers}}
@@ -102,7 +102,7 @@
 			</div>
 
 			<div class="form-group">
-				<label class="col-xs-3 control-label">{{i18n 'ui.labels.lang'}}</label>
+				<label class="col-xs-3 control-label">{{i18n 'labels.lang'}}</label>
 				<div class="col-xs-9 col-xs-offset-3">
 					<div class="input-group">
 						<div class="input-group-addon"><i class="icon icon-lang-{{lang}}"></i></div>
@@ -116,16 +116,16 @@
 			</div>
 
 			<div class="form-group">
-				<label class="col-xs-3 control-label">{{i18n 'ui.labels.privacy'}}</label>
+				<label class="col-xs-3 control-label">{{i18n 'labels.privacy'}}</label>
 				<div class="col-xs-9 col-xs-offset-3">
 					<a class="btn btn-default" href="/settings/blocked">
-						<i class="icon icon-report"></i> {{i18n 'ui.btns.usersblocked'}}
+						<i class="icon icon-report"></i> {{i18n 'btns.usersblocked'}}
 					</a>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label class="col-xs-3 control-label">{{i18n 'ui.labels.account'}}</label>
+				<label class="col-xs-3 control-label">{{i18n 'labels.account'}}</label>
 				<div class="col-xs-9 col-xs-offset-3">
 				{{> loginButtons}}
 				</div>
@@ -155,7 +155,7 @@
 				{{/each}}
 			</ul>		
 		{{else}}
-			<div class="text-gray text-center">{{i18n 'ui.labels.nolistitems'}}</div>
+			<div class="text-gray text-center">{{i18n 'labels.nolistitems'}}</div>
 		{{/if}}
 		</div>
 	{{/with}}

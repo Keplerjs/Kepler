@@ -54,7 +54,7 @@ Router.onBeforeAction(function() {
 }, {except: ['intro','settings','settingsBlocked','about'] });//*/
 
 Router.onAfterAction(function() {
-	document.title = i18n('ui.titles.'+this.route.getName()) || _.str.capitalize(this.route.getName());	
+	document.title = i18n('titles.'+this.route.getName()) || _.str.capitalize(this.route.getName());	
 });
 
 Router.map(function() {
@@ -158,7 +158,7 @@ Router.map(function() {
 		data: function() {
 			var places = _.map(K.profile.data.favorites, K.newPlace);
 			return {
-				title: i18n('ui.titles.favorites'),
+				title: i18n('titles.favorites'),
 				className: 'favorites',
 				itemsTemplate: 'item_place_favorite',
 				items: _.sortBy(places, 'name')
@@ -174,7 +174,7 @@ Router.map(function() {
 		data: function() {
 			var places = _.map(K.profile.data.hist, K.newPlace);
 			return {
-				title: i18n('ui.titles.histplaces'),
+				title: i18n('titles.histplaces'),
 				className: 'history',
 				itemsTemplate: 'item_place_favorite',
 				items: places.reverse()
@@ -187,7 +187,7 @@ Router.map(function() {
 		template: 'panelList',
 		data: function() {
 			return {
-				title: i18n('ui.titles.notifications'),
+				title: i18n('titles.notifications'),
 				className: 'notifications',
 				items: []
 				/*itemsTemplate: 'item_notif',
@@ -230,7 +230,7 @@ Router.map(function() {
 		data: function() {
 			var place = K.newPlace(this.params.placeId);
 			return {
-				title: i18n('ui.titles.checkins')+'<a href="/place/'+this.params.placeId+'"><b>'+place.name+'</b></a>',
+				title: i18n('titles.checkins')+'<a href="/place/'+this.params.placeId+'"><b>'+place.name+'</b></a>',
 				className: 'checkins',
 				itemsTemplate: 'item_user',
 				items: _.map(place.checkins, K.newUser),
@@ -250,7 +250,7 @@ Router.map(function() {
 				convers = getConversByPlace(this.params.placeId).fetch();
 
 			return {
-				title: i18n('ui.titles.placeConvers')+'<a href="/place/'+this.params.placeId+'"><b>'+place.name+'</b></a>',
+				title: i18n('titles.placeConvers')+'<a href="/place/'+this.params.placeId+'"><b>'+place.name+'</b></a>',
 				className: 'placeConvers',
 				itemsTemplate: 'itemConver',
 				items: convers,
@@ -345,7 +345,7 @@ Router.map(function() {
 		},
 		data: function() {
 			return {
-				title: i18n('ui.titles.convers'),
+				title: i18n('titles.convers'),
 				className: 'convers',
 				itemsTemplate: 'itemConver',
 				items: getConversByIds(K.profile.data.convers).fetch(),

@@ -14,7 +14,7 @@ function tracksToGeojson(tracks, place, type) {
 
 		if(track.properties.tipo==='access') {
 
-			track.properties.name = i18n('ui.tracks.'+track.properties.tipo);
+			track.properties.name = i18n('tracks.'+track.properties.tipo);
 			
 			parkPoints.push( K.util.geo.createFeature('Point', track.geometry.coordinates[0], {tipo:'parking'}) );
 		}

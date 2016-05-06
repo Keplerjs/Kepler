@@ -40,7 +40,7 @@ Kepler.Place.include({
 			return {
 				type: tipo,
 				count: val,
-				title: i18n('ui.pois.'+tipo)
+				title: i18n('pois.'+tipo)
 			};
 		});
 	}

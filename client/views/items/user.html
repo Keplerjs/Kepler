@@ -40,10 +40,10 @@
 	{{#if isFriend}}
 		<div class="btn-group" data-toggle="buttons">			
 			<a class="btn btn-sm btn-default" href="/user/{{id}}/conver">
-				<i class="icon icon-mes"></i> <span>{{i18n 'ui.btns.conversend'}}</span>
+				<i class="icon icon-mes"></i> <span>{{i18n 'btns.conversend'}}</span>
 			</a>
 <!--  			<a class="btn btn-sm btn-default user-btn-bid" href="#">
-				<i class="icon icon-userbid"></i> <span>{{i18n 'ui.btns.bid'}}</span>
+				<i class="icon icon-userbid"></i> <span>{{i18n 'btns.bid'}}</span>
 			</a> -->
 		</div>
 		<div class="btn-group pull-right" data-toggle="buttons">
@@ -58,27 +58,27 @@
 		{{#if isPending}}
 			<div class="btn-group pull-right" data-toggle="buttons">
 				<a class="btn btn-sm btn-default" href="#">
-					<i class="icon icon-hist"></i> <span>{{i18n 'ui.btns.friendpending'}}</span>
+					<i class="icon icon-hist"></i> <span>{{i18n 'btns.friendpending'}}</span>
 				</a>
 			</div>
 		{{else}}
 			{{#if isReceive}}
 				<div class="btn-group pull-right" data-toggle="buttons">
 					<a class="btn btn-sm btn-warning user-btn-confirm" href="#">
-						<i class="icon icon-useradd"></i> <span>{{i18n 'ui.btns.friendconfirm'}}</span>
+						<i class="icon icon-useradd"></i> <span>{{i18n 'btns.friendconfirm'}}</span>
 					</a>
 				</div>
 			{{else}}
 				{{#if isBlocked}}
 					<div class="btn-group pull-right" data-toggle="buttons">
 						<a class="btn btn-sm btn-default user-btn-unblock disabled" href="#">
-							<i class="icon icon-report"></i> <span>{{i18n 'ui.btns.friendunblock'}}</span>
+							<i class="icon icon-report"></i> <span>{{i18n 'btns.friendunblock'}}</span>
 						</a>
 					</div>
 				{{else}}
 					<div class="btn-group pull-right" data-toggle="buttons">
 						<a class="btn btn-sm btn-default user-btn-add" href="#">
-							<i class="icon icon-useradd"></i> <span>{{i18n 'ui.btns.friendadd'}}</span>
+							<i class="icon icon-useradd"></i> <span>{{i18n 'btns.friendadd'}}</span>
 						</a>
 					</div>
 				{{/if}}

@@ -42,7 +42,7 @@ getConverWithUser = function(userId) {
 	if(convData)
 		return convData._id;
 	else
-		return newConver(i18n('ui.titles.userConver'), null, userId);
+		return newConver(i18n('titles.userConver'), null, userId);
 };
 
 delConver = function(convId) {
@@ -65,7 +65,7 @@ delConver = function(convId) {
 		var leaveMsg = {
 			updateAt: K.util.timeUnix(),			
 			userId: Meteor.userId(),
-			body: _.template(i18n('ui.alerts.userleaveconv'), Meteor.user())
+			body: _.template(i18n('alerts.userleaveconv'), Meteor.user())
 		};
 		Messages.insert(leaveMsg);
 		Users.update({_id: Meteor.userId() }, {

@@ -17,11 +17,11 @@
 			</div>
 			
 			
-			<label>{{i18n 'ui.labels.signupdate'}}</label> <time>{{humanDateUTC createdAt}}</time>
+			<label>{{i18n 'labels.signupdate'}}</label> <time>{{humanDateUTC createdAt}}</time>
 			<br />
-			{{#if city}}<label>{{i18n 'ui.labels.city'}}</label> <span class="text-capitalize">{{city}}</span><br />{{/if}}
+			{{#if city}}<label>{{i18n 'labels.city'}}</label> <span class="text-capitalize">{{city}}</span><br />{{/if}}
 			{{#if places.length}}
-				<label>{{i18n 'ui.labels.likeplaces'}}</label>
+				<label>{{i18n 'labels.likeplaces'}}</label>
 				{{#each places}}
 					<small class="">{{this}}</small>, 
 				{{/each}}

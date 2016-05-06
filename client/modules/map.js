@@ -107,13 +107,13 @@ controls.zoom = L.control.zoom({
 
 controls.attrib = L.control.attribution({
 	position: 'bottomright',
-	prefix: i18n('website.copy')+' &bull; '+i18n('ui.controls.attrib')
+	prefix: i18n('website.copy')+' &bull; '+i18n('controls.attrib')
 });
 
 controls.gps = L.control.gps({
 	position: 'topright',
-	title: i18n('ui.controls.gps.title'),
-	textErr: i18n('ui.controls.gps.error'),
+	title: i18n('controls.gps.title'),
+	textErr: i18n('controls.gps.error'),
 	marker: new L.Marker([0,0], {
 		icon: L.divIcon({className: 'marker-gps'})
 	}),
@@ -129,7 +129,7 @@ controls.gps = L.control.gps({
 		K.profile.setLoc([e.latlng.lat, e.latlng.lng]);
 		if(K.profile.user && K.profile.user.icon)
 			K.profile.user.icon.animate();
-		//K.alert.show(i18n('ui.alerts.gpson'),'success');		
+		//K.alert.show(i18n('alerts.gpson'),'success');		
 	}
 });
 
@@ -140,8 +140,8 @@ controls.search = L.control.search({
 	animateLocation: true, markerLocation: false,
 	autoCollapse: false, autoCollapseTime: 6000,	
 	propertyLoc: 'loc', propertyName: 'name',
-	text: i18n('ui.controls.search.text'),
-	textErr: i18n('ui.controls.search.error'),	
+	text: i18n('controls.search.text'),
+	textErr: i18n('controls.search.error'),	
 	sourceData: function(text, callback) {
 
 		var sub = Meteor.subscribe('placesByName', text, function() {

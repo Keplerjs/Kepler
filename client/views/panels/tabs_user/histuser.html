@@ -1,7 +1,7 @@
 
 <template name="tab_histuser">
 	{{#if hist.length}}
-		<label>{{i18n 'ui.labels.histplaces'}}</label>
+		<label>{{i18n 'labels.histplaces'}}</label>
 		<ul class="list-group list-items">
 			{{#each hist}}
 			<li class="list-group-item">
@@ -12,6 +12,6 @@
 			{{/each}}
 		</ul>
 	{{else}}
-		<label class="text-gray"><i>{{i18n 'ui.labels.nohist'}}</i></label>
+		<label class="text-gray"><i>{{i18n 'labels.nohist'}}</i></label>
 	{{/if}}
 </template>

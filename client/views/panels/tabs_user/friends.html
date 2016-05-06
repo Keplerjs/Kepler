@@ -1,7 +1,7 @@
 
 <template name="tab_friends">
 	{{#if friendsCommon}}
-		<label>{{i18n 'ui.labels.friendscomm'}}</label>
+		<label>{{i18n 'labels.friendscomm'}}</label>
 		<ul class="list-group list-items">
 			{{#each friendsCommon}}
 			<li class="list-group-item">
@@ -12,13 +12,13 @@
 			{{/each}}
 		</ul>
 	{{else}}
-		<label class="text-gray"><i>{{i18n 'ui.labels.nofriendscomm'}}</i></label>
+		<label class="text-gray"><i>{{i18n 'labels.nofriendscomm'}}</i></label>
 	{{/if}}
 
 	{{#if isFriend}}
 		{{#if friendsOther}}
 		<br>
-		<label>{{i18n 'ui.labels.friendsother'}}</label>
+		<label>{{i18n 'labels.friendsother'}}</label>
 		<ul class="list-group list-items">
 			{{#each friendsOther}}
 			<li class="list-group-item">
