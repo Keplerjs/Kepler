@@ -7,12 +7,15 @@ PID="app.pid"
 OPTS="--raw-logs"
 SETS="settings.json"
 #OPTS="$OPTS --release blaze-rc1"
+#DOMAINDEV=$( grep domaindev settings.json | cut -d'"' -f4)
+#DOMAINPRO=$( grep domain settings.json | cut -d'"' -f4)
+DOMAINDEV="climbo.local"
+DOMAINPRO="climbo.net"
+DBNAME="climbo"
 
-DOMAINDEV=$( grep domaindev settings.json | cut -d'"' -f4)
-DOMAINPRO=$( grep domain settings.json | cut -d'"' -f4)
 
 MYIP=$( hostname -i | cut -f1 -d' ')
-export MONGO_URL="mongodb://localhost:27017/climbo"
+export MONGO_URL="mongodb://localhost:27017/$DBNAME"
 export PORT=8800
 #export NODE_OPTIONS='--debug'
 
