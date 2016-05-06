@@ -4,9 +4,9 @@
 <div id="intro">
 	<div class="col-xs-12 col-md-4 col-md-offset-4 text-center">
 	
-		<img id="logo" src="{{settings 'website.logo'}}" />
+		<img id="logo" src="{{i18n 'website.logo'}}" />
 		
-		<em id="slogan" class="clearfix">{{settings 'website.desc'}}</em>
+		<em id="slogan" class="clearfix">{{i18n 'website.desc'}}</em>
 
 		<br /><br />
 		{{#if currentUser}}
@@ -20,21 +20,8 @@
 		{{/if}}
 		<br /><br />
 
-		<div id="social-icons">
-			<a class="social-icon_tw" title="Twitter" target="_blank" href="{{settings 'urls.socials.tw'}}"></a>
-			<a class="social-icon_fb" title="Facebook" target="_blank" href="{{settings 'urls.socials.fb'}}"></a>
-			<a class="social-icon_gp" title="Google+" target="_blank" href="{{settings 'urls.socials.gp'}}"></a>
-			<a class="social-icon_tu" title="Tumblr" target="_blank" href="{{settings 'urls.socials.tu'}}"></a>
-		</div>
-		<br /><br />
-
-		<small class="text-muted">
-			<i>{{settings 'website.copy'}}</i>
-			&nbsp;&bull;&nbsp;
-			<a href="/about">about</a>
-		</small>
-		<br />
-		<br />
+		{{> footer}}
+		
 	</div>
 </div>
 

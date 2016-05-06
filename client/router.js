@@ -44,7 +44,6 @@ Router.onBeforeAction(function() {
 
 		K.map.initMap(mapOpts, function() {
 			this.enableBBox();
-
 		});
 	}
 	else

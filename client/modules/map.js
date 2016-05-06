@@ -106,7 +106,8 @@ controls.zoom = L.control.zoom({
 });
 
 controls.attrib = L.control.attribution({
-	prefix: _.template( i18n('ui.controls.attrib'), {copy: Meteor.settings.public.website.copy})
+	position: 'bottomright',
+	prefix: i18n('website.copy')+' &bull; '+i18n('ui.controls.attrib')
 });
 
 controls.gps = L.control.gps({
@@ -207,12 +208,12 @@ Kepler.map = {
 
 		self.addControls();
 
-		//Fix solo per Safari evento resize! quando passa a schermo intero
-		$(window).on('orientationchange resize', _.debounce(function(e) {
+		//TODO Fix solo per Safari evento resize! quando passa a schermo intero
+		$(window).on('orientationchange'+(L.Browser.mobileWebkit?' resize':''), _.debounce(function(e) {
 
 			$(window).scrollTop(0);
 			//console.log('invalidateSize', (new Date).getTime(), self.leafletMap.getSize() )
-			//self.leafletMap.invalidateSize(false);
+			self.leafletMap.invalidateSize(false);
 
 		}, Meteor.settings.public.typeDelay) );
 
@@ -238,12 +239,12 @@ Kepler.map = {
 	addControls: function() {
 		_.invoke([
 			layers.baselayer,
+			controls.attrib,			
 			controls.search,
 			controls.zoom,			
 			controls.gps,
 			layers.geojson,
-			layers.users,
-			controls.attrib
+			layers.users
 		],'addTo', this.leafletMap);
 	},
 

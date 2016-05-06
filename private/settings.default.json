@@ -6,21 +6,7 @@
 	},
 	"public": {
 		"urls": {
-			"avatars": "/static/avatars/",
-			"socials": {
-				"tw": "https://twitter.com/climbo_net",
-				"fb": "https://www.facebook.com/ClimboNetCommunity",
-				"gp": "https://plus.google.com/+ClimboNetCommunity",
-				"tu": "http://blog.climbo.net"
-			}	
-		},
-		"website": {
-			"title": "Kepler",			
-			"domain": "kepler.meteor.com",			
-			"desc": "The Geo Social Netork",
-			"email": "keplerjs@gmail.com",
-			"copy": "powered by KeplerJs",
-			"logo": "/images/logo.svg"
+			"avatars": "/static/avatars/"
 		},
 		"editPlaces": false,
 		"accountCreation": true,
@@ -78,6 +64,9 @@
 		]
 	},
 	"accounts": {
+		"geonamesUser": "climbo",
+		"ipinfodbKey": "ac735b1e635d4ec5b0ba271b287eb42c2161eabfbbc53894cb6ea642c210befd",
+		"wundergroundKey": "6a7ab4b56e163782",
 		"facebook": {
 			"service": "facebook",
 			"appId": "527957493928101",
@@ -92,9 +81,6 @@
 			"service": "twitter",
 			"consumerKey": "B3a4HBTdmjFOkf7S4J1k9SBsB",
 			"secret": "Qwijgho1wfn7amVdpRea5qVDmYnj46Zd2iX3XHRFsoIK6dryy9g"			
-		},
-		"ipinfodbKey": "ac735b1e635d4ec5b0ba271b287eb42c2161eabfbbc53894cb6ea642c210befd",
-		"wundergroundKey": "6a7ab4b56e163782",
-		"geonamesUser": "climbo"
+		}
 	}	
 }
