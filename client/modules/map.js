@@ -205,15 +205,7 @@ Kepler.map = {
 		
 		self.setOpts(opts);
 
-		_.invoke([
-			layers.baselayer,
-			controls.search,
-			controls.zoom,			
-			controls.gps,
-			layers.geojson,
-			layers.users,
-			controls.attrib
-		],'addTo', self.leafletMap);
+		self.addControls();
 
 		//Fix solo per Safari evento resize! quando passa a schermo intero
 		$(window).on('orientationchange resize', _.debounce(function(e) {
@@ -241,6 +233,18 @@ Kepler.map = {
 
 		layers.baselayer.setUrl( Meteor.settings.public.layers[opts.layer] );
 		return this;
+	},
+
+	addControls: function() {
+		_.invoke([
+			layers.baselayer,
+			controls.search,
+			controls.zoom,			
+			controls.gps,
+			layers.geojson,
+			layers.users,
+			controls.attrib
+		],'addTo', this.leafletMap);
 	},
 
 	destroyMap: function() {

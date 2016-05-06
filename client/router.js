@@ -31,10 +31,9 @@ Router.waitOn(function() {
 	  
 }, {except: ['intro'] });
 
-//Router.onBeforeAction(function() {});
+Router.onBeforeAction(function() {
 
-Router.onAfterAction(function() {
-	document.title = i18n('ui.titles.'+this.route.getName() );
+	var self = this;
 
 	if(this.ready())
 	{
@@ -45,12 +44,19 @@ Router.onAfterAction(function() {
 
 		K.map.initMap(mapOpts, function() {
 			this.enableBBox();
+
 		});
 	}
 	else
 		this.render(this.loadingTemplate);
-	
+
+	self.next();
+
 }, {except: ['intro','settings','settingsBlocked','about'] });//*/
+
+Router.onAfterAction(function() {
+	document.title = i18n('ui.titles.'+this.route.getName()) || _.str.capitalize(this.route.getName());	
+});
 
 Router.map(function() {
 
