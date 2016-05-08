@@ -126,7 +126,7 @@ Router.map(function() {
 			};
 		}	
 	});
-	
+
 	this.route('convers', {
 		path: '/convers',
 		template: 'panelList',
@@ -173,12 +173,13 @@ Router.map(function() {
 			return Meteor.subscribe('placesByIds', K.profile.data.favorites);
 		},
 		data: function() {
-			var places = _.map(K.profile.data.favorites, K.newPlace);
 			return {
 				title: i18n('titles.favorites'),
 				className: 'favorites',
 				itemsTemplate: 'item_place_favorite',
-				items: _.sortBy(places, 'name')
+				items: _.map(K.profile.data.favorites, K.newPlace),
+				sortBy: 'name',
+				sortDesc: true
 			};
 		}
 	});
@@ -189,12 +190,11 @@ Router.map(function() {
 			return Meteor.subscribe('placesByIds', K.profile.data.hist);
 		},
 		data: function() {
-			var places = _.map(K.profile.data.hist, K.newPlace);
 			return {
 				title: i18n('titles.histplaces'),
 				className: 'history',
 				itemsTemplate: 'item_place_favorite',
-				items: places.reverse()
+				items: _.map(K.profile.data.hist, K.newPlace)
 			};
 		}
 	});

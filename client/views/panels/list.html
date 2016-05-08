@@ -17,9 +17,9 @@
 			</div>
 		{{/if}}
 		
-		{{#if items.length}}	
+		{{#if list.length}}	
 			<div class="list-group list-items">
-				{{#each items}}
+				{{#each list}}
 					<div class="list-group-item">
 					{{> Template.dynamic template=this.template}}
 					</div>
