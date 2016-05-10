@@ -4,11 +4,17 @@
 	http://www.geonames.org/export/web-services.html
 */
 var geonamesUser = Meteor.settings.accounts.geonamesUser,
-	timeo = 20000,	//timeout connessioni http remote
 	urls = {
 		aspect: "http://localhost/maps/dem/aspect.php",
 		elevation: "http://localhost/maps/dem/elevation.php"
-	};	
+	},
+	getOpts = {
+		timeout: 20000,	//timeout connessioni http remote
+		httpHeaders: {
+			//'Referer': Meteor.settings.website.domain
+			'User-Agent': ''
+		}
+	};
 
 Kepler.geoapi = (function() {
 
@@ -20,7 +26,7 @@ Kepler.geoapi = (function() {
 			};
 
 		try {
-			res = HTTP.get(src.url, {timeout: timeo});
+			res = HTTP.get(src.url, getOpts);
 		} catch(e) {
 			console.log('aspectAPILocal: error ', e);
 			return null;
@@ -43,7 +49,7 @@ Kepler.geoapi = (function() {
 			};
 
 		try {
-			res = HTTP.get(src.url, {timeout: timeo});
+			res = HTTP.get(src.url, getOpts);
 		} catch(e) {
 			console.log('elevationAPILocal: error ', e);
 			return null;
@@ -72,7 +78,7 @@ Kepler.geoapi = (function() {
 			};
 
 		try {
-			res = HTTP.get(src.url, {timeout: timeo});
+			res = HTTP.get(src.url, getOpts);
 		} catch(e) {
 			console.log('elevationAPIGeonames: error ', e);
 			return null;
@@ -96,7 +102,7 @@ Kepler.geoapi = (function() {
 			};
 		
 		try {
-			res = HTTP.get(src.url, {timeout: timeo});
+			res = HTTP.get(src.url, getOpts);
 		} catch(e) {
 			console.log('nearAPI: error ', e);
 			return null;
@@ -120,7 +126,7 @@ Kepler.geoapi = (function() {
 			};
 
 		try {
-			res = HTTP.get(src.url, {timeout: timeo});
+			res = HTTP.get(src.url, getOpts);
 		} catch(e) {
 			console.log('comuneAPI: error ', e);
 			return null;
@@ -151,7 +157,7 @@ Kepler.geoapi = (function() {
 			};
 
 		try {
-			res = HTTP.get(src.url, {timeout: timeo});
+			res = HTTP.get(src.url, getOpts);
 		} catch(e) {
 			console.log('provinciaAPI: error ', e);
 			return null;
@@ -175,7 +181,7 @@ Kepler.geoapi = (function() {
 			};
 
 		try {
-			res = HTTP.get(src.url, {timeout: timeo});
+			res = HTTP.get(src.url, getOpts);
 		} catch(e) {
 			console.log('regioneAPI: error ', e);
 			return null;
@@ -203,7 +209,7 @@ Kepler.geoapi = (function() {
 			};
 
 		try {
-			res = HTTP.get(src.url, {timeout: timeo});
+			res = HTTP.get(src.url, getOpts);
 		} catch(e) {
 			console.log('nazioneAPI: error ', e);
 			return null;
@@ -240,7 +246,7 @@ Kepler.geoapi = (function() {
 			};
 
 		try {
-			res = HTTP.get(src.url, {timeout: timeo});
+			res = HTTP.get(src.url, getOpts);
 		} catch(e) {
 			console.log('geoipAPI: error ', e);
 			return null;
@@ -343,7 +349,7 @@ Kepler.geoapi = (function() {
 	// 	//http://open.mapquestapi.com/nominatim/v1/search.php?json_callback=L.Control.Search.callJsonp&q=ter&format=json&osm_type=N&limit=100&addressdetails=1
 	// 	//http://nominatim.openstreetmap.org/search
 	//
-	// 	var res = HTTP.get(src.url, {timeout: timeo});
+	// 	var res = HTTP.get(src.url, getOpts);
 	// 	if(res.statusCode == 200 && res.data && res.data.geonames)
 	// 		_.each(res.data.geonames, function(val) {
 	// 			if(val[src.par])

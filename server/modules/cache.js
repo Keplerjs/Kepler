@@ -8,7 +8,7 @@
 // TODO usare collection mongo di tipi capped:
 // http://docs.mongodb.org/manual/core/capped-collections/
 
-var Caches = {
+/*var Caches = {
 	elevation: new Meteor.Collection('cache_elevation', {idGeneration:'STRING'}),
 	provincia: new Meteor.Collection('cache_provincia', {idGeneration:'STRING'}),
 	nazione:  new Meteor.Collection('cache_nazione', {idGeneration:'STRING'}),
@@ -17,21 +17,21 @@ var Caches = {
 	aspect: new Meteor.Collection('cache_aspect', {idGeneration:'STRING'}),	
 	weather: new Meteor.Collection('cache_weather', {idGeneration:'STRING'}),
 	near: new Meteor.Collection('cache_near', {idGeneration:'STRING'})	
-};
+};*/
 
 Kepler.cache = {
+	_getCollection: function(name) {
+		return new Meteor.Collection('cache_'+name, {idGeneration:'STRING'});
+	},
 	set: function(funcname, key, val) {
 		
-		if(Caches[funcname])
-			Caches[funcname].upsert(key, {$set: {val: val} });
+		K.cache._getCollection(funcname).upsert(key, {$set: {val: val} });
 		
 		return val;
 	},
 	get: function(funcname, key) {
 
-		if(_.isUndefined(Caches[funcname])) return null;
-
-		var cache = Caches[funcname].findOne(key) || {val:null};
+		var cache = K.cache._getCollection(funcname).findOne(key) || {val: null};
 
 		return cache.val;
 	}
