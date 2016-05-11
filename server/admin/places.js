@@ -82,7 +82,7 @@ Meteor.methods({
 			//tracks e pois
 		},
 		function(err, results) {
-			Places.update({_id: new Meteor.Collection.ObjectID(placeId) }, {$set: results});
+			Places.update({_id: new Mongo.Collection.ObjectID(placeId) }, {$set: results});
 			console.log('setLoc', placeId, results);
 		});
 
@@ -95,7 +95,7 @@ Meteor.methods({
 
 		if(!Meteor.settings.public.editPlaces) return null;
 
-		Places.remove({_id: new Meteor.Collection.ObjectID(placeId) });
+		Places.remove({_id: new Mongo.Collection.ObjectID(placeId) });
 
 		console.log('delPlace', placeId);
 	},
@@ -110,7 +110,7 @@ Meteor.methods({
 		place.loc[0] += offset;
 		place.loc[1] += offset;
 		
-		place._id = new Meteor.Collection.ObjectID();
+		place._id = new Mongo.Collection.ObjectID();
 		place.name = place.name+'(copy)';
 
 		var newId = Places.insert(place);
@@ -124,7 +124,7 @@ Meteor.methods({
 
 		if(!Meteor.settings.public.editPlaces) return null;
 
-		Places.update({_id: new Meteor.Collection.ObjectID(placeId) }, {$set: {name: name} });
+		Places.update({_id: new Mongo.Collection.ObjectID(placeId) }, {$set: {name: name} });
 
 		console.log('renamePlace', placeId);
 	}

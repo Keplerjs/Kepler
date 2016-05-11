@@ -1,5 +1,5 @@
 
-Convers = new Meteor.Collection('convers');
+Convers = new Mongo.Collection('convers');
 
 getConverById = function(convId) {
 	//TODO ritorna solo ultimi 10 messaggi!!

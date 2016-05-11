@@ -1,13 +1,13 @@
 
-Places = new Meteor.Collection('falesie');
+Places = new Mongo.Collection('falesie');
 
 getPlaceById = function(placeId) {
-	return Places.find({_id: new Meteor.Collection.ObjectID(placeId) }, { fields: K.fields.placePanel });
+	return Places.find({_id: new Mongo.Collection.ObjectID(placeId) }, { fields: K.fields.placePanel });
 };
 
 getPlacesByIds = function(placesIds) {
 	placesIds = _.map(placesIds, function(id) {
-		return new Meteor.Collection.ObjectID(id);
+		return new Mongo.Collection.ObjectID(id);
 	});
 	return Places.find({_id: {$in: placesIds} }, { fields: K.fields.placeItem });
 };

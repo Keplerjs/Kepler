@@ -85,7 +85,7 @@ Kepler.alert = {
 
 // observePlaces: function(placesIds) {
 // 	placesIds = _.map(placesIds, function(id) {
-// 		return new Meteor.Collection.ObjectID(id);
+// 		return new Mongo.Collection.ObjectID(id);
 // 	});
 // 	Places.find({_id: {$in: placesIds} }).observeChanges({
 // 		changed: function(placeId, fields) {

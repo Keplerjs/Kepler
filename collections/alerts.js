@@ -1,5 +1,5 @@
 
-Alerts = new Meteor.Collection('alerts');
+Alerts = new Mongo.Collection('alerts');
 
 Alerts.allow({
 	insert: function(userId, doc) {

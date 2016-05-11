@@ -1,7 +1,7 @@
 
 getSectorsByIds = function(sectorsIds) {
 	sectorsIds = _.map(sectorsIds, function(id) {
-		return new Meteor.Collection.ObjectID(id);
+		return new Mongo.Collection.ObjectID(id);
 	});
 	return Sectors.find({_id: {$in: sectorsIds} });//, { fields: K.fields.sectorItem });
 };

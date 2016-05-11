@@ -1,5 +1,5 @@
 
-Pois = new Meteor.Collection('pois');
+Pois = new Mongo.Collection('pois');
 
 getPoisByLoc = function(ll) {
 

@@ -21,7 +21,7 @@ Kepler.Place = K.Class.extend({
 
 		self.update = function(comp) {	//sincronizza istanza con dati nel db
 
-			self.data = Places.findOne(new Meteor.Collection.ObjectID(self.id));
+			self.data = Places.findOne(new Mongo.Collection.ObjectID(self.id));
 
 			if(!self.data)
 				return false;

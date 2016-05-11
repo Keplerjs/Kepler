@@ -44,8 +44,8 @@ Meteor.methods({
 		var key = parseInt(K.util.timeUnix()/(60*60*24*1))+'_'+ll.join('_');
 		//daily hash
 
-		var val = K.cache.get('weather', key );
+		var val = K.cache.get(key, 'weather');
 
-		return val || K.cache.set('weather', key, weatherAPI(ll) );
+		return val || K.cache.set(key, weatherAPI(ll), 'weather');
 	}
 });

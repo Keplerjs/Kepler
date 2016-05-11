@@ -19,7 +19,7 @@ newConver = function(title, placeId, usersIds) {
 	});
 	
 	if(placeId)
-		Places.update({_id: new Meteor.Collection.ObjectID(placeId) }, { $addToSet: {convers: convId} });
+		Places.update({_id: new Mongo.Collection.ObjectID(placeId) }, { $addToSet: {convers: convId} });
 
 	Users.update(Meteor.userId(), {$addToSet: {convers: convId} });
 	//la inserisce solo nei miei messaggi, finche non aggiungo un mesaggio
@@ -58,7 +58,7 @@ delConver = function(convId) {
 		//nascondi agli altri utenti
 
 		if(convData.placeId)
-			Places.update({_id: new Meteor.Collection.ObjectID(convData.placeId) }, { $pull: {convers: convId} });
+			Places.update({_id: new Mongo.Collection.ObjectID(convData.placeId) }, { $pull: {convers: convId} });
 	}
 	else	//se non è il creatore della conver la abbandona
 	{

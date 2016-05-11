@@ -28,7 +28,7 @@ Kepler.geoapi = (function() {
 		try {
 			res = HTTP.get(src.url, getOpts);
 		} catch(e) {
-			console.log('aspectAPILocal: error ', e);
+			console.log('aspectAPILocal: error');
 			return null;
 		}
 
@@ -51,7 +51,7 @@ Kepler.geoapi = (function() {
 		try {
 			res = HTTP.get(src.url, getOpts);
 		} catch(e) {
-			console.log('elevationAPILocal: error ', e);
+			console.log('elevationAPILocal: error');
 			return null;
 		}
 		
@@ -80,7 +80,7 @@ Kepler.geoapi = (function() {
 		try {
 			res = HTTP.get(src.url, getOpts);
 		} catch(e) {
-			console.log('elevationAPIGeonames: error ', e);
+			console.log('elevationAPIGeonames: error');
 			return null;
 		}
 		
@@ -104,7 +104,7 @@ Kepler.geoapi = (function() {
 		try {
 			res = HTTP.get(src.url, getOpts);
 		} catch(e) {
-			console.log('nearAPI: error ', e);
+			console.log('nearAPI: error');
 			return null;
 		}
 
@@ -128,7 +128,7 @@ Kepler.geoapi = (function() {
 		try {
 			res = HTTP.get(src.url, getOpts);
 		} catch(e) {
-			console.log('comuneAPI: error ', e);
+			console.log('comuneAPI: error');
 			return null;
 		}
 		
@@ -159,7 +159,7 @@ Kepler.geoapi = (function() {
 		try {
 			res = HTTP.get(src.url, getOpts);
 		} catch(e) {
-			console.log('provinciaAPI: error ', e);
+			console.log('provinciaAPI: error');
 			return null;
 		}
 
@@ -183,7 +183,7 @@ Kepler.geoapi = (function() {
 		try {
 			res = HTTP.get(src.url, getOpts);
 		} catch(e) {
-			console.log('regioneAPI: error ', e);
+			console.log('regioneAPI: error');
 			return null;
 		}
 		
@@ -211,7 +211,7 @@ Kepler.geoapi = (function() {
 		try {
 			res = HTTP.get(src.url, getOpts);
 		} catch(e) {
-			console.log('nazioneAPI: error ', e);
+			console.log('nazioneAPI: error');
 			return null;
 		}
 		
@@ -248,7 +248,7 @@ Kepler.geoapi = (function() {
 		try {
 			res = HTTP.get(src.url, getOpts);
 		} catch(e) {
-			console.log('geoipAPI: error ', e);
+			console.log('geoipAPI: error');
 			return null;
 		}
 		
@@ -268,64 +268,64 @@ Kepler.geoapi = (function() {
 
 			ll = K.util.geo.roundLoc(ll, 8);
 
-			var val = K.cache.get('elevation', ll.join('_') );
+			var val = K.cache.get(ll, 'elevation');
 
-			return val || K.cache.set('elevation', ll.join('_'), elevationAPILocal(ll) );
+			return val || K.cache.set(ll, elevationAPILocal(ll), 'elevation');
 		},
 		aspect: function(ll) {
 			
 			ll = K.util.geo.roundLoc(ll, 8);
 
-			var val = K.cache.get('aspect', ll.join('_') );
+			var val = K.cache.get(ll, 'aspect');
 
-			return val || K.cache.set('aspect', ll.join('_'), aspectAPILocal(ll) );
+			return val || K.cache.set(ll, aspectAPILocal(ll), 'aspect');
 		},
 		near: function(ll) {
 
 			ll = K.util.geo.roundLoc(ll, 4);
 
-			var val = K.cache.get('near', ll.join('_') );
+			var val = K.cache.get(ll, 'near');
 
-			return val || K.cache.set('near', ll.join('_'), nearAPI(ll) );
+			return val || K.cache.set(ll, nearAPI(ll), 'near');
 		},
 		comune: function(ll) {
 
 			ll = K.util.geo.roundLoc(ll, 6);
 
-			var val = K.cache.get('comune', ll.join('_') );
+			var val = K.cache.get(ll ,'comune');
 
-			return val || K.cache.set('comune', ll.join('_'), comuneAPI(ll) );
+			return val || K.cache.set(ll, comuneAPI(ll), 'comune');
 		},
 		provincia: function(ll) {
 
 			ll = K.util.geo.roundLoc(ll, 6);
 
-			var val = K.cache.get('provincia', ll.join('_') );
+			var val = K.cache.get(ll ,'provincia');
 
-			return val || K.cache.set('provincia', ll.join('_'), provinciaAPI(ll) );
+			return val || K.cache.set(ll, provinciaAPI(ll), 'provincia');
 		},		
 		regione: function(ll) {
 
 			ll = K.util.geo.roundLoc(ll, 2);
 
-			var val = K.cache.get('regione', ll.join('_') );
+			var val = K.cache.get(ll ,'regione');
 
-			return val || K.cache.set('regione', ll.join('_'), regioneAPI(ll) );
-		},	
+			return val || K.cache.set(ll, regioneAPI(ll), 'regione');
+		},
 		nazione: function(ll) {
 
 			ll = K.util.geo.roundLoc(ll, 1);
 
-			var val = K.cache.get('nazione', ll.join('_') );
+			var val = K.cache.get(ll ,'nazione');
 
-			return val || K.cache.set('nazione', ll.join('_'), nazioneAPI(ll) );
+			return val || K.cache.set(ll, nazioneAPI(ll), 'nazione');
 		}
 	};
 }());
 
-	// function cittaAPILocal(initial)
+	// function cityAPILocal(initial)
 	// {
-	// 	Citta = new Meteor.Collection('citta');
+	// 	Citta = new Mongo.Collection('citta');
 	//	initial = K.util.sanitizeRegExp(initial);
 	// 	return Citta.find({name: {$regex: new RegExp('^'+initial,'i')}},
 	// 					{
@@ -335,7 +335,7 @@ Kepler.geoapi = (function() {
 	// }
 
 	// TODO testare! su varie posizioni
-	// function cittaAPI(initial)
+	// function cityAPI(initial)
 	// {
 	// 	if(initial==='')
 	// 		return null;	//non togliere MAI xke se initial e' vuoto ritorna tutto

@@ -1,5 +1,5 @@
 
-Tracks = new Meteor.Collection('tracks');
+Tracks = new Mongo.Collection('tracks');
 
 getTracksByIds = function(tracksIds) {
 	return Tracks.find({_id: {$in: tracksIds}});

@@ -39,8 +39,8 @@ Meteor.methods({
 
 		// ll = K.util.geo.roundLoc(ll, 8);
 		// var key = parseInt(K.util.timeUnix()/(60*60*24*1))+'_'+ll.join('_');	//daily hash
-		// var val = K.cache.get('meteo', key );
-		// return val || K.cache.set('meteo', key, meteoAPI(ll) );
+		// var val = K.cache.get(key ,'meteo');
+		// return val || K.cache.set(key, meteoAPI(ll) ,'meteo');
 /*
 function computeAngle(endLatLng, startLatLng) {
       var DEGREE_PER_RADIAN = 57.2957795;

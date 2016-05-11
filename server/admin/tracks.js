@@ -11,7 +11,7 @@ Meteor.methods({
 
 		Tracks.find().forEach(function (track) {
 
-			var trackId = new Meteor.Collection.ObjectID(track._id._str),
+			var trackId = new Mongo.Collection.ObjectID(track._id._str),
 				track = Tracks.findOne(trackId);
 			
 			if( track && track.type==="Feature" && 

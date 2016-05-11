@@ -1,2 +1,2 @@
 
-Sectors = new Meteor.Collection('settori');
+Sectors = new Mongo.Collection('settori');

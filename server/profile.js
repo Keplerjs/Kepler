@@ -98,15 +98,15 @@ Meteor.methods({
 
 		if(!this.userId || !placeId) return null;
 
-		var placeData = Places.findOne(new Meteor.Collection.ObjectID(placeId)),
+		var placeData = Places.findOne(new Mongo.Collection.ObjectID(placeId)),
 			userData = Meteor.user();
 
  		if(userData.checkin)
- 			Places.update({_id: new Meteor.Collection.ObjectID(userData.checkin) }, {
+ 			Places.update({_id: new Mongo.Collection.ObjectID(userData.checkin) }, {
  					$pull: {checkins: this.userId}
  				});
 
-		Places.update({_id: new Meteor.Collection.ObjectID(placeId)}, {
+		Places.update({_id: new Mongo.Collection.ObjectID(placeId)}, {
 				$addToSet: {
 					checkins: this.userId, hist: this.userId
 				}
@@ -138,7 +138,7 @@ Meteor.methods({
 
 		if(!this.userId || !placeId) return null;
 
-		Places.update({_id: new Meteor.Collection.ObjectID(placeId)}, {
+		Places.update({_id: new Mongo.Collection.ObjectID(placeId)}, {
 				$pull: {
 					checkins: this.userId
 				}
@@ -155,7 +155,7 @@ Meteor.methods({
 
 		if(!this.userId) return null;
 
-		Places.update({_id: new Meteor.Collection.ObjectID(placeId)}, {$inc: {rank: 1} });
+		Places.update({_id: new Mongo.Collection.ObjectID(placeId)}, {$inc: {rank: 1} });
 		Users.update(this.userId, {$addToSet: {favorites: placeId} });
 		
 		console.log('addFavorite', this.userId, placeId);
@@ -164,7 +164,7 @@ Meteor.methods({
 		
 		if(!this.userId) return null;
 
-		Places.update({_id: new Meteor.Collection.ObjectID(placeId), rank: {$gt: 0} }, {$inc: {rank: -1} });
+		Places.update({_id: new Mongo.Collection.ObjectID(placeId), rank: {$gt: 0} }, {$inc: {rank: -1} });
 		Users.update(this.userId, {$pull: {favorites: placeId} });
 		
 		console.log('removeFavorite', this.userId, placeId);
