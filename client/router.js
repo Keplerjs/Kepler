@@ -18,6 +18,7 @@ Router.waitOn(function() {
 	if(Meteor.user())
 	{
 		K.profile.initProfile(function() {
+			console.log('WAITON GLOBAL')
 			self.next();
 		});
 	}
@@ -183,6 +184,7 @@ Router.map(function() {
 			};
 		}
 	});
+
 	this.route('history', {
 		path: '/history',
 		template: 'panelList',
@@ -216,10 +218,17 @@ Router.map(function() {
 	this.route('place', {
 		path: '/place/:placeId',		
 		template: 'panelPlace',
-		waitOn: function() {
-			return Meteor.subscribe('placeById', this.params.placeId);
+		onBeforeAction: function() {
+			var self = this;
+			console.log('onBeforeAction')
+			Meteor.subscribe('placeById', this.params.placeId, function() {
+				//self.place = K.newPlace(self.params.placeId);
+				console.log('onBeforeAction SUB')
+				self.next();
+			});
 		},
 		data: function() {
+			console.log('DATA')
 			return K.newPlace(this.params.placeId).rData();
 		}
 	});
