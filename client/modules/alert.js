@@ -1,4 +1,8 @@
 
+var alerts$ = $('#alertlist'),
+	list$ = alerts$.find('.list-alerts'),
+	btnClose$ = alerts$.find('.alerts-btn-close');
+
 Kepler.alert = {
 
 	_timerHide: null,
@@ -7,10 +11,7 @@ Kepler.alert = {
 
 		type = type || 'info';	//success, info, warning, danger
 
-		var alerts$ = $('#alertlist'),
-			list$ = alerts$.find('.list-alerts'),
-			btnClose$ = alerts$.find('.alerts-btn-close'),
-			last$ = list$.get(0) ? list$.get(0).firstChild : null,
+		var last$ = list$.get(0) ? list$.get(0).firstChild : null,
 			nAlerts = list$.find('.alert').length,
 			maxAlerts = Meteor.settings.public.maxAlerts;
 		
@@ -32,10 +33,6 @@ Kepler.alert = {
 	},
 
 	hide: function(id) {
-		var alerts$ = $('#alertlist'),
-			list$ = alerts$.find('.list-alerts'),
-			btnClose$ = alerts$.find('.alerts-btn-close');
-
 		btnClose$.hide();
 		list$.empty();
 	},
