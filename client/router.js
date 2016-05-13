@@ -262,14 +262,14 @@ Router.map(function() {
 		},
 		data: function() {
 			var place = K.newPlace(this.params.placeId);
-			if(place)
-				return {
-					title: i18n('titles.checkins')+'<a href="/place/'+this.params.placeId+'"><b>'+place.name+'</b></a>',
-					className: 'checkins',
-					itemsTemplate: 'item_user',
-					items: _.map(place.checkins, K.newUser),
-					sortDesc: true
-				};
+
+			return place && {
+				title: i18n('titles.checkins')+'<a href="/place/'+this.params.placeId+'"><b>'+place.name+'</b></a>',
+				className: 'checkins',
+				itemsTemplate: 'item_user',
+				items: _.map(place.checkins, K.newUser),
+				sortDesc: true
+			};
 		}
 	});
 
@@ -280,14 +280,13 @@ Router.map(function() {
 			return Meteor.subscribe('conversByPlace', this.params.placeId);
 		},
 		data: function() {
-			var place = K.newPlace(this.params.placeId),
-				convers = getConversByPlace(this.params.placeId).fetch();
+			var place = K.newPlace(this.params.placeId);
 
-			return {
+			return place && {
 				title: i18n('titles.placeConvers')+'<a href="/place/'+this.params.placeId+'"><b>'+place.name+'</b></a>',
 				className: 'placeConvers',
 				itemsTemplate: 'itemConver',
-				items: convers,
+				items: getConversByPlace(this.params.placeId).fetch(),
 				sortDesc: true,
 				header: {
 					template: 'itemConverNew',
