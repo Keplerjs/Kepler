@@ -1,5 +1,5 @@
 
-function poisToGeojson(pois, place, type) {
+var poisToGeojson = function(pois, place, type) {
 
 	/* decorate Poi markers with place circle and lines from place to pois */
 	

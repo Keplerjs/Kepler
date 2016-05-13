@@ -1,5 +1,5 @@
 
-function tracksToGeojson(tracks, place, type) {
+var tracksToGeojson = function(tracks, place, type) {
 
 	if(type) {
 		tracks = _.filter(tracks, function(feature) {

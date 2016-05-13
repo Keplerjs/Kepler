@@ -2,25 +2,23 @@
 	class Place with Weather support
 */
 Kepler.Place.include({
-
-	cache: {
-		weather: null
-	},
 	
 	loadWeather: function() {
 
 		var self = this;
 
-		if(!self.cache.weather)
+		self.weather = K.cache.get(self.loc, 'weather');
+
+		if(!self.weather)
 			Meteor.call('getWeatherByLoc', self.loc, function(err, weather) {
 
-				console.log('getWeatherByLoc',weather);
+				console.log('getWeatherByLoc', weather);
 
-				if(weather && weather.length>0)
-				{
-					self.cache.weather = weather;
-					self.update();
-				}
+				self.weather = K.cache.set(self.loc, weather, 'weather');
 			});
+	},
+	getWeatherList: function() {
+
+		return this.weather;
 	}
 });

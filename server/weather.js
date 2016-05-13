@@ -1,11 +1,20 @@
 
-weatherAPI = function(ll) {
+var	getOpts = {
+		timeout: 20000,	//timeout connessioni http remote
+		httpHeaders: {
+			//'Referer': Meteor.settings.website.domain
+			'User-Agent': ''
+		}
+	};
+
+var weatherAPI = function(ll) {
 
 	var wundergroundKey = Meteor.settings.accounts.wundergroundKey,
 		timeo = 20000,	//timeout connessioni http remote
 		day;
 
-	var res = HTTP.get('http://api.wunderground.com/api/'+wundergroundKey+'/forecast/q/'+ll[0]+","+ll[1]+'.json', {timeout: timeo});
+	var url ='http://api.wunderground.com/api/'+wundergroundKey+'/forecast/q/'+ll[0]+","+ll[1]+'.json',
+		res = HTTP.get(url, getOpts);
 		
 	if(res.statusCode == 200 && res.data && res.data.forecast)
 	{
@@ -37,11 +46,11 @@ weatherAPI = function(ll) {
 Meteor.methods({
 	getWeatherByLoc: function(ll) {
 
-		ll = K.util.geo.roundLoc(ll, 1);
+		ll = K.util.geo.roundLoc(ll, 2);
 		
 		console.log("getWeatherByLoc()",ll);
 
-		var key = parseInt(K.util.timeUnix()/(60*60*24*1))+'_'+ll.join('_');
+		var key = K.util.hashGen('daily') + ll.join('_');
 		//daily hash
 
 		var val = K.cache.get(key, 'weather');
