@@ -258,18 +258,18 @@ Router.map(function() {
 		path: '/place/:placeId/checkins',
 		template: 'panelList',
 		waitOn: function() {
-			var place = K.newPlace(this.params.placeId);
-			return Meteor.subscribe('usersByIds', place.checkins);
+			return Meteor.subscribe('usersByPlace', this.params.placeId);
 		},
 		data: function() {
 			var place = K.newPlace(this.params.placeId);
-			return {
-				title: i18n('titles.checkins')+'<a href="/place/'+this.params.placeId+'"><b>'+place.name+'</b></a>',
-				className: 'checkins',
-				itemsTemplate: 'item_user',
-				items: _.map(place.checkins, K.newUser),
-				sortDesc: true
-			};
+			if(place)
+				return {
+					title: i18n('titles.checkins')+'<a href="/place/'+this.params.placeId+'"><b>'+place.name+'</b></a>',
+					className: 'checkins',
+					itemsTemplate: 'item_user',
+					items: _.map(place.checkins, K.newUser),
+					sortDesc: true
+				};
 		}
 	});
 

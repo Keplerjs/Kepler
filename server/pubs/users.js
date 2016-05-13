@@ -66,3 +66,23 @@ Meteor.publish('friendsByIds', function(usersIds) {
 	else
 		this.ready();
 });
+
+
+Meteor.publish('usersByPlace', function(placeId) {
+
+	console.log('Pub: usersByPlace', placeId);
+
+	if(this.userId && placeId)
+	{
+		var placeCur = getPlacesByIds([placeId]),
+			placeData = placeCur.fetch()[0];
+
+		return [
+			//TODO add place Cur
+			placeCur,
+			getUsersByIds(placeData.checkins)
+		];
+	}
+	else
+		this.ready();	
+});
