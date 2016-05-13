@@ -20,12 +20,16 @@ Template.itemConver.helpers({
 		return _.last(_.without(this.usersIds, K.profile.id), 3);
 	},
 	tit: function() {
+		var title;
+
 		if(this.placeId)
-			return _.str.truncate(this.title, 30);
+			title = _.str.truncate(this.title, 30);
 		else if(this.lastMsg)
-			return '<small class="text-gray">'+_.str.truncate(_.str.stripTags(this.lastMsg.body), 30)+'</small>';
+			title = '<small class="text-gray">'+_.str.truncate(_.str.stripTags(this.lastMsg.body), 30)+'</small>';
 		else
-			return i18n('titles.msgpriv');
+			title = i18n('titles.msgpriv');
+
+		return title || '...';
 	}
 });
 
