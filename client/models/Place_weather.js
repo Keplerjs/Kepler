@@ -1,6 +1,4 @@
-/*
-	class Place with Weather support
-*/
+
 Kepler.Place.include({
 	
 	loadWeather: function() {
@@ -12,13 +10,12 @@ Kepler.Place.include({
 		if(!self.weather)
 			Meteor.call('getWeatherByLoc', self.loc, function(err, weather) {
 
-				console.log('getWeatherByLoc', weather);
-
 				self.weather = K.cache.set(self.loc, weather, 'weather');
+				self._dep.changed();
 			});
 	},
 	getWeatherList: function() {
-
+		this._dep.depend();
 		return this.weather;
 	}
 });

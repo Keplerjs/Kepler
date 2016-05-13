@@ -9,13 +9,18 @@ var	getOpts = {
 
 var weatherAPI = function(ll) {
 
-	var wundergroundKey = Meteor.settings.accounts.wundergroundKey,
-		timeo = 20000,	//timeout connessioni http remote
-		day;
+	var url = _.template("http://api.wunderground.com/api/{key}/forecast/q/{lat},{lon}.json", {
+			key: Meteor.settings.accounts.wundergroundKey,
+			lat: ll[0], lon: ll[1]
+		});
 
-	var url ='http://api.wunderground.com/api/'+wundergroundKey+'/forecast/q/'+ll[0]+","+ll[1]+'.json',
+	try {
 		res = HTTP.get(url, getOpts);
-		
+	} catch(e) {
+		console.log('weatherAPI: error');
+		return null;
+	}
+
 	if(res.statusCode == 200 && res.data && res.data.forecast)
 	{
 		console.log("weatherAPI()", ll);	
@@ -46,14 +51,12 @@ var weatherAPI = function(ll) {
 Meteor.methods({
 	getWeatherByLoc: function(ll) {
 
-		ll = K.util.geo.roundLoc(ll, 2);
-		
 		console.log("getWeatherByLoc()",ll);
 
-		var key = K.util.hashGen('daily') + ll.join('_');
-		//daily hash
+		ll = K.util.geo.roundLoc(ll, 2);
 
-		var val = K.cache.get(key, 'weather');
+		var key = K.util.hashGen('daily') +'_'+ ll.join('_'),
+			val = K.cache.get(key, 'weather');
 
 		return val || K.cache.set(key, weatherAPI(ll), 'weather');
 	}

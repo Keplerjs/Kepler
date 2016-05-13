@@ -1,30 +1,21 @@
-/*
-	class Place with Google StreetView support
-*/
+
 Kepler.Place.include({
-
-	cache: {
-		stview: null
-	},
-
+	
 	loadStreetView: function() {
 
 		var self = this;
 
-		if(!self.cache.stview)
-			Meteor.call('getStreetViewById', self.id, function(err, stviewUrl) {
+		self.streetview = K.cache.get(self.id, 'streetview');
 
-				console.log('getStreetViewById',stviewUrl);
-				if(stviewUrl)
-				{
-					self.cache.stview = stviewUrl;
-					self.update();
-				}
+		if(!self.streetview)
+			Meteor.call('getStreetViewById', self.id, function(err, streetview) {
+
+				self.streetview = K.cache.set(self.id, streetview, 'streetview');
+				self._dep.changed();
 			});
 	},
-	
-	getStview: function() {	//deve essere sempre un metodo reattivo
+	getStreetView: function() {
 		this._dep.depend();
-		return this.stview;
+		return this.streetview;
 	}
 });

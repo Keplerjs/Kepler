@@ -49,7 +49,6 @@ Kepler.Place = K.Class.extend({
 					this.bindPopup(self.popup$, { closeButton:false, minWidth:180, maxWidth:320 });
 				}
 			});
-
 	},
 
 	//PUBLIC METHODS:
