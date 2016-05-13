@@ -136,6 +136,13 @@ Kepler.profile = {
 		Meteor.call('removeFavorite', placeId);
 		return this;
 	},
+	notifRead: function() {
+		Users.update(Meteor.userId(), {
+			$set: {
+				notif: []
+			}
+		});
+	},
 	logout: function() {
 		var self = this;
 		self.setOnline(false);

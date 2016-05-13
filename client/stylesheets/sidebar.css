@@ -21,7 +21,7 @@
     overflow: hidden;
 }
 .sidebar .nav-pills {
-	background:#fff;
+	background: #fff;/*rgba(255,255,255,0.6);*/
     border-radius:4px;
 	box-shadow: 0 0 5px rgba(0,0,0,0.3);
     padding: 0   
@@ -44,10 +44,10 @@
 .sidebar > .nav > li.active > a.btn {
     border: 1px solid #fff;
 }
-.sidebar > .nav > li > .badge {
+.sidebar > .nav > li > .badge-red {
     position: absolute;
-    top: -8px;
-    right: -8px;
+    top: -4px;
+    right: -4px;
     z-index: 1000
 }
 .sidebar .panel {

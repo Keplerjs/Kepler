@@ -217,9 +217,13 @@ Router.map(function() {
 			return {
 				title: i18n('titles.notifications'),
 				className: 'notifications',
-				items: []
-				/*itemsTemplate: 'item_notif',
-				items: K.profile.data.notifs*/
+				itemsTemplate: 'item_notif',
+				items: _.map(K.profile.data.notif, function(text) {
+					return {title: text}
+				}),
+				header: {
+					template: 'itemNotifClean'
+				}
 			};
 		}
 	});
