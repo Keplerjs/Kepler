@@ -39,7 +39,7 @@ Kepler.Place = K.Class.extend({
 		});
 		self.marker = new L.Marker(self.loc, {icon: self.icon});
 		self.marker.item = self;
-		self.marker.on('add', function() {
+		self.marker.once('add', function() {
 				Blaze.renderWithData(Template.marker_checkins, self, self.icon.nodeHtml);
 			})
 			.on('click mousedown', function(e) {

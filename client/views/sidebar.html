@@ -1,0 +1,40 @@
+
+<template name="sidebar">
+
+	<div id="sidebar" class="sidebar {{#unless hideSidebar}} expanded {{/unless}}">
+		<ul class="nav nav-pills" role="tablist">
+			<li class="{{isRoute 'intro' 'active'}}">
+				<a class="btn btn-sm" href="{{pathFor route='intro'}}" role="tab">
+					<i class="icon icon-home"></i>
+				</a>
+			</li>
+			<li class="{{isRoute 'profile' 'active'}}">
+				<a class="btn btn-sm" href="{{pathFor route='profile'}}" role="tab">
+					<i class="icon icon-profile"></i>
+					<span> {{i18n 'btns.profile'}}</span>
+				</a>
+				{{#if currentUser.notif.length}}<i class="badge badge-red notif-count">{{currentUser.notif.length}}</i>{{/if}}
+			</li>
+			<li class="{{isRoute 'friends' 'active'}}">
+				<a class="btn btn-sm" href="{{pathFor route='friends'}}" role="tab">
+					<i class="icon icon-friends"></i>
+					<span> {{i18n 'btns.users'}}</span>
+				</a>
+			</li>
+			<li class="{{isRoute 'nearby' 'active'}}">
+				<a class="btn btn-sm" href="{{pathFor route='nearby'}}" role="tab">
+					<i class="icon icon-map"></i>
+					<span> {{i18n 'btns.places'}}</span>
+				</a>
+			</li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane fade in active" role="tabpanel">
+
+			{{> yield}}
+
+			</div>
+		</div>
+	</div>
+
+</template>

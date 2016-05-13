@@ -25,19 +25,26 @@ layers.cluster = new L.MarkerClusterGroup({
 	showCoverageOnHover: false,
 	maxClusterRadius: 40,
 	iconCreateFunction: function(cluster) {
-		var $icon = L.DomUtil.create('div');
+		if(!cluster.$icon)
+			cluster.$icon = L.DomUtil.create('div');
+
 		cluster.checkinsCount = function() {
 			var places = _.map(cluster.getAllChildMarkers(), function(marker) {
 				return marker.item.id;
 			});
 			return getCheckinsCountByPlaces(places);
 		};
-		Blaze.renderWithData(Template.marker_cluster, cluster, $icon);
-		return new L.NodeIcon({
-			nodeHtml: $icon,
-			className: 'marker-cluster'
-		});
-	}	
+		
+		if(!cluster.icon) {
+			Blaze.renderWithData(Template.marker_cluster, cluster, cluster.$icon);
+			cluster.icon = new L.NodeIcon({
+				className: 'marker-cluster',
+				nodeHtml: cluster.$icon
+			});
+		}
+
+		return cluster.icon;
+	}
 });
 
 layers.places = new L.LayerJSON({

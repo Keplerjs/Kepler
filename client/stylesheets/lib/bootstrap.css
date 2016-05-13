@@ -112,6 +112,16 @@ label {
 	background-color: #ccc;
 }
 
+.badge.badge-orange {
+	background-color: #f80;
+}
+.badge.badge-red {
+	background-color: #ef0000;
+}
+.badge.badge-blue {
+	background-color: #4090C9;
+}
+
 .navbar h4,
 .panel-heading h4 {
 	text-transform: capitalize;

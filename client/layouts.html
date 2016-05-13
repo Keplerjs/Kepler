@@ -9,7 +9,7 @@
 
 <template name="layoutPage">
 	<div class="container">
-	    {{> yield}}
+		{{> yield}}
 	</div>
 </template>
 
@@ -18,29 +18,9 @@
 
 		{{> pageMap}}
 
-		<div id="sidebar" class="sidebar {{#unless hideSidebar}} expanded {{/unless}}">
-	        <ul class="nav nav-pills" role="tablist">
-	            <li class="{{isRoute 'intro' 'active'}}"><a class="btn btn-sm" href="{{pathFor route='intro'}}" role="tab"><i class="icon icon-home"></i><span> </span></a></li>
-	            <li class="{{isRoute 'profile' 'active'}}"><a class="btn btn-sm" href="{{pathFor route='profile'}}" role="tab"><i class="icon icon-profile"></i><span> {{i18n 'btns.profile'}}</span></a></li>
-	            <li class="{{isRoute 'friends' 'active'}}"><a class="btn btn-sm" href="{{pathFor route='friends'}}" role="tab"><i class="icon icon-friends"></i><span> {{i18n 'btns.users'}}</span></a></li>
-				<li class="{{isRoute 'nearby' 'active'}}"><a class="btn btn-sm" href="{{pathFor route='nearby'}}" role="tab"><i class="icon icon-map"></i><span> {{i18n 'btns.places'}}</span></a></li>
-	        </ul>
-	        <div class="tab-content">
-	            <div class="tab-pane fade in active" role="tabpanel">
-					
-					{{> yield}}
+		{{> sidebar}}
 
-	            </div>
-	        </div>
-	    </div>
-
-	    {{> alertList}}
+		{{> alertList}}
 
 	</div>
-</template>
-
-<template name="buttonStatus">
-{{#with connectionStatus}}
-	<li class="btn-connection" style="{{#if connected}}opacity:0{{else}}opacity:1{{/if}}"><a href="#" title="{{status}}"><i class="icon icon-status-{{status}}"></i></a></li>
-{{/with}}
 </template>

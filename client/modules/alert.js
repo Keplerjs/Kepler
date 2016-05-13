@@ -1,11 +1,3 @@
-/*
-	modulo gestione alerts
-
-	disabilitare completamente moduolo se Meteor.settings.public.showAlerts === false
-
-	TODO convertire in modulo con pattern come modules/map.js
-	//TODO metodo per ridurre a icona(su un button leaflet) la alerts senza chiuderla
-*/
 
 Kepler.alert = {
 

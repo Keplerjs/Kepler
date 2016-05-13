@@ -1,9 +1,9 @@
 
 <template name="marker_checkins">
-	{{#if checkinsCount}}<div class="marker-checkins">{{checkinsCount}}</div>{{/if}}
+	{{#if checkinsCount}}<b class="badge badge-orange">{{checkinsCount}}</b>{{/if}}
 </template>
 
 <template name="marker_cluster">
-	<div class="cluster-num">{{getChildCount}}</div>
-	{{#if checkinsCount}}<div class="marker-checkins">{{checkinsCount}}</div>{{/if}}
+	{{#if checkinsCount}}<b class="badge badge-orange">{{checkinsCount}}</b>{{/if}}
+	<b class="badge badge-blue">{{getChildCount}}</b>	
 </template>
