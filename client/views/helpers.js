@@ -2,7 +2,7 @@
 //http://stackoverflow.com/questions/22750022/defining-iterative-block-helpers-in-meteor-0-8
 
 Template.registerHelper('isRoute', function(name, clas) {
-	return Router.current().route.getName()===name ? clas:'';
+	return K.router.routeName()===name ? clas:'';
 });
 
 Template.registerHelper('connectionStatus', function() {

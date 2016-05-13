@@ -82,8 +82,6 @@ layers.geojson = new L.GeoJSONAutoClear(null, {
 	onEachFeature: function (feature, layer) {
 		var tmpl, $popup;
 
-		console.log(feature.properties)
-
 		if(feature.geometry.type==='LineString')
 			tmpl = Template.popup_track;
 
@@ -91,7 +89,7 @@ layers.geojson = new L.GeoJSONAutoClear(null, {
 			tmpl = Template.popup_poi;
 
 		if(tmpl && feature.properties.name) {
-			$popup = L.DomUtil.create('div');
+			$popup = L.DomUtil.create('div','popup-track');
 			Blaze.renderWithData(tmpl, feature.properties, $popup);
 			layer.bindPopup($popup, {closeButton:false} );
 		}
@@ -175,7 +173,7 @@ controls.search = L.control.search({
 		this._input.blur();
 	},
 	search_expanded: function() {
-		Router.go('map');
+		K.router.go('map');
 	}
 });
 

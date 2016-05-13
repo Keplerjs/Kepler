@@ -8,6 +8,11 @@ Kepler.upload = {
 			this.fileReader = new FileReader();
 			
 		if(true || K.util.valid.image(fileObj)) {
+			//TODO use EJSON http://docs.meteor.com/#/full/ejson
+			/*{
+			  "d": {"$date": 1358205756553},
+			  "b": {"$binary": "c3VyZS4="}
+			}*/
 			this.fileReader.onloadend = function(e) {
 				Meteor.call('uploadAvatar', {
 					name: fileObj.name,

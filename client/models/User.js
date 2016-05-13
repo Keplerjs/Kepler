@@ -24,10 +24,7 @@ Kepler.User = K.Class.extend({
 
 		self.update = function(comp) {	//sincronizza istanza con dati nel db
 			
-			self.data = Users.findOne(self.id);
-
-			if(!self.data)
-				return false;
+			self.data = getUserById(self.id).fetch()[0];
 			
 			_.extend(self, self.data);
 
@@ -45,6 +42,8 @@ Kepler.User = K.Class.extend({
 			}
 
 			self._dep.changed();
+			
+			return self;
 		};
 		Tracker.autorun( self.update );	//TODO aggiornare solo se amico
 	},
@@ -126,15 +125,17 @@ Kepler.User = K.Class.extend({
 });
 
 //TODO move to K.Class.newItem()
-K.newUser = function(id)
-{
-	if(!id) return null;
-	if(!K.usersById[id])
+K.newUser = function(id) {
+	check(id, String);
+	
+	if(!K.usersById[id] && getUserById(id).fetch()[0])
+	{
 		K.usersById[id] = new K.User(id);
-
-	//for debugging
-	var iname = K.util.sanitizeFilename(K.usersById[id].username);
-	K.usersByName[iname || id] = K.usersById[id];
-
-	return K.usersById[id];
+		//for debugging
+		var iname = K.util.sanitizeFilename(K.usersById[id].username);
+		K.usersByName[iname || id] = K.usersById[id];
+	}
+	
+	return K.usersById[id] || null;
 };
+

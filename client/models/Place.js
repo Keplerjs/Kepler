@@ -14,6 +14,7 @@ Kepler.Place = K.Class.extend({
 
 		//REACTIVE SOURCES:
 		self._dep = new Tracker.Dependency();
+
 		self.rData = function() {
 			self._dep.depend();
 			return self;
@@ -21,14 +22,13 @@ Kepler.Place = K.Class.extend({
 
 		self.update = function(comp) {	//sincronizza istanza con dati nel db
 
-			self.data = Places.findOne(new Mongo.Collection.ObjectID(self.id));
-
-			if(!self.data)
-				return false;
+			self.data = getPlaceById(self.id).fetch()[0];
 			
 			_.extend(self, self.data);
 
 			self._dep.changed();
+
+			return self;
 		};
 		Tracker.autorun( self.update );
 
@@ -96,16 +96,17 @@ Kepler.Place = K.Class.extend({
 });
 
 //TODO move to K.Class.newItem()
-K.newPlace = function(id)
-{
-	if(!id) return null;
-	if(!K.placesById[id])
-		K.placesById[id] = new K.Place(id);
+K.newPlace = function(id) {
+	check(id, String);
 	
-	//for debugging
-	var iname = K.util.sanitizeFilename(K.placesById[id].name);
-	K.placesByName[iname || id] = K.placesById[id];
-
-	return K.placesById[id];
+	if(!K.placesById[id] && getPlaceById(id).fetch()[0])
+	{
+		K.placesById[id] = new K.Place(id);
+		//for debugging
+		var iname = K.util.sanitizeFilename(K.placesById[id].name);
+		K.placesByName[iname || id] = K.placesById[id];
+	}
+	
+	return K.placesById[id] || null;
 };
 

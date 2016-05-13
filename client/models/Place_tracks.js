@@ -45,6 +45,8 @@ Kepler.Place.include({
 	},
 	getTracksList: function() {
 
+		if(!this.loc) return [];
+
 		return getTracksByLoc(this.loc).fetch();
 	}
 });

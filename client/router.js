@@ -1,12 +1,22 @@
 
 //http://stackoverflow.com/questions/27542120/whats-the-difference-between-writing-routes-in-meteor-startup-and-not
 
+Kepler.router = {
+	go: function(path) {
+		Router.go(path);
+	},
+	routeName: function() {
+		return Router.current().route.getName();
+	}
+};
+
+//Router.setTemplateNameConverter(function (str) { return str; });
+
 Router.configure({
 	layoutTemplate: 'layoutMap',
 	loadingTemplate: 'panelLoading',
 	notFoundTemplate: 'page404'
 });
-//Router.setTemplateNameConverter(function (str) { return str; });
 
 Router.subscriptions(function() {
 	this.subscribe('currentUser').wait();
@@ -18,7 +28,6 @@ Router.waitOn(function() {
 	if(Meteor.user())
 	{
 		K.profile.initProfile(function() {
-			console.log('WAITON GLOBAL')
 			self.next();
 		});
 	}
@@ -218,18 +227,14 @@ Router.map(function() {
 	this.route('place', {
 		path: '/place/:placeId',		
 		template: 'panelPlace',
-		onBeforeAction: function() {
-			var self = this;
-			console.log('onBeforeAction')
-			Meteor.subscribe('placeById', this.params.placeId, function() {
-				//self.place = K.newPlace(self.params.placeId);
-				console.log('onBeforeAction SUB')
-				self.next();
-			});
+		waitOn: function() {
+			return Meteor.subscribe('placeById', this.params.placeId);
 		},
 		data: function() {
-			console.log('DATA')
-			return K.newPlace(this.params.placeId).rData();
+
+			var place = K.newPlace( this.params.placeId );
+
+			return place && place.rData();
 		}
 	});
 
@@ -239,9 +244,12 @@ Router.map(function() {
 		waitOn: function() {
 			return Meteor.subscribe('placesByIds', [this.params.placeId]);
 		},
-		onBeforeAction: function() {
-			K.newPlace( this.params.placeId ).loadLoc();
-			this.next();
+		onAfterAction: function() {
+
+			var place = K.newPlace( this.params.placeId );
+
+			if(place)
+				place.loadLoc();
 		},
 		data: { hideSidebar: true }
 	});
@@ -293,14 +301,13 @@ Router.map(function() {
 		path: '/place/:placeId/pois',
 		template: 'emptyTmpl',
 		waitOn: function() {
-			console.log('route waitOn poisByPlace')
-			return [
-				Meteor.subscribe('placeById', this.params.placeId),
-				Meteor.subscribe('poisByPlace', this.params.placeId)
-			];
+			return Meteor.subscribe('poisByPlace', this.params.placeId);
 		},
 		onAfterAction: function() {
-			K.newPlace( this.params.placeId ).loadPois();
+			var place = K.newPlace( this.params.placeId );
+
+			if(place)
+				place.loadPois();
 		},
 		data: { hideSidebar: true }
 	});
@@ -308,11 +315,14 @@ Router.map(function() {
 	this.route('placeTracks', {
 		path: '/place/:placeId/tracks',
 		template: 'emptyTmpl',
-		subscriptions: function() {
+		waitOn: function() {
 			return Meteor.subscribe('tracksByPlace', this.params.placeId);
 		},
 		onAfterAction: function() {
-			K.newPlace( this.params.placeId ).loadTracks();
+			var place = K.newPlace( this.params.placeId );
+
+			if(place)
+				place.loadTracks();
 		},
 		data: { hideSidebar: true }
 	});

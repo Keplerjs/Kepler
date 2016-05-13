@@ -62,7 +62,8 @@ Kepler.profile = {
 	},
 	getFriends: function() {
 		return  _.map(_.compact(this.data.friends), function(userId) {
-			return K.newUser(userId).rData();
+			var user = K.newUser(userId);
+			return user && user.rData();
 		});
 	},
 	hasFriend: function(userId) {

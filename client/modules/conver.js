@@ -9,13 +9,13 @@ Kepler.conver = {
 
 	loadConverWithUser: function(userId) {
 		Meteor.call('getConverWithUser', userId, function(err, convId) {
-			Router.go('conver',{convId: convId});
+			K.router.go('conver',{convId: convId});
 		});
 	},
 
 	newConverInPlace: function(placeId, title) {
 		Meteor.call('newConverInPlace', placeId, title, function(err, convId) {
-			Router.go('conver',{convId: convId});
+			K.router.go('conver',{convId: convId});
 		});
 	},
 

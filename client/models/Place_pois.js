@@ -23,13 +23,15 @@ function poisToGeojson(pois, place, type) {
 Kepler.Place.include({
 
 	loadPois: function(type) {
-console.log('loadPois', this)
+
 		var pois = getPoisByLoc(this.loc).fetch();
 
 		K.map.loadGeojson( poisToGeojson(pois, this, type) );
 	},
 	
 	getPoisList: function() {
+
+		if(!this.loc) return [];
 
 		var pois = getPoisByLoc(this.loc).fetch(),
 			types = _.countBy(pois, function(feature) {

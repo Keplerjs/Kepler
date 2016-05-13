@@ -24,8 +24,7 @@
 </template>
 
 <template name="popup_track">
-	<span class="popup-track">
-		{{#if name}}<label>{{name}}</label><br />{{/if}}
+	<span class="popup-track-content">
 		{{#if time}}<i class="icon icon-time"></i> {{i18n 'labels.time'}} {{humanTime time}} <br />{{/if}}
 		{{#if len}}<i class="icon icon-len"></i> {{i18n 'labels.len'}} {{humanDistance len}} <br />{{/if}}
 
