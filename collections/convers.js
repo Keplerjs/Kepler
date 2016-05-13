@@ -8,7 +8,10 @@ getConverById = function(convId) {
 };
 
 getConversByIds = function(convIds) {
-	return Convers.find({_id: {$in: convIds} }, { fields: K.fields.converItem });
+	
+	convIds = _.isArray(convIds) ? {$in: convIds} : convIds;
+
+	return Convers.find({_id: convIds }, { fields: K.fields.converItem });
 };
 
 getConversByPlace = function(placeId) {

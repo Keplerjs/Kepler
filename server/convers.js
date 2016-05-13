@@ -41,8 +41,10 @@ getConverWithUser = function(userId) {
 							});
 	if(convData)
 		return convData._id;
-	else
-		return newConver(i18n('titles.userConver'), null, userId);
+	else {
+		var user = getUsersByIds([userId]).fetch()[0];
+		return newConver( i18n('titles.userConver', user.name), null, userId);
+	}
 };
 
 delConver = function(convId) {

@@ -12,11 +12,12 @@ Meteor.publish('conversByIds', function(convIds) {
 
 		return [
 			conversCur,
+			getPlacesByIds( [conversData.placeId] ),
 			getUsersByIds( _.last(usersIds,3) )
 		];
 	}
 	else
-		this.ready();	
+		this.ready();
 });
 
 Meteor.publish('converById', function(convId) {

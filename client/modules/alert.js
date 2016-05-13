@@ -62,14 +62,14 @@ Kepler.alert = {
 					//console.log('CHANGED',user.username,fields);
 
 					if(fields.online)
-						K.alert.show(_.template(i18n('alerts.useronline'), user),'success');
+						K.alert.show( i18n('alerts.useronline', user.name), 'success');
 
 					if(fields.loc)
-						K.alert.show(_.template(i18n('alerts.usergps'), user),'map-user');
+						K.alert.show( i18n('alerts.usergps', user.name), 'map-user');
 
 					if(fields.checkin) {
-						user.placename = K.newPlace(fields.checkin).name || i18n('labels.noname');
-						K.alert.show(_.template(i18n('alerts.usercheckin'), user),'checkin');
+						var place = K.newPlace(fields.checkin) || i18n('labels.noname');
+						K.alert.show( i18n('alerts.usercheckin', user.name, place.name), 'checkin');
 					}
 				}
 			});
@@ -81,17 +81,9 @@ Kepler.alert = {
 // 	});
 // 	Places.find({_id: {$in: placesIds} }).observeChanges({
 // 		changed: function(placeId, fields) {
-
 // 			var place = K.newPlace(placeId._str);
-			
-// 			console.log(fields.checkins);
-
 // 		 	if(fields.checkins.length > 1 && !_.contains(fields.checkins,K.profile.id))
-// 				K.alert.show(_.template(
-// 						i18n('alerts.placecheckins'), {
-// 							name: place.name,
-// 							users: fields.checkins.length
-// 						}),'users');
+// 				K.alert.show( i18n('alerts.placecheckins', fields.checkins.length, place.name), 'users');
 // 		}
 // 	});
 // },

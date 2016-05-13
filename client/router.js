@@ -2,8 +2,8 @@
 //http://stackoverflow.com/questions/27542120/whats-the-difference-between-writing-routes-in-meteor-startup-and-not
 
 Kepler.router = {
-	go: function(path) {
-		Router.go(path);
+	go: function() {
+		Router.go.apply(Router, arguments);
 	},
 	routeName: function() {
 		return Router.current().route.getName();
@@ -268,7 +268,7 @@ Router.map(function() {
 			var place = K.newPlace(this.params.placeId);
 
 			return place && {
-				title: i18n('titles.checkins')+'<a href="/place/'+this.params.placeId+'"><b>'+place.name+'</b></a>',
+				title: i18n('titles.checkins', place.name),
 				className: 'checkins',
 				itemsTemplate: 'item_user',
 				items: _.map(place.checkins, K.newUser),
@@ -287,7 +287,7 @@ Router.map(function() {
 			var place = K.newPlace(this.params.placeId);
 
 			return place && {
-				title: i18n('titles.placeConvers')+'<a href="/place/'+this.params.placeId+'"><b>'+place.name+'</b></a>',
+				title: i18n('titles.placeConvers', place.name),
 				className: 'placeConvers',
 				itemsTemplate: 'itemConver',
 				items: getConversByPlace(this.params.placeId).fetch(),
@@ -329,12 +329,6 @@ Router.map(function() {
 		},
 		data: { hideSidebar: true }
 	});
-
-	/*TODO
-	this.route('placeSectors', {
-		path: '/place/:placeId/sectors',
-		template: 'panelList',
-	});*/
 	
 	this.route('user', {
 		path: '/user/:userId',
@@ -355,12 +349,13 @@ Router.map(function() {
 
 	this.route('userConver', {
 		path: '/user/:userId/conver',
-		//template: 'panelConver',
+		template: 'emptyTmpl',
 		onBeforeAction: function() {
 			if(this.params.userId===Meteor.userId())
 				Router.go('convers');
 			else
 				K.conver.loadConverWithUser( this.params.userId );
+			this.next();
 		}
 	});
 
