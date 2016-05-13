@@ -1,11 +1,11 @@
 
 Template.panelList.helpers({
 	list: function() {
-		var itemsTemplate = this.itemsTemplate;
+		var self = this;
 		
 		if(this.sortBy)
 			this.items = _.sortBy(this.items, function(item) {
-				return item ? item[this.sortBy] : 0;
+				return item ? item[self.sortBy] : 0;
 			});
 
 		if(this.items && this.sortDesc)
@@ -13,7 +13,7 @@ Template.panelList.helpers({
 
 		return _.map(this.items, function(item) {
 			
-			item.template = item.template || itemsTemplate;
+			item.template = item.template || self.itemsTemplate;
 
 			return item;
 		});

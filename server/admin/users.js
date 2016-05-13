@@ -72,7 +72,7 @@ Meteor.methods({
 		Users.update({username: username}, {
 			$set: {
 				friends: [],
-				usersBlocked: [],			
+				usersBlocked: [],	
 				usersPending: [],
 				usersReceive: []
 			}

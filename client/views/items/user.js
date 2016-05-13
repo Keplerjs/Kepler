@@ -2,7 +2,7 @@
 Template.user_btns2.onRendered(function() {
 	
 	this.$('.user-btn-del').btsConfirmButton({
-			msg: i18n('btns.frienddel')
+			msg: '<i class=\"icon icon-userdel\"></i> '+i18n('btns.frienddel')
 		}, function(e) {
 			K.profile.friendDel($(e.target).data('userid'));
 		});

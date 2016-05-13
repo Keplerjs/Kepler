@@ -188,8 +188,7 @@ Router.map(function() {
 				className: 'favorites',
 				itemsTemplate: 'item_place_favorite',
 				items: _.map(K.profile.data.favorites, K.newPlace),
-				sortBy: 'name',
-				sortDesc: true
+				sortBy: 'name'
 			};
 		}
 	});
@@ -217,13 +216,13 @@ Router.map(function() {
 			return {
 				title: i18n('titles.notifications'),
 				className: 'notifications',
+				header: {
+					template: 'itemNotifClean'
+				},				
 				itemsTemplate: 'item_notif',
 				items: _.map(K.profile.data.notif, function(text) {
 					return {title: text}
-				}),
-				header: {
-					template: 'itemNotifClean'
-				}
+				})
 			};
 		}
 	});
@@ -271,8 +270,7 @@ Router.map(function() {
 				title: i18n('titles.checkins', place.name),
 				className: 'checkins',
 				itemsTemplate: 'item_user',
-				items: _.map(place.checkins, K.newUser),
-				sortDesc: true
+				items: _.map(place.checkins, K.newUser)
 			};
 		}
 	});
@@ -289,13 +287,12 @@ Router.map(function() {
 			return place && {
 				title: i18n('titles.placeConvers', place.name),
 				className: 'placeConvers',
-				itemsTemplate: 'itemConver',
-				items: getConversByPlace(this.params.placeId).fetch(),
-				sortDesc: true,
 				header: {
 					template: 'itemConverNew',
 					data: place
-				}
+				},				
+				itemsTemplate: 'itemConver',
+				items: getConversByPlace(this.params.placeId).fetch()
 			};
 		}
 	});
@@ -334,14 +331,11 @@ Router.map(function() {
 		path: '/user/:userId',
 		template: 'panelUser',
 		waitOn: function() {
-			return Meteor.subscribe('userById', this.params.userId);
-		},		
-		onBeforeAction: function() {
 			if(this.params.userId===Meteor.userId())
 				Router.go('profile');
 			else
-				this.next();
-		},
+				return Meteor.subscribe('userById', this.params.userId);
+		},		
 		data: function() {
 			return K.newUser(this.params.userId);
 		}
@@ -350,12 +344,22 @@ Router.map(function() {
 	this.route('userConver', {
 		path: '/user/:userId/conver',
 		template: 'emptyTmpl',
-		onBeforeAction: function() {
+		waitOn: function() {
 			if(this.params.userId===Meteor.userId())
 				Router.go('convers');
 			else
 				K.conver.loadConverWithUser( this.params.userId );
-			this.next();
+		}
+	});
+
+	this.route('conver', {
+		path: '/conver/:convId',
+		template: 'panelConver',
+		waitOn: function() {
+			return Meteor.subscribe('converById', this.params.convId);
+		},
+		data: function() {
+			return getConverById(this.params.convId).fetch()[0];
 		}
 	});
 
@@ -369,16 +373,5 @@ Router.map(function() {
 			
 			//TODO send invitation to going in place
 		}
-	});*/
-
-	this.route('conver', {
-		path: '/conver/:convId',
-		template: 'panelConver',
-		waitOn: function() {
-			return Meteor.subscribe('converById', this.params.convId);
-		},
-		data: function() {
-			return getConverById(this.params.convId).fetch()[0];
-		}
-	});
+	});*/	
 });
