@@ -3,8 +3,8 @@ app.pid
 npm-debug.log
 node_modules
 smart.lock
-packages
 public/users
 public/node_modules
 nohup.out
+.npm
 

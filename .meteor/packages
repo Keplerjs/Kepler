@@ -20,5 +20,5 @@ mrt:modernizr-meteor
 underscorestring:underscore.string
 alisalaah:suncalc
 verron:autosize
-bevanhunt:leaflet@=0.3.18
 mrt:imagemagick
+keplerjs:leaflet
