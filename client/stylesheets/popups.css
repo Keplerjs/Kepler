@@ -37,6 +37,7 @@
 .popup-tit {
 	text-transform: capitalize;
 	margin-bottom: 8px;
+	border: none;
 }
 
 .popup-near {

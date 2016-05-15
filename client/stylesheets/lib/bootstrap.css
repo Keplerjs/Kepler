@@ -202,3 +202,8 @@ section {
 	border: 1px solid #aaa;
 	border-radius: 4px;
 }
+
+.btn-group .btn,
+.btn-group-vertical .btn {
+	border: none;
+}

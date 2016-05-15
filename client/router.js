@@ -360,7 +360,7 @@ Router.map(function() {
 			if(this.params.userId===Meteor.userId())
 				Router.go('profile');
 			else
-				return Meteor.subscribe('friendsByIds', [this.params.userId]);
+				return Meteor.subscribe('userById', this.params.userId);
 		},		
 		data: function() {
 			if(this.ready()) {
