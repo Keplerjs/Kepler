@@ -33,14 +33,14 @@ Kepler.User = K.Class.extend({
 				if(self.loc && !self.checkin)
 					self.showMarker();
 				else
-					self.hideMarker();
+					K.map.removeItem(self);
 			}
 			else if(self.isFriend())
 			{
 				if(self.online && self.loc && !self.checkin)
 					self.showMarker();
 				else
-					self.hideMarker();
+					K.map.removeItem(self);
 			}
 
 			self._dep.changed();
@@ -51,16 +51,6 @@ Kepler.User = K.Class.extend({
 	},
 
 	//PUBLIC METHODS:
-	loadLoc: function() {
-		var self = this;
-		
-		self.showMarker();
-
-		K.map.loadLoc(self.loc, function() {
-			self.icon.animate();
-		});
-	},
-
 	showMarker: function() {
 
 		var self = this;
@@ -86,9 +76,14 @@ Kepler.User = K.Class.extend({
 		K.map.addItem(self);
 	},
 
-	hideMarker: function() {
-		if(this.marker && this.marker._map)
-			this.marker._map.removeLayer(this.marker);
+	loadLoc: function() {
+		var self = this;
+		
+		self.showMarker();
+
+		K.map.loadLoc(self.loc, function() {
+			self.icon.animate();
+		});
 	},
 
 	isFriend: function() {

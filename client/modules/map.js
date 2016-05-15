@@ -327,7 +327,8 @@ Kepler.map = {
 
 		if(!this.ready) return this;
 		
-		this._map.removeLayer(item.marker);
+		if(item && item.marker)
+			this._map.removeLayer(item.marker);
 
 		return this;
 	},

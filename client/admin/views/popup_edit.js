@@ -31,7 +31,7 @@ Template.popup_place.events({
 	'click .popup-clone': function(e,tmpl) {
 		Meteor.call('adminClonePlace', this.id, function(err, newPlaceId) {
 			Meteor.subscribe('placeByIds', [newPlaceId], function() {	//carica tutti i dati della place
-				K.newPlace(newPlaceId).loadLoc();
+				K.map.addItem( K.newPlace(newPlaceId) );
 			});
 		});
 	},	
@@ -40,7 +40,7 @@ Template.popup_place.events({
 			ret = confirm("Eliminare?");
 		if(ret) {
 			Meteor.call('adminDelPlace', self.id, function(err) {
-				self.hideMarker();
+				K.map.removeItem(self);
 			});
 		}
 	},
