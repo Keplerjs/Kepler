@@ -24,7 +24,7 @@ Kepler.User = K.Class.extend({
 
 		self.update = function(comp) {	//sincronizza istanza con dati nel db
 			
-			self.data = getUserById(self.id).fetch()[0];
+			self.data = getFriendById(self.id).fetch()[0];
 			
 			_.extend(self, self.data);
 
@@ -63,8 +63,10 @@ Kepler.User = K.Class.extend({
 
 		if(!self.marker)
 		{
-			self.icon = new L.NodeIcon({className: 'marker-'+(self.isMe()?'profile':'friend') });
-			self.marker = new L.Marker(self.loc, {icon: self.icon});
+			self.icon = new L.NodeIcon({
+				className: self.isMe() ? 'marker-profile' : 'marker-friend'
+			});
+			self.marker = new L.Marker(L.latLng(self.loc), {icon: self.icon});
 			self.marker.item = self;
 			self.marker.on('click mousedown', function(e) {
 				if(!this._popup) {
@@ -74,10 +76,10 @@ Kepler.User = K.Class.extend({
 				}
 			});
 		}
-
-		self.marker.setLatLng(self.loc);
 		
 		K.map.loadItem(self);
+
+		self.marker.setLatLng(L.latLng(self.loc));
 	},
 
 	hideMarker: function() {

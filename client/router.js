@@ -47,14 +47,13 @@ Router.onBeforeAction(function() {
 
 	if(this.ready())
 	{
-		var mapOpts = _.defaults({
-				layer: K.profile.data.settings.layer,
-				center: K.profile.data.locmap
-			}, Meteor.settings.public.map);
 
-		K.map.initMap(mapOpts, function() {
-			this.enableBBox();
-		});
+		K.map.initMap({
+				center: K.profile.data.locmap,
+				layer: K.profile.data.settings.layer
+			}, function() {
+				this.enableBBox();
+			});
 	}
 	else
 		this.render(this.loadingTemplate);
@@ -107,6 +106,7 @@ Router.map(function() {
 		loadingTemplate: 'pageLoading',
 		onBeforeAction: function () {
 			K.profile.logout();
+			K.map.destroyMap();
 			Router.go('intro');
 		}
 	});

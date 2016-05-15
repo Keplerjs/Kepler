@@ -190,7 +190,7 @@ Kepler.map = {
 
 	ready: false,
 
-	leafletMap: null,
+	_map: null,
 
 	_deps: {
 		bbox: new Tracker.Dependency()
@@ -204,26 +204,26 @@ Kepler.map = {
 
 		self.ready = true;
 
-		self.leafletMap = new L.Map('map', _.extend(opts, {
-			zoomControl: false,			
-			attributionControl: false
-		}) );
+		self._map = new L.Map('map', {		
+			attributionControl: false,
+			zoomControl: false			
+		});
 		
 		self.setOpts(opts);
 
 		self.addControls();
 
-		//TODO Fix solo per Safari evento resize! quando passa a schermo intero
-		$(window).on('orientationchange'+(L.Browser.mobileWebkit?' resize':''), _.debounce(function(e) {
+		//Fix only for Safari event resize! when shift to fullscreen
+		$(window).on('orientationchange'+(!L.Browser.mobile?' resize':''), _.debounce(function(e) {
 
 			$(window).scrollTop(0);
-			//console.log('invalidateSize', (new Date).getTime(), self.leafletMap.getSize() )
-			self.leafletMap.invalidateSize(false);
+			//console.log('invalidateSize', (new Date).getTime(), self._map.getSize() )
+			self._map.invalidateSize(false);
 
-		}, Meteor.settings.public.typeDelay) );
+		}, Meteor.settings.public.typeDelay+1000) );
 
 		if($.isFunction(cb))
-			self.leafletMap.whenReady(cb, self);
+			self._map.whenReady(cb, self);
 
 		return this;
 	},
@@ -233,11 +233,18 @@ Kepler.map = {
 
 		if(!self.ready) return this;
 		
-		opts = _.defaults(opts, Meteor.settings.public.map);
+		opts = _.extend({}, Meteor.settings.public.map, opts);
 
-		self.leafletMap.setView(opts.center, opts.zoom);
+		if(!_.isArray(opts.center))
+			opts.center = Meteor.settings.public.map.center;
+		
+		if(!Meteor.settings.public.layers[opts.layer])
+			opts.layer = Meteor.settings.public.map.layer;
+
+		self._map.setView(L.latLng(opts.center), opts.zoom);
 
 		layers.baselayer.setUrl( Meteor.settings.public.layers[opts.layer] );
+
 		return this;
 	},
 
@@ -250,28 +257,29 @@ Kepler.map = {
 			controls.gps,
 			layers.geojson,
 			layers.users
-		],'addTo', this.leafletMap);
+		],'addTo', this._map);
 	},
 
 	destroyMap: function() {
 		if(this.ready) {
 			this.ready = false;
-			this.leafletMap.remove();
+			layers.cluster.clearLayers();
 			layers.places.clearLayers();
+			this._map.remove();			
 		}
 		return this;
 	},
 	
 	enableBBox: function() {
 		if(!this.ready) return this;
-		this.leafletMap.addLayer(layers.cluster);
-		this.leafletMap.addLayer(layers.places);
+		this._map.addLayer(layers.cluster);
+		this._map.addLayer(layers.places);
 		return this;
 	},
 	disableBBox: function() {
 		if(!this.ready) return this;
-		this.leafletMap.removeLayer(layers.places);
-		this.leafletMap.removeLayer(layers.cluster);
+		this._map.removeLayer(layers.places);
+		this._map.removeLayer(layers.cluster);
 		return this;
 	},
 
@@ -279,7 +287,7 @@ Kepler.map = {
 		if(this.ready) {
 			this._deps.bbox.depend();
 
-			var bbox = this.leafletMap.getBounds(),
+			var bbox = this._map.getBounds(),
 				sw = bbox.getSouthWest(),
 				ne = bbox.getNorthEast();
 			//TODO LOOK	at leaflet-geojson-selector fox reduce bbox with openened panel
@@ -293,10 +301,10 @@ Kepler.map = {
 		if(!this.ready) return this;
 
 		if(_.isFunction(cb))
-			this.leafletMap.once("moveend zoomend", cb);
+			this._map.once("moveend zoomend", cb);
 		
 		if(loc && K.util.valid.loc(loc))
-			this.leafletMap.setView(loc, Meteor.settings.public.loadLocZoom);
+			this._map.setView(loc, Meteor.settings.public.loadLocZoom);
 
 		return this;
 	},
@@ -320,7 +328,7 @@ Kepler.map = {
 
 		geoData = L.Util.isArray(geoData) ? geoData : [geoData];
 
-		this.leafletMap.closePopup();
+		this._map.closePopup();
 
 		layers.geojson.clearLayers();
 		for(var i in geoData) {
@@ -328,13 +336,13 @@ Kepler.map = {
 		}
 	
 		var bb = layers.geojson.getBounds(),
-			zoom = this.leafletMap.getBoundsZoom(bb),
+			zoom = this._map.getBoundsZoom(bb),
 			loc = bb.getCenter();
 
 		if(_.isFunction(cb))
-			this.leafletMap.once("moveend zoomend", cb);
+			this._map.once("moveend zoomend", cb);
 		
-		this.leafletMap.setView(loc, zoom-1);
+		this._map.setView(loc, zoom-1);
 
 		return this;
 	}

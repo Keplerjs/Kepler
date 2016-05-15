@@ -6,7 +6,6 @@ Kepler.profile = {
 	id: null,
 	user: null,			//my istance of K.User	
 	data: {},
-	mapSets: {},		//map custom settings used in K.map.initMap(...)
 	placeCheckin: null,
 	notifs: [],			//notifs of user
 	//TODO rename fields in db notif to notifs
@@ -95,7 +94,7 @@ Kepler.profile = {
 		return this;
 	},
 	setLoc: function(loc) {
-		Meteor.call('setUserLoc', loc);
+		Meteor.call('setLoc', loc);
 		return this;
 	},
 	setOnline: function(online) {
@@ -144,12 +143,9 @@ Kepler.profile = {
 		});
 	},
 	logout: function() {
-		var self = this;
-		self.setOnline(false);
-		self.ready = false;
-		Meteor.logout(function(err) {
-			//TODO esegui K.map.destroyMap();			
-		});
+		this.setOnline(false);
+		this.ready = false;
+		Meteor.logout();
 		return this;
 	}
 };

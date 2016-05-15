@@ -11,13 +11,13 @@ confirmFriends = function(userId, addUserId) {
 };
 
 Meteor.methods({
-	setUserLoc: function(loc) {
+	setLoc: function(loc) {
 
 		if(!this.userId) return null;
 
 		loc = loc || null;
 		
-		console.log('setUserLoc',loc);
+		console.log('setLoc',loc);
 
 		if(loc)
 		{
@@ -48,7 +48,7 @@ Meteor.methods({
 						locmap: loc
 					}
 				});
-				console.log('setUserLoc'+K.util.timeUnix(), _.pick(userData,'loc','loclast','checkin'), loc);
+				console.log('setLoc'+K.util.timeUnix(), _.pick(userData,'loc','loclast','checkin'), loc);
 			}
 			else
 				Users.update(this.userId, {$set: {loc: userData.loclast}});

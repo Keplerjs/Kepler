@@ -32,11 +32,11 @@
 			"quality": 0.8
 		},
 		"map": {
-			"layer": "road",
 			"zoom": 10,
 			"minZoom": 10,
-			"maxZoom": 19,			
-			"center": [42.419851, 12.701923],
+			"maxZoom": 19,
+			"layer": "road",			
+			"center": [42.047801, 13.250885],
 			"maxBounds": [[36.282794, 5.361328], [47.542735, 21.071777]]
 		},
 		"loadLocZoom": 15,
