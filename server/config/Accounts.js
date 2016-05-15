@@ -31,14 +31,12 @@ Accounts.validateNewUser(function (user) {
 
 Accounts.onLogin(function(login) {
 
-	if(!login.user.locmap) {
-	
-		var ip = login.connection.clientAddress!='127.0.0.1' ? login.connection.clientAddress : login.connection.httpHeaders['x-real-ip'],
-			geoip = K.geoapi.geoip(ip);
-
+	var geoip, ip = login.connection.httpHeaders['x-real-ip'] || login.connection.clientAddress;
+		
+	if(Meteor.settings.geoipLocation && !login.user.locmap && (geoip = K.geoapi.geoip(ip)) )
 		Users.update(login.user._id, {$set: {locmap: geoip.loc }});
-	}
-	console.log('Login:',login.user.username);
+
+	console.log('Login:',login.user.username, ip);
 });
 
 Accounts.onLoginFailure(function(e) {

@@ -16,7 +16,7 @@ Meteor.methods({
 			
 			var userId = Accounts.createUser({
 				username: username,
-				password: username+username,
+				password: username,//+username,
 				email: username+'@gmail.com'
 			});
 

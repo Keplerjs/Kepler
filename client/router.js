@@ -61,7 +61,7 @@ Router.onBeforeAction(function() {
 
 	self.next();
 
-}, {except: ['intro','settings','settingsBlocked','about'] });//*/
+}, {except: ['intro','settings','settingsBlocked','about','logout'] });//*/
 
 Router.onAfterAction(function() {
 	document.title = i18n('titles.'+this.route.getName()) || _.str.capitalize(this.route.getName());	
@@ -102,6 +102,9 @@ Router.map(function() {
 
 	this.route('logout', {
 		path: '/logout',
+		template: 'pageIntro',
+		layoutTemplate: 'layoutFull',
+		loadingTemplate: 'pageLoading',
 		onBeforeAction: function () {
 			K.profile.logout();
 			Router.go('intro');

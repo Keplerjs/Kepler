@@ -10,6 +10,7 @@
 		},
 		"editPlaces": false,
 		"accountCreation": true,
+		"geoipLocation": false,
 		"showAlerts": true,		
 		"searchMinLen": 1,
 		"typeDelay": 300,		
