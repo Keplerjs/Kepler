@@ -7,10 +7,10 @@
 Kepler.User = K.Class.extend({
 
 	id: null,
-	data: {},					//dati orignali dal db
 	type: 'user',
-	tmpl: Template.item_user,	//template for items list	
-
+	tmpl: Template.item_user,	//default template for items list	
+	data: {},					//dati orignali dal db
+	
 	init: function(userId) {
 
 		var self = this;
@@ -69,6 +69,7 @@ Kepler.User = K.Class.extend({
 					this.bindPopup(self.popup$, { closeButton:false });
 				}
 			}).on('add', function(e) {
+				//TODO move also after is added
 				this.setLatLng(self.loc);
 			});
 		}

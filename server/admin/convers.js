@@ -9,12 +9,17 @@ Meteor.methods({
 		
 		if(!isAdmin()) return null;
 
-		Convers.remove({_id: {$in: Meteor.user().convers }});
-		Users.update(this.userId, {
+		Convers.remove({});
+		Users.update({}, {
 			$set: {
 				convers: []
 			}
-   		});
+   		},{multi: true});
+		Places.update({}, {
+			$set: {
+				convers: []
+			}
+   		},{multi: true});
 		console.log('adminDeleteAllConvers');
 	}	
 });

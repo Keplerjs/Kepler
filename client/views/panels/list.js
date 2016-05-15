@@ -13,9 +13,10 @@ Template.panelList.helpers({
 
 		return _.map(this.items, function(item) {
 			
-			item.template = item.template || self.itemsTemplate;
+			if(item)
+				item.template = item.template || self.itemsTemplate;
 
 			return item;
 		});
 	}
-});
+});//*/
