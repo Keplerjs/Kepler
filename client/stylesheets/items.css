@@ -77,3 +77,10 @@
 .conver-item .place-btn-name {
 	font-size: 12px;
 }
+
+.friend-item.offline .user-avatar {
+	opacity: 0.6;
+}
+.friend-item.offline .btn {
+	color: #888;
+}

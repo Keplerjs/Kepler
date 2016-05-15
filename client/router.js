@@ -44,10 +44,9 @@ Router.waitOn(function() {
 Router.onBeforeAction(function() {
 
 	var self = this;
-
+	
 	if(this.ready())
 	{
-
 		K.map.initMap({
 				center: K.profile.data.locmap,
 				layer: K.profile.data.settings.layer
@@ -55,9 +54,7 @@ Router.onBeforeAction(function() {
 				this.enableBBox();
 			});
 	}
-	else
-		this.render(this.loadingTemplate);
-
+	
 	self.next();
 
 }, {except: ['intro','settings','settingsBlocked','about','logout'] });//*/
@@ -129,13 +126,21 @@ Router.map(function() {
 
 	this.route('friends', {
 		path: '/friends',
-		template: 'panelFriends',
+		template: 'panelList',
 		waitOn: function() {
 			return Meteor.subscribe('friendsByIds', K.profile.data.friends);
 		},
 		data: function() {
 			return {
-				friends: K.profile.getFriends()
+				itemsTemplate: 'item_friend',
+				items: getFriendsByIds(K.profile.data.friends).map(function(user) {
+					console.log('getFriendsByIds.map',user.name,user.online);
+					var user = K.newUser(user._id);
+					return user && user.rData();
+				}),
+				header: {
+					template: 'item_friend_search'
+				}
 			};
 		}	
 	});
@@ -150,7 +155,7 @@ Router.map(function() {
 			return {
 				title: i18n('titles.convers'),
 				className: 'convers',
-				itemsTemplate: 'itemConver',
+				itemsTemplate: 'item_conver',
 				items: getConversByIds(K.profile.data.convers).fetch(),
 				sortDesc: true
 			};
@@ -220,7 +225,7 @@ Router.map(function() {
 				title: i18n('titles.notifications'),
 				className: 'notifications',
 				header: {
-					template: 'itemNotifClean'
+					template: 'item_notif_clean'
 				},				
 				itemsTemplate: 'item_notif',
 				items: _.map(K.profile.data.notif, function(text) {
@@ -291,10 +296,10 @@ Router.map(function() {
 				title: i18n('titles.placeConvers', place.name),
 				className: 'placeConvers',
 				header: {
-					template: 'itemConverNew',
+					template: 'item_conver_new',
 					data: place
 				},				
-				itemsTemplate: 'itemConver',
+				itemsTemplate: 'item_conver',
 				items: getConversByPlace(this.params.placeId).fetch()
 			};
 		}

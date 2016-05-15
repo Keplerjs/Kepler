@@ -1,7 +1,7 @@
 
-Template.panelFriends.onRendered(function() {
+Template.item_friend_search.onRendered(function() {
 	
-	this.$('.list-group').btsListFilter('.users-inp-search', {
+	$(this.firstNode).parent().siblings('.list-group').btsListFilter('.users-inp-search', {
 		itemChild: '.user-btn-name',
 		sourceData: function(val, callback) {
 			var list$ = $(this);
@@ -21,10 +21,7 @@ Template.panelFriends.onRendered(function() {
 			return userItem$;
 		}
 	});
-});
 
-Template.switch_online.onRendered(function() {
-	
 	this.$('#switch_online').bootstrapSwitch({
 		size: 'mini',		
 		onColor: 'success',		

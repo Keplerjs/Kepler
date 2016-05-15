@@ -59,12 +59,6 @@ Kepler.profile = {
 		if(this.placeCheckin)
 			return this.placeCheckin.rData();
 	},
-	getFriends: function() {
-		return  _.map(_.compact(this.data.friends), function(userId) {
-			var user = K.newUser(userId);
-			return user && user.rData();
-		});
-	},
 	hasFriend: function(userId) {
 		return _.contains(this.data.friends, userId);
 	},

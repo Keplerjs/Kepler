@@ -48,7 +48,7 @@ Meteor.methods({
 						locmap: loc
 					}
 				});
-				console.log('setLoc'+K.util.timeUnix(), _.pick(userData,'loc','loclast','checkin'), loc);
+				console.log('setLoc', _.pick(userData,'loc','loclast','checkin'), loc);
 			}
 			else
 				Users.update(this.userId, {$set: {loc: userData.loclast}});

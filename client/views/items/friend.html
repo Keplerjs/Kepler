@@ -1,0 +1,31 @@
+
+<template name="item_friend">
+	<div class="friend-item {{#unless isOnline}}offline{{/unless}}">
+		<div class="pull-left">
+			<i class="icon icon-{{#if isOnline}}online{{else}}offline{{/if}}{{#if mob}}-mob{{/if}} user-device"></i>
+			{{> item_user}}
+		</div>
+		<div class="pull-right">
+		{{#if isOnline}}
+			{{> user_btns}}
+		{{/if}}
+		</div>
+	</div>
+</template>
+
+<template name="item_friend_search">
+
+	<form class="form-horizontal">
+		<div class="form-group has-feedback col-xs-9">
+			<input class="form-control users-inp-search" type="text" placeholder="{{i18n 'labels.findusers'}}" /> 
+			<a class="form-control-feedback users-btn-search">
+				<i class="icon icon-search"></i>
+			</a>
+		</div>
+		
+		<div class="text-right">
+			<input class="form-control" id="switch_online" type="checkbox" />
+		</div>
+	</form>
+
+</template>

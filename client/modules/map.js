@@ -263,8 +263,8 @@ Kepler.map = {
 	destroyMap: function() {
 		if(this.ready) {
 			this.ready = false;
+			layers.places.clearLayers();			
 			layers.cluster.clearLayers();
-			layers.places.clearLayers();
 			this._map.remove();			
 		}
 		return this;
@@ -309,7 +309,7 @@ Kepler.map = {
 		return this;
 	},
 
-	loadItem: function(item) {
+	addItem: function(item) {
 
 		if(!this.ready) return this;
 		
@@ -318,6 +318,16 @@ Kepler.map = {
 
 		else if(item.type==='user')
 			item.marker.addTo( layers.users );
+
+		return this;
+	},
+
+
+	removeItem: function(item) {
+
+		if(!this.ready) return this;
+		
+		this._map.removeLayer(item.marker);
 
 		return this;
 	},
@@ -331,9 +341,8 @@ Kepler.map = {
 		this._map.closePopup();
 
 		layers.geojson.clearLayers();
-		for(var i in geoData) {
+		for(var i in geoData)
 			layers.geojson.addData(geoData[i]);
-		}
 	
 		var bb = layers.geojson.getBounds(),
 			zoom = this._map.getBoundsZoom(bb),

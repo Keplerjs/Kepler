@@ -54,10 +54,9 @@ Kepler.Place = K.Class.extend({
 	//PUBLIC METHODS:
 	loadLoc: function() {
 		var self = this;
-		K.map.loadItem(self)
-			 .loadLoc(self.loc, function() {
-				self.icon.animate();
-			});
+		K.map.addItem(self).loadLoc(self.loc, function() {
+			self.icon.animate();
+		});
 	},
 
 	hideMarker: function() {

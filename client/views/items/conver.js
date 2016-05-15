@@ -1,5 +1,5 @@
 
-Template.itemConver.onRendered(function() {
+Template.item_conver.onRendered(function() {
 	
 	var convid = this.data._id;
 
@@ -15,7 +15,7 @@ Template.itemConver.onRendered(function() {
 		});
 });
 
-Template.itemConver.helpers({
+Template.item_conver.helpers({
 	usersIds: function() {
 		return _.last(_.without(this.usersIds, K.profile.id), 3);
 	},
@@ -33,7 +33,7 @@ Template.itemConver.helpers({
 	}
 });
 
-Template.itemConverNew.events({
+Template.item_conver_new.events({
 	'click .conver-btn-new': function(e,tmpl) {
 		e.preventDefault();
 		var title = _.str.clean(tmpl.$('.conver-txt-new').val());

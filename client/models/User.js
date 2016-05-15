@@ -28,13 +28,15 @@ Kepler.User = K.Class.extend({
 			
 			_.extend(self, self.data);
 
-			if(self.isMe()) {
-				if(self.loc)
+			if(self.isMe())
+			{
+				if(self.loc && !self.checkin)
 					self.showMarker();
 				else
 					self.hideMarker();
 			}
-			else {
+			else if(self.isFriend())
+			{
 				if(self.online && self.loc && !self.checkin)
 					self.showMarker();
 				else
@@ -51,10 +53,12 @@ Kepler.User = K.Class.extend({
 	//PUBLIC METHODS:
 	loadLoc: function() {
 		var self = this;
-		K.map.loadItem(self)
-			 .loadLoc(self.loc, function() {
-				self.icon.animate();
-			});
+		
+		self.showMarker();
+
+		K.map.loadLoc(self.loc, function() {
+			self.icon.animate();
+		});
 	},
 
 	showMarker: function() {
@@ -66,7 +70,7 @@ Kepler.User = K.Class.extend({
 			self.icon = new L.NodeIcon({
 				className: self.isMe() ? 'marker-profile' : 'marker-friend'
 			});
-			self.marker = new L.Marker(L.latLng(self.loc), {icon: self.icon});
+			self.marker = new L.Marker(self.loc, {icon: self.icon});
 			self.marker.item = self;
 			self.marker.on('click mousedown', function(e) {
 				if(!this._popup) {
@@ -74,12 +78,12 @@ Kepler.User = K.Class.extend({
 					Blaze.renderWithData(Template.item_user, self, self.popup$);
 					this.bindPopup(self.popup$, { closeButton:false });
 				}
+			}).on('add', function(e) {
+				this.setLatLng(self.loc);
 			});
 		}
-		
-		K.map.loadItem(self);
 
-		self.marker.setLatLng(L.latLng(self.loc));
+		K.map.addItem(self);
 	},
 
 	hideMarker: function() {
@@ -134,7 +138,7 @@ K.newUser = function(id) {
 	{
 		K.usersById[id] = new K.User(id);
 		//for debugging
-		var iname = K.util.sanitizeFilename(K.usersById[id].username);
+		var iname = K.util.sanitizeFilename(K.usersById[id].name);
 		K.usersByName[iname || id] = K.usersById[id];
 	}
 	
