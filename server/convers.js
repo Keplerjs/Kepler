@@ -67,7 +67,7 @@ delConver = function(convId) {
 		var leaveMsg = {
 			updateAt: K.util.timeUnix(),			
 			userId: Meteor.userId(),
-			body: _.template(i18n('alerts.userleaveconv'), Meteor.user())
+			body: _.template(i18n('notifs.userleaveconv'), Meteor.user())
 		};
 		Messages.insert(leaveMsg);
 		Users.update({_id: Meteor.userId() }, {

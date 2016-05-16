@@ -1,10 +1,10 @@
 
 <template name="item_notif">
-	<div class="btn notif-btn" href="#">
-		{{title}}
+	<div class="alert alert-{{type}} alert-dismissable">
+		<a class="close" data-dismiss="alert">&times;</a>
+		<div><i class="icon icon-{{type}}"></i> {{{msg}}}</div>
 	</div>
 </template>
-
 
 <template name="item_notif_clean">
 	<a class="notif-btn-clean btn btn-sm btn-default pull-right" href="#">

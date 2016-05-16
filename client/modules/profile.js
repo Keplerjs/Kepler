@@ -7,8 +7,6 @@ Kepler.profile = {
 	user: null,			//my istance of K.User	
 	data: {},
 	placeCheckin: null,
-	notifs: [],			//notifs of user
-	//TODO rename fields in db notif to notifs
 
 	_deps: {
 		online: new Tracker.Dependency(),
@@ -128,13 +126,6 @@ Kepler.profile = {
 	removeFavorite: function(placeId) {
 		Meteor.call('removeFavorite', placeId);
 		return this;
-	},
-	notifRead: function() {
-		Users.update(Meteor.userId(), {
-			$set: {
-				notif: []
-			}
-		});
 	},
 	logout: function() {
 		this.setOnline(false);

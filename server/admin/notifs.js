@@ -4,7 +4,7 @@ var isAdmin = function() {
 };
 
 Meteor.methods({
-	adminCreateNotif: function(text) {
+	adminCreateNotif: function(text, type) {
 		
 		if(!isAdmin()) return null;
 

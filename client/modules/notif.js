@@ -1,9 +1,18 @@
 
-var alerts$ = $('#alertlist'),
-	list$ = alerts$.find('.list-alerts'),
-	btnClose$ = alerts$.find('.alerts-btn-close');
+var notifs$ = $('#alertlist'),
+	list$ = notifs$.find('.list-notifs'),
+	btnClose$ = notifs$.find('.notifs-btn-close');
 
-Kepler.alert = {
+Kepler.notif = {
+
+	_types: [
+		'checkin',
+		'success',
+		'warning',
+		'online',
+		'users',		
+		'mes'
+	],
 
 	_timerHide: null,
 
@@ -12,14 +21,14 @@ Kepler.alert = {
 		type = type || 'info';	//success, info, warning, danger
 
 		var last$ = list$.get(0) ? list$.get(0).firstChild : null,
-			nAlerts = list$.find('.alert').length,
-			maxAlerts = Meteor.settings.public.maxAlerts;
+			nNotifs = list$.find('.alert').length,
+			maxNotifs = Meteor.settings.public.maxNotifs;
 		
 		if(list$.get(0))
 			Blaze.renderWithData(Template.item_alert,{msg: html, type: type}, list$.get(0), last$);
 
-		if(nAlerts >= maxAlerts) {
-			list$.find('.alert:nth-last-child('+(1+nAlerts-maxAlerts)+')')
+		if(nNotifs >= maxNotifs) {
+			list$.find('.alert:nth-last-child('+(1+nNotifs-maxNotifs)+')')
 				.slideUp('slow',function() {
 					$(this).remove();
 				});
@@ -28,8 +37,8 @@ Kepler.alert = {
 		else
 			btnClose$.hide();
 
-		clearTimeout(K.alert._timerHide);
-		K.alert._timerHide = setTimeout(K.alert.hide, 10000);
+		clearTimeout(K.notif._timerHide);
+		K.notif._timerHide = setTimeout(K.notif.hide, 10000);
 	},
 
 	hide: function(id) {
@@ -38,20 +47,20 @@ Kepler.alert = {
 	},
 
 	observeConvers: function(conversIds) {
-		if(Meteor.settings.public.showAlerts)
+		if(Meteor.settings.public.showNotifs)
 			getConversByIds(conversIds).observeChanges({
 				added: function(convId, fields) {
 					var user = K.newUser(fields.userId);
 
 					console.log('observeConvers CHANGED',fields);
 					if(fields.userId != K.profile.id)
-						K.alert.show('Nuovo messaggio privato','mes');
+						K.notif.show('Nuovo messaggio privato','mes');
 				}
 			});
 	},
 
 	observeUsers: function(usersIds) {
-		if(Meteor.settings.public.showAlerts)
+		if(Meteor.settings.public.showNotifs)
 			getUsersByIds(usersIds).observeChanges({
 				changed: function(userId, fields) {
 					var user = K.newUser(userId);
@@ -59,14 +68,14 @@ Kepler.alert = {
 					//console.log('CHANGED',user.username,fields);
 
 					if(fields.online)
-						K.alert.show( i18n('alerts.useronline', user.name), 'success');
+						K.notif.show( i18n('notifs.useronline', user.name), 'success');
 
 					if(fields.loc)
-						K.alert.show( i18n('alerts.usergps', user.name), 'map-user');
+						K.notif.show( i18n('notifs.usergps', user.name), 'map-user');
 
 					if(fields.checkin) {
 						var place = K.newPlace(fields.checkin) || i18n('labels.noname');
-						K.alert.show( i18n('alerts.usercheckin', user.name, place.name), 'checkin');
+						K.notif.show( i18n('notifs.usercheckin', user.name, place.name), 'checkin');
 					}
 				}
 			});
@@ -80,7 +89,7 @@ Kepler.alert = {
 // 		changed: function(placeId, fields) {
 // 			var place = K.newPlace(placeId._str);
 // 		 	if(fields.checkins.length > 1 && !_.contains(fields.checkins,K.profile.id))
-// 				K.alert.show( i18n('alerts.placecheckins', fields.checkins.length, place.name), 'users');
+// 				K.notif.show( i18n('notifs.placecheckins', fields.checkins.length, place.name), 'users');
 // 		}
 // 	});
 // },

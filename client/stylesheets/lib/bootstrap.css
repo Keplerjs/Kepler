@@ -207,3 +207,23 @@ section {
 .btn-group-vertical .btn {
 	border: none;
 }
+.alert {
+	margin: 0;
+	background: #fff;
+}
+.alert .close {
+	opacity: 0.8
+}
+.alert.alert-checkin { border: 2px solid #398BC6 }
+.alert.alert-success,
+.alert.alert-warning { border: 2px solid #C20A09 }
+.alert.alert-online { border: 2px solid #3eae3e }
+.alert.alert-users { border: 2px solid #f59614 }
+.alert.alert-mes { border: 2px solid #5FB3D8 }
+
+.alert.alert-checkin .close { color: #398BC6 }
+.alert.alert-success .close,
+.alert.alert-warning .close { color: #C20A09 }
+.alert.alert-online .close { color: #3eae3e }
+.alert.alert-users .close { color: #f59614 }
+.alert.alert-mes .close { color: #5FB3D8 }

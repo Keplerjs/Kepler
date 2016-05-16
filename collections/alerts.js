@@ -1,7 +1,7 @@
 
-Alerts = new Mongo.Collection('alerts');
+Notifs = new Mongo.Collection('notifs');
 
-Alerts.allow({
+Notifs.allow({
 	insert: function(userId, doc) {
 		return false;// new notifications can only be created via a Meteor method
 	},

@@ -13,7 +13,6 @@
 					<i class="icon icon-profile"></i>
 					<span> {{i18n 'btns.profile'}}</span>
 				</a>
-				{{#if currentUser.notif.length}}<i class="badge badge-red notif-count">{{currentUser.notif.length}}</i>{{/if}}
 			</li>
 			<li class="{{isRoute 'friends' 'active'}}">
 				<a class="btn btn-sm" href="{{pathFor route='friends'}}" role="tab">
@@ -26,6 +25,19 @@
 					<i class="icon icon-map"></i>
 					<span> {{i18n 'btns.places'}}</span>
 				</a>
+			</li>
+			<li class="">
+				<a class="btn-notifs btn btn-sm" href="#" 
+					data-container="body" 
+					data-toggle="popover" 
+					data-placement="bottom" 
+					title="{{i18n 'titles.notifications'}}" 
+					data-content="{{currentUser.notif.join}}">
+					<i class="icon icon-notif"></i>
+				</a>
+				{{#if currentUser.notif.length}}
+					<i class="badge-notifs badge badge-red">{{currentUser.notif.length}}</i>
+				{{/if}}
 			</li>
 		</ul>
 		<div class="tab-content">

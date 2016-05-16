@@ -5,6 +5,10 @@ Template.registerHelper('isRoute', function(name, clas) {
 	return K.router.routeName()===name ? clas:'';
 });
 
+Template.registerHelper('routeTitle', function() {
+	return i18n('titles.'+ K.router.routeName() );
+});
+
 Template.registerHelper('connectionStatus', function() {
 	return Meteor.status();
 });

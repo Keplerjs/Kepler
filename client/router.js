@@ -6,7 +6,8 @@ Kepler.router = {
 		Router.go.apply(Router, arguments);
 	},
 	routeName: function() {
-		return Router.current().route.getName();
+		var route = Router.current().route;
+		return route ? route.getName() : 'page404';
 	}
 };
 
@@ -192,7 +193,7 @@ Router.map(function() {
 		}
 	});
 
-	this.route('history', {
+	this.route('hist', {
 		path: '/history',
 		template: 'panelList',
 		waitOn: function() {
@@ -209,7 +210,7 @@ Router.map(function() {
 		}
 	});
 
-	this.route('notifications', {
+	this.route('notif', {
 		path: '/notifications',
 		template: 'panelList',
 		data: function() {
@@ -222,7 +223,11 @@ Router.map(function() {
 				},				
 				itemsTemplate: 'item_notif',
 				items: _.map(K.profile.data.notif, function(text) {
-					return {title: text}
+					var type = _.shuffle(K.notif._types)[0];
+					return {
+						type: type,
+						msg: type+': '+text
+					}
 				})
 			};
 		}
