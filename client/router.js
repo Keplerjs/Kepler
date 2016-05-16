@@ -389,6 +389,21 @@ Router.map(function() {
 		}
 	});
 
+	this.route('userMap', {
+		path: '/user/:userId/map',
+		template: 'emptyTmpl',
+		waitOn: function() {
+			return Meteor.subscribe('friendsByIds', [this.params.userId]);
+		},
+		onAfterAction: function() {
+			var user = K.newUser( this.params.userId );
+
+			if(user)
+				user.loadLoc();
+		},		
+		data: { hideSidebar: true }
+	});	
+
 	this.route('conver', {
 		path: '/conver/:convId',
 		template: 'panelConver',

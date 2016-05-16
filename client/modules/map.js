@@ -118,7 +118,7 @@ controls.attrib = L.control.attribution({
 controls.gps = L.control.gps({
 	position: 'topright',
 	title: i18n('controls.gps.title'),
-	textErr: i18n('controls.gps.error'),
+	textErr: null,//i18n('controls.gps.error'),
 	marker: new L.Marker([0,0], {
 		icon: L.divIcon({className: 'marker-gps'})
 	}),

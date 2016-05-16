@@ -12,17 +12,17 @@ confirmFriends = function(userId, addUserId) {
 
 Meteor.methods({
 	setLoc: function(loc) {
+		//check(loc, [Number])
 
 		if(!this.userId) return null;
 
-		loc = loc || null;
+		var userData = Meteor.user()
 		
-		console.log('setLoc',loc);
+		console.log('setLoc', userData.username, loc);
 
-		if(loc)
+		if(K.util.valid.loc(loc))
 		{
-			var userData = Meteor.user(),
-				shift = K.util.geo.distance(userData.loclast, loc);
+			var shift = K.util.geo.distance(userData.loclast, loc);
 
 			if(userData.loclast===null || shift >= Meteor.settings.public.gpsMinShift)
 			{

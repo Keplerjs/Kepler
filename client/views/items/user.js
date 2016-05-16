@@ -13,13 +13,6 @@ Template.user_btns2.onRendered(function() {
 		});	
 });
 
-Template.user_btns.events({
-	'click .user-btn-map': function(e, tmpl) {
-		//not use router url for users locations!!!
-		this.loadLoc();
-	},
-});
-
 Template.user_btns2.events({
 	'click .user-btn-add': function(e, tmpl) {
 		K.profile.friendAdd(this.id);
