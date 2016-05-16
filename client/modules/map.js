@@ -235,13 +235,13 @@ Kepler.map = {
 		
 		opts = _.extend({}, Meteor.settings.public.map, opts);
 
-		if(!_.isArray(opts.center))
+		if(!K.util.valid.loc(opts.center))
 			opts.center = Meteor.settings.public.map.center;
 		
 		if(!Meteor.settings.public.layers[opts.layer])
 			opts.layer = Meteor.settings.public.map.layer;
 
-		self._map.setView(L.latLng(opts.center), opts.zoom);
+		self._map.setView(opts.center, opts.zoom);
 
 		layers.baselayer.setUrl( Meteor.settings.public.layers[opts.layer] );
 
