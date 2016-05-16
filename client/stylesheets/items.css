@@ -84,3 +84,7 @@
 .friend-item.offline .btn {
 	color: #888;
 }
+
+.friends-search:active + .icon-search {
+	display: none;
+}

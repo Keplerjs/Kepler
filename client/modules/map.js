@@ -214,7 +214,7 @@ Kepler.map = {
 		self.addControls();
 
 		//Fix only for Safari event resize! when shift to fullscreen
-		$(window).on('orientationchange'+(!L.Browser.mobile?' resize':''), _.debounce(function(e) {
+		$(window).on('orientationchange'+(K.util.isMobile()?'':' resize'), _.debounce(function(e) {
 
 			$(window).scrollTop(0);
 			//console.log('invalidateSize', (new Date).getTime(), self._map.getSize() )

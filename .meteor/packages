@@ -12,7 +12,6 @@ http
 coffeescript
 iron:router
 stefcud:googlemaps-server
-mystor:device-detection
 ian:accounts-ui-bootstrap-3
 anti:i18n
 twbs:bootstrap
@@ -22,3 +21,9 @@ alisalaah:suncalc
 verron:autosize
 mrt:imagemagick
 keplerjs:leaflet
+keplerjs:leaflet-search
+keplerjs:leaflet-gps
+keplerjs:leaflet-layerjson
+keplerjs:bootstrap-list-filter
+keplerjs:bootstrap-confirm-button
+keplerjs:leaflet.markercluster

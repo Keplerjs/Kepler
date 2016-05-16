@@ -1,8 +1,7 @@
 Package.describe({
   name: "keplerjs:leaflet",
-  summary: "Keplerjs Leaflet package",
-  version: "0.7.7",
-  git: "https://github.com/Leaflet/Leaflet.git"
+  summary: "Keplerjs Leaflet",
+  version: "1.0.0"
 });
 
 Npm.depends({

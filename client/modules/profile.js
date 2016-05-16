@@ -37,8 +37,6 @@ Kepler.profile = {
 
 			if(self.data.checkin)
 				self.placeCheckin = K.newPlace(self.data.checkin);
-
-			$('#friends #switch_online').bootstrapSwitch('state', self.data.online);
 		});
 
 		if($.isFunction(cb)) cb.call(self);
@@ -96,7 +94,7 @@ Kepler.profile = {
 			Users.update(Meteor.userId(), {
 				$set: {
 					online: parseFloat(online),
-					mob: parseFloat(Meteor.Device.isPhone() ? 1:0)
+					mob: parseFloat(K.util.isMobile() ? 1:0)
 				}
 			}, function(err) {
 				self._deps.online.changed();

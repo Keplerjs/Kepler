@@ -1,7 +1,7 @@
 
 Template.item_friend_search.onRendered(function() {
 	
-	$(this.firstNode).parent().siblings('.list-group').btsListFilter('.users-inp-search', {
+	$(this.firstNode).parent().siblings('.list-group').btsListFilter('.friends-search', {
 		itemChild: '.user-btn-name',
 		sourceData: function(val, callback) {
 			var list$ = $(this);
@@ -19,6 +19,9 @@ Template.item_friend_search.onRendered(function() {
 			var userItem$ = $('<li class="list-group-item"></li>');
 			Blaze.renderWithData(Template.item_user, user, userItem$[0]);
 			return userItem$;
+		},
+		cancelNode: function() {
+			return '<span class="btn form-control-feedback" aria-hidden="true"><i class="icon icon-canc"></i></span>';
 		}
 	});
 
