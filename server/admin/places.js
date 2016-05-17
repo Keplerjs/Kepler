@@ -1,13 +1,7 @@
-var isAdmin = function() {
-	if(!Meteor.user()) return false;
-	return _.contains(Meteor.settings.adminUsers, Meteor.user().username);
-};
 
-Meteor.methods({
+K.admin.methods({
 	adminCleanPlaceHist: function(placeName) {
 		
-		if(!isAdmin()) return null;
-
 		var placeData = Places.findOne({name: placeName}),
 			placeId = placeData._id;
 
@@ -22,8 +16,6 @@ Meteor.methods({
 	},
 	adminCleanPlaceCheckins: function(placeName) {
 		
-		if(!isAdmin()) return null;
-
 		var placeData = Places.findOne({name: placeName}),
 			placeId = placeData._id;
 
@@ -37,11 +29,7 @@ Meteor.methods({
 		console.log('adminCleanPlaceHist', placeName);
 	},
 	adminUpdatePlaceLoc: function(placeId, loc)	{//ricalcola valori geografici place
-	
-		if(!this.userId) return null;
-
-		if(!Meteor.settings.public.editPlaces) return null;
-		
+			
 		async.parallel({
 			loc: function(cb) {
 				Meteor.setTimeout(function() {
@@ -93,18 +81,12 @@ Meteor.methods({
 		//TODO usare Fiber e Future...	
 	},
 	adminDelPlace: function(placeId) {
-		if(!this.userId) return null;
-
-		if(!Meteor.settings.public.editPlaces) return null;
 
 		Places.remove({_id: new Mongo.Collection.ObjectID(placeId) });
 
 		console.log('delPlace', placeId);
 	},
 	adminClonePlace: function(placeId) {
-		if(!this.userId) return null;
-		
-		if(!Meteor.settings.public.editPlaces) return null;
 
 		var place = getPlaceById(placeId).fetch()[0],
 			offset = 0.01;
@@ -122,10 +104,7 @@ Meteor.methods({
 		return newId._str;
 	},
 	adminRenamePlace: function(placeId, name) {
-		if(!this.userId) return null;
-
-		if(!Meteor.settings.public.editPlaces) return null;
-
+		
 		Places.update({_id: new Mongo.Collection.ObjectID(placeId) }, {$set: {name: name} });
 
 		console.log('renamePlace', placeId);

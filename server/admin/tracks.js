@@ -1,13 +1,6 @@
 
-var isAdmin = function() {
-	if(!Meteor.user()) return false;
-	return _.contains(Meteor.settings.adminUsers, Meteor.user().username);
-};
-
-Meteor.methods({
+K.admin.methods({
 	adminUpdateTracks: function() {		//estende proprieta di una traccia con dati geografici
-
-		if(!isAdmin()) return null;
 
 		Tracks.find().forEach(function (track) {
 
@@ -38,8 +31,6 @@ Meteor.methods({
 		console.log('adminUpdateTracks');
 	},
 	adminCleanPlaceTracks: function(val) {
-
-		if(!isAdmin()) return null;
 
 		Places.update(true, {
 			$set: {

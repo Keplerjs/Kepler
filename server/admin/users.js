@@ -1,14 +1,7 @@
 
-var isAdmin = function() {
-	if(!Meteor.user()) return false;
-	return _.contains(Meteor.settings.adminUsers, Meteor.user().username);
-};
-
-Meteor.methods({
+K.admin.methods({
 	adminCreateUser: function(usernames) {
 		
-		if(!isAdmin()) return null;
-
 		usernames = _.isArray(usernames) ? usernames : [usernames];
 
 		for(var i in usernames) {
@@ -27,8 +20,6 @@ Meteor.methods({
 	},
 	adminDeleteUser: function(username) {
 		
-		if(!isAdmin()) return null;
-
 		var userData = Users.findOne({username: username}),
 			userId = userData._id;
 
@@ -48,8 +39,6 @@ Meteor.methods({
 	},
 	adminCreateFriendship: function(username1, username2) {
 		
-		if(!isAdmin()) return null;
-
 		var user1 = Users.findOne({username: username1 }),
 			user2 = Users.findOne({username: username2 })
 			
@@ -59,8 +48,6 @@ Meteor.methods({
 	},
 	adminCleanUserFriendship: function(username) {
 		
-		if(!isAdmin()) return null;
-
 		var userData = Users.findOne({username: username}),
 			userId = userData._id;
 
@@ -82,8 +69,6 @@ Meteor.methods({
 	},	
 	adminDeleteAllUsers: function() {
 		
-		if(!isAdmin()) return null;
-
 		Users.find({_id: {$ne: this.userId }}).forEach(function(user) {
 			Meteor.call('adminDeleteUser', user.username);
 		});
