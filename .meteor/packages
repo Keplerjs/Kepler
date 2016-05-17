@@ -20,6 +20,8 @@ underscorestring:underscore.string
 alisalaah:suncalc
 verron:autosize
 mrt:imagemagick
+robodo:async
+kidovate:bootstrap-slider
 keplerjs:leaflet
 keplerjs:leaflet-search
 keplerjs:leaflet-gps
@@ -27,5 +29,4 @@ keplerjs:leaflet-layerjson
 keplerjs:bootstrap-list-filter
 keplerjs:bootstrap-confirm-button
 keplerjs:leaflet.markercluster
-kidovate:bootstrap-slider
 keplerjs:bootstrap-switch

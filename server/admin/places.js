@@ -65,24 +65,26 @@ Meteor.methods({
 			},
 			com: function(cb) {
 				Meteor.setTimeout(function() {
-			 		cb(null, K.geoapi.comune(loc) );
+			 		cb(null, K.geoapi.municipality(loc) );
 			 	},0);
 			},
 			prov: function(cb) {
 				Meteor.setTimeout(function() {
-			 		cb(null, K.geoapi.provincia(loc) );
+			 		cb(null, K.geoapi.province(loc) );
 			 	},0);
 			},
 			reg: function(cb) {
 				Meteor.setTimeout(function() {
-			 		cb(null, K.geoapi.regione(loc) );
+			 		cb(null, K.geoapi.region(loc) );
 			 	},0);
 			}
 			//TODO
 			//tracks e pois
 		},
 		function(err, results) {
-			Places.update({_id: new Mongo.Collection.ObjectID(placeId) }, {$set: results});
+			Places.update(placeId, {
+				$set: results
+			});
 			console.log('setLoc', placeId, results);
 		});
 

@@ -49,7 +49,8 @@ getConverWithUser = function(userId) {
 
 delConver = function(convId) {
 
-	var convData = Convers.findOne(convId);
+	var convData = Convers.findOne(convId),
+		userData = Meteor.user();
 	
 	if( Convers.remove({_id: convId, userId: Meteor.userId() }) )
 	{
@@ -67,7 +68,7 @@ delConver = function(convId) {
 		var leaveMsg = {
 			updateAt: K.util.timeUnix(),			
 			userId: Meteor.userId(),
-			body: _.template(i18n('notifs.userleaveconv'), Meteor.user())
+			body: i18n('notifs.userleaveconv', userData.name)
 		};
 		Messages.insert(leaveMsg);
 		Users.update({_id: Meteor.userId() }, {

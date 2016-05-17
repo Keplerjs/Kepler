@@ -1,8 +1,7 @@
 Package.describe({
   name: "keplerjs:leaflet-search",
   summary: "Keplerjs Leaflet Search",
-  version: "1.0.0",
-  git: "https://github.com/Leaflet/Leaflet.git"
+  version: "1.0.0"
 });
 
 Npm.depends({

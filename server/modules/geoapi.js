@@ -117,7 +117,7 @@ Kepler.geoapi = (function() {
 		return ret;
 	}
 
-	function comuneAPI(ll) {
+	function municipalityAPI(ll) {
 
 		var res, ret, src = {
 				par: 'adminName3',
@@ -128,7 +128,7 @@ Kepler.geoapi = (function() {
 		try {
 			res = HTTP.get(src.url, getOpts);
 		} catch(e) {
-			console.log('comuneAPI: error');
+			console.log('municipalityAPI: error');
 			return null;
 		}
 		
@@ -137,18 +137,11 @@ Kepler.geoapi = (function() {
 		else
 			ret = null;
 
-		console.log("comuneAPI() ",ll,ret);
+		console.log("municipalityAPI() ",ll,ret);
 		return ret;
 	}
 
-	function provFromCode(code) {
-
-		code = code.toUpperCase();
-		var provs = JSON.parse(Assets.getText('province.json'));
-		return provs[code] ? provs[code].toLowerCase() : null;
-	}
-
-	function provinciaAPI(ll) {
+	function provinceAPI(ll) {
 
 		var res, ret, src = {
 				par: 'address',
@@ -159,7 +152,7 @@ Kepler.geoapi = (function() {
 		try {
 			res = HTTP.get(src.url, getOpts);
 		} catch(e) {
-			console.log('provinciaAPI: error');
+			console.log('provinceAPI: error');
 			return null;
 		}
 
@@ -168,11 +161,11 @@ Kepler.geoapi = (function() {
 		else
 			ret = null;
 
-		console.log("provinciaAPI() ",ll,ret);
+		console.log("provinceAPI() ",ll,ret);
 		return ret;
 	}
 
-	function regioneAPI(ll) {
+	function regionAPI(ll) {
 
 		var res, ret, src = {
 				par: 'adminName1',
@@ -183,7 +176,7 @@ Kepler.geoapi = (function() {
 		try {
 			res = HTTP.get(src.url, getOpts);
 		} catch(e) {
-			console.log('regioneAPI: error');
+			console.log('regionAPI: error');
 			return null;
 		}
 		
@@ -196,11 +189,11 @@ Kepler.geoapi = (function() {
 		ret = ret.replace("valle d’aosta","valle d'aosta");
 		ret = ret.replace("emilia-romagna","emilia romagna");
 
-		console.log("regioneAPI() ",ll,ret);
+		console.log("regionAPI() ",ll,ret);
 		return ret;
 	}
 
-	function nazioneAPI(ll) {
+	function countryAPI(ll) {
 
 		var res, ret, src = {
 				par: 'countryName',
@@ -211,7 +204,7 @@ Kepler.geoapi = (function() {
 		try {
 			res = HTTP.get(src.url, getOpts);
 		} catch(e) {
-			console.log('nazioneAPI: error');
+			console.log('countryAPI: error');
 			return null;
 		}
 		
@@ -220,7 +213,7 @@ Kepler.geoapi = (function() {
 		else
 			ret = null;
 
-		console.log("nazioneAPI() ",ll,ret);
+		console.log("countryAPI() ",ll,ret);
 		return ret;
 	}
 
@@ -288,37 +281,37 @@ Kepler.geoapi = (function() {
 
 			return val || K.cache.set(ll, nearAPI(ll), 'near');
 		},
-		comune: function(ll) {
+		municipality: function(ll) {
 
 			ll = K.util.geo.roundLoc(ll, 6);
 
-			var val = K.cache.get(ll ,'comune');
+			var val = K.cache.get(ll ,'municipality');
 
-			return val || K.cache.set(ll, comuneAPI(ll), 'comune');
+			return val || K.cache.set(ll, municipalityAPI(ll), 'municipality');
 		},
-		provincia: function(ll) {
+		province: function(ll) {
 
 			ll = K.util.geo.roundLoc(ll, 6);
 
-			var val = K.cache.get(ll ,'provincia');
+			var val = K.cache.get(ll ,'province');
 
-			return val || K.cache.set(ll, provinciaAPI(ll), 'provincia');
-		},		
-		regione: function(ll) {
+			return val || K.cache.set(ll, provinceAPI(ll), 'province');
+		},
+		region: function(ll) {
 
 			ll = K.util.geo.roundLoc(ll, 2);
 
-			var val = K.cache.get(ll ,'regione');
+			var val = K.cache.get(ll ,'region');
 
-			return val || K.cache.set(ll, regioneAPI(ll), 'regione');
+			return val || K.cache.set(ll, regionAPI(ll), 'region');
 		},
-		nazione: function(ll) {
+		country: function(ll) {
 
 			ll = K.util.geo.roundLoc(ll, 1);
 
-			var val = K.cache.get(ll ,'nazione');
+			var val = K.cache.get(ll ,'country');
 
-			return val || K.cache.set(ll, nazioneAPI(ll), 'nazione');
+			return val || K.cache.set(ll, countryAPI(ll), 'country');
 		}
 	};
 }());
