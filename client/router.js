@@ -366,7 +366,7 @@ Router.map(function() {
 				Router.go('profile');
 			else
 				return Meteor.subscribe('userById', this.params.userId);
-		},		
+		},
 		data: function() {
 			if(this.ready()) {
 				var user = K.newUser(this.params.userId);

@@ -29,7 +29,5 @@ else
 	export ROOT_URL="http://$DOMAINPRO"
 	meteor --port $PORT --production --settings $SETS
 #	meteor --port $PORT --settings $SETS
-# 2>&1 > $LOG &
-#--raw-logs 2> $ERR 1> $LOG &
 fi
 echo $! > $PID

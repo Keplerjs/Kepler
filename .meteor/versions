@@ -39,11 +39,13 @@ jquery@1.11.3_2
 json@1.0.3
 keplerjs:bootstrap-confirm-button@1.0.0
 keplerjs:bootstrap-list-filter@1.0.0
+keplerjs:bootstrap-switch@1.0.0
 keplerjs:leaflet@1.0.0
 keplerjs:leaflet-gps@1.0.0
 keplerjs:leaflet-layerjson@1.0.0
 keplerjs:leaflet-search@1.0.0
 keplerjs:leaflet.markercluster@1.0.0
+kidovate:bootstrap-slider@0.0.5
 launch-screen@1.0.2
 livedata@1.0.13
 localstorage@1.0.3
