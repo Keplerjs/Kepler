@@ -2,6 +2,8 @@
 K.admin.methods({
 	adminCleanPlaceHist: function(placeName) {
 		
+		if(!K.admin.isMe()) return null;
+
 		var placeData = Places.findOne({name: placeName}),
 			placeId = placeData._id;
 
@@ -16,6 +18,8 @@ K.admin.methods({
 	},
 	adminCleanPlaceCheckins: function(placeName) {
 		
+		if(!K.admin.isMe()) return null;
+
 		var placeData = Places.findOne({name: placeName}),
 			placeId = placeData._id;
 
@@ -29,7 +33,9 @@ K.admin.methods({
 		console.log('adminCleanPlaceHist', placeName);
 	},
 	adminUpdatePlaceLoc: function(placeId, loc)	{//ricalcola valori geografici place
-			
+	
+		if(!K.admin.isMe()) return null;
+		
 		async.parallel({
 			loc: function(cb) {
 				Meteor.setTimeout(function() {
@@ -82,11 +88,15 @@ K.admin.methods({
 	},
 	adminDelPlace: function(placeId) {
 
+		if(!K.admin.isMe()) return null;
+
 		Places.remove({_id: new Mongo.Collection.ObjectID(placeId) });
 
 		console.log('delPlace', placeId);
 	},
 	adminClonePlace: function(placeId) {
+
+		if(!K.admin.isMe()) return null;
 
 		var place = getPlaceById(placeId).fetch()[0],
 			offset = 0.01;
@@ -105,6 +115,8 @@ K.admin.methods({
 	},
 	adminRenamePlace: function(placeId, name) {
 		
+		if(!K.admin.isMe()) return null;
+
 		Places.update({_id: new Mongo.Collection.ObjectID(placeId) }, {$set: {name: name} });
 
 		console.log('renamePlace', placeId);

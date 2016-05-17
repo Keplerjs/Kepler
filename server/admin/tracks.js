@@ -2,6 +2,8 @@
 K.admin.methods({
 	adminUpdateTracks: function() {		//estende proprieta di una traccia con dati geografici
 
+		if(!K.admin.isMe()) return null;
+
 		Tracks.find().forEach(function (track) {
 
 			var trackId = new Mongo.Collection.ObjectID(track._id._str),
@@ -31,6 +33,8 @@ K.admin.methods({
 		console.log('adminUpdateTracks');
 	},
 	adminCleanPlaceTracks: function(val) {
+
+		if(!K.admin.isMe()) return null;
 
 		Places.update(true, {
 			$set: {
