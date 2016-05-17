@@ -115,7 +115,7 @@ Router.map(function() {
 
 	this.route('map', {
 		path: '/',
-		template: 'pageMap',
+		template: 'emptyTmpl',
 		data: { hideSidebar: true }
 	});
 
