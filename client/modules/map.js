@@ -208,10 +208,10 @@ Kepler.map = {
 			attributionControl: false,
 			zoomControl: false			
 		});
-		
-		self.setOpts(opts);
 
-		self.addControls();
+		self._addControls();
+
+		self.setOpts(opts);
 
 		//Fix only for Safari event resize! when shift to fullscreen
 		$(window).on('orientationchange'+(K.util.isMobile()?'':' resize'), _.debounce(function(e) {
@@ -228,27 +228,7 @@ Kepler.map = {
 		return this;
 	},
 
-	setOpts: function(opts) {
-		var self = this;
-
-		if(!self.ready) return this;
-		
-		opts = _.extend({}, Meteor.settings.public.map, opts);
-
-		if(!K.util.valid.loc(opts.center))
-			opts.center = Meteor.settings.public.map.center;
-		
-		if(!Meteor.settings.public.layers[opts.layer])
-			opts.layer = Meteor.settings.public.map.layer;
-
-		self._map.setView(opts.center, opts.zoom);
-
-		layers.baselayer.setUrl( Meteor.settings.public.layers[opts.layer] );
-
-		return this;
-	},
-
-	addControls: function() {
+	_addControls: function() {
 		_.invoke([
 			layers.baselayer,
 			controls.attrib,			
@@ -258,6 +238,38 @@ Kepler.map = {
 			layers.geojson,
 			layers.users
 		],'addTo', this._map);
+	},
+	
+	_setView: function(loc, zoom) {
+		if(this.ready) {
+			this._map.setView(loc, zoom);
+			/*TODO var $sidebar = $('#sidebar');
+			if($sidebar.hasClass('expanded')) {
+				var p = this._map.latLngToContainerPoint(L.latLng(loc));
+				p = L.point(p.x - $sidebar.width(), p.y);
+				loc = this._map.containerPointToLatLng(p);
+			}
+			this._map.setView(loc, zoom);
+			//*/
+		}
+		return this;
+	},
+
+	setOpts: function(opts) {
+		if(this.ready) {
+			opts = _.extend({}, Meteor.settings.public.map, opts);
+
+			if(!K.util.valid.loc(opts.center))
+				opts.center = Meteor.settings.public.map.center;
+			
+			if(!Meteor.settings.public.layers[opts.layer])
+				opts.layer = Meteor.settings.public.map.layer;
+
+			this._setView(opts.center, opts.zoom);
+
+			layers.baselayer.setUrl( Meteor.settings.public.layers[opts.layer] );
+		}
+		return this;
 	},
 
 	destroyMap: function() {
@@ -271,15 +283,17 @@ Kepler.map = {
 	},
 	
 	enableBBox: function() {
-		if(!this.ready) return this;
-		this._map.addLayer(layers.cluster);
-		this._map.addLayer(layers.places);
+		if(this.ready) {
+			this._map.addLayer(layers.cluster);
+			this._map.addLayer(layers.places);
+		}
 		return this;
 	},
 	disableBBox: function() {
-		if(!this.ready) return this;
-		this._map.removeLayer(layers.places);
-		this._map.removeLayer(layers.cluster);
+		if(this.ready) {
+			this._map.removeLayer(layers.places);
+			this._map.removeLayer(layers.cluster);
+		}
 		return this;
 	},
 
@@ -290,70 +304,67 @@ Kepler.map = {
 			var bbox = this._map.getBounds(),
 				sw = bbox.getSouthWest(),
 				ne = bbox.getNorthEast();
-			//TODO LOOK	at leaflet-geojson-selector fox reduce bbox with openened panel
+
+			var $sidebar = $('#sidebar');
+			if($sidebar.hasClass('expanded')) {
+				var p = this._map.latLngToContainerPoint(sw);
+				p.x += $sidebar.width();
+				sw = this._map.containerPointToLatLng(p);
+			}
 
 			return K.util.geo.roundBbox([[sw.lat, sw.lng], [ne.lat, ne.lng]]);
 		}
 	},
 	
 	loadLoc: function(loc, cb) {
-
-		if(!this.ready) return this;
-
-		if(_.isFunction(cb))
-			this._map.once("moveend zoomend", cb);
-		
-		if(loc && K.util.valid.loc(loc))
-			this._map.setView(loc, Meteor.settings.public.loadLocZoom);
-
+		if(this.ready) {
+			if(_.isFunction(cb))
+				this._map.once("moveend zoomend", cb);
+			
+			if(loc && K.util.valid.loc(loc))
+				this._setView(loc, Meteor.settings.public.loadLocZoom);
+		}
 		return this;
 	},
 
 	addItem: function(item) {
+		if(this.ready) {
+			if(item.type==='place')
+				item.marker.addTo( layers.places );
 
-		if(!this.ready) return this;
-		
-		if(item.type==='place')
-			item.marker.addTo( layers.places );
-
-		else if(item.type==='user')
-			item.marker.addTo( layers.users );
-
+			else if(item.type==='user')
+				item.marker.addTo( layers.users );
+		}
 		return this;
 	},
 
-
 	removeItem: function(item) {
-
-		if(!this.ready) return this;
-		
-		if(item && item.marker)
-			this._map.removeLayer(item.marker);
-
+		if(this.ready) {
+			if(item && item.marker)
+				this._map.removeLayer(item.marker);
+		}
 		return this;
 	},
 
 	loadGeojson: function(geoData, cb) {
+		if(this.ready) {
+			geoData = _.isArray(geoData) ? geoData : [geoData];
 
-		if(!this.ready) return this;
+			this._map.closePopup();
 
-		geoData = L.Util.isArray(geoData) ? geoData : [geoData];
-
-		this._map.closePopup();
-
-		layers.geojson.clearLayers();
-		for(var i in geoData)
-			layers.geojson.addData(geoData[i]);
-	
-		var bb = layers.geojson.getBounds(),
-			zoom = this._map.getBoundsZoom(bb),
-			loc = bb.getCenter();
-
-		if(_.isFunction(cb))
-			this._map.once("moveend zoomend", cb);
+			layers.geojson.clearLayers();
+			for(var i in geoData)
+				layers.geojson.addData(geoData[i]);
 		
-		this._map.setView(loc, zoom-1);
+			var bb = layers.geojson.getBounds(),
+				zoom = this._map.getBoundsZoom(bb),
+				loc = bb.getCenter();
 
+			if(_.isFunction(cb))
+				this._map.once("moveend zoomend", cb);
+			
+			this._setView(loc, zoom);
+		}
 		return this;
 	}
 };
