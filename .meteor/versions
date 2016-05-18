@@ -45,6 +45,7 @@ keplerjs:leaflet-gps@1.0.0
 keplerjs:leaflet-layerjson@1.0.0
 keplerjs:leaflet-search@1.0.0
 keplerjs:leaflet.markercluster@1.0.0
+keplerjs:overpass@1.0.0
 kidovate:bootstrap-slider@0.0.5
 launch-screen@1.0.2
 livedata@1.0.13

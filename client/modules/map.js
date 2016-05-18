@@ -74,7 +74,7 @@ layers.geojson = new L.GeoJSONAutoClear(null, {
 		return styles[feature.properties.tipo || 'def'] || styles.def;
 	},
 	pointToLayer: function(feature, latlng) {	//costruisce marker POI
-		
+
 		if(feature.properties.tipo==='placeCircle')	//evidenzia place nei pois
 			return new L.CircleMarker(latlng);
 		else
