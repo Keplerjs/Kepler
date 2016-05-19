@@ -15,7 +15,5 @@ K.admin.methods({
 				convers: []
 			}
    		},{multi: true});
-   		
-		console.log('adminDeleteAllConvers');
 	}	
 });

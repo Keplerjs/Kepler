@@ -13,8 +13,6 @@ K.admin.methods({
 				hist: []
 			}
 		});
-
-		console.log('adminCleanPlaceHist', placeName);
 	},
 	adminCleanPlaceCheckins: function(placeName) {
 		
@@ -29,9 +27,32 @@ K.admin.methods({
 				checkins: []
 			}
 		});
-
-		console.log('adminCleanPlaceHist', placeName);
 	},
+	adminCleanAllHist: function() {
+		
+		if(!K.admin.isMe()) return null;
+
+		Users.update({}, {$set: {hist: []} });
+		Places.find().forEach(function(place) {
+			Meteor.call('adminCleanPlaceHist', place.name);
+		});
+	},	
+	adminCleanAllCheckins: function() {
+		
+		if(!K.admin.isMe()) return null;
+
+		Users.update({}, {$set: {checkin: null} });
+		Places.find().forEach(function(place) {
+			Meteor.call('adminCleanPlaceCheckins', place.name);
+		});
+	},
+	adminCleanAllFavorites: function() {
+		
+		if(!K.admin.isMe()) return null;
+
+		Users.update({}, {$set: {favorites: []} });
+		Places.update({}, {$set: {rank: 0} });
+	},	
 	adminUpdatePlaceLoc: function(placeId, loc)	{//ricalcola valori geografici place
 	
 		if(!K.admin.isMe()) return null;
@@ -79,7 +100,7 @@ K.admin.methods({
 			Places.update(placeId, {
 				$set: results
 			});
-			console.log('setLoc', placeId, results);
+			console.log('adminUpdatePlaceLoc',results);
 		});
 
 		//TODO blocca se non e' admin
@@ -91,8 +112,6 @@ K.admin.methods({
 		if(!K.admin.isMe()) return null;
 
 		Places.remove({_id: new Mongo.Collection.ObjectID(placeId) });
-
-		console.log('delPlace', placeId);
 	},
 	adminClonePlace: function(placeId) {
 
@@ -108,9 +127,7 @@ K.admin.methods({
 		place.name = place.name+'(copy)';
 
 		var newId = Places.insert(place);
-		
-		//Meteor.call('updatePlaceLoc',newId, place.loc);
-		console.log('clonePlace', placeId, newId);
+
 		return newId._str;
 	},
 	adminRenamePlace: function(placeId, name) {
@@ -118,7 +135,5 @@ K.admin.methods({
 		if(!K.admin.isMe()) return null;
 
 		Places.update({_id: new Mongo.Collection.ObjectID(placeId) }, {$set: {name: name} });
-
-		console.log('renamePlace', placeId);
 	}
 });

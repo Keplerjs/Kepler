@@ -9,7 +9,5 @@ K.admin.methods({
 				notif: text
 			}
    		});
-
-		console.log('adminCreateNotif');
 	}
 });

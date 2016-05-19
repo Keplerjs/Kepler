@@ -16,8 +16,6 @@ K.admin.methods({
 			});
 
 			confirmFriends(this.userId, userId);
-
-			console.log('adminCreateUser', username, userId);	
 		}
 	},
 	adminDeleteUser: function(username) {
@@ -38,8 +36,6 @@ K.admin.methods({
 			}
 		});
 		Users.remove(userId);
-
-		console.log('adminDeleteUser', username);
 	},
 	adminCreateFriendship: function(username1, username2) {
 		
@@ -49,8 +45,6 @@ K.admin.methods({
 			user2 = Users.findOne({username: username2 })
 			
 		confirmFriends(user1._id, user2._id);
-			
-		console.log('adminCreateFriendship', username1, username2);
 	},
 	adminCleanUserFriendship: function(username) {
 		
@@ -72,8 +66,6 @@ K.admin.methods({
 				usersReceive: []
 			}
 		});
-
-		console.log('adminCleanUserFriends', username);
 	},	
 	adminDeleteAllUsers: function() {
 		
@@ -90,6 +82,5 @@ K.admin.methods({
 				usersReceive: []
 			}
    		});
-		console.log('adminDeleteAllUsers');
 	}	
 });
