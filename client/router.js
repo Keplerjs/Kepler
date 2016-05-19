@@ -49,9 +49,10 @@ Router.onBeforeAction(function() {
 	
 	if(this.ready())
 	{
+		//TODO K.profile.data.settings.map.center/layer
 		K.map.initMap({
 				center: K.profile.data.locmap,
-				layer: K.profile.data.settings.layer
+				layer: K.util.getPath(K.profile.data,'settings.layer')
 			}, function() {
 				this.enableBBox();
 			}); //*/
