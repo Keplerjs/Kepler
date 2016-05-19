@@ -30,6 +30,7 @@ Router.waitOn(function() {
 	{
 		K.profile.initProfile(function() {
 			self.next();
+			K.admin.loadActions();
 		});
 	}
 	else
