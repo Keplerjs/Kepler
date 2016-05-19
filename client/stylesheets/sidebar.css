@@ -38,10 +38,6 @@
     height: 32px;
     margin: 0;
     font-size: 14px;
-    border: 1px solid #ddd;
-}
-.sidebar > .nav > li.active > a.btn {
-    border: 1px solid #fff;
 }
 .sidebar > .nav > li > .badge-red {
     position: absolute;

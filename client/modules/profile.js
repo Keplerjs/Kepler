@@ -17,7 +17,7 @@ Kepler.profile = {
 
 		var self = this;
 
-		if(!Meteor.user() && self.ready) return this;
+		if(!Meteor.user() || self.ready) return this;
 		
 		self.ready = true;
 

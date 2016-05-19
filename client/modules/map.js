@@ -50,7 +50,7 @@ layers.cluster = new L.MarkerClusterGroup({
 layers.places = new L.LayerJSON({
 	layerTarget: layers.cluster,
 	minShift: Meteor.settings.public.bboxMinShift,
-	caching: false,
+	caching: true,
 	callData: function(bbox, callback) {
 
 		K.map._deps.bbox.changed();

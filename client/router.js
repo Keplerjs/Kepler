@@ -54,7 +54,7 @@ Router.onBeforeAction(function() {
 				layer: K.profile.data.settings.layer
 			}, function() {
 				this.enableBBox();
-			});
+			}); //*/
 	}
 	else
 		this.render('pageLoading');
