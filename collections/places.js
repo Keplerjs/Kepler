@@ -1,5 +1,10 @@
 
-Places = new Mongo.Collection('falesie');
+Places = new Mongo.Collection('falesie', {
+	/*transform: function(doc) {
+		doc.loc = K.util.geo.roundLoc(doc.loc,3);
+		return doc;
+	}//*/
+});
 
 getPlaceById = function(placeId) {
 	return Places.find({_id: new Mongo.Collection.ObjectID(placeId) }, { fields: K.fields.placePanel });
@@ -35,7 +40,7 @@ getPlacesByBBox = function(bbox) {
 			}
 		};
 	}
-	else if(Meteor.isServer) 
+	else if(Meteor.isServer) {
 		return Places.find({
 			loc: {
 				"$within": {
@@ -43,6 +48,7 @@ getPlacesByBBox = function(bbox) {
 				}
 			}
 		}, { fields: K.fields.placeItem });
+	}
 };
 
 getCheckinsCountByPlaces = function(placesIds) {
