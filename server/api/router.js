@@ -14,7 +14,7 @@ Router.route(paths.root, { where: 'server'})
 	console.log('Api: ', req.url);
 
 	_.each(paths, function(path, name) {
-		paths[name] = Meteor.absoluteUrl()+path;
+		paths[name] = Meteor.absoluteUrl(path);
 	});
 
 	res.end( JSON.stringify(paths) );
