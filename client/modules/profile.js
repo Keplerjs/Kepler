@@ -13,7 +13,7 @@ Kepler.profile = {
 		checkin: new Tracker.Dependency()
 	},
 
-	initProfile: function(cb) {
+	init: function(cb) {
 
 		var self = this;
 		

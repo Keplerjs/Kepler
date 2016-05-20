@@ -15,7 +15,7 @@
 			<a class="list-group-item" href="/notifications">
 				<i class="icon icon-notif"></i>
 				 {{i18n 'btns.notif'}} 
-				<span class="badge">{{notif.length}}</span>
+				<span class="badge {{#if notif.length}}badge-red{{/if}}">{{notif.length}}</span>
 			</a>
 			<a class="list-group-item" href="/convers">
 				<i class="icon icon-mes"></i>

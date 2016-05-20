@@ -207,7 +207,7 @@ Kepler.map = {
 		bbox: new Tracker.Dependency()
 	},
 
-	initMap: function(opts, cb) {		//render map and add controls/layers
+	init: function(opts, cb) {		//render map and add controls/layers
 
 		var self = this;
 

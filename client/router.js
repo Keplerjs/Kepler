@@ -10,7 +10,6 @@ Kepler.router = {
 		return route ? route.getName() : 'page404';
 	}
 };
-
 //Router.setTemplateNameConverter(function (str) { return str; });
 
 Router.configure({
@@ -19,18 +18,14 @@ Router.configure({
 	notFoundTemplate: 'page404'
 });
 
-Router.subscriptions(function() {
-	this.subscribe('currentUser').wait();
-});
-
 Router.waitOn(function() {
-	var self = this;
 
 	if(Meteor.user())
 	{
-		K.profile.initProfile(function() {
-			self.next();
-			K.admin.loadActions();
+		Meteor.subscribe('currentUser', function() {
+			K.profile.init(function() {
+				K.admin.loadActions();
+			});
 		});
 	}
 	else
@@ -38,17 +33,17 @@ Router.waitOn(function() {
 		if(Meteor.loggingIn())
 			this.render('panelLoading');
 		else
-			Router.go('intro');
+			Router.go('pageIntro');
 	}
 	  
-}, {except: ['intro'] });
+}, {except: ['pageIntro','pageAbout'] });
 
 Router.onBeforeAction(function() {
 
 	var self = this;
 	
-	if(this.ready())
-		K.map.initMap(K.profile.getOpts('map'), function() {
+	if(this.ready() && $('#map').length)
+		K.map.init(K.profile.getOpts('map'), function() {
 			this.enableBBox();
 		}); //*/
 	else
@@ -56,7 +51,7 @@ Router.onBeforeAction(function() {
 	
 	self.next();
 
-}, {except: ['intro','settings','settingsBlocked','about','logout'] });//*/
+}, {except: ['pageIntro','settings','pageSettingsBlock','pageAbout','logout'] });//*/
 
 Router.onAfterAction(function() {
 	document.title = i18n('titles.'+this.route.getName()) || _.str.capitalize(this.route.getName());	
@@ -64,30 +59,26 @@ Router.onAfterAction(function() {
 
 Router.map(function() {
 
-	this.route('intro', {
+	this.route('pageIntro', {
 		path: '/intro',
-		template: 'pageIntro',
 		layoutTemplate: 'layoutFull',
 		loadingTemplate: 'pageLoading',
 	});
 
-	this.route('about', {
+	this.route('pageAbout', {
 		path: '/about',
-		template: 'pageAbout',
 		layoutTemplate: 'layoutPage',
 		loadingTemplate: 'pageLoading',
 	});	
 
-	this.route('settings', {
+	this.route('pageSettings', {
 		path: '/settings',
-		template: 'pageSettings',
 		layoutTemplate: 'layoutPage',
 		loadingTemplate: 'pageLoading'
 	});
 
-	this.route('settingsBlocked', {
+	this.route('pageSettingsBlock', {
 		path: '/settings/blocked',
-		template: 'pageSettingsBlocked',
 		layoutTemplate: 'layoutPage',
 		loadingTemplate: 'pageLoading',
 		waitOn: function() {
@@ -97,13 +88,10 @@ Router.map(function() {
 
 	this.route('logout', {
 		path: '/logout',
-		template: 'pageIntro',
-		layoutTemplate: 'layoutFull',
-		loadingTemplate: 'pageLoading',
 		onBeforeAction: function () {
 			K.profile.logout();
 			K.map.destroyMap();
-			Router.go('intro');
+			Router.go('pageIntro');
 		}
 	});
 
@@ -111,7 +99,7 @@ Router.map(function() {
 
 	this.route('map', {
 		path: '/',
-		template: 'emptyTmpl',
+		template: 'empty',
 		data: { hideSidebar: true }
 	});
 
@@ -250,9 +238,8 @@ Router.map(function() {
 		}
 	});
 
-	this.route('place', {
-		path: '/place/:placeId',		
-		template: 'panelPlace',
+	this.route('panelPlace', {
+		path: '/place/:placeId',
 		waitOn: function() {
 			return Meteor.subscribe('placeById', this.params.placeId);
 		},
@@ -265,7 +252,7 @@ Router.map(function() {
 
 	this.route('placeMap', {
 		path: '/place/:placeId/map',
-		template: 'emptyTmpl',
+		template: 'empty',
 		waitOn: function() {
 			return Meteor.subscribe('placesByIds', [this.params.placeId]);
 		},
@@ -326,7 +313,7 @@ Router.map(function() {
 
 	this.route('placePois', {
 		path: '/place/:placeId/pois',
-		template: 'emptyTmpl',
+		template: 'empty',
 		waitOn: function() {
 			return Meteor.subscribe('poisByPlace', this.params.placeId);
 		},
@@ -341,7 +328,7 @@ Router.map(function() {
 
 	this.route('placeTracks', {
 		path: '/place/:placeId/tracks',
-		template: 'emptyTmpl',
+		template: 'empty',
 		waitOn: function() {
 			return Meteor.subscribe('tracksByPlace', this.params.placeId);
 		},
@@ -354,9 +341,8 @@ Router.map(function() {
 		data: { hideSidebar: true }
 	});
 	
-	this.route('user', {
+	this.route('panelUser', {
 		path: '/user/:userId',
-		template: 'panelUser',
 		waitOn: function() {
 			if(this.params.userId===Meteor.userId())
 				Router.go('profile');
@@ -376,7 +362,7 @@ Router.map(function() {
 
 	this.route('userConver', {
 		path: '/user/:userId/conver',
-		template: 'emptyTmpl',
+		template: 'empty',
 		waitOn: function() {
 			if(this.params.userId===Meteor.userId())
 				Router.go('convers');
@@ -387,7 +373,7 @@ Router.map(function() {
 
 	this.route('userMap', {
 		path: '/user/:userId/map',
-		template: 'emptyTmpl',
+		template: 'empty',
 		waitOn: function() {
 			return Meteor.subscribe('friendsByIds', [this.params.userId]);
 		},
@@ -400,9 +386,8 @@ Router.map(function() {
 		data: { hideSidebar: true }
 	});	
 
-	this.route('conver', {
+	this.route('panelConver', {
 		path: '/conver/:convId',
-		template: 'panelConver',
 		waitOn: function() {
 			return Meteor.subscribe('converById', this.params.convId);
 		},
