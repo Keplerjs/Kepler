@@ -77,10 +77,21 @@ layers.geojson = new L.GeoJSONAutoClear(null, {
 
 		if(feature.properties.tipo==='placeCircle')	//evidenzia place nei pois
 			return new L.CircleMarker(latlng);
+
+		else if(feature.properties.tags)			//OSM point
+		{
+			var iconPoi = L.DomUtil.create('div'),
+				iconClass = K.osm.iconByTags(feature.properties.tags);
+
+			L.DomUtil.create('i', iconClass, iconPoi);
+			return new L.Marker(latlng, {
+					icon: new L.NodeIcon({className:'marker-poi', nodeHtml: iconPoi})
+				});
+		}
 		else
 		{
 			var iconPoi = L.DomUtil.create('div');
-			L.DomUtil.create('i','icon icon-'+feature.properties.tipo, iconPoi);
+			L.DomUtil.create('i', 'icon icon-'+feature.properties.tipo, iconPoi);
 			return new L.Marker(latlng, {
 					icon: new L.NodeIcon({className:'marker-poi', nodeHtml: iconPoi})
 				});
@@ -353,8 +364,11 @@ Kepler.map = {
 			this._map.closePopup();
 
 			layers.geojson.clearLayers();
-			for(var i in geoData)
-				layers.geojson.addData(geoData[i]);
+			for(var i in geoData) {
+				console.log(geoData[i])
+				if(geoData[i])
+					layers.geojson.addData(geoData[i]);
+			}
 		
 			var bb = layers.geojson.getBounds(),
 				zoom = this._map.getBoundsZoom(bb),

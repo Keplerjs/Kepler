@@ -1,28 +1,38 @@
 
 //TODO Osms = new Mongo.Collection('osm');
 
-var POIS = [
-	'amenity=bar',
-	'amenity=drinking_water',
-	'amenity=restaurant',
-	'amenity=hospital',
-	'amenity=clinic',
-	'amenity=pharmacy',
-	'amenity=parking',
-	'amenity=bicycle_parking',
-	'tourism=hotel',
-	'leisure=playground',
-	'tourism=camp_site'
-];
+var tags2class = {
+'amenity=drinking_water': 'water',
+'amenity=parking': 'parking',
+'amenity=restaurant': 'eat',
+'tourism=camp_site': 'camp',
+'amenity=hospital': 'bed',
+'tourism=hotel': 'bed',
+'amenity=bar': 'drink'
+};
 
 Kepler.osm = {
 	loadQuery: function(filter) {
 
+		filter = filter || 'amenity=bar';
+
 		var bbox = K.map.getBBox();
 		
-		Meteor.call('overpass', filter, bbox, function(err, geojson) {
+		Meteor.call('getOverpassByBBox', filter, bbox, function(err, geojson) {
 			
-			K.map.loadGeojson(geojson);
+			//console.log('getOverpassByBBox',geojson.features.length);
+
+			if(geojson.features.length)
+				K.map.loadGeojson(geojson);
 		});
+	},
+	iconByTags: function(tags) {
+		for(var tag in tags) {
+			var tagval = tag+'='+tags[tag];
+
+			if(tags2class[tagval])
+				return 'icon icon-'+tags2class[tagval];
+		}
+		return '';
 	}
 };

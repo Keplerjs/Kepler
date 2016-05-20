@@ -25,7 +25,6 @@ Kepler.Place.include({
 	loadPois: function(type) {
 
 		var pois = getPoisByLoc(this.loc).fetch();
-
 		K.map.loadGeojson( poisToGeojson(pois, this, type) );
 	},
 	
