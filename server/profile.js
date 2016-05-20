@@ -45,7 +45,7 @@ Meteor.methods({
 					$set: {
 						loc: loc,
 						loclast: loc,
-						locmap: loc
+						'settings.map.center': loc
 					}
 				});
 				console.log('setLoc', _.pick(userData,'loc','loclast','checkin'), loc);
@@ -119,9 +119,9 @@ Meteor.methods({
 		Users.update(this.userId, {
 				$set: {
 					checkin: placeId,
-					//loc: null,
+					loc: null,
 					//loclast: placeData.loc,
-					locmap: placeData.loc
+					'settings.map.center': placeData.loc
 				},
 				$addToSet: {
 					hist: placeId

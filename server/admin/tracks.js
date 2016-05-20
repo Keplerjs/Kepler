@@ -25,7 +25,7 @@ K.admin.methods({
 			}
 			
 			Tracks.update(trackId, track);
-			console.log('adminUpdateTracks', track.properties );
+			console.log('updateTracks', track.properties );
 		});
 	},
 	cleanPlaceTracks: function(val) {

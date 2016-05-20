@@ -8,11 +8,12 @@
 		"urls": {
 			"avatars": "/static/avatars/"
 		},
-		"editPlaces": false,
+		"editPlaces": true,
 		"accountCreation": true,
 		"geoipLocation": false,
 		"showNotifs": true,		
 		"searchMinLen": 1,
+		"searchMaxRes": 20,
 		"typeDelay": 300,		
 		"maxTracks": 1,
 		"maxTracksDist": 150,

@@ -17,7 +17,7 @@ Kepler.profile = {
 
 		var self = this;
 
-		if(!Meteor.user() || self.ready) return this;
+		if(!Meteor.user()) return this;
 		
 		self.ready = true;
 
@@ -33,13 +33,11 @@ Kepler.profile = {
 			self.user = K.newUser(self.data._id);
 			self.user.update();
 
-			//TODO i18n.setLanguage(self.data.lang);
-
 			if(self.data.checkin)
 				self.placeCheckin = K.newPlace(self.data.checkin);
 		});
 
-		if($.isFunction(cb)) cb.call(self);
+		if(_.isFunction(cb)) cb.call(self);
 
 		return this;
 	},
@@ -54,6 +52,9 @@ Kepler.profile = {
 		this._deps.checkin.depend();
 		if(this.placeCheckin)
 			return this.placeCheckin.rData();
+	},
+	getSets: function(prop) {
+		return K.util.getPath(this.data,'settings.'+prop);
 	},
 	hasFriend: function(userId) {
 		return _.contains(this.data.friends, userId);

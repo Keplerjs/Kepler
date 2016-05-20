@@ -72,7 +72,7 @@ K.admin.methods({
 		if(!K.admin.isMe()) return null;
 
 		Users.find({_id: {$ne: this.userId }}).forEach(function(user) {
-			Meteor.call('adminDeleteUser', user.username);
+			Meteor.call('delUser', user.username);
 		});
 		Users.update(this.userId, {
 			$set: {

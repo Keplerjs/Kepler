@@ -34,7 +34,7 @@ K.admin.methods({
 
 		Users.update({}, {$set: {hist: []} });
 		Places.find().forEach(function(place) {
-			Meteor.call('adminCleanPlaceHist', place.name);
+			Meteor.call('cleanPlaceHist', place.name);
 		});
 	},	
 	cleanAllCheckins: function() {
@@ -43,7 +43,7 @@ K.admin.methods({
 
 		Users.update({}, {$set: {checkin: null} });
 		Places.find().forEach(function(place) {
-			Meteor.call('adminCleanPlaceCheckins', place.name);
+			Meteor.call('cleanPlaceCheckins', place.name);
 		});
 	},
 	cleanAllFavorites: function() {
@@ -53,8 +53,8 @@ K.admin.methods({
 		Users.update({}, {$set: {favorites: []} });
 		Places.update({}, {$set: {rank: 0} });
 	},	
-	updatePlaceLoc: function(placeId, loc)	{//ricalcola valori geografici place
-	
+	updatePlaceLoc: function(placeId, loc)	{
+		
 		if(!K.admin.isMe()) return null;
 		
 		async.parallel({
@@ -100,7 +100,7 @@ K.admin.methods({
 			Places.update(placeId, {
 				$set: results
 			});
-			console.log('adminUpdatePlaceLoc',results);
+			console.log('aupdatePlaceLoc',results);
 		});
 
 		//TODO blocca se non e' admin

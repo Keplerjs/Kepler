@@ -67,21 +67,23 @@ getPlacesByName = function(initial) {
 		return null;
 
 	var ex = new RegExp('^'+ initial, 'i'),
-		curPlace = Places.find({
+		opts = {
+			sort: { name:1, reg: 1},
+			fields: K.fields.placeSearch,
+			limit: Meteor.settings.public.searchMaxRes
+		};
+	
+	var curPlace = Places.find({
 			$or: [
 				{name: ex},
 				{near: ex}
-			] }, { fields: K.fields.placeSearch });
+			] }, opts);
 
 	if(curPlace.count()===0)
-		curPlace = Places.find({
-				prov: ex
-			}, { fields: K.fields.placeSearch });
+		curPlace = Places.find({prov: ex }, opts);
 	
 	if(curPlace.count()===0)
-		curPlace = Places.find({
-				reg: ex
-			}, { fields: K.fields.placeSearch });
+		curPlace = Places.find({reg: ex }, opts);
 
 	return curPlace;
 };

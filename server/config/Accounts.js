@@ -33,8 +33,10 @@ Accounts.onLogin(function(login) {
 
 	var geoip, ip = login.connection.httpHeaders['x-real-ip'] || login.connection.clientAddress;
 		
-	if(Meteor.settings.geoipLocation && !login.user.locmap && (geoip = K.geoapi.geoip(ip)) )
-		Users.update(login.user._id, {$set: {locmap: geoip.loc }});
+	if(Meteor.settings.geoipLocation && 
+		!K.util.getPath(login.user,'settings.map.center') && 
+		(geoip = K.geoapi.geoip(ip)) )
+		Users.update(login.user._id, {$set: {'settings.map.center': geoip.loc }});
 
 	console.log('Login:',login.user.username, ip);
 });

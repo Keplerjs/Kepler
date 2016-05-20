@@ -8,7 +8,7 @@ Template.popup_place.events({
 			var ll = self.marker.getLatLng(),
 				newLoc = [ll.lat, ll.lng];
 			if(confirm("Aggiornare posizione???"))
-				Meteor.call('adminUpdatePlaceLoc', self.id, newLoc, function(err) {
+				Meteor.call('updatePlaceLoc', self.id, newLoc, function(err) {
 					self.marker.setLatLng(newLoc);
 				});
 			
@@ -29,26 +29,24 @@ Template.popup_place.events({
 		this.marker.drag();
 	},	
 	'click .popup-clone': function(e,tmpl) {
-		Meteor.call('adminClonePlace', this.id, function(err, newPlaceId) {
+		Meteor.call('clonePlace', this.id, function(err, newPlaceId) {
 			Meteor.subscribe('placeByIds', [newPlaceId], function() {	//carica tutti i dati della place
 				K.map.addItem( K.newPlace(newPlaceId) );
 			});
 		});
 	},	
 	'click .popup-del': function(e,tmpl) {
-		var self = this,
-			ret = confirm("Eliminare?");
-		if(ret) {
-			Meteor.call('adminDelPlace', self.id, function(err) {
+		var self = this;
+		if(confirm("Eliminare?"))
+			Meteor.call('delPlace', self.id, function(err) {
 				K.map.removeItem(self);
 			});
-		}
 	},
-	'click .popup-rename': function(e,tmpl) {
-		var ret = confirm("Rinominare?");
-
-		if(ret) {
-			Meteor.call('adminRenamePlace', this.id, e.target.value);
-		}
+	'click .popup-ren': function(e,tmpl) {
+		var self = this;
+		if(confirm("Rinominare?"))
+			Meteor.call('renamePlace', this.id, tmpl.$('.popup-reninput').val(), function() {
+				self.update();
+			});
 	}
 });

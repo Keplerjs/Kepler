@@ -39,7 +39,7 @@ Template.pageSettings.helpers({
 	},	
 	layers: function() {
 		if(Meteor.user()) {		
-			var layer = Meteor.user().settings.layer || Meteor.settings.public.map.layer;
+			var layer = Meteor.user().settings.map.layer || Meteor.settings.public.map.layer;
 			return _.map(Meteor.settings.public.layers, function(val, k) {
 				return {
 					key: k,
@@ -106,7 +106,7 @@ Template.pageSettings.events({
 	'change #maplayer input': _.debounce(function(e) {
 		e.preventDefault();
 		var val = $(e.currentTarget).val();
-		Users.update(Meteor.userId(), { $set: {'settings.layer': val } });
+		Users.update(Meteor.userId(), { $set: {'settings.map.layer': val } });
 	}, Meteor.settings.public.typeDelay),
 
 	'change #gender input': _.debounce(function(e) {

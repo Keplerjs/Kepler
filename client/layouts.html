@@ -16,9 +16,20 @@
 <template name="layoutMap">
 	<div class="container-full">
 
-		{{> pageMap}}
+		<div id="map" class="sidebar-map"></div>
 
-		{{> sidebar}}
+		<div id="sidebar" class="sidebar {{#unless hideSidebar}} expanded {{/unless}}">
+			
+			{{> sidebar}}
+
+			<div class="tab-content">
+				<div class="tab-pane fade in active" role="tabpanel">
+
+				{{> yield}}
+
+				</div>
+			</div>
+		</div>
 
 	</div>
 </template>
