@@ -1,6 +1,6 @@
 
 K.admin.methods({
-	adminUpdateTracks: function() {		//estende proprieta di una traccia con dati geografici
+	updateTracks: function() {		//estende proprieta di una traccia con dati geografici
 
 		if(!K.admin.isMe()) return null;
 
@@ -28,7 +28,7 @@ K.admin.methods({
 			console.log('adminUpdateTracks', track.properties );
 		});
 	},
-	adminCleanPlaceTracks: function(val) {
+	cleanPlaceTracks: function(val) {
 
 		if(!K.admin.isMe()) return null;
 

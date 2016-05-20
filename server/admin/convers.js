@@ -1,6 +1,6 @@
 
 K.admin.methods({
-	adminDeleteAllConvers: function() {
+	delAllConvers: function() {
 		
 		if(!K.admin.isMe()) return false;
 

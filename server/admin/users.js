@@ -1,6 +1,6 @@
 
 K.admin.methods({
-	adminCreateUser: function(usernames) {
+	newUser: function(usernames) {
 		
 		if(!K.admin.isMe()) return null;
 
@@ -18,7 +18,7 @@ K.admin.methods({
 			confirmFriends(this.userId, userId);
 		}
 	},
-	adminDeleteUser: function(username) {
+	delUser: function(username) {
 		
 		if(!K.admin.isMe()) return null;
 
@@ -37,7 +37,7 @@ K.admin.methods({
 		});
 		Users.remove(userId);
 	},
-	adminCreateFriendship: function(username1, username2) {
+	createFriendship: function(username1, username2) {
 		
 		if(!K.admin.isMe()) return null;
 
@@ -46,7 +46,7 @@ K.admin.methods({
 			
 		confirmFriends(user1._id, user2._id);
 	},
-	adminCleanUserFriendship: function(username) {
+	cleanUserFriendship: function(username) {
 		
 		if(!K.admin.isMe()) return null;
 
@@ -67,7 +67,7 @@ K.admin.methods({
 			}
 		});
 	},	
-	adminDeleteAllUsers: function() {
+	delAllUsers: function() {
 		
 		if(!K.admin.isMe()) return null;
 

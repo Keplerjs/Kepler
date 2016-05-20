@@ -1,6 +1,6 @@
 
 K.admin.methods({
-	adminCleanPlaceHist: function(placeName) {
+	cleanPlaceHist: function(placeName) {
 		
 		if(!K.admin.isMe()) return null;
 
@@ -14,7 +14,7 @@ K.admin.methods({
 			}
 		});
 	},
-	adminCleanPlaceCheckins: function(placeName) {
+	cleanPlaceCheckins: function(placeName) {
 		
 		if(!K.admin.isMe()) return null;
 
@@ -28,7 +28,7 @@ K.admin.methods({
 			}
 		});
 	},
-	adminCleanAllHist: function() {
+	cleanAllHist: function() {
 		
 		if(!K.admin.isMe()) return null;
 
@@ -37,7 +37,7 @@ K.admin.methods({
 			Meteor.call('adminCleanPlaceHist', place.name);
 		});
 	},	
-	adminCleanAllCheckins: function() {
+	cleanAllCheckins: function() {
 		
 		if(!K.admin.isMe()) return null;
 
@@ -46,14 +46,14 @@ K.admin.methods({
 			Meteor.call('adminCleanPlaceCheckins', place.name);
 		});
 	},
-	adminCleanAllFavorites: function() {
+	cleanAllFavorites: function() {
 		
 		if(!K.admin.isMe()) return null;
 
 		Users.update({}, {$set: {favorites: []} });
 		Places.update({}, {$set: {rank: 0} });
 	},	
-	adminUpdatePlaceLoc: function(placeId, loc)	{//ricalcola valori geografici place
+	updatePlaceLoc: function(placeId, loc)	{//ricalcola valori geografici place
 	
 		if(!K.admin.isMe()) return null;
 		
@@ -107,13 +107,13 @@ K.admin.methods({
 		//http://stackoverflow.com/questions/12569712/meteor-calling-an-asynchronous-function-inside-a-meteor-method-and-returning-th
 		//TODO usare Fiber e Future...	
 	},
-	adminDelPlace: function(placeId) {
+	delPlace: function(placeId) {
 
 		if(!K.admin.isMe()) return null;
 
 		Places.remove({_id: new Mongo.Collection.ObjectID(placeId) });
 	},
-	adminClonePlace: function(placeId) {
+	clonePlace: function(placeId) {
 
 		if(!K.admin.isMe()) return null;
 
@@ -130,7 +130,7 @@ K.admin.methods({
 
 		return newId._str;
 	},
-	adminRenamePlace: function(placeId, name) {
+	renamePlace: function(placeId, name) {
 		
 		if(!K.admin.isMe()) return null;
 

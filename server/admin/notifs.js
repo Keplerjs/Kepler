@@ -1,6 +1,6 @@
 
 K.admin.methods({
-	adminCreateNotif: function(text, type) {
+	createNotif: function(text, type) {
 		
 		if(!K.admin.isMe()) return false;
 		
