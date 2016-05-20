@@ -16,20 +16,16 @@ Kepler.profile = {
 	initProfile: function(cb) {
 
 		var self = this;
-
-		if(!Meteor.user()) return this;
 		
 		self.ready = true;
 
 		Tracker.autorun(function(comp) {
 
-			self.id = Meteor.userId();
 			self.data = Meteor.user();
 		
 			if(!self.data)	//onlogout
 				return self.ready = false;
 
-			//show user marker quando la mappa è ancora pronta
 			self.user = K.newUser(self.data._id);
 			self.user.update();
 
@@ -41,9 +37,6 @@ Kepler.profile = {
 
 		return this;
 	},
-	getData: function() {
-		return Meteor.user();
-	},
 	getOnline: function() {
 		this._deps.online.depend();
 		return !!this.data.online;
@@ -53,7 +46,7 @@ Kepler.profile = {
 		if(this.placeCheckin)
 			return this.placeCheckin.rData();
 	},
-	getSets: function(prop) {
+	getOpts: function(prop) {
 		return K.util.getPath(this.data,'settings.'+prop);
 	},
 	hasFriend: function(userId) {

@@ -39,12 +39,6 @@
     margin: 0;
     font-size: 14px;
 }
-.sidebar > .nav > li > .badge-red {
-    position: absolute;
-    top: -4px;
-    right: -4px;
-    z-index: 1000
-}
 .sidebar .panel {
 	border: none;
 	border-radius: 0;

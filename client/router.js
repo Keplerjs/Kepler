@@ -48,15 +48,9 @@ Router.onBeforeAction(function() {
 	var self = this;
 	
 	if(this.ready())
-	{
-		//TODO K.profile.data.settings.map.center/layer
-		K.map.initMap({
-				center: K.profile.data.locmap,
-				layer: K.util.getPath(K.profile.data,'settings.layer')
-			}, function() {
-				this.enableBBox();
-			}); //*/
-	}
+		K.map.initMap(K.profile.getOpts('map'), function() {
+			this.enableBBox();
+		}); //*/
 	else
 		this.render('pageLoading');
 	
