@@ -1,7 +1,4 @@
-//http://docs.meteor.com/#meteor_loginwithexternalservice
-//https://github.com/lirbank/meteor-accounts-merge-example
-Meteor.startup(function () {
-		
+Meteor.startup(function () {	
 	Accounts.config({
 		sendVerificationEmail: false,
 		forbidClientAccountCreation: !Meteor.settings.public.accountCreation
@@ -18,33 +15,26 @@ Meteor.startup(function () {
 	Accounts.emailTemplates.from = Meteor.settings.public.siteEmail;
 });
 
-
-/*TODO
-Accounts.validateNewUser(function (user) {
-	
-	console.log('validateNewUser',user);
-
-  if (user.username && user.username.length >= 3)
-    return true;
-  throw new Meteor.Error(403, "Username must have at least 3 characters");
-});*/
-
 Accounts.onLogin(function(login) {
 
 	var geoip, ip = login.connection.httpHeaders['x-real-ip'] || login.connection.clientAddress;
-		
+		sets = {
+			online: 1
+		};
+
 	if(Meteor.settings.geoipLocation && 
 		!K.util.getPath(login.user,'settings.map.center') && 
 		(geoip = K.geoapi.geoip(ip)) )
-		Users.update(login.user._id, {$set: {'settings.map.center': geoip.loc }});
+		sets['settings.map.center'] = geoip.loc;
+
+	Users.update(login.user._id, {$set: sets});
 
 	console.log('Login:',login.user.username, ip);
 });
 
 Accounts.onLoginFailure(function(e) {
-	var user = e.methodArguments && e.methodArguments[0] && e.methodArguments[0].user,
-		ip = e.connection && e.connection.clientAddress;
-	console.log('LoginFailure:', user, ip);
+	var user = e.methodArguments && e.methodArguments[0] && e.methodArguments[0].user;
+	console.log('LoginFailure:', user);
 });
 
 Accounts.onCreateUser(function(options, user) {

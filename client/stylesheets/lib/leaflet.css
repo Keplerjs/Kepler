@@ -116,6 +116,7 @@
 }
 .leaflet-touch .leaflet-control-zoom-out {
 	line-height: 24px;	
+	margin-top: 4px;
 }
 .leaflet-bar a:hover,
 .leaflet-touch .leaflet-bar a:hover {
