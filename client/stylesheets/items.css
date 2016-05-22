@@ -18,6 +18,11 @@
 	line-height: 30px;
 }
 
+.list-group-item .place-btn-name {
+	font-size: 12px;
+	line-height: 30px;
+}
+
 .user-btn-name u {
 	text-decoration: none;
 	margin-left: 2px;

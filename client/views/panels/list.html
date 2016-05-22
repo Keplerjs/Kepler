@@ -18,13 +18,19 @@
 		{{/if}}
 		
 		{{#if list.length}}	
+			{{#if grid}}
 			<div class="list-group list-items">
 				{{#each list}}
 					<div class="list-group-item">
 					{{> Template.dynamic template=this.template}}
 					</div>
 				{{/each}}
-			</div>				
+			</div>
+			{{else}}
+				{{#each list}}
+					{{> Template.dynamic template=this.template}}
+				{{/each}}
+			{{/if}}	
 		{{else}}
 			<div class="text-gray text-center">{{i18n 'labels.nolistitems'}}</div>
 		{{/if}}

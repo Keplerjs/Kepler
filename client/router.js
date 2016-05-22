@@ -123,7 +123,7 @@ Router.map(function() {
 				title: i18n('titles.friends'),
 				className: 'friends',			
 				header: {
-					template: 'item_friend_search'
+					template: 'search_user'
 				},		
 				itemsTemplate: 'item_friend',
 				items: _.map(K.profile.data.friends, function(id) {
@@ -135,6 +135,29 @@ Router.map(function() {
 				})
 			};
 		}	
+	});
+
+	this.route('places', {
+		path: '/places',
+		template: 'panelList',
+		data: function() {
+			if(!this.ready()) return null;
+
+			return {
+				title: i18n('titles.nearby'),
+				className: 'nearby',
+				header: {
+					template: 'search_place',
+				},
+				grid:true,
+				itemsTemplate: 'item_place_nearby',
+				items: _.map(getPlacesByBBox( K.map.getBBox() ).fetch(), function(place) {
+					var p = K.newPlace(place._id._str);
+					if($(p.marker._icon).is(':visible'))
+						return p.rData();
+				})
+			};
+		}
 	});
 
 	this.route('convers', {
@@ -214,27 +237,6 @@ Router.map(function() {
 					}
 				})
 			};
-		}
-	});
-
-	this.route('nearby', {
-		path: '/nearby',		
-		template: 'panelNearby',
-		data: function() {
-			if(!this.ready()) return null;
-
-			var bbox = K.map.getBBox(),
-				places = _.map(getPlacesByBBox(bbox).fetch(), function(place) {
-					var p = K.newPlace(place._id._str);
-					if($(p.marker._icon).is(':visible'))
-						return p.rData();
-				});
-
-			if(bbox) {
-				return {
-					places: _.sortBy(_.compact(places), 'name')
-				};
-			}
 		}
 	});
 

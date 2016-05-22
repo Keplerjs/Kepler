@@ -39,6 +39,15 @@
     margin: 0;
     font-size: 14px;
 }
+
+li#navsearch {
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    text-align: right;
+    background: #fff
+}
+
 .sidebar .panel {
 	border: none;
 	border-radius: 0;

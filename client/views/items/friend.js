@@ -1,5 +1,5 @@
 
-Template.item_friend_search.onRendered(function() {
+Template.search_user.onRendered(function() {
 	
 	$(this.firstNode).parent().siblings('.list-group').btsListFilter('.friends-search', {
 		itemChild: '.user-btn-name',
@@ -7,18 +7,16 @@ Template.item_friend_search.onRendered(function() {
 			var list$ = $(this);
 			
 			list$.addClass('loading-lg');
-
 			Meteor.subscribe('usersByName', val, function() {
 				list$.removeClass('loading-lg');
-				var usersIds = _.pluck(getUsersByName(val).fetch(), '_id'),
-					users = _.map(usersIds, K.newUser);
-				callback( users );
+				var ids = _.pluck(getUsersByName(val).fetch(), '_id');
+				callback( _.map(ids, K.newUser) );
 			});
 		},
-		sourceNode: function(user) {
-			var userItem$ = $('<li class="list-group-item"></li>');
-			Blaze.renderWithData(Template.item_user, user, userItem$[0]);
-			return userItem$;
+		sourceNode: function(data) {
+			var item$ = $('<li class="list-group-item"></li>');
+			Blaze.renderWithData(Template.item_user, data, item$[0]);
+			return item$;
 		},
 		cancelNode: function() {
 			return '<span class="btn form-control-feedback" aria-hidden="true"><i class="icon icon-canc"></i></span>';

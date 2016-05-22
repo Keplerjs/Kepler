@@ -15,7 +15,7 @@ Template.panelList.helpers({
 			
 			if(item)
 				item.template = item.template || self.itemsTemplate;
-
+			
 			return item;
 		});
 	}

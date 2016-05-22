@@ -150,14 +150,15 @@ controls.gps = L.control.gps({
 });
 
 controls.search = L.control.search({
+	container: 'navsearch',
 	position: 'topright',
 	autoType: false, tipAutoSubmit: false, delayType: 800,
 	minLength: Meteor.settings.public.searchMinLen,	
 	animateLocation: true, markerLocation: false,
 	autoCollapse: false, autoCollapseTime: 6000,	
 	propertyLoc: 'loc', propertyName: 'name',
-	text: i18n('controls.search.text'),
-	textErr: i18n('controls.search.error'),	
+	text: i18n('labels.findplace'),
+	textErr: i18n('labels.notfound'),	
 	sourceData: function(text, callback) {
 
 		var sub = Meteor.subscribe('placesByName', text, function() {
@@ -243,7 +244,7 @@ Kepler.map = {
 		_.invoke([
 			layers.baselayer,
 			controls.attrib,			
-			controls.search,
+			//controls.search,
 			controls.zoom,			
 			controls.gps,
 			layers.geojson,

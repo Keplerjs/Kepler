@@ -16,7 +16,28 @@
 	</div>
 </template>
 
-<template name="place_search_tip">
+<template name="item_place_nearby">
+	<div class="well well-sm pull-left">
+		{{> item_place}}
+		<br />
+		<small class="pull-right">{{near}}</small>
+		<br />
+		{{> place_btns}}
+	</div>
+</template>
+
+<template name="search_place">
+	<form class="form-horizontal">
+		<div class="form-group has-feedback col-xs-9">
+			<!--div class="input-group"--> 
+				<input class="form-control places-search" type="text" placeholder="{{i18n 'labels.findplace'}}" /> 
+				<!--span class="input-group-addon"><i class="icon icon-search"></i></span>
+			</div-->
+		</div>
+	</form>
+</template>
+
+<template name="item_place_search">
 	<div class="pull-left">
 		{{> item_place}}
 	</div>
