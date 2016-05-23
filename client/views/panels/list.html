@@ -1,6 +1,5 @@
 
 <template name="panelList">
-
 	<div id="panelList" class="panel {{className}}">
 		<div class="panel-heading bg-primary">
 			<h4 class="pull-left">
@@ -11,19 +10,21 @@
 		</div>
 		<div class="panel-body">
 
-		{{#if header}}
+		{{#if headerTemplate}}
 			<div class="header-item">
-				{{> Template.dynamic template=this.header.template data=this.header.data}}
+				{{> Template.dynamic template=headerTemplate data=headerData}}
 			</div>
 		{{/if}}
 		
 		{{#if list.length}}	
 			{{#if grid}}
+			<div class="list-items">
 				{{#each list}}
 					{{> Template.dynamic template=this.template}}
 				{{/each}}
+			</div>
 			{{else}}
-			<div class="list-group list-items">
+			<div class="list-items list-group">
 				{{#each list}}
 					<div class="list-group-item">
 					{{> Template.dynamic template=this.template}}
@@ -35,7 +36,52 @@
 			<div class="text-gray text-center">{{i18n 'labels.nolistitems'}}</div>
 		{{/if}}
 		</div>
-	</div>	
-	
+	</div>
+</template>
 
+<template name="search_user">
+	<form class="form-horizontal">
+		<div class="form-group has-feedback col-xs-9">
+			<!--div class="input-group"--> 
+				<input class="friends-search form-control" type="text" placeholder="{{i18n 'labels.findusers'}}" /> 
+				<!--span class="input-group-addon"><i class="icon icon-search"></i></span>
+			</div-->
+		</div>
+		<div class="text-right">
+			<input class="form-control" id="switch_online" type="checkbox" />
+		</div>
+	</form>
+</template>
+
+<template name="search_place">
+	<form class="form-horizontal">
+		<div class="form-group has-feedback col-xs-9">
+			<!--div class="input-group"--> 
+				<input class="places-search form-control" type="text" placeholder="{{i18n 'labels.findplace'}}" /> 
+				<!--span class="input-group-addon"><i class="icon icon-search"></i></span>
+			</div-->
+		</div>
+	</form>
+	<div class="clearfix"></div>
+	<label>{{i18n 'labels.nearplaces'}}</label>
+</template>
+
+<template name="item_conver_new">
+	<form class="form-horizontal item_conver-new" role="form">
+		<div class="input-group">
+			<input class="form-control conver-txt-new" tyte="text" maxlength="60" placeholder="{{i18n 'labels.convertit'}}" aria-label="{{i18n 'labels.convertit'}}" aria-expanded="true" />
+			<span class="input-group-btn">
+				<a class="btn btn-default conver-btn-new">
+					<i class="icon icon-add"></i>
+					{{i18n 'btns.convernew'}}
+				</a>
+			</span>
+		</div>
+	</form>
+</template>
+
+<template name="list_notif_clean">
+	<a class="notif-btn-clean btn btn-sm btn-default pull-right" href="#">
+		<i class="icon icon-success"></i> {{i18n 'btns.notifclean'}}
+	</a>
 </template>

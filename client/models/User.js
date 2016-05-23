@@ -8,7 +8,6 @@ Kepler.User = K.Class.extend({
 
 	id: null,
 	type: 'user',
-	tmpl: Template.item_user,	//default template for items list	
 	data: {},					//dati orignali dal db
 	
 	init: function(userId) {

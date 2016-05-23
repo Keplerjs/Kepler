@@ -72,7 +72,7 @@ getPlacesByName = function(initial) {
 			fields: K.fields.placeSearch,
 			limit: Meteor.settings.public.searchMaxRes
 		};
-	
+		
 	var curPlace = Places.find({
 			$or: [
 				{name: ex},

@@ -14,11 +14,96 @@ Template.panelList.helpers({
 			this.items.reverse();
 
 		return _.map(this.items, function(item) {
-			
-			if(item)
-				item.template = self.itemsTemplate || item.template;
-			
+			item.template = self.itemsTemplate;
 			return item;
 		});
 	}
-});//*/
+});
+
+Template.search_user.onRendered(function() {
+	
+	$(this.firstNode).parent().siblings('.list-items').btsListFilter('.friends-search', {
+		itemChild: '.user-btn-name',
+		sourceData: function(val, callback) {
+			var list$ = $(this);
+			
+			list$.addClass('loading-lg');
+			Meteor.subscribe('usersByName', val, function() {
+				list$.removeClass('loading-lg');
+				var ids = _.pluck(getUsersByName(val).fetch(), '_id');
+				callback( _.map(ids, K.newUser) );
+			});
+		},
+		sourceNode: function(data) {
+			var item$ = $('<li class="list-group-item"></li>');
+			Blaze.renderWithData(Template.item_user, data, item$[0]);
+			return item$;
+		},
+		cancelNode: function() {
+			return '<span class="btn form-control-feedback" aria-hidden="true"><i class="icon icon-canc"></i></span>';
+		}
+	});
+
+	this.$('#switch_online').bootstrapSwitch({
+		size: 'mini',		
+		onColor: 'success',		
+		state: K.profile.getOnline(),
+		onSwitchChange: function (e, stat) {
+			K.profile.setOnline(stat);
+		}
+	});
+});
+
+Template.search_place.onRendered(function() {
+	
+	$(this.firstNode).parent().siblings('.list-items').btsListFilter('.places-search', {
+		itemChild: '.place-btn-name',
+		sourceData: function(val, callback) {
+			var list$ = $(this);
+			
+			list$.addClass('loading-lg');
+			Meteor.subscribe('placesByName', val, function() {
+				list$.removeClass('loading-lg');
+				var ids = _.pluck(getPlacesByName(val).fetch(), '_id');
+				callback( _.map(ids, K.newPlace) );
+			});
+		},
+		sourceNode: function(data) {
+			var item$ = $('<li class="list-group-item"></li>');
+			Blaze.renderWithData(Template.item_place_search, data, item$[0]);
+			return item$;
+		},
+		cancelNode: function() {
+			return '<span class="btn form-control-feedback" aria-hidden="true"><i class="icon icon-canc"></i></span>';
+		}
+	});
+});
+
+Template.item_conver_new.events({
+	'click .conver-btn-new': function(e,tmpl) {
+		e.preventDefault();
+		var title = _.str.clean(tmpl.$('.conver-txt-new').val());
+		
+		if(!_.str.isBlank(title))
+			K.conver.newConverInPlace(title, this.id);
+	},
+	'keydown .conver-txt-new': function(e,tmpl) {
+		if(e.keyCode===13)//enter
+		{
+			e.preventDefault();
+			tmpl.$('.conver-btn-new').trigger('click');
+		}
+	}
+});
+
+
+Template.list_notif_clean.events({
+	'click .notif-btn-clean': function(e,tmpl) {
+		e.preventDefault();
+		Users.update(Meteor.userId(), {
+			$set: {
+				notif: []
+			}
+		});
+	}
+});

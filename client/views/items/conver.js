@@ -32,20 +32,3 @@ Template.item_conver.helpers({
 		return title || '...';
 	}
 });
-
-Template.item_conver_new.events({
-	'click .conver-btn-new': function(e,tmpl) {
-		e.preventDefault();
-		var title = _.str.clean(tmpl.$('.conver-txt-new').val());
-		
-		if(!_.str.isBlank(title))
-			K.conver.newConverInPlace(title, this.id);
-	},
-	'keydown .conver-txt-new': function(e,tmpl) {
-		if(e.keyCode===13)//enter
-		{
-			e.preventDefault();
-			tmpl.$('.conver-btn-new').trigger('click');
-		}
-	}
-});

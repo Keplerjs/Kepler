@@ -3,7 +3,21 @@
 	<a class="btn user-btn-name" href="{{#if id}}/user/{{id}}{{else}}/profile{{/if}}">
 		<img class="user-avatar" src="{{avatar}}" /><u>{{name}}</u>
 	</a>
-</template>  
+</template>
+
+<template name="item_user_friend">
+	<div class="friend-item {{#unless isOnline}}offline{{/unless}}">
+		<div class="pull-left">
+			<i class="icon icon-{{#if isOnline}}online{{else}}offline{{/if}}{{#if mob}}-mob{{/if}} user-device"></i>
+			{{> item_user}}
+		</div>
+		<div class="pull-right">
+		{{#if isOnline}}
+			{{> user_btns}}
+		{{/if}}
+		</div>
+	</div>
+</template>
 
 <template name="user_btns">
 	<div class="btn-group">

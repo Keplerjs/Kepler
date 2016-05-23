@@ -122,10 +122,8 @@ Router.map(function() {
 			return {
 				title: i18n('titles.friends'),
 				className: 'friends',			
-				header: {
-					template: 'search_user'
-				},		
-				itemsTemplate: 'item_friend',
+				headerTemplate: 'search_user',
+				itemsTemplate: 'item_user_friend',
 				items: _.map(K.profile.data.friends, function(id) {
 					
 					var user = K.newUser(id);
@@ -142,14 +140,11 @@ Router.map(function() {
 		template: 'panelList',
 		data: function() {
 			if(!this.ready()) return null;
-
 			return {
 				title: i18n('titles.places'),
 				className: 'nearby',
-				grid: true,				
-				header: {
-					template: 'search_place',
-				},
+				grid: true,
+				headerTemplate: 'search_place',
 				itemsTemplate: 'item_place_nearby',
 				items: _.map(getPlacesByBBox( K.map.getBBox() ).fetch(), function(place) {
 					var p = K.newPlace(place._id._str);
@@ -225,9 +220,7 @@ Router.map(function() {
 			return {
 				title: i18n('titles.notifications'),
 				className: 'notifications',
-				header: {
-					template: 'item_notif_clean'
-				},				
+				headerTemplate: 'list_notif_clean',		
 				itemsTemplate: 'item_notif',
 				items: _.map(K.profile.data.notif, function(text) {
 					var type = _.shuffle(K.notif._types)[0];
@@ -277,9 +270,7 @@ Router.map(function() {
 		},
 		data: function() {
 			if(!this.ready()) return null;
-
 			var place = K.newPlace(this.params.placeId);
-
 			return place && {
 				title: i18n('titles.checkins', place.name),
 				className: 'checkins',
@@ -298,15 +289,13 @@ Router.map(function() {
 			return Meteor.subscribe('conversByPlace', this.params.placeId);
 		},
 		data: function() {
+			if(!this.ready()) return null;
 			var place = K.newPlace(this.params.placeId);
-
 			return place && {
 				title: i18n('titles.placeConvers', place.name),
 				className: 'placeConvers',
-				header: {
-					template: 'item_conver_new',
-					data: place
-				},				
+				headerTemplate: 'item_conver_new',
+				headerData: place,		
 				itemsTemplate: 'item_conver',
 				items: getConversByPlace(this.params.placeId).fetch()
 			};

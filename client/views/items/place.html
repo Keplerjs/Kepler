@@ -26,28 +26,17 @@
 	</div>
 </template>
 
-<template name="search_place">
-	<form class="form-horizontal">
-		<div class="form-group has-feedback col-xs-9">
-			<!--div class="input-group"--> 
-				<input class="form-control places-search" type="text" placeholder="{{i18n 'labels.findplace'}}" /> 
-				<!--span class="input-group-addon"><i class="icon icon-search"></i></span>
-			</div-->
-		</div>
-	</form>
-	<div class="clearfix"></div>
-	<label>{{i18n 'labels.nearplaces'}}</label>
-</template>
-
 <template name="item_place_search">
-	<div class="pull-left">
-		{{> item_place}}
-	</div>
-	<div class="btn-group pull-right">
-		<i class="btn btn-xs disabled text-muted text-capitalize">{{prov}} &bull; {{reg}}</i>
-		<a class="btn btn-xs" href="/place/{{id}}/map">
-			<i class="icon icon-map"></i>
-		</a>
+	<div class="search-item">
+		<div class="pull-left">
+			{{> item_place}}
+		</div>
+		<div class="btn-group pull-right">
+			<i class="btn btn-xs disabled text-muted text-capitalize">{{prov}} &bull; {{reg}}</i>
+			<a class="btn btn-xs" href="/place/{{id}}/map">
+				<i class="icon icon-map"></i>
+			</a>
+		</div>
 	</div>
 </template>
 
