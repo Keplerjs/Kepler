@@ -77,6 +77,14 @@ Kepler.profile = {
 		Meteor.call('friendBlock', userId);
 		return this;
 	},
+	cleanNotif: function() {
+		Users.update(Meteor.userId(), {
+			$set: {
+				notif: []
+			}
+		});
+		return this;
+	},
 	setLoc: function(loc) {
 		Meteor.call('setLoc', loc);
 		return this;

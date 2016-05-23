@@ -32,10 +32,10 @@
 			{{> item_place}}
 		</div>
 		<div class="btn-group pull-right">
-			<i class="btn btn-xs disabled text-muted text-capitalize">{{prov}} &bull; {{reg}}</i>
-			<a class="btn btn-xs" href="/place/{{id}}/map">
-				<i class="icon icon-map"></i>
-			</a>
+			<i class="btn btn-xs disabled text-muted text-capitalize">
+			{{prov}} <br />
+			{{reg}}
+			</i>
 		</div>
 	</div>
 </template>
@@ -49,9 +49,6 @@
 		<a class="btn btn-sm btn-default place-btn-mes" href="/place/{{id}}/convers">
 			<i class="icon {{#if conversCount}} icon-mes {{else}} icon-unmes {{/if}}"></i>
 			<span class="badge {{#unless conversCount}} bg-gray {{/unless}}">{{conversCount}}</span>
-		</a>		
-		<a class="btn btn-sm btn-default" href="/place/{{id}}/map">
-			<i class="icon icon-map"></i>
 		</a>
 	</div>
 </template>
@@ -98,8 +95,13 @@
 		<div class="col-sm-6">
 			{{> place_btns3}}
 		</div>	
-		<div class="col-sm-6">
+		<div class="col-sm-6 text-right">
 			{{> place_btns}}
+			<div class="btn-group" data-toggle="buttons">
+			<a class="btn btn-sm btn-default" href="/place/{{id}}/map">
+				<i class="icon icon-map"></i>
+			</a>
+			</div>
 		</div>		
 	</div>
 </template>

@@ -30,8 +30,11 @@ Template.search_user.onRendered(function() {
 			list$.addClass('loading-lg');
 			Meteor.subscribe('usersByName', val, function() {
 				list$.removeClass('loading-lg');
-				var ids = _.pluck(getUsersByName(val).fetch(), '_id');
-				callback( _.map(ids, K.newUser) );
+				var users = getUsersByName(val).fetch(),
+					users = _.map(users, function(user) {
+						return K.newUser(user._id);
+					});
+				callback( users );
 			});
 		},
 		sourceNode: function(data) {
@@ -64,8 +67,12 @@ Template.search_place.onRendered(function() {
 			list$.addClass('loading-lg');
 			Meteor.subscribe('placesByName', val, function() {
 				list$.removeClass('loading-lg');
-				var ids = _.pluck(getPlacesByName(val).fetch(), '_id');
-				callback( _.map(ids, K.newPlace) );
+				var places = getPlacesByName(val).fetch();
+				places = _.map(places, function(place) {
+					console.log(place)
+					return K.newPlace(place._id._str);
+				});
+				callback( places );
 			});
 		},
 		sourceNode: function(data) {
@@ -100,10 +107,6 @@ Template.item_conver_new.events({
 Template.list_notif_clean.events({
 	'click .notif-btn-clean': function(e,tmpl) {
 		e.preventDefault();
-		Users.update(Meteor.userId(), {
-			$set: {
-				notif: []
-			}
-		});
+		K.profile.cleanNotif();
 	}
 });

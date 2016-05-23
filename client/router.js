@@ -142,7 +142,7 @@ Router.map(function() {
 			if(!this.ready()) return null;
 			return {
 				title: i18n('titles.places'),
-				className: 'nearby',
+				className: 'places',
 				grid: true,
 				headerTemplate: 'search_place',
 				itemsTemplate: 'item_place_nearby',
