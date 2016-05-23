@@ -144,12 +144,12 @@ Router.map(function() {
 			if(!this.ready()) return null;
 
 			return {
-				title: i18n('titles.nearby'),
+				title: i18n('titles.places'),
 				className: 'nearby',
+				grid: true,				
 				header: {
 					template: 'search_place',
 				},
-				grid:true,
 				itemsTemplate: 'item_place_nearby',
 				items: _.map(getPlacesByBBox( K.map.getBBox() ).fetch(), function(place) {
 					var p = K.newPlace(place._id._str);

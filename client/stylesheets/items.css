@@ -93,3 +93,20 @@
 .friends-search:active + .icon-search {
 	display: none;
 }
+
+.nearby-item.well.well-sm {
+	float: left;
+	margin: 0 0 15px 15px;
+	cursor: pointer;
+	background: none;
+}
+
+.nearby-item.well:hover {
+	border:1px solid #428bca;
+}
+
+.nearby-item .place-btn-name {
+	font-size: 12px;
+	line-height: 12px;
+	display: inline;
+}

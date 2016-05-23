@@ -17,7 +17,7 @@
 </template>
 
 <template name="item_place_nearby">
-	<div class="well well-sm pull-left">
+	<div class="nearby-item well well-sm">
 		{{> item_place}}
 		<br />
 		<small class="pull-right">{{near}}</small>
@@ -35,6 +35,8 @@
 			</div-->
 		</div>
 	</form>
+	<div class="clearfix"></div>
+	<label>{{i18n 'labels.nearplaces'}}</label>
 </template>
 
 <template name="item_place_search">
