@@ -5,7 +5,7 @@ Package.describe({
 });
 
 Npm.depends({
-  "bootstrap-list-filter": "0.3.0"
+  "bootstrap-list-filter": "0.3.2"
 });
 
 Package.onUse(function (api) {

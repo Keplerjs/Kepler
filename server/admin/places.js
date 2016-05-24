@@ -33,18 +33,14 @@ K.admin.methods({
 		if(!K.admin.isMe()) return null;
 
 		Users.update({}, {$set: {hist: []} });
-		Places.find().forEach(function(place) {
-			Meteor.call('cleanPlaceHist', place.name);
-		});
+		Places.update({}, {$set: {hist: []} });
 	},	
 	cleanAllCheckins: function() {
 		
 		if(!K.admin.isMe()) return null;
 
 		Users.update({}, {$set: {checkin: null} });
-		Places.find().forEach(function(place) {
-			Meteor.call('cleanPlaceCheckins', place.name);
-		});
+		Places.update({}, {$set: {checkins: []} });
 	},
 	cleanAllFavorites: function() {
 		

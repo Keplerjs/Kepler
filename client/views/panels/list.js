@@ -24,17 +24,16 @@ Template.search_user.onRendered(function() {
 	
 	$(this.firstNode).parent().siblings('.list-items').btsListFilter('.friends-search', {
 		itemChild: '.user-btn-name',
+		loadingClass: 'loading-lg',
 		sourceData: function(val, callback) {
-			var list$ = $(this);
 			
-			list$.addClass('loading-lg');
 			Meteor.subscribe('usersByName', val, function() {
-				list$.removeClass('loading-lg');
-				var users = getUsersByName(val).fetch(),
-					users = _.map(users, function(user) {
-						return K.newUser(user._id);
-					});
-				callback( users );
+				
+				var users = _.map( getUsersByName(val).fetch(), function(user) {
+					return K.newUser(user._id);
+				});
+
+				callback(users);
 			});
 		},
 		sourceNode: function(data) {
@@ -61,18 +60,16 @@ Template.search_place.onRendered(function() {
 	
 	$(this.firstNode).parent().siblings('.list-items').btsListFilter('.places-search', {
 		itemChild: '.place-btn-name',
+		loadingClass: 'loading-lg',
 		sourceData: function(val, callback) {
-			var list$ = $(this);
 			
-			list$.addClass('loading-lg');
 			Meteor.subscribe('placesByName', val, function() {
-				list$.removeClass('loading-lg');
-				var places = getPlacesByName(val).fetch();
-				places = _.map(places, function(place) {
-					console.log(place)
+			
+				var places = _.map( getPlacesByName(val).fetch(), function(place) {
 					return K.newPlace(place._id._str);
 				});
-				callback( places );
+
+				callback(places);
 			});
 		},
 		sourceNode: function(data) {
