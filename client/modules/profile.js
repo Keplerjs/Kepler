@@ -26,7 +26,8 @@ Kepler.profile = {
 			if(!self.data)	//onlogout
 				return self.ready = false;
 
-			self.user = K.newUser(self.data._id);
+			self.id = self.data._id;
+			self.user = K.newUser(self.id);
 			self.user.update();
 
 			if(self.data.checkin)
