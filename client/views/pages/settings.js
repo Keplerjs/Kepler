@@ -1,4 +1,5 @@
 
+
 Template.pageSettings.helpers({
 	genders: function() {
 		var gender = Meteor.user() && (Meteor.user().gender || 'none');
@@ -12,25 +13,23 @@ Template.pageSettings.helpers({
 		});
 	},	
 	places: function() {
-		var places = Meteor.user() && Meteor.user().likeplaces;
 		return _.map(Meteor.settings.public.activePlaces, function(k) {
 			return {
 				val: k,
 				name: i18n('places.'+k),
-				active: _.contains(places, k)
+				active: _.contains(K.profile.data.likeplaces, k)
 			};
 		});
 	},
 	lang: function() {
-		return  K.profile.getOpts('lang');
+		return K.profile.data.lang
 	},
 	langs: function() {
-		var lang = K.profile.getOpts('lang');
 		return _.map(Meteor.settings.public.langs, function(val, k) {
 			return {
 				key: k,
 				val: val,
-				active: k===lang
+				active: k===K.profile.data.lang
 			};
 		});
 	},	

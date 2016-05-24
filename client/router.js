@@ -74,7 +74,10 @@ Router.map(function() {
 	this.route('pageSettings', {
 		path: '/settings',
 		layoutTemplate: 'layoutPage',
-		loadingTemplate: 'pageLoading'
+		loadingTemplate: 'pageLoading',
+		data: function() {
+			return Meteor.user();
+		}
 	});
 
 	this.route('pageSettingsBlock', {
@@ -103,9 +106,8 @@ Router.map(function() {
 		data: { hideSidebar: true }
 	});
 
-	this.route('profile', {
+	this.route('panelProfile', {
 		path: '/profile',
-		template: 'panelProfile',
 		data: function() {
 			return Meteor.user();
 		}
@@ -294,7 +296,7 @@ Router.map(function() {
 			return place && {
 				title: i18n('titles.placeConvers', place.name),
 				className: 'placeConvers',
-				headerTemplate: 'item_conver_new',
+				headerTemplate: 'conver_new',
 				headerData: place,		
 				itemsTemplate: 'item_conver',
 				items: getConversByPlace(this.params.placeId).fetch()
@@ -336,7 +338,7 @@ Router.map(function() {
 		path: '/user/:userId',
 		waitOn: function() {
 			if(this.params.userId===Meteor.userId())
-				Router.go('profile');
+				Router.go('panelProfile');
 			else
 				return Meteor.subscribe('userById', this.params.userId);
 		},

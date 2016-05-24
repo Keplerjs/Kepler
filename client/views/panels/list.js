@@ -86,7 +86,7 @@ Template.search_place.onRendered(function() {
 	});
 });
 
-Template.item_conver_new.events({
+Template.conver_new.events({
 	'click .conver-btn-new': function(e,tmpl) {
 		e.preventDefault();
 		var title = _.str.clean(tmpl.$('.conver-txt-new').val());
