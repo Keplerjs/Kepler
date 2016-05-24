@@ -21,12 +21,12 @@ Kepler.profile = {
 
 		Tracker.autorun(function(comp) {
 
+			self.id = Meteor.userId();
 			self.data = Meteor.user();
 		
 			if(!self.data)	//onlogout
 				return self.ready = false;
 
-			self.id = self.data._id;
 			self.user = K.newUser(self.id);
 			self.user.update();
 

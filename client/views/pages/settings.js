@@ -1,55 +1,50 @@
 
 Template.pageSettings.helpers({
 	genders: function() {
-		if(Meteor.user()) {
-			var gender = Meteor.user() && (Meteor.user().gender || 'none');
-			return _.map({male:'male',female:'female',none:'none'}, function(val, k) {
-				return {
-					key: k,
-					val: val,
-					name: i18n('genders.'+k),
-					active: gender===val
-				};
-			});
-		}
+		var gender = Meteor.user() && (Meteor.user().gender || 'none');
+		return _.map({male:'male',female:'female',none:'none'}, function(val, k) {
+			return {
+				key: k,
+				val: val,
+				name: i18n('genders.'+k),
+				active: gender===val
+			};
+		});
 	},	
 	places: function() {
-		if(Meteor.user()) {
-			var places = Meteor.user() && Meteor.user().likeplaces;
-			return _.map(Meteor.settings.public.activePlaces, function(k) {
-				return {
-					val: k,
-					name: i18n('places.'+k),
-					active: _.contains(places, k)
-				};
-			});
-		}
+		var places = Meteor.user() && Meteor.user().likeplaces;
+		return _.map(Meteor.settings.public.activePlaces, function(k) {
+			return {
+				val: k,
+				name: i18n('places.'+k),
+				active: _.contains(places, k)
+			};
+		});
+	},
+	lang: function() {
+		return  K.profile.getOpts('lang');
 	},
 	langs: function() {
-		if(Meteor.user()) {
-			var lang = Meteor.user() && Meteor.user().lang;
-			return _.map(Meteor.settings.public.langs, function(val, k) {
-				return {
-					key: k,
-					val: val,
-					active: k===lang
-				};
-			});
-		}
+		var lang = K.profile.getOpts('lang');
+		return _.map(Meteor.settings.public.langs, function(val, k) {
+			return {
+				key: k,
+				val: val,
+				active: k===lang
+			};
+		});
 	},	
 	layers: function() {
-		if(Meteor.user()) {		
-			var layer = Meteor.user().settings.map.layer || Meteor.settings.public.map.layer;
-			return _.map(Meteor.settings.public.layers, function(val, k) {
-				return {
-					key: k,
-					val: k,
-					name: i18n('layers.'+k),
-					active: k===layer,
-					url: _.template(val,{s:'a',z:'15',x:'17374',y:'11667'})
-				};
-			});
-		}
+		var layer = K.profile.getOpts('map.layer') || Meteor.settings.public.map.layer;
+		return _.map(Meteor.settings.public.layers, function(val, k) {
+			return {
+				key: k,
+				val: k,
+				name: i18n('layers.'+k),
+				active: k===layer,
+				url: _.template(val,{s:'a',z:'15',x:'17374',y:'11667'})
+			};
+		});
 	}	
 });
 
@@ -105,12 +100,14 @@ Template.pageSettings.events({
 
 	'change #maplayer input': _.debounce(function(e) {
 		e.preventDefault();
+
 		var val = $(e.currentTarget).val();
 		Users.update(Meteor.userId(), { $set: {'settings.map.layer': val } });
 	}, Meteor.settings.public.typeDelay),
 
 	'change #gender input': _.debounce(function(e) {
 		e.preventDefault();
+
 		var val = $(e.currentTarget).val();
 		Users.update(Meteor.userId(), { $set: {'gender': val } });
 
@@ -118,6 +115,7 @@ Template.pageSettings.events({
 
 	'change #lang': function(e) {
 		e.preventDefault();
+
 		var val = $(e.currentTarget).val();
 		Users.update(Meteor.userId(), { $set: {'lang': val} });
 	},
