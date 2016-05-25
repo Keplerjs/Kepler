@@ -2,6 +2,18 @@
 Messages = new Mongo.Collection('messages');
 //TODO rinomina in ConversMsgs
 
+Messages.allow({
+	insert: function(userId, doc) {
+		return userId && doc.convId;
+	},
+	update: function(userId, doc, fieldNames, modifier) {
+		return userId && doc.userId === userId;
+	},
+	remove: function(userId, doc) {
+		return userId && doc.userId === userId;
+	}
+});
+
 getMsgsByConver = function(convId) {
 	return Messages.find({convId: convId }, {sort: ['updateAt']});
 };
@@ -14,7 +26,7 @@ addMsgToConver = function(convId, body) {
 			updateAt: K.util.timeUnix(),
 			userId: Meteor.userId(),
 			convId: convId,
-			body: K.util.sanitizeMsg(body)
+			body: body
 		});
 
 	if(lastMsg && lastMsg.userId === newMsg.userId)	//append to my last msg
@@ -30,20 +42,10 @@ addMsgToConver = function(convId, body) {
 		newMsg._id = Messages.insert(newMsg);
 	//TODO forse si semplifica con upsert o forse no
 
+	console.log(newMsg)
+
 	Convers.update({_id: convId}, {
 		$addToSet: { usersIds: Meteor.userId() },
 		$set: { lastMsg: newMsg }
 	});
 };
-
-Messages.allow({
-	insert: function(userId, doc) {
-		return userId && doc.convId;
-	},
-	update: function(userId, doc, fieldNames, modifier) {
-		return userId && doc.userId === userId;
-	},
-	remove: function(userId, doc) {
-		return userId && doc.userId === userId;
-	}
-});

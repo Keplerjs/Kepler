@@ -9,19 +9,13 @@ Kepler.conver = {
 
 	loadConverWithUser: function(userId) {
 		Meteor.call('getConverWithUser', userId, function(err, convId) {
-
-			console.log('getConverWithUser',convId)
-
-			K.router.go('conver',{convId: convId});
+			K.router.go('panelConver',{convId: convId});
 		});
 	},
 
 	newConverInPlace: function(placeId, title) {
 		Meteor.call('newConverInPlace', placeId, title, function(err, convId) {
-			
-			console.log('newConverInPlace',convId)
-
-			K.router.go('conver',{convId: convId});
+			K.router.go('panelConver',{convId: convId});
 		});
 	},
 

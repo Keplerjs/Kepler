@@ -1,14 +1,16 @@
 
 <template name="item_conver">
 	<div class="conver-item">
-			<a class="btn conver-btn-title" href="/conver/{{_id}}">{{{tit}}}</a>
-			<div class="clearfix">
+		<a class="pull-left" href="/conver/{{_id}}">
+			<small class="conver-users">
 			{{#each usersIds}}
 				{{#with newUser this}}
 					{{> item_username}}
 				{{/with}}
 			{{/each}}
-			</div>
+			</small><br>
+			<span class="conver-btn-title"> {{{tit}}}</span>
+		</a>
 		<div class="pull-right">
 			{{#if placeId}}
 				{{#with newPlace placeId}}

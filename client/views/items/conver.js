@@ -30,7 +30,7 @@ Template.item_conver.helpers({
 		if(this.placeId)
 			title = _.str.truncate(this.title, 30);
 		else if(this.lastMsg)
-			title = '<small class="text-gray">'+_.str.truncate(_.str.stripTags(this.lastMsg.body), 30)+'</small>';
+			title = _.str.truncate(_.str.stripTags(this.lastMsg.body), 30);
 		else
 			title = i18n('titles.msgpriv');
 
