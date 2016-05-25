@@ -17,7 +17,12 @@ Template.item_conver.onRendered(function() {
 
 Template.item_conver.helpers({
 	usersIds: function() {
-		return _.last(_.without(this.usersIds, K.profile.id), 3);
+		var ids = this.usersIds;
+		
+		if(!this.placeId)
+			ids = _.without(ids, K.profile.id);
+
+		return _.last(ids, 3);
 	},
 	tit: function() {
 		var title;

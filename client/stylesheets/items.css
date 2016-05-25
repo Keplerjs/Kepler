@@ -71,16 +71,13 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
-.conver-item .conver-btn-title:hover {
-	color: #000;
-}
 .conver-item time {
 	font-size: 11px;
 	color: #aaa;
 }
-.conver-item .user-btn-name,
-.conver-item .place-btn-name {
-	font-size: 12px;
+
+.conver-item .user-btn-name {
+	font-size: small;
 }
 
 .friend-item.offline .user-avatar {

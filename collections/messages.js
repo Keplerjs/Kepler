@@ -20,6 +20,7 @@ addMsgToConver = function(convId, body) {
 	if(lastMsg && lastMsg.userId === newMsg.userId)	//append to my last msg
 	{
 		newMsg.body = lastMsg.body +'<br />'+ newMsg.body;
+		//console.log('append in lastMsg', newMsg)
 		Messages.update({_id: lastMsg._id }, {
 			$set: newMsg
 		});
