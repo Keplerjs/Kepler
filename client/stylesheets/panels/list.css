@@ -19,3 +19,9 @@
 .list-items .list-group-item:last-child {
 	border-bottom:none;
 }
+
+/*.list-items-grid .list-group-item {
+	float: left;
+	clear: none;
+	border: none;
+}*/

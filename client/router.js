@@ -145,9 +145,8 @@ Router.map(function() {
 			return {
 				title: i18n('titles.places'),
 				className: 'places',
-				grid: true,
 				headerTemplate: 'search_place',
-				itemsTemplate: 'item_place_nearby',
+				itemsTemplate: 'item_place_search',
 				items: _.map(getPlacesByBBox( K.map.getBBox() ).fetch(), function(place) {
 					var p = K.newPlace(place._id._str);
 					if($(p.marker._icon).is(':visible'))

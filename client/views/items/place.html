@@ -17,12 +17,18 @@
 </template>
 
 <template name="item_place_nearby">
-	<div class="nearby-item well well-sm">
-		{{> item_place}}
-		<br />
-		<small class="pull-right">{{near}}</small>
-		<br />
-		{{> place_btns}}
+	<div class="nearby-item">
+		<div class="pull-left">
+			{{> item_place}}
+			<br />
+			<small>{{near}}</small>
+		</div>
+		<div class="pull-right">
+			{{> place_btns}}
+			<a class="btn btn-sm btn-default" href="/place/{{id}}/map">
+				<i class="icon icon-map"></i>
+			</a>
+		</div>		
 	</div>
 </template>
 
@@ -33,9 +39,12 @@
 		</div>
 		<div class="btn-group pull-right">
 			<i class="btn btn-xs disabled text-muted text-capitalize">
-			{{prov}} <br />
+			{{#if prov}}{{prov}} &bull;{{/if}}
 			{{reg}}
 			</i>
+			<a class="btn btn-sm btn-default" href="/place/{{id}}/map">
+				<i class="icon icon-map"></i>
+			</a>
 		</div>
 	</div>
 </template>

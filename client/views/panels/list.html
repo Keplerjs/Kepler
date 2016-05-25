@@ -16,25 +16,19 @@
 			</div>
 		{{/if}}
 		
-		{{#if list.length}}	
-			{{#if grid}}
-			<div class="list-items">
-				{{#each list}}
-					{{> Template.dynamic template=this.template}}
-				{{/each}}
-			</div>
-			{{else}}
-			<div class="list-items list-group">
+		<div class="list-items list-group">
+			{{#if list.length}}	
 				{{#each list}}
 					<div class="list-group-item">
 					{{> Template.dynamic template=this.template}}
 					</div>
 				{{/each}}
+			{{else}}
+				<!--div class="list-group-item text-gray text-center">
+					{{i18n 'labels.nolistitems'}}
+				</div-->
+			{{/if}}
 			</div>
-			{{/if}}	
-		{{else}}
-			<div class="text-gray text-center">{{i18n 'labels.nolistitems'}}</div>
-		{{/if}}
 		</div>
 	</div>
 </template>
@@ -43,7 +37,7 @@
 	<form class="form-horizontal">
 		<div class="form-group has-feedback col-xs-9">
 			<!--div class="input-group"--> 
-				<input class="friends-search form-control" type="text" placeholder="{{i18n 'labels.findusers'}}" /> 
+				<input class="users-search form-control" type="text" placeholder="{{i18n 'labels.findusers'}}" /> 
 				<!--span class="input-group-addon"><i class="icon icon-search"></i></span>
 			</div-->
 		</div>
@@ -62,8 +56,6 @@
 			</div-->
 		</div>
 	</form>
-	<div class="clearfix"></div>
-	<label>{{i18n 'labels.nearplaces'}}</label>
 </template>
 
 <template name="conver_new">

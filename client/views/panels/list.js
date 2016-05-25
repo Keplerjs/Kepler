@@ -22,7 +22,7 @@ Template.panelList.helpers({
 
 Template.search_user.onRendered(function() {
 	
-	$(this.firstNode).parent().siblings('.list-items').btsListFilter('.friends-search', {
+	$(this.firstNode).parent().siblings('.list-items').btsListFilter('.users-search', {
 		itemChild: '.user-btn-name',
 		loadingClass: 'loading-lg',
 		sourceData: function(val, callback) {
@@ -57,7 +57,7 @@ Template.search_user.onRendered(function() {
 });
 
 Template.search_place.onRendered(function() {
-	
+
 	$(this.firstNode).parent().siblings('.list-items').btsListFilter('.places-search', {
 		itemChild: '.place-btn-name',
 		loadingClass: 'loading-lg',

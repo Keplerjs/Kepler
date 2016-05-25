@@ -53,10 +53,8 @@ layers.places = new L.LayerJSON({
 	minShift: Meteor.settings.public.bboxMinShift,
 	callData: function(bbox, callback) {
 
-		K.map._deps.bbox.changed();
-
 		var sub = Meteor.subscribe('placesByBBox', bbox, function() {
-			
+
 			callback( getPlacesByBBox(bbox).fetch() );
 		});
 
@@ -219,6 +217,9 @@ Kepler.map = {
 		self._map = new L.Map('map', {		
 			attributionControl: false,
 			zoomControl: false			
+		})
+		.on('moveend zoomend', function(e) {
+			self._deps.bbox.changed();
 		});
 
 		self._addControls();
@@ -235,7 +236,10 @@ Kepler.map = {
 		}, Meteor.settings.public.typeDelay+1000) );
 
 		if($.isFunction(cb))
-			self._map.whenReady(cb, self);
+			self._map.whenReady(function() {
+				self._deps.bbox.changed();
+				cb.call(self);
+			}, self);
 
 		return this;
 	},
