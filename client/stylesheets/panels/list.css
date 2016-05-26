@@ -12,12 +12,17 @@
 	border-radius: 0;
 	border-bottom:1px solid #ddd;
 	margin: 1px 0;
+	padding: 4px 0;
 }
 .list-items .list-group-item:first-child {
 	border-top:none;
 }
 .list-items .list-group-item:last-child {
 	border-bottom:none;
+}
+
+.list-items .list-group-item .btn-group > .btn {
+	padding: 5px;
 }
 
 /*.list-items-grid .list-group-item {

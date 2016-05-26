@@ -10,9 +10,9 @@
 .leaflet-left.leaflet-bottom .leaflet-control,
 .leaflet-right.leaflet-bottom .leaflet-control,
 .leaflet-right.leaflet-top .leaflet-control {
-	margin: 6px;
+	margin: 4px;
 	padding: 5px;
-	box-shadow: 0 0 5px rgba(0,0,0,0.3);
+	box-shadow: 0 0 4px rgba(0,0,0,0.3);
 	/*background-color:rgba(255,255,255,0.8);*/
 	background:#fff;
 	border-radius:4px;
@@ -23,7 +23,7 @@
 }
 
 /* SEARCH */
-.leaflet-control-search.search-exp,
+/*.leaflet-control-search.search-exp,
 .leaflet-control-search.search-exp .search-tip,
 .leaflet-control-search.search-exp .search-tooltip {
 	min-width: 280px;
@@ -35,7 +35,7 @@
 	background: url('/images/loader-default.gif') no-repeat center right #fff;
 }
 .leaflet-control-search .search-tooltip {
-	max-height:206px; /* (.search-tip height * 5) */
+	max-height:206px;
 	overflow-y:scroll;
 }
 .leaflet-control-search .search-input {
@@ -81,7 +81,7 @@
     position: absolute;
     left: 0;
     right: 0;
-}
+}*/
 
 /* ZOOM */
 

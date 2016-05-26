@@ -12,16 +12,11 @@
 .place-btn-name {
 	text-transform:capitalize;	
 	font-weight: bold;
-	font-size: 14px;
 	padding: 0;
 	margin: 0;
+	font-size: 14px;	
 	line-height: 30px;
 	color: #337ab7;
-}
-
-.list-group-item .place-btn-name {
-	font-size: 12px;
-	line-height: 30px;
 }
 
 .user-btn-name u {
@@ -30,11 +25,6 @@
 }
 
 /* item user */
-.user-device {
-	/*margin: 7px 2px;*/
-	line-height: 30px;
-	vertical-align: middle;
-}
 .user-avatar {
 	height: 30px;
 	width: 30px;

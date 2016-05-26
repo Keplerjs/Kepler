@@ -8,14 +8,14 @@
 	z-index: 1000;
 	background: none;    
     height: auto;
-    padding: 6px;
+    padding: 4px;
     /*background: rgba(0,0,0,0.2)*/
 }
 .sidebar.expanded {
 	height: calc(100%);
 }
 .sidebar.expanded > .tab-content {
-	margin-top: 6px;
+	margin-top: 4px;
 	box-shadow: 0 0 5px rgba(0,0,0,0.3);
     border-radius:4px;
     overflow: hidden;
@@ -60,23 +60,26 @@ li#navsearch {
 }
 .sidebar .panel-body {
 	position: absolute;
-	top: 92px;
-	left: 6px;
-	right: 6px;
-	bottom: 6px;	
-    padding: 6px;
+	top: 84px;
+	left: 0;
+	right: 0;
+	bottom: 0;	
+    padding: 4px;
+    margin: 4px;
 	background: #fff;
     max-height: calc(100% - 100px);
 	overflow-x: hidden;
 	overflow-y: scroll;
+    border-radius: 4px;
 }
 .sidebar .panel-footer {
 	min-height: 40px;
 	padding: 3px;
+    margin: 4px;
 	position: absolute;
 	bottom: 0;
-	left: 6px;
-	right: 6px;
+	left: 0;
+	right: 0;
 }
 
 .sidebar-map .leaflet-left {

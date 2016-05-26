@@ -16,6 +16,20 @@
 	</div>
 </template>
 
+<template name="item_place_search">
+	<div class="search-item">
+		<div class="pull-left">
+			{{> item_place}}
+		</div>
+		<div class="pull-right">
+			<small class="control-label text-gray text-capitalize">
+			{{#if prov}} {{prov}} &bull; {{/if}}
+			{{#if reg}} {{reg}} {{/if}}
+			</small>
+		</div>
+	</div>
+</template>
+
 <template name="item_place_nearby">
 	<div class="nearby-item">
 		<div class="pull-left">
@@ -29,23 +43,6 @@
 				<i class="icon icon-map"></i>
 			</a>
 		</div>		
-	</div>
-</template>
-
-<template name="item_place_search">
-	<div class="search-item">
-		<div class="pull-left">
-			{{> item_place}}
-		</div>
-		<div class="btn-group pull-right">
-			<i class="btn btn-xs disabled text-muted text-capitalize">
-			{{#if prov}}{{prov}} &bull;{{/if}}
-			{{reg}}
-			</i>
-			<a class="btn btn-sm btn-default" href="/place/{{id}}/map">
-				<i class="icon icon-map"></i>
-			</a>
-		</div>
 	</div>
 </template>
 
