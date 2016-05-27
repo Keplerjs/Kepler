@@ -35,7 +35,7 @@ Meteor.methods({
 // exports.streetView = function(size, location, callback, sensor, heading, fov, pitch) {
 
 
-		return googlemaps.streetView('250x200', lastP.join(','),false);
+		return Googlemaps.streetView('250x200', lastP.join(','),false);
 
 		// ll = K.util.geo.roundLoc(ll, 8);
 		// var key = parseInt(K.util.timeUnix()/(60*60*24*1))+'_'+ll.join('_');	//daily hash

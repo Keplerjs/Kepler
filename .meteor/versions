@@ -40,6 +40,7 @@ json@1.0.3
 keplerjs:bootstrap-confirm-button@1.0.0
 keplerjs:bootstrap-list-filter@1.0.0
 keplerjs:bootstrap-switch@1.0.0
+keplerjs:googlemaps@1.0.0
 keplerjs:leaflet@1.0.0
 keplerjs:leaflet-gps@1.0.0
 keplerjs:leaflet-layerjson@1.0.0
@@ -78,7 +79,6 @@ spacebars@1.0.6
 spacebars-compiler@1.0.6
 srp@1.0.3
 standard-app-packages@1.0.5
-stefcud:googlemaps-server@1.0.1
 stylus@1.0.7
 templating@1.1.1
 tracker@1.0.7
