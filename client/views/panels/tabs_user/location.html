@@ -1,0 +1,22 @@
+
+<template name="tab_location">
+
+	<ul class="list-group" id="tab_location">
+		<li class="list-group-item active">
+			<i class="icon icon-map"></i> {{i18n 'labels.location'}}
+		</li>	
+		{{#if checkin}}
+			{{#with newPlace checkin}}
+			<li class="list-group-item">
+				{{> item_place}} <br />
+				{{> place_btns_all}}
+			</li>
+			{{/with}}
+		{{else}}
+		<li class="list-group-item">
+			{{> user_btns}}
+		</li>
+		{{/if}}
+	</ul>
+	
+</template>

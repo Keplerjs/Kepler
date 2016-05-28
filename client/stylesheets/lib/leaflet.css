@@ -22,67 +22,6 @@
 	margin-bottom: 0;
 }
 
-/* SEARCH */
-/*.leaflet-control-search.search-exp,
-.leaflet-control-search.search-exp .search-tip,
-.leaflet-control-search.search-exp .search-tooltip {
-	min-width: 280px;
-}
-.leaflet-control-search.search-exp .search-input  {
-	min-width: 260px
-}
-.leaflet-control-search.search-load .search-input {
-	background: url('/images/loader-default.gif') no-repeat center right #fff;
-}
-.leaflet-control-search .search-tooltip {
-	max-height:206px;
-	overflow-y:scroll;
-}
-.leaflet-control-search .search-input {
-	display:block;
-	float:left;
-	background: #fff;
-	border:1px solid #006CB7;
-	border-radius:5px;
-	height:28px;
-	font-size: 14px;
-	line-height: 14px;
-	padding:3px;
-	margin:1px 6px 1px 2px;
-}
-.leaflet-control-search .search-button:hover,
-.leaflet-control-search .search-button {
-	width:30px;
-	height:30px;
-}
-.leaflet-control-search .search-cancel {
-	width:18px;
-	height:18px;
-	right:40px;
-	margin:6px;
-}
-.leaflet-control-search .search-tip {
-	background: #fff;
-	padding: 0 4px;
-	height: 32px;
-	line-height: 32px;
-	width: 100%;
-	margin: 2px 0;
-	overflow: hidden;
-}
-.leaflet-control-search .search-button:hover,
-.leaflet-control-search .search-tip-select {
-	background-color: #fff;
-}
-.leaflet-control-search .search-alert {
-	font-size:1.2em;
-} 
-.leaflet-right.leaflet-top .leaflet-control-search .search-tooltip {
-    position: absolute;
-    left: 0;
-    right: 0;
-}*/
-
 /* ZOOM */
 
 .leaflet-bar-part,

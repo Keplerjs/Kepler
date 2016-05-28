@@ -68,9 +68,7 @@ Kepler.Place = K.Class.extend({
 	},
 
 	isCheckin: function() {
-		//return Meteor.user() && (Meteor.user().checkin === this.id);
-		var place = K.profile.getCheckin();
-		return place && place.id === this.id;
+		return K.profile.data.checkin && (K.profile.data.checkin === this.id);
 	},
 	
 	isFavorite: function() {

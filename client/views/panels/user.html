@@ -13,24 +13,21 @@
 
 		{{> tab_bio}}
 		<br />
+		
+		{{#if status}}
+			{{> tab_status}}
+		{{/if}}
 
 		<div class="row">
 			<div class="col-xs-12">
 				{{> user_btns2}}
 			</div>
 		</div>
-		
-		{{#if or getLoc checkinPlace}}
-		<div class="row">
-			<div class="col-xs-12 text-right">
-				<label class="pull-right">
-				{{i18n 'labels.userplace'}}<br />
-				{{> user_btns}}
-				</label>
-			</div>
-		</div>
+
+		{{#if or getLoc checkin}}
+			{{> tab_location}}
 		{{/if}}
-		
+
 		<ul class="nav nav-tabs">
 			<li class="active">
 				<a href="#tab_friends" data-toggle="tab">

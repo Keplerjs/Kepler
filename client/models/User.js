@@ -115,13 +115,6 @@ Kepler.User = K.Class.extend({
 //TODO aggiuni this.isMe()		
 		if(K.profile.getOnline() && this.isFriend() && this.online)
 			return this.loc;
-	},
-
-	checkinPlace: function() {
-		this._dep.depend();
-//TODO aggiuni this.isMe()		
-		if(K.profile.getOnline() && this.isFriend() && this.online)
-			return this.checkin ? K.newPlace(this.checkin).rData() : null;
 	}
 });
 

@@ -9,7 +9,13 @@
 	</div>
 	<div class="panel-body">
 		
-		{{> tab_checkin}}
+		{{#if status}}
+			{{> tab_status}}
+		{{/if}}
+
+		{{#if checkin}}
+			{{> tab_location}}
+		{{/if}}
 
 		<div class="list-group">
 			<a class="list-group-item" href="/notifications">

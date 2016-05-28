@@ -147,55 +147,6 @@ controls.gps = L.control.gps({
 	}
 });
 
-controls.search = L.control.search({
-	container: 'navsearch',
-	position: 'topright',
-	autoType: false, tipAutoSubmit: false, delayType: 800,
-	minLength: Meteor.settings.public.searchMinLen,	
-	animateLocation: true, markerLocation: false,
-	autoCollapse: false, autoCollapseTime: 6000,	
-	propertyLoc: 'loc', propertyName: 'name',
-	text: i18n('labels.findplace'),
-	textErr: i18n('labels.notfound'),	
-	sourceData: function(text, callback) {
-
-		var sub = Meteor.subscribe('placesByName', text, function() {
-			var places = getPlacesByName(text).fetch(),
-				placesSort = _.sortBy(places,function(item) {
-					return item.name + item.reg;
-				}),
-				placesIds = _.pluck(_.pluck(placesSort, '_id'),'_str');
-			
-			callback( _.map(placesIds, K.newPlace) );
-		});
-
-		return {
-			abort: sub.stop
-		};
-	},
-	formatData: function(items) {
-		var dataItems = _.map(items, function(item) {
-			return _.extend(L.latLng(item.loc), item);
-		});
-		return _.indexBy(dataItems,'name');
-	},
-	buildTip: function(key, data) {
-		var tip = L.DomUtil.create('div','search-tip');
-		Blaze.renderWithData(Template.place_search_tip, data, tip);
-		return tip;
-	}
-})
-.on({
-	search_locationfound: function(e) {
-		this._input.blur();
-	},
-	search_expanded: function() {
-		K.router.go('map');
-	}
-});
-
-
-
 Kepler.map = {
 
 	ready: false,
@@ -247,8 +198,7 @@ Kepler.map = {
 	_addControls: function() {
 		_.invoke([
 			layers.baselayer,
-			controls.attrib,			
-			//controls.search,
+			controls.attrib,
 			controls.zoom,			
 			controls.gps,
 			layers.geojson,
@@ -338,7 +288,7 @@ Kepler.map = {
 				this._map.once("moveend zoomend", cb);
 			
 			if(loc && K.util.valid.loc(loc))
-				this._setView(loc, Meteor.settings.public.loadLocZoom);
+				this._setView( L.latLng(loc) , Meteor.settings.public.loadLocZoom);
 		}
 		return this;
 	},

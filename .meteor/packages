@@ -22,7 +22,6 @@ mrt:imagemagick
 robodo:async
 kidovate:bootstrap-slider
 keplerjs:leaflet
-keplerjs:leaflet-search
 keplerjs:leaflet-gps
 keplerjs:leaflet-layerjson
 keplerjs:bootstrap-list-filter

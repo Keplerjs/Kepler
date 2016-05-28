@@ -9,8 +9,7 @@ Kepler.profile = {
 	placeCheckin: null,
 
 	_deps: {
-		online: new Tracker.Dependency(),
-		checkin: new Tracker.Dependency()
+		online: new Tracker.Dependency()
 	},
 
 	init: function(cb) {
@@ -41,11 +40,6 @@ Kepler.profile = {
 	getOnline: function() {
 		this._deps.online.depend();
 		return !!this.data.online;
-	},
-	getCheckin: function() {
-		this._deps.checkin.depend();
-		if(this.placeCheckin)
-			return this.placeCheckin.rData();
 	},
 	getOpts: function(prop) {
 		return K.util.getPath(this.data,'settings.'+prop);
@@ -106,17 +100,15 @@ Kepler.profile = {
 	},
 	addCheckin: function(placeId) {
 		var self = this;
-		Meteor.call('addCheckin',placeId, function() {
+		Meteor.call('addCheckin', placeId, function() {
 			self.placeCheckin = K.newPlace(placeId);
-			self._deps.checkin.changed();
 		});
 		return this;
 	},
 	removeCheckin: function(placeId) {
 		var self = this;
-		Meteor.call('removeCheckin',placeId, function(err) {
+		Meteor.call('removeCheckin', placeId, function(err) {
 			self.placeCheckin = null;
-			self._deps.checkin.changed();			
 		});
 		return this;
 	},

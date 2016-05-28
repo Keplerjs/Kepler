@@ -1,4 +1,4 @@
-
+//https://github.com/mondora/mondora-iron-router-rest-auth/
 
 var paths = {
 	root: '/api',
