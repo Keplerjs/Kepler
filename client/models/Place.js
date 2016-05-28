@@ -98,7 +98,8 @@ K.newPlace = function(id) {
 	if(!K.placesById[id] && getPlaceById(id).fetch()[0])
 	{
 		K.placesById[id] = new K.Place(id);
-		//for debugging
+		
+		//debugging
 		var iname = K.util.sanitizeFilename(K.placesById[id].name);
 		K.placesByName[iname || id] = K.placesById[id];
 	}

@@ -126,6 +126,7 @@ K.newUser = function(id) {
 	if(!K.usersById[id] && getUserById(id).fetch()[0])
 	{
 		K.usersById[id] = new K.User(id);
+		
 		//for debugging
 		var iname = K.util.sanitizeFilename(K.usersById[id].name);
 		K.usersByName[iname || id] = K.usersById[id];
