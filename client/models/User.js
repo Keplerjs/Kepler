@@ -2,7 +2,6 @@
 	Classe User
 */
 //TODO K.destroyUser = function(userId) {};//eliminare anche marker popup e icon
-//TODO nuovo campo near by geonames, se loc attivo senza checkin
 
 Kepler.User = K.Class.extend({
 
