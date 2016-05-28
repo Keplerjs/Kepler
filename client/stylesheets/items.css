@@ -52,10 +52,10 @@
 }
 
 /* item conver */
-.conver-item .pull-left {
+.conver-item .btn {
 	line-height: 14px;
 }
-.conver-item .conver-btn-title {
+.conver-item .conver-title {
 	font-size: 12px;
 	color: #666;
 	max-width: 50%;
@@ -67,7 +67,8 @@
 	font-size: 12px;
 	color: #aaa;
 }
-.conver-item .user-btn-name {
+.conver-item .user-btn-name,
+.conver-item .place-btn-name {
 	font-size: 12px;
 	line-height: 12px;
 	margin-left: 0;

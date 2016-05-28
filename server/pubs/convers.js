@@ -7,13 +7,15 @@ Meteor.publish('conversByIds', function(convIds) {
 	{
 		var conversCur = getConversByIds(convIds),
 			conversData = conversCur.fetch(),
-			usersIds = _.uniq(_.flatten( _.pluck(conversData, 'usersIds') ));
+			usersIds = _.uniq(_.flatten(_.pluck(conversData, 'usersIds')));
 			//TODO estrarre solo gli ultimi 3-4
+
+console.log('conversByIds', usersIds, _.pluck(getUsersByIds( usersIds ).fetch(),'name') )
 
 		return [
 			conversCur,
 			getPlacesByIds( [conversData.placeId] ),
-			getUsersByIds( _.last(usersIds,3) )
+			getUsersByIds( usersIds )
 		];
 	}
 	else

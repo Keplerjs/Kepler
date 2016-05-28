@@ -1,22 +1,24 @@
 
 <template name="item_conver">
 	<div class="conver-item">
-		<a class="pull-left" href="/conver/{{_id}}">
-			<small class="conver-users">
+		<a class="btn btn-xs" href="/conver/{{_id}}">
+			<span class="conver-users pull-left">
 			{{#each usersIds}}
 				{{#with newUser this}}
 					<b class="user-btn-name"><u>{{name}}</u></b>
 				{{/with}}
 			{{/each}}
-			</small><br>
-			<span class="conver-btn-title"> {{{tit}}}</span>
+			</span><br>
+			<span class="conver-title"> {{{tit}}}</span>
 		</a>
 		<div class="pull-right">
+			<span class="conver-place">
 			{{#if placeId}}
 				{{#with newPlace placeId}}
 					{{> item_place}}
 				{{/with}}
 			{{/if}}
+			</span>
 			<time>{{humanTime lastMsg.updateAt 1}}</time>
 			<label class="btn btn-sm btn-default conver-btn-del">
 				<i class="icon icon-del"></i>
