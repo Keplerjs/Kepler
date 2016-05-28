@@ -5,7 +5,7 @@ Package.describe({
 });
 
 Npm.depends({
-  "bootstrap-confirm-button": "0.0.4"
+  "bootstrap-confirm-button": "0.1.0"
 });
 
 Package.onUse(function (api) {

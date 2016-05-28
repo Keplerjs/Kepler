@@ -25,14 +25,17 @@
 	float: left;
 }
 .msg-item .user-btn-name u {
-	display: none;
+	font-size: 12px;
+	line-height: 12px;
+	vertical-align: top;
 }
 .msg-item .msg-body {
 	font-size: 14px;
+	line-height: 14px;	
 	float: left;
 	max-width: 86%;
-	line-height: 15px;
-	margin: 5px;
+	vertical-align: top;
+	margin: 0 5px;
 }
 .msg-item time {
 	float: right;
@@ -51,10 +54,12 @@
 	padding: 0;
 }
 #converInput textarea {
+	resize: none;
 	margin:0;	
 	padding:2px;
 	min-height: 28px;
 	width:100%;
 	border: 1px solid #ccc;
+	background: #fff;
 	border-radius: 4px;
 }

@@ -3,9 +3,8 @@ Template.item_conver.onRendered(function() {
 	
 	var convid = this.data._id;
 
-	this.$('.conver-btn-del').btsConfirmButton({
-			msg: i18n('btns.converdel')
-		}, function(e) {
+	this.$('.conver-btn-del')
+		.btsConfirmButton(i18n('btns.converdel'), function(e) {
 			
 			var btn$ = $(e.target),
 				list$ = btn$.parents('.list-group');
@@ -16,24 +15,26 @@ Template.item_conver.onRendered(function() {
 });
 
 Template.item_conver.helpers({
-	usersIds: function() {
-		var ids = this.usersIds;
-		
-		if(!this.placeId)
-			ids = _.without(ids, K.profile.id);
-
-		return _.last(ids, 3);
-	},
 	tit: function() {
-		var title;
+		var title = _.str.truncate(this.title, 30);
 
-		if(this.placeId)
-			title = _.str.truncate(this.title, 30);
-		else if(this.lastMsg)
+		if(this.lastMsg)
 			title = _.str.truncate(_.str.stripTags(this.lastMsg.body), 30);
 		else
 			title = i18n('titles.msgpriv');
 
 		return title || '...';
+	},
+	usersIds: function() {
+		//return _.last(_.without(this.usersIds, K.profile.id), 3);
+		return _.last(this.usersIds, 3);
+	},	
+	target: function() {
+
+		if(this.targetType==='place')
+			return K.newPlace(this.targetId);
+
+		else if(this.targetType==='user')
+			return K.newUser(this.targetId);
 	}
 });

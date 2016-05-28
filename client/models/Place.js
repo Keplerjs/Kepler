@@ -3,6 +3,7 @@ Kepler.Place = K.Class.extend({
 
 	id: null,
 	type: 'place',
+	template: 'item_place',		//default item template
 	data: {},					//dati orignali dal db
 	
 	init: function(placeId) {

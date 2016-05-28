@@ -119,7 +119,7 @@ K.admin.methods({
 		place.loc[0] += offset;
 		place.loc[1] += offset;
 		
-		place._id = new Mongo.Collection.ObjectID();
+		//place._id = new Mongo.Collection.ObjectID();
 		place.name = place.name+'(copy)';
 
 		var newId = Places.insert(place);
@@ -130,6 +130,6 @@ K.admin.methods({
 		
 		if(!K.admin.isMe()) return null;
 
-		Places.update({_id: new Mongo.Collection.ObjectID(placeId) }, {$set: {name: name} });
+		Places.update(placeId, {$set: {name: name} });
 	}
 });

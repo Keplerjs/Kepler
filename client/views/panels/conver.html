@@ -27,19 +27,6 @@
 	{{/each}}
 </template>
 
-<!-- TODO move to /client/views/items/ -->
-<template name="itemMsg">	
-	<div class="list-group-item msg-item">
-		<div>
-			{{#with newUser userId}}
-				{{> item_user}}
-			{{/with}}
-			<div class="msg-body">{{{body}}}</div>
-		</div>
-		<time>{{humanTime updateAt 1}}</time>
-    </div>
-</template>
-
 <template name="converInput">
 	<form id="converInput">
 		<div class="col-xs-12">

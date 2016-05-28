@@ -7,16 +7,14 @@
 
 Kepler.conver = {
 
-	loadConverWithUser: function(userId) {
-		Meteor.call('getConverWithUser', userId, function(err, convId) {
+	newConver: function(targetId, targetType, title) {
+		Meteor.call('newConver', targetId, targetType, title, function(err, convId) {
 			K.router.go('panelConver',{convId: convId});
 		});
 	},
 
-	newConverInPlace: function(placeId, title) {
-		Meteor.call('newConverInPlace', placeId, title, function(err, convId) {
-			K.router.go('panelConver',{convId: convId});
-		});
+	delConver: function(convId) {
+		Meteor.call('delConver', convId);
 	},
 
 	addMsgToConver: function(convId, body) {	//TODO spostare lato server
@@ -27,10 +25,12 @@ Kepler.conver = {
 		if(!_.str.isBlank(body))
 			addMsgToConver(convId, body);
 	},
-
-	delConver: function(convId) {
-		Meteor.call('delConver', convId);
-	}
+	
+	loadConverWithUser: function(userId) {
+		Meteor.call('getConverWithUser', userId, function(err, convId) {
+			K.router.go('panelConver', {convId: convId });
+		});
+	}	
 };
 
 

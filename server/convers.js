@@ -3,89 +3,107 @@
 	o di conversazioni sulle bacheche dei luoghi
 */
 
-newConver = function(title, placeId, usersIds) {
+newConver = function(targetId, targetType, title, usersIds) {
 
-	placeId = placeId || null;
+//TODO use check()
+
+	targetId = targetId || null;
+	targetType = targetType || null;
 	title = title || '';
 	usersIds = _.union(Meteor.userId(), usersIds || []);
-	//inserire sempre il proprietario tra i partecipanti!
 
-	var convId = Convers.insert({
-		'title': title,			   //Topic(per le bacheche) o Oggetto(per le convers private)
-		'placeId': placeId,        //se è null allora è una conversazione privata tra utenti
-		'userId': Meteor.userId(), //proprietario/mittente della conversazione
-		'usersIds': usersIds,      //partecipanti alla conversazione, TODO rinomina in followers
-		'lastMsg': null
+	if(targetType==='user')
+		usersIds.push(targetId);
+
+	var convData = _.extend(K.schemas.conver, {
+			title: title,
+			targetId: targetId,
+			targetType: targetType,
+			userId: Meteor.userId(),
+			usersIds: usersIds,
+			lastMsg: null
+		}),
+		convId = Convers.insert(convData);
+	
+	if(targetType==='place')
+		Places.update(targetId, {
+			$addToSet: {
+				convers: convId
+			}
+		});
+
+	Users.update(Meteor.userId(), {
+		$addToSet: {
+			convers: convId
+		}
 	});
 	
-	if(placeId)
-		Places.update({_id: new Mongo.Collection.ObjectID(placeId) }, { $addToSet: {convers: convId} });
-
-	Users.update(Meteor.userId(), {$addToSet: {convers: convId} });
-	//la inserisce solo nei miei messaggi, finche non aggiungo un mesaggio
-
-	console.log('newConver', Meteor.user().username, title);
+	console.log('newConver', convData, convId, targetId);
 
 	return convId;
 };
 
 getConverWithUser = function(userId) {
-	//TODO forse eseguire solo lato client!!
-	//TODO per conversa private tra piu utenti ricerca due userIds in campo array
-	//https://groups.google.com/forum/?hl=it&fromgroups#!topic/mongodb-it/0ij4I54PXSY
-	var convData = Convers.findOne({$and: [
-									{ placeId: null},
-									{ usersIds: {$size: 2} },
-									{ usersIds: {$all: [Meteor.userId(), userId]} }
-								]
-							});
+	var convId,
+		convData = Convers.findOne({
+			$and: [
+				{ targetType: 'user' },
+				//{ usersIds: {$size: 2} },
+				{ usersIds: {$all: [Meteor.userId(), userId]} }
+			]
+		});
+
 	if(convData)
-		return convData._id;
-	else {
-		var user = getUsersByIds([userId]).fetch()[0];
-		return newConver( i18n('titles.userConver', user.name), null, userId);
+		convId = convData._id;
+	else
+	{
+		var user = getUsersByIds([userId]).fetch()[0],
+			title = i18n('titles.userConver', user.name);
+
+		convId = newConver(userId, 'user', title );
 	}
+	
+	console.log('getConverWithUser', convId);
+
+	return convId;
 };
 
 delConver = function(convId) {
 
-	var convData = Convers.findOne(convId),
-		userData = Meteor.user();
+	var convData = Convers.findOne(convId);
 	
 	if( Convers.remove({_id: convId, userId: Meteor.userId() }) )
 	{
 		Messages.remove({convId: convId});
 		//TODO rimuove solo proprietario senza far sparire la conver
 		//TODO rimuovere del tutto quando usersIds è vuoto
-		Users.update({_id: {$in: convData.usersIds}}, { $pull: {convers: convId} }, {multi: true});
+		Users.update({_id: {$in: convData.usersIds}}, {
+			$pull: {convers: convId}
+		}, {multi: true});
 		//nascondi agli altri utenti
 
-		if(convData.placeId)
-			Places.update({_id: new Mongo.Collection.ObjectID(convData.placeId) }, { $pull: {convers: convId} });
+		if(convData.targetType==='place')
+			Places.update(convData.targetId, {
+				$pull: {
+					convers: convId
+				}
+			});
 	}
 	else	//se non è il creatore della conver la abbandona
 	{
-		var leaveMsg = {
-			updateAt: K.util.timeUnix(),			
-			userId: Meteor.userId(),
-			body: i18n('notifs.userleaveconv', userData.name)
-		};
-		Messages.insert(leaveMsg);
-		Users.update({_id: Meteor.userId() }, {
+		addMsgToConver(convId, i18n('notifs.userleaveconv', Meteor.user().name) );
+		Users.update(Meteor.userId(), {
 			$pull: {
 				convers: convId
 			}
 		});
-		Convers.update({_id: convId }, {
+		Convers.update(convId, {
 			$pull: {
 				usersIds: Meteor.userId()
-			},
-			$set: {
-				updateAt: K.util.timeUnix(),
-				lastMsg: leaveMsg
 			}
 		});
 	}
+	console.log('delConver', convId);
 };
 
 Meteor.methods({
@@ -97,13 +115,13 @@ Meteor.methods({
 
 		return getConverWithUser(userId);
 	},
-	newConverInPlace: function(title, placeId) {
+	newConver: function(targetId, targetType, title) {
 
-		if(!this.userId || !title || !placeId) return null;
+		if(!this.userId || !title || !targetId) return null;
 
-		console.log('newConverInPlace',title,placeId);
+		console.log('newConver', targetId, targetType, title);
 
-		return newConver(title, placeId);
+		return newConver(targetId, targetType, title);
 	},
 	delConver: function(convId) {
 		

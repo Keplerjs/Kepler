@@ -4,6 +4,9 @@ Messages = new Mongo.Collection('messages');
 
 Messages.allow({
 	insert: function(userId, doc) {
+
+		//TODO body = K.util.sanitizeMsg(body);
+		
 		return userId && doc.convId;
 	},
 	update: function(userId, doc, fieldNames, modifier) {
@@ -31,8 +34,8 @@ addMsgToConver = function(convId, body) {
 
 	if(lastMsg && lastMsg.userId === newMsg.userId)	//append to my last msg
 	{
-		newMsg.body = lastMsg.body +'<br />'+ newMsg.body;
-		//console.log('append in lastMsg', newMsg)
+		newMsg.body = lastMsg.body +'<br /> '+ newMsg.body;
+		delete newMsg._id;
 		Messages.update({_id: lastMsg._id }, {
 			$set: newMsg
 		});
@@ -42,10 +45,12 @@ addMsgToConver = function(convId, body) {
 		newMsg._id = Messages.insert(newMsg);
 	//TODO forse si semplifica con upsert o forse no
 
-	console.log(newMsg)
-
-	Convers.update({_id: convId}, {
-		$addToSet: { usersIds: Meteor.userId() },
-		$set: { lastMsg: newMsg }
+	Convers.update(convId, {
+		$addToSet: {
+			usersIds: Meteor.userId()
+		},
+		$set: {
+			lastMsg: newMsg
+		}
 	});
 };

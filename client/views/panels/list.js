@@ -83,15 +83,17 @@ Template.search_place.onRendered(function() {
 	});
 });
 
-Template.conver_new.events({
+Template.conver_place_new.events({
 	'click .conver-btn-new': function(e,tmpl) {
 		e.preventDefault();
-		var title = _.str.clean(tmpl.$('.conver-txt-new').val());
+		
+		var title = _.str.clean(tmpl.$('.conver-title-new').val());
 		
 		if(!_.str.isBlank(title))
-			K.conver.newConverInPlace(title, this.id);
+			K.conver.newConver(this.id, 'place', title);
 	},
-	'keydown .conver-txt-new': function(e,tmpl) {
+	//TODO use form and submit
+	'keydown .conver-title-new': function(e,tmpl) {
 		if(e.keyCode===13)//enter
 		{
 			e.preventDefault();

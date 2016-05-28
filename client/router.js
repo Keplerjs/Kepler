@@ -10,7 +10,6 @@ Kepler.router = {
 		return route ? route.getName() : 'page404';
 	}
 };
-//Router.setTemplateNameConverter(function (str) { return str; });
 
 Router.configure({
 	layoutTemplate: 'layoutMap',
@@ -287,7 +286,7 @@ Router.map(function() {
 		path: '/place/:placeId/convers',
 		template: 'panelList',
 		waitOn: function() {
-			return Meteor.subscribe('conversByPlace', this.params.placeId);
+			return Meteor.subscribe('conversByTarget', this.params.placeId);
 		},
 		data: function() {
 			if(!this.ready()) return null;
@@ -295,10 +294,10 @@ Router.map(function() {
 			return place && {
 				title: i18n('titles.placeConvers', place.name),
 				className: 'placeConvers',
-				headerTemplate: 'conver_new',
+				headerTemplate: 'conver_place_new',
 				headerData: place,		
 				itemsTemplate: 'item_conver',
-				items: getConversByPlace(this.params.placeId).fetch()
+				items: getConversByTarget(this.params.placeId).fetch()
 			};
 		}
 	});

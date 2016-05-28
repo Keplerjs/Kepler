@@ -2,7 +2,7 @@
 <template name="item_conver">
 	<div class="conver-item">
 		<a class="btn btn-xs" href="/conver/{{_id}}">
-			<span class="conver-users pull-left">
+			<span class="conver-users">
 			{{#each usersIds}}
 				{{#with newUser this}}
 					<b class="user-btn-name"><u>{{name}}</u></b>
@@ -12,10 +12,10 @@
 			<span class="conver-title"> {{{tit}}}</span>
 		</a>
 		<div class="pull-right">
-			<span class="conver-place">
-			{{#if placeId}}
-				{{#with newPlace placeId}}
-					{{> item_place}}
+			<span class="conver-target">
+			{{#if target}}
+				{{#with target}}
+					{{> Template.dynamic template=this.template}}
 				{{/with}}
 			{{/if}}
 			</span>

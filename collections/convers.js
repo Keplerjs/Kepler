@@ -2,8 +2,8 @@
 Convers = new Mongo.Collection('convers');
 
 getConverById = function(convId) {
-	//TODO ritorna solo ultimi 10 messaggi!!
-	//TODO fare funzione scaricare messaggi un po alla volta
+	//TODO ritornare solo ultimi 10 messaggi!!
+	//TODO scaricare messaggi un po alla volta
 	return Convers.find(convId, { fields: K.fields.converPanel });
 };
 
@@ -14,8 +14,8 @@ getConversByIds = function(convIds) {
 	return Convers.find({_id: convIds }, { fields: K.fields.converItem });
 };
 
-getConversByPlace = function(placeId) {
-	return Convers.find({placeId: placeId }, { fields: K.fields.converItem });
+getConversByTarget = function(targetId) {
+	return Convers.find({targetId: targetId }, { fields: K.fields.converItem });
 };
 
 //TODO
@@ -25,11 +25,13 @@ Convers.allow({
 	},
 	update: function(userId, doc, fieldNames, modifier) {
 		
-		//se è una conver privata aggiorna destinatari
-		if(!doc.placeId)
-			Users.update({_id: {$in: doc.usersIds}}, {
-				$addToSet: {convers: doc._id}
-			}, {multi: true});
+		//if private conver update target user
+		if(doc.targetType==='user')
+			Users.update(doc.targetId, {
+				$addToSet: {
+					convers: doc._id
+				}
+			});
 		//TODO FIXME ottimizzare... non eseguire sempre ad ogni messaggio
 
 		return true;

@@ -54,6 +54,7 @@
 /* item conver */
 .conver-item .btn {
 	line-height: 14px;
+	text-align: left;
 }
 .conver-item .conver-title {
 	font-size: 12px;
