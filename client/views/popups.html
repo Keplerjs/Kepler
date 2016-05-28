@@ -23,6 +23,10 @@
 	{{/if}}
 </template>
 
+<template name="popup_user">
+	{{> item_user}}
+</template>
+
 <template name="popup_track">
 	<span class="popup-track-content">
 		{{#if time}}<i class="icon icon-time"></i> {{i18n 'labels.time'}} {{humanTime time}} <br />{{/if}}

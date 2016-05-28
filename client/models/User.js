@@ -64,7 +64,7 @@ Kepler.User = K.Class.extend({
 			self.marker.on('click mousedown', function(e) {
 				if(!this._popup) {
 					self.popup$ = L.DomUtil.create('div','popup-user');
-					Blaze.renderWithData(Template.item_user, self, self.popup$);
+					Blaze.renderWithData(Template.popup_user, self, self.popup$);
 					this.bindPopup(self.popup$, { closeButton:false });
 				}
 			}).on('add', function(e) {
