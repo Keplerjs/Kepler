@@ -1,0 +1,15 @@
+
+<template name="tab_eventplace">
+	{{#if event.lentgh}}
+		<label>{{i18n 'labels.eventplace'}}</label>
+		<ul class="list-group">				
+			{{#each event}}
+			<li class="list-group-item">
+				[evento]
+			</li>
+			{{/each}}
+		</ul>
+	{{else}}
+		<label class="text-gray">{{i18n 'labels.noevents'}}</label>
+	{{/if}}
+</template>
