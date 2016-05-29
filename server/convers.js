@@ -24,7 +24,7 @@ newConver = function(targetId, targetType, title, usersIds) {
 			lastMsg: null
 		}),
 		convId = Convers.insert(convData);
-	
+
 	if(targetType==='place')
 		Places.update(targetId, {
 			$addToSet: {
@@ -38,7 +38,7 @@ newConver = function(targetId, targetType, title, usersIds) {
 		}
 	});
 	
-	console.log('newConver', convData, convId, targetId);
+	console.log('newConver', convId, targetId);
 
 	return convId;
 };

@@ -89,8 +89,6 @@ K.admin.methods({
 			 		cb(null, K.geoapi.region(loc) );
 			 	},0);
 			}
-			//TODO
-			//tracks e pois
 		},
 		function(err, results) {
 			Places.update(placeId, {
@@ -98,10 +96,6 @@ K.admin.methods({
 			});
 			console.log('aupdatePlaceLoc',results);
 		});
-
-		//TODO blocca se non e' admin
-		//http://stackoverflow.com/questions/12569712/meteor-calling-an-asynchronous-function-inside-a-meteor-method-and-returning-th
-		//TODO usare Fiber e Future...	
 	},
 	delPlace: function(placeId) {
 
@@ -119,7 +113,6 @@ K.admin.methods({
 		place.loc[0] += offset;
 		place.loc[1] += offset;
 		
-		//place._id = new Mongo.Collection.ObjectID();
 		place.name = place.name+'(copy)';
 
 		var newId = Places.insert(place);
