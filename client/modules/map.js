@@ -78,6 +78,7 @@ layers.geojson = new L.GeoJSONAutoClear(null, {
 
 		else if(feature.properties.tags)			//OSM point
 		{
+
 			var iconPoi = L.DomUtil.create('div'),
 				iconClass = K.osm.iconByTags(feature.properties.tags);
 
@@ -104,9 +105,9 @@ layers.geojson = new L.GeoJSONAutoClear(null, {
 		else if(feature.geometry.type==='Point')
 			tmpl = Template.popup_poi;
 
-		if(tmpl && feature.properties.name) {
+		if(tmpl && feature.properties) {
 			$popup = L.DomUtil.create('div','popup-track');
-			Blaze.renderWithData(tmpl, feature.properties, $popup);
+			Blaze.renderWithData(tmpl, feature.properties.tags || feature.properties, $popup);
 			layer.bindPopup($popup, {closeButton:false} );
 		}
 	}

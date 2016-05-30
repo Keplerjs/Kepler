@@ -35,5 +35,30 @@ Meteor.methods({
 		});
 
 		return future.wait();
-	}
+	},
+	getOverpassByNear: function(filter, ll, options) {
+		
+		if(!this.userId) return null;
+		
+		filter = filter ? '['+filter+']' : '';
+
+		var query = _.template('[out:json];node(around:{radius},{lat},{lon}){filter};out;', {
+				lat: ll[0], lon: ll[1],
+				radius: 20,//Meteor.settings.public.maxPoisDist,
+				filter: filter
+			});
+				
+		var future = new Future();
+
+		console.log('overpass', query);
+
+		Overpass(query, function(err, resp) {
+			if(err)
+				future.throw(err);
+			else
+				future.return(resp);
+		});
+
+		return future.wait();
+	}	
 });

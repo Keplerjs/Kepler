@@ -36,3 +36,21 @@ Kepler.osm = {
 		return '';
 	}
 };
+
+
+setTimeout(function() {
+
+	K.map._map.on('click', function(e) {
+		var loc = [e.latlng.lat, e.latlng.lng];
+			filter = '';
+
+		Meteor.call('getOverpassByNear', 'amenity', loc, function(err, geojson) {
+			
+			console.log('getOverpassByBBox',geojson);
+
+			if(geojson.features.length)
+				K.map.loadGeojson(geojson);
+		});
+	});
+
+},2000);
