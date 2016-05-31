@@ -37,7 +37,7 @@ Kepler.osm = {
 	}
 };
 
-
+/*
 setTimeout(function() {
 
 	K.map._map.on('click', function(e) {
@@ -54,3 +54,4 @@ setTimeout(function() {
 	});
 
 },2000);
+//*/

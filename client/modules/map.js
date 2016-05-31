@@ -48,7 +48,7 @@ layers.cluster = new L.MarkerClusterGroup({
 });
 
 layers.places = new L.LayerJSON({
-	caching: true,
+	caching: false,
 	layerTarget: layers.cluster,
 	minShift: Meteor.settings.public.bboxMinShift,
 	callData: function(bbox, callback) {
@@ -262,6 +262,11 @@ Kepler.map = {
 			this._map.removeLayer(layers.cluster);
 		}
 		return this;
+	},
+
+	getCenter: function() {
+		var ll = this._map.getCenter();
+		return [ll.lat, ll.lng];
 	},
 
 	getBBox: function() {

@@ -48,54 +48,6 @@ K.admin.methods({
 
 		Users.update({}, {$set: {favorites: []} });
 		Places.update({}, {$set: {rank: 0} });
-	},	
-	updatePlaceLoc: function(placeId, loc)	{
-		
-		if(!K.admin.isMe()) return null;
-		
-		async.parallel({
-			loc: function(cb) {
-				Meteor.setTimeout(function() {
-					cb(null, loc);
-				},0);
-			},
-			esp: function(cb) {
-				Meteor.setTimeout(function() {
-			 		cb(null, K.geoapi.aspect(loc) );
-			 	},0);
-			},
-			ele: function(cb) {
-				Meteor.setTimeout(function() {
-			 		cb(null, K.geoapi.elevation(loc) );
-			 	},0);
-			},
-			near: function(cb) {
-				Meteor.setTimeout(function() {
-			 		cb(null, K.geoapi.near(loc) );
-			 	},0);
-			},
-			com: function(cb) {
-				Meteor.setTimeout(function() {
-			 		cb(null, K.geoapi.municipality(loc) );
-			 	},0);
-			},
-			prov: function(cb) {
-				Meteor.setTimeout(function() {
-			 		cb(null, K.geoapi.province(loc) );
-			 	},0);
-			},
-			reg: function(cb) {
-				Meteor.setTimeout(function() {
-			 		cb(null, K.geoapi.region(loc) );
-			 	},0);
-			}
-		},
-		function(err, results) {
-			Places.update(placeId, {
-				$set: results
-			});
-			console.log('aupdatePlaceLoc',results);
-		});
 	},
 	delPlace: function(placeId) {
 
@@ -118,11 +70,5 @@ K.admin.methods({
 		var newId = Places.insert(place);
 
 		return newId._str;
-	},
-	renamePlace: function(placeId, name) {
-		
-		if(!K.admin.isMe()) return null;
-
-		Places.update(placeId, {$set: {name: name} });
 	}
 });
