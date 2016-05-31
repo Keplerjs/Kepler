@@ -8,7 +8,10 @@
 		<li class="list-group-item panel-geoinfo">
 			{{#if esp}}<i class="icon icon-esp"></i> <label>{{i18n 'labels.esp'}}</label> {{humanAzimut esp}} <br />{{/if}}
 			{{#if ele}}<i class="icon icon-ele"></i> <label>{{i18n 'labels.ele'}}</label> {{ele}}m <br />{{/if}}
-			{{#if loc}}<i class="icon icon-sun"></i> <label>{{i18n 'labels.sunrise'}}</label> {{sunrise loc}} <label>{{i18n 'labels.sunset'}}</label> {{sunset loc}} <br />{{/if}}
+			{{#if loc}}<i class="icon icon-sun"></i> 
+				<label>{{i18n 'labels.sunrise'}}</label> {{sunrise loc}} 
+				<label>{{i18n 'labels.sunset'}}</label> {{sunset loc}} 
+			{{/if}}
 		</li>
 	</ul>
 

@@ -1,5 +1,3 @@
-//https://github.com/meteor/meteor/blob/devel/packages/spacebars/README.md
-//http://stackoverflow.com/questions/22750022/defining-iterative-block-helpers-in-meteor-0-8
 
 Template.registerHelper('isRoute', function(name, clas) {
 	return K.router.routeName()===name ? clas:'';
@@ -17,7 +15,6 @@ Template.registerHelper('settings', function(prop) {
 	return K.util.getPath(Meteor.settings.public, prop);
 });
 
-//TODO nuovo helper {{#ifwith }}
 Template.registerHelper('or', function() {
 	return _.some(_.initial(arguments));
 });
@@ -41,7 +38,6 @@ Template.registerHelper('humanTime', function(sec, ago) {
 Template.registerHelper('humanTimeUTC', function(dateutc, ago) {
 	var date = K.util.dateUtcToLocal(new Date(Date.parse(dateutc))),
 		sec = Math.round(date.getTime()/1000);
-		console.log(date, ago)
 	return K.util.humanize.time(sec, parseInt(ago));
 });
 
