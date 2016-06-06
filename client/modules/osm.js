@@ -1,7 +1,7 @@
 
 //TODO Osms = new Mongo.Collection('osm');
 
-var tags2class = {
+var tags2poiClass = {
 'amenity=drinking_water': 'water',
 'amenity=parking': 'parking',
 'amenity=restaurant': 'eat',
@@ -11,6 +11,8 @@ var tags2class = {
 'amenity=bar': 'drink'
 };
 
+//'highway=path',
+
 Kepler.osm = {
 	loadQuery: function(filter) {
 
@@ -18,9 +20,9 @@ Kepler.osm = {
 
 		var bbox = K.map.getBBox();
 		
-		Meteor.call('getOverpassByBBox', filter, bbox, function(err, geojson) {
+		Meteor.call('getOsmByBBox', filter, bbox, function(err, geojson) {
 			
-			//console.log('getOverpassByBBox',geojson.features.length);
+			//console.log('getOsmByBBox',geojson.features.length);
 
 			if(geojson.features.length)
 				K.map.loadGeojson(geojson);
@@ -30,28 +32,9 @@ Kepler.osm = {
 		for(var tag in tags) {
 			var tagval = tag+'='+tags[tag];
 
-			if(tags2class[tagval])
-				return 'icon icon-'+tags2class[tagval];
+			if(tags2poiClass[tagval])
+				return 'icon icon-'+tags2poiClass[tagval];
 		}
 		return '';
 	}
 };
-
-/*
-setTimeout(function() {
-
-	K.map._map.on('click', function(e) {
-		var loc = [e.latlng.lat, e.latlng.lng];
-			filter = '';
-
-		Meteor.call('getOverpassByNear', 'amenity', loc, function(err, geojson) {
-			
-			console.log('getOverpassByBBox',geojson);
-
-			if(geojson.features.length)
-				K.map.loadGeojson(geojson);
-		});
-	});
-
-},2000);
-//*/

@@ -326,11 +326,12 @@ Kepler.map = {
 
 			layers.geojson.clearLayers();
 			for(var i in geoData) {
-				console.log(geoData[i])
-				if(geoData[i])
+				if(geoData[i] && (geoData[i].features || geoData[i].feature))
 					layers.geojson.addData(geoData[i]);
 			}
-		
+
+console.log('loadGeojson',layers.geojson.getBounds())
+
 			var bb = layers.geojson.getBounds(),
 				zoom = this._map.getBoundsZoom(bb),
 				loc = bb.getCenter();
