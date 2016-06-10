@@ -5,16 +5,16 @@ var poisToGeojson = function(pois, place, type) {
 	
 	if(type) {
 		pois = _.filter(pois, function(feature) {
-			return feature.properties.tipo === type;
+			return feature.properties.type === type;
 		});
 	}
 
 	var gloc = [place.loc[1], place.loc[0]],
-		placeCircle = K.util.geo.createFeature('Point', gloc, {tipo:'placeCircle'});
+		placeCircle = K.util.geo.createFeature('Point', gloc, {type:'placeCircle'});
 		coordLines = _.map(pois, function(poi) {
 			return [gloc, poi.geometry.coordinates];
 		}),
-		poiLines = K.util.geo.createFeature('MultiLineString', coordLines, {tipo:'poiLine'}),
+		poiLines = K.util.geo.createFeature('MultiLineString', coordLines, {type:'poiLine'}),
 		features = _.union(placeCircle, pois, poiLines);
 
 	return K.util.geo.createFeatureColl(features);
@@ -34,14 +34,14 @@ Kepler.Place.include({
 
 		var pois = getPoisByLoc(this.loc).fetch(),
 			types = _.countBy(pois, function(feature) {
-				return feature.properties.tipo;
+				return feature.properties.type;
 			});
 
-		return _.map(types, function(val, tipo) {
+		return _.map(types, function(val, type) {
 			return {
-				type: tipo,
+				type: type,
 				count: val,
-				title: i18n('pois.'+tipo)
+				title: i18n('pois.'+type)
 			};
 		});
 	}

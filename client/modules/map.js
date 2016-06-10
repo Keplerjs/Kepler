@@ -69,11 +69,11 @@ layers.places = new L.LayerJSON({
 
 layers.geojson = new L.GeoJSONAutoClear(null, {
 	style: function (feature) {
-		return styles[feature.properties.tipo || 'def'] || styles.def;
+		return styles[feature.properties.type || 'def'] || styles.def;
 	},
 	pointToLayer: function(feature, latlng) {	//costruisce marker POI
 
-		if(feature.properties.tipo==='placeCircle')	//evidenzia place nei pois
+		if(feature.properties.type==='placeCircle')	//evidenzia place nei pois
 			return new L.CircleMarker(latlng);
 
 		else if(feature.properties.tags)			//OSM point
@@ -90,7 +90,7 @@ layers.geojson = new L.GeoJSONAutoClear(null, {
 		else
 		{
 			var iconPoi = L.DomUtil.create('div');
-			L.DomUtil.create('i', 'icon icon-'+feature.properties.tipo, iconPoi);
+			L.DomUtil.create('i', 'icon icon-'+feature.properties.type, iconPoi);
 			return new L.Marker(latlng, {
 					icon: new L.NodeIcon({className:'marker-poi', nodeHtml: iconPoi})
 				});
