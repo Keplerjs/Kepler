@@ -51,11 +51,69 @@ Meteor.methods({
 				console.log('setLoc', _.pick(userData,'loc','loclast','checkin'), loc);
 			}
 			else
-				Users.update(this.userId, {$set: {loc: userData.loclast}});
+				Users.update(this.userId, {
+					$set: {
+						loc: userData.loclast
+					}
+				});
 		}
 		else
-			Users.update(this.userId, {$set: {loc: null}});
+			Users.update(this.userId, {
+				$set: {
+					loc: null
+				}
+			});
 	},
+	addCheckin: function(placeId) {
+
+		//TODO spostare in /server/profile.js
+
+		if(!this.userId || !placeId) return null;
+
+		var placeData = Places.findOne(new Mongo.Collection.ObjectID(placeId)),
+			userData = Meteor.user();
+
+ 		if(userData.checkin)
+ 			Places.update({_id: new Mongo.Collection.ObjectID(userData.checkin) }, {
+ 					$pull: {checkins: this.userId}
+ 				});
+
+		Places.update({_id: new Mongo.Collection.ObjectID(placeId)}, {
+				$addToSet: {
+					checkins: this.userId, hist: this.userId
+				}
+			});
+		Users.update(this.userId, {
+				$set: {
+					checkin: placeId,
+					loc: null,
+					loclast: placeData.loc,
+					'settings.map.center': placeData.loc
+				},
+				$addToSet: {
+					hist: placeId
+				}
+			});
+		
+		console.log('addCheckin', userData.username, placeData.name);
+	},
+	removeCheckin: function(placeId) {
+
+		if(!this.userId || !placeId) return null;
+
+		Places.update({_id: new Mongo.Collection.ObjectID(placeId)}, {
+				$pull: {
+					checkins: this.userId
+				}
+			});
+		Users.update(this.userId, {
+				$set: {
+					checkin: null
+				}
+			});
+		
+		console.log('removeCheckin', this.userId, placeId);
+	},	
 	friendAdd: function(pendUserId) {
 		
 		if(!this.userId || this.userId===pendUserId) return null;
@@ -91,66 +149,7 @@ Meteor.methods({
 		Users.update(this.userId, {$addToSet: {usersBlocked: blockUserId} });
 
 		console.log('friendBlock', this.userId, blockUserId);
-	},
-	addCheckin: function(placeId) {
-
-		//TODO spostare in /server/profile.js
-
-		if(!this.userId || !placeId) return null;
-
-		var placeData = Places.findOne(new Mongo.Collection.ObjectID(placeId)),
-			userData = Meteor.user();
-
- 		if(userData.checkin)
- 			Places.update({_id: new Mongo.Collection.ObjectID(userData.checkin) }, {
- 					$pull: {checkins: this.userId}
- 				});
-
-		Places.update({_id: new Mongo.Collection.ObjectID(placeId)}, {
-				$addToSet: {
-					checkins: this.userId, hist: this.userId
-				}
-				//TODO http://stackoverflow.com/questions/21466297/slice-array-in-mongodb-after-addtoset-update
-				// $addToSet: {
-				// 	checkins: this.userId,
-				// 	hist: { $each: [this.userId], $slice: Meteor.settings.public.maxHist }
-				// }
-			});
-		Users.update(this.userId, {
-				$set: {
-					checkin: placeId,
-					loc: null,
-					//loclast: placeData.loc,
-					'settings.map.center': placeData.loc
-				},
-				$addToSet: {
-					hist: placeId
-				}
-				//TODO
-				// $addToSet: {
-				// 	hist: { $each: [placeId], $slice: Meteor.settings.public.maxHist }
-				// }
-			});
-		
-		console.log('addCheckin', userData.username, placeData.name);
-	},
-	removeCheckin: function(placeId) {
-
-		if(!this.userId || !placeId) return null;
-
-		Places.update({_id: new Mongo.Collection.ObjectID(placeId)}, {
-				$pull: {
-					checkins: this.userId
-				}
-			});
-		Users.update(this.userId, {
-				$set: {
-					checkin: null
-				}
-			});
-		
-		console.log('removeCheckin', this.userId, placeId);
-	},
+	},	
 	addFavorite: function(placeId) {
 
 		if(!this.userId) return null;

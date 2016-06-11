@@ -18,33 +18,36 @@ Router.configure({
 });
 
 Router.waitOn(function() {
+	console.log('Router.waitOn');
 
-	if(Meteor.user())
-	{
-		Meteor.subscribe('currentUser', function() {
+	if(!Meteor.user()) {
+		if(Meteor.loggingIn())
+			this.render(this.loadingTemplate);
+		else
+			Router.go('pageIntro');
+	}
+	else {
+		return Meteor.subscribe('currentUser', function() {
 			K.profile.init(function() {
 				K.admin.loadActions();
 			});
 		});
 	}
-	else
-	{
-		if(Meteor.loggingIn())
-			this.render('panelLoading');
-		else
-			Router.go('pageIntro');
-	}
-	  
-}, {except: ['pageIntro','pageAbout'] });
+});
 
-Router.onBeforeAction(function() {
+Router.onBeforeAction(function(pause) {
 
 	var self = this;
-	
-	if(this.ready() && $('#map').length)
-		K.map.init(K.profile.getOpts('map'), function() {
-			this.enableBBox();
-		}); //*/
+
+	if(this.ready())
+	{
+		console.log('map.init', K.profile.data);
+
+		if(!_.isEmpty(K.profile.data))
+			K.map.init(K.profile.getOpts('map'), function() {
+				this.enableBBox();
+			});
+	}
 	else
 		this.render('pageLoading');
 	
@@ -92,7 +95,7 @@ Router.map(function() {
 		path: '/logout',
 		onBeforeAction: function () {
 			K.profile.logout();
-			K.map.destroyMap();
+			K.map.destroy();
 			Router.go('pageIntro');
 		}
 	});
@@ -347,7 +350,7 @@ Router.map(function() {
 				return user.rData();
 			}
 			else
-				this.render('panelLoading');
+				this.render(this.loadingTemplate);
 		}
 	});
 

@@ -162,7 +162,7 @@ Kepler.map = {
 
 		var self = this;
 
-		if(self.ready) return this;
+		if(self.ready || $('#map').length===0) return this;
 
 		self.ready = true;
 
@@ -239,7 +239,7 @@ Kepler.map = {
 		return this;
 	},
 
-	destroyMap: function() {
+	destroy: function() {
 		if(this.ready) {
 			this.ready = false;
 			layers.places.clearLayers();			
@@ -330,7 +330,7 @@ Kepler.map = {
 					layers.geojson.addData(geoData[i]);
 			}
 
-console.log('loadGeojson',layers.geojson.getBounds())
+//console.log('loadGeojson',layers.geojson.getBounds())
 
 			var bb = layers.geojson.getBounds(),
 				zoom = this._map.getBoundsZoom(bb),
