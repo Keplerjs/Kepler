@@ -1,5 +1,5 @@
 
-K.admin.methods({
+K.admin.addMethods({
 	updateTracks: function() {		//estende proprieta di una traccia con dati geografici
 
 		if(!K.admin.isMe()) return null;

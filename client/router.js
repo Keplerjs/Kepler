@@ -29,7 +29,7 @@ Router.waitOn(function() {
 	else {
 		return Meteor.subscribe('currentUser', function() {
 			K.profile.init(function() {
-				K.admin.loadActions();
+				K.admin.loadMethods();
 			});
 		});
 	}

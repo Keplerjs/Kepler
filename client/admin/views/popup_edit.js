@@ -9,6 +9,7 @@ Template.popup_place.events({
 				newLoc = [ll.lat, ll.lng];
 			if(confirm("Aggiornare posizione???"))
 				Meteor.call('updatePlaceLoc', self.id, newLoc, function(err) {
+					console.log(err,'updatePlaceLoc', self.id, newLoc)
 					self.marker.setLatLng(newLoc);
 				});
 			

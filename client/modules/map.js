@@ -115,7 +115,7 @@ layers.geojson = new L.GeoJSONAutoClear(null, {
 ////LAYERS/
 
 controls.zoom = L.control.zoom({
-	position: 'bottomright',
+	position: 'topright',
 	zoomOutText: '',
 	zoomInText: ''	
 });
@@ -126,7 +126,7 @@ controls.attrib = L.control.attribution({
 });
 
 controls.gps = L.control.gps({
-	position: 'topright',
+	position: 'bottomright',
 	title: i18n('controls.gps.title'),
 	textErr: null,//i18n('controls.gps.error'),
 	marker: new L.Marker([0,0], {

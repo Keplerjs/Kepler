@@ -1,5 +1,5 @@
 
-K.admin.methods({
+K.admin.addMethods({
 	cleanPlaceHist: function(placeName) {
 		
 		if(!K.admin.isMe()) return null;
