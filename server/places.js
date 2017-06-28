@@ -62,13 +62,6 @@ updatePlaceLoc = function(placeId, loc)	{
 	});
 };
 
-renamePlace = function(placeId, name) {
-	
-	if(!K.admin.isMe()) return null;
-
-	Places.update(placeId, {$set: {name: name} });
-};
-
 Meteor.methods({
 	newPlaceByLoc: function(loc) {
 

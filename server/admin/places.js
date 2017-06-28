@@ -70,5 +70,19 @@ K.admin.addMethods({
 		var newId = Places.insert(place);
 
 		return newId._str;
+	},
+	renamePlace: function(placeId, name) {
+		
+		if(!K.admin.isMe()) return null;
+
+		var iname = K.util.sanitizeFilename(name);
+
+		Places.update(placeId, {$set: {name: iname} });
+	},
+	movePlace: function(placeId, loc) {
+
+		if(!K.admin.isMe()) return null;
+
+		updatePlaceLoc(placeId, loc);
 	}
 });

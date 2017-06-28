@@ -144,9 +144,9 @@ Kepler.geoapi = (function() {
 	function provinceAPI(ll) {
 
 		var res, ret, src = {
-				par: 'address',
-				url: 'http://nominatim.openstreetmap.org/reverse?format=json&'+
-				     'lat='+ll[0]+'&lon='+ll[1]+'&addressdetails=1'
+				par: 'adminName2',
+				url: 'http://api.geonames.org/countrySubdivisionJSON?lang=IT&level=3&'+
+					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+geonamesUser
 			};
 
 		try {
@@ -156,8 +156,8 @@ Kepler.geoapi = (function() {
 			return null;
 		}
 
-		if(res.statusCode == 200 && res.data && res.data[src.par] && res.data[src.par]['county'])
-			ret = provFromCode( res.data[src.par]['county'] );
+		if(res.statusCode == 200 && res.data && res.data[src.par])
+			ret = res.data[src.par].toLowerCase();
 		else
 			ret = null;
 
