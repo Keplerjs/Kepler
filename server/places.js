@@ -20,7 +20,7 @@ updatePlaceLoc = function(placeId, loc)	{
 	async.parallel({
 		loc: function(cb) {
 			Meteor.setTimeout(function() {
-				cb(null, loc);
+				cb(null, K.util.geo.roundLoc(loc) );
 			},0);
 		},
 		esp: function(cb) {

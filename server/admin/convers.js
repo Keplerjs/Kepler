@@ -4,14 +4,14 @@ K.admin.addMethods({
 		
 		if(!K.admin.isMe()) return false;
 
-		Convers.remove({});
-		Messages.remove({});
-		Users.update({}, {
+		Convers.remove(true);
+		Messages.remove(true);
+		Users.update(true, {
 			$set: {
 				convers: []
 			}
    		},{multi: true});
-		Places.update({}, {
+		Places.update(true, {
 			$set: {
 				convers: []
 			}

@@ -79,18 +79,5 @@ Kepler.notif = {
 					}
 				}
 			});
-	},
-
-// observePlaces: function(placesIds) {
-// 	placesIds = _.map(placesIds, function(id) {
-// 		return new Mongo.Collection.ObjectID(id);
-// 	});
-// 	Places.find({_id: {$in: placesIds} }).observeChanges({
-// 		changed: function(placeId, fields) {
-// 			var place = K.newPlace(placeId._str);
-// 		 	if(fields.checkins.length > 1 && !_.contains(fields.checkins,K.profile.id))
-// 				K.notif.show( i18n('notifs.placecheckins', fields.checkins.length, place.name), 'users');
-// 		}
-// 	});
-// },
+	}
 };

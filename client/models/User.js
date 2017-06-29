@@ -34,9 +34,10 @@ Kepler.User = K.Class.extend({
 				else
 					K.map.removeItem(self);
 			}
-			else if(self.isFriend())
+			else if(self.isFriend() && self.online)
 			{
-				if(self.online && self.loc && !self.checkin)
+				console.log('UPDATE USER', self.name, self.online)
+				if(self.loc && !self.checkin)
 					self.showMarker();
 				else
 					K.map.removeItem(self);
@@ -49,7 +50,6 @@ Kepler.User = K.Class.extend({
 		Tracker.autorun( self.update );	//TODO aggiornare solo se amico
 	},
 
-	//PUBLIC METHODS:
 	showMarker: function() {
 
 		var self = this;

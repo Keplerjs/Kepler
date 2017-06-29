@@ -1,10 +1,5 @@
 
-Places = new Mongo.Collection('falesie', {
-	/*transform: function(doc) {
-		doc.loc = K.util.geo.roundLoc(doc.loc,3);
-		return doc;
-	}//*/
-});
+Places = new Mongo.Collection('places');
 
 //Places.allow({
 //TODO http://stackoverflow.com/questions/21466297/slice-array-in-mongodb-after-addtoset-update
@@ -18,13 +13,10 @@ Places = new Mongo.Collection('falesie', {
 // }
 
 getPlaceById = function(placeId) {
-	return Places.find({_id: new Mongo.Collection.ObjectID(placeId) }, { fields: K.fields.placePanel });
+	return Places.find(placeId, { fields: K.fields.placePanel });
 };
 
 getPlacesByIds = function(placesIds) {
-	placesIds = _.map(placesIds, function(id) {
-		return new Mongo.Collection.ObjectID(id);
-	});
 	return Places.find({_id: {$in: placesIds} }, { fields: K.fields.placeItem });
 };
 

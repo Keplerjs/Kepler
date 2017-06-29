@@ -63,7 +63,7 @@ layers.places = new L.LayerJSON({
 		};
 	},
 	dataToMarker: function(data) {	//eseguito una sola volta per ogni place
-		return K.newPlace(data._id._str).marker;
+		return K.newPlace(data._id).marker;
 	}
 });
 
@@ -300,7 +300,7 @@ Kepler.map = {
 	},
 
 	addItem: function(item) {
-		if(this.ready) {
+		if(this.ready && item.marker) {
 			if(item.type==='place')
 				item.marker.addTo( layers.places );
 

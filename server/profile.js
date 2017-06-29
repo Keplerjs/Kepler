@@ -35,8 +35,8 @@ Meteor.methods({
 
 				if(nearPlace)//automatic check-in
 				{
-					if(nearPlace._id._str != userData.checkin)
-						Meteor.call('addCheckin', nearPlace._id._str);
+					if(nearPlace._id != userData.checkin)
+						Meteor.call('addCheckin', nearPlace._id);
 				}
 				else		//automatic check-out
 					Meteor.call('removeCheckin', userData.checkin);
@@ -70,15 +70,15 @@ Meteor.methods({
 
 		if(!this.userId || !placeId) return null;
 
-		var placeData = Places.findOne(new Mongo.Collection.ObjectID(placeId)),
+		var placeData = Places.findOne(placeId),
 			userData = Meteor.user();
 
  		if(userData.checkin)
- 			Places.update({_id: new Mongo.Collection.ObjectID(userData.checkin) }, {
+ 			Places.update(userData.checkin, {
  					$pull: {checkins: this.userId}
  				});
 
-		Places.update({_id: new Mongo.Collection.ObjectID(placeId)}, {
+		Places.update(placeId, {
 				$addToSet: {
 					checkins: this.userId, hist: this.userId
 				}
@@ -101,7 +101,7 @@ Meteor.methods({
 
 		if(!this.userId || !placeId) return null;
 
-		Places.update({_id: new Mongo.Collection.ObjectID(placeId)}, {
+		Places.update(placeId, {
 				$pull: {
 					checkins: this.userId
 				}
@@ -154,7 +154,7 @@ Meteor.methods({
 
 		if(!this.userId) return null;
 
-		Places.update({_id: new Mongo.Collection.ObjectID(placeId)}, {$inc: {rank: 1} });
+		Places.update(placeId, {$inc: {rank: 1} });
 		Users.update(this.userId, {$addToSet: {favorites: placeId} });
 		
 		console.log('addFavorite', this.userId, placeId);
@@ -163,7 +163,7 @@ Meteor.methods({
 		
 		if(!this.userId) return null;
 
-		Places.update({_id: new Mongo.Collection.ObjectID(placeId), rank: {$gt: 0} }, {$inc: {rank: -1} });
+		Places.update({_id: placeId, rank: {$gt: 0} }, {$inc: {rank: -1} });
 		Users.update(this.userId, {$pull: {favorites: placeId} });
 		
 		console.log('removeFavorite', this.userId, placeId);

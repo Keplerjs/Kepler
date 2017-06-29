@@ -26,42 +26,53 @@ Kepler.Place = K.Class.extend({
 			
 			_.extend(self, self.data);
 
+			if(self.loc)
+				self.showMarker();
+			else
+				K.map.removeItem(self);
+
 			self._dep.changed();
 
 			return self;
 		};
 		Tracker.autorun( self.update );
-
-		//MAP OBJECTS:
-		self.icon = new L.NodeIcon({
-			nodeHtml: L.DomUtil.create('div'),
-			className: (self.name ? 'marker-'+self.type : 'marker-gray'),
-		});
-		self.marker = new L.Marker(self.loc, {icon: self.icon});
-		self.marker.item = self;
-		self.marker.once('add', function() {
-				Blaze.renderWithData(Template.marker_checkins, self, self.icon.nodeHtml);
-			})
-			.on('click mousedown', function(e) {
-				if(!this._popup) {
-					self.popup$ = L.DomUtil.create('div','popup-place');
-					Blaze.renderWithData(Template.popup_place, self, self.popup$);
-					this.bindPopup(self.popup$, { closeButton:false, minWidth:180, maxWidth:320 });
-				}
-			});
 	},
 
-	//PUBLIC METHODS:
+	showMarker: function() {
+		
+		var self = this;
+
+		if(!self.marker)
+		{
+			self.icon = new L.NodeIcon({
+				nodeHtml: L.DomUtil.create('div'),
+				className: (self.name ? 'marker-'+self.type : 'marker-gray'),
+			});
+			self.marker = new L.Marker(self.loc, {icon: self.icon});
+			self.marker.item = self;
+			self.marker.once('add', function() {
+					Blaze.renderWithData(Template.marker_checkins, self, self.icon.nodeHtml);
+				})
+				.on('click mousedown', function(e) {
+					if(!this._popup) {
+						self.popup$ = L.DomUtil.create('div','popup-place');
+						Blaze.renderWithData(Template.popup_place, self, self.popup$);
+						this.bindPopup(self.popup$, { closeButton:false, minWidth:180, maxWidth:320 });
+					}
+				});
+		}
+
+		K.map.addItem(self);
+	},
+
 	loadLoc: function() {
 		var self = this;
-		K.map.addItem(self).loadLoc(self.loc, function() {
+		
+		self.showMarker();
+
+		K.map.loadLoc(self.loc, function() {
 			self.icon.animate();
 		});
-	},
-
-	hideMarker: function() {
-		if(this.marker && this.marker._map)
-			this.marker._map.removeLayer(this.marker);
 	},
 	
 	isOutdoor: function() {

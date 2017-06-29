@@ -7,7 +7,8 @@ K.admin.addMethods({
 		var placeData = Places.findOne({name: placeName}),
 			placeId = placeData._id;
 
-		Users.update({_id: {$in: placeData.hist }}, {$pull: {hist: placeId} });
+		if(placeData.hist)
+			Users.update({_id: {$in: placeData.hist }}, {$pull: {hist: placeId} });
 		Places.update(placeId, {
 			$set: {
 				hist: []
@@ -21,7 +22,8 @@ K.admin.addMethods({
 		var placeData = Places.findOne({name: placeName}),
 			placeId = placeData._id;
 
-		Users.update({_id: {$in: placeData.checkins }}, {$set: {checkin: null} });
+		if(placeData.checkins)
+			Users.update({_id: {$in: placeData.checkins }}, {$set: {checkin: null} });
 		Places.update(placeId, {
 			$set: {
 				checkins: []
@@ -32,28 +34,28 @@ K.admin.addMethods({
 		
 		if(!K.admin.isMe()) return null;
 
-		Users.update({}, {$set: {hist: []} });
-		Places.update({}, {$set: {hist: []} });
+		Users.update(true, {$set: {hist: []} });
+		Places.update(true, {$set: {hist: []} });
 	},	
 	cleanAllCheckins: function() {
 		
 		if(!K.admin.isMe()) return null;
 
-		Users.update({}, {$set: {checkin: null} });
-		Places.update({}, {$set: {checkins: []} });
+		Users.update(true, {$set: {checkin: null} });
+		Places.update(true, {$set: {checkins: []} });
 	},
 	cleanAllFavorites: function() {
 		
 		if(!K.admin.isMe()) return null;
 
-		Users.update({}, {$set: {favorites: []} });
-		Places.update({}, {$set: {rank: 0} });
+		Users.update(true, {$set: {favorites: []} });
+		Places.update(true, {$set: {rank: 0} });
 	},
 	delPlace: function(placeId) {
 
 		if(!K.admin.isMe()) return null;
 
-		Places.remove({_id: new Mongo.Collection.ObjectID(placeId) });
+		Places.remove(placeId);
 	},
 	clonePlace: function(placeId) {
 
@@ -65,24 +67,33 @@ K.admin.addMethods({
 		place.loc[0] += offset;
 		place.loc[1] += offset;
 		
+		delete place._id;
+
 		place.name = place.name+'(copy)';
 
 		var newId = Places.insert(place);
+		
+		console.log('clonePlace', placeId, place.name);
 
-		return newId._str;
+		return newId;
 	},
 	renamePlace: function(placeId, name) {
 		
 		if(!K.admin.isMe()) return null;
 
-		var iname = K.util.sanitizeFilename(name);
+		var iname = K.util.sanitizeName(name);
 
 		Places.update(placeId, {$set: {name: iname} });
+		
+		console.log('renamePlace', placeId, name);
 	},
 	movePlace: function(placeId, loc) {
 
 		if(!K.admin.isMe()) return null;
 
-		updatePlaceLoc(placeId, loc);
+		//updatePlaceLoc(placeId, loc );
+		Places.update(placeId, {$set: {loc: loc} });
+
+		console.log('movePlace', placeId, loc);
 	}
 });

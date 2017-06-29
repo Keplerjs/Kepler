@@ -1,6 +1,6 @@
 
 K.admin.addMethods({
-	newUser: function(usernames) {
+	createNewUser: function(usernames) {
 		
 		if(!K.admin.isMe()) return null;
 

@@ -5,7 +5,8 @@ var paths = {
 	place: '/api/place/:name',
 	placeHist: '/api/place/:name/hist',
 	placeCheckins: '/api/place/:name/checkins',
-	placeConvers: '/api/place/:name/convers'
+	placeConvers: '/api/place/:name/convers',
+	searchPlace: '/api/search/place/:name'
 };
 
 Router.route(paths.root, { where: 'server'})
@@ -66,5 +67,16 @@ Router.route(paths.placeConvers, { where: 'server'})
 		convers = placeData && getConversByIds(placeData.convers).fetch();
 
 	res.end( JSON.stringify(convers) );
+
+});
+
+Router.route(paths.searchPlace, { where: 'server'})
+.get(function (req, res) {
+
+	console.log('Api: ', req.url);
+
+	var cur = getPlacesByName(this.params.name);
+	
+	res.end( JSON.stringify(cur.fetch()) );
 
 });

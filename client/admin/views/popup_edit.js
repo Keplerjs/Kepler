@@ -7,7 +7,7 @@ Template.popup_place.events({
 		if(self.marker.draggable) {
 			var ll = self.marker.getLatLng(),
 				newLoc = [ll.lat, ll.lng];
-			if(confirm("Aggiornare posizione???"))
+			//if(confirm("Aggiornare posizione???"))
 				Meteor.call('movePlace', self.id, newLoc, function(err) {
 					self.marker.setLatLng(newLoc);
 				});
@@ -44,10 +44,9 @@ Template.popup_place.events({
 	},
 	'click .popup-ren': function(e,tmpl) {
 		var self = this;
-		if(confirm("Rinominare?")) {
+		//if(confirm("Rinominare?"))
 			Meteor.call('renamePlace', this.id, tmpl.$('.popup-reninput').val(), function() {
 				self.update();
 			});
-		}
 	}
 });

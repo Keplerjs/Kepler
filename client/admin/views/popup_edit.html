@@ -1,12 +1,16 @@
 
 <template name="popup_edit">
 	<div class="btn-group popup-actions">
-		<a class="popup-move btn btn-xs btn-default" href="#">Move</a> 
-		<a class="popup-canc btn btn-xs btn-default" style="display:none" href="#">Cancel</a>
-		<a class="popup-clone btn btn-xs btn-default" href="#">Clone</a> 
-		<a class="popup-del btn btn-xs btn-default" href="#">Delete</a>
+		<a class="popup-move btn btn-sm btn-default" href="#">Move</a> 
+		<a class="popup-canc btn btn-sm btn-default" style="display:none" href="#">Cancel</a>
+		<a class="popup-del btn btn-sm btn-default" href="#">Delete</a>
+		<a class="popup-clone btn btn-sm btn-default" href="#">Clone</a> 		
+	</div>
+	<div class="input-group">
 		<input class="popup-reninput form-control" type="text" value="{{name}}" />
-		<a class="popup-ren btn btn-xs btn-default" href="#">Rename</a>
+		<span class="input-group-btn">
+			<a class="popup-ren btn btn-default" href="#">Rename</a>
+		</span>
 	</div>
 	<div class="clearfix">
 		{{#if ele}} ele: {{ele}}m {{/if}}

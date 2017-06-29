@@ -6,7 +6,7 @@ K.admin.addMethods({
 
 		Tracks.find().forEach(function (track) {
 
-			var trackId = new Mongo.Collection.ObjectID(track._id._str),
+			var trackId = track._id,
 				track = Tracks.findOne(trackId);
 			
 			if( track && track.type==="Feature" && 

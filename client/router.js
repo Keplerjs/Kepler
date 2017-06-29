@@ -150,7 +150,7 @@ Router.map(function() {
 				headerTemplate: 'search_place',
 				itemsTemplate: 'item_place_search',
 				items: _.map(getPlacesByBBox( K.map.getBBox() ).fetch(), function(place) {
-					var p = K.newPlace(place._id._str);
+					var p = K.newPlace(place._id);
 					if($(p.marker._icon).is(':visible'))
 						return p.rData();
 				})

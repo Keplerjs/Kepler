@@ -220,16 +220,11 @@ Kepler.geoapi = (function() {
 	function geoipAPI(ip) {
 		//API: http://ipinfodb.com/ip_location_api.php
 		/*{
-			"statusCode" : "OK",
-			"statusMessage" : "",
+			"statusCode" : "OK", "statusMessage" : "",
 			"ipAddress" : "62.56.230.41",
-			"countryCode" : "GB",
-			"countryName" : "UNITED KINGDOM",
-			"regionName" : "-",
-			"cityName" : "-",
-			"zipCode" : "-",
-			"latitude" : "51.5085",
-			"longitude" : "-0.12574",
+			"countryCode" : "GB", "countryName" : "UNITED KINGDOM",
+			"regionName" : "-", "cityName" : "-", "zipCode" : "-",
+			"latitude" : "51.5085", "longitude" : "-0.12574",
 			"timeZone" : "+00:00"
 		}*/
 		var ipinfodbKey = Meteor.settings.accounts.ipinfodbKey,
@@ -315,40 +310,3 @@ Kepler.geoapi = (function() {
 		}
 	};
 }());
-
-	// function cityAPILocal(initial)
-	// {
-	// 	Citta = new Mongo.Collection('citta');
-	//	initial = K.util.sanitizeRegExp(initial);
-	// 	return Citta.find({name: {$regex: new RegExp('^'+initial,'i')}},
-	// 					{
-	// 						fields:{name:1, loc:1, prov:1, _id:0},
-	// 						sort: {name:1}
-	// 					}).fetch();
-	// }
-
-	// TODO testare! su varie posizioni
-	// function cityAPI(initial)
-	// {
-	// 	if(initial==='')
-	// 		return null;	//non togliere MAI xke se initial e' vuoto ritorna tutto
-	// 	var ret = {},
-	// 		src = {
-	// 			par: 'name',
-	// 			url: 'http://api.geonames.org/searchJSON?'+
-	// 				'name_startsWith='+initial+'&featureClass=P&country=IT&username='+geonamesUser
-	// 		};
-	// 	//TODO provare
-	// 	//http://open.mapquestapi.com/nominatim/v1/search.php?json_callback=L.Control.Search.callJsonp&q=ter&format=json&osm_type=N&limit=100&addressdetails=1
-	// 	//http://nominatim.openstreetmap.org/search
-	//
-	// 	var res = HTTP.get(src.url, getOpts);
-	// 	if(res.statusCode == 200 && res.data && res.data.geonames)
-	// 		_.each(res.data.geonames, function(val) {
-	// 			if(val[src.par])
-	// 				ret[ val[src.par] ]= _.map(parseFloat, [val.lat,val.lng]);
-	// 		});
-	// 	else
-	// 		ret = null;
-	// 	return ret;
-	// }
