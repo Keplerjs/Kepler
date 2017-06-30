@@ -1,29 +1,22 @@
 
 <template name="tab_weather">
 
-	<ul class="list-group">
-		<li class="list-group-item active">
-			<i class="icon icon-weather"></i> {{i18n 'tabs.forecasts'}}
-		</li>
-		<li class="list-group-item">
-			{{#if weather}}
-				
-				{{> tab_weather_forecast}}
-
-			{{else}}
-				<div class="text-center">
-					<img src="/images/loader-lg.gif" />
-				</div>
-			{{/if}}
-			<br />
-			<div style="font-size:10px" class="text-right">
-				<a href="http://www.wunderground.com/" target="_blank">wunderground.com</a>
-			s</div>
-		</li>
-	</ul>
-
+	<div id="tab_weather" class="list-group">
+		<span class="list-group-item active">
+			<i class="icon icon-weather"></i> {{i18n 'tabs.weather'}}
+		</span>
+		<!-- TODO <label>{{i18n 'labels.season'}}</label>  {{season}}<br /> -->
+		{{#if weather}}
+			<span class="list-group-item">
+			{{> tab_weather_forecast}}
+			</span>
+		{{else}}
+			<a class="list-group-item place-btn-weather" href="#" target="_blank">
+				<i class="icon icon-weather"></i> <span>{{i18n 'btns.forecasts'}}</span>
+			</a>
+		{{/if}}
+	</div>
 </template>
-
 
 <template name="tab_weather_forecast">
 		
@@ -60,5 +53,9 @@
 			</div>
 		</div>
 	{{/each}}
+	<br />
+	<div style="font-size:10px" class="text-right">
+		<a href="http://www.wunderground.com/" target="_blank">wunderground.com</a>
+	</div>
 
 </template>

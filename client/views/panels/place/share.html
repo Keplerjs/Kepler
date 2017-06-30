@@ -1,0 +1,25 @@
+
+<template name="tab_share">
+
+	<form class="form-inline">
+		<label>{{i18n 'labels.share'}}</label><br />
+		<div class="input-group">
+			<input class="form-control" type="text" value="/place/{{id}}" />
+			<span class="input-group-btn">
+				<a class="btn btn-default" href="#"><i class="icon icon-share"></i></a>
+			</span>
+		</div>
+		<div class="btn-group" role="group">
+			<a href="http://maps.apple.com/?ll={{loc.[0]}},{{loc.[1]}}" class="btn btn-sm btn-default" target="_blank">
+				<i class="icon icon-nav"></i>&nbsp;<span class="hidden-xs">{{i18n 'btns.nav'}}</span>
+			</a>
+			<a href="http://maps.google.com/maps?z=15&amp;t=m&amp;q=loc:{{loc.[0]}}+{{loc.[1]}}" class="btn btn-sm btn-default" target="_blank">
+				<i class="icon icon-nav-goo"></i>&nbsp;<span class="hidden-xs">Google</span>
+			</a>						
+			<a href="http://osm.org/?mlat={{loc.[0]}}&amp;mlon={{loc.[1]}}#map=15/{{loc.[0]}}/{{loc.[1]}}" class="btn btn-sm btn-default" target="_blank">
+				<i class="icon icon-nav-osm"></i>&nbsp;<span class="hidden-xs">OSM</span>
+			</a>
+		</div>
+	</form>
+
+</template>

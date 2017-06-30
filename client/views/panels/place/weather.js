@@ -11,3 +11,10 @@ Template.tab_weather_forecast.onRendered(function() {
 		})
 		.parent().css({width:'97%'});
 });
+
+Template.tab_weather.events({
+	'click .place-btn-weather': function(e) {
+		e.preventDefault();		
+		this.loadWeather();
+	}
+});

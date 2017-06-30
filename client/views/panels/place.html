@@ -1,4 +1,11 @@
 
+<!--Template.panelPlace.events({	
+	'click .nav-tabs a': function(e, tmpl) {
+		e.preventDefault();
+		$(e.currentTarget).tab('show');
+	}
+});-->
+
 <template name="panelPlace">
 
 <div id="place" class="panel">
@@ -13,24 +20,23 @@
 	
 		{{> place_btns_all}}
 
+		{{! > tab_share}}
+
+		<br />
+
 		<ul class="nav nav-tabs">
 			<li class="active">
 				<a href="#tab_info" data-toggle="tab">
 					<i class="icon icon-placeinfo"></i> <span class="hidden-xs">{{i18n 'btns.info'}}</span>
 				</a>
-			</li>
-			<li class="place-btn-weather">
-				<a href="#tab_weather" data-toggle="tab">
-					<i class="icon icon-weather"></i> <span class="hidden-xs">{{i18n 'btns.weather'}}</span>
-				</a>
-			</li>			
+			</li>		
 			<li>
 				<a href="#tab_histplace" data-toggle="tab">
 					<i class="icon icon-hist"></i> <span class="hidden-xs">{{i18n 'btns.hist'}}</span>
 				</a>
 			</li>
 			<li class="place-btn-events">
-				<a href="#tab_eventsplace" data-toggle="tab">
+				<a href="#tab_eventsplace">
 					<i class="icon icon-cal"></i> <span class="hidden-xs">{{i18n 'btns.events'}}</span>
 				</a>
 			</li>			
@@ -42,9 +48,12 @@
 			<div class="tab-pane active" id="tab_info">
 				
 				{{> tab_info}}
+				
+				
 
 				{{#if isOutdoor}}
 
+					{{> tab_weather}}
 					{{> tab_geoinfo}}
 					{{> tab_tracks}}
 					
@@ -54,14 +63,11 @@
 
 				{{> tab_streetview}}
 
-			</div>
-			<div class="tab-pane" id="tab_weather">
-				{{> tab_weather}}
-			</div>			
+			</div>	
 			<div class="tab-pane" id="tab_histplace">
 				{{> tab_histplace}}
 			</div>	
-			<div class="tab-pane" id="tab_eventsplace">
+			<div class="tab-pane disabled" id="tab_eventsplace">
 				{{> tab_eventplace}}
 			</div>
 		</div>
@@ -69,3 +75,4 @@
 </div>
 
 </template>
+
