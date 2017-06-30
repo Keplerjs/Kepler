@@ -8,7 +8,6 @@
 		"urls": {
 			"avatars": "/static/avatars/"
 		},
-		"editPlaces": false,
 		"accountCreation": true,
 		"showNotifs": true,		
 		"searchMinLen": 1,

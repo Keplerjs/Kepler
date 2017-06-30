@@ -1,8 +1,6 @@
 /*
 	Classe User
 */
-//TODO K.destroyUser = function(userId) {};//eliminare anche marker popup e icon
-
 Kepler.User = K.Class.extend({
 
 	id: null,
@@ -58,8 +56,8 @@ Kepler.User = K.Class.extend({
 		self.marker.item = self;
 		self.marker.on('click mousedown', function(e) {
 			if(!this._popup) {
-				self.popup$ = L.DomUtil.create('div','popup-user');
-				Blaze.renderWithData(Template.popup_user, self, self.popup$);
+				self.popup$ = L.DomUtil.create('div','');
+				Blaze.renderWithData(Template.item_user_popup, self, self.popup$);
 				this.bindPopup(self.popup$, { closeButton:false });
 			}
 		});

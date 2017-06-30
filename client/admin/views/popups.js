@@ -1,4 +1,5 @@
-Template.popup_place.events({
+
+Template.admimPopupPlace.events({
 //	debug actions
 	'click .popup-move': function(e,tmpl) {
 		

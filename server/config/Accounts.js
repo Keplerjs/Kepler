@@ -1,3 +1,4 @@
+
 Meteor.startup(function () {	
 	Accounts.config({
 		sendVerificationEmail: false,
@@ -17,15 +18,16 @@ Meteor.startup(function () {
 
 Accounts.onLogin(function(login) {
 
-	var geoip, ip = login.connection.httpHeaders['x-real-ip'] || login.connection.clientAddress;
+	var ip = login.connection.httpHeaders['x-real-ip'] || login.connection.clientAddress,
 		sets = {
-			online: 1
+			online: 1,
+			isAdmin: K.admin.isMe(login.user)
 		};
 
-	if(Meteor.settings.geoipLocation && 
+/*	if(Meteor.settings.geoipLocation && 
 		!K.util.getPath(login.user,'settings.map.center') && 
 		(geoip = K.geoapi.geoip(ip)) )
-		sets['settings.map.center'] = geoip.loc;
+		//TODO sets['settings.map.center'] = geoip.loc;*/
 
 	Users.update(login.user._id, {$set: sets});
 

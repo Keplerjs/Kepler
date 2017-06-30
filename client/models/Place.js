@@ -51,12 +51,12 @@ Kepler.Place = K.Class.extend({
 		self.marker.item = self;
 		self.marker.on('click mousedown', function(e) {
 				if(!this._popup) {
-					self.popup$ = L.DomUtil.create('div','popup-place');
-					Blaze.renderWithData(Template.popup_place, self, self.popup$);
-					this.bindPopup(self.popup$, { closeButton:false, minWidth:180, maxWidth:320 });
+					self.popup$ = L.DomUtil.create('div','');
+					Blaze.renderWithData(Template.item_place_popup, self, self.popup$);
+					this.bindPopup(self.popup$, { closeButton:false });
 				}
 			}).once('add', function() {
-				Blaze.renderWithData(Template.marker_checkins, self, self.icon.nodeHtml);
+				Blaze.renderWithData(Template.item_place_marker, self, self.icon.nodeHtml);
 			});
 	},
 

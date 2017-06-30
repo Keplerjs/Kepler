@@ -36,7 +36,7 @@ layers.cluster = new L.MarkerClusterGroup({
 		};
 		
 		if(!cluster.icon) {
-			Blaze.renderWithData(Template.marker_cluster, cluster, cluster.$icon);
+			Blaze.renderWithData(Template.item_place_cluster, cluster, cluster.$icon);
 			cluster.icon = new L.NodeIcon({
 				className: 'marker-cluster',
 				nodeHtml: cluster.$icon

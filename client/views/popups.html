@@ -1,5 +1,5 @@
 
-<template name="popup_place">
+<template name="item_place_popup">
 	<a href="/place/{{id}}" class="btn btn-block btn-default popup-tit">
 		{{#if name}}<b>{{name}}</b>{{else}}<i>{{i18n 'labels.noname'}}</i>{{/if}}
 	</a>
@@ -15,16 +15,18 @@
 		{{/if}}
 		{{#if conversCount}}
 			<a class="btn btn-sm btn-default" href="/place/{{id}}/convers"><i class="icon icon-mes"></i></a>
-		{{/if}}		
+		{{/if}}
 	</div>
-	{{#if settings 'editPlaces'}}
+	{{#if currentUser.isAdmin}}
 		<div class="clearfix">&nbsp;</div>
-		{{> popup_edit}}
+		{{> admimPopupPlace}}
 	{{/if}}
 </template>
 
-<template name="popup_user">
+<template name="item_user_popup">
+	<div class="popup-user">
 	{{> item_user}}
+	</div>
 </template>
 
 <template name="popup_track">

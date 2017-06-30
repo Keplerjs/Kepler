@@ -5,6 +5,15 @@
 	</a>
 </template>
 
+<template name="item_place_marker">
+	{{#if checkinsCount}}<b class="badge badge-orange">{{checkinsCount}}</b>{{/if}}
+</template>
+
+<template name="item_place_cluster">
+	{{#if checkinsCount}}<b class="badge badge-orange">{{checkinsCount}}</b>{{/if}}
+	<b class="badge badge-blue">{{getChildCount}}</b>	
+</template>
+
 <template name="item_place_favorite">
 	<div class="favorite-item">
 		<div class="pull-left">

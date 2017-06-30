@@ -46,3 +46,6 @@ K.Class.extend = function (props) {
 K.Class.include = function (props) {
 	_.extend(this.prototype, props);
 };
+
+
+

@@ -8,7 +8,6 @@
 		"urls": {
 			"avatars": "/static/avatars/"
 		},
-		"editPlaces": true,
 		"accountCreation": true,
 		"geoipLocation": false,
 		"showNotifs": true,		
