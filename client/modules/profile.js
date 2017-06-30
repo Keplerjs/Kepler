@@ -37,6 +37,21 @@ Kepler.profile = {
 
 		return this;
 	},
+	setOnline: function(online) {
+		var self = this;
+		online = online ? 1 : 0;
+		console.log('setOnline',parseFloat(online))
+		if(online !== this.data.online)
+			Users.update(Meteor.userId(), {
+				$set: {
+					online: parseFloat(online),
+					mob: parseFloat(K.util.isMobile() ? 1:0)
+				}
+			}, function(err) {
+				self._deps.online.changed();
+			});
+		return this;
+	},	
 	getOnline: function() {
 		this._deps.online.depend();
 		return !!this.data.online;
@@ -82,20 +97,6 @@ Kepler.profile = {
 	},
 	setLoc: function(loc) {
 		Meteor.call('setLoc', loc);
-		return this;
-	},
-	setOnline: function(online) {
-		var self = this;
-		online = online ? 1 : 0;
-		if(online !== this.data.online)
-			Users.update(Meteor.userId(), {
-				$set: {
-					online: parseFloat(online),
-					mob: parseFloat(K.util.isMobile() ? 1:0)
-				}
-			}, function(err) {
-				self._deps.online.changed();
-			});
 		return this;
 	},
 	addCheckin: function(placeId) {

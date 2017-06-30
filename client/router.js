@@ -18,7 +18,7 @@ Router.configure({
 });
 
 Router.waitOn(function() {
-	console.log('Router.waitOn');
+	//console.log('Router.waitOn');
 
 	if(!Meteor.user()) {
 		if(Meteor.loggingIn())
@@ -41,7 +41,7 @@ Router.onBeforeAction(function(pause) {
 
 	if(this.ready())
 	{
-		console.log('map.init', K.profile.data);
+		//console.log('map.init', K.profile.data);
 
 		if(!_.isEmpty(K.profile.data))
 			K.map.init(K.profile.getOpts('map'), function() {

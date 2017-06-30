@@ -27,17 +27,18 @@ Kepler.User = K.Class.extend({
 			
 			_.extend(self, self.data);
 
+			console.log('UPDATE USER', self.name, self.online)
+
 			if(self.isMe())
 			{
-				if(self.loc && !self.checkin)
+				if(self.loc && !self.checkin && self.online)
 					self.showMarker();
 				else
 					K.map.removeItem(self);
 			}
-			else if(self.isFriend() && self.online)
+			else if(self.isFriend())
 			{
-				console.log('UPDATE USER', self.name, self.online)
-				if(self.loc && !self.checkin)
+				if(self.loc && !self.checkin && self.online)
 					self.showMarker();
 				else
 					K.map.removeItem(self);
