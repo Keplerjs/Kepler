@@ -14,9 +14,11 @@ Kepler.User = K.Class.extend({
 
 		var self = this;
 
-		self.id = userId;		//mongoid
+		self.id = userId;
+
 		self._dep = new Tracker.Dependency();
-		self.rData = function() {	//Data Reactive Source
+		
+		self.rData = function() {
 			self._dep.depend();
 			return self;
 		};
@@ -27,22 +29,17 @@ Kepler.User = K.Class.extend({
 			
 			_.extend(self, self.data);
 
-			console.log('UPDATE USER', self.name, self.online)
+			if(self.loc && !self.checkin && self.online)
+			{
+				if(!self.marker)
+					self.buildMarker();
+				else
+					self.marker.setLatLng(self.loc);
 
-			if(self.isMe())
-			{
-				if(self.loc && !self.checkin && self.online)
-					self.showMarker();
-				else
-					K.map.removeItem(self);
+				K.map.addItem(self);
 			}
-			else if(self.isFriend())
-			{
-				if(self.loc && !self.checkin && self.online)
-					self.showMarker();
-				else
-					K.map.removeItem(self);
-			}
+			else
+				K.map.removeItem(self);
 
 			self._dep.changed();
 			
@@ -51,36 +48,27 @@ Kepler.User = K.Class.extend({
 		Tracker.autorun( self.update );	//TODO aggiornare solo se amico
 	},
 
-	showMarker: function() {
+	buildMarker: function() {
 
 		var self = this;
-
-		if(!self.marker)
-		{
-			self.icon = new L.NodeIcon({
-				className: self.isMe() ? 'marker-profile' : 'marker-friend'
-			});
-			self.marker = new L.Marker(self.loc, {icon: self.icon});
-			self.marker.item = self;
-			self.marker.on('click mousedown', function(e) {
-				if(!this._popup) {
-					self.popup$ = L.DomUtil.create('div','popup-user');
-					Blaze.renderWithData(Template.popup_user, self, self.popup$);
-					this.bindPopup(self.popup$, { closeButton:false });
-				}
-			}).on('add', function(e) {
-				//TODO move also after is added
-				this.setLatLng(self.loc);
-			});
-		}
-
-		K.map.addItem(self);
+		self.icon = new L.NodeIcon({
+			className: self.isMe() ? 'marker-profile' : 'marker-friend'
+		});
+		self.marker = new L.Marker(self.loc, {icon: self.icon});
+		self.marker.item = self;
+		self.marker.on('click mousedown', function(e) {
+			if(!this._popup) {
+				self.popup$ = L.DomUtil.create('div','popup-user');
+				Blaze.renderWithData(Template.popup_user, self, self.popup$);
+				this.bindPopup(self.popup$, { closeButton:false });
+			}
+		});
 	},
 
 	loadLoc: function() {
 		var self = this;
 		
-		self.showMarker();
+		self.buildMarker();
 
 		K.map.loadLoc(self.loc, function() {
 			self.icon.animate();

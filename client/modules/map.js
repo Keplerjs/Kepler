@@ -300,7 +300,8 @@ Kepler.map = {
 	},
 
 	addItem: function(item) {
-		if(this.ready && item.marker) {
+		if(this.ready) {
+
 			if(item.type==='place')
 				item.marker.addTo( layers.places );
 

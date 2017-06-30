@@ -12,7 +12,6 @@ Kepler.Place = K.Class.extend({
 
 		self.id = placeId;
 
-		//REACTIVE SOURCES:
 		self._dep = new Tracker.Dependency();
 
 		self.rData = function() {
@@ -26,10 +25,12 @@ Kepler.Place = K.Class.extend({
 			
 			_.extend(self, self.data);
 
-			if(self.loc)
-				self.showMarker();
-			else
-				K.map.removeItem(self);
+			if(self.loc) {
+				if(!self.marker)
+					self.buildMarker();
+
+				K.map.addItem(self);
+			}
 
 			self._dep.changed();
 
@@ -38,37 +39,31 @@ Kepler.Place = K.Class.extend({
 		Tracker.autorun( self.update );
 	},
 
-	showMarker: function() {
+	buildMarker: function() {
 		
 		var self = this;
 
-		if(!self.marker)
-		{
-			self.icon = new L.NodeIcon({
-				nodeHtml: L.DomUtil.create('div'),
-				className: (self.name ? 'marker-'+self.type : 'marker-gray'),
+		self.icon = new L.NodeIcon({
+			nodeHtml: L.DomUtil.create('div'),
+			className: (self.name ? 'marker-'+self.type : 'marker-gray'),
+		});
+		self.marker = new L.Marker(self.loc, {icon: self.icon});
+		self.marker.item = self;
+		self.marker.on('click mousedown', function(e) {
+				if(!this._popup) {
+					self.popup$ = L.DomUtil.create('div','popup-place');
+					Blaze.renderWithData(Template.popup_place, self, self.popup$);
+					this.bindPopup(self.popup$, { closeButton:false, minWidth:180, maxWidth:320 });
+				}
+			}).once('add', function() {
+				Blaze.renderWithData(Template.marker_checkins, self, self.icon.nodeHtml);
 			});
-			self.marker = new L.Marker(self.loc, {icon: self.icon});
-			self.marker.item = self;
-			self.marker.once('add', function() {
-					Blaze.renderWithData(Template.marker_checkins, self, self.icon.nodeHtml);
-				})
-				.on('click mousedown', function(e) {
-					if(!this._popup) {
-						self.popup$ = L.DomUtil.create('div','popup-place');
-						Blaze.renderWithData(Template.popup_place, self, self.popup$);
-						this.bindPopup(self.popup$, { closeButton:false, minWidth:180, maxWidth:320 });
-					}
-				});
-		}
-
-		K.map.addItem(self);
 	},
 
 	loadLoc: function() {
 		var self = this;
 		
-		self.showMarker();
+		self.buildMarker();
 
 		K.map.loadLoc(self.loc, function() {
 			self.icon.animate();
