@@ -1,4 +1,5 @@
 //TODO Assets.getText
+
 i18n.map('it', {
 	website: {
 		title: "Climbo.net",

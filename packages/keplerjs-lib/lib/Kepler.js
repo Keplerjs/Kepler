@@ -1,7 +1,7 @@
 /*
 	global container
 */
-Kepler = K = {
+Kepler = {
 	version: '0.1.0',
 
 	//core models
@@ -35,6 +35,7 @@ Kepler = K = {
 	plugins: {}	     //plugins loaded					 (client,server)
 };
 
+K = Kepler;
 
 /*TODO
 if(Meteor.isServer)

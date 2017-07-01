@@ -8,11 +8,12 @@ accounts-facebook
 accounts-google
 email
 standard-app-packages
+standard-minifier-css
+standard-minifier-js
 http
 coffeescript
 iron:router
 ian:accounts-ui-bootstrap-3
-anti:i18n
 twbs:bootstrap
 mrt:modernizr-meteor
 underscorestring:underscore.string
@@ -30,3 +31,5 @@ keplerjs:leaflet.markercluster
 keplerjs:bootstrap-switch
 keplerjs:googlemaps
 keplerjs:overpass
+keplerjs:lib
+anti:i18n
