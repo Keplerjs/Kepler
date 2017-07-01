@@ -26,7 +26,7 @@ Accounts.onLogin(function(login) {
 
 /*	if(Meteor.settings.geoipLocation && 
 		!K.util.getPath(login.user,'settings.map.center') && 
-		(geoip = K.geoapi.geoip(ip)) )
+		(geoip = K.geoinfo.geoip(ip)) )
 		//TODO sets['settings.map.center'] = geoip.loc;*/
 
 	Users.update(login.user._id, {$set: sets});

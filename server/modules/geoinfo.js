@@ -16,7 +16,7 @@ var geonamesUser = Meteor.settings.accounts.geonamesUser,
 		}
 	};
 
-Kepler.geoapi = (function() {
+Kepler.geoinfo = (function() {
 
 	function aspectAPILocal(ll) {
 

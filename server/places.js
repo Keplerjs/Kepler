@@ -25,32 +25,32 @@ updatePlaceLoc = function(placeId, loc)	{
 		},
 		esp: function(cb) {
 			Meteor.setTimeout(function() {
-		 		cb(null, K.geoapi.aspect(loc) );
+		 		cb(null, K.geoinfo.aspect(loc) );
 		 	},0);
 		},
 		ele: function(cb) {
 			Meteor.setTimeout(function() {
-		 		cb(null, K.geoapi.elevation(loc) );
+		 		cb(null, K.geoinfo.elevation(loc) );
 		 	},0);
 		},
 		near: function(cb) {
 			Meteor.setTimeout(function() {
-		 		cb(null, K.geoapi.near(loc) );
+		 		cb(null, K.geoinfo.near(loc) );
 		 	},0);
 		},
 		com: function(cb) {
 			Meteor.setTimeout(function() {
-		 		cb(null, K.geoapi.municipality(loc) );
+		 		cb(null, K.geoinfo.municipality(loc) );
 		 	},0);
 		},
 		prov: function(cb) {
 			Meteor.setTimeout(function() {
-		 		cb(null, K.geoapi.province(loc) );
+		 		cb(null, K.geoinfo.province(loc) );
 		 	},0);
 		},
 		reg: function(cb) {
 			Meteor.setTimeout(function() {
-		 		cb(null, K.geoapi.region(loc) );
+		 		cb(null, K.geoinfo.region(loc) );
 		 	},0);
 		}
 	},
