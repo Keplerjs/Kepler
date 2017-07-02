@@ -1,5 +1,5 @@
 
-Kepler.Place = K.Class.extend({
+Kepler.Place = K.Model.extend({
 
 	id: null,
 	type: 'place',
@@ -97,7 +97,7 @@ Kepler.Place = K.Class.extend({
 	}
 });
 
-//TODO move to K.Class.newItem()
+//TODO move to K.Model.newItem()
 K.newPlace = function(id) {
 	check(id, String);
 	

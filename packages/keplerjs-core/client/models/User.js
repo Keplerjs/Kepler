@@ -1,7 +1,5 @@
-/*
-	Classe User
-*/
-Kepler.User = K.Class.extend({
+
+Kepler.User = K.Model.extend({
 
 	id: null,
 	type: 'user',
@@ -105,7 +103,7 @@ Kepler.User = K.Class.extend({
 	}
 });
 
-//TODO move to K.Class.newItem()
+//TODO move to K.Model.newItem()
 K.newUser = function(id) {
 	check(id, String);
 	

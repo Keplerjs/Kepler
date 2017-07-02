@@ -1,12 +1,12 @@
 
-//TODO K.Class.newItem = function(id) {...}
+//TODO K.Model.newItem = function(id) {...}
 
 /*
- * K.Class powers the OOP facilities of the library.
+ * K.Model powers the OOP facilities of the library.
  * Thanks to John Resig and Dean Edwards for inspiration!
  */
-K.Class = function(){};
-K.Class.extend = function (props) {
+K.Model = function(){};
+K.Model.extend = function (props) {
 
 	// extended class with the new prototype
 	var NewClass = function () {
@@ -43,7 +43,7 @@ K.Class.extend = function (props) {
 	return NewClass;
 };
 
-K.Class.include = function (props) {
+K.Model.include = function (props) {
 	_.extend(this.prototype, props);
 };
 

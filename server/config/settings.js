@@ -1,4 +1,6 @@
 
+//TODO move to prestart.sh and run in package.json scripts prestart
+
 Meteor.startup(function() {
 
 	var fs = Npm.require('fs');

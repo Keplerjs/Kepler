@@ -12,6 +12,7 @@ standard-minifier-css
 standard-minifier-js
 http
 coffeescript
+anti:i18n
 iron:router
 ian:accounts-ui-bootstrap-3
 twbs:bootstrap
@@ -22,14 +23,7 @@ verron:autosize
 mrt:imagemagick
 robodo:async
 kidovate:bootstrap-slider
-keplerjs:leaflet
-keplerjs:leaflet-gps
-keplerjs:leaflet-layerjson
-keplerjs:bootstrap-list-filter
-keplerjs:bootstrap-confirm-button
-keplerjs:leaflet.markercluster
-keplerjs:bootstrap-switch
-keplerjs:googlemaps
-keplerjs:overpass
-keplerjs:lib
-anti:i18n
+
+keplerjs:core
+keplerjs:osm
+keplerjs:weather
