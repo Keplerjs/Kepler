@@ -25,5 +25,10 @@ robodo:async
 kidovate:bootstrap-slider
 
 keplerjs:core
-keplerjs:osm
+keplerjs:geoinfo
 keplerjs:weather
+keplerjs:tracks
+keplerjs:pois
+keplerjs:googlemaps
+keplerjs:osm
+

@@ -1,15 +1,14 @@
 
-<template name="item_place_popup">
+<template name="popupPlace">
 	<a href="/place/{{id}}" class="btn btn-block btn-default popup-tit">
 		{{#if name}}<b>{{name}}</b>{{else}}<i>{{i18n 'labels.noname'}}</i>{{/if}}
 	</a>
 	<div class="btn-group">
-		{{#if tracks}}
-		<a class="btn btn-sm btn-default" href="/place/{{id}}/tracks"><i class="icon icon-gpx"></i></a>
-		{{/if}}
-		{{#if pois}}
-			<a class="btn btn-sm btn-default" href="/place/{{id}}/pois"><i class="icon icon-pois"></i></a>
-		{{/if}}
+
+		{{#each pluginsTemplates}}
+			{{> Template.dynamic template=pluginTemplate data=pluginData}}
+		{{/each}}
+
 		{{#if checkinsCount}}
 			<a class="btn btn-sm btn-default" href="/place/{{id}}/checkins"><i class="icon icon-users"></i></a>
 		{{/if}}
@@ -24,13 +23,13 @@
 </template>
 
 <template name="item_user_popup">
-	<div class="popup-user">
+	<div>
 	{{> item_user}}
 	</div>
 </template>
 
 <template name="popup_track">
-	<span class="popup-track-content">
+	<div>
 		{{#if time}}<i class="icon icon-time"></i> {{i18n 'labels.time'}} {{humanTime time}} <br />{{/if}}
 		{{#if len}}<i class="icon icon-len"></i> {{i18n 'labels.len'}} {{humanDistance len}} <br />{{/if}}
 
@@ -41,11 +40,11 @@
 		<i class="icon icon-dis"></i> {{i18n 'labels.dis'}} {{humanDistance dis 1 }}
 		{{/if}}
 		{{/if}}
-	</span>
+	</div>
 </template>
 
 <template name="popup_poi">
-	<div class="popup-poi">
+	<div>
 		{{#if name}}<h4>{{name}}</h4>{{/if}}
 	</div>
 </template>

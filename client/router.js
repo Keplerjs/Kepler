@@ -305,36 +305,6 @@ Router.map(function() {
 		}
 	});
 
-	this.route('placePois', {
-		path: '/place/:placeId/pois',
-		template: 'empty',
-		waitOn: function() {
-			return Meteor.subscribe('poisByPlace', this.params.placeId);
-		},
-		onAfterAction: function() {
-			var place = K.newPlace( this.params.placeId );
-
-			if(place)
-				place.loadPois();
-		},
-		data: { hideSidebar: true }
-	});
-
-	this.route('placeTracks', {
-		path: '/place/:placeId/tracks',
-		template: 'empty',
-		waitOn: function() {
-			return Meteor.subscribe('tracksByPlace', this.params.placeId);
-		},
-		onAfterAction: function() {
-			var place = K.newPlace( this.params.placeId );
-
-			if(place)
-				place.loadTracks();
-		},
-		data: { hideSidebar: true }
-	});
-	
 	this.route('panelUser', {
 		path: '/user/:userId',
 		waitOn: function() {

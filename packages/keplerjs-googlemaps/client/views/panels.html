@@ -1,13 +1,13 @@
 
-<template name="tab_streetview">
+<template name="panelPlace_googlemaps">
 
-	<div id="tab_streetview" class="list-group">
+	<div class="list-group">
 		<span class="list-group-item active">
 			<i class="icon icon-stview"></i> {{i18n 'tabs.stview'}}
 		</span>
 		{{#if getStreetView}}
 			<span class="list-group-item">
-				<img class="place-img-stview" src="{{getStreetView}}" />
+				<img src="{{getStreetView}}" />
 			</span>
 		{{else}}
 		<a class="list-group-item place-btn-stview" href="#" target="_blank">

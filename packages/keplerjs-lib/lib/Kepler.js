@@ -16,12 +16,13 @@ Kepler = {
 	conver: {},      //module messages, place comments   (client)
 	router: {},      //module wrapper per router         (client)
 	profile: {},     //module for user logged data       (client)
-	
+
 	//utilities
 	util: {},        //module utils functions            (client,server)
 	cache: {},       //module caching system             (client,server)	
 	fields: {},      //define fields in pubs/queries     (client,server)
 	schemas: {},     //define base fields for models     (client,server)
+	plugins: {},	 //plugins registered				 (client,server)	
 	usersById: {},   //index of User instances           (client)
 	placesById: {},  //index of Place instances          (client)
 	//TODO queries: {},//list of shared function queries (client,server)	
@@ -30,9 +31,6 @@ Kepler = {
 	admin: {},       //methods only for admin users      (client,server)	
 	placesByName: {},//index of places by name           (client)
 	usersByName: {}, //index of users by name            (client)
-
-	//plugins
-	plugins: {}	     //plugins loaded					 (client,server)
 };
 
 K = Kepler;

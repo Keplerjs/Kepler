@@ -1,6 +1,6 @@
 
-<template name="tab_weather">
-
+<template name="panelPlace_weather">
+	{{#if isOutdoor}}
 	<div id="tab_weather" class="list-group">
 		<span class="list-group-item active">
 			<i class="icon icon-weather"></i> {{i18n 'tabs.weather'}}
@@ -16,6 +16,7 @@
 			</a>
 		{{/if}}
 	</div>
+	{{/if}}
 </template>
 
 <template name="tab_weather_forecast">

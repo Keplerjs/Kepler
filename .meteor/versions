@@ -49,8 +49,12 @@ iron:router@1.0.9
 iron:url@1.0.9
 jquery@1.11.6
 keplerjs:core@0.0.1
+keplerjs:geoinfo@0.0.1
+keplerjs:googlemaps@1.0.0
 keplerjs:lib@0.0.1
 keplerjs:osm@1.0.0
+keplerjs:pois@0.0.1
+keplerjs:tracks@0.0.1
 keplerjs:weather@0.0.1
 kidovate:bootstrap-slider@0.0.5
 launch-screen@1.0.8

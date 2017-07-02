@@ -24,13 +24,11 @@
 	overflow: hidden;
 }
 
-.leaflet-popup-content .popup-poi,
-.leaflet-popup-content .popup-user,
-.leaflet-popup-content .popup-track {
+.leaflet-popup-content > div {
 	border-radius: 4px;	
-	background: #fff;
+	/*background: #fff;*/
 	color: #579ad4;
-	padding: 4px;
+/*	padding: 4px;*/
 	margin: 0;
 }
 

@@ -1,4 +1,21 @@
 
+Template.registerHelper('settings', function(prop) {
+	return K.util.getPath(Meteor.settings.public, prop);
+});
+
+Template.registerHelper('pluginsTemplates', function () {
+
+  	var parentTemplate = Template.instance().view.name.replace('Template.','');
+	
+	return _.map(K.plugins.getPlugins(), function(plugin) {
+		if(Template[parentTemplate+'_'+plugin.name])
+			return {
+				pluginTemplate: parentTemplate+'_'+plugin.name,
+				pluginData: Template.currentData()
+			};
+	});
+});
+
 Template.registerHelper('isRoute', function(name, clas) {
 	return K.router.routeName()===name ? clas:'';
 });
@@ -9,10 +26,6 @@ Template.registerHelper('routeTitle', function() {
 
 Template.registerHelper('connectionStatus', function() {
 	return Meteor.status();
-});
-
-Template.registerHelper('settings', function(prop) {
-	return K.util.getPath(Meteor.settings.public, prop);
 });
 
 Template.registerHelper('or', function() {

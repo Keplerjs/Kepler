@@ -33,6 +33,7 @@ Package.onUse(function(api) {
     'lib/util_geo.js',
     'lib/util_humanize.js',
     'lib/util_valid.js',
+    'lib/plugins.js',
     'i18n/it.js'
   ], ['client', 'server']);
 

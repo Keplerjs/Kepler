@@ -1,6 +1,6 @@
 
-<template name="tab_tracks">
-
+<template name="panelPlace_tracks">
+	{{#if isOutdoor}}
 	{{#if getTracksList}}
 	<div class="list-group">
 		<a class="list-group-item active" href="/place/{{id}}/tracks">		
@@ -15,5 +15,5 @@
 		{{/each}}
 	</div>
 	{{/if}}
-
+	{{/if}}
 </template>

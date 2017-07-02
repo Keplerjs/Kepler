@@ -76,7 +76,8 @@ layers.geojson = new L.GeoJSONAutoClear(null, {
 		if(feature.properties.type==='placeCircle')	//evidenzia place nei pois
 			return new L.CircleMarker(latlng);
 
-		else if(feature.properties.tags)			//OSM point
+//TODO move to osm plugins extending K.Place
+/*		else if(feature.properties.tags)			//OSM point
 		{
 
 			var iconPoi = L.DomUtil.create('div'),
@@ -86,7 +87,7 @@ layers.geojson = new L.GeoJSONAutoClear(null, {
 			return new L.Marker(latlng, {
 					icon: new L.NodeIcon({className:'marker-poi', nodeHtml: iconPoi})
 				});
-		}
+		}*/
 		else
 		{
 			var iconPoi = L.DomUtil.create('div');

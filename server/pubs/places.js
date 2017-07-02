@@ -35,11 +35,12 @@ Meteor.publish('placeById', function(placeId) {
 			retCurs.push( getUsersByIds(usersIds) );
 		//publish one cursor for collection users
 
-		if(placeData.pois)
-			retCurs.push( getPoisByLoc(placeData.loc) );
+//TODO MOVE TO pkgs
+		//if(placeData.pois)
+		//	retCurs.push( getPoisByLoc(placeData.loc) );
 
-		if(placeData.tracks)
-			retCurs.push( getTracksByLoc(placeData.loc) );		
+		//if(placeData.tracks)
+		//	retCurs.push( getTracksByLoc(placeData.loc) );		
 
 		console.log('Pub: placeById', placeData.name);
 

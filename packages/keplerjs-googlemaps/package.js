@@ -1,11 +1,12 @@
+
 Package.describe({
-  name: "keplerjs:osm",
-  summary: "Keplerjs Openstreetmap and Overpass API",
+  name: "keplerjs:googlemaps",
+  summary: "Keplerjs Goole Maps API",
   version: "1.0.0"
 });
 
 Npm.depends({
-  "query-overpass": "1.1.0",
+  "googlemaps": "0.1.9",
 });
 
 Package.onUse(function (api) {
@@ -16,20 +17,19 @@ Package.onUse(function (api) {
     'keplerjs:core'
   ]);
 
+  api.addFiles([
+    'startup.js'
+  ],['client','server']);
 
   api.addFiles([
-    'collections/osm.js'
-  ],['client','server']);
-  
-  api.addFiles([
-    'client/modules/osm.js'
+  	'client/models/Place_streetview.js',
+    'client/views/panels.html',
+    'client/views/panels.js',
   ],'client');
 
   api.addFiles([
-    'server/osm.js',
-    'server/pubs.js'
+    'server/Googlemaps.js',
+    'server/streetview.js',
   ],'server');
-  
-  //api.export('Overpass');
 
 });

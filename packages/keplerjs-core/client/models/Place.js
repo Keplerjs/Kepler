@@ -52,8 +52,8 @@ Kepler.Place = K.Model.extend({
 		self.marker.on('click mousedown', function(e) {
 				if(!this._popup) {
 					self.popup$ = L.DomUtil.create('div','');
-					Blaze.renderWithData(Template.item_place_popup, self, self.popup$);
-					this.bindPopup(self.popup$, { closeButton:false });
+					Blaze.renderWithData(Template.popupPlace, self, self.popup$);
+					this.bindPopup(self.popup$, { closeButton:false, minWidth:112 });
 				}
 			}).once('add', function() {
 				Blaze.renderWithData(Template.item_place_marker, self, self.icon.nodeHtml);

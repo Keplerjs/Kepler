@@ -35,7 +35,7 @@
 					<i class="icon icon-hist"></i> <span class="hidden-xs">{{i18n 'btns.hist'}}</span>
 				</a>
 			</li>
-			<li class="place-btn-events">
+			<li class="place-btn-events disabled">
 				<a href="#tab_eventsplace">
 					<i class="icon icon-cal"></i> <span class="hidden-xs">{{i18n 'btns.events'}}</span>
 				</a>
@@ -48,20 +48,14 @@
 			<div class="tab-pane active" id="tab_info">
 				
 				{{> tab_info}}
-				
-				
 
-				{{#if isOutdoor}}
+				{{#each pluginsTemplates}}
+					{{> Template.dynamic template=pluginTemplate data=pluginData}}
+				{{/each}}
 
-					{{> tab_weather}}
-					{{> tab_geoinfo}}
-					{{> tab_tracks}}
-					
-				{{/if}}
-
-				{{> tab_pois}}
-
-				{{> tab_streetview}}
+				{{! > tab_geoinfo}}
+				{{! > tab_tracks}}
+				{{! > tab_pois}}
 
 			</div>	
 			<div class="tab-pane" id="tab_histplace">
