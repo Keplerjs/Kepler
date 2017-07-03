@@ -27,8 +27,8 @@ kidovate:bootstrap-slider
 keplerjs:core
 keplerjs:geoinfo
 keplerjs:weather
-keplerjs:tracks
 keplerjs:pois
+keplerjs:tracks
 keplerjs:googlemaps
 keplerjs:osm
 

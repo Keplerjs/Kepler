@@ -1,5 +1,4 @@
 
-
 Template.panelPlace_tracks.events({
 	'click .panel-btn-tracksList': function(e, tmpl) {
 		e.preventDefault();

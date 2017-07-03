@@ -1,18 +1,29 @@
 
 <template name="panelPlace_pois">
-	
-	{{#if getPoisList}}
-	<div class="list-group">
-		<a class="list-group-item active panel-btn-pois" href="/place/{{id}}/pois">
-			<i class="icon icon-pois"></i> {{i18n 'tabs.pois'}}
-		</a>
-		{{#each getPoisList}}
-		<a class="list-group-item panel-btn-pois" href="#">
-			<i class="icon icon-{{type}}"></i> {{title}}
-			<span class="badge bg-gray">{{count}}</span>
-		</a>
-		{{/each}}
-	</div>
-	{{/if}}
 
+	<div class="list-group">
+		<span class="list-group-item active">
+			{{i18n 'tabs.pois'}}
+		</span>
+		
+		{{#if poisList}}
+			<span class="list-group-item">
+			{{> panelPlace_pois_list}}
+			</span>
+		{{else}}
+			<a class="list-group-item panel-btn-poisList" href="#" target="_blank">
+				<i class="icon icon-pois"></i> <span>{{i18n 'btns.pois'}}</span>
+			</a>
+		{{/if}}
+	</div>
+
+</template>
+
+<template name="panelPlace_pois_list">
+	{{#each getPoisList}}
+	<a class="list-group-item panel-btn-poi" href="#">
+		<i class="icon icon-{{type}}"></i> {{title}}
+		<span class="badge bg-gray">{{count}}</span>
+	</a>
+	{{/each}}
 </template>

@@ -22,12 +22,29 @@ var poisToGeojson = function(pois, place, type) {
 
 Kepler.Place.include({
 
-	loadPois: function(type) {
+	poisList: null,
+
+/*	loadPois: function(type) {
 
 		var pois = getPoisByLoc(this.loc).fetch();
 		K.map.loadGeojson( poisToGeojson(pois, this, type) );
+	},*/
+	loadPois: function() {
+
+		var self = this;
+
+		if(!self.poisList)
+			Meteor.subscribe('poisByPlace', self.id, function() {
+				self.poisList = getPoisByLoc(self.loc).fetch();
+				self._dep.changed();
+			});
 	},
-	
+	showPois: function(poiType) {
+		console.log('showPois', poiType)
+		this.loadPois();
+		//TODO if(poiType) show each track separately
+		K.map.loadGeojson( poisToGeojson(this.poisList, this, poiType) );
+	},	
 	getPoisList: function() {
 
 		if(!this.loc) return [];

@@ -57,6 +57,7 @@ i18n.map('it', {
 		share: "Invia",
 		info: "Info",
 		forecasts: "Previsioni Meteo",
+		pois: "Luoghi utili vicini",
 		tracks: "Sentieri vicini",
 		photos: "Foto",
 		nav: "Naviga",

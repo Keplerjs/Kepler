@@ -31,4 +31,6 @@ Package.onUse(function(api) {
     'server/pubs.js',
   ],'server');
   
+  api.export('Pois');
+
 });
