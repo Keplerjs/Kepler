@@ -1,19 +1,31 @@
 
 <template name="panelPlace_tracks">
 	{{#if isOutdoor}}
-	{{#if getTracksList}}
 	<div class="list-group">
-		<a class="list-group-item active" href="/place/{{id}}/tracks">		
-			<i class="icon icon-gpx"></i> {{i18n 'tabs.tracks'}}
-		</a>
+		<span class="list-group-item active">
+			{{i18n 'tabs.tracks'}}
+		</span>
+		
+		{{#if tracksList}}
+			<span class="list-group-item">
+			{{> panelPlace_tracks_list}}
+			</span>
+		{{else}}
+			<a class="list-group-item panel-btn-tracksList" href="#" target="_blank">
+				<i class="icon icon-gpx"></i> <span>{{i18n 'btns.tracks'}}</span>
+			</a>
+		{{/if}}
+	</div>
+	{{/if}}
+</template>
+
+<template name="panelPlace_tracks_list">
+	
 		{{#each getTracksList}}
-		<a class="list-group-item panel-btn-tracks" href="#">
+		<a class="list-group-item panel-btn-track" href="#">
 			{{#with properties}}
 				{{> popupTrack}}
 			{{/with}}
 		</a>
 		{{/each}}
-	</div>
-	{{/if}}
-	{{/if}}
 </template>

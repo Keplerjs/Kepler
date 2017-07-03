@@ -1,5 +1,5 @@
 
-Template.tab_weather_forecast.onRendered(function() {
+Template.panelPlace_weather_forecast.onRendered(function() {
 
 	var days$ = this.$('.weather_day');
 

@@ -3,8 +3,11 @@ Kepler.User = K.Model.extend({
 
 	id: null,
 	type: 'user',
-	template: 'item_user',		//default item template	
-	data: {},					//dati orignali dal db
+	template: 'item_user',
+	templatePanel: 'panelPlace',	
+	templatePopup: 'popupUser',
+	templateMarker: 'markerUser',
+	data: {},
 	
 	init: function(userId) {
 
@@ -54,8 +57,8 @@ Kepler.User = K.Model.extend({
 		self.marker.item = self;
 		self.marker.on('click mousedown', function(e) {
 			if(!this._popup) {
-				self.popup$ = L.DomUtil.create('div','');
-				Blaze.renderWithData(Template.item_user_popup, self, self.popup$);
+				self.popup$ = L.DomUtil.create('div','popup-'+self.type);
+				Blaze.renderWithData(Template[self.templatePopup], self, self.popup$);
 				this.bindPopup(self.popup$, { closeButton:false });
 			}
 		});

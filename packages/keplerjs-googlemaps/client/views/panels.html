@@ -3,7 +3,7 @@
 
 	<div class="list-group">
 		<span class="list-group-item active">
-			<i class="icon icon-stview"></i> {{i18n 'tabs.stview'}}
+			{{i18n 'tabs.stview'}}
 		</span>
 		{{#if getStreetView}}
 			<span class="list-group-item">
@@ -11,7 +11,7 @@
 			</span>
 		{{else}}
 		<a class="list-group-item place-btn-stview" href="#" target="_blank">
-			<i class="icon icon-parking"></i> <span>{{i18n 'btns.stview'}}</span>
+			<i class="icon icon-stview"></i> <span>{{i18n 'btns.stview'}}</span>
 		</a>
 		{{/if}}
 	</div>

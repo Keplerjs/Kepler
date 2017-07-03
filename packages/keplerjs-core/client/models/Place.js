@@ -3,8 +3,11 @@ Kepler.Place = K.Model.extend({
 
 	id: null,
 	type: 'place',
-	template: 'item_place',		//default item template
-	data: {},					//dati orignali dal db
+	template: 'item_place',
+	templatePanel: 'panelPlace',	
+	templatePopup: 'popupPlace',
+	templateMarker: 'markerPlace',
+	data: {},
 	
 	init: function(placeId) {
 
@@ -51,16 +54,16 @@ Kepler.Place = K.Model.extend({
 		self.marker.item = self;
 		self.marker.on('click mousedown', function(e) {
 				if(!this._popup) {
-					self.popup$ = L.DomUtil.create('div','');
-					Blaze.renderWithData(Template.popupPlace, self, self.popup$);
-					this.bindPopup(self.popup$, { closeButton:false, minWidth:112 });
+					self.popup$ = L.DomUtil.create('div','popup-place');
+					Blaze.renderWithData(Template[self.templatePopup], self, self.popup$);
+					this.bindPopup(self.popup$, { closeButton:false, minWidth:120 });
 				}
 			}).once('add', function() {
-				Blaze.renderWithData(Template.item_place_marker, self, self.icon.nodeHtml);
+				Blaze.renderWithData(Template[self.templateMarker], self, self.icon.nodeHtml);
 			});
 	},
 
-	loadLoc: function() {
+	loadLoc: function() {		//TODO rename loadLoc in showLoc
 		var self = this;
 		
 		self.buildMarker();

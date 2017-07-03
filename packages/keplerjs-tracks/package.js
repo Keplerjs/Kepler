@@ -33,4 +33,7 @@ Package.onUse(function(api) {
     'server/pubs.js',
   ],'server');
   
+  //for debug
+  api.export('Tracks');
+  
 });

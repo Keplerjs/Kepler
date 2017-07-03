@@ -6,7 +6,6 @@
 </template>
 
 <template name="popupTrack">
-	<div>
 		{{#if time}}<i class="icon icon-time"></i> {{i18n 'labels.time'}} {{humanTime time}} <br />{{/if}}
 		{{#if len}}<i class="icon icon-len"></i> {{i18n 'labels.len'}} {{humanDistance len}} <br />{{/if}}
 
@@ -17,5 +16,4 @@
 		<i class="icon icon-dis"></i> {{i18n 'labels.dis'}} {{humanDistance dis 1 }}
 		{{/if}}
 		{{/if}}
-	</div>
 </template>

@@ -31,22 +31,27 @@ var tracksToGeojson = function(tracks, place, type) {
 }
 
 Kepler.Place.include({
+
+	tracksList: null,
 	
-	loadTracks: function(trackId) {
+	loadTracks: function() {
 
-		var tracks;
+		var self = this;
 
-		if(trackId)
-			tracks = getTracksByIds([trackId]).fetch();
-		else
-			tracks = getTracksByLoc(this.loc).fetch();
+		console.log('loadTracks',this.id)
 
-		K.map.loadGeojson( tracksToGeojson(tracks, this) );
+		if(!self.tracksList)
+			Meteor.subscribe('tracksByPlace', self.id, function() {
+				self.tracksList = self.getTracksList();
+				self._dep.changed();
+			});
+	},
+	showTracks: function() {
+		this.loadTracks();
+		K.map.loadGeojson( tracksToGeojson(this.tracksList, this) );
 	},
 	getTracksList: function() {
-
-		if(!this.loc) return [];
-
 		return getTracksByLoc(this.loc).fetch();
 	}
 });
+

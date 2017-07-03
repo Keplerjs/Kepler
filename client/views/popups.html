@@ -1,5 +1,6 @@
 
 <template name="popupPlace">
+	<div class="popup-place">
 	<a href="/place/{{id}}" class="btn btn-block btn-default popup-tit">
 		{{#if name}}<b>{{name}}</b>{{else}}<i>{{i18n 'labels.noname'}}</i>{{/if}}
 	</a>
@@ -20,11 +21,10 @@
 		<div class="clearfix">&nbsp;</div>
 		{{> admimPopupPlace}}
 	{{/if}}
+	</div>
 </template>
 
-<template name="item_user_popup">
-	<div>
+<template name="popupUser">
 	{{> item_user}}
-	</div>
 </template>
 

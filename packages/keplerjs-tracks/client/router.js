@@ -11,7 +11,7 @@ Router.map(function() {
 			var place = K.newPlace( this.params.placeId );
 
 			if(place)
-				place.loadTracks();
+				place.showTracks();
 		},
 		data: { hideSidebar: true }
 	});

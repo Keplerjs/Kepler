@@ -1,4 +1,19 @@
 
+Meteor.publish('tracksByIds', function(trackIds) {
+
+	if(this.userId) {
+
+		console.log('Pub: tracksByIds', trackIds);
+
+		return [
+			getTracksByIds(trackIds)
+		];	
+	}
+	else
+		this.ready();	
+});
+
+
 Meteor.publish('tracksByPlace', function(placeId) {
 
 	if(this.userId) {
