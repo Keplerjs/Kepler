@@ -114,9 +114,10 @@ K.newUser = function(id) {
 	{
 		K.usersById[id] = new K.User(id);
 		
-		//for debugging
-		var iname = K.util.sanitizeFilename(K.usersById[id].name);
-		K.usersByName[iname || id] = K.usersById[id];
+		if(K.admin.isMe()) {
+			var iname = K.util.sanitizeFilename(K.usersById[id].name);
+			K.usersByName[iname || id] = K.usersById[id];
+		}
 	}
 	
 	return K.usersById[id] || null;

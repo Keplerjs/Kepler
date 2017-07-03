@@ -108,9 +108,10 @@ K.newPlace = function(id) {
 	{
 		K.placesById[id] = new K.Place(id);
 		
-		//debugging
-		var iname = K.util.sanitizeFilename(K.placesById[id].name);
-		K.placesByName[iname || id] = K.placesById[id];
+		if(K.admin.isMe()) {
+			var iname = K.util.sanitizeFilename(K.placesById[id].name);
+			K.placesByName[iname || id] = K.placesById[id];
+		}
 	}
 	
 	return K.placesById[id] || null;

@@ -38,16 +38,15 @@ Kepler.Place.include({
 
 		var self = this;
 
-		console.log('loadTracks',this.id)
-
 		if(!self.tracksList)
 			Meteor.subscribe('tracksByPlace', self.id, function() {
 				self.tracksList = self.getTracksList();
 				self._dep.changed();
 			});
 	},
-	showTracks: function() {
+	showTracks: function(trackId) {
 		this.loadTracks();
+		//TODO if(trackId) show each track separately
 		K.map.loadGeojson( tracksToGeojson(this.tracksList, this) );
 	},
 	getTracksList: function() {

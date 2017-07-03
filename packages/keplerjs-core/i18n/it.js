@@ -46,7 +46,7 @@ i18n.map('it', {
 	tabs: {
 		geoinfo: "Geografia",			
 		pois: "Luoghi utili",
-		tracks: "Avvicinamento",
+		tracks: "Sentieri",
 		weather: "Meteo",
 		stview: "Street View"
 	},
@@ -57,7 +57,7 @@ i18n.map('it', {
 		share: "Invia",
 		info: "Info",
 		forecasts: "Previsioni Meteo",
-		tracks: "Sentieri",
+		tracks: "Sentieri vicini",
 		photos: "Foto",
 		nav: "Naviga",
 		stview: "Vista parcheggio",
