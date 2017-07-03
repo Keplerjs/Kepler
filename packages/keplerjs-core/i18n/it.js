@@ -44,7 +44,7 @@ i18n.map('it', {
 		userleaveconv: "<i class=\"text-muted\"> <b>{$1}</b> ha lasciato la conversazione.</i>",
 	},
 	tabs: {
-		//geoinfo: "Geografia",			
+		geoinfo: "Geografia",			
 		pois: "Luoghi utili",
 		tracks: "Sentieri",
 		weather: "Meteo",

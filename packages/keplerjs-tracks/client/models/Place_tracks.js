@@ -48,15 +48,5 @@ Kepler.Place.include({
 		if(!this.loc) return [];
 
 		return getTracksByLoc(this.loc).fetch();
-	},
-
-	loadOsmTracks: function() {
-		Meteor.call('getOsmByBBox', 'highway=track', K.map.getBBox(), 'way', function(err, geojson) {
-			
-			console.log(geojson);
-
-			if(geojson.features.length>0)
-				K.map.loadGeojson(geojson);
-		});
 	}
 });

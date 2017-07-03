@@ -101,13 +101,13 @@ layers.geojson = new L.GeoJSONAutoClear(null, {
 		var tmpl, $popup;
 
 		if(feature.geometry.type==='LineString')
-			tmpl = Template.popup_track;
+			tmpl = Template.popupTrack;
 
 		else if(feature.geometry.type==='Point')
-			tmpl = Template.popup_poi;
+			tmpl = Template.popupPoi;
 
 		if(tmpl && feature.properties) {
-			$popup = L.DomUtil.create('div','popup-track');
+			$popup = L.DomUtil.create('div','');
 			Blaze.renderWithData(tmpl, feature.properties.tags || feature.properties, $popup);
 			layer.bindPopup($popup, {closeButton:false} );
 		}
@@ -331,8 +331,6 @@ Kepler.map = {
 				if(geoData[i] && (geoData[i].features || geoData[i].feature))
 					layers.geojson.addData(geoData[i]);
 			}
-
-//console.log('loadGeojson',layers.geojson.getBounds())
 
 			var bb = layers.geojson.getBounds(),
 				zoom = this._map.getBoundsZoom(bb),

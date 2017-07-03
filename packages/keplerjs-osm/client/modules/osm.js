@@ -14,6 +14,17 @@ var tags2poiClass = {
 //'highway=path',
 
 Kepler.osm = {
+	
+	iconByTags: function(tags) {
+		for(var tag in tags) {
+			var tagval = tag+'='+tags[tag];
+
+			if(tags2poiClass[tagval])
+				return 'icon icon-'+tags2poiClass[tagval];
+		}
+		return '';
+	},
+
 	loadQuery: function(filter) {
 
 		filter = filter || 'amenity=bar';
@@ -28,13 +39,14 @@ Kepler.osm = {
 				K.map.loadGeojson(geojson);
 		});
 	},
-	iconByTags: function(tags) {
-		for(var tag in tags) {
-			var tagval = tag+'='+tags[tag];
 
-			if(tags2poiClass[tagval])
-				return 'icon icon-'+tags2poiClass[tagval];
-		}
-		return '';
-	}
+	loadTracks: function() {
+		Meteor.call('getOsmByBBox', 'highway=track', K.map.getBBox(), 'way', function(err, geojson) {
+			
+			console.log(geojson);
+
+			if(geojson.features.length>0)
+				K.map.loadGeojson(geojson);
+		});
+	}	
 };

@@ -16,7 +16,6 @@ Package.onUse(function (api) {
     'keplerjs:core'
   ]);
 
-
   api.addFiles([
     'collections/osm.js'
   ],['client','server']);

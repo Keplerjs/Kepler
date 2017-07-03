@@ -1,6 +1,6 @@
 
 var Future = Npm.require('fibers/future'),
-	Overpass = Npm.require('query-overpass');
+    Overpass = Npm.require('query-overpass');
 
 Meteor.methods({
 	getOsmByBBox: function(filter, bb, type) {

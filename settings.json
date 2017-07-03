@@ -1,5 +1,5 @@
 {
-	"adminUsers": ["admina"],
+	"adminUsers": ["admin"],
 	"dirs": {
 		"uploads": "/var/www/climbo/static.climbo.net/uploads/",
 		"avatars": "/var/www/climbo/static.climbo.net/avatars/"

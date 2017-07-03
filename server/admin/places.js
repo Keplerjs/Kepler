@@ -91,7 +91,6 @@ K.admin.addMethods({
 
 		if(!K.admin.isMe()) return null;
 
-		//updatePlaceLoc(placeId, loc );
 		Places.update(placeId, {$set: {loc: loc} });
 
 		console.log('movePlace', placeId, loc);

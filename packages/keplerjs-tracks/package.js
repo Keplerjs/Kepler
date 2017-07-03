@@ -25,10 +25,11 @@ Package.onUse(function(api) {
     'client/views/popups.html',    
     'client/views/panels.html',
     'client/views/panels.js',
+    'client/router.js'
   ],'client');
 
   api.addFiles([
-    'server/admin/tracks.js',    
+    'server/admin.js',    
     'server/pubs.js',
   ],'server');
   
