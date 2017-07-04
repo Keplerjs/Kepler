@@ -16,8 +16,8 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-    'collections/tracks.js',
-    'startup.js'
+    'plugin.js',    
+    'collections/tracks.js'
   ],['client','server']);
 
   api.addFiles([
@@ -32,8 +32,5 @@ Package.onUse(function(api) {
     'server/admin.js',    
     'server/pubs.js',
   ],'server');
-  
-  //for debug
-  api.export('Tracks');
   
 });

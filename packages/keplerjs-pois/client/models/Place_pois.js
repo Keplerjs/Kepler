@@ -23,12 +23,7 @@ var poisToGeojson = function(pois, place, type) {
 Kepler.Place.include({
 
 	poisList: null,
-
-/*	loadPois: function(type) {
-
-		var pois = getPoisByLoc(this.loc).fetch();
-		K.map.loadGeojson( poisToGeojson(pois, this, type) );
-	},*/
+	
 	loadPois: function() {
 
 		var self = this;
@@ -40,7 +35,6 @@ Kepler.Place.include({
 			});
 	},
 	showPois: function(poiType) {
-		console.log('showPois', poiType)
 		this.loadPois();
 		//TODO if(poiType) show each track separately
 		K.map.loadGeojson( poisToGeojson(this.poisList, this, poiType) );

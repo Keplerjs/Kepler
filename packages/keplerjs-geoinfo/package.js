@@ -1,8 +1,4 @@
-/*
 
-TODO split this plugin in keplerjs:geoapi(server api) and keplerjs:geoinfo(client views)
-
-*/
 Package.describe({
   name: 'keplerjs:geoinfo',
   summary: 'keplerjs plugin geoinfo',
@@ -19,7 +15,7 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-    'startup.js'
+    'plugin.js'
   ],['client','server']);
 
   api.addFiles([

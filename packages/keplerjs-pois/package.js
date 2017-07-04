@@ -15,8 +15,8 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-    'collections/pois.js',
-    'startup.js'
+    'plugin.js',    
+    'collections/pois.js'
   ],['client','server']);
 
   api.addFiles([
@@ -31,6 +31,4 @@ Package.onUse(function(api) {
     'server/pubs.js',
   ],'server');
   
-  api.export('Pois');
-
 });

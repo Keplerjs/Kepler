@@ -40,7 +40,7 @@ Kepler.Place.include({
 
 		if(!self.tracksList)
 			Meteor.subscribe('tracksByPlace', self.id, function() {
-				self.tracksList = self.getTracksList();
+				self.tracksList = getTracksByLoc(self.loc).fetch();
 				self._dep.changed();
 			});
 	},

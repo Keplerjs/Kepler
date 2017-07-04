@@ -15,6 +15,10 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
+    'plugin.js',
+  ],['client','server']);
+
+  api.addFiles([
     'client/models/Place_weather.js',
     'client/views/panels/place/weather.html',
     'client/views/panels/place/weather.js',
@@ -24,10 +28,5 @@ Package.onUse(function(api) {
   api.addFiles([
     'server/weather.js',
   ],'server');
-
-
-  api.addFiles([
-    'startup.js',
-  ],['client','server']);
 
 });

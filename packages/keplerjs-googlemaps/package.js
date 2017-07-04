@@ -18,7 +18,7 @@ Package.onUse(function (api) {
   ]);
 
   api.addFiles([
-    'startup.js'
+    'plugin.js'
   ],['client','server']);
 
   api.addFiles([

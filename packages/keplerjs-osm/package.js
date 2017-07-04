@@ -17,6 +17,7 @@ Package.onUse(function (api) {
   ]);
 
   api.addFiles([
+    'plugin.js',
     'collections/osm.js'
   ],['client','server']);
   
