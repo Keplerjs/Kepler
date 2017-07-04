@@ -1,5 +1,5 @@
 
-Kepler.plugins = {
+Kepler.Plugin = {
 	
 	_plugins: {},
 

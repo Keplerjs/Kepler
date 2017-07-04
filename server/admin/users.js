@@ -1,8 +1,8 @@
 
-K.admin.addMethods({
+K.Admin.addMethods({
 	createNewUser: function(usernames) {
 		
-		if(!K.admin.isMe()) return null;
+		if(!K.Admin.isMe()) return null;
 
 		usernames = _.isArray(usernames) ? usernames : [usernames];
 
@@ -20,7 +20,7 @@ K.admin.addMethods({
 	},
 	delUser: function(username) {
 		
-		if(!K.admin.isMe()) return null;
+		if(!K.Admin.isMe()) return null;
 
 		var userData = Users.findOne({username: username}),
 			userId = userData._id;
@@ -39,7 +39,7 @@ K.admin.addMethods({
 	},
 	createFriendship: function(username1, username2) {
 		
-		if(!K.admin.isMe()) return null;
+		if(!K.Admin.isMe()) return null;
 
 		var user1 = Users.findOne({username: username1 }),
 			user2 = Users.findOne({username: username2 })
@@ -48,7 +48,7 @@ K.admin.addMethods({
 	},
 	cleanUserFriendship: function(username) {
 		
-		if(!K.admin.isMe()) return null;
+		if(!K.Admin.isMe()) return null;
 
 		var userData = Users.findOne({username: username}),
 			userId = userData._id;
@@ -69,7 +69,7 @@ K.admin.addMethods({
 	},	
 	delAllUsers: function() {
 		
-		if(!K.admin.isMe()) return null;
+		if(!K.Admin.isMe()) return null;
 
 		Users.find({_id: {$ne: this.userId }}).forEach(function(user) {
 			Meteor.call('delUser', user.username);

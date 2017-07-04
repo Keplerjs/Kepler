@@ -1,12 +1,12 @@
 /*
-	generic caching system key/value
+	simple and smart caching system key/value for client and server
 */
 
-//TODO expirable keys: parseInt(K.util.timeUnix()/(60*60*24*1))
-//TODO expirable prefix: parseInt(K.util.timeUnix()/(60*60*24*1))
+//TODO expirable keys: parseInt(K.Util.timeUnix()/(60*60*24*1))
+//TODO expirable prefix: parseInt(K.Util.timeUnix()/(60*60*24*1))
 //TODO store collection in localstorage
 
-Kepler.cache = {
+Kepler.Cache = {
 
 	sep: '_',
 	prefix: 'cache',
@@ -41,6 +41,19 @@ Kepler.cache = {
 		key = _.isArray(key) ? key.join(this.sep) : key;
 		key = _.isObject(key) ? JSON.stringify(key) : key;
 		return key;
+	},
+
+	_expireGen: function(expire) {
+		
+		expire = expire || 'daily';
+
+		var expires = {
+			'hourly':  60*60,
+			'daily':   60*60*24*1,
+			'weekly':  60*60*24*7,
+			'monthly': 60*60*24*30
+		};
+		return parseInt( Math.round(new Date().getTime()/1000) / expires[expire] );
 	},
 
 	set: function(key, val, name) {

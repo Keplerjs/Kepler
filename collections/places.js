@@ -13,18 +13,18 @@ Places = new Mongo.Collection('places');
 // }
 
 getPlaceById = function(placeId) {
-	return Places.find(placeId, { fields: K.fields.placePanel });
+	return Places.find(placeId, { fields: K.Field.placePanel });
 };
 
 getPlacesByIds = function(placesIds) {
-	return Places.find({_id: {$in: placesIds} }, { fields: K.fields.placeItem });
+	return Places.find({_id: {$in: placesIds} }, { fields: K.Field.placeItem });
 };
 
 
 getPlacesByCheckins = function(usersIds) {
 	usersIds = _.isArray(usersIds) ? {$in: usersIds} : usersIds;
 	
-	return Places.find({checkins: usersIds }, { fields: K.fields.placeItem });
+	return Places.find({checkins: usersIds }, { fields: K.Field.placeItem });
 };
 
 getPlacesByBBox = function(bbox) {
@@ -34,7 +34,7 @@ getPlacesByBBox = function(bbox) {
 
 		var pp = _.filter(Places.find().fetch(), function(place) {
 
-			return K.util.geo.contains(bbox, place.loc);
+			return K.Util.geo.contains(bbox, place.loc);
 		});
 
 		return {
@@ -50,7 +50,7 @@ getPlacesByBBox = function(bbox) {
 					"$box": bbox
 				}
 			}
-		}, { fields: K.fields.placeItem });
+		}, { fields: K.Field.placeItem });
 	}
 };
 
@@ -64,7 +64,7 @@ getCheckinsCountByPlaces = function(placesIds) {
 };
 
 getPlacesByName = function(initial) {
-	initial = K.util.sanitizeRegExp(initial);
+	initial = K.Util.sanitizeRegExp(initial);
 
 	if(initial.length < Meteor.settings.public.searchMinLen)
 		return null;
@@ -72,7 +72,7 @@ getPlacesByName = function(initial) {
 	var ex = new RegExp('^'+ initial, 'i'),
 		opts = {
 			sort: { name:1, reg: 1},
-			fields: K.fields.placeSearch,
+			fields: K.Field.placeSearch,
 			limit: Meteor.settings.public.searchMaxRes
 		};
 		

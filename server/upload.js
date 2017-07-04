@@ -10,8 +10,8 @@ Meteor.methods({
 		var	filePath = Meteor.settings.dirs.avatars,
 			fileUrl = Meteor.settings.public.urls.avatars,
 			imgSize = Meteor.settings.public.avatarSize,
-			fileUid = Meteor.user().username +'_'+ K.util.timeUnix(),
-			fileName = K.util.sanitizeFilename( fileUid ),
+			fileUid = Meteor.user().username +'_'+ K.Util.timeUnix(),
+			fileName = K.Util.sanitizeFilename( fileUid ),
 			fileMin = fileName + _.template('_{width}x{height}.min.jpg', imgSize),
 			fileBig = fileName + '.ori.jpg',
 			imgOpts = _.extend(imgSize, {
@@ -20,9 +20,9 @@ Meteor.methods({
 				customArgs: ['-auto-orient']
 			});
 
-		if(!K.util.valid.image(fileObj)) {
+		if(!K.Util.valid.image(fileObj)) {
 			console.log('uploadAvatar: error ', _.omit(fileObj,'blob') );
-			throw new Meteor.Error(500, i18n('errors.imageNotValid') + K.util.humanize.filesize(Meteor.settings.public.maxImageSize) );
+			throw new Meteor.Error(500, i18n('errors.imageNotValid') + K.Util.humanize.filesize(Meteor.settings.public.maxImageSize) );
 		}
 
 		console.log('uploadAvatar: wrinting...', fileBig);

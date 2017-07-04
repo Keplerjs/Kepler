@@ -1,8 +1,8 @@
 
-K.admin.addMethods({
+K.Admin.addMethods({
 	updateGeoinfo: function(placeId) {
 	
-		if(!K.admin.isMe()) return null;
+		if(!K.Admin.isMe()) return null;
 		
 		async.parallel({
 			esp: function(cb) {

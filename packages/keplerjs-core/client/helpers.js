@@ -1,13 +1,17 @@
 
 Template.registerHelper('settings', function(prop) {
-	return K.util.getPath(Meteor.settings.public, prop);
+	return K.Util.getPath(Meteor.settings.public, prop);
 });
 
+/*Template.registerHelper('hideSidebar', function(prop) {
+	return Session.get('hideSidebar');
+});
+*/
 Template.registerHelper('pluginsTemplates', function () {
 
   	var parentTemplate = Template.instance().view.name.replace('Template.','');
 	
-	return _.map(K.plugins.getPlugins(), function(plugin) {
+	return _.map(K.Plugin.getPlugins(), function(plugin) {
 		if(Template[parentTemplate+'_'+plugin.name])
 			return {
 				pluginTemplate: parentTemplate+'_'+plugin.name,
@@ -41,45 +45,45 @@ Template.registerHelper('newPlace', function(id) {
 });
 
 Template.registerHelper('humanAzimut', function(ang, tiny) {
-	return K.util.humanize.azimut(ang, parseInt(tiny));
+	return K.Util.humanize.azimut(ang, parseInt(tiny));
 });
 
 Template.registerHelper('humanTime', function(sec, ago) {
-	return K.util.humanize.time(sec, parseInt(ago));
+	return K.Util.humanize.time(sec, parseInt(ago));
 });
 
 Template.registerHelper('humanTimeUTC', function(dateutc, ago) {
-	var date = K.util.dateUtcToLocal(new Date(Date.parse(dateutc))),
+	var date = K.Util.dateUtcToLocal(new Date(Date.parse(dateutc))),
 		sec = Math.round(date.getTime()/1000);
-	return K.util.humanize.time(sec, parseInt(ago));
+	return K.Util.humanize.time(sec, parseInt(ago));
 });
 
 Template.registerHelper('humanDate', function(date) {
-	return K.util.humanize.date(date);
+	return K.Util.humanize.date(date);
 });
 
 Template.registerHelper('humanDateUTC', function(dateutc) {
-	var date = K.util.dateUtcToLocal(new Date(Date.parse(dateutc))),
+	var date = K.Util.dateUtcToLocal(new Date(Date.parse(dateutc))),
 		d = date.getDate(),
 		m = date.getMonth()+1,
 		y = date.getFullYear();
-	return K.util.humanize.date(d+'-'+m+'-'+y);
+	return K.Util.humanize.date(d+'-'+m+'-'+y);
 });
 
 Template.registerHelper('humanDistance', function(dis, sign) {
-	return K.util.humanize.distance(dis, parseInt(sign));
+	return K.Util.humanize.distance(dis, parseInt(sign));
 });
 
 Template.registerHelper('humanLatlng', function(loc) {
-	return K.util.humanize.latlng(loc);
+	return K.Util.humanize.latlng(loc);
 });
 
 Template.registerHelper('sunrise', function(ll) {
-	return K.util.geo.sunrise(ll);
+	return K.Util.geo.sunrise(ll);
 });
 
 Template.registerHelper('sunset', function(ll) {
-	return K.util.geo.sunset(ll);
+	return K.Util.geo.sunset(ll);
 });
 
 Template.registerHelper('placeType', function(type) {

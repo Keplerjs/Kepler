@@ -1,5 +1,5 @@
 
-Kepler.util.valid = {
+Kepler.Util.valid = {
 
 	//TODO validUsername using sanitizeFilename and db check
 

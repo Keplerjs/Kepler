@@ -1,6 +1,6 @@
 
 
-Kepler.util.geo = {
+Kepler.Util.geo = {
 
 	roundLoc: function(ll, prec) {
 		prec = prec || 6; 
@@ -9,8 +9,8 @@ Kepler.util.geo = {
 
 	roundBbox: function(bb, prec) {
 		prec = prec || 6;
-		return [ K.util.geo.roundLoc(bb[0], prec),
-				 K.util.geo.roundLoc(bb[1], prec) ];
+		return [ K.Util.geo.roundLoc(bb[0], prec),
+				 K.Util.geo.roundLoc(bb[1], prec) ];
 	},	
 
 	deg2rad: function(deg) {
@@ -22,9 +22,9 @@ Kepler.util.geo = {
 	},
 	
 	distance: function(p1, p2) {
-		if(!K.util.valid.loc(p1) || !K.util.valid.loc(p2))
+		if(!K.Util.valid.loc(p1) || !K.Util.valid.loc(p2))
 			return 0;
-		var deg2rad = K.util.geo.deg2rad,
+		var deg2rad = K.Util.geo.deg2rad,
 			R = 6371797, // Radius of the earth in m
 			dLat = deg2rad(p2[0]-p1[0]),  // deg2rad below
 			dLon = deg2rad(p2[1]-p1[1]), 
@@ -37,7 +37,7 @@ Kepler.util.geo = {
 	
 	contains: function (bb, ll) { // (LatLngBounds) or (LatLng) -> Boolean
 
-		if(!K.util.valid.loc(ll)) return false;
+		if(!K.Util.valid.loc(ll)) return false;
 
 		return L.latLngBounds(bb).contains(L.latLng(ll));
 		//var GeoJSON = Package['geojson-utils'].GeoJSON;
@@ -95,7 +95,7 @@ Kepler.util.geo = {
 		for(var i=0; i<cc.length; i++)
 		{
 			if(i>0 && cc[i])
-				d += K.util.geo.distance( [p[1], p[0]], [cc[i][1], cc[i][0]] );
+				d += K.Util.geo.distance( [p[1], p[0]], [cc[i][1], cc[i][0]] );
 			p = cc[i];
 		}
 		return d;

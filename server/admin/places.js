@@ -1,8 +1,8 @@
 
-K.admin.addMethods({
+K.Admin.addMethods({
 	cleanPlaceHist: function(placeName) {
 		
-		if(!K.admin.isMe()) return null;
+		if(!K.Admin.isMe()) return null;
 
 		var placeData = Places.findOne({name: placeName}),
 			placeId = placeData._id;
@@ -17,7 +17,7 @@ K.admin.addMethods({
 	},
 	cleanPlaceCheckins: function(placeName) {
 		
-		if(!K.admin.isMe()) return null;
+		if(!K.Admin.isMe()) return null;
 
 		var placeData = Places.findOne({name: placeName}),
 			placeId = placeData._id;
@@ -32,34 +32,34 @@ K.admin.addMethods({
 	},
 	cleanAllHist: function() {
 		
-		if(!K.admin.isMe()) return null;
+		if(!K.Admin.isMe()) return null;
 
 		Users.update(true, {$set: {hist: []} });
 		Places.update(true, {$set: {hist: []} });
 	},	
 	cleanAllCheckins: function() {
 		
-		if(!K.admin.isMe()) return null;
+		if(!K.Admin.isMe()) return null;
 
 		Users.update(true, {$set: {checkin: null} });
 		Places.update(true, {$set: {checkins: []} });
 	},
 	cleanAllFavorites: function() {
 		
-		if(!K.admin.isMe()) return null;
+		if(!K.Admin.isMe()) return null;
 
 		Users.update(true, {$set: {favorites: []} });
 		Places.update(true, {$set: {rank: 0} });
 	},
 	delPlace: function(placeId) {
 
-		if(!K.admin.isMe()) return null;
+		if(!K.Admin.isMe()) return null;
 
 		Places.remove(placeId);
 	},
 	clonePlace: function(placeId) {
 
-		if(!K.admin.isMe()) return null;
+		if(!K.Admin.isMe()) return null;
 
 		var place = getPlaceById(placeId).fetch()[0],
 			offset = 0.01;
@@ -79,9 +79,9 @@ K.admin.addMethods({
 	},
 	renamePlace: function(placeId, name) {
 		
-		if(!K.admin.isMe()) return null;
+		if(!K.Admin.isMe()) return null;
 
-		var iname = K.util.sanitizeName(name);
+		var iname = K.Util.sanitizeName(name);
 
 		Places.update(placeId, {$set: {name: iname} });
 		
@@ -89,7 +89,7 @@ K.admin.addMethods({
 	},
 	movePlace: function(placeId, loc) {
 
-		if(!K.admin.isMe()) return null;
+		if(!K.Admin.isMe()) return null;
 
 		Places.update(placeId, {$set: {loc: loc} });
 

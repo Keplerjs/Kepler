@@ -35,10 +35,10 @@ Kepler.User = K.Model.extend({
 				else
 					self.marker.setLatLng(self.loc);
 
-				K.map.addItem(self);
+				K.Map.addItem(self);
 			}
 			else
-				K.map.removeItem(self);
+				K.Map.removeItem(self);
 
 			self._dep.changed();
 			
@@ -69,7 +69,7 @@ Kepler.User = K.Model.extend({
 		
 		self.buildMarker();
 
-		K.map.loadLoc(self.loc, function() {
+		K.Map.loadLoc(self.loc, function() {
 			self.icon.animate();
 		});
 	},
@@ -114,8 +114,8 @@ K.newUser = function(id) {
 	{
 		K.usersById[id] = new K.User(id);
 		
-		if(K.admin.isMe()) {
-			var iname = K.util.sanitizeFilename(K.usersById[id].name);
+		if(K.Admin.isMe()) {
+			var iname = K.Util.sanitizeFilename(K.usersById[id].name);
 			K.usersByName[iname || id] = K.usersById[id];
 		}
 	}

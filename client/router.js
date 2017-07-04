@@ -29,7 +29,7 @@ Router.waitOn(function() {
 	else {
 		return Meteor.subscribe('currentUser', function() {
 			K.profile.init(function() {
-				K.admin.loadMethods();
+				K.Admin.loadMethods();
 			});
 		});
 	}
@@ -44,7 +44,7 @@ Router.onBeforeAction(function(pause) {
 		//console.log('map.init', K.profile.data);
 
 		if(!_.isEmpty(K.profile.data))
-			K.map.init(K.profile.getOpts('map'), function() {
+			K.Map.init(K.profile.getOpts('map'), function() {
 				this.enableBBox();
 			});
 	}
@@ -95,7 +95,7 @@ Router.map(function() {
 		path: '/logout',
 		onBeforeAction: function () {
 			K.profile.logout();
-			K.map.destroy();
+			K.Map.destroy();
 			Router.go('pageIntro');
 		}
 	});
@@ -149,7 +149,7 @@ Router.map(function() {
 				className: 'places',
 				headerTemplate: 'search_place',
 				itemsTemplate: 'item_place_search',
-				items: _.map(getPlacesByBBox( K.map.getBBox() ).fetch(), function(place) {
+				items: _.map(getPlacesByBBox( K.Map.getBBox() ).fetch(), function(place) {
 					var p = K.newPlace(place._id);
 					if($(p.marker._icon).is(':visible'))
 						return p.rData();

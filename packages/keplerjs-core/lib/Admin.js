@@ -1,5 +1,7 @@
-
-Kepler.admin = {
+/*
+	Debugger and admnistrations methods
+*/
+Kepler.Admin = {
 	
 	methods: {},	//list of server methods
 
@@ -51,10 +53,10 @@ Kepler.admin = {
 Meteor.methods({
 	adminGetMethods: function() {
 	
-		if(!K.admin.isMe()) return false;
+		if(!K.Admin.isMe()) return false;
 
 		console.log('Admin: adminGetMethods');
 
-		return _.keys(K.admin.methods);
+		return _.keys(K.Admin.methods);
 	}
 });

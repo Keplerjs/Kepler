@@ -67,7 +67,8 @@ layers.places = new L.LayerJSON({
 	}
 });
 
-layers.geojson = new L.GeoJSONAutoClear(null, {
+layers.geojson = new L.GeoJSON(null, {
+	//autoclear: false,
 	style: function (feature) {
 		return styles[feature.properties.type || 'def'] || styles.def;
 	},
@@ -149,7 +150,7 @@ controls.gps = L.control.gps({
 	}
 });
 
-Kepler.map = {
+Kepler.Map = {
 
 	ready: false,
 
@@ -173,14 +174,22 @@ Kepler.map = {
 		})
 		.on('moveend zoomend', function(e) {
 			self._deps.bbox.changed();
+
+			//autoclean geojson layer
+			if(layers.geojson.getLayers().length) {
+				if(e.target.getBoundsZoom(layers.geojson.getBounds()) - e.target.getZoom() > 2)
+					layers.geojson.clearLayers();
+			}
 		});
+
+		self.$sidebar = $('#sidebar');
 
 		self._addControls();
 
 		self.setOpts(opts);
 
 		//Fix only for Safari event resize! when shift to fullscreen
-		$(window).on('orientationchange'+(K.util.isMobile()?'':' resize'), _.debounce(function(e) {
+		$(window).on('orientationchange'+(K.Util.isMobile()?'':' resize'), _.debounce(function(e) {
 
 			$(window).scrollTop(0);
 			//console.log('invalidateSize', (new Date).getTime(), self._map.getSize() )
@@ -188,7 +197,7 @@ Kepler.map = {
 
 		}, Meteor.settings.public.typeDelay+1000) );
 
-		if($.isFunction(cb))
+		if(_.isFunction(cb))
 			self._map.whenReady(function() {
 				self._deps.bbox.changed();
 				cb.call(self);
@@ -211,8 +220,8 @@ Kepler.map = {
 	_setView: function(loc, zoom) {
 		if(this.ready) {
 			this._map.setView(loc, zoom);
-			/*TODO var $sidebar = $('#sidebar');
-			if($sidebar.hasClass('expanded')) {
+			/*TODO 
+			if(this.$sidebar.hasClass('expanded')) {
 				var p = this._map.latLngToContainerPoint(L.latLng(loc));
 				p = L.point(p.x - $sidebar.width(), p.y);
 				loc = this._map.containerPointToLatLng(p);
@@ -223,11 +232,20 @@ Kepler.map = {
 		return this;
 	},
 
+	isVisible: function() {
+		if(!this.ready) return false;
+
+		var mapw = this._map.getSize().x,
+			panelw = (this.$sidebar.hasClass('expanded') && this.$sidebar.width()) || 0;
+
+		return this.ready && (mapw-panelw > 40);
+	},
+
 	setOpts: function(opts) {
 		if(this.ready) {
 			opts = _.extend({}, Meteor.settings.public.map, opts);
 
-			if(!K.util.valid.loc(opts.center))
+			if(!K.Util.valid.loc(opts.center))
 				opts.center = Meteor.settings.public.map.center;
 			
 			if(!Meteor.settings.public.layers[opts.layer])
@@ -278,14 +296,13 @@ Kepler.map = {
 				sw = bbox.getSouthWest(),
 				ne = bbox.getNorthEast();
 
-			var $sidebar = $('#sidebar');
-			if($sidebar.hasClass('expanded')) {
+			if(this.$sidebar.hasClass('expanded')) {
 				var p = this._map.latLngToContainerPoint(sw);
-				p.x += $sidebar.width();
+				p.x += this.$sidebar.width();
 				sw = this._map.containerPointToLatLng(p);
 			}
 
-			return K.util.geo.roundBbox([[sw.lat, sw.lng], [ne.lat, ne.lng]]);
+			return K.Util.geo.roundBbox([[sw.lat, sw.lng], [ne.lat, ne.lng]]);
 		}
 	},
 	
@@ -294,7 +311,7 @@ Kepler.map = {
 			if(_.isFunction(cb))
 				this._map.once("moveend zoomend", cb);
 			
-			if(loc && K.util.valid.loc(loc))
+			if(loc && K.Util.valid.loc(loc))
 				this._setView( L.latLng(loc) , Meteor.settings.public.loadLocZoom);
 		}
 		return this;
@@ -327,6 +344,7 @@ Kepler.map = {
 			this._map.closePopup();
 
 			layers.geojson.clearLayers();
+			
 			for(var i in geoData) {
 				if(geoData[i] && (geoData[i].features || geoData[i].feature))
 					layers.geojson.addData(geoData[i]);

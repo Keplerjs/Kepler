@@ -21,7 +21,7 @@ Accounts.onLogin(function(login) {
 	var ip = login.connection.httpHeaders['x-real-ip'] || login.connection.clientAddress,
 		sets = {
 			online: 1,
-			isAdmin: K.admin.isMe(login.user)
+			isAdmin: K.Admin.isMe(login.user)
 		};
 		
 	Users.update(login.user._id, {$set: sets});
@@ -85,7 +85,7 @@ Accounts.onCreateUser(function(options, user) {
 	// 	avatar = 'http://twitter.com/api/users/profile_image/'+username;
 	// }
 	
-	var newuser = _.extend(user, K.schemas.user, {
+	var newuser = _.extend(user, K.Schema.user, {
 		username: username,		
 		name: name,
 		lang: lang,

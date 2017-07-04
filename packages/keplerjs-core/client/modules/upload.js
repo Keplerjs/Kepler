@@ -7,7 +7,7 @@ Kepler.upload = {
 		else
 			this.fileReader = new FileReader();
 			
-		if(true || K.util.valid.image(fileObj)) {
+		if(true || K.Util.valid.image(fileObj)) {
 			//TODO use EJSON http://docs.meteor.com/#/full/ejson
 			/*{
 			  "d": {"$date": 1358205756553},
@@ -24,7 +24,7 @@ Kepler.upload = {
 			this.fileReader.readAsBinaryString(fileObj);
 		}
 		else
-			cb({message: i18n('errors.imageNotValid') + K.util.humanize.filesize(Meteor.settings.public.maxImageSize) });
+			cb({message: i18n('errors.imageNotValid') + K.Util.humanize.filesize(Meteor.settings.public.maxImageSize) });
 
 		return this;
 	}

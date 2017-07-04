@@ -1,8 +1,8 @@
 
-K.admin.addMethods({
+K.Admin.addMethods({
 	delAllConvers: function() {
 		
-		if(!K.admin.isMe()) return false;
+		if(!K.Admin.isMe()) return false;
 
 		Convers.remove(true);
 		Messages.remove(true);

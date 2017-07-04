@@ -33,7 +33,7 @@ Kepler.geoinfo = (function() {
 		}
 
 		if(res.statusCode == 200 && res.data && res.data[src.par])
-			ret = K.util.sanitizeName(res.data[src.par]);
+			ret = K.Util.sanitizeName(res.data[src.par]);
 		else
 			ret = null;
 
@@ -56,7 +56,7 @@ Kepler.geoinfo = (function() {
 		}
 		
 		if(res.statusCode == 200 && res.data && res.data[src.par])
-			ret = K.util.sanitizeName(res.data[src.par]);
+			ret = K.Util.sanitizeName(res.data[src.par]);
 		else
 			ret = null;
 
@@ -85,7 +85,7 @@ Kepler.geoinfo = (function() {
 		}
 		
 		if(res.statusCode == 200 && res.data && res.data.geonames && res.data.geonames[0] && res.data.geonames[0][srcASTER.par])
-			ret = K.util.sanitizeName(res.data.geonames[0][srcASTER.par]);
+			ret = K.Util.sanitizeName(res.data.geonames[0][srcASTER.par]);
 		else
 			ret = null;
 
@@ -109,7 +109,7 @@ Kepler.geoinfo = (function() {
 		}
 
 		if(res.statusCode == 200 && res.data && res.data.geonames && res.data.geonames[0] && res.data.geonames[0][src.par])
-			ret = K.util.sanitizeName(res.data.geonames[0][src.par]);
+			ret = K.Util.sanitizeName(res.data.geonames[0][src.par]);
 		else
 			ret = null;
 
@@ -133,7 +133,7 @@ Kepler.geoinfo = (function() {
 		}
 		
 		if(res.statusCode == 200 && res.data && res.data[src.par])
-			ret = K.util.sanitizeName(res.data[src.par]);
+			ret = K.Util.sanitizeName(res.data[src.par]);
 		else
 			ret = null;
 
@@ -157,7 +157,7 @@ Kepler.geoinfo = (function() {
 		}
 
 		if(res.statusCode == 200 && res.data && res.data[src.par])
-			ret = K.util.sanitizeName(res.data[src.par]);
+			ret = K.Util.sanitizeName(res.data[src.par]);
 		else
 			ret = null;
 
@@ -181,7 +181,7 @@ Kepler.geoinfo = (function() {
 		}
 		
 		if(res.statusCode == 200 && res.data && res.data[src.par])
-			ret = K.util.sanitizeName(res.data[src.par]);
+			ret = K.Util.sanitizeName(res.data[src.par]);
 		else
 			ret = null;
 
@@ -205,7 +205,7 @@ Kepler.geoinfo = (function() {
 		}
 		
 		if(res.statusCode == 200 && res.data && res.data.geonames && res.data.geonames[0] && res.data.geonames[0][src.par])
-			ret = K.util.sanitizeName(res.data.geonames[0][src.par]);
+			ret = K.Util.sanitizeName(res.data.geonames[0][src.par]);
 		else
 			ret = null;
 
@@ -247,48 +247,48 @@ Kepler.geoinfo = (function() {
 	return {
 		elevation: function(ll) {
 
-			ll = K.util.geo.roundLoc(ll, 8);
+			ll = K.Util.geo.roundLoc(ll, 8);
 
-			return K.cache.get(ll, 'elevation', elevationAPILocal);
+			return K.Cache.get(ll, 'elevation', elevationAPILocal);
 		},
 		aspect: function(ll) {
 			
-			ll = K.util.geo.roundLoc(ll, 8);
+			ll = K.Util.geo.roundLoc(ll, 8);
 
-			return K.cache.get(ll, 'aspect', aspectAPILocal);
+			return K.Cache.get(ll, 'aspect', aspectAPILocal);
 		},
 		near: function(ll) {
 
-			ll = K.util.geo.roundLoc(ll, 4);
+			ll = K.Util.geo.roundLoc(ll, 4);
 
-			return K.cache.get(ll, 'near', nearAPI);
+			return K.Cache.get(ll, 'near', nearAPI);
 		},
 		municipality: function(ll) {
 
-			ll = K.util.geo.roundLoc(ll, 6);
+			ll = K.Util.geo.roundLoc(ll, 6);
 
-			return K.cache.get(ll ,'municipality', municipalityAPI);
+			return K.Cache.get(ll ,'municipality', municipalityAPI);
 		},
 		province: function(ll) {
 
-			ll = K.util.geo.roundLoc(ll, 6);
+			ll = K.Util.geo.roundLoc(ll, 6);
 
-			return K.cache.get(ll ,'province', provinceAPI);
+			return K.Cache.get(ll ,'province', provinceAPI);
 		},
 		region: function(ll) {
 
-			ll = K.util.geo.roundLoc(ll, 2);
+			ll = K.Util.geo.roundLoc(ll, 2);
 
-			return K.cache.get(ll ,'region', regionAPI);
+			return K.Cache.get(ll ,'region', regionAPI);
 		},
 		country: function(ll) {
 
-			ll = K.util.geo.roundLoc(ll, 1);
+			ll = K.Util.geo.roundLoc(ll, 1);
 
-			return K.cache.get(ll ,'country', countryAPI);
+			return K.Cache.get(ll ,'country', countryAPI);
 		},
 		geoip:  function(ip) {
-			return K.cache.get(ip, 'geoip', geoipAPI);
+			return K.Cache.get(ip, 'geoip', geoipAPI);
 		}		
 	};
 }());

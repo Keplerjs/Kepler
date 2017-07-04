@@ -1,5 +1,5 @@
 /*
-	abilita drag e drop sui marker, con maniglia
+	enable drag e drop sui marker, con maniglia
 */
 
 L.Marker.include({

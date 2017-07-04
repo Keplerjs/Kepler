@@ -20,16 +20,16 @@ Meteor.methods({
 		
 		console.log('setLoc', userData.username, loc);
 
-		if(K.util.valid.loc(loc))
+		if(K.Util.valid.loc(loc))
 		{
-			var shift = K.util.geo.distance(userData.loclast, loc);
+			var shift = K.Util.geo.distance(userData.loclast, loc);
 
 			if(userData.loclast===null || shift >= Meteor.settings.public.gpsMinShift)
 			{
 				var nearPlace = Places.findOne({
 						loc: {
 							'$near': loc,
-							'$maxDistance': K.util.geo.meters2rad(Meteor.settings.public.checkinMaxDist)
+							'$maxDistance': K.Util.geo.meters2rad(Meteor.settings.public.checkinMaxDist)
 						}
 					});
 

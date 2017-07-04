@@ -1,7 +1,7 @@
 /*
 	default values for new model/document
 */
-Kepler.schemas = {
+Kepler.Schema = {
 
 	place: {
 		name: '',	       //place title

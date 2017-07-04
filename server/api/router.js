@@ -26,7 +26,7 @@ Router.route(paths.place, { where: 'server'})
 
 	console.log('Api: ', req.url);
 
-	var placeData = Places.findOne({name: this.params.name }, { fields: K.fields.placeItem });
+	var placeData = Places.findOne({name: this.params.name }, { fields: K.Field.placeItem });
 	
 	delete placeData.loc;
 

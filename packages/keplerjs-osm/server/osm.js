@@ -28,8 +28,8 @@ Meteor.methods({
 //TODO
 /*
 var key = f.id,
-	val = K.cache.get(key, 'overpass');
-return val || K.cache.set(key, ... , 'overpass');
+	val = K.Cache.get(key, 'overpass');
+return val || K.Cache.set(key, ... , 'overpass');
 */
 		return future.wait();
 	},

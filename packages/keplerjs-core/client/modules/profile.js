@@ -45,7 +45,7 @@ Kepler.profile = {
 			Users.update(Meteor.userId(), {
 				$set: {
 					online: parseFloat(online),
-					mob: parseFloat(K.util.isMobile() ? 1:0)
+					mob: parseFloat(K.Util.isMobile() ? 1:0)
 				}
 			}, function(err) {
 				self._deps.online.changed();
@@ -57,7 +57,7 @@ Kepler.profile = {
 		return !!this.data.online;
 	},
 	getOpts: function(prop) {
-		return K.util.getPath(this.data,'settings.'+prop);
+		return K.Util.getPath(this.data,'settings.'+prop);
 	},
 	hasFriend: function(userId) {
 		return _.contains(this.data.friends, userId);

@@ -2,7 +2,7 @@
 
 //TODO creare numberHuman da usare in bagde chekins e stars 2000 -> 2K 
 
-Kepler.util.humanize = {
+Kepler.Util.humanize = {
 
 	azimut: function(ang, shortnames) {
 		shortnames = shortnames || false;
@@ -15,7 +15,7 @@ Kepler.util.humanize = {
 	time: function(sec, ago) {
 		//http://goo.gl/8DqYS
 		if(ago)
-			sec = K.util.timeUnix() - sec;
+			sec = K.Util.timeUnix() - sec;
 
 		var y = Math.floor(sec / 31536000),
 			m = Math.floor(sec / 2629744),
@@ -105,7 +105,7 @@ Kepler.util.humanize = {
 	latlng: function (ll, sep, pre) {
 		sep = sep || ' ';
 		pre = pre || 6;
-		if(K.util.valid.loc(ll))
+		if(K.Util.valid.loc(ll))
 			return ll[0].toFixed(pre)+ sep +ll[1].toFixed(pre);
 		else
 			return '';

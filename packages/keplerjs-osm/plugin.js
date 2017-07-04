@@ -1,5 +1,5 @@
 
-K.plugins.registerPlugin({
+K.Plugin.registerPlugin({
 	name: 'osm'
 });
 

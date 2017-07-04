@@ -1,8 +1,8 @@
 
 newPlaceByLoc = function(loc) {
 
-	var placeData = _.extend(K.schemas.place, {
-			loc: K.util.geo.roundLoc(loc)
+	var placeData = _.extend(K.Schema.placa, {
+			loc: K.Util.geo.roundLoc(loc)
 		}),
 		placeId = Places.insert(placeData);
 
@@ -14,7 +14,7 @@ newPlaceByLoc = function(loc) {
 Meteor.methods({
 	newPlaceByLoc: function(loc) {
 
-		if(!this.userId || !K.util.valid.loc(loc)) return null;
+		if(!this.userId || !K.Util.valid.loc(loc)) return null;
 
 		return newPlaceByLoc(loc);
 	}

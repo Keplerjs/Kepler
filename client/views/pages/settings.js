@@ -52,7 +52,7 @@ Template.pageSettings.events({
 	'keyup #name': _.debounce(function(e) {
 		var feed$ = $(e.target).next('.form-control-feedback'),
 			val = $(e.currentTarget).val();
-		if(!K.util.valid.nameUser(e.target.value)) {
+		if(!K.Util.valid.nameUser(e.target.value)) {
 			feed$.show();
 		}
 		else {
@@ -66,7 +66,7 @@ Template.pageSettings.events({
 			oldval = $(e.target).data('value'),
 			feed$ = $(e.target).next('.form-control-feedback');
 
-		if(!K.util.valid.email(val))
+		if(!K.Util.valid.email(val))
 			feed$.show();
 		else {
 			feed$.hide();

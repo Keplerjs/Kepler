@@ -1,50 +1,39 @@
 
-var poisToGeojson = function(pois, place, type) {
-
-	/* decorate Poi markers with place circle and lines from place to pois */
-	
-	if(type) {
-		pois = _.filter(pois, function(feature) {
-			return feature.properties.type === type;
-		});
-	}
-
-	var gloc = [place.loc[1], place.loc[0]],
-		placeCircle = K.util.geo.createFeature('Point', gloc, {type:'placeCircle'});
-		coordLines = _.map(pois, function(poi) {
-			return [gloc, poi.geometry.coordinates];
-		}),
-		poiLines = K.util.geo.createFeature('MultiLineString', coordLines, {type:'poiLine'}),
-		features = _.union(placeCircle, pois, poiLines);
-
-	return K.util.geo.createFeatureColl(features);
-}
-
 Kepler.Place.include({
 
 	poisList: null,
 	
-	loadPois: function() {
+	loadPois: function(cb) {
 
 		var self = this;
 
-		if(!self.poisList)
+		cb = _.isFunction(cb) ? cb : $.noop;
+
+		if(self.poisList)
+			cb(self.poisList);
+		else
 			Meteor.subscribe('poisByPlace', self.id, function() {
+				
 				self.poisList = getPoisByLoc(self.loc).fetch();
+
 				self._dep.changed();
+
+				cb(self.poisList);
 			});
 	},
-	showPois: function(poiType) {
-		this.loadPois();
-		//TODO if(poiType) show each track separately
-		K.map.loadGeojson( poisToGeojson(this.poisList, this, poiType) );
+	showPois: function(poisType) {
+		
+		var self = this;
+
+		self.loadPois(function(poisList) {
+			K.Map.loadGeojson( poisToGeojson(poisList, self, poisType) );
+		});
 	},	
 	getPoisList: function() {
 
-		if(!this.loc) return [];
+		this._dep.depend();
 
-		var pois = getPoisByLoc(this.loc).fetch(),
-			types = _.countBy(pois, function(feature) {
+		var types = _.countBy(this.poisList, function(feature) {
 				return feature.properties.type;
 			});
 

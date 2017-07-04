@@ -20,6 +20,7 @@ Package.onUse(function(api) {
   ],['client','server']);
 
   api.addFiles([
+    'client/lib.js',
     'client/models/Place_pois.js',
     'client/views/popups.html',    
     'client/views/panels.html',

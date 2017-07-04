@@ -53,11 +53,11 @@ Meteor.methods({
 
 		console.log("getWeatherByLoc()",ll);
 
-		ll = K.util.geo.roundLoc(ll, 2);
+		ll = K.Util.geo.roundLoc(ll, 2);
 
-		var key = K.util.hashGen('daily') +'_'+ ll.join('_'),
-			val = K.cache.get(key, 'weather');
+		var key = K.Util.hashGen('daily') +'_'+ ll.join('_'),
+			val = K.Cache.get(key, 'weather');
 
-		return val || K.cache.set(key, weatherAPI(ll), 'weather');
+		return val || K.Cache.set(key, weatherAPI(ll), 'weather');
 	}
 });

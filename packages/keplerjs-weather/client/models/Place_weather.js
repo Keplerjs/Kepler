@@ -5,12 +5,12 @@ Kepler.Place.include({
 
 		var self = this;
 
-		self.weather = K.cache.get(self.loc, 'weather');
+		self.weather = K.Cache.get(self.loc, 'weather');
 
 		if(!self.weather)
 			Meteor.call('getWeatherByLoc', self.loc, function(err, weather) {
 
-				self.weather = K.cache.set(self.loc, weather, 'weather');
+				self.weather = K.Cache.set(self.loc, weather, 'weather');
 				self._dep.changed();
 			});
 	},

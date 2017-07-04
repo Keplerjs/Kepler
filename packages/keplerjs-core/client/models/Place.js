@@ -32,7 +32,7 @@ Kepler.Place = K.Model.extend({
 				if(!self.marker)
 					self.buildMarker();
 
-				K.map.addItem(self);
+				K.Map.addItem(self);
 			}
 
 			self._dep.changed();
@@ -68,7 +68,7 @@ Kepler.Place = K.Model.extend({
 		
 		self.buildMarker();
 
-		K.map.loadLoc(self.loc, function() {
+		K.Map.loadLoc(self.loc, function() {
 			self.icon.animate();
 		});
 	},
@@ -108,8 +108,8 @@ K.newPlace = function(id) {
 	{
 		K.placesById[id] = new K.Place(id);
 		
-		if(K.admin.isMe()) {
-			var iname = K.util.sanitizeFilename(K.placesById[id].name);
+		if(K.Admin.isMe()) {
+			var iname = K.Util.sanitizeFilename(K.placesById[id].name);
 			K.placesByName[iname || id] = K.placesById[id];
 		}
 	}

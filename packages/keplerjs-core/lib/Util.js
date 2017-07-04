@@ -1,5 +1,5 @@
 
-Kepler.util = {
+Kepler.Util = {
 	//http://stackoverflow.com/questions/6491463/accessing-nested-javascript-objects-with-string-key
 	getPath: function(obj, prop) {
 		var parts = prop ? prop.split('.') : [],
@@ -67,7 +67,6 @@ Kepler.util = {
 	},
 
 	hashGen: function(expire) {
-		//TODO move to K.cache module
 		
 		expire = expire || 'daily';
 
@@ -77,7 +76,7 @@ Kepler.util = {
 			'weekly':  60*60*24*7,
 			'monthly': 60*60*24*30
 		};
-		return parseInt( K.util.timeUnix() / expires[expire] );
+		return parseInt( K.Util.timeUnix() / expires[expire] );
 	},
 
 	isMobile: function() {

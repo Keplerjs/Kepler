@@ -60,7 +60,6 @@ Package.onUse(function(api) {
   ], ['client', 'server']);
   
   api.addFiles([
-    'client/lib/L.GeoJSONAutoClear.js',
     'client/lib/L.Marker.drag.js',
     'client/lib/L.NodeIcon.js',  
   ], ['client']);

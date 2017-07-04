@@ -32,7 +32,7 @@ Template.admimPopupPlace.events({
 	'click .popup-clone': function(e,tmpl) {
 		Meteor.call('clonePlace', this.id, function(err, newPlaceId) {
 			Meteor.subscribe('placeByIds', [newPlaceId], function() {	//carica tutti i dati della place
-				K.map.addItem( K.newPlace(newPlaceId) );
+				K.Map.addItem( K.newPlace(newPlaceId) );
 			});
 		});
 	},	
@@ -40,7 +40,7 @@ Template.admimPopupPlace.events({
 		var self = this;
 		if(confirm("Eliminare?"))
 			Meteor.call('delPlace', self.id, function(err) {
-				K.map.removeItem(self);
+				K.Map.removeItem(self);
 			});
 	},
 	'click .popup-ren': function(e,tmpl) {

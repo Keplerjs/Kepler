@@ -25,15 +25,15 @@ Package.onUse(function(api) {
   api.imply(packages);
 
   api.addFiles([
-    'lib/admin.js',
-    'lib/cache.js',
-    'lib/fields.js',
-    'lib/schemas.js',
-    'lib/util.js',
-    'lib/util_geo.js',
-    'lib/util_humanize.js',
-    'lib/util_valid.js',
-    'lib/plugins.js',
+    'lib/Admin.js',
+    'lib/Field.js',
+    'lib/Schema.js',
+    'lib/Util.js',
+    'lib/Util_geo.js',
+    'lib/Util_humanize.js',
+    'lib/Util_valid.js',
+    'lib/Cache.js',
+    'lib/Plugin.js',
     'i18n/it.js'
   ], ['client', 'server']);
 
