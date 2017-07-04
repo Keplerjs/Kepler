@@ -5,7 +5,7 @@ Kepler.schemas = {
 
 	place: {
 		name: '',	       //place title
-		type: '',	       //rock	indoor	boulder	long
+		type: '',	       //place tipology
 		active: 0,	       //place visible in map
 		rank: 0,		   //sommati di tutti i preferiti degli utenti
 		loc: [],		   //posizione lat,lng
@@ -13,29 +13,23 @@ Kepler.schemas = {
 		warn: '',          //place bans and dangers
 
 //TODO move into geo property
-		ele: 0,		       //elevazione
-		esp: 0,		       //esposione	 azimut
-		
-		naz: '',		   //country
+		ele: 0,		       //elevation
+		esp: 0,		       //aspect
 		near: '',	       //near locality
 		com: '',		   //municipality
 		prov: '',		   //province
 		reg: '',		   //district
-		//shadow:[],       
+		naz: '',		   //country		
+		//shadow:'',       
 
-		checkins: [],	   //utenti in place	
-		hist: [],		   //checkins recenti
-		event: [],		   //places in calendar
-		convers: [],	   //ids conversazioni in bacheca
-		tracks: -1,		   //numero tracce
-		pois: -1,		   //numero pois
-		
-		photos: [],	       //elenco id delle foto
+		checkins: [],	   //users inside place	
+		hist: [],		   //recents checkins
+		event: [],		   //calendar events
+		convers: [],	   //conversations in place
 
 		source: {
-			name: '',
-			osm_user: ''
-			//... for specific source
+			type: 'osm',
+			//node id, user, tags
 		}
 	},
 

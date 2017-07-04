@@ -33,7 +33,7 @@ Kepler.geoinfo = (function() {
 		}
 
 		if(res.statusCode == 200 && res.data && res.data[src.par])
-			ret = res.data[src.par];
+			ret = K.util.sanitizeName(res.data[src.par]);
 		else
 			ret = null;
 
@@ -56,7 +56,7 @@ Kepler.geoinfo = (function() {
 		}
 		
 		if(res.statusCode == 200 && res.data && res.data[src.par])
-			ret = res.data[src.par];
+			ret = K.util.sanitizeName(res.data[src.par]);
 		else
 			ret = null;
 
@@ -85,7 +85,7 @@ Kepler.geoinfo = (function() {
 		}
 		
 		if(res.statusCode == 200 && res.data && res.data.geonames && res.data.geonames[0] && res.data.geonames[0][srcASTER.par])
-			ret = res.data.geonames[0][srcASTER.par].toLowerCase();
+			ret = K.util.sanitizeName(res.data.geonames[0][srcASTER.par]);
 		else
 			ret = null;
 
@@ -109,7 +109,7 @@ Kepler.geoinfo = (function() {
 		}
 
 		if(res.statusCode == 200 && res.data && res.data.geonames && res.data.geonames[0] && res.data.geonames[0][src.par])
-			ret = res.data.geonames[0][src.par].toLowerCase();
+			ret = K.util.sanitizeName(res.data.geonames[0][src.par]);
 		else
 			ret = null;
 
@@ -133,7 +133,7 @@ Kepler.geoinfo = (function() {
 		}
 		
 		if(res.statusCode == 200 && res.data && res.data[src.par])
-			ret = res.data[src.par].toLowerCase();
+			ret = K.util.sanitizeName(res.data[src.par]);
 		else
 			ret = null;
 
@@ -157,7 +157,7 @@ Kepler.geoinfo = (function() {
 		}
 
 		if(res.statusCode == 200 && res.data && res.data[src.par])
-			ret = res.data[src.par].toLowerCase();
+			ret = K.util.sanitizeName(res.data[src.par]);
 		else
 			ret = null;
 
@@ -181,13 +181,9 @@ Kepler.geoinfo = (function() {
 		}
 		
 		if(res.statusCode == 200 && res.data && res.data[src.par])
-			ret = res.data[src.par].toLowerCase();
+			ret = K.util.sanitizeName(res.data[src.par]);
 		else
 			ret = null;
-
-		ret = ret.replace("trentino - alto adige","trentino alto adige");
-		ret = ret.replace("valle d’aosta","valle d'aosta");
-		ret = ret.replace("emilia-romagna","emilia romagna");
 
 		console.log("regionAPI() ",ll,ret);
 		return ret;
@@ -209,7 +205,7 @@ Kepler.geoinfo = (function() {
 		}
 		
 		if(res.statusCode == 200 && res.data && res.data.geonames && res.data.geonames[0] && res.data.geonames[0][src.par])
-			ret = res.data.geonames[0][src.par].toLowerCase();
+			ret = K.util.sanitizeName(res.data.geonames[0][src.par]);
 		else
 			ret = null;
 

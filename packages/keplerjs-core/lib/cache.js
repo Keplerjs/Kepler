@@ -44,12 +44,19 @@ Kepler.cache = {
 		
 		return val;
 	},
-	get: function(key, name) {
+	get: function(key, name, func) {
 
 		key = _.isArray(key) ? key.join(this.sep) : key;
 
-		var cache = this._getCollection(name).findOne(key) || {val: null};
+		var cache = this._getCollection(name).findOne(key) || {val: undefined};
+		
+		if(_.isFunction(func) && cache.val===undefined) {
+			cache.val = this.set(key, func(key), name);
+		}
 
 		return cache.val;
+	},
+	clean: function(name) {
+		this._getCollection(name).remove({});
 	}
 };
