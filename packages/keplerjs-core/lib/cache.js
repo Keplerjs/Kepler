@@ -4,7 +4,7 @@
 
 //TODO expirable keys: parseInt(K.util.timeUnix()/(60*60*24*1))
 //TODO expirable prefix: parseInt(K.util.timeUnix()/(60*60*24*1))
-//TODO store colleciton in localstorage
+//TODO store collection in localstorage
 
 Kepler.cache = {
 
@@ -36,17 +36,24 @@ Kepler.cache = {
 
 		return this._collections[name];
 	},
+
+	_keygen: function(key) {
+		key = _.isArray(key) ? key.join(this.sep) : key;
+		key = _.isObject(key) ? JSON.stringify(key) : key;
+		return key;
+	},
+
 	set: function(key, val, name) {
 
-		key = _.isArray(key) ? key.join(this.sep) : key;
+		key = this._keygen(key);
 			
 		this._getCollection(name).upsert(key, {$set: {val: val} });
 		
 		return val;
 	},
-	get: function(key, name, valFunc) {
+	get: function(key, name, valFunc) {	//if value is not setted it's updated from valFunc
 
-		key = _.isArray(key) ? key.join(this.sep) : key;
+		key = this._keygen(key);
 
 		valFunc = _.isFunction(name) ? name : valFunc;
 
@@ -59,6 +66,5 @@ Kepler.cache = {
 	},
 	clean: function(name) {
 		this._getCollection(name).remove({});
-	},
-
+	}
 };
