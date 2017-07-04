@@ -245,64 +245,50 @@ Kepler.geoinfo = (function() {
 	}
 
 	return {
-		geoip:  function(ip) {
-			return ip ? geoipAPI(ip) : false;
-		},
 		elevation: function(ll) {
 
 			ll = K.util.geo.roundLoc(ll, 8);
 
-			var val = K.cache.get(ll, 'elevation');
-
-			return val || K.cache.set(ll, elevationAPILocal(ll), 'elevation');
+			return K.cache.get(ll, 'elevation', elevationAPILocal);
 		},
 		aspect: function(ll) {
 			
 			ll = K.util.geo.roundLoc(ll, 8);
 
-			var val = K.cache.get(ll, 'aspect');
-
-			return val || K.cache.set(ll, aspectAPILocal(ll), 'aspect');
+			return K.cache.get(ll, 'aspect', aspectAPILocal);
 		},
 		near: function(ll) {
 
 			ll = K.util.geo.roundLoc(ll, 4);
 
-			var val = K.cache.get(ll, 'near');
-
-			return val || K.cache.set(ll, nearAPI(ll), 'near');
+			return K.cache.get(ll, 'near', nearAPI);
 		},
 		municipality: function(ll) {
 
 			ll = K.util.geo.roundLoc(ll, 6);
 
-			var val = K.cache.get(ll ,'municipality');
-
-			return val || K.cache.set(ll, municipalityAPI(ll), 'municipality');
+			return K.cache.get(ll ,'municipality', municipalityAPI);
 		},
 		province: function(ll) {
 
 			ll = K.util.geo.roundLoc(ll, 6);
 
-			var val = K.cache.get(ll ,'province');
-
-			return val || K.cache.set(ll, provinceAPI(ll), 'province');
+			return K.cache.get(ll ,'province', provinceAPI);
 		},
 		region: function(ll) {
 
 			ll = K.util.geo.roundLoc(ll, 2);
 
-			var val = K.cache.get(ll ,'region');
-
-			return val || K.cache.set(ll, regionAPI(ll), 'region');
+			return K.cache.get(ll ,'region', regionAPI);
 		},
 		country: function(ll) {
 
 			ll = K.util.geo.roundLoc(ll, 1);
 
-			var val = K.cache.get(ll ,'country');
-
-			return val || K.cache.set(ll, countryAPI(ll), 'country');
-		}
+			return K.cache.get(ll ,'country', countryAPI);
+		},
+		geoip:  function(ip) {
+			return K.cache.get(ip, 'geoip', geoipAPI);
+		}		
 	};
 }());
