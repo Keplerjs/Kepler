@@ -2,18 +2,18 @@
 Convers = new Mongo.Collection('convers');
 
 K.queries({
-	getConverById: function(convId) {
+	findConverById: function(convId) {
 		//TODO ritornare solo ultimi 10 messaggi!!
 		//TODO scaricare messaggi un po alla volta
 		return Convers.find(convId, { fields: K.Field.converPanel });
 	},
-	getConversByIds: function(convIds) {
+	findConversByIds: function(convIds) {
 		
 		convIds = _.isArray(convIds) ? {$in: convIds} : convIds;
 
 		return Convers.find({_id: convIds }, { fields: K.Field.converItem });
 	},
-	getConversByTarget: function(targetId) {
+	findConversByTarget: function(targetId) {
 		return Convers.find({targetId: targetId }, { fields: K.Field.converItem });
 	}
 });

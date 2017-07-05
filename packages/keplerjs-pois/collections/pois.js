@@ -2,7 +2,7 @@
 Pois = new Mongo.Collection('pois');
 
 K.queries({
-	getPoisByLoc: function(ll) {
+	findPoisByLoc: function(ll) {
 
 		var where;
 		

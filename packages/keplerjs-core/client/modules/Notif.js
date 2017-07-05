@@ -37,7 +37,7 @@ Kepler.Notif = {
 /*
 	observeConvers: function(conversIds) {
 		if(Meteor.settings.public.showNotifs)
-			K.getConversByIds(conversIds).observeChanges({
+			K.findConversByIds(conversIds).observeChanges({
 				added: function(convId, fields) {
 					var user = K.newUser(fields.userId);
 
@@ -50,7 +50,7 @@ Kepler.Notif = {
 
 	observeUsers: function(usersIds) {
 		if(Meteor.settings.public.showNotifs)
-			K.getUsersByIds(usersIds).observeChanges({
+			K.findUsersByIds(usersIds).observeChanges({
 				changed: function(userId, fields) {
 					var user = K.newUser(userId);
 					

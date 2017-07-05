@@ -15,14 +15,14 @@
 */
 
 Meteor.methods({
-	getStreetViewById: function(placeId) {
+	findStreetViewById: function(placeId) {
 		
 		console.log("getStreeViewById()",placeId, Googlemaps);
 
 		var url = "http://maps.googleapis.com/maps/api/streetview?"+
 		 		"size=200x200&location={loc}&sensor=false";
 
-		var place = K.getPlaceById(placeId).fetch()[0],
+		var place = K.findPlaceById(placeId).fetch()[0],
 			lastP = place.loc;
 
 		/*if(place.tracks>0) {

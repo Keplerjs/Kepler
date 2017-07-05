@@ -2,10 +2,10 @@
 Tracks = new Mongo.Collection('tracks');
 
 K.queries({
-	getTracksByIds: function(tracksIds) {
+	findTracksByIds: function(tracksIds) {
 		return Tracks.find({_id: {$in: tracksIds}});
 	},
-	getTracksByLoc: function(ll) {
+	findTracksByLoc: function(ll) {
 		var where;
 		
 		if(Meteor.isClient) {

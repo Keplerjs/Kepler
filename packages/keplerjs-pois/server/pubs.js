@@ -3,14 +3,14 @@ Meteor.publish('poisByPlace', function(placeId) {
 
 	if(this.userId) {
 
-		var placeCur = K.getPlacesByIds([placeId]),
+		var placeCur = K.findPlacesByIds([placeId]),
 			placeData = placeCur.fetch()[0];
 
 		console.log('Pub: poisByPlace', placeId);
 
 		return [
 			placeCur,
-			K.getPoisByLoc(placeData.loc)
+			K.findPoisByLoc(placeData.loc)
 		];	
 	}
 	else

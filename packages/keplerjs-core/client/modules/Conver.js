@@ -7,8 +7,8 @@
 
 Kepler.Conver = {
 
-	newConver: function(targetId, targetType, title) {
-		Meteor.call('newConver', targetId, targetType, title, function(err, convId) {
+	insertConver: function(targetId, targetType, title) {
+		Meteor.call('insertConver', targetId, targetType, title, function(err, convId) {
 			Router.go('panelConver',{convId: convId});
 		});
 	},
@@ -17,17 +17,17 @@ Kepler.Conver = {
 		Meteor.call('delConver', convId);
 	},
 
-	addMsgToConver: function(convId, body) {	//TODO spostare lato server
+	insertMsgToConver: function(convId, body) {	//TODO spostare lato server
 		
 		body = K.Util.sanitizeMsg(body);
 		//TODO move to Messages.allow
 
 		if(!_.str.isBlank(body))
-			addMsgToConver(convId, body);
+			insertMsgToConver(convId, body);
 	},
 	
 	loadConverWithUser: function(userId) {
-		Meteor.call('getConverWithUser', userId, function(err, convId) {
+		Meteor.call('findConverWithUser', userId, function(err, convId) {
 			Router.go('panelConver', {convId: convId });
 		});
 	}	

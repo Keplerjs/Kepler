@@ -1,7 +1,7 @@
 Package.describe({
 	name: 'keplerjs:lib',
 	version: '0.0.1',
-	summary: 'keplerjs core libraries',
+	summary: 'keplerjs 3rd party packages and libraries',
 	git: ''
 });
   
@@ -55,17 +55,12 @@ Package.onUse(function(api) {
     'config/Accounts.js',
     'config/i18n.js',
     'config/leaflet.js',
-    'config/underscore.js',
-    'Kepler.js',  
+    'config/underscore.js'
   ], ['client', 'server']);
   
   api.addFiles([
     'client/lib/L.Marker.drag.js',
     'client/lib/L.NodeIcon.js',  
   ], ['client']);
-
-  api.export([
-    'Kepler','K'
-  ]);
   
 });

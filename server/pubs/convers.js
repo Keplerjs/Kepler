@@ -5,18 +5,18 @@ Meteor.publish('conversByIds', function(convIds) {
 
 	if(this.userId && convIds)
 	{
-		var conversCur = K.getConversByIds(convIds),
+		var conversCur = K.findConversByIds(convIds),
 			conversData = conversCur.fetch(),
 			usersIds = _.uniq(_.flatten(_.pluck(conversData, 'usersIds'))),
 			targetIds = _.uniq(_.flatten(_.pluck(conversData, 'targetId'))),
 			targetTypes = _.uniq(_.flatten(_.pluck(conversData, 'targetType'))),
 			retCurs = [conversCur];
 			
-		retCurs.push( K.getUsersByIds(usersIds) );
+		retCurs.push( K.findUsersByIds(usersIds) );
 
 		//TODO console.log(targetIds, targetTypes);
 		//if()
-		//	retCurs.push(K.getPlacesByIds( [conversData.targetId] ));
+		//	retCurs.push(K.findPlacesByIds( [conversData.targetId] ));
 
 		return retCurs;
 	}
@@ -30,12 +30,12 @@ Meteor.publish('converById', function(convId) {
 	{
 		console.log('Pub: converById', convId);
 
-		var convCur = K.getConverById(convId),
+		var convCur = K.findConverById(convId),
 			convData = convCur.fetch()[0];
 		return [
 			convCur,
-			K.getMsgsByConver( convId ),
-			K.getUsersByIds( convData.usersIds )
+			K.findMsgsByConver( convId ),
+			K.findUsersByIds( convData.usersIds )
 		];
 	}
 	else
@@ -49,7 +49,7 @@ Meteor.publish('conversByTarget', function(targetId) {
 
 	if(this.userId && targetId)
 	{
-		var conversCur = K.getConversByTarget(targetId),
+		var conversCur = K.findConversByTarget(targetId),
 			conversData = conversCur.fetch(),
 			usersIds = _.uniq(_.flatten( _.pluck(conversData, 'usersIds') ));
 			//TODO estrarre solo gli ultimi 3-4
@@ -57,7 +57,7 @@ Meteor.publish('conversByTarget', function(targetId) {
 		return [
 			//TODO add place Cur
 			conversCur,
-			K.getUsersByIds( _.last(usersIds,3) )
+			K.findUsersByIds( _.last(usersIds,3) )
 		];
 	}
 	else

@@ -3,7 +3,7 @@ Meteor.publish('userById', function(userId) {
 
 	if(this.userId && userId)
 	{
-		var userCur = K.getUserById(userId),
+		var userCur = K.findUserById(userId),
 			userData = userCur.fetch()[0],
 			retCurs = [],
 			placeIds = [];
@@ -12,14 +12,14 @@ Meteor.publish('userById', function(userId) {
 
 		if(userData && _.contains(userData.friends, this.userId))	//is my friend
 		{
-			userData = K.getFriendById(userId).fetch()[0];	//full fields
+			userData = K.findFriendById(userId).fetch()[0];	//full fields
 
 			if(userData.friends.length > 0)
-				retCurs = [ K.getUsersByIds( _.union(userId, userData.friends) ) ];
+				retCurs = [ K.findUsersByIds( _.union(userId, userData.friends) ) ];
 
 			placeIds = _.union(userData.checkin, userData.hist, userData.favorites);
 
-			retCurs.push( K.getPlacesByIds(placeIds) );
+			retCurs.push( K.findPlacesByIds(placeIds) );
 
 			//TODO places events ed altre info
 		}
@@ -36,7 +36,7 @@ Meteor.publish('userById', function(userId) {
 
 Meteor.publish('usersByName', function(initial) {
 	if(this.userId) {
-		var cur = K.getUsersByName(initial);
+		var cur = K.findUsersByName(initial);
 		console.log('Pub: usersByName', "'"+initial+"'", cur ? cur.count() : 0 );
 		return cur;
 	}
@@ -49,7 +49,7 @@ Meteor.publish('usersByIds', function(usersIds) {
 	console.log('Pub: usersByIds', usersIds);
 
 	if(this.userId)
-		return K.getUsersByIds(usersIds);
+		return K.findUsersByIds(usersIds);
 	else
 		this.ready();
 });
@@ -62,8 +62,8 @@ Meteor.publish('friendsByIds', function(usersIds) {
 
 	if(this.userId)
 		return [
-			K.getFriendsByIds(usersIds),
-			K.getPlacesByCheckins(usersIds)
+			K.findFriendsByIds(usersIds),
+			K.findPlacesByCheckins(usersIds)
 		];
 	else
 		this.ready();
@@ -76,13 +76,13 @@ Meteor.publish('usersByPlace', function(placeId) {
 
 	if(this.userId && placeId)
 	{
-		var placeCur = K.getPlacesByIds([placeId]),
+		var placeCur = K.findPlacesByIds([placeId]),
 			placeData = placeCur.fetch()[0];
 
 		return [
 			//TODO add place Cur
 			placeCur,
-			K.getUsersByIds(placeData.checkins)
+			K.findUsersByIds(placeData.checkins)
 		];
 	}
 	else

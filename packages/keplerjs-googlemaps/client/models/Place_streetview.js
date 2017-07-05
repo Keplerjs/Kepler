@@ -8,7 +8,7 @@ Kepler.Place.include({
 		self.streetview = K.Cache.get(self.id, 'streetview');
 
 		if(!self.streetview)
-			Meteor.call('getStreetViewById', self.id, function(err, streetview) {
+			Meteor.call('findStreetViewById', self.id, function(err, streetview) {
 
 				self.streetview = K.Cache.set(self.id, streetview, 'streetview');
 				self._dep.changed();

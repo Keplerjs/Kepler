@@ -18,14 +18,14 @@ Meteor.publish('tracksByPlace', function(placeId) {
 
 	if(this.userId) {
 
-		var placeCur = K.getPlacesByIds([placeId]),
+		var placeCur = K.findPlacesByIds([placeId]),
 			placeData = placeCur.fetch()[0];
 
 		console.log('Pub: tracksByPlace', placeId);
 
 		return [
 			placeCur,
-			K.getTracksByLoc(placeData.loc)
+			K.findTracksByLoc(placeData.loc)
 		];	
 	}
 	else

@@ -37,7 +37,9 @@ Kepler = K = {
 	extend: function(e) {
 		_.extend(K, e);
 	},
+	_queries: {},
 	queries: function(q) {
+		_.extend(this._queries, q);
 		this.extend(q);
 	}	
 };

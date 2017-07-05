@@ -14,7 +14,7 @@ Kepler.Place.include({
 		else
 			Meteor.subscribe('tracksByPlace', self.id, function() {
 				
-				self.tracksList = K.getTracksByLoc(self.loc).fetch();
+				self.tracksList = K.findTracksByLoc(self.loc).fetch();
 				
 				self._dep.changed();
 
@@ -28,7 +28,7 @@ Kepler.Place.include({
 		self.loadTracks(function(tracksList) {
 
 			if(trackId)
-				tracksList = K.getTracksByIds([trackId]).fetch();
+				tracksList = K.findTracksByIds([trackId]).fetch();
 
 			K.Map.loadGeojson( self.tracksToGeojson(tracksList, self) );
 		});

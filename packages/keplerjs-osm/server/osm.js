@@ -3,7 +3,7 @@ var Future = Npm.require('fibers/future'),
     Overpass = Npm.require('query-overpass');
 
 Meteor.methods({
-	getOsmByBBox: function(filter, bb, type) {
+	findOsmByBBox: function(filter, bb, type) {
 		
 		if(!this.userId) return null;
 		
@@ -33,7 +33,7 @@ return val || K.Cache.set(key, ... , 'overpass');
 */
 		return future.wait();
 	},
-	getOsmByNear: function(filter, ll, type) {
+	findOsmByNear: function(filter, ll, type) {
 		
 		if(!this.userId) return null;
 // meta

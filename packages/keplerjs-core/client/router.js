@@ -137,7 +137,7 @@ Router.map(function() {
 		data: function() {
 			if(!this.ready()) return null;
 			var bbox = K.Map.getBBox(),
-				places = K.getPlacesByBBox(bbox).fetch();
+				places = K.findPlacesByBBox(bbox).fetch();
 			return {
 				title: i18n('titles.places'),
 				className: 'places',
@@ -163,7 +163,7 @@ Router.map(function() {
 				title: i18n('titles.convers'),
 				className: 'convers',
 				itemsTemplate: 'item_conver',
-				items: K.getConversByIds(K.Profile.data.convers).fetch(),
+				items: K.findConversByIds(K.Profile.data.convers).fetch(),
 				sortDesc: true
 			};
 		}
@@ -294,7 +294,7 @@ Router.map(function() {
 				headerTemplate: 'conver_place_new',
 				headerData: place,		
 				itemsTemplate: 'item_conver',
-				items: K.getConversByTarget(this.params.placeId).fetch()
+				items: K.findConversByTarget(this.params.placeId).fetch()
 			};
 		}
 	});
@@ -350,7 +350,7 @@ Router.map(function() {
 			return Meteor.subscribe('converById', this.params.convId);
 		},
 		data: function() {
-			return K.getConverById(this.params.convId).fetch()[0];
+			return K.findConverById(this.params.convId).fetch()[0];
 		}
 	});
 });

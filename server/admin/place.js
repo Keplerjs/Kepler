@@ -61,7 +61,7 @@ K.Admin.methods({
 
 		if(!K.Admin.isMe()) return null;
 
-		var place = K.getPlaceById(placeId).fetch()[0],
+		var place = K.findPlaceById(placeId).fetch()[0],
 			offset = 0.01;
 
 		place.loc[0] += offset;

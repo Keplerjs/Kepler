@@ -34,7 +34,7 @@ layers.cluster = new L.MarkerClusterGroup({
 			var places = _.map(cluster.getAllChildMarkers(), function(marker) {
 				return marker.item.id;
 			});
-			return K.getCheckinsCountByPlaces(places);
+			return K.findCheckinsCountByPlaces(places);
 		};
 		
 		if(!cluster.icon) {
@@ -57,7 +57,7 @@ layers.places = new L.LayerJSON({
 
 		var sub = Meteor.subscribe('placesByBBox', bbox, function() {
 
-			callback( K.getPlacesByBBox(bbox).fetch() );
+			callback( K.findPlacesByBBox(bbox).fetch() );
 		});
 
 		return {

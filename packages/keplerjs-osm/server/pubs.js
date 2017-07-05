@@ -3,14 +3,14 @@ Meteor.publish('osmByPlace', function(placeId) {
 
 	if(this.userId) {
 
-		var placeCur = K.getPlacesByIds([placeId]),
+		var placeCur = K.findPlacesByIds([placeId]),
 			placeData = placeCur.fetch()[0];
 
 		console.log('Pub: osmByPlace', placeId);
 
 		return [
 			placeCur,
-			K.getOsmByLoc(placeData.loc)
+			K.findOsmByLoc(placeData.loc)
 		];	
 	}
 	else

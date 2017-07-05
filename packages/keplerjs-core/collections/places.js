@@ -2,18 +2,18 @@
 Places = new Mongo.Collection('places');
 
 K.queries({
-	getPlaceById: function(placeId) {
+	findPlaceById: function(placeId) {
 		return Places.find(placeId, { fields: K.Field.placePanel });
 	},
-	getPlacesByIds: function(placesIds) {
+	findPlacesByIds: function(placesIds) {
 		return Places.find({_id: {$in: placesIds} }, { fields: K.Field.placeItem });
 	},
-	getPlacesByCheckins: function(usersIds) {
+	findPlacesByCheckins: function(usersIds) {
 		usersIds = _.isArray(usersIds) ? {$in: usersIds} : usersIds;
 		
 		return Places.find({checkins: usersIds }, { fields: K.Field.placeItem });
 	},
-	getPlacesByBBox: function(bbox) {
+	findPlacesByBBox: function(bbox) {
 
 		//TODO limit bbox sizes!!! add limit
 
@@ -41,15 +41,15 @@ K.queries({
 			}, { fields: K.Field.placeItem });
 		}
 	},
-	getCheckinsCountByPlaces: function(placesIds) {
+	findCheckinsCountByPlaces: function(placesIds) {
 		
-		var places = K.getPlacesByIds(placesIds).fetch();
+		var places = K.findPlacesByIds(placesIds).fetch();
 
 		return _.reduce(places, function(m, place) {
 			return m + place.checkins.length;
 		}, 0);
 	},
-	getPlacesByName: function(initial) {
+	findPlacesByName: function(initial) {
 		initial = K.Util.sanitizeRegExp(initial);
 
 		if(initial.length < Meteor.settings.public.searchMinLen)

@@ -31,7 +31,7 @@ Kepler.osm = {
 
 		var bbox = K.Map.getBBox();
 		
-		Meteor.call('getOsmByBBox', filter, bbox, function(err, geojson) {
+		Meteor.call('findOsmByBBox', filter, bbox, function(err, geojson) {
 			
 			//console.log('getOsmByBBox',geojson.features.length);
 
@@ -41,7 +41,7 @@ Kepler.osm = {
 	},
 
 	loadTracks: function() {
-		Meteor.call('getOsmByBBox', 'highway=track', K.Map.getBBox(), 'way', function(err, geojson) {
+		Meteor.call('findOsmByBBox', 'highway=track', K.Map.getBBox(), 'way', function(err, geojson) {
 			
 			console.log(geojson);
 

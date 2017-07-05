@@ -3,7 +3,7 @@
 	o di conversazioni sulle bacheche dei luoghi
 */
 K.queries({
-	newConver: function(targetId, targetType, title, usersIds) {
+	insertConver: function(targetId, targetType, title, usersIds) {
 
 	//TODO use check()
 	
@@ -38,11 +38,11 @@ K.queries({
 			}
 		});
 		
-		console.log('newConver', convId, targetId);
+		console.log('insertConver', convId, targetId);
 
 		return convId;
 	},
-	getConverWithUser: function(userId) {
+	findConverWithUser: function(userId) {
 		var convId,
 			convData = Convers.findOne({
 				$and: [
@@ -56,7 +56,7 @@ K.queries({
 			convId = convData._id;
 		else
 		{
-			var user = K.getUsersByIds([userId]).fetch()[0],
+			var user = K.findUsersByIds([userId]).fetch()[0],
 				title = i18n('titles.userConver', user.name);
 
 			convId = K.newConver(userId, 'user', title );
@@ -89,7 +89,7 @@ K.queries({
 		}
 		else	//se non è il creatore della conver la abbandona
 		{
-			K.addMsgToConver(convId, i18n('notifs.userleaveconv', Meteor.user().name) );
+			K.insertMsgToConver(convId, i18n('notifs.userleaveconv', Meteor.user().name) );
 			Users.update(Meteor.userId(), {
 				$pull: {
 					convers: convId
@@ -106,15 +106,15 @@ K.queries({
 });
 
 Meteor.methods({
-	getConverWithUser: function(userId) {
+	findConverWithUser: function(userId) {
 
 		//TODO forse spostare lato client!!
 		
 		if(!this.userId || !userId) return null;
 
-		return K.getConverWithUser(userId);
+		return K.findConverWithUser(userId);
 	},
-	newConver: function(targetId, targetType, title) {
+	insertConver: function(targetId, targetType, title) {
 
 		if(!this.userId || !title || !targetId) return null;
 
@@ -122,7 +122,7 @@ Meteor.methods({
 
 		return K.newConver(targetId, targetType, title);
 	},
-	delConver: function(convId) {
+	removeConver: function(convId) {
 		
 		if(!this.userId || !convId) return null;
 

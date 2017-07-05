@@ -18,10 +18,10 @@ Messages.allow({
 });
 
 K.queries({
-	getMsgsByConver: function(convId) {
+	findMsgsByConver: function(convId) {
 		return Messages.find({convId: convId }, {sort: ['updateAt']});
 	},
-	addMsgToConver: function(convId, body) {
+	insertMsgToConver: function(convId, body) {
 
 		var convData = Convers.findOne(convId),
 			lastMsg = convData && convData.lastMsg,

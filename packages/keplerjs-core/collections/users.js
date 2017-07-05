@@ -8,10 +8,10 @@ Users.allow({
 });
 
 K.queries({
-	getCurrentUser: function(userId) {
+	findCurrentUser: function(userId) {
 		return Users.find(userId, { fields: K.Field.currentUser });
 	},
-	getUsersByName: function(initial) {
+	findUsersByName: function(initial) {
 		initial = K.Util.sanitizeRegExp(initial);
 
 		if(initial.length < Meteor.settings.public.searchMinLen)
@@ -27,17 +27,17 @@ K.queries({
 
 		return curUser;	
 	},
-	getUsersByIds: function(usersIds) {
+	findUsersByIds: function(usersIds) {
 
 		usersIds = _.isArray(usersIds) ? {$in: usersIds} : usersIds;
 
 		return Users.find({_id: usersIds }, { fields: K.Field.userItem });
 	},
-	getUserById: function(userId) {
+	findUserById: function(userId) {
 
 		return Users.find(userId, { fields: K.Field.userPanel });
 	},
-	getFriendsByIds: function(usersIds) {
+	findFriendsByIds: function(usersIds) {
 
 		usersIds = _.isArray(usersIds) ? {$in: usersIds} : usersIds;
 
@@ -45,7 +45,7 @@ K.queries({
 
 		return Users.find({_id: usersIds }, { fields: K.Field.friendItem });
 	},
-	getFriendById: function(userId) {
+	findFriendById: function(userId) {
 		return Users.find(userId, { fields: K.Field.friendPanel });
 	}
 });

@@ -24,7 +24,7 @@ Kepler.User = K.Model.extend({
 
 		self.update = function(comp) {	//sincronizza istanza con dati nel db
 			
-			self.data = K.getFriendById(self.id).fetch()[0];
+			self.data = K.findFriendById(self.id).fetch()[0];
 			
 			_.extend(self, self.data);
 
@@ -110,7 +110,7 @@ Kepler.User = K.Model.extend({
 K.newUser = function(id) {
 	check(id, String);
 	
-	if(!K.usersById[id] && K.getUserById(id).fetch()[0])
+	if(!K.usersById[id] && K.findUserById(id).fetch()[0])
 	{
 		K.usersById[id] = new K.User(id);
 		

@@ -24,7 +24,7 @@ Kepler.Place = K.Model.extend({
 
 		self.update = function(comp) {	//sincronizza istanza con dati nel db
 
-			self.data = K.getPlaceById(self.id).fetch()[0];
+			self.data = K.findPlaceById(self.id).fetch()[0];
 			
 			_.extend(self, self.data);
 
@@ -104,7 +104,7 @@ Kepler.Place = K.Model.extend({
 K.newPlace = function(id) {
 	check(id, String);
 	
-	if(!K.placesById[id] && K.getPlaceById(id).fetch()[0])
+	if(!K.placesById[id] && K.findPlaceById(id).fetch()[0])
 	{
 		K.placesById[id] = new K.Place(id);
 		

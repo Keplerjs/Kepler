@@ -2,7 +2,7 @@
 Osm = new Mongo.Collection('osm');
 
 K.queries({
-	getOsmByLoc: function(ll) {
+	findOsmByLoc: function(ll) {
 		var where;
 		
 		if(Meteor.isClient) {
