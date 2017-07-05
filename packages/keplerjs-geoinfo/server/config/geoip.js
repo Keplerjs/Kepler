@@ -9,7 +9,7 @@
 
 	if(Meteor.settings.geoipLocation && 
 		!K.Util.getPath(login.user,'settings.map.center') && 
-		(geoip = K.geoinfo.geoip(ip)) )
+		(geoip = K.Geoinfo.geoip(ip)) )
 		//TODO sets['settings.map.center'] = geoip.loc;
 
 	Users.update(login.user._id, {$set: sets});

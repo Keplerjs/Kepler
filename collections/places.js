@@ -20,7 +20,6 @@ getPlacesByIds = function(placesIds) {
 	return Places.find({_id: {$in: placesIds} }, { fields: K.Field.placeItem });
 };
 
-
 getPlacesByCheckins = function(usersIds) {
 	usersIds = _.isArray(usersIds) ? {$in: usersIds} : usersIds;
 	

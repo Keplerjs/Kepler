@@ -23,7 +23,7 @@ Package.onUse(function(api) {
   ],'client');
 
   api.addFiles([
-    'server/modules/geoinfo.js',
+    'server/modules/Geoinfo.js',
     'server/admin.js',
   ],'server');
   

@@ -18,7 +18,7 @@ K.Admin.addMethods({
 					p2 = _.last(geom.coordinates);
 
 				prop.len  = parseInt( Math.round( K.Util.geo.linestringLen(geom) ) );
-				prop.dis  = parseInt( K.geoinfo.elevation([p2[1],p2[0]]) - K.geoinfo.elevation([p1[1],p1[0]]) ); //negativo per discesa
+				prop.dis  = parseInt( K.Geoinfo.elevation([p2[1],p2[0]]) - K.Geoinfo.elevation([p1[1],p1[0]]) ); //negativo per discesa
 				prop.time = parseInt( K.Util.geo.timeTrack(prop.len, prop.dis) );
 				prop.start= K.Util.geo.createPoint(p1);
 				prop.end  = K.Util.geo.createPoint(p2);
