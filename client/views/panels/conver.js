@@ -10,7 +10,7 @@ Template.converInput.events({
 			e.preventDefault();
 			var text$ = tmpl.$('textarea');			
 			
-			K.conver.addMsgToConver(this._id, text$.val() );
+			K.Conver.addMsgToConver(this._id, text$.val() );
 
 			text$.val('').height('auto');
 		}
@@ -49,7 +49,7 @@ Template.conver_place_new.events({
 		var title = _.str.clean(tmpl.$('.conver-title-new').val());
 		
 		if(!_.str.isBlank(title))
-			K.conver.newConver(this.id, 'place', title);
+			K.Conver.newConver(this.id, 'place', title);
 	},
 	//TODO use form and submit
 	'keydown .conver-title-new': function(e,tmpl) {

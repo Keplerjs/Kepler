@@ -1,4 +1,6 @@
-
+/*
+	module for main map
+*/
 var layers = {},
 	controls = {},
 	styles = {
@@ -135,18 +137,18 @@ controls.gps = L.control.gps({
 		icon: L.divIcon({className: 'marker-gps'})
 	}),
 	callErr: function(err) {
-		K.notif.show(err,'warn');
+		K.Notif.show(err,'warn');
 	}
 })
 .on({
 	gpsdisabled: function(e) {
-		K.profile.setLoc(null);
+		K.Profile.setLoc(null);
 	},
 	gpslocated: function(e) {
-		K.profile.setLoc([e.latlng.lat, e.latlng.lng]);
-		if(K.profile.user && K.profile.user.icon)
-			K.profile.user.icon.animate();
-		K.notif.show(i18n('notifs.gpson'),'success');		
+		K.Profile.setLoc([e.latlng.lat, e.latlng.lng]);
+		if(K.Profile.user && K.Profile.user.icon)
+			K.Profile.user.icon.animate();
+		K.Notif.show(i18n('notifs.gpson'),'success');		
 	}
 });
 
@@ -182,7 +184,7 @@ Kepler.Map = {
 			}
 		});
 
-		self.$sidebar = $('#sidebar');
+		self.sidebar$ = $('#sidebar');
 
 		self._addControls();
 
@@ -221,9 +223,9 @@ Kepler.Map = {
 		if(this.ready) {
 			this._map.setView(loc, zoom);
 			/*TODO 
-			if(this.$sidebar.hasClass('expanded')) {
+			if(this.sidebar$.hasClass('expanded')) {
 				var p = this._map.latLngToContainerPoint(L.latLng(loc));
-				p = L.point(p.x - $sidebar.width(), p.y);
+				p = L.point(p.x - sidebar$.width(), p.y);
 				loc = this._map.containerPointToLatLng(p);
 			}
 			this._map.setView(loc, zoom);
@@ -236,7 +238,7 @@ Kepler.Map = {
 		if(!this.ready) return false;
 
 		var mapw = this._map.getSize().x,
-			panelw = (this.$sidebar.hasClass('expanded') && this.$sidebar.width()) || 0;
+			panelw = (this.sidebar$.hasClass('expanded') && this.sidebar$.width()) || 0;
 
 		return this.ready && (mapw-panelw > 40);
 	},
@@ -296,9 +298,9 @@ Kepler.Map = {
 				sw = bbox.getSouthWest(),
 				ne = bbox.getNorthEast();
 
-			if(this.$sidebar.hasClass('expanded')) {
+			if(this.sidebar$.hasClass('expanded')) {
 				var p = this._map.latLngToContainerPoint(sw);
-				p.x += this.$sidebar.width();
+				p.x += this.sidebar$.width();
 				sw = this._map.containerPointToLatLng(p);
 			}
 

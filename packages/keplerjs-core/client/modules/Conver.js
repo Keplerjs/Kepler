@@ -1,11 +1,11 @@
 /*
-	modulo gestione conversazioni e messaggi privati
+	Module conversations and private messagges
 
-	TODO!!! emoticons e users tag
+	//TODO emoticons e users tag
 	http://ichord.github.io/At.js/
 */
 
-Kepler.conver = {
+Kepler.Conver = {
 
 	newConver: function(targetId, targetType, title) {
 		Meteor.call('newConver', targetId, targetType, title, function(err, convId) {

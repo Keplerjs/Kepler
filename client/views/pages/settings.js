@@ -17,24 +17,24 @@ Template.pageSettings.helpers({
 			return {
 				val: k,
 				name: i18n('places.'+k),
-				active: _.contains(K.profile.data.likeplaces, k)
+				active: _.contains(K.Profile.data.likeplaces, k)
 			};
 		});
 	},
 	lang: function() {
-		return K.profile.data.lang
+		return K.Profile.data.lang
 	},
 	langs: function() {
 		return _.map(Meteor.settings.public.langs, function(val, k) {
 			return {
 				key: k,
 				val: val,
-				active: k===K.profile.data.lang
+				active: k===K.Profile.data.lang
 			};
 		});
 	},	
 	layers: function() {
-		var layer = K.profile.getOpts('map.layer') || Meteor.settings.public.map.layer;
+		var layer = K.Profile.getOpts('map.layer') || Meteor.settings.public.map.layer;
 		return _.map(Meteor.settings.public.layers, function(val, k) {
 			return {
 				key: k,
@@ -127,7 +127,7 @@ Template.pageSettings.events({
 
 		input$.parent().addClass('loading-default');
 		
-		K.upload.avatar(fileObj, function(err) {
+		K.Upload.avatar(fileObj, function(err) {
 			
 			input$.parent().removeClass('loading-default');
 			input$.next().text( err ? err.message : '' )

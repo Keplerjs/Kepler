@@ -75,33 +75,33 @@ Kepler.User = K.Model.extend({
 	},
 
 	isFriend: function() {
-		return K.profile.hasFriend(this.id);
+		return K.Profile.hasFriend(this.id);
 	},
 	isPending: function() {
-		return K.profile.hasPending(this.id);
+		return K.Profile.hasPending(this.id);
 	},
 	isReceive: function() {
-		return K.profile.hasReceive(this.id);
+		return K.Profile.hasReceive(this.id);
 	},	
 	isBlocked: function() {
-		return K.profile.hasBlocked(this.id);
+		return K.Profile.hasBlocked(this.id);
 	},
 
 	isMe: function() {
-		return K.profile.id === this.id;
+		return K.Profile.id === this.id;
 	},
 
 	isOnline: function() {
 		this._dep.depend();
 //TODO aggiuni this.isMe()
-		if(K.profile.getOnline() && this.isFriend())
+		if(K.Profile.getOnline() && this.isFriend())
 			return this.online;
 	},
 
 	getLoc: function() {
 		this._dep.depend();
 //TODO aggiuni this.isMe()		
-		if(K.profile.getOnline() && this.isFriend() && this.online)
+		if(K.Profile.getOnline() && this.isFriend() && this.online)
 			return this.loc;
 	}
 });

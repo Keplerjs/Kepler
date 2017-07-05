@@ -1,5 +1,5 @@
 
-Kepler.upload = {
+Kepler.Upload = {
 	avatar: function(fileObj, cb) {
 		
 		if(this.fileReader)

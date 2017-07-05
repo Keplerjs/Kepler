@@ -28,7 +28,7 @@ Router.waitOn(function() {
 	}
 	else {
 		return Meteor.subscribe('currentUser', function() {
-			K.profile.init(function() {
+			K.Profile.init(function() {
 				K.Admin.loadMethods();
 			});
 		});
@@ -41,12 +41,16 @@ Router.onBeforeAction(function(pause) {
 
 	if(this.ready())
 	{
-		//console.log('map.init', K.profile.data);
 
-		if(!_.isEmpty(K.profile.data))
-			K.Map.init(K.profile.getOpts('map'), function() {
+		if(!_.isEmpty(K.Profile.data)) {
+			
+			K.Map.init(K.Profile.getOpts('map'), function() {
 				this.enableBBox();
 			});
+
+			if(Meteor.settings.public.showNotifs)
+				K.Notif.init();
+		}
 	}
 	else
 		this.render('pageLoading');
@@ -87,14 +91,14 @@ Router.map(function() {
 		layoutTemplate: 'layoutPage',
 		loadingTemplate: 'pageLoading',
 		waitOn: function() {
-			return Meteor.subscribe('usersByIds', K.profile.data.friends );
+			return Meteor.subscribe('usersByIds', K.Profile.data.friends );
 		}
 	});	
 
 	this.route('logout', {
 		path: '/logout',
 		onBeforeAction: function () {
-			K.profile.logout();
+			K.Profile.logout();
 			K.Map.destroy();
 			Router.go('pageIntro');
 		}
@@ -119,7 +123,7 @@ Router.map(function() {
 		path: '/friends',
 		template: 'panelList',
 		waitOn: function() {
-			return Meteor.subscribe('friendsByIds', K.profile.data.friends);
+			return Meteor.subscribe('friendsByIds', K.Profile.data.friends);
 		},
 		data: function() {
 			if(!this.ready()) return null;
@@ -128,7 +132,7 @@ Router.map(function() {
 				className: 'friends',			
 				headerTemplate: 'search_user',
 				itemsTemplate: 'item_user_friend',
-				items: _.map(K.profile.data.friends, function(id) {
+				items: _.map(K.Profile.data.friends, function(id) {
 					
 					var user = K.newUser(id);
 					user.update();
@@ -162,14 +166,14 @@ Router.map(function() {
 		path: '/convers',
 		template: 'panelList',
 		waitOn: function() {
-			return Meteor.subscribe('conversByIds', K.profile.data.convers);
+			return Meteor.subscribe('conversByIds', K.Profile.data.convers);
 		},
 		data: function() {
 			return {
 				title: i18n('titles.convers'),
 				className: 'convers',
 				itemsTemplate: 'item_conver',
-				items: getConversByIds(K.profile.data.convers).fetch(),
+				items: getConversByIds(K.Profile.data.convers).fetch(),
 				sortDesc: true
 			};
 		}
@@ -180,7 +184,7 @@ Router.map(function() {
 		path: '/favorites',
 		template: 'panelList',
 		waitOn: function() {
-			return Meteor.subscribe('placesByIds', K.profile.data.favorites);
+			return Meteor.subscribe('placesByIds', K.Profile.data.favorites);
 		},
 		data: function() {
 			if(!this.ready()) return null;
@@ -188,7 +192,7 @@ Router.map(function() {
 				title: i18n('titles.favorites'),
 				className: 'favorites',
 				itemsTemplate: 'item_place_favorite',
-				items: _.map(K.profile.data.favorites, function(id) {
+				items: _.map(K.Profile.data.favorites, function(id) {
 					var place = K.newPlace(id);
 					place.update();
 					return place.rData();
@@ -202,7 +206,7 @@ Router.map(function() {
 		path: '/history',
 		template: 'panelList',
 		waitOn: function() {
-			return Meteor.subscribe('placesByIds', K.profile.data.hist);
+			return Meteor.subscribe('placesByIds', K.Profile.data.hist);
 		},
 		data: function() {
 			if(!this.ready()) return null;
@@ -210,7 +214,7 @@ Router.map(function() {
 				title: i18n('titles.histplaces'),
 				className: 'history',
 				itemsTemplate: 'item_place_favorite',
-				items: _.map(K.profile.data.hist, K.newPlace)
+				items: _.map(K.Profile.data.hist, K.newPlace)
 			};
 		}
 	});
@@ -225,8 +229,8 @@ Router.map(function() {
 				className: 'notifications',
 				headerTemplate: 'list_notif_clean',		
 				itemsTemplate: 'item_notif',
-				items: _.map(K.profile.data.notif, function(text) {
-					var type = _.shuffle(K.notif._types)[0];
+				items: _.map(K.Profile.data.notif, function(text) {
+					var type = _.shuffle(K.Notif._types)[0];
 					return {
 						type: type,
 						msg: type+': '+text
@@ -331,7 +335,7 @@ Router.map(function() {
 			if(this.params.userId===Meteor.userId())
 				Router.go('convers');
 			else
-				K.conver.loadConverWithUser( this.params.userId );
+				K.Conver.loadConverWithUser( this.params.userId );
 		}
 	});
 

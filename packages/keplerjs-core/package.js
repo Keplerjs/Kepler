@@ -24,19 +24,8 @@ Package.onUse(function(api) {
   api.use(packages);
   api.imply(packages);
 
-  api.addFiles([
-    'lib/Admin.js',
-    'lib/Field.js',
-    'lib/Schema.js',
-    'lib/Util.js',
-    'lib/Util_geo.js',
-    'lib/Util_humanize.js',
-    'lib/Util_valid.js',
-    'lib/Cache.js',
-    'lib/Plugin.js',
-    'i18n/it.js'
-  ], ['client', 'server']);
-
+  api.addFiles(globsync('i18n/**/*.js'),   ['client','server']);
+  api.addFiles(globsync('lib/**/*.js'),    ['client','server']);
   api.addFiles(globsync('client/**/*.js'), ['client']);
   api.addFiles(globsync('server/**/*.js'), ['server']);
 

@@ -9,8 +9,7 @@
 			"avatars": "/static/avatars/"
 		},
 		"accountCreation": true,
-		"geoipLocation": false,
-		"showNotifs": true,		
+		"geoipLocation": false,	
 		"searchMinLen": 1,
 		"searchMaxRes": 20,
 		"typeDelay": 300,		
@@ -19,6 +18,7 @@
 		"maxPois": 10,
 		"maxPoisDist": 500,
 		"maxHist": 3,
+		"showNotifs": true,			
 		"maxNotifList": 5,
 		"checkinMaxDist": 500,
 		"bboxMinShift": 200,

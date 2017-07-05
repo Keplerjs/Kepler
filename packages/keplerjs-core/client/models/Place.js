@@ -78,7 +78,7 @@ Kepler.Place = K.Model.extend({
 	},
 
 	isCheckin: function() {
-		return K.profile.data.checkin && (K.profile.data.checkin === this.id);
+		return K.Profile.data.checkin && (K.Profile.data.checkin === this.id);
 	},
 	
 	isFavorite: function() {

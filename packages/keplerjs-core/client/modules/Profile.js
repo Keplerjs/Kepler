@@ -1,5 +1,5 @@
 
-Kepler.profile = {
+Kepler.Profile = {
 
 	ready: false,
 
@@ -85,14 +85,6 @@ Kepler.profile = {
 	},
 	friendBlock: function(userId) {
 		Meteor.call('friendBlock', userId);
-		return this;
-	},
-	cleanNotif: function() {
-		Users.update(Meteor.userId(), {
-			$set: {
-				notif: []
-			}
-		});
 		return this;
 	},
 	setLoc: function(loc) {

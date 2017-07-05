@@ -9,7 +9,7 @@ Template.item_conver.onRendered(function() {
 			var btn$ = $(e.target),
 				list$ = btn$.parents('.list-group');
 
-			K.conver.delConver( convid );		
+			K.Conver.delConver( convid );		
 			btn$.parents('.list-group-item').remove();
 		});
 });
@@ -26,7 +26,7 @@ Template.item_conver.helpers({
 		return title || '...';
 	},
 	usersIds: function() {
-		//return _.last(_.without(this.usersIds, K.profile.id), 3);
+		//return _.last(_.without(this.usersIds, K.Profile.id), 3);
 		return _.last(this.usersIds, 3);
 	},	
 	target: function() {
