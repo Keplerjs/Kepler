@@ -8,7 +8,7 @@ Router.map(function() {
 			return Meteor.subscribe('tracksByPlace', this.params.placeId);
 		},
 		onAfterAction: function() {
-			var place = K.newPlace( this.params.placeId );
+			var place = K.placeById( this.params.placeId );
 
 			if(place)
 				place.showTracks();

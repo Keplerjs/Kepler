@@ -101,7 +101,7 @@ Kepler.Place = K.Model.extend({
 });
 
 //TODO move to K.Model.newItem()
-K.newPlace = function(id) {
+K.placeById = function(id) {
 	check(id, String);
 	
 	if(!K.placesById[id] && K.findPlaceById(id).fetch()[0])

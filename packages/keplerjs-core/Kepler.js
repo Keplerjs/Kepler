@@ -7,11 +7,12 @@ Kepler = K = {
 	//core models
 	Model: {},  	 //class base for items         (client)
 	Place: {},       //class for places             (client)
-		newPlace: {},	 //constructor of Place  		(client)
-		placesById: {},  //index of Place instances     (client)		
+	placeById: {},	 //constructor of Place  		(client)
+	placesById: {},  //index of Place instances    (client)
+	
 	User: {},        //class for users              (client)
-		newUser: {},	 //constructor of User  		(client)
-		usersById: {},   //index of User instances      (client)
+	userById: {},	 //constructor of User  		(client)
+	usersById: {},  //index of User instances      (client)
 
 	//utilities
 	Util: {},        //module utils functions            (client,server)
@@ -21,7 +22,6 @@ Kepler = K = {
 	
 	//managing
 	Admin: {},       //methods only for admin users      (client,server)
-	Plugin: {},	 	 //plugins registration	manageer     (client,server)
 	placesByName: {},//index of places by name           (client)
 	usersByName: {}, //index of users by name            (client)
 
@@ -29,7 +29,7 @@ Kepler = K = {
 	Profile: {},     //module for user logged data       (client)	
 	Map: {},         //module map, controls, layers      (client)
 
-	//moduls
+	//others modules
 	Upload: {},      //module manage file uploads        (client)
 	Conver: {},      //module messages, place comments   (client)
 	Notif: {},       //module notifications              (client)
@@ -37,11 +37,14 @@ Kepler = K = {
 	extend: function(e) {
 		_.extend(K, e);
 	},
+	
 	_queries: {},
 	queries: function(q) {
 		_.extend(this._queries, q);
 		this.extend(q);
-	}	
+	},
+
+	plugins: {},
 };
 /*TODO
 if(Meteor.isServer)

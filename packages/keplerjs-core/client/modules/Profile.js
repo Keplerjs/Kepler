@@ -26,11 +26,11 @@ Kepler.Profile = {
 			if(!self.data)	//onlogout
 				return self.ready = false;
 
-			self.user = K.newUser(self.id);
+			self.user = K.userById(self.id);
 			self.user.update();
 
 			if(self.data.checkin)
-				self.placeCheckin = K.newPlace(self.data.checkin);
+				self.placeCheckin = K.placeById(self.data.checkin);
 		});
 
 		if(_.isFunction(cb)) cb.call(self);
@@ -94,7 +94,7 @@ Kepler.Profile = {
 	addCheckin: function(placeId) {
 		var self = this;
 		Meteor.call('addCheckin', placeId, function() {
-			self.placeCheckin = K.newPlace(placeId);
+			self.placeCheckin = K.placeById(placeId);
 		});
 		return this;
 	},

@@ -1,4 +1,4 @@
 
-K.Plugin.registerPlugin({
+K.Plugin({
 	name: 'geoinfo'
 });

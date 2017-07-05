@@ -9,7 +9,7 @@ Template.search_user.onRendered(function() {
 			Meteor.subscribe('usersByName', val, function() {
 				
 				var users = _.map( K.findUsersByName(val).fetch(), function(user) {
-					return K.newUser(user._id);
+					return K.userById(user._id);
 				});
 
 				callback(users);

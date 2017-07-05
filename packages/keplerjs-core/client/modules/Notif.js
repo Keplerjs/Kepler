@@ -39,7 +39,7 @@ Kepler.Notif = {
 		if(Meteor.settings.public.showNotifs)
 			K.findConversByIds(conversIds).observeChanges({
 				added: function(convId, fields) {
-					var user = K.newUser(fields.userId);
+					var user = K.userById(fields.userId);
 
 					console.log('observeConvers CHANGED',fields);
 					if(fields.userId != K.Profile.id)
@@ -52,7 +52,7 @@ Kepler.Notif = {
 		if(Meteor.settings.public.showNotifs)
 			K.findUsersByIds(usersIds).observeChanges({
 				changed: function(userId, fields) {
-					var user = K.newUser(userId);
+					var user = K.userById(userId);
 					
 					//console.log('CHANGED',user.username,fields);
 
@@ -63,7 +63,7 @@ Kepler.Notif = {
 						K.Notif.show( i18n('notifs.usergps', user.name), 'map-user');
 
 					if(fields.checkin) {
-						var place = K.newPlace(fields.checkin) || i18n('labels.noname');
+						var place = K.placeById(fields.checkin) || i18n('labels.noname');
 						K.Notif.show( i18n('notifs.usercheckin', user.name, place.name), 'checkin');
 					}
 				}

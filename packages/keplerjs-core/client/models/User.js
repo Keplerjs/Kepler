@@ -107,7 +107,7 @@ Kepler.User = K.Model.extend({
 });
 
 //TODO move to K.Model.newItem()
-K.newUser = function(id) {
+K.userById = function(id) {
 	check(id, String);
 	
 	if(!K.usersById[id] && K.findUserById(id).fetch()[0])

@@ -9,6 +9,7 @@ K.Admin.methods({
 
 		if(placeData.hist)
 			Users.update({_id: {$in: placeData.hist }}, {$pull: {hist: placeId} });
+		
 		Places.update(placeId, {
 			$set: {
 				hist: []
@@ -24,6 +25,7 @@ K.Admin.methods({
 
 		if(placeData.checkins)
 			Users.update({_id: {$in: placeData.checkins }}, {$set: {checkin: null} });
+
 		Places.update(placeId, {
 			$set: {
 				checkins: []
@@ -73,7 +75,7 @@ K.Admin.methods({
 
 		var newId = Places.insert(place);
 		
-		console.log('clonePlace', placeId, place.name);
+		console.log('Admin: clonePlace', placeId, place.name);
 
 		return newId;
 	},
@@ -85,7 +87,7 @@ K.Admin.methods({
 
 		Places.update(placeId, {$set: {name: iname} });
 		
-		console.log('renamePlace', placeId, name);
+		console.log('Admin: renamePlace', placeId, name);
 	},
 	movePlace: function(placeId, loc) {
 
@@ -93,6 +95,6 @@ K.Admin.methods({
 
 		Places.update(placeId, {$set: {loc: loc} });
 
-		console.log('movePlace', placeId, loc);
+		console.log('Admin: movePlace', placeId, loc);
 	}
 });

@@ -22,7 +22,7 @@
 <template name="user_btns">
 	<div class="btn-group">
 	{{#if checkin}}
-		{{#with newPlace checkin}}
+		{{#with placeById checkin}}
 			{{> item_place_favorite}}
 		{{/with}}
 	{{else}}

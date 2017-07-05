@@ -9,7 +9,7 @@ Template.search_place.onRendered(function() {
 			Meteor.subscribe('placesByName', val, function() {
 			
 				var places = _.map( K.findPlacesByName(val).fetch(), function(place) {
-					return K.newPlace(place._id);
+					return K.placeById(place._id);
 				});
 
 				callback(places);

@@ -122,7 +122,7 @@ Router.map(function() {
 				itemsTemplate: 'item_user_friend',
 				items: _.map(K.Profile.data.friends, function(id) {
 					
-					var user = K.newUser(id);
+					var user = K.userById(id);
 					user.update();
 
 					return user;
@@ -144,7 +144,7 @@ Router.map(function() {
 				headerTemplate: 'search_place',
 				itemsTemplate: 'item_place_search',
 				items: _.map(places, function(place) {
-					var p = K.newPlace(place._id);
+					var p = K.placeById(place._id);
 					if($(p.marker._icon).is(':visible'))
 						return p.rData();
 				})
@@ -183,7 +183,7 @@ Router.map(function() {
 				className: 'favorites',
 				itemsTemplate: 'item_place_favorite',
 				items: _.map(K.Profile.data.favorites, function(id) {
-					var place = K.newPlace(id);
+					var place = K.placeById(id);
 					place.update();
 					return place.rData();
 				}),
@@ -204,7 +204,7 @@ Router.map(function() {
 				title: i18n('titles.histplaces'),
 				className: 'history',
 				itemsTemplate: 'item_place_favorite',
-				items: _.map(K.Profile.data.hist, K.newPlace)
+				items: _.map(K.Profile.data.hist, K.placeById)
 			};
 		}
 	});
@@ -237,7 +237,7 @@ Router.map(function() {
 		},
 		data: function() {
 			if(!this.ready()) return null;
-			var place = K.newPlace( this.params.placeId );
+			var place = K.placeById( this.params.placeId );
 			return place.rData();
 		}
 	});
@@ -251,7 +251,7 @@ Router.map(function() {
 		onAfterAction: function() {
 			if(!this.ready()) return null;
 
-			var place = K.newPlace( this.params.placeId );
+			var place = K.placeById( this.params.placeId );
 
 			if(place)
 				place.loadLoc();
@@ -267,13 +267,13 @@ Router.map(function() {
 		},
 		data: function() {
 			if(!this.ready()) return null;
-			var place = K.newPlace(this.params.placeId);
+			var place = K.placeById(this.params.placeId);
 			return place && {
 				title: i18n('titles.checkins', place.name),
 				className: 'checkins',
 				itemsTemplate: 'item_user',
 				items: _.map(place.checkins, function(id) {
-					return K.newUser(id);
+					return K.userById(id);
 				})
 			};
 		}
@@ -287,7 +287,7 @@ Router.map(function() {
 		},
 		data: function() {
 			if(!this.ready()) return null;
-			var place = K.newPlace(this.params.placeId);
+			var place = K.placeById(this.params.placeId);
 			return place && {
 				title: i18n('titles.placeConvers', place.name),
 				className: 'placeConvers',
@@ -309,7 +309,7 @@ Router.map(function() {
 		},
 		data: function() {
 			if(this.ready()) {
-				var user = K.newUser(this.params.userId);
+				var user = K.userById(this.params.userId);
 				user.update();
 				return user.rData();
 			}
@@ -336,7 +336,7 @@ Router.map(function() {
 			return Meteor.subscribe('friendsByIds', [this.params.userId]);
 		},
 		onAfterAction: function() {
-			var user = K.newUser( this.params.userId );
+			var user = K.userById( this.params.userId );
 
 			if(user)
 				user.loadLoc();

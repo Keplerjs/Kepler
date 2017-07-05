@@ -3,7 +3,7 @@
 <template name="itemMsg">	
 	<div class="list-group-item msg-item">
 		<div>
-			{{#with newUser userId}}
+			{{#with userById userId}}
 				{{> item_user}}
 			{{/with}}
 			<div class="msg-body">{{{body}}}</div>

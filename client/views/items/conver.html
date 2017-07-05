@@ -4,7 +4,7 @@
 		<a class="btn btn-xs" href="/conver/{{_id}}">
 			<span class="conver-users">
 			{{#each usersIds}}
-				{{#with newUser this}}
+				{{#with userById this}}
 					<b class="user-btn-name"><u>{{name}}</u></b>
 				{{/with}}
 			{{/each}}

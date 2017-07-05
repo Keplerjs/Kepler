@@ -32,9 +32,9 @@ Template.item_conver.helpers({
 	target: function() {
 
 		if(this.targetType==='place')
-			return K.newPlace(this.targetId);
+			return K.placeById(this.targetId);
 
 		else if(this.targetType==='user')
-			return K.newUser(this.targetId);
+			return K.userById(this.targetId);
 	}
 });

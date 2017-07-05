@@ -6,7 +6,7 @@
 			<i class="icon icon-map"></i> {{i18n 'labels.location'}}
 		</li>	
 		{{#if checkin}}
-			{{#with newPlace checkin}}
+			{{#with placeById checkin}}
 			<li class="list-group-item">
 				{{> item_place}} <br />
 				{{> place_btns_all}}

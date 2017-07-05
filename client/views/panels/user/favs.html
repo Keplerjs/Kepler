@@ -5,7 +5,7 @@
 		<ul class="list-group list-items">
 			{{#each favorites}}
 			<li class="list-group-item">
-				{{#with newPlace this}}
+				{{#with placeById this}}
 					{{> item_place_favorite}}
 				{{/with}}
 			</li>

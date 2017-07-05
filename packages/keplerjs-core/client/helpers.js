@@ -11,13 +11,22 @@ Template.registerHelper('pluginsTemplates', function () {
 
   	var parentTemplate = Template.instance().view.name.replace('Template.','');
 	
-	return _.map(K.Plugin.getPlugins(), function(plugin) {
-		if(Template[parentTemplate+'_'+plugin.name])
+	return _.map(K.plugins, function(plugin) {
+		if(Template[parentTemplate+'_'+plugin.name]) {
 			return {
 				pluginTemplate: parentTemplate+'_'+plugin.name,
 				pluginData: Template.currentData()
 			};
+		}
 	});
+});
+
+Template.registerHelper('userById', function(id) {
+	return K.userById(id);
+});
+
+Template.registerHelper('placeById', function(id) {
+	return K.placeById(id);
 });
 
 Template.registerHelper('isRoute', function(name, clas) {
@@ -34,14 +43,6 @@ Template.registerHelper('connectionStatus', function() {
 
 Template.registerHelper('or', function() {
 	return _.some(_.initial(arguments));
-});
-
-Template.registerHelper('newUser', function(id) {
-	return K.newUser(id);
-});
-
-Template.registerHelper('newPlace', function(id) {
-	return K.newPlace(id);
 });
 
 Template.registerHelper('humanAzimut', function(ang, tiny) {

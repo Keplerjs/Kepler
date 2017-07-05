@@ -65,7 +65,7 @@ layers.places = new L.LayerJSON({
 		};
 	},
 	dataToMarker: function(data) {	//eseguito una sola volta per ogni place
-		return K.newPlace(data._id).marker;
+		return K.placeById(data._id).marker;
 	}
 });
 

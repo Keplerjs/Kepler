@@ -1,6 +1,9 @@
 
-K.Plugin.registerPlugin({
+K.Plugin({
 	name: 'pois',
+	placeholders: {
+		panelPlace: 'panelPlace_pois'
+	},
 	settings: {
 		public: {
 			"maxPois": 10,
@@ -9,3 +12,11 @@ K.Plugin.registerPlugin({
 	}
 });
 
+/*
+	example: add multiple plugin templates in same placeholder
+K.Plugin({
+	name: 'pois2',	//the same package can to define more internals plugins
+	placeholders: {
+		panelPlace: 'popupPlace_pois2'
+	}
+});*/
