@@ -59,8 +59,13 @@ Package.onUse(function(api) {
   ], ['client', 'server']);
   
   api.addFiles([
-    'client/lib/L.Marker.drag.js',
-    'client/lib/L.NodeIcon.js',  
+    'client/Class.js',
+    'client/L.Marker.drag.js',
+    'client/L.NodeIcon.js',  
   ], ['client']);
+
+  api.export([
+    'Class'
+  ]);
   
 });

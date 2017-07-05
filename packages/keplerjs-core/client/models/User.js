@@ -1,5 +1,5 @@
 
-Kepler.User = K.Model.extend({
+Kepler.User = Class.extend({
 
 	id: null,
 	type: 'user',

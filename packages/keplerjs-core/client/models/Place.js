@@ -1,5 +1,5 @@
 
-Kepler.Place = K.Model.extend({
+Kepler.Place = Class.extend({
 
 	id: null,
 	type: 'place',
