@@ -1,8 +1,7 @@
 /*
-	default values for new model/document
+	default values for new models and data documents
 */
-Kepler.Schema = {
-
+K.schemas({
 	place: {
 		name: '',	       //place title
 		type: '',	       //place tipology
@@ -32,7 +31,7 @@ Kepler.Schema = {
 			//node id, user, tags
 		}
 	},
-
+	
 	user: {
 		name: '',		   //display name	
 		username: '',	   //username used in urls
@@ -65,8 +64,10 @@ Kepler.Schema = {
 				center: null  //last center of map
 			}
 		}
-	},
+	}
+});
 
+K.schemas({
 	conver: {
 		title: '',         //Topic for the place wall or subject for the private convers
 		targetId: '',      //if null is a private users convers		
@@ -75,11 +76,10 @@ Kepler.Schema = {
 		usersIds: [],      //participants users
 		lastMsg: null      //include last msg of conversation
 	},
-
 	converMsg: {
 		updateAt: '',	
 		convId: '',
 		userId: '',
 		body: ''
 	}
-};
+});

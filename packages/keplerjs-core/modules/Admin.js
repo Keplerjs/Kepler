@@ -1,9 +1,13 @@
 /*
 	Debugger and admnistrations methods
 */
+
 Kepler.Admin = {
 	
-	methods: {},	//list of server methods
+	method: {},	//list of server methods
+
+	usersByName: {},
+	placesByName: {},
 
 	isMe: function(user) {	//check if user is an admin
 		
@@ -25,8 +29,8 @@ Kepler.Admin = {
 		var self = this;
 
 		_.each(defs, function(func, name) {
-			if(!self.methods[name])
-				self.methods[name] = func;
+			if(!self.method[name])
+				self.method[name] = func;
 		});
 
 		Meteor.methods(defs);
@@ -41,7 +45,7 @@ Kepler.Admin = {
 				console.warn('adminGetMethods', err);
 			else {
 				_.each(names, function(name) {
-					self.methods[name] = function() {
+					self.method[name] = function() {
 						return Meteor.apply(name, arguments);
 					};
 				});
@@ -49,14 +53,3 @@ Kepler.Admin = {
 		});
 	}
 };
-
-Meteor.methods({
-	adminGetMethods: function() {
-	
-		if(!K.Admin.isMe()) return false;
-
-		console.log('Admin: adminGetMethods');
-
-		return _.keys(K.Admin.methods);
-	}
-});

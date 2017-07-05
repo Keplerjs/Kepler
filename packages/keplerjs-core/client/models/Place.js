@@ -89,6 +89,8 @@ Kepler.Place = Class.extend({
 		this._dep.depend();
 		return this.checkins && this.checkins.length;
 	},
+
+//TODO move to convers plugin
 	conversCount: function() {
 		this._dep.depend();
 		return this.convers && this.convers.length;
@@ -100,20 +102,21 @@ Kepler.Place = Class.extend({
 	}
 });
 
-//TODO move to K.Model.newItem()
-K.placeById = function(id) {
-	check(id, String);
-	
-	if(!K.placesById[id] && K.findPlaceById(id).fetch()[0])
-	{
-		K.placesById[id] = new K.Place(id);
+K.extend({
+	placesById: {},
+	placeById: function(id) {
+		check(id, String);
 		
-		if(K.Admin.isMe()) {
-			var iname = K.Util.sanitizeFilename(K.placesById[id].name);
-			K.placesByName[iname || id] = K.placesById[id];
+		if(!K.placesById[id] && K.findPlaceById(id).fetch()[0])
+		{
+			K.placesById[id] = new K.Place(id);
+			
+			if(K.Admin.isMe()) {
+				var iname = K.Util.sanitizeFilename(K.placesById[id].name);
+				K.Admin.placesByName[iname || id] = K.placesById[id];
+			}
 		}
+		
+		return K.placesById[id] || null;
 	}
-	
-	return K.placesById[id] || null;
-};
-
+});

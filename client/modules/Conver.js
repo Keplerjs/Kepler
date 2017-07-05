@@ -13,8 +13,8 @@ Kepler.Conver = {
 		});
 	},
 
-	delConver: function(convId) {
-		Meteor.call('delConver', convId);
+	removeConver: function(convId) {
+		Meteor.call('removeConver', convId);
 	},
 
 	insertMsgToConver: function(convId, body) {	//TODO spostare lato server
@@ -23,7 +23,7 @@ Kepler.Conver = {
 		//TODO move to Messages.allow
 
 		if(!_.str.isBlank(body))
-			insertMsgToConver(convId, body);
+			K.insertMsgToConver(convId, body);
 	},
 	
 	loadConverWithUser: function(userId) {

@@ -13,7 +13,7 @@ var tags2poiClass = {
 
 //'highway=path',
 
-Kepler.osm = {
+Kepler.Osm = {
 	
 	iconByTags: function(tags) {
 		for(var tag in tags) {
@@ -62,7 +62,7 @@ Kepler.osm = {
 		{
 
 			var iconPoi = L.DomUtil.create('div'),
-				iconClass = K.osm.iconByTags(feature.properties.tags);
+				iconClass = K.Osm.iconByTags(feature.properties.tags);
 
 			L.DomUtil.create('i', iconClass, iconPoi);
 			return new L.Marker(latlng, {

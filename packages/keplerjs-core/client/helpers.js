@@ -11,7 +11,7 @@ Template.registerHelper('pluginsTemplates', function () {
 
   	var parentTemplate = Template.instance().view.name.replace('Template.','');
 	
-	return _.map(K.plugins, function(plugin) {
+	return _.map(K.pluginsByName, function(plugin) {
 		if(Template[parentTemplate+'_'+plugin.name]) {
 			return {
 				pluginTemplate: parentTemplate+'_'+plugin.name,

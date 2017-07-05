@@ -29,7 +29,5 @@ Package.onUse(function (api) {
     'server/osm.js',
     'server/pubs.js'
   ],'server');
-  
-  //api.export('Overpass');
 
 });

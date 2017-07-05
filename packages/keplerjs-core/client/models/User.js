@@ -106,20 +106,22 @@ Kepler.User = Class.extend({
 	}
 });
 
-//TODO move to K.Model.newItem()
-K.userById = function(id) {
-	check(id, String);
-	
-	if(!K.usersById[id] && K.findUserById(id).fetch()[0])
-	{
-		K.usersById[id] = new K.User(id);
+K.extend({
+	usersById: {},
+	userById: function(id) {
+		check(id, String);
 		
-		if(K.Admin.isMe()) {
-			var iname = K.Util.sanitizeFilename(K.usersById[id].name);
-			K.usersByName[iname || id] = K.usersById[id];
+		if(!K.usersById[id] && K.findUserById(id).fetch()[0])
+		{
+			K.usersById[id] = new K.User(id);
+			
+			//TODO move to admin moduile
+			if(K.Admin.isMe()) {
+				var iname = K.Util.sanitizeFilename(K.usersById[id].name);
+				K.Admin.usersByName[iname || id] = K.usersById[id];
+			}
 		}
+		
+		return K.usersById[id] || null;
 	}
-	
-	return K.usersById[id] || null;
-};
-
+});

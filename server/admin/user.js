@@ -15,7 +15,7 @@ K.Admin.methods({
 				email: username+'@gmail.com'
 			});
 
-			confirmFriends(this.userId, userId);
+			K.updateFriendship(this.userId, userId);
 		}
 	},
 	delUser: function(username) {
@@ -44,7 +44,7 @@ K.Admin.methods({
 		var user1 = Users.findOne({username: username1 }),
 			user2 = Users.findOne({username: username2 })
 			
-		confirmFriends(user1._id, user2._id);
+		K.updateFriendship(user1._id, user2._id);
 	},
 	cleanUserFriendship: function(username) {
 		

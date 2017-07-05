@@ -5,16 +5,16 @@ K.queries({
 	findConverById: function(convId) {
 		//TODO ritornare solo ultimi 10 messaggi!!
 		//TODO scaricare messaggi un po alla volta
-		return Convers.find(convId, { fields: K.Field.converPanel });
+		return Convers.find(convId, K.filter.converPanel);
 	},
 	findConversByIds: function(convIds) {
 		
 		convIds = _.isArray(convIds) ? {$in: convIds} : convIds;
 
-		return Convers.find({_id: convIds }, { fields: K.Field.converItem });
+		return Convers.find({_id: convIds }, K.filter.converItem);
 	},
 	findConversByTarget: function(targetId) {
-		return Convers.find({targetId: targetId }, { fields: K.Field.converItem });
+		return Convers.find({targetId: targetId }, K.filter.converItem);
 	}
 });
 

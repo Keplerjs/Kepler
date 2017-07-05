@@ -66,7 +66,7 @@ K.queries({
 
 		return convId;
 	},
-	delConver: function(convId) {
+	removeConver: function(convId) {
 
 		var convData = Convers.findOne(convId);
 		
@@ -101,7 +101,7 @@ K.queries({
 				}
 			});
 		}
-		console.log('delConver', convId);
+		console.log('removeConver', convId);
 	}
 });
 
@@ -126,9 +126,9 @@ Meteor.methods({
 		
 		if(!this.userId || !convId) return null;
 
-		console.log('delConver',convId);
+		console.log('removeConver',convId);
 
-		return K.delConver(convId);
+		return K.removeConver(convId);
 	}
 });
 

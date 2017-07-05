@@ -10,3 +10,12 @@ Meteor.startup(function() {
 		fs.mkdirSync(Meteor.settings.dirs.avatars, 0755);
 	}
 });
+
+
+/*TODO
+if(Meteor.isServer)
+	Settings = _.extend(JSON.parse(Assets.getText('settings.default.json')), Meteor.settings);
+
+else if(Meteor.isClient)
+	Settings = Meteor.settings.public;
+*/

@@ -9,7 +9,7 @@ Template.item_conver.onRendered(function() {
 			var btn$ = $(e.target),
 				list$ = btn$.parents('.list-group');
 
-			K.Conver.delConver( convid );		
+			K.Conver.removeConver( convid );		
 			btn$.parents('.list-group-item').remove();
 		});
 });

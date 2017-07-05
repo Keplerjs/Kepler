@@ -1,14 +1,16 @@
 
-confirmFriends = function(userId, addUserId) {
-	//remove from pending
-	Users.update(userId, {$pull: {usersReceive: addUserId} });
-	Users.update(userId, {$addToSet: {friends: addUserId} });
-	//add to friends list
-	Users.update(addUserId, {$pull: {usersPending: userId} });
-	Users.update(addUserId, {$addToSet: {friends: userId} });
+K.queries({
+	updateFriendship: function(userId, addUserId) {
+		//remove from pending
+		Users.update(userId, {$pull: {usersReceive: addUserId} });
+		Users.update(userId, {$addToSet: {friends: addUserId} });
+		//add to friends list
+		Users.update(addUserId, {$pull: {usersPending: userId} });
+		Users.update(addUserId, {$addToSet: {friends: userId} });
 
-	console.log('confirmFriends Added', userId, addUserId);
-};
+		console.log('updateFriendship', userId, addUserId);
+	}
+});
 
 Meteor.methods({
 	setLoc: function(loc) {
@@ -127,7 +129,7 @@ Meteor.methods({
 		
 		if(!this.userId || this.userId===confirmUserId) return null;
 
-		confirmFriends(this.userId, confirmUserId);
+		K.updateFriendship(this.userId, confirmUserId);
 
 		console.log('friendConfirm', this.userId, confirmUserId);
 	},

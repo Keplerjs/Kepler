@@ -49,7 +49,7 @@ Router.route(paths.root, opts)
 Router.route(paths.place, opts)
 .get(function (req, res) {
 
-	var out = Places.findOne({name: this.params.name }, { fields: K.Field.placeItem });
+	var out = Places.findOne({name: this.params.name }, K.filter.placeItem);
 	delete out.loc;
 
 	writeOut(req, res, out);

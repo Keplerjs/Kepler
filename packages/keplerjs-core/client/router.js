@@ -302,9 +302,9 @@ Router.map(function() {
 	this.route('panelUser', {
 		path: '/user/:userId',
 		waitOn: function() {
-			//if(this.params.userId===Meteor.userId())
-			//	Router.go('panelProfile');
-			//else
+			if(this.params.userId===Meteor.userId())
+				Router.go('panelProfile');
+			else
 				return Meteor.subscribe('userById', this.params.userId);
 		},
 		data: function() {
