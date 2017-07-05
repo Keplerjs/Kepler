@@ -1,5 +1,5 @@
 
-K.Admin.addMethods({
+K.Admin.methods({
 	delAllConvers: function() {
 		
 		if(!K.Admin.isMe()) return false;

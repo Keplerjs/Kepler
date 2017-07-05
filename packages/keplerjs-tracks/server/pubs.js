@@ -6,7 +6,7 @@ Meteor.publish('tracksByIds', function(trackIds) {
 		console.log('Pub: tracksByIds', trackIds);
 
 		return [
-			getTracksByIds(trackIds)
+			K.getTracksByIds(trackIds)
 		];	
 	}
 	else
@@ -18,14 +18,14 @@ Meteor.publish('tracksByPlace', function(placeId) {
 
 	if(this.userId) {
 
-		var placeCur = getPlacesByIds([placeId]),
+		var placeCur = K.getPlacesByIds([placeId]),
 			placeData = placeCur.fetch()[0];
 
 		console.log('Pub: tracksByPlace', placeId);
 
 		return [
 			placeCur,
-			getTracksByLoc(placeData.loc)
+			K.getTracksByLoc(placeData.loc)
 		];	
 	}
 	else

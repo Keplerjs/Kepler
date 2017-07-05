@@ -1,5 +1,5 @@
 
-K.Admin.addMethods({
+K.Admin.methods({
 	cleanPlaceHist: function(placeName) {
 		
 		if(!K.Admin.isMe()) return null;
@@ -61,7 +61,7 @@ K.Admin.addMethods({
 
 		if(!K.Admin.isMe()) return null;
 
-		var place = getPlaceById(placeId).fetch()[0],
+		var place = K.getPlaceById(placeId).fetch()[0],
 			offset = 0.01;
 
 		place.loc[0] += offset;

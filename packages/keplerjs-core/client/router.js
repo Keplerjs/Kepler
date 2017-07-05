@@ -136,12 +136,14 @@ Router.map(function() {
 		template: 'panelList',
 		data: function() {
 			if(!this.ready()) return null;
+			var bbox = K.Map.getBBox(),
+				places = K.getPlacesByBBox(bbox).fetch();
 			return {
 				title: i18n('titles.places'),
 				className: 'places',
 				headerTemplate: 'search_place',
 				itemsTemplate: 'item_place_search',
-				items: _.map(getPlacesByBBox( K.Map.getBBox() ).fetch(), function(place) {
+				items: _.map(places, function(place) {
 					var p = K.newPlace(place._id);
 					if($(p.marker._icon).is(':visible'))
 						return p.rData();
@@ -161,7 +163,7 @@ Router.map(function() {
 				title: i18n('titles.convers'),
 				className: 'convers',
 				itemsTemplate: 'item_conver',
-				items: getConversByIds(K.Profile.data.convers).fetch(),
+				items: K.getConversByIds(K.Profile.data.convers).fetch(),
 				sortDesc: true
 			};
 		}
@@ -292,7 +294,7 @@ Router.map(function() {
 				headerTemplate: 'conver_place_new',
 				headerData: place,		
 				itemsTemplate: 'item_conver',
-				items: getConversByTarget(this.params.placeId).fetch()
+				items: K.getConversByTarget(this.params.placeId).fetch()
 			};
 		}
 	});
@@ -348,7 +350,7 @@ Router.map(function() {
 			return Meteor.subscribe('converById', this.params.convId);
 		},
 		data: function() {
-			return getConverById(this.params.convId).fetch()[0];
+			return K.getConverById(this.params.convId).fetch()[0];
 		}
 	});
 });

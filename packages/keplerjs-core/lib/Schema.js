@@ -7,10 +7,10 @@ Kepler.Schema = {
 		name: '',	       //place title
 		type: '',	       //place tipology
 		active: 0,	       //place visible in map
-		rank: 0,		   //sommati di tutti i preferiti degli utenti
-		loc: [],		   //posizione lat,lng
+		rank: 0,		   //sum of all users's favorites
+		loc: [],		   //coordinates lat,lng
 		desc: '',		   //place description
-		warn: '',          //place bans and dangers
+		warn: '',          //place warnings and dangers
 
 //TODO move into geo property
 		ele: 0,		       //elevation
@@ -49,7 +49,7 @@ Kepler.Schema = {
 		online: 0,		   //stato di visibilita rispetto ai miei friends
 		onlinelast: null,  //last online status datetime
 		mob: 0,			   //if my device is mobile
-		notif: [],		   //notifiche, messaggi non letti, eventi in places preferite, nuovi friends	
+		notif: [],		   //notifications, messaggi non letti, eventi in places preferite, nuovi friends	
 		favorites: [],	   //id place preferiti		
 		friends: [],	   //ids users friends
 		usersPending: [],  //ids users that I send request

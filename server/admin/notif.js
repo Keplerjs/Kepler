@@ -1,5 +1,5 @@
 
-K.Admin.addMethods({
+K.Admin.methods({
 	createNotif: function(text, type) {
 		
 		if(!K.Admin.isMe()) return false;

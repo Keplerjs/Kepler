@@ -30,7 +30,7 @@ Template.converMsgs.helpers({
 			
 			list$.scrollTop( list$.prop('scrollHeight') );
 
-			return getMsgsByConver( Template.currentData()._id );
+			return K.getMsgsByConver( Template.currentData()._id );
 	}
 });
 

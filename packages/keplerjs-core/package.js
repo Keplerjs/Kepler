@@ -24,13 +24,15 @@ Package.onUse(function(api) {
   api.use(packages);
   api.imply(packages);
 
-  api.addFiles(globsync('i18n/**/*.js'),   ['client','server']);
-  api.addFiles(globsync('lib/**/*.js'),    ['client','server']);
+  api.addFiles(globsync('i18n/**/*.js'),        ['client','server']);
+  api.addFiles(globsync('lib/**/*.js'),         ['client','server']);
+  api.addFiles(globsync('collections/**/*.js'), ['client','server']);
   api.addFiles(globsync('client/**/*.js'), ['client']);
   api.addFiles(globsync('server/**/*.js'), ['server']);
 
   api.export([
-    'Kepler', 'K'
+    'Kepler', 'K',
+    'Places','Users'
   ]);
   
 });

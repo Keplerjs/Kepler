@@ -1,5 +1,5 @@
 
-K.Admin.addMethods({
+K.Admin.methods({
 	updateGeoinfo: function(placeId) {
 	
 		if(!K.Admin.isMe()) return null;

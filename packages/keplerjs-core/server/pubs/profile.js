@@ -3,14 +3,14 @@ Meteor.publish('currentUser', function() {
 
 	if(this.userId) {
 		
-		var userCur = getCurrentUser(this.userId),
+		var userCur = K.getCurrentUser(this.userId),
 			userData = userCur.fetch()[0],
 			retCurs = [];
 
 		retCurs.push(userCur);
 
 		if(userData.checkin)
-			retCurs.push( getPlaceById(userData.checkin) );
+			retCurs.push( K.getPlaceById(userData.checkin) );
 
 		console.log('Pub: currentUser', userData.username );
 		return retCurs;

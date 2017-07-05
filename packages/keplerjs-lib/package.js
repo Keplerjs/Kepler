@@ -52,11 +52,11 @@ Package.onUse(function(api) {
   api.imply(packages);
 
   api.addFiles([
-    'lib/config/Accounts.js',
-    'lib/config/i18n.js',
-    'lib/config/leaflet.js',
-    'lib/config/underscore.js',
-    'lib/Kepler.js',  
+    'config/Accounts.js',
+    'config/i18n.js',
+    'config/leaflet.js',
+    'config/underscore.js',
+    'Kepler.js',  
   ], ['client', 'server']);
   
   api.addFiles([
@@ -65,7 +65,7 @@ Package.onUse(function(api) {
   ], ['client']);
 
   api.export([
-    'Kepler', 'K'
+    'Kepler','K'
   ]);
   
 });

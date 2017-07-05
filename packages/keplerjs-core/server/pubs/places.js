@@ -1,7 +1,7 @@
 
 Meteor.publish('placesByBBox', function(bbox) {
 	if(this.userId) {
-		var cur = getPlacesByBBox(bbox);
+		var cur = K.getPlacesByBBox(bbox);
 		console.log('Pub: placesByBBox ', cur.count() );
 		return cur;
 	}
@@ -11,7 +11,7 @@ Meteor.publish('placesByBBox', function(bbox) {
 
 Meteor.publish('placesByName', function(initial) {
 	if(this.userId) {
-		var cur = getPlacesByName(initial);
+		var cur = K.getPlacesByName(initial);
 		console.log('Pub: placesByName', initial, cur ? cur.count() : 0 );
 		return cur;
 	}
@@ -24,7 +24,7 @@ Meteor.publish('placeById', function(placeId) {
 
 	if(this.userId)
 	{
-		var placeCur = getPlaceById(placeId),
+		var placeCur = K.getPlaceById(placeId),
 			placeData = placeCur.fetch()[0],
 			retCurs = [];
 
@@ -32,7 +32,7 @@ Meteor.publish('placeById', function(placeId) {
 
 		var usersIds = _.union(placeData.hist, placeData.checkins);
 		if(usersIds.length > 0)
-			retCurs.push( getUsersByIds(usersIds) );
+			retCurs.push( K.getUsersByIds(usersIds) );
 		//publish one cursor for collection users
 
 		console.log('Pub: placeById', placeData.name);
@@ -48,7 +48,7 @@ Meteor.publish('placesByIds', function(placesIds) {
 	console.log('Pub: placesByIds', placesIds);
 
 	if(this.userId)
-		return getPlacesByIds(placesIds);	
+		return K.getPlacesByIds(placesIds);	
 	else
 		this.ready();	
 });

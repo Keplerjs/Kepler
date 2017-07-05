@@ -34,7 +34,7 @@ layers.cluster = new L.MarkerClusterGroup({
 			var places = _.map(cluster.getAllChildMarkers(), function(marker) {
 				return marker.item.id;
 			});
-			return getCheckinsCountByPlaces(places);
+			return K.getCheckinsCountByPlaces(places);
 		};
 		
 		if(!cluster.icon) {
@@ -57,7 +57,7 @@ layers.places = new L.LayerJSON({
 
 		var sub = Meteor.subscribe('placesByBBox', bbox, function() {
 
-			callback( getPlacesByBBox(bbox).fetch() );
+			callback( K.getPlacesByBBox(bbox).fetch() );
 		});
 
 		return {
@@ -78,19 +78,6 @@ layers.geojson = new L.GeoJSON(null, {
 
 		if(feature.properties.type==='placeCircle')	//evidenzia place nei pois
 			return new L.CircleMarker(latlng);
-
-//TODO move to osm plugins extending K.Place
-/*		else if(feature.properties.tags)			//OSM point
-		{
-
-			var iconPoi = L.DomUtil.create('div'),
-				iconClass = K.osm.iconByTags(feature.properties.tags);
-
-			L.DomUtil.create('i', iconClass, iconPoi);
-			return new L.Marker(latlng, {
-					icon: new L.NodeIcon({className:'marker-poi', nodeHtml: iconPoi})
-				});
-		}*/
 		else
 		{
 			var iconPoi = L.DomUtil.create('div');

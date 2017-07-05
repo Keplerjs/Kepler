@@ -20,7 +20,7 @@ Kepler.Admin = {
 			return false
 	},
 
-	addMethods: function(defs) {	//server
+	methods: function(defs) {	//server
 	
 		var self = this;
 

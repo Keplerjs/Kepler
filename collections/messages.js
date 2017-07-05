@@ -17,40 +17,41 @@ Messages.allow({
 	}
 });
 
-getMsgsByConver = function(convId) {
-	return Messages.find({convId: convId }, {sort: ['updateAt']});
-};
+K.queries({
+	getMsgsByConver: function(convId) {
+		return Messages.find({convId: convId }, {sort: ['updateAt']});
+	},
+	addMsgToConver: function(convId, body) {
 
-addMsgToConver = function(convId, body) {
+		var convData = Convers.findOne(convId),
+			lastMsg = convData && convData.lastMsg,
+			newMsg = _.extend(K.Schema.converMsg, {
+				updateAt: K.Util.timeUnix(),
+				userId: Meteor.userId(),
+				convId: convId,
+				body: body
+			});
 
-	var convData = Convers.findOne(convId),
-		lastMsg = convData && convData.lastMsg,
-		newMsg = _.extend(K.Schema.converMsg, {
-			updateAt: K.Util.timeUnix(),
-			userId: Meteor.userId(),
-			convId: convId,
-			body: body
-		});
-
-	if(lastMsg && lastMsg.userId === newMsg.userId)	//append to my last msg
-	{
-		newMsg.body = lastMsg.body +'<br /> '+ newMsg.body;
-		delete newMsg._id;
-		Messages.update({_id: lastMsg._id }, {
-			$set: newMsg
-		});
-		newMsg._id = lastMsg._id;
-	}
-	else
-		newMsg._id = Messages.insert(newMsg);
-	//TODO forse si semplifica con upsert o forse no
-
-	Convers.update(convId, {
-		$addToSet: {
-			usersIds: Meteor.userId()
-		},
-		$set: {
-			lastMsg: newMsg
+		if(lastMsg && lastMsg.userId === newMsg.userId)	//append to my last msg
+		{
+			newMsg.body = lastMsg.body +'<br /> '+ newMsg.body;
+			delete newMsg._id;
+			Messages.update({_id: lastMsg._id }, {
+				$set: newMsg
+			});
+			newMsg._id = lastMsg._id;
 		}
-	});
-};
+		else
+			newMsg._id = Messages.insert(newMsg);
+		//TODO forse si semplifica con upsert o forse no
+
+		Convers.update(convId, {
+			$addToSet: {
+				usersIds: Meteor.userId()
+			},
+			$set: {
+				lastMsg: newMsg
+			}
+		});
+	}
+});

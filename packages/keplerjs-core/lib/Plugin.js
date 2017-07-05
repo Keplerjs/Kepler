@@ -22,6 +22,10 @@ Kepler.Plugin = {
 	}
 };
 
+K.plugins = function(p) {
+	_.extend(K._plugins[p.name], p);
+};
+
 /*if(Meteor.isServer) {
 	console.log('SERVER',Template)
 }*/

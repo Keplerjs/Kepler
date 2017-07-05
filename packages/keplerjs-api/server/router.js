@@ -59,7 +59,7 @@ Router.route(paths.placeHist, opts)
 .get(function (req, res) {
 
 	var placeData = Places.findOne({name: this.params.name }),
-		out = placeData && getUsersByIds(placeData.hist).fetch();
+		out = placeData && K.getUsersByIds(placeData.hist).fetch();
 
 	writeOut(req, res, out);
 });
@@ -68,7 +68,7 @@ Router.route(paths.placeCheckins, opts)
 .get(function (req, res) {
 
 	var placeData = Places.findOne({name: this.params.name }),
-		out = placeData && getUsersByIds(placeData.checkins).fetch();
+		out = placeData && K.getUsersByIds(placeData.checkins).fetch();
 
 	writeOut(req, res, out);
 });
@@ -77,7 +77,7 @@ Router.route(paths.placeConvers, opts)
 .get(function (req, res) {
 
 	var placeData = Places.findOne({name: this.params.name }),
-		out = placeData && getConversByIds(placeData.convers).fetch();
+		out = placeData && K.getConversByIds(placeData.convers).fetch();
 
 	writeOut(req, res, out);
 });
@@ -85,7 +85,7 @@ Router.route(paths.placeConvers, opts)
 Router.route(paths.searchPlace, opts)
 .get(function (req, res) {
 
-	var out = getPlacesByName(this.params.name).fetch();
+	var out = K.getPlacesByName(this.params.name).fetch();
 
 	writeOut(req, res, out);
 });
@@ -93,7 +93,7 @@ Router.route(paths.searchPlace, opts)
 Router.route(paths.searchUser, opts)
 .get(function (req, res) {
 
-	var out = getPlacesByName(this.params.name).fetch();
+	var out = K.getPlacesByName(this.params.name).fetch();
 
 	writeOut(req, res, out);
 });
