@@ -9,7 +9,7 @@ Kepler.Conver = {
 
 	newConver: function(targetId, targetType, title) {
 		Meteor.call('newConver', targetId, targetType, title, function(err, convId) {
-			K.router.go('panelConver',{convId: convId});
+			Router.go('panelConver',{convId: convId});
 		});
 	},
 
@@ -28,7 +28,7 @@ Kepler.Conver = {
 	
 	loadConverWithUser: function(userId) {
 		Meteor.call('getConverWithUser', userId, function(err, convId) {
-			K.router.go('panelConver', {convId: convId });
+			Router.go('panelConver', {convId: convId });
 		});
 	}	
 };

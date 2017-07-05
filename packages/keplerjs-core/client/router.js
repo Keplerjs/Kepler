@@ -1,16 +1,4 @@
 
-//http://stackoverflow.com/questions/27542120/whats-the-difference-between-writing-routes-in-meteor-startup-and-not
-
-Kepler.router = {
-	go: function() {
-		Router.go.apply(Router, arguments);
-	},
-	routeName: function() {
-		var route = Router.current().route;
-		return route ? route.getName() : 'page404';
-	}
-};
-
 Router.configure({
 	layoutTemplate: 'layoutMap',
 	loadingTemplate: 'panelLoading',
@@ -363,16 +351,4 @@ Router.map(function() {
 			return getConverById(this.params.convId).fetch()[0];
 		}
 	});
-
-	/*TODO
-	this.route('userConver', {
-		path: '/user/:userId/bid',
-		//template: 'panelConver',
-		onBeforeAction: function() {
-			if(this.params.userId===Meteor.userId())
-				Router.go('convers');
-			
-			//TODO send invitation to going in place
-		}
-	});*/	
 });

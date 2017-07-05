@@ -56,7 +56,7 @@ Meteor.publish('usersByIds', function(usersIds) {
 
 Meteor.publish('friendsByIds', function(usersIds) {
 
-	console.log('Pub: friendsByIds', usersIds);
+	console.log('Pub: friendsByIds', usersIds.length);
 
 	//TODO check friends in profile.friends
 

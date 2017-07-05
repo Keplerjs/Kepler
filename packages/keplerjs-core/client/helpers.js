@@ -21,11 +21,11 @@ Template.registerHelper('pluginsTemplates', function () {
 });
 
 Template.registerHelper('isRoute', function(name, clas) {
-	return K.router.routeName()===name ? clas:'';
+	return Router.current().route.getName()===name ? clas:'';
 });
 
 Template.registerHelper('routeTitle', function() {
-	return i18n('titles.'+ K.router.routeName() );
+	return i18n('titles.'+ Router.current().route.getName() );
 });
 
 Template.registerHelper('connectionStatus', function() {
