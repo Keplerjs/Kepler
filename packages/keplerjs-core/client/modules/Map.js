@@ -127,7 +127,7 @@ controls.gps = L.control.gps({
 		icon: L.divIcon({className: 'marker-gps'})
 	}),
 	callErr: function(err) {
-		K.Notif.show(err,'warn');
+		console.warn(err);
 	}
 })
 .on({
@@ -138,7 +138,7 @@ controls.gps = L.control.gps({
 		K.Profile.setLoc([e.latlng.lat, e.latlng.lng]);
 		if(K.Profile.user && K.Profile.user.icon)
 			K.Profile.user.icon.animate();
-		K.Notif.show(i18n('notifs.gpson'),'success');		
+		console.warn(i18n('notifs.gpson'),'success');		
 	}
 });
 

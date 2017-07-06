@@ -115,13 +115,6 @@ label {
 	background-color: #ef0000;
 	color: #fff;
 }
-.btn .badge-notif {
-    position: absolute;
-    top: -4px;
-    right: -8px;
-    z-index: 1000
-}
-
 
 .navbar h4,
 .panel-heading h4 {

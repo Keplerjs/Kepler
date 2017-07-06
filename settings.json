@@ -18,7 +18,6 @@
 		"maxPois": 10,
 		"maxPoisDist": 500,
 		"maxHist": 3,
-		"showNotifs": true,			
 		"maxNotifList": 5,
 		"checkinMaxDist": 500,
 		"bboxMinShift": 200,
