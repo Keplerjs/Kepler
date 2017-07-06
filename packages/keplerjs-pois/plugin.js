@@ -5,6 +5,9 @@ K.Plugin({
 		panelPlace: 'panelPlace_pois',
 		popupPlace: 'popupPlace_pois'
 	},
+	filters: {
+		pois:1
+	},
 	settings: {
 		public: {
 			"maxPois": 10,
