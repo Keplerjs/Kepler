@@ -20,8 +20,8 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'client/models/Place_weather.js',
-    'client/views/panels/place/weather.html',
-    'client/views/panels/place/weather.js',
+    'client/views/panels.html',
+    'client/views/panels.js',
     'client/stylesheets/panels/weather.css',
   ],'client');
 

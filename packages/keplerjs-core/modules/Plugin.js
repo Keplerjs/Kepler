@@ -16,6 +16,7 @@ K.Plugin = function(plugin) {
 	{
 		if(!this.plugins[plugin.name]) {
 		
+		
 			if(_.isObject(plugin.templates))
 				_.each(K.templates, function(tmpls, name) {
 					if(plugin.templates[name])

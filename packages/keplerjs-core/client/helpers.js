@@ -1,13 +1,14 @@
 
-Template.registerHelper('settings', function(prop) {
-	return K.Util.getPath(Meteor.settings.public, prop);
-});
-
-/*Template.registerHelper('hideSidebar', function(prop) {
+/*
+//TODO
+Template.registerHelper('hideSidebar', function(prop) {
 	return Session.get('hideSidebar');
 });
 */
 
+Template.registerHelper('settings', function(prop) {
+	return K.Util.getPath(Meteor.settings.public, prop);
+});
 
 Template.registerHelper('userById', function(id) {
 	return K.userById(id);

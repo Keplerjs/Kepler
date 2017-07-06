@@ -1,4 +1,7 @@
 
 K.Plugin({
-	name: 'weather'
+	name: 'weather',
+	templates: {
+		panelPlace: 'panelPlace_weather'
+	}
 });
