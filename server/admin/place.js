@@ -71,7 +71,9 @@ K.Admin.methods({
 		
 		delete place._id;
 
-		place.name = place.name+'(copy)';
+		place.name = '(copy)'+place.name;
+
+		place = _.deepExtend(K.schemas.place, place);
 
 		var newId = Places.insert(place);
 		

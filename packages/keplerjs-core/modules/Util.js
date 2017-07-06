@@ -16,6 +16,17 @@ Kepler.Util = {
 			return obj[last];
 	},
 
+	deepExtend: function(target, source) {
+		//https://stackoverflow.com/questions/14843815/recursive-deep-extend-assign-in-underscore-js
+		//only for plain objects
+	    for (var prop in source)
+	        if (prop in target)
+	           this.deepExtend(target[prop], source[prop]);
+	        else
+	            target[prop] = source[prop];
+	    return target;
+	},
+
 	sanitizeMsg: function(body) {
 		body = _.str.stripTags(body);
 		body = _.str.trim(body);

@@ -12,7 +12,7 @@ Npm.depends({
   "leaflet": "0.7.7",
   "leaflet-gps": "1.0.2",
   "leaflet-layerjson": "0.1.8",
-  "leaflet.markercluster": "0.5.0",
+  "leaflet.markercluster": "0.5.0"
 });
 
 Package.onUse(function(api) {
@@ -52,6 +52,8 @@ Package.onUse(function(api) {
   api.imply(packages);
 
   api.addFiles([
+    'lib/deepExtend.js',
+    'lib/Class.js',    
     'config/Accounts.js',
     'config/i18n.js',
     'config/leaflet.js',
@@ -59,13 +61,12 @@ Package.onUse(function(api) {
   ], ['client', 'server']);
   
   api.addFiles([
-    'client/Class.js',
     'client/L.Marker.drag.js',
     'client/L.NodeIcon.js',  
   ], ['client']);
 
   api.export([
-    'Class'
+    'Class','deepExtend'
   ]);
   
 });

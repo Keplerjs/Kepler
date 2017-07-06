@@ -51,7 +51,7 @@
 
 				{{! > pluginsPlaceholder 'panelPlace'}}
 
-				{{#each pluginsTemplates}}
+				{{#each pluginsTemplates 'panelPlace'}}
 					{{> Template.dynamic template=pluginTemplate data=pluginData}}
 				{{/each}}
 

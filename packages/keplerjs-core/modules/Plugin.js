@@ -3,28 +3,39 @@
 */
 
 K.plugins = {};
-K.placeholders = {};
 
-K.Plugin = function(def) {
+K.templates = {		//list of templates loaded in each placeholders
+	panelPlace: [],
+	popupPlace: [],
+	itemPlace:  []
+};
+
+K.Plugin = function(plugin) {
 	
-	if(!def.name)
-		console.warn("Plugin: require name",def)
+	if(plugin && _.isString(plugin.name) && plugin.name!=='')
+	{
+		if(!this.plugins[plugin.name]) {
+		
+			if(_.isObject(plugin.templates))
+				_.each(K.templates, function(tmpls, name) {
+					if(plugin.templates[name])
+						K.templates[name] = _.union(tmpls, plugin.templates[name]);
+				});
+			
+			if(_.isObject(plugin.filters))
+				_.deepExtend(K.filters, plugin.filters);
+			
+			if(_.isObject(plugin.schemas))
+				_.deepExtend(K.schemas, plugin.schemas);
 
-	var plugin, kplugin = this.plugins[''+def.name];
+			if(_.isObject(plugin.schemas))
+				_.deepExtend(K.schemas, plugin.schemas);			
 
-	if(!kplugin) {
-		plugin = _.defaults(def, {
-			order: 0,	 //placement priority from -10 to +10
-			placeholders: {},
-			filters: {},
-			schemas: {},
-			settings: {}
-		});
-		_.extend(K.placeholders, plugin.placeholders);
-		_.extend(K.filters, plugin.filters);
-		_.extend(K.schemas, plugin.schemas);
-		//_.extend(K.settings, p.settings);
-
-		kplugin = plugin;
+			this.plugins[plugin.name] = plugin;
+		}
+		else
+			console.warn("Plugin: just defined", plugin)
 	}
+	else
+		console.warn("Plugin: require name", plugin)
 };

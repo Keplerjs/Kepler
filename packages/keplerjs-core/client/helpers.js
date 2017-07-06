@@ -12,9 +12,11 @@ Template.registerHelper('pluginsPlaceholder', function () {
   return Template.pluginsPlaceholder ? Template[this.name] : null;
 });
 
-Template.registerHelper('pluginsTemplates', function () {
+Template.registerHelper('pluginsTemplates', function (parentTemplate) {
 
-  	var parentTemplate = Template.instance().view.name.replace('Template.','');
+console.log('pluginTemplate', parentTemplate);
+
+  	//var parentTemplate = Template.instance().view.name.replace('Template.','');
 	
 	return _.map(K.plugins, function(plugin) {
 		if(Template[parentTemplate+'_'+plugin.name]) {
