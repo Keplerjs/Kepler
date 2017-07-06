@@ -17,7 +17,8 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'plugin.js',    
-    'collections/tracks.js'
+    'collections/tracks.js',
+    'collections/queries.js'
   ],['client','server']);
 
   api.addFiles([
@@ -29,7 +30,6 @@ Package.onUse(function(api) {
   ],'client');
 
   api.addFiles([
-    'server/admin.js',    
     'server/pubs.js',
   ],'server');
   
