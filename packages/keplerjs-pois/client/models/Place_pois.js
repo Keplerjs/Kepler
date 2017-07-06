@@ -14,7 +14,7 @@ Kepler.Place.include({
 		else
 			Meteor.subscribe('poisByPlace', self.id, function() {
 				
-				self.poisList = K.findPoisByLoc(self.loc).fetch();
+				self.poisList = findPoisByLoc(self.loc).fetch();
 
 				self._dep.changed();
 

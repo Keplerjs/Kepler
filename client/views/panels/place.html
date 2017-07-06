@@ -49,6 +49,8 @@
 				
 				{{> tab_info}}
 
+				{{! > pluginsPlaceholder 'panelPlace'}}
+
 				{{#each pluginsTemplates}}
 					{{> Template.dynamic template=pluginTemplate data=pluginData}}
 				{{/each}}

@@ -39,6 +39,7 @@ K.Admin.methods({
 		function(err, results) {
 			Places.update(placeId, {
 				$set: results
+				//TODO replace with {geo: results}
 			});
 			console.log('updateGeoinfo',results);
 		});

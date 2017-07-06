@@ -1,15 +1,15 @@
 
-K.queries({
+K.extend({
 	findPlaceById: function(placeId) {
-		return Places.find(placeId, K.filter.placePanel);
+		return Places.find(placeId, K.filters.placePanel);
 	},
 	findPlacesByIds: function(placesIds) {
-		return Places.find({_id: {$in: placesIds} }, K.filter.placeItem);
+		return Places.find({_id: {$in: placesIds} }, K.filters.placeItem);
 	},
 	findPlacesByCheckins: function(usersIds) {
 		usersIds = _.isArray(usersIds) ? {$in: usersIds} : usersIds;
 		
-		return Places.find({checkins: usersIds }, K.filter.placeItem);
+		return Places.find({checkins: usersIds }, K.filters.placeItem);
 	},
 	findPlacesByBBox: function(bbox) {
 
@@ -36,7 +36,7 @@ K.queries({
 						"$box": bbox
 					}
 				}
-			}, K.filter.placeItem);
+			}, K.filters.placeItem);
 		}
 	},
 	findCheckinsCountByPlaces: function(placesIds) {
@@ -59,13 +59,13 @@ K.queries({
 				$or: [
 					{name: ex},
 					{near: ex}
-				] }, K.filter.placeSearch);
+				] }, K.filters.placeSearch);
 
 		if(curPlace.count()===0)
-			curPlace = Places.find({prov: ex }, K.filter.placeSearch);
+			curPlace = Places.find({prov: ex }, K.filters.placeSearch);
 		
 		if(curPlace.count()===0)
-			curPlace = Places.find({reg: ex }, K.filter.placeSearch);
+			curPlace = Places.find({reg: ex }, K.filters.placeSearch);
 
 		return curPlace;
 	}

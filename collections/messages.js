@@ -17,7 +17,7 @@ Messages.allow({
 	}
 });
 
-K.queries({
+K.extend({
 	findMsgsByConver: function(convId) {
 		return Messages.find({convId: convId }, {sort: ['updateAt']});
 	},
@@ -25,7 +25,7 @@ K.queries({
 
 		var convData = Convers.findOne(convId),
 			lastMsg = convData && convData.lastMsg,
-			newMsg = _.extend(K.Schema.converMsg, {
+			newMsg = _.extend(K.schemas.converMsg, {
 				updateAt: K.Util.timeUnix(),
 				userId: Meteor.userId(),
 				convId: convId,

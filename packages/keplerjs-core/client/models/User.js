@@ -106,7 +106,7 @@ Kepler.User = Class.extend({
 	}
 });
 
-K.extend({
+Kepler.extend({
 	usersById: {},
 	userById: function(id) {
 		check(id, String);

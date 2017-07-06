@@ -10,7 +10,7 @@ Meteor.publish('osmByPlace', function(placeId) {
 
 		return [
 			placeCur,
-			K.findOsmByLoc(placeData.loc)
+			findOsmByLoc(placeData.loc)
 		];	
 	}
 	else

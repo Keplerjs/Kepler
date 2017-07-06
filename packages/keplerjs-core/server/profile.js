@@ -1,5 +1,5 @@
 
-K.queries({
+K.extend({
 	updateFriendship: function(userId, addUserId) {
 		//remove from pending
 		Users.update(userId, {$pull: {usersReceive: addUserId} });

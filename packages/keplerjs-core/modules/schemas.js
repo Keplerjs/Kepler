@@ -1,7 +1,8 @@
 /*
 	default values for new models and data documents
 */
-K.schemas({
+Kepler.schemas = {
+
 	place: {
 		name: '',	       //place title
 		type: '',	       //place tipology
@@ -64,10 +65,8 @@ K.schemas({
 				center: null  //last center of map
 			}
 		}
-	}
-});
-
-K.schemas({
+	},
+	
 	conver: {
 		title: '',         //Topic for the place wall or subject for the private convers
 		targetId: '',      //if null is a private users convers		
@@ -82,4 +81,4 @@ K.schemas({
 		userId: '',
 		body: ''
 	}
-});
+};

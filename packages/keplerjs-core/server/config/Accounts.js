@@ -85,7 +85,7 @@ Accounts.onCreateUser(function(options, user) {
 	// 	avatar = 'http://twitter.com/api/users/profile_image/'+username;
 	// }
 	
-	var retuser = _.extend(user, K.Schema.user, {
+	var retuser = _.extend(user, K.schemas.user, {
 		username: username,		
 		name: name,
 		lang: lang,

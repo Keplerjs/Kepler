@@ -10,7 +10,7 @@ Meteor.publish('poisByPlace', function(placeId) {
 
 		return [
 			placeCur,
-			K.findPoisByLoc(placeData.loc)
+			findPoisByLoc(placeData.loc)
 		];	
 	}
 	else

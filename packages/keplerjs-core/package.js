@@ -28,8 +28,8 @@ Package.onUse(function(api) {
   api.addFiles(globsync('i18n/**/*.js'),        ['client','server']);  
   api.addFiles(globsync('modules/**/*.js'),     ['client','server']);
   api.addFiles(globsync('collections/**/*.js'), ['client','server']);
-  api.addFiles(globsync('client/**/*.js'), ['client']);
-  api.addFiles(globsync('server/**/*.js'), ['server']);
+  api.addFiles(globsync('client/**/*.*'),       ['client']);
+  api.addFiles(globsync('server/**/*.js'),      ['server']);
 
   api.export([
     'Kepler', 'K',

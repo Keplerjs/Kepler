@@ -28,14 +28,16 @@ Meteor.publish('converById', function(convId) {
 
 	if(this.userId && convId)
 	{
-		console.log('Pub: converById', convId);
+		console.log('Pub: converById', convData);	
 
 		var convCur = K.findConverById(convId),
-			convData = convCur.fetch()[0];
+			convData = convCur.fetch()[0],
+			usersIds = convData && convData.usersIds;
+
 		return [
 			convCur,
 			K.findMsgsByConver( convId ),
-			K.findUsersByIds( convData.usersIds )
+			K.findUsersByIds( usersIds )
 		];
 	}
 	else

@@ -2,7 +2,7 @@
 	creazione, modifica e invio di conversazioni e messaggi
 	o di conversazioni sulle bacheche dei luoghi
 */
-K.queries({
+K.extend({
 	insertConver: function(targetId, targetType, title, usersIds) {
 
 	//TODO use check()
@@ -15,7 +15,7 @@ K.queries({
 		if(targetType==='user')
 			usersIds.push(targetId);
 
-		var convData = _.extend(K.Schema.conver, {
+		var convData = _.extend(K.schemas.conver, {
 				title: title,
 				targetId: targetId,
 				targetType: targetType,

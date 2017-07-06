@@ -102,7 +102,7 @@ Kepler.Place = Class.extend({
 	}
 });
 
-K.extend({
+Kepler.extend({
 	placesById: {},
 	placeById: function(id) {
 		check(id, String);

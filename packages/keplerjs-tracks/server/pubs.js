@@ -25,7 +25,7 @@ Meteor.publish('tracksByPlace', function(placeId) {
 
 		return [
 			placeCur,
-			K.findTracksByLoc(placeData.loc)
+			findTracksByLoc(placeData.loc)
 		];	
 	}
 	else

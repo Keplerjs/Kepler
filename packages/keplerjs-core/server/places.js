@@ -1,8 +1,8 @@
 
-K.queries({
+K.extend({
 	insertPlaceByLoc: function(loc) {
 
-		var placeData = _.extend(K.Schema.placa, {
+		var placeData = _.extend(K.schemas.place, {
 				loc: K.Util.geo.roundLoc(loc)
 			}),
 			placeId = Places.insert(placeData);

@@ -1,7 +1,7 @@
 
-K.queries({
+K.extend({
 	findCurrentUser: function(userId) {
-		return Users.find(userId, K.filter.currentUser);
+		return Users.find(userId, K.filters.currentUser);
 	},
 	findUsersByName: function(initial) {
 		initial = K.Util.sanitizeRegExp(initial);
@@ -15,7 +15,7 @@ K.queries({
 					name: reg
 					//},{username: reg}
 			//	]
-			}, K.filter.userItem);
+			}, K.filters.userItem);
 
 		return curUser;	
 	},
@@ -23,11 +23,11 @@ K.queries({
 
 		usersIds = _.isArray(usersIds) ? {$in: usersIds} : usersIds;
 
-		return Users.find({_id: usersIds }, K.filter.userItem);
+		return Users.find({_id: usersIds }, K.filters.userItem);
 	},
 	findUserById: function(userId) {
 
-		return Users.find(userId, K.filter.userPanel);
+		return Users.find(userId, K.filters.userPanel);
 	},
 	findFriendsByIds: function(usersIds) {
 
@@ -35,9 +35,9 @@ K.queries({
 
 		//TODO show friend location only if me is online
 
-		return Users.find({_id: usersIds }, K.filter.friendItem);
+		return Users.find({_id: usersIds }, K.filters.friendItem);
 	},
 	findFriendById: function(userId) {
-		return Users.find(userId, K.filter.friendPanel);
+		return Users.find(userId, K.filters.friendPanel);
 	}
 });

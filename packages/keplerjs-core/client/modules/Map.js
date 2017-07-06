@@ -90,6 +90,9 @@ layers.geojson = new L.GeoJSON(null, {
 	onEachFeature: function (feature, layer) {
 		var tmpl, $popup;
 
+//TODO move to pois plugin
+//create template for layers.geojson popup that contains {{> pluginsPlaceholder 'popupGeojson'}}
+
 		if(feature.geometry.type==='LineString')
 			tmpl = Template.popupTrack;
 

@@ -2,7 +2,8 @@
 K.Plugin({
 	name: 'pois',
 	placeholders: {
-		panelPlace: 'panelPlace_pois'
+		panelPlace: 'panelPlace_pois',
+		popupPlace: 'popupPlace_pois'
 	},
 	settings: {
 		public: {
