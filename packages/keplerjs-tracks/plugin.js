@@ -1,7 +1,7 @@
 
 K.Plugin({
 	name: 'tracks',
-	templates: {
+	placeholders: {
 		panelPlace: ['panelPlace_tracks'],
 		popupPlace: 'popupPlace_tracks'
 	},

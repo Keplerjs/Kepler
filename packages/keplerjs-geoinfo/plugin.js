@@ -1,7 +1,7 @@
 
 K.Plugin({
 	name: 'geoinfo',
-	templates: {
+	placeholders: {
 		panelPlace: 'panelPlace_geoinfo'
 	},	
 	schemas: {

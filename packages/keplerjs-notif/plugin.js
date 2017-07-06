@@ -1,10 +1,10 @@
 
 K.Plugin({
 	name: 'notif',
-/*	placeholders: {
-		panelPlace: 'panelProfile_notif'
+	placeholders: {
+		panelProfile: 'panelProfile_notif'
 	},
-	settings: {
+/*	settings: {
 		public: {
 			"maxNotifList": 5
 		}

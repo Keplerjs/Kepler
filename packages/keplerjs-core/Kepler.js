@@ -14,6 +14,7 @@ Kepler = K = {
 	//config
 	schemas: {},	 //base data structure for models    (client,server)
 	filters: {},	 //specifiers for queries            (client,server)
+	placeholders: {},//positions for plugins templates   (client,server)
 
 	//utilities
 	Util: {},        //module utils functions            (client,server)

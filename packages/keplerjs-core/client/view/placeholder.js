@@ -3,15 +3,18 @@ Template.placeholder.helpers({
 	
 	templates: function() {
 
-		var templates = [];
+		var self = this,
+			ret = [];
 
-		_.each(K.templates, function(ktemplates, placeholder) {
+		if(!self.name) return ret;
 
-			if(placeholder === Template.currentData().name) {
+		_.each(K.placeholders, function(templates, placeholder) {
+
+			if(placeholder === self.name) {
 			
-				_.each(ktemplates, function(pluginTemplate) {
+				_.each(templates, function(pluginTemplate) {
 					if(Template[pluginTemplate]) {
-						templates.push({
+						ret.push({
 							pluginTemplate: pluginTemplate,
 							pluginData: Template.parentData()
 						});
@@ -19,6 +22,6 @@ Template.placeholder.helpers({
 				});
 			}
 		});
-		return templates;
+		return ret;
 	}
 });

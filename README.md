@@ -1,8 +1,9 @@
 ![Kepler logo](public/images/keplerjs-200.png)
-Kepler
+
+KeplerJs
 ======
 
-Kepler lets users share favorite places and join discussions
+Kepler lets users share informations about favorite places and join discussions
 
 Built with [Meteor](http://meteor.com)
 

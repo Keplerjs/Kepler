@@ -18,18 +18,6 @@
 		{{/if}}
 
 		<div class="list-group">
-			<a class="list-group-item" href="/notifications">
-				<i class="icon icon-notif"></i>
-				 {{i18n 'btns.notif'}} 
-				<span class="badge {{#if notif.length}}badge-red{{/if}}">{{notif.length}}</span>
-			</a>
-			<a class="list-group-item" href="/convers">
-				<i class="icon icon-mes"></i>
-				 {{i18n 'btns.convers'}} 
-				<span class="badge">{{convers.length}}</span>
-			</a>
-		</div>
-		<div class="list-group">
 			<a class="list-group-item" href="/favorites">
 				<i class="icon icon-star"></i>
 				 {{i18n 'btns.favs'}} 
@@ -40,12 +28,24 @@
 				 {{i18n 'btns.hist'}} 
 				<span class="badge">{{hist.length}}</span>
 			</a>
+		</div>
+
+		<div class="list-group">
+		
+			{{> placeholder name='panelProfile'}}
+
+			<a class="list-group-item" href="/convers">
+				<i class="icon icon-mes"></i>
+				 {{i18n 'btns.convers'}} 
+				<span class="badge">{{convers.length}}</span>
+			</a>
 			<!-- a class="list-group-item" href="/events">
 				<i class="icon icon-cal"></i>
 				 {{! i18n 'btns.events'}} 
 				<span class="badge">{{! events.length}}</span>
-			</a-->			
+			</a-->
 		</div>
+		
 		<div class="list-group">
 			<a class="list-group-item" href="/settings">
 				<i class="icon icon-sets"></i> 
