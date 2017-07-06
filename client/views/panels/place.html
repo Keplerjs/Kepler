@@ -49,11 +49,7 @@
 				
 				{{> tab_info}}
 
-				{{! > pluginsPlaceholder 'panelPlace'}}
-
-				{{#each pluginsTemplates 'panelPlace'}}
-					{{> Template.dynamic template=pluginTemplate data=pluginData}}
-				{{/each}}
+				{{> placeholder name='panelPlace'}}
 
 			</div>	
 			<div class="tab-pane" id="tab_histplace">

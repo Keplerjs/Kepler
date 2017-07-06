@@ -6,9 +6,7 @@
 	</a>
 	<div class="btn-group">
 
-		{{#each pluginsTemplates}}
-			{{> Template.dynamic template=pluginTemplate data=pluginData}}
-		{{/each}}
+		{{> placeholder name='popupPlace'}}
 
 		{{#if checkinsCount}}
 			<a class="btn btn-sm btn-default" href="/place/{{id}}/checkins"><i class="icon icon-users"></i></a>

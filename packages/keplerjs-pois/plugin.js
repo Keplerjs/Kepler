@@ -3,7 +3,7 @@ K.Plugin({
 	name: 'pois',
 	templates: {
 		panelPlace: ['panelPlace_pois'],
-		popupPlace: ''
+		popupPlace: 'popupPlace_pois'
 	},
 	filters: {
 		placePanel: {

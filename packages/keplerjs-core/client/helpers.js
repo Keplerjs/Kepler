@@ -8,25 +8,6 @@ Template.registerHelper('settings', function(prop) {
 });
 */
 
-Template.registerHelper('pluginsPlaceholder', function () {
-  return Template.pluginsPlaceholder ? Template[this.name] : null;
-});
-
-Template.registerHelper('pluginsTemplates', function (parentTemplate) {
-
-console.log('pluginTemplate', parentTemplate);
-
-  	//var parentTemplate = Template.instance().view.name.replace('Template.','');
-	
-	return _.map(K.plugins, function(plugin) {
-		if(Template[parentTemplate+'_'+plugin.name]) {
-			return {
-				pluginTemplate: parentTemplate+'_'+plugin.name,
-				pluginData: Template.currentData()
-			};
-		}
-	});
-});
 
 Template.registerHelper('userById', function(id) {
 	return K.userById(id);

@@ -1,6 +1,7 @@
 
-<template name="pluginsPlaceholder">
-{{#each plugins}}
+<template name="placeholder">
+{{#each templates}}
+	<!--{{pluginTemplate}}-->
 	{{> Template.dynamic template=pluginTemplate data=pluginData}}
 {{/each}}
 </template>
