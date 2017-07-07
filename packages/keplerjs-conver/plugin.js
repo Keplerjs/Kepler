@@ -1,9 +1,12 @@
 
 K.Plugin({
 	name: 'conver',
-/*	placeholders: {
-		panelPlace: 'panelPlace_geoinfo'
-	},	*/
+	placeholders: {
+		panelProfile: 'panelProfile_conver',
+		panelUser: 'panelUser_conver',
+		popupPlace: 'popupPlace_conver',
+		itemPlace: 'itemPlace_conver'
+	},
 	schemas: {
 		place: {
 			convers: [],	 //conversations in place

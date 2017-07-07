@@ -1,4 +1,20 @@
 
+<template name="panelProfile_conver">
+	<a class="list-group-item" href="/convers">
+		<i class="icon icon-mes"></i>
+		 {{i18n 'btns.convers'}} 
+		<span class="badge">{{convers.length}}</span>
+	</a>
+</template>
+
+<template name="panelUser_conver">
+	<div class="btn-group" data-toggle="buttons">			
+		<a class="btn btn-sm btn-default" href="/user/{{id}}/conver">
+			<i class="icon icon-mes"></i> <span>{{i18n 'btns.conversend'}}</span>
+		</a>
+	</div>
+</template>
+
 <template name="panelConver">
 
 	<div id="conver" class="panel">

@@ -1,76 +1,125 @@
 
 <template name="panelUser">
 
-<div id="user" class="panel">
-	<div class="panel-heading bg-primary">
-		<h4 class="pull-left">
-			<a class="backhist" href="javascript:history.back()"><i class="icon icon-ar-left-w"></i></a> 
-			{{name}}
-		</h4>
-		<a class="close pull-right" href="/">&times;</a>
-	</div>
-	<div class="panel-body">
-
-		{{> tab_bio}}
-		<br />
-		
-		{{#if status}}
-			{{> tab_status}}
-		{{/if}}
-
-		<div class="row">
-			<div class="col-xs-12">
-				{{> user_btns2}}
-			</div>
+	<div id="user" class="panel">
+		<div class="panel-heading bg-primary">
+			<h4 class="pull-left">
+				<a class="backhist" href="javascript:history.back()"><i class="icon icon-ar-left-w"></i></a> 
+				{{name}}
+			</h4>
+			<a class="close pull-right" href="/">&times;</a>
 		</div>
+		<div class="panel-body">
 
-		{{#if or getLoc checkin}}
-			{{> tab_location}}
-		{{/if}}
-
-		<ul class="nav nav-tabs">
-			<li class="active">
-				<a href="#tab_friends" data-toggle="tab">
-					<i class="icon icon-users"></i> <span class="hidden-xs">{{i18n 'btns.friends'}}</span>
-				</a>
-			</li>			
-			{{#if isFriend}}
-			<li class="user-btn-star">
-				<a href="#tab_histuser" data-toggle="tab">
-					<i class="icon icon-hist"></i> <span class="hidden-xs">{{i18n 'btns.hist'}}</span>
-				</a>
-			</li>
-			<li class="user-btn-star">
-				<a href="#tab_favs" data-toggle="tab">
-					<i class="icon icon-star"></i> <span class="hidden-xs">{{i18n 'btns.favs'}}</span>
-				</a>
-			</li>
-			<li class="user-btn-cal disabled">
-				<a href="#tab_eventsuser">
-					<i class="icon icon-cal"></i> <span class="hidden-xs">{{i18n 'btns.events'}}</span>
-				</a>
-			</li>
-			{{/if}}
-		</ul>
-
-		<div class="tab-content">
+			{{> tab_bio}}
 			<br />
-			<div class="tab-pane active" id="tab_friends">
-				{{> tab_friends}}		
-			</div>
-			{{#if isFriend}}
-			<div class="tab-pane" id="tab_histuser">
-				{{> tab_histuser}}
-			</div>
-			<div class="tab-pane" id="tab_favs">
-				{{> tab_favs}}
-			</div>
-			<div class="tab-pane" id="tab_eventsuser">
-				{{> tab_eventuser}}
-			</div>
+			
+			{{#if status}}
+				{{> tab_status}}
 			{{/if}}
-		</div>
-	</div>		
-</div>
 
+			<div class="row">
+				<div class="col-xs-12">
+				
+					{{> placeholder name='panelUser'}}
+
+					{{> user_btns2}}
+				</div>
+			</div>
+
+			{{#if or getLoc checkin}}
+				{{> tab_location}}
+			{{/if}}
+
+			<ul class="nav nav-tabs">
+				<li class="active">
+					<a href="#tab_friends" data-toggle="tab">
+						<i class="icon icon-users"></i> <span class="hidden-xs">{{i18n 'btns.friends'}}</span>
+					</a>
+				</li>			
+				{{#if isFriend}}
+				<li class="user-btn-star">
+					<a href="#tab_histuser" data-toggle="tab">
+						<i class="icon icon-hist"></i> <span class="hidden-xs">{{i18n 'btns.hist'}}</span>
+					</a>
+				</li>
+				<li class="user-btn-star">
+					<a href="#tab_favs" data-toggle="tab">
+						<i class="icon icon-star"></i> <span class="hidden-xs">{{i18n 'btns.favs'}}</span>
+					</a>
+				</li>
+				<li class="user-btn-cal disabled">
+					<a href="#tab_eventsuser">
+						<i class="icon icon-cal"></i> <span class="hidden-xs">{{i18n 'btns.events'}}</span>
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+
+			<div class="tab-content">
+				<br />
+				<div class="tab-pane active" id="tab_friends">
+					{{> tab_friends}}		
+				</div>
+				{{#if isFriend}}
+				<div class="tab-pane" id="tab_histuser">
+					{{> tab_histuser}}
+				</div>
+				<div class="tab-pane" id="tab_favs">
+					{{> tab_favs}}
+				</div>
+				<div class="tab-pane" id="tab_eventsuser">
+					{{> tab_eventuser}}
+				</div>
+				{{/if}}
+			</div>
+		</div>		
+	</div>
+
+</template>
+
+
+<template name="user_btns2">
+	<div class="user-btns">
+	{{#if isFriend}}
+		<div class="btn-group pull-right" data-toggle="buttons">
+			<a data-userid="{{id}}" class="btn btn-sm btn-default user-btn-del" href="#">
+				<i class="icon icon-userdel"></i>
+			</a>
+			<a data-userid="{{id}}" class="btn btn-sm btn-default user-btn-block disabled" href="#">
+				<i class="icon icon-report"></i>
+			</a>
+		</div>
+	{{else}}
+		{{#if isPending}}
+			<div class="btn-group pull-right" data-toggle="buttons">
+				<a class="btn btn-sm btn-default" href="#">
+					<i class="icon icon-hist"></i> <span>{{i18n 'btns.friendpending'}}</span>
+				</a>
+			</div>
+		{{else}}
+			{{#if isReceive}}
+				<div class="btn-group pull-right" data-toggle="buttons">
+					<a class="btn btn-sm btn-warning user-btn-confirm" href="#">
+						<i class="icon icon-useradd"></i> <span>{{i18n 'btns.friendconfirm'}}</span>
+					</a>
+				</div>
+			{{else}}
+				{{#if isBlocked}}
+					<div class="btn-group pull-right" data-toggle="buttons">
+						<a class="btn btn-sm btn-default user-btn-unblock disabled" href="#">
+							<i class="icon icon-report"></i> <span>{{i18n 'btns.friendunblock'}}</span>
+						</a>
+					</div>
+				{{else}}
+					<div class="btn-group pull-right" data-toggle="buttons">
+						<a class="btn btn-sm btn-default user-btn-add" href="#">
+							<i class="icon icon-useradd"></i> <span>{{i18n 'btns.friendadd'}}</span>
+						</a>
+					</div>
+				{{/if}}
+			{{/if}}
+		{{/if}}
+	{{/if}}
+	</div>
 </template>
