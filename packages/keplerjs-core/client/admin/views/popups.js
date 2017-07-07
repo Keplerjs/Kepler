@@ -1,5 +1,5 @@
 
-Template.admimPopupPlace.events({
+Template.popupPlace_admin.events({
 //	debug actions
 	'click .popup-move': function(e,tmpl) {
 		

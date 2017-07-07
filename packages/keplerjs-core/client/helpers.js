@@ -5,7 +5,6 @@ Template.registerHelper('hideSidebar', function(prop) {
 	return Session.get('hideSidebar');
 });
 */
-
 Template.registerHelper('settings', function(prop) {
 	return K.Util.getPath(Meteor.settings.public, prop);
 });
@@ -38,6 +37,10 @@ Template.registerHelper('connectionStatus', function() {
 
 Template.registerHelper('or', function() {
 	return _.some(_.initial(arguments));
+});
+
+Template.registerHelper('stringify', function(prop) {
+	return JSON.stringify(prop);
 });
 
 Template.registerHelper('humanAzimut', function(ang, tiny) {

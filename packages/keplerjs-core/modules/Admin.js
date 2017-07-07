@@ -2,6 +2,16 @@
 	Debugger and admnistrations methods
 */
 
+Meteor.startup(function() {
+	K.Plugin({
+		name: 'admin',
+		placeholders: {
+			panelPlace: 'panelPlace_admin',
+			popupPlace: 'popupPlace_admin'
+		}
+	});
+});
+
 Kepler.Admin = {
 	
 	method: {},	//list of server methods
