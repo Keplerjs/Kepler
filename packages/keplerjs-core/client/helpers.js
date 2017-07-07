@@ -18,6 +18,10 @@ Template.registerHelper('placeById', function(id) {
 	return K.placeById(id);
 });
 
+Template.registerHelper('placeType', function(type) {
+	return i18n('places.'+type) || '';
+});
+
 Template.registerHelper('isRoute', function(name, clas) {
 	return Router.current().route.getName()===name ? clas:'';
 });
@@ -66,16 +70,4 @@ Template.registerHelper('humanDistance', function(dis, sign) {
 
 Template.registerHelper('humanLatlng', function(loc) {
 	return K.Util.humanize.latlng(loc);
-});
-
-Template.registerHelper('sunrise', function(ll) {
-	return K.Util.geo.sunrise(ll);
-});
-
-Template.registerHelper('sunset', function(ll) {
-	return K.Util.geo.sunset(ll);
-});
-
-Template.registerHelper('placeType', function(type) {
-	return i18n('places.'+type) || '';
 });

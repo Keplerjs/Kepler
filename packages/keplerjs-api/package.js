@@ -10,7 +10,6 @@ Package.onUse(function (api) {
   
   api.use([
     'keplerjs:core',
-
     //TODO use https://github.com/kahmali/meteor-restivus
   ]);
 

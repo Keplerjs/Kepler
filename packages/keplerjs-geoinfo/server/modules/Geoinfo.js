@@ -3,7 +3,7 @@
 
 	http://www.geonames.org/export/web-services.html
 */
-var geonamesUser = Meteor.settings.accounts.geonamesUser,
+var geonamesUser = '',//Meteor.settings.accounts.geonamesUser,
 	urls = {
 		aspect: "http://localhost/maps/dem/aspect.php",
 		elevation: "http://localhost/maps/dem/elevation.php"
@@ -244,7 +244,7 @@ Kepler.Geoinfo = (function() {
 		return ret;
 	}
 
-	return {
+	return {			
 		elevation: function(ll) {
 
 			ll = K.Util.geo.roundLoc(ll, 8);

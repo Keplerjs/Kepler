@@ -1,7 +1,7 @@
 
 Package.describe({
-  name: 'keplerjs:geoinfo',
-  summary: 'keplerjs plugin geoinfo',
+  name: 'keplerjs:conver',
+  summary: 'keplerjs plugin conversations',
   version: '0.0.1',
   git: ''
 });
@@ -11,26 +11,20 @@ Package.onUse(function(api) {
   api.versionsFrom("METEOR@1.0");
   
   api.use([
-    'alisalaah:suncalc',
-    'keplerjs:core'
-  ]);
-
-  api.use([
-    'robodo:async',
-  ],'server');
-
+    'verron:autosize'
+  ],'client');
+/*
   api.addFiles([
     'plugin.js'
   ],['client','server']);
 
   api.addFiles([
-    'client/helpers.js',
     'client/views/panels.html'
   ],'client');
 
   api.addFiles([
     'server/modules/Geoinfo.js',
-   // 'server/admin.js',
-  ],['client','server']);
-  
+    'server/admin.js',
+  ],'server');
+  */
 });

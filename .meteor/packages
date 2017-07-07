@@ -12,26 +12,14 @@ standard-minifier-css
 standard-minifier-js
 http
 coffeescript
-anti:i18n
-iron:router
-ian:accounts-ui-bootstrap-3
-twbs:bootstrap
-mrt:modernizr-meteor
-underscorestring:underscore.string
-alisalaah:suncalc
-verron:autosize
-mrt:imagemagick
-robodo:async
-kidovate:bootstrap-slider
 
 keplerjs:core
+keplerjs:upload
 keplerjs:geoinfo
 keplerjs:weather
 keplerjs:pois
 keplerjs:tracks
 keplerjs:googlemaps
 keplerjs:osm
-
 keplerjs:api
 keplerjs:notif
-keplerjs:upload

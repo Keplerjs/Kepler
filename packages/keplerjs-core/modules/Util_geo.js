@@ -35,25 +35,6 @@ Kepler.Util.geo = {
 		return Math.round(R * c);
 	},
 	
-	contains: function (bb, ll) { // (LatLngBounds) or (LatLng) -> Boolean
-
-		if(!K.Util.valid.loc(ll)) return false;
-
-		return L.latLngBounds(bb).contains(L.latLng(ll));
-		//var GeoJSON = Package['geojson-utils'].GeoJSON;
-		//return GeoJSON.pointInBoundingBox(bb, [ll[1],ll[0]]);
-	},	
-
-	sunrise: function(loc) { //alba
-		return SunCalc.getTimes(new Date(), loc[0], loc[1]).sunrise
-				.toLocaleTimeString().match(/([0-9]+):([0-9]+)/)[0];
-	},
-
-	sunset: function(loc) {	//tramonto
-		return SunCalc.getTimes(new Date(), loc[0], loc[1]).sunset
-				.toLocaleTimeString().match(/([0-9]+):([0-9]+)/)[0];
-	},
-	
 	timeTrack: function(len, dis) {		//tempo percorrenza tracciati
 		//http://ascoltotutti.blogspot.it/2012/12/calcolo-durata-di-un-percorso.html
 		var km = len/1000,
@@ -62,6 +43,15 @@ Kepler.Util.geo = {
 			sec = Math.round(ore*3600);
 		return sec>60 ? sec : 0;
 	},
+
+	contains: function (bb, ll) { // (LatLngBounds) or (LatLng) -> Boolean
+
+		if(!K.Util.valid.loc(ll)) return false;
+
+		return L.latLngBounds(bb).contains(L.latLng(ll));
+		//var GeoJSON = Package['geojson-utils'].GeoJSON;
+		//return GeoJSON.pointInBoundingBox(bb, [ll[1],ll[0]]);
+	},	
 
 	createPoint: function(ll) {
 		return {

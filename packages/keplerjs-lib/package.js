@@ -42,8 +42,10 @@ Package.onUse(function(api) {
   var packages = [
     'meteor-platform',
     'underscorestring:underscore.string',
+    'kidovate:bootstrap-slider',
     'anti:i18n',
     'iron:router',
+    'mrt:modernizr-meteor',
     'twbs:bootstrap',
     'ian:accounts-ui-bootstrap-3'
   ];
