@@ -45,9 +45,11 @@ Kepler.Admin = {
 				console.warn('adminGetMethods', err);
 			else {
 				_.each(names, function(name) {
-					self.method[name] = function() {
-						return Meteor.apply(name, arguments);
-					};
+					if(!self[name]){
+						self[name] = function() {
+							return Meteor.apply(name, arguments);
+						};
+					}
 				});
 			}
 		});

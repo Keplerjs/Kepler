@@ -6,7 +6,7 @@ K.Admin.methods({
 		
 		Users.update(this.userId, {
 			$push: {
-				notif: text
+				notifs: text
 			}
    		});
 	}

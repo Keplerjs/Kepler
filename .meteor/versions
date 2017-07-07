@@ -51,6 +51,7 @@ jquery@1.11.6
 keplerjs:api@1.0.0
 keplerjs:conver@0.0.1
 keplerjs:core@0.0.1
+keplerjs:events@0.0.1
 keplerjs:geoinfo@0.0.1
 keplerjs:googlemaps@1.0.0
 keplerjs:lib@0.0.1

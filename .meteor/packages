@@ -22,5 +22,6 @@ keplerjs:tracks
 keplerjs:googlemaps
 keplerjs:osm
 keplerjs:api
-keplerjs:notif
 keplerjs:conver
+keplerjs:events
+keplerjs:notif

@@ -12,12 +12,7 @@
 		<div class="panel-body">
 
 			{{> tab_bio}}
-			<br />
-			
-			{{#if status}}
-				{{> tab_status}}
-			{{/if}}
-
+		
 			<div class="row">
 				<div class="col-xs-12">
 				
@@ -28,7 +23,9 @@
 			</div>
 
 			{{#if or getLoc checkin}}
+				
 				{{> tab_location}}
+
 			{{/if}}
 
 			<ul class="nav nav-tabs">
@@ -48,11 +45,6 @@
 						<i class="icon icon-star"></i> <span class="hidden-xs">{{i18n 'btns.favs'}}</span>
 					</a>
 				</li>
-				<li class="user-btn-cal disabled">
-					<a href="#tab_eventsuser">
-						<i class="icon icon-cal"></i> <span class="hidden-xs">{{i18n 'btns.events'}}</span>
-					</a>
-				</li>
 				{{/if}}
 			</ul>
 
@@ -66,10 +58,7 @@
 					{{> tab_histuser}}
 				</div>
 				<div class="tab-pane" id="tab_favs">
-					{{> tab_favs}}
-				</div>
-				<div class="tab-pane" id="tab_eventsuser">
-					{{> tab_eventuser}}
+					{{> tab_favorites}}
 				</div>
 				{{/if}}
 			</div>

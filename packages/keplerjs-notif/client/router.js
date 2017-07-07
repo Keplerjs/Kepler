@@ -1,7 +1,7 @@
 
 Router.map(function() {
 
-	this.route('notif', {
+	this.route('notifs', {
 		path: '/notifications',
 		template: 'panelList',
 		data: function() {
@@ -11,7 +11,7 @@ Router.map(function() {
 				className: 'notifications',
 				headerTemplate: 'list_notif_clean',		
 				itemsTemplate: 'item_notif',
-				items: _.map(K.Profile.data.notif, function(text) {
+				items: _.map(K.Profile.data.notifs, function(text) {
 					var type = _.shuffle(K.Notif._types)[0];
 					return {
 						type: type,

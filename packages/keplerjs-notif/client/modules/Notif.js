@@ -21,7 +21,7 @@ Kepler.Notif = {
 	cleanAll: function() {
 		Users.update(Meteor.userId(), {
 			$set: {
-				notif: []
+				notifs: []
 			}
 		});
 	},

@@ -14,7 +14,6 @@ Kepler.schemas = {
 
 		checkins: [],	   //users inside place	
 		hist: [],		   //recents checkins
-		event: [],		   //calendar events
 		source: {},		   //descrive source of data
 
 //TODO move into geo property
@@ -50,12 +49,8 @@ Kepler.schemas = {
 		usersReceive: [],  //ids users that I receive request
 		usersBlocked: [],  //ids users that I blocked
 		hist: [],		   //last places visited
-		event: [],		   //places in calendar
-		source: {},		   //source of registration by single signon
-
-//TODO mode to plugins		
-		notif: [],		   //notifications, messaggi non letti, eventi in places preferite, nuovi friends			
 		isAdmin: 0,		   //if user is an admin
+		source: {},		   //source of registration by single signon		
 		settings: {
 			map: {
 				layer: null,
