@@ -13,10 +13,10 @@ Package.onUse(function(api) {
   api.use([
     'verron:autosize'
   ],'client');
-/*
+
   api.addFiles([
     'plugin.js'
-  ],['client','server']);
+  ]);
 
   api.addFiles([
     'client/views/panels.html'
@@ -26,5 +26,5 @@ Package.onUse(function(api) {
     'server/modules/Geoinfo.js',
     'server/admin.js',
   ],'server');
-  */
+  
 });

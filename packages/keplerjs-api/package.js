@@ -15,7 +15,7 @@ Package.onUse(function (api) {
 
   api.addFiles([
     'plugin.js'
-  ],['client','server']);
+  ]);
 
   api.addFiles([
     'server/router.js',

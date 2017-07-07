@@ -60,7 +60,7 @@ Package.onUse(function(api) {
     'config/i18n.js',
     'config/leaflet.js',
     'config/underscore.js'
-  ], ['client', 'server']);
+  ]);
   
   api.addFiles([
     'client/L.Marker.drag.js',

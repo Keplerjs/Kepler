@@ -17,7 +17,7 @@ Package.onUse(function(api) {
   api.addFiles([
     'plugin.js',    
     'collections/pois.js'
-  ],['client','server']);
+  ]);
 
   api.addFiles([
     'client/models/Place_pois.js',

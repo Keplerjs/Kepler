@@ -20,8 +20,8 @@ Package.onUse(function(api) {
   ],'server');
 
   api.addFiles([
-    'plugin.js'
-  ],['client','server']);
+    'plugin.js',
+  ]);
 
   api.addFiles([
     'client/helpers.js',
@@ -31,6 +31,6 @@ Package.onUse(function(api) {
   api.addFiles([
     'server/modules/Geoinfo.js',
    // 'server/admin.js',
-  ],['client','server']);
+  ],'server');
   
 });

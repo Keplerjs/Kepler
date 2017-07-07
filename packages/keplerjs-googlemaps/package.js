@@ -19,7 +19,7 @@ Package.onUse(function (api) {
 
   api.addFiles([
     'plugin.js'
-  ],['client','server']);
+  ]);
 
   api.addFiles([
   	'client/models/Place_streetview.js',

@@ -17,7 +17,7 @@ Package.onUse(function(api) {
   api.addFiles([
     'plugin.js',    
     'collections/notifs.js'
-  ],['client','server']);
+  ]);
 
   api.addFiles([
     'client/modules/Notif.js',

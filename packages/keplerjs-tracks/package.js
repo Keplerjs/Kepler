@@ -19,7 +19,7 @@ Package.onUse(function(api) {
     'plugin.js',    
     'collections/tracks.js',
     'collections/queries.js'
-  ],['client','server']);
+  ]);
 
   api.addFiles([
     'client/models/Place_tracks.js',

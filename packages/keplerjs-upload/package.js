@@ -12,7 +12,7 @@ Package.onUse(function(api) {
 
   api.use([
     'mrt:imagemagick',   
-  ],'server');
+  ]);
 
   api.use([  
     'keplerjs:core'
@@ -20,7 +20,7 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'plugin.js',
-  ],['client','server']);
+  ]);
 
   api.addFiles([
     'client/modules/Upload.js',
@@ -31,5 +31,5 @@ Package.onUse(function(api) {
   api.addFiles([
     'server/upload.js',
   ],'server');
-  
+
 });

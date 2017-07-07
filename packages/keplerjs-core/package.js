@@ -24,12 +24,13 @@ Package.onUse(function(api) {
   api.use(packages);
   api.imply(packages);
 
-  api.addFiles(globsync('Kepler.js'),           ['client','server']);
-  api.addFiles(globsync('i18n/**/*.js'),        ['client','server']);  
-  api.addFiles(globsync('modules/**/*.js'),     ['client','server']);
-  api.addFiles(globsync('collections/**/*.js'), ['client','server']);
-  api.addFiles(globsync('client/**/*.*'),       ['client']);
-  api.addFiles(globsync('server/**/*.js'),      ['server']);
+  api.addFiles(globsync('Kepler.js'));
+  api.addFiles(globsync('i18n/**/*.js'));  
+  api.addFiles(globsync('modules/**/*.js'));
+  api.addFiles(globsync('collections/**/*.js'));
+  
+  api.addFiles(globsync('client/**/*.*'),  'client');
+  api.addFiles(globsync('server/**/*.js'), 'server');
 
   api.export([
     'Kepler', 'K',
