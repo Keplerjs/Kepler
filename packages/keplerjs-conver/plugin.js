@@ -1,27 +1,56 @@
 
 K.Plugin({
 	name: 'conver',
-	/*placeholders: {
+/*	placeholders: {
 		panelPlace: 'panelPlace_geoinfo'
-	},	
+	},	*/
 	schemas: {
 		place: {
-			geoinfo: {
-				ele: 0,		//elevation
-				esp: 0,		//aspect
-				near: '',	//near locality
-				com: '',	//municipality
-				prov: '',	//province
-				reg: '',	//district
-				naz: '',	//country	
-			}
-		}
+			convers: [],	 //conversations in place
+		},
+		user: {
+			convers: [], 	   //ids conversations publics and privates
+		},
+		conver: {
+			title: '',         //Topic for the place wall or subject for the private convers
+			targetId: '',      //if null is a private users convers		
+			targetType: '',	   //type of target: user, place, event, pois		
+			userId: '',        //owner/sender of conversation		
+			usersIds: [],      //participants users
+			lastMsg: null      //include last msg of conversation
+		},
+		converMsg: {
+			updateAt: '',	
+			convId: '',
+			userId: '',
+			body: ''
+		}		
 	},
 	filters: {
+		currentUser: {
+			fields: {
+				convers: 1
+			}
+		},
+		converPanel: {
+			fields: {
+				title:1, targetId:1, targetType:1, userId:1, usersIds:1, lastMsg:1
+			}
+		},
+		converItem: {
+			fields: {
+				title:1, targetId:1, targetType:1, userId:1, usersIds:1, lastMsg:1
+			}
+		},
 		placePanel: {
 			fields: {
-				geoinfo: 1
+				convers: 1
 			}
-		}
-	}	*/
+		},
+		placeItem: {
+			fields: {
+				convers: 1
+			}
+		}	
+	}
 });

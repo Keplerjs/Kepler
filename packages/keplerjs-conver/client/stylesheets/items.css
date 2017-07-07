@@ -1,0 +1,33 @@
+.conver-item {
+	height: auto;
+	overflow: hidden;
+}
+/* item conver */
+.conver-item .btn {
+	line-height: 14px;
+	text-align: left;
+}
+.conver-item .conver-title {
+	font-size: 12px;
+	color: #666;
+	max-width: 50%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.conver-item time {
+	font-size: 12px;
+	color: #aaa;
+}
+.conver-item .user-btn-name,
+.conver-item .place-btn-name {
+	font-size: 12px;
+	line-height: 12px;
+	margin-left: 0;
+}
+.conver-item .user-btn-name:after {
+	content: ", ";
+}
+.conver-item .user-btn-name:last-child:after {
+    content: "";
+}

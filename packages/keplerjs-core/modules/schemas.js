@@ -12,6 +12,11 @@ Kepler.schemas = {
 		desc: '',		   //place description
 		warn: '',          //place warnings and dangers
 
+		checkins: [],	   //users inside place	
+		hist: [],		   //recents checkins
+		event: [],		   //calendar events
+		source: {},		   //descrive source of data
+
 //TODO move into geo property
 		ele: 0,		       //elevation
 		esp: 0,		       //aspect
@@ -20,17 +25,7 @@ Kepler.schemas = {
 		prov: '',		   //province
 		reg: '',		   //district
 		naz: '',		   //country		
-		//shadow:'',       
-
-		checkins: [],	   //users inside place	
-		hist: [],		   //recents checkins
-		event: [],		   //calendar events
-		convers: [],	   //conversations in place
-
-		source: {
-			type: 'osm',
-			//node id, user, tags
-		}
+		//shadow:'',
 	},
 	
 	user: {
@@ -49,15 +44,17 @@ Kepler.schemas = {
 		online: 0,		   //stato di visibilita rispetto ai miei friends
 		onlinelast: null,  //last online status datetime
 		mob: 0,			   //if my device is mobile
-		notif: [],		   //notifications, messaggi non letti, eventi in places preferite, nuovi friends	
 		favorites: [],	   //id place preferiti		
 		friends: [],	   //ids users friends
 		usersPending: [],  //ids users that I send request
 		usersReceive: [],  //ids users that I receive request
 		usersBlocked: [],  //ids users that I blocked
-		convers: [], 	   //ids conversations publics and privates
 		hist: [],		   //last places visited
 		event: [],		   //places in calendar
+		source: {},		   //source of registration by single signon
+
+//TODO mode to plugins		
+		notif: [],		   //notifications, messaggi non letti, eventi in places preferite, nuovi friends			
 		isAdmin: 0,		   //if user is an admin
 		settings: {
 			map: {
@@ -65,20 +62,5 @@ Kepler.schemas = {
 				center: null  //last center of map
 			}
 		}
-	},
-	
-	conver: {
-		title: '',         //Topic for the place wall or subject for the private convers
-		targetId: '',      //if null is a private users convers		
-		targetType: '',	   //type of target: user, place, event, pois		
-		userId: '',        //owner/sender of conversation		
-		usersIds: [],      //participants users
-		lastMsg: null      //include last msg of conversation
-	},
-	converMsg: {
-		updateAt: '',	
-		convId: '',
-		userId: '',
-		body: ''
 	}
 };

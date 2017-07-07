@@ -90,12 +90,6 @@ Kepler.Place = Class.extend({
 		return this.checkins && this.checkins.length;
 	},
 
-//TODO move to convers plugin
-	conversCount: function() {
-		this._dep.depend();
-		return this.convers && this.convers.length;
-	},
-
 	getRank: function() {
 		this._dep.depend();
 		return this.rank;

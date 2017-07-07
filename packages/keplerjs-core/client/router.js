@@ -149,25 +149,7 @@ Router.map(function() {
 				})
 			};
 		}
-	});
-
-	this.route('convers', {
-		path: '/convers',
-		template: 'panelList',
-		waitOn: function() {
-			return Meteor.subscribe('conversByIds', K.Profile.data.convers);
-		},
-		data: function() {
-			return {
-				title: i18n('titles.convers'),
-				className: 'convers',
-				itemsTemplate: 'item_conver',
-				items: K.findConversByIds(K.Profile.data.convers).fetch(),
-				sortDesc: true
-			};
-		}
-	});
-	
+	});	
 
 	this.route('favorites', {
 		path: '/favorites',
@@ -257,26 +239,6 @@ Router.map(function() {
 		}
 	});
 
-	this.route('placeConvers', {
-		path: '/place/:placeId/convers',
-		template: 'panelList',
-		waitOn: function() {
-			return Meteor.subscribe('conversByTarget', this.params.placeId);
-		},
-		data: function() {
-			if(!this.ready()) return null;
-			var place = K.placeById(this.params.placeId);
-			return place && {
-				title: i18n('titles.placeConvers', place.name),
-				className: 'placeConvers',
-				headerTemplate: 'conver_place_new',
-				headerData: place,		
-				itemsTemplate: 'item_conver',
-				items: K.findConversByTarget(this.params.placeId).fetch()
-			};
-		}
-	});
-
 	this.route('panelUser', {
 		path: '/user/:userId',
 		waitOn: function() {
@@ -296,17 +258,6 @@ Router.map(function() {
 		}
 	});
 
-	this.route('userConver', {
-		path: '/user/:userId/conver',
-		template: 'empty',
-		waitOn: function() {
-			if(this.params.userId===Meteor.userId())
-				Router.go('convers');
-			else
-				K.Conver.loadConverWithUser( this.params.userId );
-		}
-	});
-
 	this.route('userMap', {
 		path: '/user/:userId/map',
 		template: 'empty',
@@ -322,13 +273,4 @@ Router.map(function() {
 		data: { hideSidebar: true }
 	});	
 
-	this.route('panelConver', {
-		path: '/conver/:convId',
-		waitOn: function() {
-			return Meteor.subscribe('converById', this.params.convId);
-		},
-		data: function() {
-			return K.findConverById(this.params.convId).fetch()[0];
-		}
-	});
 });

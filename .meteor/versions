@@ -49,6 +49,7 @@ iron:router@1.0.9
 iron:url@1.0.9
 jquery@1.11.6
 keplerjs:api@1.0.0
+keplerjs:conver@0.0.1
 keplerjs:core@0.0.1
 keplerjs:geoinfo@0.0.1
 keplerjs:googlemaps@1.0.0
@@ -109,5 +110,6 @@ ui@1.0.9
 underscore@1.0.6
 underscorestring:underscore.string@3.2.0
 url@1.0.7
+verron:autosize@3.0.8
 webapp@1.2.6
 webapp-hashing@1.0.7

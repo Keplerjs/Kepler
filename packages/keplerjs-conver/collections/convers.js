@@ -1,23 +1,6 @@
 
 Convers = new Mongo.Collection('convers');
 
-K.extend({
-	findConverById: function(convId) {
-		//TODO ritornare solo ultimi 10 messaggi!!
-		//TODO scaricare messaggi un po alla volta
-		return Convers.find(convId, K.filters.converPanel);
-	},
-	findConversByIds: function(convIds) {
-		
-		convIds = _.isArray(convIds) ? {$in: convIds} : convIds;
-
-		return Convers.find({_id: convIds }, K.filters.converItem);
-	},
-	findConversByTarget: function(targetId) {
-		return Convers.find({targetId: targetId }, K.filters.converItem);
-	}
-});
-
 //TODO
 Convers.allow({
 	insert: function(userId, doc) {
@@ -38,5 +21,22 @@ Convers.allow({
 	},
 	remove: function(userId, doc) {
 		return userId && doc.userId === userId;
+	}
+});
+
+K.extend({
+	findConverById: function(convId) {
+		//TODO ritornare solo ultimi 10 messaggi!!
+		//TODO scaricare messaggi un po alla volta
+		return Convers.find(convId, K.filters.converPanel);
+	},
+	findConversByIds: function(convIds) {
+		
+		convIds = _.isArray(convIds) ? {$in: convIds} : convIds;
+
+		return Convers.find({_id: convIds }, K.filters.converItem);
+	},
+	findConversByTarget: function(targetId) {
+		return Convers.find({targetId: targetId }, K.filters.converItem);
 	}
 });

@@ -59,7 +59,7 @@ K.extend({
 			var user = K.findUsersByIds([userId]).fetch()[0],
 				title = i18n('titles.userConver', user.name);
 
-			convId = K.newConver(userId, 'user', title );
+			convId = K.insertConver(userId, 'user', title );
 		}
 		
 		console.log('getConverWithUser', convId);
@@ -118,9 +118,9 @@ Meteor.methods({
 
 		if(!this.userId || !title || !targetId) return null;
 
-		console.log('newConver', targetId, targetType, title);
+		console.log('insertConver', targetId, targetType, title);
 
-		return K.newConver(targetId, targetType, title);
+		return K.insertConver(targetId, targetType, title);
 	},
 	removeConver: function(convId) {
 		

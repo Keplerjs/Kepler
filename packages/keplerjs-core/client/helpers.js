@@ -23,11 +23,13 @@ Template.registerHelper('placeType', function(type) {
 });
 
 Template.registerHelper('isRoute', function(name, clas) {
-	return Router.current().route.getName()===name ? clas:'';
+	var cur = Router.current();
+	return cur.route && cur.route.getName()===name ? clas:'';
 });
 
 Template.registerHelper('routeTitle', function() {
-	return i18n('titles.'+ Router.current().route.getName() );
+	var cur = Router.current();
+	return cur.route && i18n('titles.'+ cur.route.getName() );
 });
 
 Template.registerHelper('connectionStatus', function() {
