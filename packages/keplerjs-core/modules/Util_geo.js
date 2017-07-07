@@ -45,8 +45,8 @@ Kepler.Util.geo = {
 	},
 
 	contains: function (bb, ll) { // (LatLngBounds) or (LatLng) -> Boolean
-
-		if(!K.Util.valid.loc(ll)) return false;
+		
+		if(!_.isArray(bb) || !K.Util.valid.loc(ll)) return false;
 
 		return L.latLngBounds(bb).contains(L.latLng(ll));
 		//var GeoJSON = Package['geojson-utils'].GeoJSON;

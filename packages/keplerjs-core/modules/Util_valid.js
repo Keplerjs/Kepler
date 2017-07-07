@@ -1,15 +1,11 @@
 
 Kepler.Util.valid = {
 
-	//TODO validUsername using sanitizeFilename and db check
-
 	//TODO name place
+	//TODO valid bbox
 
 	loc: function(loc) {
 		var lat, lng;
-
-		if( (typeof loc === 'undefined' || loc === null) )
-			return false;
 
 		if(_.isArray(loc)) {
 			if( (typeof loc[0] === 'undefined' || loc[0] === null) ||
@@ -32,6 +28,8 @@ Kepler.Util.valid = {
 			else if(loc.hasOwnProperty('longitude'))
 				lng = loc.longitude;
 		}
+		else
+			return false;
 		
 		lat = parseFloat(lat);
 		lng = parseFloat(lng);

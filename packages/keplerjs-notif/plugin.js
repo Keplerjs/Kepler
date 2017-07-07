@@ -2,6 +2,7 @@
 K.Plugin({
 	name: 'notif',
 	placeholders: {
+		sidebarNav: 'sidebarNav_notif',
 		panelProfile: 'panelProfile_notif'
 	},
 	schemas: {

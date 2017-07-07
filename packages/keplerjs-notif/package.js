@@ -25,6 +25,7 @@ Package.onUse(function(api) {
     'client/views/items.html',
     'client/views/panels.html',
     'client/views/panels.js',
+    'client/views/sidebar.html',
     'client/router.js'    
   ],'client');
 

@@ -14,14 +14,14 @@ http
 coffeescript
 
 keplerjs:core
+keplerjs:api
 keplerjs:upload
+keplerjs:notif
+keplerjs:conver
+keplerjs:events
 keplerjs:geoinfo
 keplerjs:weather
 keplerjs:pois
 keplerjs:tracks
 keplerjs:googlemaps
 keplerjs:osm
-keplerjs:api
-keplerjs:conver
-keplerjs:events
-keplerjs:notif

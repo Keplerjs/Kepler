@@ -10,9 +10,6 @@
 			<a class="btn btn-sm" href="{{pathFor route='panelProfile'}}" role="tab">
 				<i class="icon icon-profile"></i>
 				<span> {{i18n 'btns.profile'}}</span>
-				{{#if currentUser.notif.length}}
-					<b class="badge badge-red badge-notif">{{currentUser.notif.length}}</b>
-				{{/if}}				
 			</a>
 		</li>
 		<li class="{{isRoute 'friends' 'active'}}">
@@ -26,6 +23,9 @@
 				<i class="icon icon-map"></i>
 				<span> {{i18n 'btns.places'}}</span>
 			</a>
-		</li>		
+		</li>
+		
+		{{> placeholder name='sidebarNav'}}
+
 	</ul>
 </template>
