@@ -1,6 +1,6 @@
 
 Kepler.Upload = {
-	avatar: function(fileObj, cb) {
+	file: function(fileObj, callback) {
 		
 		if(this.fileReader)
 			this.fileReader.abort();
@@ -8,23 +8,18 @@ Kepler.Upload = {
 			this.fileReader = new FileReader();
 			
 		if(true || K.Util.valid.image(fileObj)) {
-			//TODO use EJSON http://docs.meteor.com/#/full/ejson
-			/*{
-			  "d": {"$date": 1358205756553},
-			  "b": {"$binary": "c3VyZS4="}
-			}*/
 			this.fileReader.onloadend = function(e) {
-				Meteor.call('uploadAvatar', {
+				Meteor.call('uploadFile', {
 					name: fileObj.name,
 					type: fileObj.type,
 					size: fileObj.size,
 					blob: e.target.result
-				}, cb);
+				}, callback);
 			}
 			this.fileReader.readAsBinaryString(fileObj);
 		}
 		else
-			cb({message: i18n('errors.imageNotValid') + K.Util.humanize.filesize(Meteor.settings.public.maxImageSize) });
+			callback({message: i18n('errors.imageNotValid') + K.Util.humanize.filesize(Meteor.settings.public.maxImageSize) });
 
 		return this;
 	}

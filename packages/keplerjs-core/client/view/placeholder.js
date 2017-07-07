@@ -1,4 +1,10 @@
+/*
 
+	example of usage inside a template
+
+	{{> placeholder name='panelPlace'}}
+
+*/
 Template.placeholder.helpers({
 	
 	templates: function() {

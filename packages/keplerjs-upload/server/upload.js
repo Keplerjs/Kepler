@@ -1,7 +1,7 @@
 
 Meteor.methods({
 	
-	uploadAvatar: function(fileObj) {
+	uploadFile: function(fileObj) {
 
 		if(!this.userId) return null;
 
@@ -21,11 +21,13 @@ Meteor.methods({
 			});
 
 		if(!K.Util.valid.image(fileObj)) {
-			console.log('uploadAvatar: error ', _.omit(fileObj,'blob') );
+			
+			console.log('uploadFile: error ', _.omit(fileObj,'blob') );
+
 			throw new Meteor.Error(500, i18n('errors.imageNotValid') + K.Util.humanize.filesize(Meteor.settings.public.maxImageSize) );
 		}
 
-		console.log('uploadAvatar: wrinting...', fileBig);
+		console.log('uploadFile: wrinting...', fileBig);
 		fs.writeFileSync(filePath + fileBig, fileObj.blob, 'binary');
 		fs.chmodSync(filePath + fileBig, 0755);
 
@@ -33,7 +35,7 @@ Meteor.methods({
 			fileMin = fileBig;
 		else
 		{
-			console.log('uploadAvatar: resizing...');
+			console.log('uploadFile: resizing...');
 			try {
 
 				Imagemagick.crop(imgOpts);
@@ -41,18 +43,13 @@ Meteor.methods({
 				fs.chmodSync(filePath + fileMin, 0755);
 			}
 			catch(e) {
-				console.log('uploadAvatar: error ', e);
+				console.log('uploadFile: error ', e);
 				return i18n('errors.imageNotValid');
 			}
-			console.log('uploadAvatar: resized', fileMin);
+			console.log('uploadFile: resized', fileMin);
 		}
+		console.log('uploadFile: url ', fileMin );
 
-
-		Users.update(this.userId, {
-			$set: {
-				avatar: fileUrl + fileMin
-			}
-		});
-		console.log('uploadAvatar: url ', fileMin );
+		return fileUrl + fileMin;
 	}
 });

@@ -39,5 +39,15 @@ K.extend({
 	},
 	findFriendById: function(userId) {
 		return Users.find(userId, K.filters.friendPanel);
-	}
+	},
+	updateFriendship: function(userId, addUserId) {
+		//remove from pending
+		Users.update(userId, {$pull: {usersReceive: addUserId} });
+		Users.update(userId, {$addToSet: {friends: addUserId} });
+		//add to friends list
+		Users.update(addUserId, {$pull: {usersPending: userId} });
+		Users.update(addUserId, {$addToSet: {friends: userId} });
+
+		console.log('updateFriendship', userId, addUserId);
+	}	
 });

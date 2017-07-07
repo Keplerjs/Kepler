@@ -122,15 +122,26 @@ Template.pageSettings.events({
 	'change #fileavatar': function(e) {
 		e.preventDefault();
 
+		if(!K.Upload) return false;
+
 		var input$ = $(e.target),
 			fileObj = e.originalEvent.target.files[0];
 
 		input$.parent().addClass('loading-default');
 		
-		K.Upload.avatar(fileObj, function(err) {
+		K.Upload.file(fileObj, function(err, url) {
 			
 			input$.parent().removeClass('loading-default');
-			input$.next().text( err ? err.message : '' )
+
+			if(err)
+				input$.next().text(err)
+			else {
+				Users.update(Meteor.userId(), {
+					$set: {
+						avatar: url
+					}
+				});
+			}
 		});
 	}
 });

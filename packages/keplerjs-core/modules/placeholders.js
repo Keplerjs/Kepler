@@ -1,5 +1,7 @@
-
-K.placeholders = {		//list of templates loaded in each placeholders
+/*
+	list of placeholders and loaded temaplates for each
+*/
+K.placeholders = {
 	panelProfile: [],
 	panelPlace: [],
 	popupPlace: [],

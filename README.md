@@ -12,8 +12,6 @@ Note that Kepler is distributed under the [MIT License](http://opensource.org/li
 
 #  Requirements 
 
-Photo upload used in file: /server/profile.js
-
 Imagemagick require: aptitude install Imagemagick
 
 https://github.com/sylvaingi/meteor-Imagemagick#resizeoptions

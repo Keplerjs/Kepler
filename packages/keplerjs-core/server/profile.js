@@ -1,17 +1,4 @@
 
-K.extend({
-	updateFriendship: function(userId, addUserId) {
-		//remove from pending
-		Users.update(userId, {$pull: {usersReceive: addUserId} });
-		Users.update(userId, {$addToSet: {friends: addUserId} });
-		//add to friends list
-		Users.update(addUserId, {$pull: {usersPending: userId} });
-		Users.update(addUserId, {$addToSet: {friends: userId} });
-
-		console.log('updateFriendship', userId, addUserId);
-	}
-});
-
 Meteor.methods({
 	setLoc: function(loc) {
 		//check(loc, [Number])

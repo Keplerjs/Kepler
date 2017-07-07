@@ -32,10 +32,3 @@ Kepler = K = {
 		_.extend(this, e);
 	}
 };
-
-Kepler.extend({
-	//others modules
-	Upload: {},      //module manage file uploads        (client)
-	Conver: {},      //module messages, place comments   (client)
-	Notif: {},       //module notifications              (client)
-});
