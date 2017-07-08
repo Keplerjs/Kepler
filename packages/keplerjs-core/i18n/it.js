@@ -6,8 +6,7 @@ i18n.map('it', {
 		domain: "climbo.net",
 		desc: "The Climbers Community",
 		email: "info@climbo.net",
-		copy: "©2016 Climbo.net",
-		logo: "/static/images/logo-200.png"
+		copy: "©2016 Climbo.net"
 	},
 	socials: {
 		twitter: "https://twitter.com/climbo_net",

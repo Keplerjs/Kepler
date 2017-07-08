@@ -25,6 +25,8 @@ Package.onUse(function(api) {
     'client/stylesheets/panels/weather.css',
   ],'client');
 
+  api.addAssets('assets/images/weather.png', 'client');
+
   api.addFiles([
     'server/weather.js',
   ],'server');

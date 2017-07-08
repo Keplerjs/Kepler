@@ -27,6 +27,6 @@ Package.onUse(function(api) {
 
   api.addFiles(globsync('client/**/*.*'), 'client');
 
-  api.addAssets(globsync('static/**/*.*'), 'client');
+  api.addAssets(globsync('assets/**/*.*'), 'client');
   
 });

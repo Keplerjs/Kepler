@@ -1,4 +1,6 @@
 
+//TODO use https://github.com/DerMambo/ms-seo
+
 Router.configure({
 	layoutTemplate: 'layoutMap',
 	loadingTemplate: 'panelLoading',

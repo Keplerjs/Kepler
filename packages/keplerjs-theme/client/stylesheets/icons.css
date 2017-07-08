@@ -14,8 +14,14 @@
 .leaflet-control-gps .gps-button:hover,
 .leaflet-control-gps .gps-button.active,
 .leaflet-control-gps .gps-button.active:hover {
-	background: url("/packages/keplerjs_theme/static/images/sprite.svg") no-repeat;
+	background: url("/packages/keplerjs_theme/assets/images/sprite.svg") no-repeat;
 }
+.icon.icon-social {
+	background:url("/packages/keplerjs_theme/assets/images/sprite-social.png") no-repeat;
+	width:30px;
+	height:30px;
+}
+
 .icon {
 	position: relative;
 	top: 1px;
@@ -31,7 +37,6 @@
 	width: 30px;
 }
 .icon-avatar.icon-avatar-big {
-	background: url("/packages/keplerjs_theme/static/images/sprite.svg") no-repeat;
 	height: 90px;
 	width: 90px;
 	background-position: 0 -810px;
@@ -203,5 +208,11 @@
 .icon-lang-en{ background-position: -210px -90px;  } 
 .icon-lang-es{ background-position: -210px -120px; } 
 
-
-
+.icon-social.icon-social-tw {       background-position:0 0;     }
+.icon-social.icon-social-tw:hover { background-position:0 -31px; }
+.icon-social.icon-social-fb {       background-position:-30px 0; }
+.icon-social.icon-social-fb:hover { background-position:-30px -31px;}
+.icon-social.icon-social-gp {       background-position:-60px 0;}
+.icon-social.icon-social-gp:hover { background-position:-60px -31px;}
+.icon-social.icon-social-tu {       background-position:-90px 0;}
+.icon-social.icon-social-tu:hover { background-position:-90px -31px;}
