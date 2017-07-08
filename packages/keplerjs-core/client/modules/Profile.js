@@ -1,10 +1,14 @@
+/*
+	manage user logged
 
+	//TODO extend by K.User	
+*/
 Kepler.Profile = {
 
 	ready: false,
 
 	id: null,
-	user: null,			//my istance of K.User	
+	user: null,
 	data: {},
 	placeCheckin: null,
 
