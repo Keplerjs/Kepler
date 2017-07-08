@@ -113,7 +113,6 @@
 }
 .leaflet-control-layers-toggle,
 .leaflet-touch .leaflet-control-layers-toggle {
-	background-image: url('/images/controls/control-layers.png');
 	background-position: center center;
 	width: 32px;
 	height: 32px;

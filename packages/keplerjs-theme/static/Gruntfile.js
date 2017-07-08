@@ -16,12 +16,6 @@ grunt.initConfig({
 		},		
 		images: {
 			src: ['dist/images/*']
-		},
-		css: {
-			src: ['dist/*.min.css']
-		},
-		lib: {
-			src: ['dist/*.lib.min.js']
 		}
 	},
 	svg2png: {
@@ -45,9 +39,6 @@ grunt.initConfig({
 		}
 	},
 	rev: {
-		lib: {
-			src: ['dist/lib.*']
-		},
 		sprite: {
 			src: ['dist/images/sprite.png']
 		}
@@ -58,7 +49,7 @@ grunt.registerTask('default', [
 	'clean',
 	'svg2png',
 	'newer:imagemin',	
-	'rev'
+	//'rev'
 ]);
 
 };

@@ -1,0 +1,44 @@
+.icon {
+	position: relative;
+	top: 1px;
+	display: inline-block;
+	line-height: 1;
+	/* come .glyphicon */
+	vertical-align: text-bottom;/*non modificare!*/
+	height: 18px;
+	width: 18px;
+}
+.icon-marker,
+.leaflet-marker-icon {
+	display: inline-block;
+	width:27px;
+	height:30px;
+}
+.marker-poi .icon {
+	position: absolute;
+	top: 3px;
+	left: 3px;
+}
+/* MARKER DRAG */
+.marker-handledrag  {
+	border: 1px solid #FFAB1D;
+	background-color: rgba(255,170,30,0.5);
+}
+
+.icon,
+.marker-anim,
+.marker-handledrag,
+.leaflet-marker-icon,
+.leaflet-control-search .search-cancel,
+.leaflet-control-search .search-button,
+.leaflet-control-search .search-button:hover,
+.leaflet-bar a.leaflet-control-zoom-in,
+.leaflet-touch .leaflet-bar a.leaflet-control-zoom-in,
+.leaflet-bar a.leaflet-control-zoom-out,
+.leaflet-touch .leaflet-bar a.leaflet-control-zoom-out,
+.leaflet-control-gps .gps-button,
+.leaflet-control-gps .gps-button:hover,
+.leaflet-control-gps .gps-button.active,
+.leaflet-control-gps .gps-button.active:hover {
+	background: #fff;
+}
