@@ -3,11 +3,11 @@ K.Plugin({
 	name: 'upload',
 /*	settings: {
 		dirs: {
-			uploads: "/var/www/climbo/static.climbo.net/uploads/"
+			upload: "/var/www/mysite.com/static/uploads/"
 		},		
 		public: {
 			urls: {
-				uploads: "/static/uploads/"
+				upload: "/static/uploads/"
 			}
 		}
 	}*/

@@ -1,6 +1,6 @@
 
 K.Admin.methods({
-	createNewUser: function(usernames) {
+	insertUser: function(usernames) {
 		
 		if(!K.Admin.isMe()) return null;
 
@@ -18,7 +18,7 @@ K.Admin.methods({
 			K.updateFriendship(this.userId, userId);
 		}
 	},
-	delUser: function(username) {
+	removeUser: function(username) {
 		
 		if(!K.Admin.isMe()) return null;
 
@@ -67,12 +67,12 @@ K.Admin.methods({
 			}
 		});
 	},	
-	delAllUsers: function() {
+	removeAllUsers: function() {
 		
 		if(!K.Admin.isMe()) return null;
 
 		Users.find({_id: {$ne: this.userId }}).forEach(function(user) {
-			Meteor.call('delUser', user.username);
+			Meteor.call('removeUser', user.username);
 		});
 		Users.update(this.userId, {
 			$set: {

@@ -39,7 +39,7 @@ Template.popupPlace_admin.events({
 	'click .popup-del': function(e,tmpl) {
 		var self = this;
 		if(confirm("Eliminare?"))
-			Meteor.call('delPlace', self.id, function(err) {
+			Meteor.call('removePlace', self.id, function(err) {
 				K.Map.removeItem(self);
 			});
 	},

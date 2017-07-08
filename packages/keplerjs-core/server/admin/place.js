@@ -53,7 +53,7 @@ K.Admin.methods({
 		Users.update(true, {$set: {favorites: []} });
 		Places.update(true, {$set: {rank: 0} });
 	},
-	delPlace: function(placeId) {
+	removePlace: function(placeId) {
 
 		if(!K.Admin.isMe()) return null;
 

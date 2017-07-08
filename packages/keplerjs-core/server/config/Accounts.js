@@ -51,7 +51,7 @@ Accounts.onCreateUser(function(options, user) {
 	{
 		name = user.username;
 		username = user.username;
-		avatar = '/images/avatar.png';
+		avatar = '';
 		emails = user.emails;
 		//TODO lang from browser
 	}

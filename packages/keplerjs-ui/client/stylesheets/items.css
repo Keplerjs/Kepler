@@ -23,18 +23,6 @@
 	margin-left: 2px;
 }
 
-/* item user */
-.user-avatar {
-	height: 30px;
-	width: 30px;
-	border-radius: 2px;
-	background-color: #fff;
-}
-.user-avatar-big {
-	height: 80px;
-	width: 80px;
-}
-
 /* item place */
 .place-btn-mes .badge:not(.bg-gray) {
 	color:#fff;
@@ -50,7 +38,7 @@
 	background-color:#FCD865;
 }
 
-.friend-item.offline .user-avatar {
+.friend-item.offline .icon-avatar {
 	opacity: 0.6;
 }
 .friend-item.offline .btn {
