@@ -29,8 +29,8 @@ Kepler.Place = Class.extend({
 			_.extend(self, self.data);
 
 			if(self.loc) {
-				if(!self.marker)
-					self.buildMarker();
+				
+				self.buildMarker();
 
 				K.Map.addItem(self);
 			}
@@ -46,21 +46,24 @@ Kepler.Place = Class.extend({
 		
 		var self = this;
 
-		self.icon = new L.NodeIcon({
-			nodeHtml: L.DomUtil.create('div'),
-			className: (self.name ? 'marker-'+self.type : 'marker-gray'),
-		});
-		self.marker = new L.Marker(self.loc, {icon: self.icon});
-		self.marker.item = self;
-		self.marker.on('click mousedown', function(e) {
-				if(!this._popup) {
-					self.popup$ = L.DomUtil.create('div','popup-place');
-					Blaze.renderWithData(Template[self.templatePopup], self, self.popup$);
-					this.bindPopup(self.popup$, { closeButton:false, minWidth:120 });
-				}
-			}).once('add', function() {
-				Blaze.renderWithData(Template[self.templateMarker], self, self.icon.nodeHtml);
+		if(!self.marker) {
+			self.icon = new L.NodeIcon({
+				nodeHtml: L.DomUtil.create('div'),
+				className: (self.name ? 'marker-'+self.type : 'marker-gray'),
 			});
+			self.marker = new L.Marker(self.loc, {icon: self.icon});
+			self.marker.item = self;
+			self.marker.on('click mousedown', function(e) {
+					if(!this._popup) {
+						self.popup$ = L.DomUtil.create('div','popup-place');
+						Blaze.renderWithData(Template[self.templatePopup], self, self.popup$);
+						this.bindPopup(self.popup$, { closeButton:false, minWidth:120 });
+					}
+				}).once('add', function() {
+					Blaze.renderWithData(Template[self.templateMarker], self, self.icon.nodeHtml);
+				});
+		}
+		return self.marker;
 	},
 
 	loadLoc: function() {		//TODO rename loadLoc in showLoc

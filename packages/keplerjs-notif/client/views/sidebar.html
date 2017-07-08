@@ -1,11 +1,13 @@
 
 <template name="sidebarNav_notif">
-{{#if currentUser.notifs.length}}
 	<li class="">
 		<a class="btn btn-sm" href="{{pathFor route='notifs'}}" role="tab">
+		{{#if currentUser.notifs.length}}
 			<i class="icon icon-notif"></i>
 			<b class="badge badge-red badge-notif">{{currentUser.notifs.length}}</b>
+		{{else}}
+			<i class="icon icon-unnotif"></i>
+		{{/if}}
 		</a>
 	</li>
-{{/if}}
 </template>

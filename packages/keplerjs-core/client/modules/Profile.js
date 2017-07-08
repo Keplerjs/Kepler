@@ -27,7 +27,6 @@ Kepler.Profile = {
 				return self.ready = false;
 
 			self.user = K.userById(self.id);
-			self.user.update();
 
 			if(self.data.checkin)
 				self.placeCheckin = K.placeById(self.data.checkin);
@@ -40,7 +39,6 @@ Kepler.Profile = {
 	setOnline: function(online) {
 		var self = this;
 		online = online ? 1 : 0;
-		console.log('setOnline',parseFloat(online))
 		if(online !== this.data.online)
 			Users.update(Meteor.userId(), {
 				$set: {
@@ -50,6 +48,13 @@ Kepler.Profile = {
 			}, function(err) {
 				self._deps.online.changed();
 			});
+		return this;
+	},
+	setLoc: function(loc) {
+		var self = this;
+		Meteor.call('setLoc', loc, function(err) {
+			self.user.update();
+		});
 		return this;
 	},	
 	getOnline: function() {
@@ -87,14 +92,11 @@ Kepler.Profile = {
 		Meteor.call('friendBlock', userId);
 		return this;
 	},
-	setLoc: function(loc) {
-		Meteor.call('setLoc', loc);
-		return this;
-	},
 	addCheckin: function(placeId) {
 		var self = this;
 		Meteor.call('addCheckin', placeId, function() {
 			self.placeCheckin = K.placeById(placeId);
+			self.user.update();
 		});
 		return this;
 	},
@@ -102,6 +104,7 @@ Kepler.Profile = {
 		var self = this;
 		Meteor.call('removeCheckin', placeId, function(err) {
 			self.placeCheckin = null;
+			self.user.update();
 		});
 		return this;
 	},

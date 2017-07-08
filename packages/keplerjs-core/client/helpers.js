@@ -39,10 +39,6 @@ Template.registerHelper('or', function() {
 	return _.some(_.initial(arguments));
 });
 
-Template.registerHelper('stringify', function(prop) {
-	return JSON.stringify(prop);
-});
-
 Template.registerHelper('humanAzimut', function(ang, tiny) {
 	return K.Util.humanize.azimut(ang, parseInt(tiny));
 });
@@ -75,4 +71,9 @@ Template.registerHelper('humanDistance', function(dis, sign) {
 
 Template.registerHelper('humanLatlng', function(loc) {
 	return K.Util.humanize.latlng(loc);
+});
+
+
+Template.registerHelper('stringify', function(prop) {
+	return JSON.stringify(prop,null,4);
 });

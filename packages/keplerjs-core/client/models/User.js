@@ -23,25 +23,27 @@ Kepler.User = Class.extend({
 		};
 
 		self.update = function(comp) {	//sincronizza istanza con dati nel db
-			
-			self.data = K.findFriendById(self.id).fetch()[0];
+
+			if(self.isMe())
+				self.data = K.findCurrentUser(self.id).fetch()[0];
+			else
+				self.data = K.findFriendById(self.id).fetch()[0];
 			
 			_.extend(self, self.data);
 
 			if(self.loc && !self.checkin && self.online)
 			{
-				if(!self.marker)
-					self.buildMarker();
-				else
-					self.marker.setLatLng(self.loc);
+				self.buildMarker();
 
 				K.Map.addItem(self);
+				
+				self.marker.setLatLng(self.loc);
 			}
 			else
 				K.Map.removeItem(self);
 
 			self._dep.changed();
-			
+
 			return self;
 		};
 		Tracker.autorun( self.update );	//TODO aggiornare solo se amico
@@ -50,18 +52,22 @@ Kepler.User = Class.extend({
 	buildMarker: function() {
 
 		var self = this;
-		self.icon = new L.NodeIcon({
-			className: self.isMe() ? 'marker-profile' : 'marker-friend'
-		});
-		self.marker = new L.Marker(self.loc, {icon: self.icon});
-		self.marker.item = self;
-		self.marker.on('click mousedown', function(e) {
-			if(!this._popup) {
-				self.popup$ = L.DomUtil.create('div','popup-'+self.type);
-				Blaze.renderWithData(Template[self.templatePopup], self, self.popup$);
-				this.bindPopup(self.popup$, { closeButton:false });
-			}
-		});
+		
+		if(!self.marker) {
+			self.icon = new L.NodeIcon({
+				className: self.isMe() ? 'marker-profile' : 'marker-friend'
+			});
+			self.marker = new L.Marker(self.loc, {icon: self.icon});
+			self.marker.item = self;
+			self.marker.on('click mousedown', function(e) {
+				if(!this._popup) {
+					self.popup$ = L.DomUtil.create('div','popup-'+self.type);
+					Blaze.renderWithData(Template[self.templatePopup], self, self.popup$);
+					this.bindPopup(self.popup$, { closeButton:false });
+				}
+			});
+		}
+		return self.marker;
 	},
 
 	loadLoc: function() {
@@ -74,6 +80,9 @@ Kepler.User = Class.extend({
 		});
 	},
 
+	isMe: function() {
+		return K.Profile.id === this.id;
+	},
 	isFriend: function() {
 		return K.Profile.hasFriend(this.id);
 	},
@@ -86,22 +95,15 @@ Kepler.User = Class.extend({
 	isBlocked: function() {
 		return K.Profile.hasBlocked(this.id);
 	},
-
-	isMe: function() {
-		return K.Profile.id === this.id;
-	},
-
 	isOnline: function() {
 		this._dep.depend();
 //TODO aggiuni this.isMe()
-		if(K.Profile.getOnline() && this.isFriend())
+		if(K.Profile.getOnline() && this.isFriend() || this.isMe())
 			return this.online;
 	},
-
 	getLoc: function() {
-		this._dep.depend();
-//TODO aggiuni this.isMe()		
-		if(K.Profile.getOnline() && this.isFriend() && this.online)
+		this._dep.depend();	
+		if(K.Profile.getOnline() && this.isFriend() || this.isMe())
 			return this.loc;
 	}
 });

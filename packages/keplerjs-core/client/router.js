@@ -102,7 +102,8 @@ Router.map(function() {
 	this.route('panelProfile', {
 		path: '/profile',
 		data: function() {
-			return Meteor.user();
+			//return Meteor.user();
+			return K.Profile.user;
 		}
 	});
 
@@ -119,13 +120,7 @@ Router.map(function() {
 				className: 'friends',			
 				headerTemplate: 'search_user',
 				itemsTemplate: 'item_user_friend',
-				items: _.map(K.Profile.data.friends, function(id) {
-					
-					var user = K.userById(id);
-					user.update();
-
-					return user;
-				})
+				items: _.map(K.Profile.data.friends, K.userById)
 			};
 		}	
 	});

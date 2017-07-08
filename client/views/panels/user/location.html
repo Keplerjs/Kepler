@@ -1,6 +1,6 @@
 
 <template name="tab_location">
-
+{{#if or getLoc checkin}}
 	<ul class="list-group" id="tab_location">
 		<li class="list-group-item active">
 			<i class="icon icon-map"></i> {{i18n 'labels.location'}}
@@ -18,5 +18,5 @@
 		</li>
 		{{/if}}
 	</ul>
-	
+{{/if}}
 </template>
