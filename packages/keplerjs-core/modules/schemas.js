@@ -1,10 +1,14 @@
 /*
 	default values for new models and data documents
+
+	//TODO use https://atmospherejs.com/aldeed/simple-schema
 */
 Kepler.schemas = {
 
 	place: {
 		name: '',	       //place title
+		createdAt: '',	   //new Date() of place insert
+		userId: '',	   	   //user to created it
 		type: '',	       //place tipology
 		active: 0,	       //place visible in map
 		rank: 0,		   //sum of all users's favorites
@@ -30,6 +34,7 @@ Kepler.schemas = {
 	user: {
 		name: '',		   //display name	
 		username: '',	   //username used in urls
+		createdAt: '',	   //new Date() of user insert
 		emails: [], 
 		avatar: '',
 		status: '',        //status mood message, shown in profile

@@ -29,8 +29,8 @@ Package.onUse(function(api) {
   ],'client');
 
   api.addFiles([
+    'server/lib/geoapi.js',    
     'server/modules/Geoinfo.js',
-   // 'server/admin.js',
   ],'server');
   
 });

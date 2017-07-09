@@ -11,7 +11,6 @@ standard-app-packages
 standard-minifier-css
 standard-minifier-js
 http
-coffeescript
 
 keplerjs:core
 keplerjs:ui

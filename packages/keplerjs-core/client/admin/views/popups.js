@@ -4,7 +4,7 @@ Template.popupPlace_admin.events({
 	'click .popup-move': function(e,tmpl) {
 		
 		var self = this;
-
+		
 		if(self.marker.draggable) {
 			var ll = self.marker.getLatLng(),
 				loc = [ll.lat, ll.lng];
@@ -22,6 +22,8 @@ Template.popupPlace_admin.events({
 			$(e.target).siblings('.popup-canc').show();
 		}
 
+		self.loadLoc();
+		
 		self.marker.drag();
 	},
 	'click .popup-canc': function(e,tmpl) {

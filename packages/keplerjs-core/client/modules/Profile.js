@@ -3,6 +3,7 @@
 
 	//TODO extend by K.User	
 */
+
 Kepler.Profile = {
 
 	ready: false,
@@ -22,7 +23,7 @@ Kepler.Profile = {
 		
 		self.ready = true;
 
-		Tracker.autorun(function(comp) {
+		Tracker.autorun(function() {
 
 			self.id = Meteor.userId();
 			self.data = Meteor.user();

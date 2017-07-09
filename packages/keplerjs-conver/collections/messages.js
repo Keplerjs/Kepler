@@ -5,7 +5,7 @@ Messages = new Mongo.Collection('messages');
 Messages.allow({
 	insert: function(userId, doc) {
 
-		//TODO body = K.Util.sanitizeMsg(body);
+		//TODO doc.body = K.Util.sanitizeMsg(doc.body);
 		
 		return userId && doc.convId;
 	},
@@ -19,14 +19,14 @@ Messages.allow({
 
 K.extend({
 	findMsgsByConver: function(convId) {
-		return Messages.find({convId: convId }, {sort: ['updateAt']});
+		return Messages.find({convId: convId }, {sort: ['updatedAt']});
 	},
 	insertMsgToConver: function(convId, body) {
 
 		var convData = Convers.findOne(convId),
 			lastMsg = convData && convData.lastMsg,
 			newMsg = _.extend(K.schemas.converMsg, {
-				updateAt: K.Util.timeUnix(),
+				updatedAt: K.Util.timeUnix(),
 				userId: Meteor.userId(),
 				convId: convId,
 				body: body

@@ -41,6 +41,7 @@ Package.onUse(function(api) {
 
   var packages = [
     'meteor-platform',
+    'matb33:collection-hooks',
     'underscorestring:underscore.string',
     'kidovate:bootstrap-slider',
     'anti:i18n',

@@ -23,7 +23,7 @@ K.Plugin({
 			lastMsg: null      //include last msg of conversation
 		},
 		converMsg: {
-			updateAt: '',	
+			updatedAt: '',	
 			convId: '',
 			userId: '',
 			body: ''
