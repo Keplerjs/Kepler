@@ -59,3 +59,7 @@ K.extend({
 		});
 	}
 });
+
+Meteor.methods({
+
+});
