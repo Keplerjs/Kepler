@@ -39,6 +39,12 @@ Package.onUse(function(api) {
     '.npm/package/node_modules/leaflet.markercluster/dist/leaflet.markercluster-src.js'
   ],'client');
 
+/* //TODO
+  api.addAssets([
+    '.npm/package/node_modules/leaflet/dist/images/marker-icon.png',
+    '.npm/package/node_modules/leaflet/dist/images/marker-shadow.png',
+  ],'client');*/
+
   var packages = [
     'meteor-platform',
     'matb33:collection-hooks',
@@ -56,7 +62,9 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'lib/deepExtend.js',
-    'lib/Class.js'
+    'lib/Class.js',
+    'config/underscore.js',
+    'config/leaflet.js',
   ]);
   
   api.addFiles([

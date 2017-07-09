@@ -33,19 +33,19 @@ Kepler.filters = {
 //Places
 	placePanel: {
 		fields: {
-			loc:1, name:1, type:1, near:1, rank:1, prov:1, reg:1, checkins:1, createdAt:1, userId:1, com:1, desc:1, warn:1, ele:1, esp:1, naz:1, hist:1
+			loc:1, name:1, type:1, rank:1, checkins:1, createdAt:1, userId:1, desc:1, warn:1, hist:1
 		}
 	},
 	placeItem: {
 		fields: {
-			loc:1, name:1, type:1, near:1, rank:1, prov:1, reg:1, checkins:1
+			loc:1, name:1, type:1, rank:1, checkins:1
 		}
 	},
 	placeSearch: {
 		fields: {
-		       name:1, type:1, near:1, rank:1, prov:1, reg:1, checkins:1
+		       name:1, type:1, rank:1, checkins:1
 		},
-		sort: { name:1, reg: 1},
+		sort: { name:1 },
 		limit: Meteor.settings.public.searchMaxRes
 	}
 };

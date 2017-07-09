@@ -1,14 +1,4 @@
 
-//doc of before.insert in https://github.com/matb33/meteor-collection-hooks
-Places.after.insert(function(userId, doc) {
-	K.updatePlaceGeoinfo(doc);
-});
-
-Places.after.update(function(userId, doc, fieldNames, modifier, options) {
-	if(_.contains(fieldNames,'loc'))
-		K.updatePlaceGeoinfo(doc);
-});
-
 K.extend({
 	updatePlaceGeoinfo: function(place) {
 	
@@ -16,50 +6,37 @@ K.extend({
 		
 		console.log('updatePlaceGeoinfo...', place.name);
 
-		async.parallel({
-			loc: function(cb) {
-			 	cb(null, place.loc);
-			},
-			esp: function(cb) {
-				Meteor.setTimeout(function() {
-			 		cb(null, K.Geoinfo.aspect(place.loc) );
-			 	},0);
-			},
-			ele: function(cb) {
-				Meteor.setTimeout(function() {
-			 		cb(null, K.Geoinfo.elevation(place.loc) );
-			 	},0);
-			},
-			near: function(cb) {
-				Meteor.setTimeout(function() {
-			 		cb(null, K.Geoinfo.near(place.loc) );
-			 	},0);
-			},
-			com: function(cb) {
-				Meteor.setTimeout(function() {
-			 		cb(null, K.Geoinfo.municipality(place.loc) );
-			 	},0);
-			},
-			prov: function(cb) {
-				Meteor.setTimeout(function() {
-			 		cb(null, K.Geoinfo.province(place.loc) );
-			 	},0);
-			},
-			reg: function(cb) {
-				Meteor.setTimeout(function() {
-			 		cb(null, K.Geoinfo.region(place.loc) );
-			 	},0);
-			}
-		},
-		function(err, results) {
-			Places.update(place._id, {
-				$set: {geoinfo: results}
-			});
-			console.log('updatePlaceGeoinfo', place.name, results);
+		var ret = K.Geoinfo.getFieldsByLoc(place.loc);
+
+		Places.update(place._id, {
+			$set: {geoinfo: ret}
 		});
+		console.log('updatePlaceGeoinfo', place.name, ret);
 	}
 });
 
-Meteor.methods({
+//doc of before.insert in https://github.com/matb33/meteor-collection-hooks
+Places.after.insert(function(userId, doc) {
+	if(doc.loc)
+		K.updatePlaceGeoinfo(doc);
+});
 
+Places.after.update(function(userId, doc, fieldNames, modifier, options) {
+	if(_.contains(fieldNames,'loc'))
+		K.updatePlaceGeoinfo(doc);
+});
+
+Meteor.methods({
+	findGeoinfoByLoc: function(loc, fields) {
+
+		if(!this.userId && !K.Util.valid.loc(loc)) return null;
+
+		console.log('findGeoinfoByLoc...', loc);
+
+		var ret = K.Geoinfo.getFieldsByLoc(loc, fields);
+
+		//console.log('findGeoinfoByLoc', ret);
+
+		return ret;
+	}
 });

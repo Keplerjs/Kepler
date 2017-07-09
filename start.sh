@@ -20,12 +20,12 @@ export PORT=8800
 #export NODE_OPTIONS='--debug'
 
 if [ $MYIP = '127.0.1.1' ]; then
-	echo "START DEV MODE"
+	echo "START DEVELOPMENT MODE"
 	export ROOT_URL="http://$DOMAINDEV:$PORT"
 	meteor --port $PORT --settings $SETS
 #	meteor --port $PORT --production --settings $SETS
 else
-	echo "START PROD MODE"
+	echo "START PRODUTION MODE"
 	export ROOT_URL="http://$DOMAINPRO"
 	meteor --port $PORT --production --settings $SETS
 #	meteor --port $PORT --settings $SETS

@@ -1,75 +1,96 @@
-/*K.Cache.clean('elevation');
-K.Cache.clean('aspect');
-K.Cache.clean('near');
-K.Cache.clean('municipality');
-K.Cache.clean('province');
-K.Cache.clean('region');
-K.Cache.clean('country');
-K.Cache.clean('geoip');
-*/
+
+var Future = Npm.require('fibers/future');
+
+var cacheGeoinfo = true;
+
+Meteor.startup(function() {
+	_.each(geoFields, function(opt,field) {
+		K.Cache.clean(opt.name);
+	});
+})
+
+
 var geoFields = {
-	'elevation': {
-		field: 'ele',
+	ele: {
+		name: 'elevation',
+		cache: true,
+		roundLoc: 8,
 		func: K.Geoapi.elevationAPILocal
 	},
-	'aspect': {
-		field: 'esp',
+	esp: {
+		name: 'aspect',
+		cache: true,
+		roundLoc: 8,
 		func: K.Geoapi.aspectAPILocal
 	},
-	'near': {
-		field: 'near',
+	near: {
+		name: 'near',
+		cache: true,
+		roundLoc: 8,
 		func: K.Geoapi.nearAPI
 	},
-	'municipality': {
-		field: 'com',
+	com: {
+		name: 'municipality',
+		cache: true,
+		roundLoc: 8,
 		func: K.Geoapi.municipalityAPI
 	},
-	'province': {
-		field: 'prov',
+	prov: {
+		name: 'province',
+		cache: true,
+		roundLoc: 8,
 		func: K.Geoapi.provinceAPI
 	},
-	'region': {
-		field: 'reg',
+	reg: {
+		name: 'region',
+		cache: true,
+		roundLoc: 8,
 		func: K.Geoapi.regionAPI
 	},
-	'country': {
-		field: 'naz',
+	naz: {
+		name: 'country',
+		cache: true,
+		roundLoc: 8,
 		func: K.Geoapi.countryAPI
+	},
+	loc: {
+		name: 'loc',
+		cache: false,
+		roundLoc: 8,
+		func: function(loc) {
+			return loc;
+		}
 	}
 };
 
 Kepler.Geoinfo = {
-	elevation: function(ll) {
-		ll = K.Util.geo.roundLoc(ll, 8);
-		return K.Cache.get(ll, 'elevation', K.Geoapi.elevationAPILocal);
-	},
-	aspect: function(ll) {
-		ll = K.Util.geo.roundLoc(ll, 8);
-		return K.Cache.get(ll, 'aspect', K.Geoapi.aspectAPILocal);
-	},
-	near: function(ll) {
-		ll = K.Util.geo.roundLoc(ll, 8);
-		return K.Cache.get(ll, 'near', K.Geoapi.nearAPI);
-	},
-	municipality: function(ll) {
-		ll = K.Util.geo.roundLoc(ll, 8);
-		return K.Cache.get(ll ,'municipality', K.Geoapi.municipalityAPI);
-	},
-	province: function(ll) {
-		ll = K.Util.geo.roundLoc(ll, 8);
-		return K.Cache.get(ll ,'province', K.Geoapi.provinceAPI);
-	},
-	region: function(ll) {
-		ll = K.Util.geo.roundLoc(ll, 8);
-		return K.Cache.get(ll ,'region', K.Geoapi.regionAPI);
-	},
-	country: function(ll) {
-		ll = K.Util.geo.roundLoc(ll, 8);
-		return K.Cache.get(ll ,'country', K.Geoapi.countryAPI);
-	},
-	geoip:  function(ip) {
-		return K.Cache.get(ip, 'geoip', K.Geoapi.geoipAPI);
+	getFieldsByLoc: function(loc, fields) {
+
+		var future = new Future();
+
+		var tasks = {};
+
+		_.each(geoFields, function(opt, field) {
+			tasks[field] = function(cb) {
+				Meteor.defer(function() {
+					
+					var ll = K.Util.geo.roundLoc(loc, opt.roundLoc);
+				 	
+				 	if(cacheGeoinfo && opt.cache)
+				 		cb(null, K.Cache.get(ll, opt.name, opt.func) );
+				 	else
+				 		cb(null, opt.func(ll) );
+				});
+			};
+		});
+
+		async.parallel(tasks, function(err, ret) {
+			if(err)
+				future.throw(err);
+			else
+				future.return(ret);
+		});
+
+		return future.wait();
 	}
 };
-
-

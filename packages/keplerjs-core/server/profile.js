@@ -3,6 +3,8 @@ Meteor.methods({
 	setLoc: function(loc) {
 		//check(loc, [Number])
 
+		//TODO rename in updateUserLoc
+
 		if(!this.userId) return null;
 
 		var userData = Meteor.user()

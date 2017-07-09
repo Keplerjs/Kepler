@@ -17,7 +17,7 @@
 	background: url("/packages/keplerjs_theme/assets/images/sprite.svg") no-repeat;
 }
 .icon.icon-social {
-	background:url("/packages/keplerjs_theme/assets/images/sprite-social.png") no-repeat;
+	background: url("/packages/keplerjs_theme/assets/images/sprite-social.png") no-repeat;
 	width:30px;
 	height:30px;
 }
@@ -55,7 +55,7 @@
 }
 /* MARKER DRAG */
 .marker-handledrag  {
-	background-position: 0 -420px;
+	background-position: -239px -30px;
 	border: 1px solid #FFAB1D;
 	background-color: rgba(255,170,30,0.5);
 }

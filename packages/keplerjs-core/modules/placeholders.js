@@ -1,5 +1,5 @@
 /*
-	list of placeholders and loaded temaplates for each
+	list of core placeholders and loaded temaplates for each
 */
 K.placeholders = {
 	sidebarNav: [],

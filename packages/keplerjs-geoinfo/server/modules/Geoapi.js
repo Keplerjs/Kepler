@@ -11,10 +11,13 @@ var geonamesUser = Meteor.settings.accounts.geonamesUser,
 	};
 
 var httpGet = function(url) {
+
+	console.log('Geoapi: ', url);
+
 	try {
 		return HTTP.get(url, getOpts);
 	} catch(e) {
-		console.log('Geoapi: error',e.statusCode);
+		console.log('Geoapi: error', e.statusCode);
 		return false;
 	}
 }

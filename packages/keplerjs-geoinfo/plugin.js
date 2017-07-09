@@ -14,7 +14,8 @@ K.Plugin({
 				com: '',	//municipality
 				prov: '',	//province
 				reg: '',	//district
-				naz: '',	//country	
+				naz: '',	//country
+				//shadow
 			}
 		}
 	},
@@ -24,5 +25,8 @@ K.Plugin({
 				geoinfo: 1
 			}
 		}
-	}	
+	},
+	settings: {
+		cacheGeoinfo: true
+	}
 });

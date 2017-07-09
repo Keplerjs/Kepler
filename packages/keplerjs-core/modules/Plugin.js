@@ -23,7 +23,7 @@ K.Plugin = function(plugin) {
 				_.deepExtend(K.schemas, plugin.schemas);
 
 /*			if(_.isObject(plugin.settings))
-				_.deepExtend(K.settings, plugin.settings);	*/		
+				_.deepExtend(K.settings, plugin.settings);*/
 
 			this.plugins[plugin.name] = plugin;
 		}

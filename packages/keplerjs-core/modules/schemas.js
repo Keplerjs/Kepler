@@ -15,20 +15,9 @@ Kepler.schemas = {
 		loc: [],		   //coordinates lat,lng
 		desc: '',		   //place description
 		warn: '',          //place warnings and dangers
-
 		checkins: [],	   //users inside place	
 		hist: [],		   //recents checkins
-		source: {},		   //descrive source of data
-
-//TODO move into geo property
-		ele: 0,		       //elevation
-		esp: 0,		       //aspect
-		near: '',	       //near locality
-		com: '',		   //municipality
-		prov: '',		   //province
-		reg: '',		   //district
-		naz: '',		   //country		
-		//shadow:'',
+		source: {},		   //describe source of data
 	},
 	
 	user: {
@@ -36,12 +25,12 @@ Kepler.schemas = {
 		username: '',	   //username used in urls
 		createdAt: '',	   //new Date() of user insert
 		emails: [], 
-		avatar: '',
+		avatar: '',		   //user photo
 		status: '',        //status mood message, shown in profile
 		gender: '',
 		city: '',
 		lang: 'it',
-		likeplaces: [],	   //(TODO rename in types) tipologia climber i18n.places					
+		likeplaces: [],	   //(TODO rename in types) tipologia climber i18n.places
 		loc: null,		   //current gps position
 		loclast: null,	   //lat gps position
 		checkin: null,	   //id Place where I am
