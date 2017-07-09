@@ -56,24 +56,24 @@ Kepler.Cache = {
 		return parseInt( Math.round(new Date().getTime()/1000) / expires[expire] );
 	},
 
-	set: function(key, val, name) {
+	set: function(valKey, val, name) {
 
-		key = this._keygen(key);
+		var idKey = this._keygen(valKey);
 			
-		this._getCollection(name).upsert(key, {$set: {val: val} });
+		this._getCollection(name).upsert(idKey, {$set: {val: val} });
 		
 		return val;
 	},
-	get: function(key, name, valFunc) {	//if value is not setted it's updated from valFunc
+	get: function(valKey, name, valFunc) {	//if value is not setted it's updated from valFunc
 
-		key = this._keygen(key);
+		var idKey = this._keygen(valKey);
 
 		valFunc = _.isFunction(name) ? name : valFunc;
 
-		var doc = this._getCollection(name).findOne(key) || {val: undefined};
+		var doc = this._getCollection(name).findOne(idKey) || {val: undefined};
 		
 		if(_.isFunction(valFunc) && doc.val===undefined)
-			doc.val = this.set(key, valFunc(key), name);
+			doc.val = this.set(idKey, valFunc(valKey), name);
 
 		return doc.val;
 	},

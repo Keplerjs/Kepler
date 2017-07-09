@@ -10,7 +10,6 @@ email
 standard-app-packages
 standard-minifier-css
 standard-minifier-js
-http
 
 keplerjs:core
 keplerjs:ui

@@ -12,6 +12,7 @@ Places = new Mongo.Collection('places');
 // 	hist: { $each: [placeId], $slice: Meteor.settings.public.maxHist }
 // }
 
+//doc of before.insert in https://github.com/matb33/meteor-collection-hooks
 Places.before.insert(function(userId, doc) {
 	doc.createdAt = K.Util.timeUnix();
 	doc.userId = userId;

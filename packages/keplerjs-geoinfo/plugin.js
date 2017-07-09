@@ -7,6 +7,7 @@ K.Plugin({
 	schemas: {
 		place: {
 			geoinfo: {
+				loc: [],	//location
 				ele: 0,		//elevation
 				esp: 0,		//aspect
 				near: '',	//near locality

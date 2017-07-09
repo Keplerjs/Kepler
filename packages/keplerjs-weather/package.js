@@ -13,6 +13,11 @@ Package.onUse(function(api) {
   api.use([
     'keplerjs:core'
   ]);
+  
+  api.use([
+    'http',
+    //'robodo:async',
+  ],'server');
 
   api.addFiles([
     'plugin.js',

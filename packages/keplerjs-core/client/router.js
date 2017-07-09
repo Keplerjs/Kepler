@@ -203,7 +203,7 @@ Router.map(function() {
 		path: '/place/:placeId/map',
 		template: 'empty',
 		waitOn: function() {
-			return Meteor.subscribe('placesByIds', [this.params.placeId]);
+			return Meteor.subscribe('placesById', this.params.placeId);
 		},
 		onAfterAction: function() {
 			if(!this.ready()) return null;

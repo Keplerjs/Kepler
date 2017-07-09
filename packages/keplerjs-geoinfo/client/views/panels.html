@@ -6,6 +6,7 @@
 			{{i18n 'tabs.geoinfo'}}
 		</li>
 		<li class="list-group-item">
+		{{#with geoinfo}}
 			{{#if near}}<label>{{i18n 'labels.loc'}}</label>  {{near}}<br />{{/if}}
 			{{#if reg}}<label>{{i18n 'labels.reg'}}</label>   {{reg}} <br />{{/if}}
 			{{#if prov}}<label>{{i18n 'labels.prov'}}</label> {{prov}}<br />{{/if}}
@@ -17,6 +18,7 @@
 				<label>{{i18n 'labels.sunrise'}}</label> {{sunrise loc}} 
 				<label>{{i18n 'labels.sunset'}}</label> {{sunset loc}} 
 			{{/if}}
+		{{/with}}
 		</li>
 	</ul>
 

@@ -1,39 +1,42 @@
-/*
-	modulo server per calcolo informazioni geografiche
-
-	http://www.geonames.org/export/web-services.html
+/*K.Cache.clean('elevation');
+K.Cache.clean('aspect');
+K.Cache.clean('near');
+K.Cache.clean('municipality');
+K.Cache.clean('province');
+K.Cache.clean('region');
+K.Cache.clean('country');
+K.Cache.clean('geoip');
 */
-
-var cacheGet = function(ll, key, func) {
-
-	var loc = K.Util.geo.roundLoc(ll, 8);
-	
-	return K.Cache.get(loc, key, func);
-}
-
-Kepler.Geoinfo = {		
+Kepler.Geoinfo = {
 	elevation: function(ll) {
-		return cacheGet(ll, 'elevation', elevationAPILocal);
+		ll = K.Util.geo.roundLoc(ll, 8);
+		return K.Cache.get(ll, 'elevation', K.Geoapi.elevationAPILocal);
 	},
 	aspect: function(ll) {
-		return cacheGet(ll, 'aspect', aspectAPILocal);
+		ll = K.Util.geo.roundLoc(ll, 8);
+		return K.Cache.get(ll, 'aspect', K.Geoapi.aspectAPILocal);
 	},
 	near: function(ll) {
-		return cacheGet(ll, 'near', nearAPI);
+		ll = K.Util.geo.roundLoc(ll, 8);
+		return K.Cache.get(ll, 'near', K.Geoapi.nearAPI);
 	},
 	municipality: function(ll) {
-		return cacheGet(ll ,'municipality', municipalityAPI);
+		ll = K.Util.geo.roundLoc(ll, 8);
+		return K.Cache.get(ll ,'municipality', K.Geoapi.municipalityAPI);
 	},
 	province: function(ll) {
-		return cacheGet(ll ,'province', provinceAPI);
+		ll = K.Util.geo.roundLoc(ll, 8);
+		return K.Cache.get(ll ,'province', K.Geoapi.provinceAPI);
 	},
 	region: function(ll) {
-		return cacheGet(ll ,'region', regionAPI);
+		ll = K.Util.geo.roundLoc(ll, 8);
+		return K.Cache.get(ll ,'region', K.Geoapi.regionAPI);
 	},
 	country: function(ll) {
-		return cacheGet(ll ,'country', countryAPI);
+		ll = K.Util.geo.roundLoc(ll, 8);
+		return K.Cache.get(ll ,'country', K.Geoapi.countryAPI);
 	},
 	geoip:  function(ip) {
-		return K.Cache.get(ip, 'geoip', geoipAPI);
+		return K.Cache.get(ip, 'geoip', K.Geoapi.geoipAPI);
 	}
 };

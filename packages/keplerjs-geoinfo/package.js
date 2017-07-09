@@ -16,11 +16,12 @@ Package.onUse(function(api) {
   ]);
 
   api.use([
+    'http',
     'robodo:async',
   ],'server');
 
   api.addFiles([
-    'plugin.js',
+    'plugin.js'
   ]);
 
   api.addFiles([
@@ -29,8 +30,9 @@ Package.onUse(function(api) {
   ],'client');
 
   api.addFiles([
-    'server/lib/geoapi.js',    
+    'server/modules/Geoapi.js',
     'server/modules/Geoinfo.js',
+    'server/places.js',    
   ],'server');
   
 });
