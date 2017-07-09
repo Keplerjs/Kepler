@@ -32,7 +32,8 @@ Package.onUse(function(api) {
   api.addFiles([
     'server/modules/Geoapi.js',
     'server/modules/Geoinfo.js',
-    'server/places.js',    
+    'server/places.js',
+    'server/users.js'    
   ],'server');
   
 });

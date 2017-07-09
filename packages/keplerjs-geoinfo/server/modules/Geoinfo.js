@@ -7,6 +7,37 @@ K.Cache.clean('region');
 K.Cache.clean('country');
 K.Cache.clean('geoip');
 */
+var geoFields = {
+	'elevation': {
+		field: 'ele',
+		func: K.Geoapi.elevationAPILocal
+	},
+	'aspect': {
+		field: 'esp',
+		func: K.Geoapi.aspectAPILocal
+	},
+	'near': {
+		field: 'near',
+		func: K.Geoapi.nearAPI
+	},
+	'municipality': {
+		field: 'com',
+		func: K.Geoapi.municipalityAPI
+	},
+	'province': {
+		field: 'prov',
+		func: K.Geoapi.provinceAPI
+	},
+	'region': {
+		field: 'reg',
+		func: K.Geoapi.regionAPI
+	},
+	'country': {
+		field: 'naz',
+		func: K.Geoapi.countryAPI
+	}
+};
+
 Kepler.Geoinfo = {
 	elevation: function(ll) {
 		ll = K.Util.geo.roundLoc(ll, 8);
@@ -40,3 +71,5 @@ Kepler.Geoinfo = {
 		return K.Cache.get(ip, 'geoip', K.Geoapi.geoipAPI);
 	}
 };
+
+
