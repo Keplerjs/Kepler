@@ -73,7 +73,6 @@ Template.registerHelper('humanLoc', function(loc) {
 	return K.Util.humanize.loc(loc);
 });
 
-
 Template.registerHelper('stringify', function(prop) {
 	return JSON.stringify(prop,null,4);
 });

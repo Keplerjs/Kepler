@@ -4,21 +4,19 @@
 		<a href="/place/{{id}}" class="btn btn-block btn-default popup-tit">
 			{{#if name}}<b>{{name}}</b>{{else}}<i>{{i18n 'labels.noname'}}</i>{{/if}}
 		</a>
-		<div class="btn-group">
 
-			{{#if checkinsCount}}
-				<a class="btn btn-sm btn-default" href="/place/{{id}}/checkins"><i class="icon icon-users"></i></a>
-			{{/if}}
-			
-			{{> placeholder name='popupPlace'}}
-
-		</div>
+		{{#if checkinsCount}}
+			<a class="btn btn-sm btn-default" href="/place/{{id}}/checkins"><i class="icon icon-users"></i></a>
+		{{/if}}
+		
+		{{> placeholder name='popupPlace'}}
 	</div>
 </template>
 
 <template name="popupUser">
 	<div class="popup-user">
 	{{> item_user}}
+	{{> placeholder name='popupUser'}}
 	</div>
 </template>
 
@@ -26,6 +24,6 @@
 	<div class="popup-cursor">
 		{{> placeholder name='popupCursor'}}
 		<br />
-		<span>{{humanLoc loc}}</span>
+		<a href="/loc/{{humanLoc loc}}">{{humanLoc loc}}</a>
 	</div>
 </template>

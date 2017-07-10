@@ -101,6 +101,24 @@ Router.map(function() {
 		data: { hideSidebar: true }
 	});
 
+	this.route('locMap', {
+		path: '/loc/:lat,:lng',
+		template: 'empty',
+		/*waitOn: function() {
+			return Meteor.subscribe('placesById', this.params.loc);
+		},*/
+		onAfterAction: function() {
+			if(!this.ready()) return null;
+			
+			var loc = K.Util.geo.roundLoc([this.params.lat, this.params.lng]);
+
+			K.Map.loadLoc(loc, function() {
+				K.Map.Cursor.setLoc(loc);
+			});
+		},
+		data: { hideSidebar: true }
+	});
+
 	this.route('panelProfile', {
 		path: '/profile',
 		data: function() {

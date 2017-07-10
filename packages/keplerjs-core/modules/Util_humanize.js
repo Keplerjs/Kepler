@@ -103,7 +103,7 @@ Kepler.Util.humanize = {
 	},
 
 	loc: function (ll, sep, pre) {
-		sep = sep || ' ';
+		sep = sep || ',';
 		pre = pre || 6;
 		if(K.Util.valid.loc(ll))
 			return ll[0].toFixed(pre)+ sep +ll[1].toFixed(pre);

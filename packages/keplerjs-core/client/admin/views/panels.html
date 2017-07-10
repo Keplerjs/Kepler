@@ -1,7 +1,17 @@
 
 <template name="panelPlace_admin">
-<label>DATA:</label>
-<textarea cols="50" rows="10">
-{{stringify data}}
-</textarea>
+<hr>
+	<div class="list-group">
+		<span class="list-group-item active">
+			Admin
+		</span>
+		<span class="list-group-item">
+		<!-- TODO <label>{{i18n 'labels.season'}}</label>  {{season}}<br /> -->
+		<label>DATA:</label>
+		<textarea cols="47" rows="10">
+		{{stringify data}}
+		</textarea>
+		</span>
+	</div>
+
 </template>

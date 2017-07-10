@@ -20,12 +20,14 @@ L.Cursor = L.Class.extend({
 		self.popup$ = self._createPopup();
 		
 		self._map.on('click', function(e) {
-
 			if(self._map.hasLayer(self.marker))
 				self._map.removeLayer(self.marker);
 			else
-				self.marker.addTo(self._map).setLatLng(e.latlng);
+				self.setLoc(e.latlng)
 		});
+	},
+	setLoc: function(latlng) {
+		this.marker.addTo(this._map).setLatLng(latlng);
 	},
 	addTo: function (map) {
 		map.addLayer(this);

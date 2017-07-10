@@ -7,6 +7,7 @@ K.placeholders = {
 	panelProfile: [],
 	panelPlace: [],
 	popupPlace: [],
+	popupUser: [],
 	itemPlace:  [],
 	panelUser: [],
 	itemUser: []

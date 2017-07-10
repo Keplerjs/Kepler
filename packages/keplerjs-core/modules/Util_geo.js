@@ -4,7 +4,9 @@ Kepler.Util.geo = {
 
 	roundLoc: function(ll, prec) {
 		prec = prec || 6; 
-		return [ parseFloat(ll[0].toFixed(prec)), parseFloat(ll[1].toFixed(prec)) ];
+		var lat = parseFloat(ll[0]).toFixed(prec),
+			lng = parseFloat(ll[1]).toFixed(prec)
+		return [ parseFloat(lat), parseFloat(lng) ];
 	},
 
 	roundBbox: function(bb, prec) {
