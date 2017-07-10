@@ -55,8 +55,8 @@ Kepler.Util.humanize = {
 					giorno = oggi.getDate(),
 					mese = oggi.getMonth()+1,
 					anno = oggi.getFullYear(),
-					monthnames = shortnames ? i18n('months_short').split() : i18n('months').split(),
-					days = i18n('days').split(),
+					monthnames = shortnames ? i18n('months_short').split(',') : i18n('months').split(','),
+					days = i18n('days').split(','),
 					//{'-1':'Ieri', '0':'Oggi', '1':'Domani'}
 					ret = '',
 					dweek = (new Date(y, m-1, d)).getDay();

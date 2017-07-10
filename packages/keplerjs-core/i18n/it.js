@@ -105,6 +105,7 @@ i18n.map('it', {
 		noname: "senza nome",
 		type: "Tipo",
 		desc: "Descrizione",
+		createdAt: "Creazione",
 		share: "Condividi",
 		loc: "Località",
 		reg: "Regione",

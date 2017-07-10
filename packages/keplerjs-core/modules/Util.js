@@ -72,9 +72,7 @@ Kepler.Util = {
 	},
 
 	timeUnix: function() {
-	// 	//http://ikeif.net/2009/04/23/javascript-equivalent-php-time-unix-format/
-	// 	return parseInt(new Date().getTime().toString().substring(0, 10));
-		return Math.round(new Date().getTime()/1000);
+		return (new Date().getTime());
 	},
 
 	hashGen: function(expire) {

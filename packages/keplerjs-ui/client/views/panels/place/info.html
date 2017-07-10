@@ -2,10 +2,11 @@
 <template name="tab_info">
 
 	<ul class="list-group">
-		{{#if type}}
-		<!--li class="list-group-item">
-			<label>{{i18n 'labels.type'}}</label> {{placeType type}}
-		</li-->
+		{{#if createdAt}}
+		<li class="list-group-item">
+			<label>{{i18n 'labels.createdAt'}}</label>
+			<time>{{humanDateUTC createdAt}}</time>
+		</li>
 		{{/if}}
 		{{#if desc}}
 		<li class="list-group-item">
@@ -18,6 +19,11 @@
 			<i class="icon icon-danger"></i> {{warn}}
 		</li>
 		{{/if}}
+		{{#if type}}
+		<!--li class="list-group-item">
+			<label>{{i18n 'labels.type'}}</label> {{placeType type}}
+		</li-->
+		{{/if}}		
 	</ul>
 
 </template>
