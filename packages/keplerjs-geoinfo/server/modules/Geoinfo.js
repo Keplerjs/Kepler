@@ -1,62 +1,63 @@
 
 var Future = Npm.require('fibers/future');
 
-var cacheGeoinfo = true;
+var cacheGeoinfo = true
+	roundLocGeoinfo = 6;
 
 Meteor.startup(function() {
 	_.each(geoFields, function(opt,field) {
+		console.log('Geoinfo: cache clean ', opt.name);
 		K.Cache.clean(opt.name);
 	});
-})
-
+});
 
 var geoFields = {
 	ele: {
 		name: 'elevation',
 		cache: true,
-		roundLoc: 8,
+		roundLoroundLocGeoinfo: 8,
 		func: K.Geoapi.elevationAPILocal
 	},
 	esp: {
 		name: 'aspect',
 		cache: true,
-		roundLoc: 8,
+		roundLoc: roundLocGeoinfo,
 		func: K.Geoapi.aspectAPILocal
 	},
 	near: {
 		name: 'near',
 		cache: true,
-		roundLoc: 8,
+		roundLoc: roundLocGeoinfo,
 		func: K.Geoapi.nearAPI
 	},
 	com: {
 		name: 'municipality',
 		cache: true,
-		roundLoc: 8,
+		roundLoc: roundLocGeoinfo,
 		func: K.Geoapi.municipalityAPI
 	},
 	prov: {
 		name: 'province',
 		cache: true,
-		roundLoc: 8,
+		roundLoc: roundLocGeoinfo,
 		func: K.Geoapi.provinceAPI
 	},
 	reg: {
 		name: 'region',
 		cache: true,
-		roundLoc: 8,
+		roundLoc: roundLocGeoinfo,
 		func: K.Geoapi.regionAPI
 	},
 	naz: {
 		name: 'country',
 		cache: true,
-		roundLoc: 8,
+		roundLoc: roundLocGeoinfo,
 		func: K.Geoapi.countryAPI
 	},
 	loc: {
 		name: 'loc',
 		cache: false,
-		roundLoc: 8,
+		roundLoc: roundLocGeoinfo,
 		func: function(loc) {
 			return loc;
 		}

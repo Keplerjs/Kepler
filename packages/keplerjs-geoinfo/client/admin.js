@@ -28,8 +28,8 @@ Router.onAfterAction(function() {
 					self.bindPopup(self.popup$, { closeButton: false, minWidth: 200});
 				}
 
+				self.popup$.innerHTML = '';
 				Meteor.call('findGeoinfoByLoc', loc , function(err, data) {
-					self.popup$.innerHTML = '';
 					Blaze.renderWithData(Template.popupGeoinfo, data, self.popup$);
 				});
 
