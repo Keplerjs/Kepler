@@ -47,6 +47,7 @@ Package.onUse(function(api) {
 
   var packages = [
     'meteor-platform',
+    'reactive-var',
     'matb33:collection-hooks',
     'underscorestring:underscore.string',
     'kidovate:bootstrap-slider',
@@ -68,8 +69,9 @@ Package.onUse(function(api) {
   ]);
   
   api.addFiles([
+    'client/L.NodeIcon.js',    
     'client/L.Marker.drag.js',
-    'client/L.NodeIcon.js',  
+    'client/L.Cursor.js'    
   ], ['client']);
 
   api.export([

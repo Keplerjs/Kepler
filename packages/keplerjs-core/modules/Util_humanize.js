@@ -102,7 +102,7 @@ Kepler.Util.humanize = {
 		return Math.round(bytes / Math.pow(1024, i), decimal) + ' ' + sizes[i];
 	},
 
-	latlng: function (ll, sep, pre) {
+	loc: function (ll, sep, pre) {
 		sep = sep || ' ';
 		pre = pre || 6;
 		if(K.Util.valid.loc(ll))

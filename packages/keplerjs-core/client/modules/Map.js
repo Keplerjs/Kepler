@@ -1,5 +1,7 @@
 /*
 	module for main map
+
+	//TODO include Leaflet.GeometryUtil
 */
 var layers = {},
 	controls = {},
@@ -142,6 +144,8 @@ controls.gps = L.control.gps({
 	}
 });
 
+layers.cursor = L.cursor();
+
 Kepler.Map = {
 
 	ready: false,
@@ -151,6 +155,8 @@ Kepler.Map = {
 	_deps: {
 		bbox: new Tracker.Dependency()
 	},
+
+	Cursor: layers.cursor,
 
 	init: function(opts, cb) {		//render map and add controls/layers
 
@@ -180,6 +186,13 @@ Kepler.Map = {
 
 		self.setOpts(opts);
 
+		self.Cursor.on('popupopen', function(e) {
+			var cursorData = {
+					loc: [e.latlng.lat, e.latlng.lng]
+				};
+			Blaze.renderWithData(Template.popupCursor, cursorData, this.popup$);
+		});
+
 		//Fix only for Safari event resize! when shift to fullscreen
 		$(window).on('orientationchange'+(K.Util.isMobile()?'':' resize'), _.debounce(function(e) {
 
@@ -204,6 +217,7 @@ Kepler.Map = {
 			controls.attrib,
 			controls.zoom,			
 			controls.gps,
+			layers.cursor,
 			layers.geojson,
 			layers.users
 		],'addTo', this._map);
@@ -354,3 +368,4 @@ Kepler.Map = {
 		return this;
 	}
 };
+

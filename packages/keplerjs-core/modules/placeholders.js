@@ -3,6 +3,7 @@
 */
 K.placeholders = {
 	sidebarNav: [],
+	popupCursor: [],
 	panelProfile: [],
 	panelPlace: [],
 	popupPlace: [],

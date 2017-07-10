@@ -25,12 +25,11 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-    'client/admin.js',
     'client/helpers.js',
+    'client/stylesheets/popups.css',
     'client/views/panels.html',
     'client/views/popups.html',
-    'client/stylesheets/icons.css',
-    'client/stylesheets/popups.css'
+    'client/views/popups.js'
   ],'client');
 
   api.addFiles([

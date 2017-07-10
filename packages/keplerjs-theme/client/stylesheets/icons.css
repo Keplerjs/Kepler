@@ -1,6 +1,7 @@
 .icon,
 .icon-avatar,
 .marker-anim,
+.marker-cursor,
 .marker-handledrag,
 .leaflet-marker-icon,
 .leaflet-control-search .search-cancel,
@@ -47,6 +48,16 @@
 	display: inline-block;
 	width:27px;
 	height:30px;
+}
+.marker-cursor {
+	background-position: -30px -390px;
+	height: 30px;
+	width: 30px;
+}
+.marker-cursor:hover {
+	background-position: -30px -420px;
+	height: 30px;
+	width: 30px;
 }
 .marker-poi .icon {
 	position: absolute;

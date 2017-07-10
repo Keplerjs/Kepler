@@ -17,6 +17,15 @@
 </template>
 
 <template name="popupUser">
+	<div class="popup-user">
 	{{> item_user}}
+	</div>
 </template>
 
+<template name="popupCursor">
+	<div class="popup-cursor">
+		{{> placeholder name='popupCursor'}}
+		<br />
+		<span>{{humanLoc loc}}</span>
+	</div>
+</template>

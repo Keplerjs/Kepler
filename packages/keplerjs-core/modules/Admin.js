@@ -7,7 +7,8 @@ Meteor.startup(function() {
 		name: 'admin',
 		placeholders: {
 			panelPlace: ['popupPlace_admin','panelPlace_admin'],
-			popupPlace: 'popupPlace_admin'
+			popupPlace: 'popupPlace_admin',
+			popupCursor: 'popupCursor_admin'
 		}
 	});
 });
