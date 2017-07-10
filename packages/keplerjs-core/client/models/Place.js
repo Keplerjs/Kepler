@@ -49,7 +49,7 @@ Kepler.Place = Class.extend({
 		if(!self.marker) {
 			self.icon = new L.NodeIcon({
 				nodeHtml: L.DomUtil.create('div'),
-				className: (self.name ? 'marker-'+self.type : 'marker-gray'),
+				className: (self.name && self.type)? 'marker-'+self.type : 'marker-gray',
 			});
 			self.marker = new L.Marker(self.loc, {icon: self.icon});
 			self.marker.item = self;
@@ -74,6 +74,10 @@ Kepler.Place = Class.extend({
 		K.Map.loadLoc(self.loc, function() {
 			self.icon.animate();
 		});
+	},
+
+	loadPanel: function() {
+		Router.go('panelPlace', {placeId: this.id });
 	},
 	
 	isOutdoor: function() {

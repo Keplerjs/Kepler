@@ -21,10 +21,13 @@ L.Cursor = L.Class.extend({
 		
 		self._map.on('click', function(e) {
 			if(self._map.hasLayer(self.marker))
-				self._map.removeLayer(self.marker);
+				self.hide();
 			else
 				self.setLoc(e.latlng)
 		});
+	},
+	hide: function() {
+		this._map.removeLayer(this.marker);
 	},
 	setLoc: function(latlng) {
 		this.marker.addTo(this._map).setLatLng(latlng);

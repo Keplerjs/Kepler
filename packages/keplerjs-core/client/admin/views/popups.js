@@ -1,4 +1,22 @@
 
+Template.popupCursor_admin.events({
+	'click .popup-create': function(e,tmpl) {
+		Meteor.call('insertPlace', this.loc, function(err, placeId) {
+
+			K.Map.Cursor.hide();
+
+			Meteor.subscribe('placeById', placeId, function() {
+				
+				var place = K.placeById(placeId);
+				
+				K.Map.addItem( place );
+
+				place.loadPanel();
+			});
+		});
+	},
+});
+
 Template.popupPlace_admin.events({
 //	debug actions
 	'click .popup-move': function(e,tmpl) {
@@ -33,7 +51,6 @@ Template.popupPlace_admin.events({
 		Meteor.call('clonePlace', this.id, function(err, placeId) {
 			Meteor.subscribe('placeById', placeId, function() {
 				var place = K.placeById(placeId);
-				console.log(place)
 				K.Map.addItem( place );
 				place.loadLoc();
 			});
