@@ -102,7 +102,7 @@ Router.map(function() {
 	});
 
 	this.route('locMap', {
-		path: '/loc/:lat,:lng',
+		path: '/map/:lat,:lng',
 		template: 'empty',
 		/*waitOn: function() {
 			return Meteor.subscribe('placesById', this.params.loc);
@@ -221,7 +221,7 @@ Router.map(function() {
 		path: '/place/:placeId/map',
 		template: 'empty',
 		waitOn: function() {
-			return Meteor.subscribe('placesById', this.params.placeId);
+			return Meteor.subscribe('placeById', this.params.placeId);
 		},
 		onAfterAction: function() {
 			if(!this.ready()) return null;

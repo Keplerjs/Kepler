@@ -1,8 +1,11 @@
 /*
-	core module for define and manage Kepler plugins
+	core module for define and manage Kepler pluginsù
+
+	//TODO remove plugin at runtime K.Plugin.remove('name')
 */
 
 K.plugins = {};
+
 K.Plugin = function(plugin) {
 	
 	if(plugin && _.isString(plugin.name) && plugin.name!=='')

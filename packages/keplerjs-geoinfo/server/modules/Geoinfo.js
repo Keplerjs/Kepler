@@ -2,26 +2,26 @@
 var Future = Npm.require('fibers/future');
 
 var cacheGeoinfo = true
-	roundLocGeoinfo = 6;
+	roundLocGeoinfo = 4;
 
-Meteor.startup(function() {
+/*Meteor.startup(function() {
 	_.each(geoFields, function(opt,field) {
 		console.log('Geoinfo: cache clean ', opt.name);
 		K.Cache.clean(opt.name);
 	});
-});
+});*/
 
 var geoFields = {
 	ele: {
 		name: 'elevation',
 		cache: true,
-		roundLoroundLocGeoinfo: 8,
+		roundLoc: 8,
 		func: K.Geoapi.elevationAPILocal
 	},
 	esp: {
 		name: 'aspect',
 		cache: true,
-		roundLoc: roundLocGeoinfo,
+		roundLoc: 8,
 		func: K.Geoapi.aspectAPILocal
 	},
 	near: {

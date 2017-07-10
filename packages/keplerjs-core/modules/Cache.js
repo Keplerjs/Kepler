@@ -26,6 +26,8 @@ Kepler.Cache = {
 
 			this._collections[name] = new Mongo.Collection(name, opts);
 			
+			console.log('Cache: new ', name);
+			
 			//TODO
 			//this._collections[name]._createCappedCollection(numBytes);
 

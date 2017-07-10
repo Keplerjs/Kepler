@@ -108,6 +108,7 @@ i18n.map('it', {
 		share: "Condividi",
 		loc: "Località",
 		reg: "Regione",
+		naz: "Nazione",
 		prov: "Provincia",
 		com: "Comune",
 		esp: "Esposizione",

@@ -15,6 +15,7 @@ keplerjs:core
 keplerjs:ui
 keplerjs:api
 keplerjs:upload
+keplerjs:share
 keplerjs:notif
 keplerjs:conver
 keplerjs:events

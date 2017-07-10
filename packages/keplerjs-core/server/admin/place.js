@@ -9,7 +9,7 @@ K.Admin.methods({
 		//TODO don't create places too nearby
 
 		var place = _.deepExtend(K.schemas.place, {
-			name: 'new '+K.Util.humanize.loc(loc),
+			name: K.Util.sanitizeName('new '+K.Util.humanize.loc(loc)),
 			loc: loc,
 			active: 0
 		});
