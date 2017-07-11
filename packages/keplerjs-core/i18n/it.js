@@ -50,8 +50,8 @@ i18n.map('it', {
 		stview: "Street View"
 	},
 	btns: {
-		checkin: "Entra qui!",
-		checkout:"Esci da qui",
+		checkin: "Sei qui!",
+		checkout: "Esci!",
 		wall: "Bacheca",
 		share: "Invia",
 		info: "Info",

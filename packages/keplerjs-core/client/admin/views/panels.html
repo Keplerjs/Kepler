@@ -1,6 +1,6 @@
 
 <template name="panelPlace_admin">
-<hr>
+{{#if isAdmin}}
 	<div class="list-group">
 		<span class="list-group-item active">
 			Admin
@@ -13,5 +13,5 @@
 		</textarea>
 		</span>
 	</div>
-
+{{/if}}
 </template>

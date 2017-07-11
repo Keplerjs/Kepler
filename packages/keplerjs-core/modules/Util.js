@@ -1,31 +1,5 @@
 
 Kepler.Util = {
-	//http://stackoverflow.com/questions/6491463/accessing-nested-javascript-objects-with-string-key
-	getPath: function(obj, prop) {
-		var parts = prop ? prop.split('.') : [],
-			last = parts.pop(),
-			len = parts.length,
-			cur = parts[0],
-			i = 1;
-
-		if(len > 0)
-			while((obj = obj[cur]) && i < len)
-				cur = parts[i++];
-
-		if(obj)
-			return obj[last];
-	},
-
-	deepExtend: function(target, source) {
-		//https://stackoverflow.com/questions/14843815/recursive-deep-extend-assign-in-underscore-js
-		//only for plain objects
-	    for (var prop in source)
-	        if (prop in target)
-	           this.deepExtend(target[prop], source[prop]);
-	        else
-	            target[prop] = source[prop];
-	    return target;
-	},
 
 	sanitizeMsg: function(body) {
 		body = _.str.stripTags(body);
@@ -59,6 +33,33 @@ Kepler.Util = {
 			.replace(/[^a-z0-9\\\-\._]/g,'')
 			.replace(/\.\./g,'.')
 			.replace(/\//g,'');
+	},
+	
+	//http://stackoverflow.com/questions/6491463/accessing-nested-javascript-objects-with-string-key
+	getPath: function(obj, prop) {
+		var parts = prop ? prop.split('.') : [],
+			last = parts.pop(),
+			len = parts.length,
+			cur = parts[0],
+			i = 1;
+
+		if(len > 0)
+			while((obj = obj[cur]) && i < len)
+				cur = parts[i++];
+
+		if(obj)
+			return obj[last];
+	},
+
+	deepExtend: function(target, source) {
+		//https://stackoverflow.com/questions/14843815/recursive-deep-extend-assign-in-underscore-js
+		//only for plain objects
+	    for (var prop in source)
+	        if (prop in target)
+	           this.deepExtend(target[prop], source[prop]);
+	        else
+	            target[prop] = source[prop];
+	    return target;
 	},
 
 	dateUtcToLocal: function(date) {

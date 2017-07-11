@@ -25,6 +25,8 @@ K.Plugin = function(plugin) {
 			if(_.isObject(plugin.schemas))
 				_.deepExtend(K.schemas, plugin.schemas);
 
+//TODO show settings only in server!!!
+
 /*			if(_.isObject(plugin.settings))
 				_.deepExtend(K.settings, plugin.settings);*/
 
@@ -36,3 +38,25 @@ K.Plugin = function(plugin) {
 	else
 		console.warn("Plugin: require name", plugin)
 };
+
+
+K.Plugin({
+	name: 'admin',
+	placeholders: {
+		panelPlace: ['popupPlace_admin','panelPlace_admin'],
+		popupPlace: 'popupPlace_admin',
+		popupCursor: 'popupCursor_admin'
+	},
+	schemas: {
+		user: {
+			isAdmin: 0
+		}
+	},
+	filters: {
+		currentUser: {
+			fields: {
+				isAdmin: 1
+			}
+		}
+	}
+});

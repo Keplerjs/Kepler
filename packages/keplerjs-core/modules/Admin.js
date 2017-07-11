@@ -2,17 +2,6 @@
 	Debugger and admnistrations methods
 */
 
-Meteor.startup(function() {
-	K.Plugin({
-		name: 'admin',
-		placeholders: {
-			panelPlace: ['popupPlace_admin','panelPlace_admin'],
-			popupPlace: 'popupPlace_admin',
-			popupCursor: 'popupCursor_admin'
-		}
-	});
-});
-
 Kepler.Admin = {
 	
 	method: {},	//list of server methods
@@ -29,7 +18,8 @@ Kepler.Admin = {
 				return _.contains(Meteor.settings.adminUsers, user.username);
 
 			else if(Meteor.isClient)
-				return user.isAdmin;//Accounts.onLogin
+				return user.isAdmin;
+			//set in server/admin/admin.js Accounts.onLogin
 		}
 		else 
 			return false

@@ -15,7 +15,7 @@ var httpGet = function(url) {
 	try {
 		
 		var res = HTTP.get(url, getOpts);
-		console.log(url,res.data)
+
 		if(res && res.data)
 			return res.data;
 		else
@@ -159,7 +159,7 @@ Kepler.Geoapi = {
 				url: 'http://api.geonames.org/countrySubdivisionJSON?lang=IT&'+
 					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+geonamesUser
 			};
-console.log('COUNTRY', src.url)
+			
 		data = httpGet(src.url);
 
 		if(data && data[src.par])

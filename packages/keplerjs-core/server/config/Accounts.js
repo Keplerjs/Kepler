@@ -20,8 +20,7 @@ Accounts.onLogin(function(login) {
 
 	var ip = login.connection.httpHeaders['x-real-ip'] || login.connection.clientAddress,
 		sets = {
-			online: 1,
-			isAdmin: K.Admin.isMe(login.user)
+			online: 1
 		};
 		
 	Users.update(login.user._id, {$set: sets});
@@ -34,28 +33,25 @@ Accounts.onLoginFailure(function(e) {
 	console.log('LoginFailure:', user);
 });
 
+Accounts.validateNewUser(function (user) {
+  if (user.username && user.username.length >= 3)
+    return true;
+	//TODO blacklist names
+  throw new Meteor.Error(403, "Username must have at least 3 characters");
+});
+
 Accounts.onCreateUser(function(options, user) {
 
-	var name = '',
-		username = '',
+	var gender = null,
+		lang = Meteor.settings.public.langDef
 		emails = [{
 			address: null,
 			verified: false
-		}],
-		avatar = '',
-		gender = null,
-		lang = Meteor.settings.public.langDef,
-		city = '';		
+		}];
 
-	if(user.username)
-	{
-		name = user.username;
-		username = user.username;
-		avatar = '';
-		emails = user.emails;
 		//TODO lang from browser
-	}
-	else if(user.services.facebook)
+	
+	if(user.services.facebook)
 	{
 		name = user.services.facebook.name;
 		username = user.services.facebook.username;
@@ -86,7 +82,7 @@ Accounts.onCreateUser(function(options, user) {
 	// }
 	
 	var retuser = _.extend(user, K.schemas.user, {
-		username: username,		
+		username: K.Util.sanitizeName(username),
 		name: name,
 		lang: lang,
 		emails: emails, 
@@ -94,7 +90,7 @@ Accounts.onCreateUser(function(options, user) {
 		gender: gender
 	});
 
-	console.log('New Account:', username);
+	console.log('New Account:', retuser.username);
 
 	return retuser;
 });
