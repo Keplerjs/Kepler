@@ -1,5 +1,7 @@
 /*
-	Debugger and admnistrations methods
+	Admnistrations modulo and Debugger methods
+
+	it's an interal Kepler plugin (see below)
 */
 
 Kepler.Admin = {
@@ -56,3 +58,29 @@ Kepler.Admin = {
 		});
 	}
 };
+
+
+Meteor.startup(function(){
+
+K.Plugin({
+	name: 'admin',
+	placeholders: {
+		panelPlace: ['popupPlace_admin','panelPlace_admin'],
+		popupPlace: 'popupPlace_admin',
+		popupCursor: 'popupCursor_admin'
+	},
+	schemas: {
+		user: {
+			isAdmin: 0
+		}
+	},
+	filters: {
+		currentUser: {
+			fields: {
+				isAdmin: 1
+			}
+		}
+	}
+});
+
+});

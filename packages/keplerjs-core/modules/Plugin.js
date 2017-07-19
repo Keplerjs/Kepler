@@ -1,12 +1,10 @@
 /*
-	core module for define and manage Kepler pluginsù
-
-	//TODO remove plugin at runtime K.Plugin.remove('name')
+	core module for define and manage Kepler plugins
 */
 
-K.plugins = {};
+Kepler.plugins = {};
 
-K.Plugin = function(plugin) {
+Kepler.Plugin = function(plugin) {
 	
 	if(plugin && _.isString(plugin.name) && plugin.name!=='')
 	{
@@ -38,25 +36,3 @@ K.Plugin = function(plugin) {
 	else
 		console.warn("Plugin: require name", plugin)
 };
-
-
-K.Plugin({
-	name: 'admin',
-	placeholders: {
-		panelPlace: ['popupPlace_admin','panelPlace_admin'],
-		popupPlace: 'popupPlace_admin',
-		popupCursor: 'popupCursor_admin'
-	},
-	schemas: {
-		user: {
-			isAdmin: 0
-		}
-	},
-	filters: {
-		currentUser: {
-			fields: {
-				isAdmin: 1
-			}
-		}
-	}
-});
