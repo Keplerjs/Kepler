@@ -37,7 +37,7 @@ Router.onBeforeAction(function(pause) {
 			//TODO hook for plugins actions
 			
 			K.Map.init(K.Profile.getOpts('map'), function() {
-				this.enableBBox();
+				this.enable();
 			});
 		}
 	}

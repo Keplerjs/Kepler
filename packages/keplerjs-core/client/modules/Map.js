@@ -238,6 +238,22 @@ Kepler.Map = {
 		return this;
 	},
 
+	enable: function() {
+		if(this.ready) {
+			this._map.addLayer(layers.cluster);
+			this._map.addLayer(layers.places);
+		}
+		return this;
+	},
+	
+	disable: function() {
+		if(this.ready) {
+			this._map.removeLayer(layers.places);
+			this._map.removeLayer(layers.cluster);
+		}
+		return this;
+	},
+
 	isVisible: function() {
 		if(!this.ready) return false;
 
@@ -270,21 +286,6 @@ Kepler.Map = {
 			layers.places.clearLayers();			
 			layers.cluster.clearLayers();
 			this._map.remove();			
-		}
-		return this;
-	},
-	
-	enableBBox: function() {
-		if(this.ready) {
-			this._map.addLayer(layers.cluster);
-			this._map.addLayer(layers.places);
-		}
-		return this;
-	},
-	disableBBox: function() {
-		if(this.ready) {
-			this._map.removeLayer(layers.places);
-			this._map.removeLayer(layers.cluster);
 		}
 		return this;
 	},
