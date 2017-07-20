@@ -10,7 +10,7 @@ Npm.depends({
   "bootstrap-list-filter": "0.3.2",
   "bootstrap-confirm-button": "0.1.0",
   "leaflet": "0.7.7",
-  "leaflet-gps": "1.0.2",
+  "leaflet-gps": "1.5.1",
   "leaflet-layerjson": "0.1.8",
   "leaflet.markercluster": "0.5.0"
 });

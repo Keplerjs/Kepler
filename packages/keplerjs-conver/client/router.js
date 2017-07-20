@@ -4,6 +4,7 @@ Router.map(function() {
 	this.route('convers', {
 		path: '/convers',
 		template: 'panelList',
+		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			return Meteor.subscribe('conversByIds', K.Profile.data.convers);
 		},
@@ -21,6 +22,7 @@ Router.map(function() {
 	this.route('placeConvers', {
 		path: '/place/:placeId/convers',
 		template: 'panelList',
+		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			return Meteor.subscribe('conversByTarget', this.params.placeId);
 		},
@@ -41,6 +43,7 @@ Router.map(function() {
 	this.route('userConver', {
 		path: '/user/:userId/conver',
 		template: 'empty',
+		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			if(this.params.userId===Meteor.userId())
 				Router.go('convers');
@@ -51,6 +54,7 @@ Router.map(function() {
 
 	this.route('panelConver', {
 		path: '/conver/:convId',
+		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			return Meteor.subscribe('converById', this.params.convId);
 		},

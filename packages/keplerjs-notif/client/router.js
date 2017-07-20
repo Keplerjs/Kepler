@@ -4,6 +4,7 @@ Router.map(function() {
 	this.route('notifs', {
 		path: '/notifications',
 		template: 'panelList',
+		layoutTemplate: 'layoutMap',
 		data: function() {
 			if(!this.ready()) return null;
 			return {

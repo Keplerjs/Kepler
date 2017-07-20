@@ -19,13 +19,21 @@ L.Cursor = L.Class.extend({
 		self.marker = self._createMarker();
 		self.popup$ = self._createPopup();
 		
-		self._map.on('click', function(e) {
-			if(self._map.hasLayer(self.marker))
-				self.hide();
-			else
-				self.setLoc(e.latlng)
-		});
+		self._map.on('click', self._onClick, self);
 	},
+
+	onRemove: function(map) {
+		map.off('click', this._onClick, this);
+		map.removeLayer(this.marker);
+	},
+	
+	_onClick: function(e) {
+		if(this._map.hasLayer(this.marker))
+			this.hide();
+		else
+			this.setLoc(e.latlng);
+	},
+
 	hide: function() {
 		this._map.removeLayer(this.marker);
 	},

@@ -2,7 +2,6 @@
 //TODO use https://github.com/DerMambo/ms-seo
 
 Router.configure({
-	layoutTemplate: 'layoutMap',
 	loadingTemplate: 'panelLoading',
 	notFoundTemplate: 'page404'
 });
@@ -24,32 +23,63 @@ Router.waitOn(function() {
 		});
 	}
 });
-
+/*
 Router.onBeforeAction(function(pause) {
 
 	var self = this;
 
-	if(this.ready())
+	if(self.ready())
 	{
-
+//console.log('onBeforeAction', Meteor.user())
 		if(!_.isEmpty(K.Profile.data)) {
 
+			self.render('layoutMap');
+
 			//TODO hook for plugins actions
-			
-			K.Map.init(K.Profile.getOpts('map'), function() {
-				this.enable();
-			});
+			if($('#map').length)
+				K.Map.init($('#map')[0], K.Profile.getOpts('map'), function() {
+					this.enable();
+				});
+			else
+				K.Map.destroy();
 		}
 	}
-	else
-		this.render('pageLoading');
+	else {
+		self.render('pageLoading');
+	}
 	
 	self.next();
 
-}, {except: ['pageIntro','settings','pageSettingsBlock','pageAbout','logout'] });//*/
-
+}, {except:  ['pageIntro','settings','pageSettingsBlock','pageAbout','logout'] });
+*/
 Router.onAfterAction(function() {
-	document.title = i18n('titles.'+this.route.getName()) || _.str.capitalize(this.route.getName());	
+	var self = this;
+
+	document.title = i18n('titles.'+this.route.getName()) || _.str.capitalize(this.route.getName());
+
+	if(this.route.options.layoutTemplate==='layoutMap') {
+
+Meteor.setTimeout(function() {
+	
+	console.log('K.Map.init!', self.route, $('#map').length, K.Profile.data)
+
+		if( self.ready() && $('#map').length && K.Profile.data) {
+
+			//console.log('map!', K.Profile.data);
+
+
+			K.Map.init($('#map')[0], K.Profile.getOpts('map'), function() {
+				this.enable();
+			});
+
+		}
+
+}, 0);
+
+	}
+	else
+		K.Map.destroy();
+
 });
 
 Router.map(function() {
@@ -98,12 +128,14 @@ Router.map(function() {
 	this.route('map', {
 		path: '/',
 		template: 'empty',
+		layoutTemplate: 'layoutMap',
 		data: { hideSidebar: true }
 	});
 
 	this.route('locMap', {
 		path: '/map/:lat,:lng',
 		template: 'empty',
+		layoutTemplate: 'layoutMap',
 		/*waitOn: function() {
 			return Meteor.subscribe('placesById', this.params.loc);
 		},*/
@@ -121,6 +153,7 @@ Router.map(function() {
 
 	this.route('panelProfile', {
 		path: '/profile',
+		layoutTemplate: 'layoutMap',
 		data: function() {
 			//return Meteor.user();
 			return K.Profile.user;
@@ -130,6 +163,7 @@ Router.map(function() {
 	this.route('friends', {
 		path: '/friends',
 		template: 'panelList',
+		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			return Meteor.subscribe('friendsByIds', K.Profile.data.friends);
 		},
@@ -148,6 +182,7 @@ Router.map(function() {
 	this.route('places', {
 		path: '/places',
 		template: 'panelList',
+		layoutTemplate: 'layoutMap',
 		data: function() {
 			if(!this.ready()) return null;
 			var bbox = K.Map.getBBox(),
@@ -169,6 +204,7 @@ Router.map(function() {
 	this.route('favorites', {
 		path: '/favorites',
 		template: 'panelList',
+		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			return Meteor.subscribe('placesByIds', K.Profile.data.favorites);
 		},
@@ -191,6 +227,7 @@ Router.map(function() {
 	this.route('hist', {
 		path: '/history',
 		template: 'panelList',
+		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			return Meteor.subscribe('placesByIds', K.Profile.data.hist);
 		},
@@ -207,6 +244,7 @@ Router.map(function() {
 
 	this.route('panelPlace', {
 		path: '/place/:placeId',
+		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			return Meteor.subscribe('placeById', this.params.placeId);
 		},
@@ -220,6 +258,7 @@ Router.map(function() {
 	this.route('placeMap', {
 		path: '/place/:placeId/map',
 		template: 'empty',
+		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			return Meteor.subscribe('placeById', this.params.placeId);
 		},
@@ -237,6 +276,7 @@ Router.map(function() {
 	this.route('placeCheckins', {
 		path: '/place/:placeId/checkins',
 		template: 'panelList',
+		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			return Meteor.subscribe('usersByPlace', this.params.placeId);
 		},
@@ -256,6 +296,7 @@ Router.map(function() {
 
 	this.route('panelUser', {
 		path: '/user/:userId',
+		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			if(this.params.userId===Meteor.userId())
 				Router.go('panelProfile');
@@ -276,6 +317,7 @@ Router.map(function() {
 	this.route('userMap', {
 		path: '/user/:userId/map',
 		template: 'empty',
+		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			return Meteor.subscribe('friendsByIds', [this.params.userId]);
 		},

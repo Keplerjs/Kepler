@@ -152,21 +152,23 @@ Kepler.Map = {
 
 	_map: null,
 
+	base: layers.baselayer,
+
 	_deps: {
 		bbox: new Tracker.Dependency()
 	},
 
 	Cursor: layers.cursor,
 
-	init: function(opts, cb) {		//render map and add controls/layers
+	init: function(div, opts, cb) {		//render map and add controls/layers
 
 		var self = this;
 
-		if(self.ready || $('#map').length===0) return this;
+		if(self.ready) return this;
 
 		self.ready = true;
 
-		self._map = new L.Map('map', {		
+		self._map = new L.Map(div, {		
 			attributionControl: false,
 			zoomControl: false			
 		})
@@ -211,15 +213,38 @@ Kepler.Map = {
 		return this;
 	},
 
+	destroy: function() {
+		
+		if(this.ready) {
+			this.ready = false;
+
+			console.log('Map.destroy')
+
+			this._map
+				.removeLayer(layers.places)
+				.removeLayer(layers.cluster)
+				.removeLayer(layers.baselayer)
+				.removeLayer(layers.cursor)
+				.removeLayer(layers.geojson)
+				.removeLayer(layers.users)
+				.removeControl(controls.attrib)
+				.removeControl(controls.zoom)
+				.removeControl(controls.gps);
+			
+			this._map.remove();	
+		}
+		return this;
+	},
+
 	_addControls: function() {
 		_.invoke([
 			layers.baselayer,
+			layers.cursor,			
+			layers.geojson,
+			layers.users,
 			controls.attrib,
 			controls.zoom,			
-			controls.gps,
-			layers.cursor,
-			layers.geojson,
-			layers.users
+			controls.gps			
 		],'addTo', this._map);
 	},
 	
@@ -276,16 +301,6 @@ Kepler.Map = {
 			this._setView(opts.center, opts.zoom);
 
 			layers.baselayer.setUrl( Meteor.settings.public.layers[opts.layer] );
-		}
-		return this;
-	},
-
-	destroy: function() {
-		if(this.ready) {
-			this.ready = false;
-			layers.places.clearLayers();			
-			layers.cluster.clearLayers();
-			this._map.remove();			
 		}
 		return this;
 	},
