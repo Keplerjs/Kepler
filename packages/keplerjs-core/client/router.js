@@ -23,35 +23,7 @@ Router.waitOn(function() {
 		});
 	}
 });
-/*
-Router.onBeforeAction(function(pause) {
 
-	var self = this;
-
-	if(self.ready())
-	{
-//console.log('onBeforeAction', Meteor.user())
-		if(!_.isEmpty(K.Profile.data)) {
-
-			self.render('layoutMap');
-
-			//TODO hook for plugins actions
-			if($('#map').length)
-				K.Map.init($('#map')[0], K.Profile.getOpts('map'), function() {
-					this.enable();
-				});
-			else
-				K.Map.destroy();
-		}
-	}
-	else {
-		self.render('pageLoading');
-	}
-	
-	self.next();
-
-}, {except:  ['pageIntro','settings','pageSettingsBlock','pageAbout','logout'] });
-*/
 Router.onAfterAction(function() {
 	var self = this;
 
@@ -59,22 +31,16 @@ Router.onAfterAction(function() {
 
 	if(this.route.options.layoutTemplate==='layoutMap') {
 
-Meteor.setTimeout(function() {
-	
-	console.log('K.Map.init!', self.route, $('#map').length, K.Profile.data)
+		//PATCH
+		Meteor.setTimeout(function() {
+			//console.log('K.Map.init!', self.route, $('#map').length, K.Profile.data)
+			if( self.ready() && $('#map').length && K.Profile.data) {
 
-		if( self.ready() && $('#map').length && K.Profile.data) {
-
-			//console.log('map!', K.Profile.data);
-
-
-			K.Map.init($('#map')[0], K.Profile.getOpts('map'), function() {
-				this.enable();
-			});
-
-		}
-
-}, 10);
+				K.Map.init($('#map')[0], K.Profile.getOpts('map'), function() {
+					this.enable();
+				});
+			}
+		}, 10);
 
 	}
 	else

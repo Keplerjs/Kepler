@@ -1,8 +1,8 @@
 {
 	"adminUsers": ["stef"],
 	"dirs": {
-		"uploads": "/var/www/climbo/static.climbo.net/uploads/",
-		"avatars": "/var/www/climbo/static.climbo.net/avatars/"
+		"uploads": "/var/www/static.app_meteor.net/uploads/",
+		"avatars": "/var/www/static.app_meteor.net/avatars/"
 	},
 	"public": {
 		"urls": {
@@ -62,22 +62,22 @@
 	},
 	"accounts": {
 		"geonamesUser": "climbo",
-		"ipinfodbKey": "ac735b1e635d4ec5b0ba271b287eb42c2161eabfbbc53894cb6ea642c210befd",
-		"wundergroundKey": "6a7ab4b56e163782",
+		"ipinfodbKey": "",
+		"wundergroundKey": "",
 		"facebook": {
 			"service": "facebook",
-			"appId": "527957493928101",
-			"secret": "be38887d1683e000a380dbfd56c4f908"
+			"appId": "",
+			"secret": ""
 		},
 		"google": {
 			"service": "google",
-			"clientId": "192873069165-674tq3bcnbstgai085g76ua67uioo70c.apps.googleusercontent.com",
-			"secret": "bxU2MUv2SY4cvcVQ4pNAoWaP"
+			"clientId": "",
+			"secret": ""
 		},
 		"twitter": {
 			"service": "twitter",
-			"consumerKey": "B3a4HBTdmjFOkf7S4J1k9SBsB",
-			"secret": "Qwijgho1wfn7amVdpRea5qVDmYnj46Zd2iX3XHRFsoIK6dryy9g"			
+			"consumerKey": "",
+			"secret": ""			
 		}
 	}	
 }
