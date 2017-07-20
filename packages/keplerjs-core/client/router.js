@@ -74,7 +74,7 @@ Meteor.setTimeout(function() {
 
 		}
 
-}, 0);
+}, 10);
 
 	}
 	else
