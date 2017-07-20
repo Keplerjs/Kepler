@@ -35,7 +35,7 @@
 			"center": [42.419851, 12.701923],
 			"maxBounds": [[36.282794, 5.361328], [47.542735, 21.071777]]
 		},
-		"loadLocZoom": 15,
+		"showLocZoom": 15,
 		"layers": {
 			"road": "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
 			"cycle": "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",

@@ -112,7 +112,7 @@ Router.map(function() {
 			
 			var loc = K.Util.geo.roundLoc([this.params.lat, this.params.lng]);
 
-			K.Map.loadLoc(loc, function() {
+			K.Map.showLoc(loc, function() {
 				K.Map.Cursor.setLoc(loc);
 			});
 		},
@@ -229,7 +229,7 @@ Router.map(function() {
 			var place = K.placeById( this.params.placeId );
 
 			if(place)
-				place.loadLoc();
+				place.showLoc();
 		},
 		data: { hideSidebar: true }
 	});
@@ -283,7 +283,7 @@ Router.map(function() {
 			var user = K.userById( this.params.userId );
 
 			if(user)
-				user.loadLoc();
+				user.showLoc();
 		},		
 		data: { hideSidebar: true }
 	});	

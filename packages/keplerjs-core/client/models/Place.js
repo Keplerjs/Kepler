@@ -66,12 +66,12 @@ Kepler.Place = Class.extend({
 		return self.marker;
 	},
 
-	loadLoc: function() {		//TODO rename loadLoc in showLoc
+	showLoc: function() {		//TODO rename showLoc in showLoc
 		var self = this;
 		
 		self.buildMarker();
 
-		K.Map.loadLoc(self.loc, function() {
+		K.Map.showLoc(self.loc, function() {
 			self.icon.animate();
 		});
 	},

@@ -26,7 +26,7 @@ Kepler.Place.include({
 		var self = this;
 
 		self.loadPois(function(poisList) {
-			K.Map.loadGeojson( self.poisToGeojson(poisList, self, poisType) );
+			K.Map.addGeojson( self.poisToGeojson(poisList, self, poisType) );
 		});
 	},	
 	getPoisList: function() {

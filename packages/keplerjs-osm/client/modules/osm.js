@@ -36,7 +36,7 @@ Kepler.Osm = {
 			//console.log('getOsmByBBox',geojson.features.length);
 
 			if(geojson.features.length)
-				K.Map.loadGeojson(geojson);
+				K.Map.addGeojson(geojson);
 		});
 	},
 
@@ -46,7 +46,7 @@ Kepler.Osm = {
 			console.log(geojson);
 
 			if(geojson.features.length>0)
-				K.Map.loadGeojson(geojson);
+				K.Map.addGeojson(geojson);
 		});
 	}	
 };

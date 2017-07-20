@@ -30,7 +30,7 @@ Kepler.Place.include({
 			if(trackId)
 				tracksList = findTracksByIds([trackId]).fetch();
 
-			K.Map.loadGeojson( self.tracksToGeojson(tracksList, self) );
+			K.Map.addGeojson( self.tracksToGeojson(tracksList, self) );
 		});
 	},
 	getTracksList: function() {

@@ -313,13 +313,13 @@ Kepler.Map = {
 		}
 	},
 	
-	loadLoc: function(loc, cb) {
+	showLoc: function(loc, cb) {
 		if(this.ready) {
 			if(_.isFunction(cb))
 				this._map.once("moveend zoomend", cb);
 			
 			if(loc && K.Util.valid.loc(loc))
-				this._setView( L.latLng(loc) , Meteor.settings.public.loadLocZoom);
+				this._setView( L.latLng(loc) , Meteor.settings.public.showLocZoom);
 		}
 		return this;
 	},
@@ -344,7 +344,7 @@ Kepler.Map = {
 		return this;
 	},
 
-	loadGeojson: function(geoData, cb) {
+	addGeojson: function(geoData, cb) {
 		if(this.ready) {
 			geoData = _.isArray(geoData) ? geoData : [geoData];
 

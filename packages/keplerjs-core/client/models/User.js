@@ -70,12 +70,12 @@ Kepler.User = Class.extend({
 		return self.marker;
 	},
 
-	loadLoc: function() {
+	showLoc: function() {
 		var self = this;
 		
 		self.buildMarker();
 
-		K.Map.loadLoc(self.loc, function() {
+		K.Map.showLoc(self.loc, function() {
 			self.icon.animate();
 		});
 	},

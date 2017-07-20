@@ -52,7 +52,7 @@ Template.popupPlace_admin.events({
 			Meteor.subscribe('placeById', placeId, function() {
 				var place = K.placeById(placeId);
 				K.Map.addItem( place );
-				place.loadLoc();
+				place.showLoc();
 			});
 		});
 	},	
