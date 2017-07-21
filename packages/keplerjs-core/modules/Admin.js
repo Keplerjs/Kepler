@@ -65,7 +65,7 @@ Meteor.startup(function(){
 K.Plugin({
 	name: 'admin',
 	placeholders: {
-		panelPlace: ['popupPlace_admin','panelPlace_admin'],
+		panelPlace: 'panelPlace_admin',
 		popupPlace: 'popupPlace_admin',
 		popupCursor: 'popupCursor_admin'
 	},

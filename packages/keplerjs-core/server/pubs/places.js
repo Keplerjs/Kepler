@@ -21,9 +21,7 @@ Meteor.publish('placesByName', function(initial) {
 
 
 Meteor.publish('placeById', function(placeId) {
-
-	if(this.userId)
-	{
+	if(this.userId) {
 		var placeCur = K.findPlaceById(placeId),
 			placeData = placeCur.fetch()[0],
 			retCurs = [];
@@ -45,11 +43,19 @@ Meteor.publish('placeById', function(placeId) {
 });
 
 Meteor.publish('placesByIds', function(placesIds) {
-
-	console.log('Pub: placesByIds', placesIds);
-
-	if(this.userId)
+	if(this.userId) {
+		console.log('Pub: placesByIds', placesIds);
 		return K.findPlacesByIds(placesIds);	
+	}
 	else
 		this.ready();	
+});
+
+Meteor.publish('placesByDate', function(daysAgo) {
+	if(this.userId) {
+		console.log('Pub: placesByDate', daysAgo);
+		return K.findPlacesByDate(daysAgo);
+	}
+	else
+		this.ready();
 });

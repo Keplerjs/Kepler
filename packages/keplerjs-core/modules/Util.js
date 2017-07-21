@@ -72,8 +72,9 @@ Kepler.Util = {
 		return newDate;   
 	},
 
-	timeUnix: function() {
-		return (new Date().getTime());
+	timeUnix: function(date) {
+		date = date || new Date();
+		return date.getTime();
 	},
 
 	hashGen: function(expire) {

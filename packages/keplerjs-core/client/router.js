@@ -154,11 +154,13 @@ Router.map(function() {
 		layoutTemplate: 'layoutMap',
 		data: function() {
 			if(!this.ready()) return null;
+
 			var bbox = K.Map.getBBox(),
 				places = K.findPlacesByBBox(bbox).fetch();
+
 			return {
-				title: i18n('titles.places'),
-				className: 'places',
+				title: i18n('titles.placesNearby'),
+				className: 'placesNearby',
 				headerTemplate: 'search_place',
 				itemsTemplate: 'item_place_search',
 				items: _.map(places, function(place) {
@@ -169,6 +171,30 @@ Router.map(function() {
 			};
 		}
 	});	
+
+	this.route('placesNews', {
+		path: '/places/news',
+		template: 'panelList',
+		layoutTemplate: 'layoutMap',
+		waitOn: function() {
+			return Meteor.subscribe('placesByDate');
+		},
+		data: function() {
+			if(!this.ready()) return null;
+			
+			var places = K.findPlacesByDate().fetch();
+
+			return {
+				title: i18n('titles.placesNews'),
+				className: 'placesNews',
+				headerTemplate: 'search_place',
+				itemsTemplate: 'item_place_search',
+				items: _.map(places, function(place) {
+					return K.placeById(place._id);
+				})
+			};
+		}
+	});		
 
 	this.route('favorites', {
 		path: '/favorites',

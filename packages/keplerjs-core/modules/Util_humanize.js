@@ -42,22 +42,23 @@ Kepler.Util.humanize = {
 	},
 
 	date: function(date, sep, shortnames, showyear) {
-		// date: 12-04-2012
-		date = date || '';
+		// accepted date format: 12-04-2012
+		date = date || new Date();
 		sep = sep || ' ';
 		shortnames = shortnames || false;
 		showyear = showyear || false;
 	
-		return date.replace(
-			/^(\d{1,2})-(\d{1,2})-(\d{4})$/,
-			function(all, d,m,y) {
+		function fromString(all, d,m,y) {
+
+			console.log(d,m,y)
+
 				var oggi = new Date(),
 					giorno = oggi.getDate(),
 					mese = oggi.getMonth()+1,
 					anno = oggi.getFullYear(),
 					monthnames = shortnames ? i18n('months_short').split(',') : i18n('months').split(','),
 					days = i18n('days').split(','),
-					//{'-1':'Ieri', '0':'Oggi', '1':'Domani'}
+					//{'-1':'Yesterday', '0':'Today', '1':'Tomorrow'}
 					ret = '',
 					dweek = (new Date(y, m-1, d)).getDay();
 
@@ -75,7 +76,12 @@ Kepler.Util.humanize = {
 					ret = fulldate;
 			
 				return ret;
-			});
+			}
+		if(_.isString(date))
+			return date.replace(/^(\d{1,2})-(\d{1,2})-(\d{4})$/, fromString);
+
+		else if(_.isDate(date))
+			return fromString(null, date.getDate(), date.getMonth()+1, date.getFullYear() );
 	},
 
 	distance: function(d, sign) {
@@ -102,7 +108,7 @@ Kepler.Util.humanize = {
 		return Math.round(bytes / Math.pow(1024, i), decimal) + ' ' + sizes[i];
 	},
 
-	loc: function (ll, sep, pre) {
+	loc: function (ll, pre, sep) {
 		sep = sep || ',';
 		pre = pre || 6;
 		if(K.Util.valid.loc(ll))

@@ -31,13 +31,30 @@ K.extend({
 		else if(Meteor.isServer) {
 			return Places.find({
 				loc: {
-					"$within": {
-						"$box": bbox
+					'$within': {
+						'$box': bbox
 					}
 				}
 			}, K.filters.placeItem);
 		}
 	},
+	findPlacesByDate: function() {
+	
+		var date = new Date();
+			date.setDate(date.getDate() - 10),
+			dateFrom = K.Util.timeUnix(date);
+
+		return Places.find({
+			createdAt: {
+				'$gte': dateFrom
+			}
+		}, _.extend(K.filters.placeItem, {
+				sort: {
+					createdAt: -1
+				}
+			})
+		);	
+	},	
 	findCheckinsCountByPlaces: function(placesIds) {
 		
 		var places = K.findPlacesByIds(placesIds).fetch();

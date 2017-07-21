@@ -7,9 +7,17 @@ K.Admin.methods({
 		loc = K.Util.geo.roundLoc(loc);
 
 		//TODO don't create places too nearby
+		var D = new Date(),
+			d = D.getDate(),
+			m = D.getMonth()+1,
+			y = D.getFullYear(),
+			today = [d,m,y].join('.');
+
+
+		var name = K.Util.sanitizeName('new '+today+' '+K.Util.humanize.loc(loc,2,' '))
 
 		var place = _.deepExtend(K.schemas.place, {
-			name: K.Util.sanitizeName('new '+K.Util.humanize.loc(loc)),
+			name: name,
 			loc: loc,
 			active: 0
 		});

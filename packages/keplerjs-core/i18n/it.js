@@ -23,6 +23,8 @@ i18n.map('it', {
 		histplaces: "Luoghi recenti",
 		friends: "I Tuoi Amici",
 		places: "Luoghi",
+		placesNearby: "Luoghi Vicini",
+		placesNews: "Luoghi recenti",
 		convers: "Messaggi",
 		notifs: "Notifiche",
 		conver: "Conversazione",
