@@ -18,7 +18,9 @@ Router.waitOn(function() {
 	else {
 		return Meteor.subscribe('currentUser', function() {
 			K.Profile.init(function() {
-				K.Admin.loadMethods();
+				
+				if(K.Admin.isMe())
+					K.Admin.loadMethods();
 			});
 		});
 	}
@@ -31,17 +33,18 @@ Router.onAfterAction(function() {
 
 	if(this.route.options.layoutTemplate==='layoutMap') {
 
-		//PATCH
+		//PATCH render map after template layoutMap is rendered
 		Meteor.setTimeout(function() {
-			//console.log('K.Map.init!', self.route, $('#map').length, K.Profile.data)
-			if( self.ready() && $('#map').length && K.Profile.data) {
+			
+			var map$ = $('#map')[0];
 
-				K.Map.init($('#map')[0], K.Profile.getOpts('map'), function() {
-					this.enable();
+			if( self.ready() && map$ && K.Profile.data) {
+
+				K.Map.init(map$, K.Profile.getOpts('map'), function() {
+					//TODO plugins hook event
 				});
 			}
 		}, 10);
-
 	}
 	else
 		K.Map.destroy();

@@ -174,7 +174,6 @@ Kepler.Map = {
 		})
 		.on('moveend zoomend', function(e) {
 			self._deps.bbox.changed();
-
 			//autoclean geojson layer
 			if(layers.geojson.getLayers().length) {
 				if(e.target.getBoundsZoom(layers.geojson.getBounds()) - e.target.getZoom() > 2)
@@ -218,12 +217,10 @@ Kepler.Map = {
 		if(this.ready) {
 			this.ready = false;
 
-			console.log('Map.destroy')
-
 			this._map
-				.removeLayer(layers.places)
-				.removeLayer(layers.cluster)
 				.removeLayer(layers.baselayer)
+				.removeLayer(layers.cluster)
+				.removeLayer(layers.places)				
 				.removeLayer(layers.cursor)
 				.removeLayer(layers.geojson)
 				.removeLayer(layers.users)
@@ -237,21 +234,23 @@ Kepler.Map = {
 	},
 
 	_addControls: function() {
-		_.invoke([
-			layers.baselayer,
-			layers.cursor,			
-			layers.geojson,
-			layers.users,
-			controls.attrib,
-			controls.zoom,			
-			controls.gps			
-		],'addTo', this._map);
+		this._map
+			.addLayer(layers.baselayer)
+			.addLayer(layers.cluster)
+			.addLayer(layers.places)				
+			.addLayer(layers.cursor)
+			.addLayer(layers.geojson)
+			.addLayer(layers.users)
+			.addControl(controls.attrib)
+			.addControl(controls.zoom)
+			.addControl(controls.gps);
 	},
 	
 	_setView: function(loc, zoom) {
 		if(this.ready) {
 			this._map.setView(loc, zoom);
-			/*TODO 
+			/*
+			//TODO 
 			if(this.sidebar$.hasClass('expanded')) {
 				var p = this._map.latLngToContainerPoint(L.latLng(loc));
 				p = L.point(p.x - sidebar$.width(), p.y);
@@ -262,11 +261,12 @@ Kepler.Map = {
 		}
 		return this;
 	},
-
+	
 	enable: function() {
 		if(this.ready) {
 			this._map.addLayer(layers.cluster);
 			this._map.addLayer(layers.places);
+			this._map.addLayer(layers.users);
 		}
 		return this;
 	},
@@ -275,6 +275,7 @@ Kepler.Map = {
 		if(this.ready) {
 			this._map.removeLayer(layers.places);
 			this._map.removeLayer(layers.cluster);
+			this._map.removeLayer(layers.users);
 		}
 		return this;
 	},
