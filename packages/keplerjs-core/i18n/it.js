@@ -36,12 +36,7 @@ i18n.map('it', {
 		about: "About Us",
 		page404: "Pagina non trovata!"
 	},
-	notifs: {
-		gpson: "Gli amici ora posso vedere la tua posizione!",
-		usergps: "<b>{$1}</b> ha attivato il suo gps",
-		useronline: "<b>{$1}</b> è online",
-		usercheckin: "<b>{$1}</b> è arrivato a <b>{$2}</b>",
-		placecheckins: "<b>{$1}</b> climbers a <b>{$2}</b>",
+	convers: {
 		userleaveconv: "<i class=\"text-muted\"> <b>{$1}</b> ha lasciato la conversazione.</i>",
 	},
 	tabs: {

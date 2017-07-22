@@ -1,8 +1,8 @@
 
 K.Admin.methods({
-	insertNotif: function() {
+	insertNotif: function(text, type) {
 		if(!K.Admin.isMe()) return false;
 	
-		K.insertNotif
+		K.insertNotif(text, type);
 	}
 });

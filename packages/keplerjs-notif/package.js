@@ -16,12 +16,11 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'plugin.js',    
-    'collections/notifs.js'
+    'collections/notifs.js',
+    'modules/Notif.js'
   ]);
 
   api.addFiles([
-    'client/modules/Notif.js',
-    'client/stylesheets/notif.css',
     'client/views/items.html',
     'client/views/panels.html',
     'client/views/panels.js',

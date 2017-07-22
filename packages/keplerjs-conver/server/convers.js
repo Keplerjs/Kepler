@@ -89,7 +89,7 @@ K.extend({
 		}
 		else	//se non è il creatore della conver la abbandona
 		{
-			K.insertMsgToConver(convId, i18n('notifs.userleaveconv', Meteor.user().name) );
+			K.insertMsgToConver(convId, i18n('convers.userleaveconv', Meteor.user().name) );
 			Users.update(Meteor.userId(), {
 				$pull: {
 					convers: convId

@@ -2,6 +2,10 @@
 <template name="item_notif">
 	<div class="alert alert-{{type}} alert-dismissable">
 		<a class="close" data-dismiss="alert">&times;</a>
-		<div><i class="icon icon-{{type}}"></i> {{{msg}}}</div>
+		<div>
+			<i class="icon icon-{{type}}"></i>
+			{{{msg}}}
+			<span class="pull-right">{{humanDateUTC createdAt}}</span>
+		</div>
 	</div>
 </template>

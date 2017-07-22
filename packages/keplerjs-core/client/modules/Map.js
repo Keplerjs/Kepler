@@ -140,7 +140,6 @@ controls.gps = L.control.gps({
 		K.Profile.setLoc([e.latlng.lat, e.latlng.lng]);
 		if(K.Profile.user && K.Profile.user.icon)
 			K.Profile.user.icon.animate();
-		console.warn(i18n('notifs.gpson'),'success');		
 	}
 });
 
