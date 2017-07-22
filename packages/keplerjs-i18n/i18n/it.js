@@ -16,7 +16,7 @@ i18n.map('it', {
 	},
 	titles: {
 		home: "Benvenuto",
-		profile: "Profilo",
+		profile: "Il Tuo Profilo",
 		settings: "Impostazioni",
 		settingsBlocked: "Utenti bloccati",
 		favorites: "Luoghi preferiti",

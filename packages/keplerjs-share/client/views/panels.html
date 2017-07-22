@@ -3,13 +3,12 @@
 
 	<form class="form-inline">
 		<label>{{i18n 'labels.share'}}</label><br />
-		<div class="input-group">
-			<input class="form-control input-share" type="text" value="/place/{{id}}" />
+		<div class="input-group input-group-sm">
+			<input class="form-control input-share" size="12" type="text" value="{{absoluteUrl 'place/'}}{{id}}" />
 			<span class="input-group-btn">
 				<a class="btn btn-default" href="#"><i class="icon icon-share"></i></a>
 			</span>
 		</div>
-		<br>
 		<div class="btn-group" role="group">
 		{{#with urls}}
 			<a href="{{apple}}" class="btn btn-sm btn-default" target="_blank">

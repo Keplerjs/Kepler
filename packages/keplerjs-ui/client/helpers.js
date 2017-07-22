@@ -5,6 +5,10 @@ Template.registerHelper('hideSidebar', function(prop) {
 	return Session.get('hideSidebar');
 });
 */
+Template.registerHelper('absoluteUrl', function(url) {
+	return Meteor.absoluteUrl(url)
+});
+
 Template.registerHelper('settings', function(prop) {
 	return K.Util.getPath(Meteor.settings.public, prop);
 });

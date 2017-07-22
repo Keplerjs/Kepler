@@ -13,7 +13,7 @@ Router.waitOn(function() {
 		if(Meteor.loggingIn())
 			this.render(this.loadingTemplate);
 		else
-			Router.go('pageHome');
+			Router.go('home');
 	}
 	else {
 		return Meteor.subscribe('currentUser', function() {
@@ -53,7 +53,7 @@ Router.onAfterAction(function() {
 
 Router.map(function() {
 
-	this.route('pageHome', {
+	this.route('home', {
 		path: '/home',
 		layoutTemplate: 'layoutFull',
 		loadingTemplate: 'pageLoading',
@@ -88,7 +88,7 @@ Router.map(function() {
 		onBeforeAction: function () {
 			K.Profile.logout();
 			K.Map.destroy();
-			Router.go('pageHome');
+			Router.go('home');
 		}
 	});
 
@@ -101,7 +101,7 @@ Router.map(function() {
 		data: { hideSidebar: true }
 	});
 
-	this.route('panelProfile', {
+	this.route('profile', {
 		path: '/profile',
 		template: 'panelProfile',
 		layoutTemplate: 'layoutMap',
