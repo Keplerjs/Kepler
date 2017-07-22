@@ -1,4 +1,8 @@
+/*
 
+	//TODO https://docs.meteor.com/api/passwords.html#Accounts-createUser
+
+*/
 Meteor.startup(function () {	
 	Accounts.config({
 		sendVerificationEmail: false,
@@ -25,12 +29,11 @@ Accounts.onLogin(function(login) {
 		
 	Users.update(login.user._id, {$set: sets});
 
-	console.log('Login:',login.user.username, ip);
+	console.log('Accounts: Login ',login.user.username, ip);
 });
 
 Accounts.onLoginFailure(function(e) {
-	var user = e.methodArguments && e.methodArguments[0] && e.methodArguments[0].user;
-	console.log('LoginFailure:', user);
+	console.log('Accounts: Login Failure ', e.methodArguments);
 });
 
 /*
@@ -44,18 +47,14 @@ Accounts.validateNewUser(function (user) {
 */
 Accounts.onCreateUser(function(options, user) {
 
-	var username = user.username,
+	var profile = options.profile,
+		username = user.username,
 		name = user.username,
 		lang = Meteor.settings.public.langDef,
 		avatar = '',
 		gender = null,
-		emails = [{
-			address: null,
-			verified: false
-		}];
+		emails = user.emails;
 
-		//TODO lang from browser
-	
 	if(user.services.facebook)
 	{
 		name = user.services.facebook.name;
@@ -88,6 +87,7 @@ Accounts.onCreateUser(function(options, user) {
 	
 	var retuser = _.extend(user, K.schemas.user, {
 		username: K.Util.sanitizeName(username),
+		profile: profile,		
 		name: name,
 		lang: lang,
 		avatar: avatar,
@@ -95,7 +95,7 @@ Accounts.onCreateUser(function(options, user) {
 		emails: emails
 	});
 
-	console.log('Accounts: New User ', retuser.username);
+	console.log('Accounts: Create User ', retuser);
 
 	return retuser;
 });

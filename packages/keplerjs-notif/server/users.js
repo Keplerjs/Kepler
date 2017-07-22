@@ -1,12 +1,11 @@
 
 Users.after.update(function(userId, doc, fieldNames, modifier, options) {
 
-console.log('Users.after.update', modifier)
-		
+	if(!userId) return false;	//userId is null when Meteor Accounts update users
+
+	var userData = Users.findOne(userId);
+
 	if(userId!==doc._id && _.contains(fieldNames,'usersReceive')) {
-
-
-		var userData = Users.findOne(userId)
 
 		Users.update(doc._id, {
 			$push: {
@@ -19,8 +18,6 @@ console.log('Users.after.update', modifier)
 		});
    	}
    	else if(userId!==doc._id && _.contains(fieldNames,'friends') && modifier['$addToSet']) {
-
-		var userData = Users.findOne(userId)
 
 		Users.update(doc._id, {
 			$push: {

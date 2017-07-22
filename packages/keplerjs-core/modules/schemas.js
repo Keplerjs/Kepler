@@ -25,6 +25,7 @@ Kepler.schemas = {
 		username: '',	   //username used in urls
 		createdAt: '',	   //new Date() of user insert
 		emails: [], 
+		profile: {},		//user data
 		avatar: '',		   //user photo
 		status: '',        //status mood message, shown in profile
 		gender: '',
