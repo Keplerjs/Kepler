@@ -1,0 +1,229 @@
+.icon,
+.icon-avatar,
+.marker-anim,
+.marker-cursor,
+.marker-handledrag,
+.leaflet-marker-icon,
+.leaflet-control-search .search-cancel,
+.leaflet-control-search .search-button,
+.leaflet-control-search .search-button:hover,
+.leaflet-bar a.leaflet-control-zoom-in,
+.leaflet-touch .leaflet-bar a.leaflet-control-zoom-in,
+.leaflet-bar a.leaflet-control-zoom-out,
+.leaflet-touch .leaflet-bar a.leaflet-control-zoom-out,
+.leaflet-control-gps .gps-button,
+.leaflet-control-gps .gps-button:hover,
+.leaflet-control-gps .gps-button.active,
+.leaflet-control-gps .gps-button.active:hover {
+	background: url("/packages/keplerjs_theme/assets/images/sprite.svg") no-repeat;
+}
+.icon.icon-social {
+	background: url("/packages/keplerjs_theme/assets/images/sprite-social.png") no-repeat;
+	width:30px;
+	height:30px;
+}
+
+.icon {
+	position: relative;
+	top: 1px;
+	display: inline-block;
+	line-height: 1;
+	/* come .glyphicon */
+	vertical-align: text-bottom;/*non modificare!*/
+	height: 18px;
+	width: 18px;
+}
+.icon-avatar {
+	height: 30px;
+	width: 30px;
+}
+.icon-avatar.icon-avatar-big {
+	height: 90px;
+	width: 90px;
+	background-position: 0 -810px;
+    background-size: 1000%
+}
+.icon-marker,
+.leaflet-marker-icon {
+	display: inline-block;
+	width:27px;
+	height:30px;
+}
+.marker-cursor {
+	background-position: -30px -390px;
+	height: 30px;
+	width: 30px;
+}
+.marker-cursor:hover {
+	background-position: -30px -420px;
+	height: 30px;
+	width: 30px;
+}
+.marker-poi .icon {
+	position: absolute;
+	top: 3px;
+	left: 3px;
+}
+/* MARKER DRAG */
+.marker-handledrag  {
+	background-position: -239px -30px;
+	border: 1px solid #FFAB1D;
+	background-color: rgba(255,170,30,0.5);
+}
+
+/* MARKER ARROWS */
+.marker-anim {
+	background-position: -236px 0;
+}
+
+/* CONTROLS */
+.leaflet-control-search .search-button:hover,
+.leaflet-control-search .search-button {
+	background-position: 0 0;
+}
+.leaflet-control-search .search-cancel {
+	background-position: -90px -30px;
+}
+.leaflet-control-gps .gps-button,
+.leaflet-control-gps .gps-button:hover {
+	background-position: 0 -30px;
+}
+.leaflet-control-gps .gps-button.active,
+.leaflet-control-gps .gps-button.active:hover {
+	background-position: 0 -60px;
+}
+.leaflet-bar a.leaflet-control-zoom-in,
+.leaflet-touch .leaflet-bar a.leaflet-control-zoom-in {
+	background-position: 0 -90px;
+}
+.leaflet-bar a.leaflet-control-zoom-out,
+.leaflet-touch .leaflet-bar a.leaflet-control-zoom-out {
+	background-position: 0 -120px;
+}
+
+/* MARKER */
+.marker-cluster{ background-position: -30px 0;      } 
+.marker-active { background-position: -30px -30px;  } 
+.marker-rock   { background-position: -30px -60px;  } 
+.marker-gray   { background-position: -30px -90px;  } 
+.marker-indoor { background-position: -30px -120px; } 
+.marker-boulder{ background-position: -30px -150px; } 
+.marker-long   { background-position: -30px -180px; } 
+.marker-ice    { background-position: -30px -210px; } 
+.marker-iron   { background-position: -30px -240px; } 
+.marker-water  { background-position: -30px -270px; }
+
+/* MARKER USERS */
+.marker-profile{ background-position: -30px -300px; } 
+.marker-friend{ background-position: -30px -330px; } 
+.marker-user{ background-position: -30px -330px; } 
+
+/* MARKER POIS */
+.marker-poi{ background-position: -30px -360px; }
+
+/* ICON UI */
+.icon-profile{ background-position: 0 -210px; } 
+.icon-friends{ background-position: 0 -240px; }
+.icon-avatar { background-position: 0 -270px; }
+
+
+.icon-status-connected{ background-position: 0 -152px;  } 
+.icon-status-failed,
+.icon-status-offline,
+.icon-status-waiting,
+.icon-status-connecting,
+.icon-status-disconnect{ background-position: 0 -170px;  } 
+
+/* ICON POIS */
+.icon-parking{ background-position: -60px 0; } 
+.icon-water{ background-position: -60px -30px; } 
+.icon-drink{ background-position: -60px -60px; } 
+.icon-eat{ background-position: -60px -90px; } 
+.icon-bed{ background-position: -60px -120px; } 
+.icon-camp{ background-position: -60px -150px; } 
+
+/* ICON */
+.icon-search{ background-position: -90px 0;  } 
+.icon-canc  { background-position: -90px -30px; } 
+.icon-add   { background-position: -90px -60px; }
+.icon-del   { background-position: -90px -90px; }
+.icon-share { background-position: -90px -120px; } 
+.icon-nav   { background-position: -90px -150px; } 
+.icon-stview{ background-position: -90px -180px; } 
+.icon-map   { background-position: -90px -210px; }
+.icon-map-user{ background-position: -90px -240px; } 
+.icon-pois  { background-position: -90px -270px; } 
+.icon-home  { background-position: -90px -300px; }
+.icon-sets  { background-position: -90px -330px; } 
+.icon-logout{ background-position: -90px -360px; } 
+.icon-danger{ background-position: -90px -390px; } 
+.icon-info  { background-position: -90px -420px; } 
+.icon-success { background-position: -90px -450px; }
+.icon-warning { background-position: -90px -480px; } 
+
+.icon-ar-right  { background-position: -90px -510px; } 
+.icon-ar-right-w{ background-position: -60px -510px; } 
+.icon-ar-left   { background-position: -90px -540px; } 
+.icon-ar-left-w { background-position: -60px -540px; } 
+
+/* ICON SOCIAL */
+.icon-online-mob{ background-position: -120px 0;  } 
+.icon-offline-mob{ background-position: -150px 0;  }
+.icon-online{ background-position: -120px -30px;  }  
+.icon-offline{ background-position: -150px -30px;  } 
+
+.icon-notif{ background-position: -120px -60px;  }
+.icon-unnotif{ background-position: -150px -60px;  }  
+.icon-star{ background-position: -120px -90px;  } 
+.icon-unstar{ background-position: -150px -90px;  } 
+.icon-mes{ background-position: -120px -120px;  } 
+.icon-unmes{ background-position: -150px -120px;  } 
+.icon-like{ background-position: -120px -150px;  } 
+.icon-unlike{ background-position: -150px -150px;  } 
+.icon-users{ background-position: -120px -180px;  } 
+.icon-unusers{ background-position: -150px -180px;  } 
+.icon-checkin{ background-position: -120px -210px;  } 
+.icon-uncheckin{ background-position: -150px -210px;  }
+
+.icon-checkout{ background-position: -120px -240px;  }
+.icon-useradd{ background-position: -120px -270px;  } 
+.icon-userdel{ background-position: -120px -300px;  }
+
+.icon-userbid{ background-position: -120px -330px;  } 
+.icon-placeinfo{ background-position: -120px -360px;  } 
+.icon-hist{ background-position: -120px -390px;  } 
+.icon-cal{ background-position: -120px -420px;  } 
+.icon-weather{ background-position: -120px -450px;  }
+.icon-photos{ background-position: -120px -480px;  }
+.icon-report{ background-position: -120px -510px;  }
+
+/* ICON GEO */
+.icon-geo{ background-position: -180px 0;  } 
+.icon-ele{ background-position: -180px -30px;  } 
+.icon-esp{ background-position: -180px -60px;  } 
+.icon-sun{ background-position: -180px -90px;  } 
+
+
+/* ICON TRACK */
+.icon-gpx{ background-position: -180px -120px;  } 
+.icon-dis{ background-position: -180px -150px;  } 
+.icon-sal{ background-position: -180px -180px;  }
+.icon-len{ background-position: -180px -210px;  } 
+.icon-time{ background-position: -180px -240px; } 
+.icon-nav-osm{ background-position: -180px -300px; } 
+.icon-nav-goo{ background-position: -180px -330px; } 
+
+.icon-lang-it{ background-position: -210px 0;      } 
+.icon-lang-fr{ background-position: -210px -30px;  }
+.icon-lang-de{ background-position: -210px -60px;  } 
+.icon-lang-en{ background-position: -210px -90px;  } 
+.icon-lang-es{ background-position: -210px -120px; } 
+
+.icon-social.icon-social-tw {       background-position:0 0;     }
+.icon-social.icon-social-tw:hover { background-position:0 -31px; }
+.icon-social.icon-social-fb {       background-position:-30px 0; }
+.icon-social.icon-social-fb:hover { background-position:-30px -31px;}
+.icon-social.icon-social-gp {       background-position:-60px 0;}
+.icon-social.icon-social-gp:hover { background-position:-60px -31px;}
+.icon-social.icon-social-tu {       background-position:-90px 0;}
+.icon-social.icon-social-tu:hover { background-position:-90px -31px;}

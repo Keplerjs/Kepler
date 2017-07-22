@@ -56,7 +56,7 @@ li#navsearch {
 }
 .panel-heading {
 	height: 36px;
-	padding: 2px;
+	padding: 1px 3px;
 }
 .sidebar .panel-body {
 	position: absolute;
