@@ -110,21 +110,21 @@ K.Admin.methods({
 		
 		if(!K.Admin.isMe()) return null;
 
-		Users.update(true, {$set: {hist: []} });
-		Places.update(true, {$set: {hist: []} });
+		Users.update(true, {$set: {hist: []} }, { multi: true });
+		Places.update(true, {$set: {hist: []} }, { multi: true });
 	},	
 	cleanAllCheckins: function() {
 		
 		if(!K.Admin.isMe()) return null;
 
-		Users.update(true, {$set: {checkin: null} });
-		Places.update(true, {$set: {checkins: []} });
+		Users.update(true, {$set: {checkin: null} }, { multi: true });
+		Places.update(true, {$set: {checkins: []} }, { multi: true });
 	},
 	cleanAllFavorites: function() {
 		
 		if(!K.Admin.isMe()) return null;
 
-		Users.update(true, {$set: {favorites: []} });
-		Places.update(true, {$set: {rank: 0} });
+		Users.update(true, {$set: {favorites: []} }, { multi: true });
+		Places.update(true, {$set: {rank: 0} }, { multi: true });
 	}
 });

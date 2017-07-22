@@ -35,8 +35,6 @@ Meteor.methods({
 
 		var ret = K.Geoinfo.getFieldsByLoc(loc, fields);
 
-		//console.log('findGeoinfoByLoc', ret);
-
 		return ret;
 	}
 });

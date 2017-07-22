@@ -1,13 +1,8 @@
 
 K.Admin.methods({
-	insertNotif: function(text, type) {
-		
+	insertNotif: function() {
 		if(!K.Admin.isMe()) return false;
-		
-		Users.update(this.userId, {
-			$push: {
-				notifs: text
-			}
-   		});
+	
+		K.insertNotif
 	}
 });

@@ -12,13 +12,7 @@ Router.map(function() {
 				className: 'notifications',
 				headerTemplate: 'list_notif_clean',		
 				itemsTemplate: 'item_notif',
-				items: _.map(K.Profile.data.notifs, function(text) {
-					var type = _.shuffle(K.Notif._types)[0];
-					return {
-						type: type,
-						msg: type+': '+text
-					}
-				})
+				items: K.Profile.data.notifs
 			};
 		}
 	});

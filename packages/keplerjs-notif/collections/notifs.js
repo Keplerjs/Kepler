@@ -12,3 +12,19 @@ Notifs.allow({
 		return userId && doc._id === userId;
 	}
 });
+
+K.extend({
+	insertNotif: function(text, type) {
+
+		type = type || K.Notif._types[0];
+		
+		Users.update(this.userId, {
+			$push: {
+				notifs: {
+					type: type,
+					msg: text
+				}
+			}
+		});
+	}
+});

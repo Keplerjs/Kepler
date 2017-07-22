@@ -135,9 +135,11 @@ Meteor.methods({
 
 		if(!this.userId) return null;
 		
-		Users.update(this.userId, {$pull: {friends: blockUserId} });
+		Users.update(this.userId, {
+			$pull: {friends: blockUserId},
+			$addToSet: {usersBlocked: blockUserId}
+		});
 		Users.update(blockUserId, {$pull: {friends: this.userId} });
-		Users.update(this.userId, {$addToSet: {usersBlocked: blockUserId} });
 
 		console.log('friendBlock', this.userId, blockUserId);
 	},	

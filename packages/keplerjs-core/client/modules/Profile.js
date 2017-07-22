@@ -75,7 +75,7 @@ Kepler.Profile = {
 	hasPending: function(userId) {
 		return _.contains(this.data.usersPending, userId);
 	},
-	hasReceive: function(userId) {
+	hasReceive: function(userId) {	
 		return _.contains(this.data.usersReceive, userId);
 	},
 	hasBlocked: function(userId) {

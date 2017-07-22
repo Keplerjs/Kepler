@@ -33,17 +33,22 @@ Accounts.onLoginFailure(function(e) {
 	console.log('LoginFailure:', user);
 });
 
+/*
+//TODO
 Accounts.validateNewUser(function (user) {
   if (user.username && user.username.length >= 3)
     return true;
 	//TODO blacklist names
   throw new Meteor.Error(403, "Username must have at least 3 characters");
 });
-
+*/
 Accounts.onCreateUser(function(options, user) {
 
-	var gender = null,
-		lang = Meteor.settings.public.langDef
+	var username = user.username,
+		name = user.username,
+		lang = Meteor.settings.public.langDef,
+		avatar = '',
+		gender = null,
 		emails = [{
 			address: null,
 			verified: false
@@ -85,12 +90,12 @@ Accounts.onCreateUser(function(options, user) {
 		username: K.Util.sanitizeName(username),
 		name: name,
 		lang: lang,
-		emails: emails, 
 		avatar: avatar,
-		gender: gender
+		gender: gender,
+		emails: emails
 	});
 
-	console.log('New Account:', retuser.username);
+	console.log('Accounts: New User ', retuser.username);
 
 	return retuser;
 });

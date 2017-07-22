@@ -10,12 +10,14 @@ K.Admin.methods({
 			var username = usernames[i];
 			
 			var userId = Accounts.createUser({
+				name: username,
 				username: username,
 				password: username,//+username,
 				email: username+'@gmail.com'
 			});
 
-			K.updateFriendship(this.userId, userId);
+			if(userId)
+				K.updateFriendship(this.userId, userId);
 		}
 	},
 	removeUser: function(username) {
@@ -48,7 +50,7 @@ K.Admin.methods({
 	},
 	cleanUserFriendship: function(username) {
 		
-		if(!K.Admin.isMe()) return null;
+		if(!K.Admin.isMe() || !username) return null;
 
 		var userData = Users.findOne({username: username}),
 			userId = userData._id;
@@ -67,6 +69,19 @@ K.Admin.methods({
 			}
 		});
 	},	
+	cleanAllFriendship: function() {
+		
+		if(!K.Admin.isMe()) return null;
+
+		Users.update(true, {
+			$set: {
+				friends: [],
+				usersBlocked: [],	
+				usersPending: [],
+				usersReceive: []
+			}
+		}, { multi: true });
+	},		
 	removeAllUsers: function() {
 		
 		if(!K.Admin.isMe()) return null;
