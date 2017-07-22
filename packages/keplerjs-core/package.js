@@ -18,7 +18,7 @@ Package.onUse(function(api) {
   
   var packages = [
     'keplerjs:lib',
-    //TODO 'keplerjs:i18n'    
+    'keplerjs:i18n'
   ];
 
   api.use(packages);

@@ -53,6 +53,7 @@ keplerjs:core@0.0.1
 keplerjs:events@0.0.1
 keplerjs:geoinfo@0.0.1
 keplerjs:googlemaps@1.0.0
+keplerjs:i18n@0.0.1
 keplerjs:lib@0.0.1
 keplerjs:notif@0.0.1
 keplerjs:osm@1.0.0

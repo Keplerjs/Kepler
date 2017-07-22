@@ -1,7 +1,7 @@
 /*
 	list of core placeholders and loaded temaplates for each
 */
-K.placeholders = {
+Kepler.placeholders = {
 	sidebarNav: [],
 	popupCursor: [],
 	panelProfile: [],

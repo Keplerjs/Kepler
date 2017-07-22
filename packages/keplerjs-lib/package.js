@@ -51,7 +51,6 @@ Package.onUse(function(api) {
     'matb33:collection-hooks',
     'underscorestring:underscore.string',
     'kidovate:bootstrap-slider',
-    'anti:i18n',
     'iron:router',
     'mrt:modernizr-meteor',
     'twbs:bootstrap',
@@ -75,7 +74,8 @@ Package.onUse(function(api) {
   ], ['client']);
 
   api.export([
-    'Class','deepExtend'
+    'Class',
+    'deepExtend'
   ]);
   
 });
