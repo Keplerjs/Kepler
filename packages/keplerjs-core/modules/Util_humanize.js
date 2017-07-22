@@ -15,14 +15,14 @@ Kepler.Util.humanize = {
 	time: function(sec, ago) {
 		//http://goo.gl/8DqYS
 		if(ago)
-			sec = K.Util.time() - sec;
+			sec = (K.Util.time()/1000) - (sec/1000);
 
 		var y = Math.floor(sec / 31536000),
 			m = Math.floor(sec / 2629744),
 			d = Math.floor((sec % 31536000) / 86400),
 			h = Math.floor(((sec % 31536000) % 86400) / 3600),
 			i = Math.floor((((sec % 31536000) % 86400) % 3600) / 60),
-			s = (((sec % 31536000) % 86400) % 3600) % 60,
+			s = Math.floor((((sec % 31536000) % 86400) % 3600) % 60),
 			ret = '';
 
 		if(y>0)

@@ -12,7 +12,7 @@ K.Admin.methods({
 			var userId = Accounts.createUser({
 				name: username,
 				username: username,
-				password: username,//+username,
+				password: username+username,
 				email: username+'@gmail.com'
 			});
 

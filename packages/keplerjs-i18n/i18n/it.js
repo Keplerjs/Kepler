@@ -15,7 +15,7 @@ i18n.map('it', {
 		tumblr: "http://blog.climbo.net"
 	},
 	titles: {
-		intro: "Benvenuto",
+		home: "Benvenuto",
 		profile: "Profilo",
 		settings: "Impostazioni",
 		settingsBlocked: "Utenti bloccati",
@@ -88,6 +88,7 @@ i18n.map('it', {
 		avatar: "Cambia foto",
 		verify: "Verifica",
 		verified: "Verificata",
+		notverified: "Da Verificare",
 		logout: "Disconnetti",
 		home: "Homepage",
 		enter: "Entra",

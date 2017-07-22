@@ -19,9 +19,10 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
+    'client/views/popups.html',    
     'client/views/panels.html',
     'client/views/panels.js',
-    //'client/router.js'    
+    'client/router.js'    
   ],'client');
 
 });

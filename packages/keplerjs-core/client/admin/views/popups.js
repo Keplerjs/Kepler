@@ -61,6 +61,7 @@ Template.popupPlace_admin.events({
 		if(confirm("Eliminare?"))
 			Meteor.call('removePlace', self.id, function(err) {
 				K.Map.removeItem(self);
+				Router.go('root');
 			});
 	},
 	'click .popup-ren': function(e,tmpl) {

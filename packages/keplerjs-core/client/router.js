@@ -13,7 +13,7 @@ Router.waitOn(function() {
 		if(Meteor.loggingIn())
 			this.render(this.loadingTemplate);
 		else
-			Router.go('pageIntro');
+			Router.go('pageHome');
 	}
 	else {
 		return Meteor.subscribe('currentUser', function() {
@@ -53,8 +53,8 @@ Router.onAfterAction(function() {
 
 Router.map(function() {
 
-	this.route('pageIntro', {
-		path: '/intro',
+	this.route('pageHome', {
+		path: '/home',
 		layoutTemplate: 'layoutFull',
 		loadingTemplate: 'pageLoading',
 	});
@@ -88,32 +88,16 @@ Router.map(function() {
 		onBeforeAction: function () {
 			K.Profile.logout();
 			K.Map.destroy();
-			Router.go('pageIntro');
+			Router.go('pageHome');
 		}
 	});
 
 	//MAP PAGES
 
-	this.route('map', {
+	this.route('root', {
 		path: '/',
 		template: 'empty',
 		layoutTemplate: 'layoutMap',
-		data: { hideSidebar: true }
-	});
-
-	this.route('locMap', {
-		path: '/map/:lat,:lng',
-		template: 'empty',
-		layoutTemplate: 'layoutMap',
-		onAfterAction: function() {
-			if(!this.ready()) return null;
-			
-			var loc = K.Util.geo.roundLoc([this.params.lat, this.params.lng]);
-
-			K.Map.showLoc(loc, function() {
-				K.Map.Cursor.setLoc(loc);
-			});
-		},
 		data: { hideSidebar: true }
 	});
 
