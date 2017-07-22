@@ -105,9 +105,6 @@ Router.map(function() {
 		path: '/map/:lat,:lng',
 		template: 'empty',
 		layoutTemplate: 'layoutMap',
-		/*waitOn: function() {
-			return Meteor.subscribe('placesById', this.params.loc);
-		},*/
 		onAfterAction: function() {
 			if(!this.ready()) return null;
 			
@@ -122,9 +119,9 @@ Router.map(function() {
 
 	this.route('panelProfile', {
 		path: '/profile',
+		template: 'panelProfile',
 		layoutTemplate: 'layoutMap',
 		data: function() {
-			//return Meteor.user();
 			return K.Profile.user;
 		}
 	});

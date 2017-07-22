@@ -111,7 +111,7 @@ layers.geojson = new L.GeoJSON(null, {
 ////LAYERS/
 
 controls.zoom = L.control.zoom({
-	position: 'topright',
+	position: 'bottomright',
 	zoomOutText: '',
 	zoomInText: ''	
 });
@@ -224,7 +224,7 @@ Kepler.Map = {
 				.removeLayer(layers.geojson)
 				.removeLayer(layers.users)
 				.removeControl(controls.attrib)
-				.removeControl(controls.zoom)
+				.removeControl(controls.zoom)				
 				.removeControl(controls.gps);
 			
 			this._map.remove();	

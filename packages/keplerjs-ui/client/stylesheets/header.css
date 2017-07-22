@@ -1,14 +1,12 @@
-#navbar {
-	height: 40px;
-	padding: 4px;
-}
-#navbar.navbar {
+header.navbar {
+	padding: 4px;	
+	height: 40px;	
 	min-height: 40px;
 }
-#navbar .container-fluid {
+header .container-fluid {
 	padding: 0;
 }
-#navbar .breadcrumb {
+header .breadcrumb {
 	background: #428bca;
 	border:1px solid #529bda;
 	font-size: 1.2em;
@@ -17,7 +15,7 @@
 	margin: 0;
 }
 
-#navbar .breadcrumb a,
-#navbar .breadcrumb li {
+header .breadcrumb a,
+header .breadcrumb li {
 	color: #fff;
 }

@@ -116,7 +116,7 @@ label {
 	color: #fff;
 }
 
-.navbar h4,
+header h4,
 .panel-heading h4 {
 	text-transform: capitalize;
 	font-size: 14px;
