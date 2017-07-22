@@ -190,6 +190,7 @@ Kepler.Map = {
 			var cursorData = {
 					loc: [e.latlng.lat, e.latlng.lng]
 				};
+			this.popup$.innerHTML = '';
 			Blaze.renderWithData(Template.popupCursor, cursorData, this.popup$);
 		});
 
