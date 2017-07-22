@@ -2,8 +2,8 @@
 	simple and smart caching system key/value for client and server
 */
 
-//TODO expirable keys: parseInt(K.Util.timeUnix()/(60*60*24*1))
-//TODO expirable prefix: parseInt(K.Util.timeUnix()/(60*60*24*1))
+//TODO expirable keys: parseInt(K.Util.time()/(60*60*24*1))
+//TODO expirable prefix: parseInt(K.Util.time()/(60*60*24*1))
 //TODO store collection in localstorage
 
 Kepler.Cache = {

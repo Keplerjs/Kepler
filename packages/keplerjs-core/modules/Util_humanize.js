@@ -15,7 +15,7 @@ Kepler.Util.humanize = {
 	time: function(sec, ago) {
 		//http://goo.gl/8DqYS
 		if(ago)
-			sec = K.Util.timeUnix() - sec;
+			sec = K.Util.time() - sec;
 
 		var y = Math.floor(sec / 31536000),
 			m = Math.floor(sec / 2629744),
@@ -50,8 +50,6 @@ Kepler.Util.humanize = {
 	
 		function fromString(all, d,m,y) {
 
-			console.log(d,m,y)
-
 				var oggi = new Date(),
 					giorno = oggi.getDate(),
 					mese = oggi.getMonth()+1,
@@ -82,6 +80,12 @@ Kepler.Util.humanize = {
 
 		else if(_.isDate(date))
 			return fromString(null, date.getDate(), date.getMonth()+1, date.getFullYear() );
+
+		else if(_.isNumber(date)) {
+			date = new Date(date)
+			return fromString(null, date.getDate(), date.getMonth()+1, date.getFullYear() );
+		}
+
 	},
 
 	distance: function(d, sign) {

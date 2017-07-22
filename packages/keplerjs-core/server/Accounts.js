@@ -86,6 +86,7 @@ Accounts.onCreateUser(function(options, user) {
 	// }
 	
 	var retuser = _.extend(user, K.schemas.user, {
+		createdAt: K.Util.time(),
 		username: K.Util.sanitizeName(username),
 		profile: profile,		
 		name: name,
@@ -95,7 +96,7 @@ Accounts.onCreateUser(function(options, user) {
 		emails: emails
 	});
 
-	console.log('Accounts: Create User ', retuser);
+	console.log('Accounts: Create User ', user, retuser);
 
 	return retuser;
 });

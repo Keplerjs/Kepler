@@ -55,7 +55,7 @@ Meteor.methods({
 
 		ll = K.Util.geo.roundLoc(ll, 2);
 
-		var key = K.Util.hashGen('daily') +'_'+ ll.join('_'),
+		var key = K.Util.timeHash('daily') +'_'+ ll.join('_'),
 			val = K.Cache.get(key, 'weather');
 
 		return val || K.Cache.set(key, weatherAPI(ll), 'weather');

@@ -72,12 +72,12 @@ Kepler.Util = {
 		return newDate;   
 	},
 
-	timeUnix: function(date) {
+	time: function(date) {
 		date = date || new Date();
 		return date.getTime();
 	},
 
-	hashGen: function(expire) {
+	timeHash: function(expire) {
 		
 		expire = expire || 'daily';
 
@@ -87,10 +87,10 @@ Kepler.Util = {
 			'weekly':  60*60*24*7,
 			'monthly': 60*60*24*30
 		};
-		return parseInt( K.Util.timeUnix() / expires[expire] );
+		return parseInt( K.Util.time() / expires[expire] );
 	},
 
 	isMobile: function() {
-		return L.Browser.mobile;
+		return L ? L.Browser.mobile : false;
 	}
 };

@@ -10,7 +10,7 @@ Users.after.update(function(userId, doc, fieldNames, modifier, options) {
 		Users.update(doc._id, {
 			$push: {
 				notifs: {
-					createdAt: K.Util.timeUnix(),					
+					createdAt: K.Util.time(),					
 					type: 'users',
 					msg: 'Richiesta amicizia da <a href="/user/'+userId+'"><b>'+userData.username+'</b></a>'
 				}
@@ -22,7 +22,7 @@ Users.after.update(function(userId, doc, fieldNames, modifier, options) {
 		Users.update(doc._id, {
 			$push: {
 				notifs: {
-					createdAt: K.Util.timeUnix(),
+					createdAt: K.Util.time(),
 					type: 'users',
 					msg: 'Amicizia accettata da <a href="/user/'+userId+'"><b>'+userData.username+'</b></a>'
 				}

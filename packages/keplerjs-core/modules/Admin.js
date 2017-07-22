@@ -66,6 +66,7 @@ K.Plugin({
 	name: 'admin',
 	placeholders: {
 		panelPlace: 'panelPlace_admin',
+		panelUser: 'panelUser_admin',
 		popupPlace: 'popupPlace_admin',
 		popupCursor: 'popupCursor_admin'
 	},

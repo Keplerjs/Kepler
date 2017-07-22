@@ -14,6 +14,6 @@ Places = new Mongo.Collection('places');
 
 //doc of before.insert in https://github.com/matb33/meteor-collection-hooks
 Places.before.insert(function(userId, doc) {
-	doc.createdAt = K.Util.timeUnix();
+	doc.createdAt = K.Util.time();
 	doc.userId = userId;
 });

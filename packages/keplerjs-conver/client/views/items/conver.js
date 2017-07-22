@@ -15,6 +15,16 @@ Template.item_conver.onRendered(function() {
 });
 
 Template.item_conver.helpers({
+	target: function() {
+
+		if(this.targetType==='place')
+			return K.placeById(this.targetId);
+
+		else if(this.targetType==='user') {
+			var user = K.userById(this.targetId);
+			return user.isMe() ? K.userById(this.userId) : user;
+		}
+	},	
 	tit: function() {
 		var title = _.str.truncate(this.title, 30);
 
@@ -26,15 +36,12 @@ Template.item_conver.helpers({
 		return title || '...';
 	},
 	usersIds: function() {
-		//return _.last(_.without(this.usersIds, K.Profile.id), 3);
-		return _.last(this.usersIds, 3);
-	},	
-	target: function() {
+		var exclude = [this.userId, K.Profile.id];
+		
+		if(this.targetType==='user')
+			exclude.push(this.targetId);
 
-		if(this.targetType==='place')
-			return K.placeById(this.targetId);
-
-		else if(this.targetType==='user')
-			return K.userById(this.targetId);
+		return _.last(_.difference(this.usersIds, exclude), 3);
+		//return _.last(this.usersIds, 3);
 	}
 });

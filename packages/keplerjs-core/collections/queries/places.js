@@ -42,7 +42,7 @@ K.extend({
 	
 		var date = new Date();
 			date.setDate(date.getDate() - 10),
-			dateFrom = K.Util.timeUnix(date);
+			dateFrom = K.Util.time(date);
 
 		return Places.find({
 			createdAt: {

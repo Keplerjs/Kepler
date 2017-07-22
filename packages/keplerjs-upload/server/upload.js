@@ -22,7 +22,7 @@ Meteor.methods({
 		var	filePath = Meteor.settings.dirs.avatars,
 			fileUrl = Meteor.settings.public.urls.avatars,
 			imgSize = Meteor.settings.public.avatarSize,
-			fileUid = Meteor.user().username +'_'+ K.Util.timeUnix(),
+			fileUid = Meteor.user().username +'_'+ K.Util.time(),
 			fileName = K.Util.sanitizeFilename( fileUid ),
 			fileMin = fileName + _.template('_{width}x{height}.min.jpg', imgSize),
 			fileBig = fileName + '.ori.jpg',

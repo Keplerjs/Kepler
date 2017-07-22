@@ -20,3 +20,23 @@
 	</div>
 {{/if}}
 </template>
+
+
+<template name="panelUser_admin">
+{{#if isAdmin}}
+
+	<hr>
+
+	<div class="list-group">
+		<span class="list-group-item active">
+			Admin
+		</span>
+		<span class="list-group-item">
+			<label>DATA:</label><br>
+			<textarea class="" cols="40" rows="10">
+			{{stringify data}}
+			</textarea>
+		</span>
+	</div>
+{{/if}}
+</template>

@@ -47,12 +47,6 @@ Template.registerHelper('humanTime', function(sec, ago) {
 	return K.Util.humanize.time(sec, parseInt(ago));
 });
 
-Template.registerHelper('humanTimeUTC', function(dateutc, ago) {
-	var date = K.Util.dateUtcToLocal(new Date(Date.parse(dateutc))),
-		sec = Math.round(date.getTime()/1000);
-	return K.Util.humanize.time(sec, parseInt(ago));
-});
-
 Template.registerHelper('humanDate', function(date) {
 	return K.Util.humanize.date(date);
 });
