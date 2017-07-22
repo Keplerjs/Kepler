@@ -3,7 +3,8 @@
 */
 Kepler.placeholders = {
 	sidebarNav: [],
-	pageSettings: [],	
+	pageHome: [],
+	panelSettings: [],	
 	panelProfile: [],
 	panelPlace: [],
 	popupCursor: [],

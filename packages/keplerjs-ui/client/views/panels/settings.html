@@ -1,10 +1,16 @@
+<template name="panelSettings">
 
-<template name="pageSettings">
+<div id="settings" class="panel">
 
-	{{> header}}
-
-	<section id="settings">
-
+	<div class="panel-heading bg-primary">
+		<h4 class="pull-left">
+			<a class="backhist" href="javascript:history.back()"><i class="icon icon-ar-left-w"></i></a> 
+			{{i18n 'titles.settings'}}
+		</h4>
+		<a class="close pull-right" href="/">&times;</a>
+	</div>
+	<div class="panel-body">
+		
 		<form class="form-horizontal" role="form">
 
 			<div class="form-group">
@@ -72,7 +78,8 @@
 				{{/each}}
 			</div>
 
-<!-- TODO			<div class="form-group">
+			<!-- TODO
+			<div class="form-group">
 				<label class="col-xs-3 control-label">{{i18n 'labels.likeplaces'}}</label>
 				<div class="col-xs-9 col-xs-offset-3">
 					<div id="likeplaces" class="btn-group" data-toggle="buttons">
@@ -114,6 +121,7 @@
 				</div>
 			</div>
 
+			<!-- TODO
 			<div class="form-group">
 				<label class="col-xs-3 control-label">{{i18n 'labels.privacy'}}</label>
 				<div class="col-xs-9 col-xs-offset-3">
@@ -121,9 +129,9 @@
 						<i class="icon icon-report"></i> {{i18n 'btns.usersblocked'}}
 					</a>
 				</div>
-			</div>
+			</div> -->
 
-			{{> placeholder name='pageSettings'}}
+			{{> placeholder name='panelSettings'}}
 
 			<div class="form-group">
 				<label class="col-xs-3 control-label">{{i18n 'labels.signupdate'}}</label>
@@ -133,17 +141,18 @@
 			</div>
 
 			<div class="form-group">
-				<label class="col-xs-3 control-label">{{i18n 'labels.account'}}</label>
-				<div class="col-xs-9 col-xs-offset-3">
+				<div class="col-xs-12">
 				{{> loginButtons}}
 				</div>
 			</div>
 		</form>
 
-	</section>
+	</div>
+</div>
 
 </template>
 
+<!-- 
 <template name="pageSettingsBlock">
 
 	{{> header}}
@@ -168,4 +177,4 @@
 	{{/with}}
 	</section>
 
-</template>
+</template> -->

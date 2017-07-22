@@ -8,6 +8,10 @@
 	height: 18px;
 	width: 18px;
 }
+.icon-avatar {
+	height: 30px;
+	width: 30px;
+}
 .icon-marker,
 .leaflet-marker-icon {
 	display: inline-block;

@@ -8,12 +8,6 @@ i18n.map('it', {
 		email: "info@climbo.net",
 		copy: "©2016 Climbo.net"
 	},
-	socials: {
-		twitter: "https://twitter.com/climbo_net",
-		facebook: "https://www.facebook.com/ClimboNetCommunity",
-		google: "https://plus.google.com/+ClimboNetCommunity",
-		tumblr: "http://blog.climbo.net"
-	},
 	titles: {
 		home: "Benvenuto",
 		profile: "Il Tuo Profilo",
@@ -88,7 +82,7 @@ i18n.map('it', {
 		avatar: "Cambia foto",
 		verify: "Verifica",
 		verified: "Verificata",
-		notverified: "Da Verificare",
+		notverified: "Verifica",
 		logout: "Disconnetti",
 		home: "Homepage",
 		enter: "Entra",
@@ -127,7 +121,7 @@ i18n.map('it', {
 		msgnew: "Scrivi un commento...",
 		msgsmore: "commenti...",
 		convertit: "Titolo nuova conversazione...",
-		signupdate: "Registrato da",
+		signupdate: "Registrato",
 		name: "Nome",
 		username: "Username",
 		email: "Email",

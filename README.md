@@ -2,7 +2,8 @@
 
 # KeplerJS
 
-Kepler lets users share favorite places and join discussions
+The full-stack real-time geo-social network framework
+lets users share favorite places and join discussions
 
 
 Built with [Meteor](http://meteor.com)

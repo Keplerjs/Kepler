@@ -1,0 +1,20 @@
+
+<template name="formlogin">
+
+	{{#if currentUser}}
+		{{#with currentUser}}
+		
+			<div class="btn btn-default">
+				{{> item_user}}
+			</div>
+			<br /><br />
+			<div class="btn btn-default">
+				<a href="{{pathFor route='logout'}}">{{i18n 'btns.logout'}}</a>
+			</div>
+		
+		{{/with}}
+	{{else}}
+		{{> loginButtons}}
+	{{/if}}
+
+</template>

@@ -1,8 +1,7 @@
 
 K.Plugin({
 	name: 'theme',
-/*	placeholders: {
-		panelPlace: [],
-		popupPlace: []
-	},*/
+	placeholders: {
+		pageHome: 'pageHome_theme'
+	},
 });

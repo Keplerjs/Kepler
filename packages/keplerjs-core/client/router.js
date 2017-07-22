@@ -7,7 +7,6 @@ Router.configure({
 });
 
 Router.waitOn(function() {
-	//console.log('Router.waitOn');
 
 	if(!Meteor.user()) {
 		if(Meteor.loggingIn())
@@ -59,30 +58,6 @@ Router.map(function() {
 		loadingTemplate: 'pageLoading',
 	});
 
-	this.route('pageAbout', {
-		path: '/about',
-		layoutTemplate: 'layoutPage',
-		loadingTemplate: 'pageLoading',
-	});	
-
-	this.route('pageSettings', {
-		path: '/settings',
-		layoutTemplate: 'layoutPage',
-		loadingTemplate: 'pageLoading',
-		data: function() {
-			return Meteor.user();
-		}
-	});
-
-	this.route('pageSettingsBlock', {
-		path: '/settings/blocked',
-		layoutTemplate: 'layoutPage',
-		loadingTemplate: 'pageLoading',
-		waitOn: function() {
-			return Meteor.subscribe('usersByIds', K.Profile.data.friends );
-		}
-	});	
-
 	this.route('logout', {
 		path: '/logout',
 		onBeforeAction: function () {
@@ -109,6 +84,26 @@ Router.map(function() {
 			return K.Profile.user;
 		}
 	});
+
+	this.route('panelSettings', {
+		path: '/settings',
+		template: 'panelSettings',
+		layoutTemplate: 'layoutMap',
+		loadingTemplate: 'pageLoading',
+		data: function() {
+			return Meteor.user();
+		}
+	});
+
+//TODO use panel list
+	this.route('panelSettingsBlock', {
+		path: '/settings/blocked',
+		layoutTemplate: 'layoutPage',
+		loadingTemplate: 'pageLoading',
+		waitOn: function() {
+			return Meteor.subscribe('usersByIds', K.Profile.data.friends );
+		}
+	});	
 
 	this.route('friends', {
 		path: '/friends',

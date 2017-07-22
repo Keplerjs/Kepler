@@ -1,6 +1,6 @@
 
 
-Template.pageSettings.helpers({
+Template.panelSettings.helpers({
 	genders: function() {
 		var gender = Meteor.user() && (Meteor.user().gender || 'none');
 		return _.map({male:'male',female:'female',none:'none'}, function(val, k) {
@@ -47,7 +47,7 @@ Template.pageSettings.helpers({
 	}	
 });
 
-Template.pageSettings.events({
+Template.panelSettings.events({
 
 	'keyup #name': _.debounce(function(e) {
 		var feed$ = $(e.target).next('.form-control-feedback'),
@@ -101,7 +101,11 @@ Template.pageSettings.events({
 		e.preventDefault();
 
 		var val = $(e.currentTarget).val();
+		
 		Users.update(Meteor.userId(), { $set: {'settings.map.layer': val } });
+
+		K.Map.setOpts({layer: val });
+
 	}, Meteor.settings.public.typeDelay),
 
 	'change #gender input': _.debounce(function(e) {
