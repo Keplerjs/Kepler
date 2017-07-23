@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.2916012"
-     inkscape:cx="186.19607"
-     inkscape:cy="436.11802"
+     inkscape:zoom="3.6532"
+     inkscape:cx="2.1797329"
+     inkscape:cy="369.88959"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -12837,26 +12837,6 @@
        y2="1123.307" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient5709"
-       id="linearGradient7961"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.13053918,0,0,0.10671642,95.881536,1028.0046)"
-       x1="1009.2042"
-       y1="-1016.9016"
-       x2="1009.2042"
-       y2="-1364.4867" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5345"
-       id="linearGradient7963"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.49205688,0,0,0.52706189,25.953818,411.87589)"
-       x1="368.24741"
-       y1="938.95258"
-       x2="368.24741"
-       y2="917.88416" />
-    <linearGradient
-       inkscape:collect="always"
        xlink:href="#linearGradient5211"
        id="linearGradient7965"
        gradientUnits="userSpaceOnUse"
@@ -12904,26 +12884,6 @@
        y1="908.16479"
        x2="385.02335"
        y2="953.47815" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5697"
-       id="linearGradient7985"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.13053918,0,0,0.10671642,158.29292,1899.6586)"
-       x1="1002.543"
-       y1="-5430.5479"
-       x2="1002.543"
-       y2="-5108.3623" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5345"
-       id="linearGradient7987"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(-0.49205688,0,0,0.52706189,451.72891,411.87589)"
-       x1="368.24741"
-       y1="938.95258"
-       x2="368.24741"
-       y2="917.88416" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient6491"
@@ -18248,6 +18208,126 @@
        x2="131.39166"
        y2="677.89575"
        gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5160"
+       id="linearGradient7167"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.08776196,0,0,0.10567327,-22.566103,491.3209)"
+       x1="699.7854"
+       y1="433.14554"
+       x2="859.99927"
+       y2="340.04907" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient8347"
+       id="linearGradient7171"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.0613257,0,0,0.05228702,-20.025219,499.82099)"
+       x1="1025.4833"
+       y1="637.61279"
+       x2="1025.4833"
+       y2="181.87138" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5160"
+       id="linearGradient7182"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.08776196,0,0,0.10567327,-22.566103,491.3209)"
+       x1="699.7854"
+       y1="433.14554"
+       x2="859.99927"
+       y2="340.04907" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient8347"
+       id="linearGradient7187"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.0613257,0,0,0.05228702,-20.025219,499.82099)"
+       x1="1025.4833"
+       y1="637.61279"
+       x2="1025.4833"
+       y2="181.87138" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5160"
+       id="linearGradient7198"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.08776196,0,0,0.10567327,-22.566103,491.3209)"
+       x1="699.7854"
+       y1="433.14554"
+       x2="859.99927"
+       y2="340.04907" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient8347"
+       id="linearGradient7200"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.0613257,0,0,0.05228702,-20.025219,499.82099)"
+       x1="1025.4833"
+       y1="637.61279"
+       x2="1025.4833"
+       y2="181.87138" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5160"
+       id="linearGradient7210"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.08776196,0,0,0.10567327,-22.566103,491.3209)"
+       x1="699.7854"
+       y1="433.14554"
+       x2="859.99927"
+       y2="340.04907" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient8347"
+       id="linearGradient7212"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.0613257,0,0,0.05228702,-20.025219,499.82099)"
+       x1="1025.4833"
+       y1="637.61279"
+       x2="1025.4833"
+       y2="181.87138" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5160"
+       id="linearGradient7222"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.08776196,0,0,0.10567327,-22.566103,491.3209)"
+       x1="699.7854"
+       y1="433.14554"
+       x2="859.99927"
+       y2="340.04907" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient8347"
+       id="linearGradient7224"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.0613257,0,0,0.05228702,-20.025219,499.82099)"
+       x1="1025.4833"
+       y1="637.61279"
+       x2="1025.4833"
+       y2="181.87138" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5160"
+       id="linearGradient7234"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.08776196,0,0,0.10567327,-22.566103,491.3209)"
+       x1="699.7854"
+       y1="433.14554"
+       x2="859.99927"
+       y2="340.04907" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient8347"
+       id="linearGradient7236"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.0613257,0,0,0.05228702,-20.025219,499.82099)"
+       x1="1025.4833"
+       y1="637.61279"
+       x2="1025.4833"
+       y2="181.87138" />
   </defs>
   <metadata
      id="metadata7">
@@ -19555,26 +19635,6 @@
          style="fill:url(#linearGradient7434);fill-opacity:1;stroke:#cccccc;stroke-width:4.65641308;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          inkscape:connector-curvature="0" />
     </g>
-    <path
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccssc"
-       id="path4312"
-       d="m 54.30851,532.09624 c -1.111185,2.95564 -6.605326,6.02379 -12.117168,10.11788 -1.764252,-6.07977 -4.151049,-11.07114 -3.039864,-14.02677 1.111184,-2.95564 5.405002,-4.47662 9.59049,-3.39721 4.185497,1.07942 6.677727,4.35047 5.566542,7.3061 z"
-       style="fill:url(#linearGradient7284);fill-opacity:1;stroke:none"
-       inkscape:export-filename="/images-icon-rock.png"
-       inkscape:export-xdpi="10.428141"
-       inkscape:export-ydpi="10.428141"
-       inkscape:transform-center-y="-91.333745"
-       inkscape:transform-center-x="-46.550892" />
-    <path
-       inkscape:export-ydpi="6.8841367"
-       inkscape:export-xdpi="6.8841367"
-       inkscape:export-filename="/maps/falesie/-icon-white.png"
-       style="fill:url(#linearGradient7298);fill-opacity:1;stroke:#385300;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 51.629616,523.29754 c 0,4.43473 -4.917392,10.56944 -9.417879,18.11371 -4.588085,-7.69366 -9.41787,-13.67898 -9.41787,-18.11371 0,-4.43474 4.216534,-8.0298 9.41787,-8.0298 5.201345,0 9.417879,3.59506 9.417879,8.0298 z"
-       id="path4322"
-       sodipodi:nodetypes="ccssc"
-       inkscape:connector-curvature="0" />
     <g
        id="g5917"
        transform="translate(-110.97175,538.5728)">
@@ -23782,14 +23842,37 @@
        inkscape:export-xdpi="6.8841367"
        inkscape:export-ydpi="6.8841367"
        inkscape:connector-curvature="0" />
-    <path
-       inkscape:connector-curvature="0"
-       style="fill:#385300;fill-opacity:1;stroke:#74ab01;stroke-width:1.05126750000000002;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 42.211736,518.51166 c -2.266558,0 -4.103422,1.65124 -4.103422,3.68547 0,2.03426 1.836864,3.68282 4.103422,3.68282 2.266585,0 4.103434,-1.64856 4.103434,-3.68282 0,-2.03423 -1.836849,-3.68547 -4.103434,-3.68547 z"
-       id="path6263"
-       inkscape:export-filename="/maps/falesie/-icon-white.png"
-       inkscape:export-xdpi="6.8841367"
-       inkscape:export-ydpi="6.8841367" />
+    <g
+       id="g7154">
+      <path
+         inkscape:transform-center-x="-46.550892"
+         inkscape:transform-center-y="-91.333745"
+         inkscape:export-ydpi="10.428141"
+         inkscape:export-xdpi="10.428141"
+         inkscape:export-filename="/images-icon-rock.png"
+         style="fill:url(#linearGradient7284);fill-opacity:1;stroke:none"
+         d="m 54.30851,532.09624 c -1.111185,2.95564 -6.605326,6.02379 -12.117168,10.11788 -1.764252,-6.07977 -4.151049,-11.07114 -3.039864,-14.02677 1.111184,-2.95564 5.405002,-4.47662 9.59049,-3.39721 4.185497,1.07942 6.677727,4.35047 5.566542,7.3061 z"
+         id="path4312"
+         sodipodi:nodetypes="ccssc"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccssc"
+         id="path4322"
+         d="m 51.629616,523.29754 c 0,4.43473 -4.917392,10.56944 -9.417879,18.11371 -4.588085,-7.69366 -9.41787,-13.67898 -9.41787,-18.11371 0,-4.43474 4.216534,-8.0298 9.41787,-8.0298 5.201345,0 9.417879,3.59506 9.417879,8.0298 z"
+         style="fill:url(#linearGradient7298);fill-opacity:1;stroke:#385300;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         inkscape:export-filename="/maps/falesie/-icon-white.png"
+         inkscape:export-xdpi="6.8841367"
+         inkscape:export-ydpi="6.8841367" />
+      <path
+         inkscape:export-ydpi="6.8841367"
+         inkscape:export-xdpi="6.8841367"
+         inkscape:export-filename="/maps/falesie/-icon-white.png"
+         id="path6263"
+         d="m 42.211736,518.51166 c -2.266558,0 -4.103422,1.65124 -4.103422,3.68547 0,2.03426 1.836864,3.68282 4.103422,3.68282 2.266585,0 4.103434,-1.64856 4.103434,-3.68282 0,-2.03423 -1.836849,-3.68547 -4.103434,-3.68547 z"
+         style="fill:#385300;fill-opacity:1;stroke:#74ab01;stroke-width:1.05126750000000002;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         inkscape:connector-curvature="0" />
+    </g>
     <g
        id="g5621"
        transform="translate(230.4801,-390.05803)">
@@ -28193,5 +28276,197 @@
        y="458.37756"
        rx="4.061645"
        ry="4.061645" />
+    <g
+       id="g7159"
+       transform="translate(0,60.196597)">
+      <path
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccssc"
+         id="path7161"
+         d="m 54.30851,532.09624 c -1.111185,2.95564 -6.605326,6.02379 -12.117168,10.11788 -1.764252,-6.07977 -4.151049,-11.07114 -3.039864,-14.02677 1.111184,-2.95564 5.405002,-4.47662 9.59049,-3.39721 4.185497,1.07942 6.677727,4.35047 5.566542,7.3061 z"
+         style="fill:url(#linearGradient7167);fill-opacity:1;stroke:none"
+         inkscape:export-filename="/images-icon-rock.png"
+         inkscape:export-xdpi="10.428141"
+         inkscape:export-ydpi="10.428141"
+         inkscape:transform-center-y="-91.333745"
+         inkscape:transform-center-x="-46.550892" />
+      <path
+         inkscape:export-ydpi="6.8841367"
+         inkscape:export-xdpi="6.8841367"
+         inkscape:export-filename="/maps/falesie/-icon-white.png"
+         style="fill:url(#linearGradient7171);fill-opacity:1;stroke:#385300;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 51.629616,523.29754 c 0,4.43473 -4.917392,10.56944 -9.417879,18.11371 -4.588085,-7.69366 -9.41787,-13.67898 -9.41787,-18.11371 0,-4.43474 4.216534,-8.0298 9.41787,-8.0298 5.201345,0 9.417879,3.59506 9.417879,8.0298 z"
+         id="path7163"
+         sodipodi:nodetypes="ccssc"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         style="fill:#385300;fill-opacity:1;stroke:#74ab01;stroke-width:1.0512675;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 42.211736,518.51166 c -2.266558,0 -4.103422,1.65124 -4.103422,3.68547 0,2.03426 1.836864,3.68282 4.103422,3.68282 2.266585,0 4.103434,-1.64856 4.103434,-3.68282 0,-2.03423 -1.836849,-3.68547 -4.103434,-3.68547 z"
+         id="path7165"
+         inkscape:export-filename="/maps/falesie/-icon-white.png"
+         inkscape:export-xdpi="6.8841367"
+         inkscape:export-ydpi="6.8841367" />
+    </g>
+    <g
+       transform="translate(0,90.178723)"
+       id="g7173">
+      <path
+         inkscape:transform-center-x="-46.550892"
+         inkscape:transform-center-y="-91.333745"
+         inkscape:export-ydpi="10.428141"
+         inkscape:export-xdpi="10.428141"
+         inkscape:export-filename="/images-icon-rock.png"
+         style="fill:url(#linearGradient7182);fill-opacity:1;stroke:none"
+         d="m 54.30851,532.09624 c -1.111185,2.95564 -6.605326,6.02379 -12.117168,10.11788 -1.764252,-6.07977 -4.151049,-11.07114 -3.039864,-14.02677 1.111184,-2.95564 5.405002,-4.47662 9.59049,-3.39721 4.185497,1.07942 6.677727,4.35047 5.566542,7.3061 z"
+         id="path7175"
+         sodipodi:nodetypes="ccssc"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccssc"
+         id="path7177"
+         d="m 51.629616,523.29754 c 0,4.43473 -4.917392,10.56944 -9.417879,18.11371 -4.588085,-7.69366 -9.41787,-13.67898 -9.41787,-18.11371 0,-4.43474 4.216534,-8.0298 9.41787,-8.0298 5.201345,0 9.417879,3.59506 9.417879,8.0298 z"
+         style="fill:url(#linearGradient7187);fill-opacity:1;stroke:#385300;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         inkscape:export-filename="/maps/falesie/-icon-white.png"
+         inkscape:export-xdpi="6.8841367"
+         inkscape:export-ydpi="6.8841367" />
+      <path
+         inkscape:export-ydpi="6.8841367"
+         inkscape:export-xdpi="6.8841367"
+         inkscape:export-filename="/maps/falesie/-icon-white.png"
+         id="path7180"
+         d="m 42.211736,518.51166 c -2.266558,0 -4.103422,1.65124 -4.103422,3.68547 0,2.03426 1.836864,3.68282 4.103422,3.68282 2.266585,0 4.103434,-1.64856 4.103434,-3.68282 0,-2.03423 -1.836849,-3.68547 -4.103434,-3.68547 z"
+         style="fill:#385300;fill-opacity:1;stroke:#74ab01;stroke-width:1.0512675;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="g7189"
+       transform="translate(0,120.1609)">
+      <path
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccssc"
+         id="path7191"
+         d="m 54.30851,532.09624 c -1.111185,2.95564 -6.605326,6.02379 -12.117168,10.11788 -1.764252,-6.07977 -4.151049,-11.07114 -3.039864,-14.02677 1.111184,-2.95564 5.405002,-4.47662 9.59049,-3.39721 4.185497,1.07942 6.677727,4.35047 5.566542,7.3061 z"
+         style="fill:url(#linearGradient7198);fill-opacity:1;stroke:none"
+         inkscape:export-filename="/images-icon-rock.png"
+         inkscape:export-xdpi="10.428141"
+         inkscape:export-ydpi="10.428141"
+         inkscape:transform-center-y="-91.333745"
+         inkscape:transform-center-x="-46.550892" />
+      <path
+         inkscape:export-ydpi="6.8841367"
+         inkscape:export-xdpi="6.8841367"
+         inkscape:export-filename="/maps/falesie/-icon-white.png"
+         style="fill:url(#linearGradient7200);fill-opacity:1;stroke:#385300;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 51.629616,523.29754 c 0,4.43473 -4.917392,10.56944 -9.417879,18.11371 -4.588085,-7.69366 -9.41787,-13.67898 -9.41787,-18.11371 0,-4.43474 4.216534,-8.0298 9.41787,-8.0298 5.201345,0 9.417879,3.59506 9.417879,8.0298 z"
+         id="path7193"
+         sodipodi:nodetypes="ccssc"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         style="fill:#385300;fill-opacity:1;stroke:#74ab01;stroke-width:1.0512675;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 42.211736,518.51166 c -2.266558,0 -4.103422,1.65124 -4.103422,3.68547 0,2.03426 1.836864,3.68282 4.103422,3.68282 2.266585,0 4.103434,-1.64856 4.103434,-3.68282 0,-2.03423 -1.836849,-3.68547 -4.103434,-3.68547 z"
+         id="path7195"
+         inkscape:export-filename="/maps/falesie/-icon-white.png"
+         inkscape:export-xdpi="6.8841367"
+         inkscape:export-ydpi="6.8841367" />
+    </g>
+    <g
+       transform="translate(0,150.14309)"
+       id="g7202">
+      <path
+         inkscape:transform-center-x="-46.550892"
+         inkscape:transform-center-y="-91.333745"
+         inkscape:export-ydpi="10.428141"
+         inkscape:export-xdpi="10.428141"
+         inkscape:export-filename="/images-icon-rock.png"
+         style="fill:url(#linearGradient7210);fill-opacity:1;stroke:none"
+         d="m 54.30851,532.09624 c -1.111185,2.95564 -6.605326,6.02379 -12.117168,10.11788 -1.764252,-6.07977 -4.151049,-11.07114 -3.039864,-14.02677 1.111184,-2.95564 5.405002,-4.47662 9.59049,-3.39721 4.185497,1.07942 6.677727,4.35047 5.566542,7.3061 z"
+         id="path7204"
+         sodipodi:nodetypes="ccssc"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccssc"
+         id="path7206"
+         d="m 51.629616,523.29754 c 0,4.43473 -4.917392,10.56944 -9.417879,18.11371 -4.588085,-7.69366 -9.41787,-13.67898 -9.41787,-18.11371 0,-4.43474 4.216534,-8.0298 9.41787,-8.0298 5.201345,0 9.417879,3.59506 9.417879,8.0298 z"
+         style="fill:url(#linearGradient7212);fill-opacity:1;stroke:#385300;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         inkscape:export-filename="/maps/falesie/-icon-white.png"
+         inkscape:export-xdpi="6.8841367"
+         inkscape:export-ydpi="6.8841367" />
+      <path
+         inkscape:export-ydpi="6.8841367"
+         inkscape:export-xdpi="6.8841367"
+         inkscape:export-filename="/maps/falesie/-icon-white.png"
+         id="path7208"
+         d="m 42.211736,518.51166 c -2.266558,0 -4.103422,1.65124 -4.103422,3.68547 0,2.03426 1.836864,3.68282 4.103422,3.68282 2.266585,0 4.103434,-1.64856 4.103434,-3.68282 0,-2.03423 -1.836849,-3.68547 -4.103434,-3.68547 z"
+         style="fill:#385300;fill-opacity:1;stroke:#74ab01;stroke-width:1.0512675;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="g7214"
+       transform="translate(0,180.12524)">
+      <path
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccssc"
+         id="path7216"
+         d="m 54.30851,532.09624 c -1.111185,2.95564 -6.605326,6.02379 -12.117168,10.11788 -1.764252,-6.07977 -4.151049,-11.07114 -3.039864,-14.02677 1.111184,-2.95564 5.405002,-4.47662 9.59049,-3.39721 4.185497,1.07942 6.677727,4.35047 5.566542,7.3061 z"
+         style="fill:url(#linearGradient7222);fill-opacity:1;stroke:none"
+         inkscape:export-filename="/images-icon-rock.png"
+         inkscape:export-xdpi="10.428141"
+         inkscape:export-ydpi="10.428141"
+         inkscape:transform-center-y="-91.333745"
+         inkscape:transform-center-x="-46.550892" />
+      <path
+         inkscape:export-ydpi="6.8841367"
+         inkscape:export-xdpi="6.8841367"
+         inkscape:export-filename="/maps/falesie/-icon-white.png"
+         style="fill:url(#linearGradient7224);fill-opacity:1;stroke:#385300;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 51.629616,523.29754 c 0,4.43473 -4.917392,10.56944 -9.417879,18.11371 -4.588085,-7.69366 -9.41787,-13.67898 -9.41787,-18.11371 0,-4.43474 4.216534,-8.0298 9.41787,-8.0298 5.201345,0 9.417879,3.59506 9.417879,8.0298 z"
+         id="path7218"
+         sodipodi:nodetypes="ccssc"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         style="fill:#385300;fill-opacity:1;stroke:#74ab01;stroke-width:1.0512675;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 42.211736,518.51166 c -2.266558,0 -4.103422,1.65124 -4.103422,3.68547 0,2.03426 1.836864,3.68282 4.103422,3.68282 2.266585,0 4.103434,-1.64856 4.103434,-3.68282 0,-2.03423 -1.836849,-3.68547 -4.103434,-3.68547 z"
+         id="path7220"
+         inkscape:export-filename="/maps/falesie/-icon-white.png"
+         inkscape:export-xdpi="6.8841367"
+         inkscape:export-ydpi="6.8841367" />
+    </g>
+    <g
+       transform="translate(0,210.10741)"
+       id="g7226">
+      <path
+         inkscape:transform-center-x="-46.550892"
+         inkscape:transform-center-y="-91.333745"
+         inkscape:export-ydpi="10.428141"
+         inkscape:export-xdpi="10.428141"
+         inkscape:export-filename="/images-icon-rock.png"
+         style="fill:url(#linearGradient7234);fill-opacity:1;stroke:none"
+         d="m 54.30851,532.09624 c -1.111185,2.95564 -6.605326,6.02379 -12.117168,10.11788 -1.764252,-6.07977 -4.151049,-11.07114 -3.039864,-14.02677 1.111184,-2.95564 5.405002,-4.47662 9.59049,-3.39721 4.185497,1.07942 6.677727,4.35047 5.566542,7.3061 z"
+         id="path7228"
+         sodipodi:nodetypes="ccssc"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccssc"
+         id="path7230"
+         d="m 51.629616,523.29754 c 0,4.43473 -4.917392,10.56944 -9.417879,18.11371 -4.588085,-7.69366 -9.41787,-13.67898 -9.41787,-18.11371 0,-4.43474 4.216534,-8.0298 9.41787,-8.0298 5.201345,0 9.417879,3.59506 9.417879,8.0298 z"
+         style="fill:url(#linearGradient7236);fill-opacity:1;stroke:#385300;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         inkscape:export-filename="/maps/falesie/-icon-white.png"
+         inkscape:export-xdpi="6.8841367"
+         inkscape:export-ydpi="6.8841367" />
+      <path
+         inkscape:export-ydpi="6.8841367"
+         inkscape:export-xdpi="6.8841367"
+         inkscape:export-filename="/maps/falesie/-icon-white.png"
+         id="path7232"
+         d="m 42.211736,518.51166 c -2.266558,0 -4.103422,1.65124 -4.103422,3.68547 0,2.03426 1.836864,3.68282 4.103422,3.68282 2.266585,0 4.103434,-1.64856 4.103434,-3.68282 0,-2.03423 -1.836849,-3.68547 -4.103434,-3.68547 z"
+         style="fill:#385300;fill-opacity:1;stroke:#74ab01;stroke-width:1.0512675;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         inkscape:connector-curvature="0" />
+    </g>
   </g>
 </svg>
