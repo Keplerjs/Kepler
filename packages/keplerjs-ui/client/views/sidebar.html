@@ -1,11 +1,6 @@
 
 <template name="sidebar">
 	<ul class="nav nav-pills" role="tablist">
-		<li class="{{isRoute 'home' 'active'}}">
-			<a class="btn btn-sm" href="{{pathFor route='home'}}" role="tab">
-				<i class="icon icon-home"></i>
-			</a>
-		</li>
 		<li class="{{isRoute 'profile' 'active'}}">
 			<a class="btn btn-sm" href="{{pathFor route='profile'}}" role="tab">
 				<i class="icon icon-profile"></i>
@@ -27,5 +22,8 @@
 		
 		{{> placeholder name='sidebarNav'}}
 
+		<li class="pull-right">
+			{{> connection}}
+		</li>
 	</ul>
 </template>

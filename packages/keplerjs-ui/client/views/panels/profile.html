@@ -28,16 +28,30 @@
 		
 			{{> placeholder name='panelProfile'}}
 
+		</div>
+		
+		<div class="list-group">
 			<a class="list-group-item" href="/settings">
 				<i class="icon icon-sets"></i> 
 				{{i18n 'btns.sets'}}
+			</a>		
+			<a class="list-group-item" href="{{pathFor route='home'}}" role="tab">
+				<i class="icon icon-home"></i>
+				{{i18n 'btns.home'}}
 			</a>
 		</div>
 
-		<a class="btn btn-default btn-sm pull-right" href="/logout">
-			<i class="icon icon-logout"></i> 
-			{{i18n 'btns.logout'}}
-		</a>
+		<div class="list-group">
+			
+			<a class="btn btn-link disabled text-muted">
+				{{connectionStatus.status}}
+			</a>
+
+			<a class="btn btn-default btn-sm pull-right" href="/logout">
+				<i class="icon icon-logout"></i> 
+				{{i18n 'btns.logout'}}
+			</a>
+		</div>		
 	</div>
 </div>
 

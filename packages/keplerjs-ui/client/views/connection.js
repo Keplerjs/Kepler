@@ -1,7 +1,12 @@
 
 Template.connection.events({
 	'click a': function(e) {
-		Meteor.reconnect();
+		e.preventDefault();
+		var status = Meteor.status();
+		if(status.connected)
+			Meteor.disconnect();
+		else
+			Meteor.reconnect();
 	}
 });
 

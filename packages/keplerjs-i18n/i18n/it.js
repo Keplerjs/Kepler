@@ -83,7 +83,7 @@ i18n.map('it', {
 		verify: "Verifica",
 		verified: "Verificata",
 		notverified: "Verifica",
-		logout: "Disconnetti",
+		logout: "Esci",
 		home: "Homepage",
 		enter: "Entra",
 		signup: "Registrati",
@@ -146,7 +146,7 @@ i18n.map('it', {
 		noevents: "Nessun evento in programma",
 		nophotos: "Nessuna foto del luogo",
 		nohistplace: "Nessuna visita di recente",
-		notfound: "Nessun risultato trovato",
+		notfound: "Nessun risultato trovato"
 	},
 	pois: {
 		place: "Arrivo",

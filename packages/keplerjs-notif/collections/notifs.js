@@ -18,7 +18,7 @@ K.extend({
 
 		type = type || K.Notif._types[0];
 		
-		Users.update(this.userId, {
+		Users.update(Meteor.userId(), {
 			$push: {
 				notifs: {
 					type: type,

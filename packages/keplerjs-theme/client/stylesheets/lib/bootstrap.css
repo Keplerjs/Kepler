@@ -113,6 +113,9 @@ label {
 	background-color: #ef0000;
 	color: #2b5777;
 }
+.badge.badge-red {
+	color: #fff
+}
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus  {
 	background-color: #9bcb43;

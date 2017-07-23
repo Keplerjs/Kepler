@@ -134,12 +134,12 @@
 .icon-avatar { background-position: 0 -270px; }
 
 
-.icon-status-connected{ background-position: 0 -152px;  } 
+.icon-status-connected{ background-position: 0 -150px;  } 
 .icon-status-failed,
 .icon-status-offline,
 .icon-status-waiting,
 .icon-status-connecting,
-.icon-status-disconnect{ background-position: 0 -170px;  } 
+.icon-status-disconnect{ background-position: 0 -168px;  } 
 
 /* ICON POIS */
 .icon-parking{ background-position: -60px 0; } 
