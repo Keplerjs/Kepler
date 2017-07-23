@@ -1,9 +1,9 @@
 
 Router.map(function() {
 
-	this.route('pageAbout', {
-		path: '/about',
-		template: 'pageAbout',
+	this.route('pageAboutClimb', {
+		path: '/aboutClimbo',
+		template: 'pageAboutClimb',
 		layoutTemplate: 'layoutPage',
 		loadingTemplate: 'pageLoading',
 	});	

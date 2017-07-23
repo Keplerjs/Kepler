@@ -100,19 +100,19 @@
 	width:auto;
 	font-size:1.2em;
 }
-
 .leaflet-popup-content-wrapper {
 	border-radius:8px;
 	border: none;
 	text-shadow:none;
 	color:#ddd;
-	background: rgba(155, 203, 67,.8);
+	background: rgba(87,154,212,.8);
 }
 .leaflet-popup-tip {
-	background: rgba(155, 203, 67,.8);
+	background: rgba(87,154,212,.8);
 	border: none;	
 	margin: -9px auto 0;
 }
+
 /* LAYERS */
 /*
 .leaflet-control-layers,

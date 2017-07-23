@@ -14,6 +14,7 @@ standard-minifier-js
 keplerjs:core
 keplerjs:ui
 keplerjs:theme
+#keplerjs:theme-climb
 keplerjs:api
 keplerjs:upload
 keplerjs:share
@@ -26,4 +27,4 @@ keplerjs:pois
 keplerjs:tracks
 keplerjs:googlemaps
 keplerjs:osm
-#keplerjs:theme-climb
+

@@ -15,10 +15,10 @@
 .leaflet-control-gps .gps-button:hover,
 .leaflet-control-gps .gps-button.active,
 .leaflet-control-gps .gps-button.active:hover {
-	background: url("/packages/keplerjs_theme/assets/images/sprite.svg") no-repeat;
+	background: url("/packages/keplerjs_theme-climb/assets/images/sprite.svg") no-repeat;
 }
 .icon.icon-social {
-	background: url("/packages/keplerjs_theme/assets/images/sprite-social.png") no-repeat;
+	background: url("/packages/keplerjs_theme-climb/assets/images/sprite-social.png") no-repeat;
 	width:30px;
 	height:30px;
 }
@@ -77,10 +77,9 @@
 }
 
 .marker-cluster .badge {
-	background: #fff;
 	position: absolute;
-	bottom: 4px;
-	left: 4px;
+	bottom: -5px;
+	left: 0;
 }
 
 /* CONTROLS */

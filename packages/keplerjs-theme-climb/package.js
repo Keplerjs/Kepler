@@ -1,7 +1,7 @@
 
 Package.describe({
-  name: 'keplerjs:theme',
-  summary: 'keplerjs plugin base Theme for UI',
+  name: 'keplerjs:theme-climb',
+  summary: 'keplerjs plugin Theme Climbing',
   version: '0.0.1',
   git: ''
 });
@@ -9,7 +9,7 @@ Package.describe({
 Package.onUse(function(api) {
   
   var globsync = function(e){
-    var pkg = 'keplerjs-theme',
+    var pkg = 'keplerjs-theme-climb',
         path = Npm.require('path'),
         glob = Npm.require('glob');
     return glob.sync(e, {cwd: path.join(process.cwd(),'packages',pkg) });

@@ -35,22 +35,26 @@
 .bg-gray {
 	background-color: #ccc;
 }
-.list-group-item,
-a.list-group-item {
-	color: #2b5777;
-}
 .list-group-item.active {
 	color: #fff;
 	text-transform: capitalize;
-	padding: 5px 15px;
+	padding: 5px 15px
 }
-.bg-primary,
 .list-group-item.active,
-.list-group-item.active:hover,
-.list-group-item.active:active {
-	border: none;
-	background: #9bcb43;
+.bg-primary {
+	background-color: #428bca;
+	border-color: #428bca;
+	background-image: -webkit-linear-gradient(top,#428bca 0,#357ebd 100%);
+	background-image: linear-gradient(to bottom,#428bca 0,#357ebd 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff428bca', endColorstr='#ff357ebd', GradientType=0);
+	/* primary */
 	color: #fff;
+}
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:focus,
+.nav-pills > li.active > a:hover {
+	background-color: #428bca
 }
 
 .backhist {
@@ -82,11 +86,9 @@ a.list-group-item {
 .text-green {
 	color: #5cb85c
 }
-.text-primary {
-    color: #2b5777;
-}
+
 .btn-default {
-	color: #668b29
+	color: #428bca;
 }
 
 .badge {
@@ -106,16 +108,12 @@ label {
 	background-color: #f80;
 }
 .badge.badge-blue {
-	background-color: #2b5777;
+	background-color: #4090C9;
 }
 .badge.badge-red,
 .list-group-item.active > .badge, .nav-pills > .active > a > .badge.badge-red {
 	background-color: #ef0000;
-	color: #2b5777;
-}
-
-.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus  {
-	background-color: #9bcb43;
+	color: #fff;
 }
 
 header h4,
@@ -161,7 +159,7 @@ header h4,
 	width: 28px;
 	height: 28px;
 	opacity: 1;
-	background-color: #668b29;
+	background-color: #428bca;
 	border: 1px solid #3278b3;
 }
 
@@ -170,6 +168,10 @@ header h4,
 	margin-top: -10px;
 }
 
+/*.btn-group .btn,
+.btn-group-vertical .btn {
+	border: none;
+}*/
 .alert {
 	margin: 0;
 	background: #fff;

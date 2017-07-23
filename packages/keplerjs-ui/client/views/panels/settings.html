@@ -47,6 +47,20 @@
 			</div>
 
 			<div class="form-group">
+				<label class="col-xs-3 control-label">{{i18n 'labels.lang'}}</label>
+				<div class="col-xs-9 col-xs-offset-3">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="icon icon-lang-{{lang}}"></i></span>
+						<select id="lang" class="form-control">
+						{{#each langs}}
+							<option value="{{key}}" selected={{active}}>{{val}}</option>
+						{{/each}}
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
 				<label for="gender" class="col-xs-3 control-label">{{i18n 'labels.gender'}}</label>
 				<div class="col-xs-9">
 					<div id="gender" class="btn-group" data-toggle="buttons">
@@ -58,24 +72,6 @@
 					{{/each}}
 					</div>
 				</div>
-			</div>
-
-			<div class="form-group">
-				<label for="email" class="col-xs-3 control-label">{{i18n 'labels.email'}}</label>
-				{{#each emails}}
-				<div class="col-xs-9 col-xs-offset-3">
-					<div class="input-group">
-						<div class="input-group-addon">
-						{{#if verified}}
-							<span class="text-green"><i class="icon icon-success"></i> {{i18n 'btns.verified'}}</span>
-						{{else}}
-							<span class="text-danger"><i class="icon icon-warning"></i> {{i18n 'btns.notverified'}}</span>
-						{{/if}}						
-						</div>
-						<input disabled="disabled" id="email" class="form-control" type="email" data-value="{{address}}" value="{{address}}" />
-					</div>
-				</div>
-				{{/each}}
 			</div>
 
 			<!-- TODO
@@ -108,19 +104,22 @@
 			</div>
 
 			<div class="form-group">
-				<label class="col-xs-3 control-label">{{i18n 'labels.lang'}}</label>
+				<label for="email" class="col-xs-3 control-label">{{i18n 'labels.email'}}</label>
+				{{#each emails}}
 				<div class="col-xs-9 col-xs-offset-3">
 					<div class="input-group">
-						<div class="input-group-addon"><i class="icon icon-lang-{{lang}}"></i></div>
-						<select id="lang" class="form-control">
-						{{#each langs}}
-							<option value="{{key}}" selected={{active}}>{{val}}</option>
-						{{/each}}
-						</select>
+						<div class="input-group-addon">
+						{{#if verified}}
+							<span class="text-green"><i class="icon icon-success"></i> {{i18n 'btns.verified'}}</span>
+						{{else}}
+							<span class="text-danger"><i class="icon icon-warning"></i> {{i18n 'btns.notverified'}}</span>
+						{{/if}}						
+						</div>
+						<input disabled="disabled" id="email" class="form-control" type="email" data-value="{{address}}" value="{{address}}" />
 					</div>
 				</div>
+				{{/each}}
 			</div>
-
 			<!-- TODO
 			<div class="form-group">
 				<label class="col-xs-3 control-label">{{i18n 'labels.privacy'}}</label>

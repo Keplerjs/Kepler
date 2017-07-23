@@ -24,11 +24,7 @@
 .marker-cluster span {
 	line-height: 1
 }
-.marker-cluster .badge-blue {
-	position: absolute;
-	bottom: -5px;
-	left: 0;
-}
+
 
 .marker-gps {
 	opacity: 0;
