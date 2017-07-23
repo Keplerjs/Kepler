@@ -96,7 +96,7 @@ Accounts.onCreateUser(function(options, user) {
 		emails: emails
 	});
 
-	console.log('Accounts: Create User ', user, retuser);
+	console.log('Accounts: Create User ', retuser.username);
 
 	return retuser;
 });

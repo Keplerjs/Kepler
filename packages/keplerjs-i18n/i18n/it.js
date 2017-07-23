@@ -9,6 +9,7 @@ i18n.map('it', {
 		copy: "©2016 Climbo.net"
 	},
 	titles: {
+		root: "Mappa",
 		home: "Benvenuto",
 		profile: "Il Tuo Profilo",
 		settings: "Impostazioni",
