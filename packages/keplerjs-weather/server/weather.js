@@ -2,7 +2,6 @@
 var	getOpts = {
 		timeout: 20000,	//timeout connessioni http remote
 		httpHeaders: {
-			//'Referer': Meteor.settings.website.domain
 			'User-Agent': ''
 		}
 	};

@@ -13,7 +13,7 @@ Kepler.User = Class.extend({
 
 		var self = this;
 
-		self.id = userId;
+		self._id = userId;
 
 		self._dep = new Tracker.Dependency();
 		
@@ -23,6 +23,8 @@ Kepler.User = Class.extend({
 		};
 
 		self.update = function(comp) {	//sincronizza istanza con dati nel db
+
+			self.id =  self._id;
 
 			if(self.isMe())
 				self.data = K.findCurrentUser(self.id).fetch()[0];

@@ -2,10 +2,10 @@
 
 	example of usage inside a template
 
-	{{> placeholder name='panelPlace'}}
+	{{> pluginPlaceholder name='panelPlace'}}
 
 */
-Template.placeholder.helpers({
+Template.pluginPlaceholder.helpers({
 	
 	templates: function() {
 

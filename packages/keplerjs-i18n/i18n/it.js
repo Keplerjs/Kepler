@@ -1,13 +1,6 @@
 //TODO Assets.getText
 
 i18n.map('it', {
-	website: {
-		title: "Climbo.net",
-		domain: "climbo.net",
-		desc: "The Climbers Community",
-		email: "info@climbo.net",
-		copy: "©2016 Climbo.net"
-	},
 	titles: {
 		root: "Mappa",
 		home: "Benvenuto",
@@ -197,12 +190,6 @@ i18n.map('it', {
 		female: "Femmina",
 		none: "Nessuno"
 	},
-	accountsUIBootstrap: {
-		create: "Crea",
-		signIn: "Accedi",
-		forgot: "Password dimenticata?",
-		createAcc: "Crea un account"
-	},
 	months_short: ",Gen,Feb,Mar,Apr,Mag,Giu,Lug,Ago,Set,Ott,Nov,Dic",
 	months:	",Gennaio,Febbraio,Marzo,Aprile,Maggio,Giugno,Luglio,Agosto,Settembre,Ottobre,Novembre,Dicembre",
 	days_short: ",Lun,Mar,Mer,Gio,Ven,Sab,Dom",
@@ -223,7 +210,7 @@ i18n.map('it', {
 		"Nord,Nord-NordEst,Nord-Est,Est-NordEst,Est,Est-SudEst,Sud-Est,Sud-SudEst,Sud,Sud-SudOvest,Sud-Ovest,Ovest-SudOvest,Ovest,Ovest-SudOvest,Nord-Ovest,Nord-NordOvest,Nord",
 	azimuth_short:
 		"north,nne,ne,ene,east,ese,se,sse,south,ssw,sw,wsw,west,wnw,nw,nnw,north",
-	errors: {
-		imageNotValid: "Solo immagini JPG/PNG, max "
+	upload: {
+		"error_imageNotValid": "Solo immagini JPG/PNG, max "
 	}	
 });

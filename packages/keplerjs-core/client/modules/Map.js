@@ -118,7 +118,7 @@ controls.zoom = L.control.zoom({
 
 controls.attrib = L.control.attribution({
 	position: 'bottomright',
-	prefix: i18n('website.copy')+' &bull; '+i18n('controls.attrib')
+	prefix: i18n('controls.attrib')
 });
 
 controls.gps = L.control.gps({

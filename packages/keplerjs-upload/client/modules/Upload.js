@@ -21,7 +21,7 @@ Kepler.Upload = {
 			this.fileReader.readAsBinaryString(fileObj);
 		}
 		else
-			callback({message: i18n('errors.imageNotValid') + K.Util.humanize.filesize(Meteor.settings.public.maxImageSize) });
+			callback({message: i18n('upload.error_imageNotValid') + K.Util.humanize.filesize(Meteor.settings.public.maxImageSize) });
 
 		return this;
 	}

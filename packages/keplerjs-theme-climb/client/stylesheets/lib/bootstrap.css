@@ -139,19 +139,6 @@ header h4,
 	padding: 8px 10px; /* panel_place */
 }
 
-/* PAGES*/
-.container section {
-	margin-top: 50px;
-	background: #fff;
-}
-.container-full section {
-	min-height: 100%;
-	overflow: hidden;
-}
-
-.container-full footer {
-	padding: 20px;
-}
 /* SLIDER */
 
 .slider-handle {

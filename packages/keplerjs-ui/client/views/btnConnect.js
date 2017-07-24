@@ -1,5 +1,5 @@
 
-Template.connect.events({
+Template.btnConnect.events({
 	'click a': function(e) {
 		e.preventDefault();
 		var status = Meteor.status();
