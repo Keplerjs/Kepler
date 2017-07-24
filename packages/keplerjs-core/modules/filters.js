@@ -39,7 +39,7 @@ Kepler.filters = {
 	},
 	placeItem: {
 		fields: {
-			loc:1, name:1, type:1, rank:1, checkins:1, createdAt:1
+			loc:1, name:1, type:1, rank:1, checkins:1, createdAt:1, userId:1
 		},
 		limit: Meteor.settings.public.searchMaxRes
 	},

@@ -1,5 +1,5 @@
 
-Template.upload_InputFile.events({
+Template.upload_inputfile.events({
 
 	'change :file': function(e) {
 		e.preventDefault();

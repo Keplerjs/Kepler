@@ -2,12 +2,6 @@
 <template name="tab_info">
 
 	<ul class="list-group">
-		{{#if createdAt}}
-		<li class="list-group-item">
-			<label>{{i18n 'labels.createdAt'}}</label>
-			<time>{{humanDateUTC createdAt}}</time>
-		</li>
-		{{/if}}
 		{{#if desc}}
 		<li class="list-group-item">
 			<label>{{i18n 'labels.desc'}}</label><br />
@@ -23,7 +17,22 @@
 		<!--li class="list-group-item">
 			<label>{{i18n 'labels.type'}}</label> {{placeType type}}
 		</li-->
-		{{/if}}		
+		{{/if}}	
+		{{#if or createdAt userId}}
+		<li class="list-group-item">
+			{{#if createdAt}}
+				<label>{{i18n 'labels.createdAt'}}</label>
+				<time>{{humanDateUTC createdAt}}</time>
+				<br />
+			{{/if}}
+			{{#if userId}}
+				<label>{{i18n 'labels.creator'}}</label>
+				{{#with userById userId}}
+					{{> item_user}}
+				{{/with}}
+			{{/if}}
+			</li>
+		{{/if}}	
 	</ul>
 
 </template>

@@ -270,7 +270,7 @@ Router.map(function() {
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			if(this.params.userId===Meteor.userId())
-				Router.go('panelProfile');
+				Router.go('profile');
 			else
 				return Meteor.subscribe('userById', this.params.userId);
 		},

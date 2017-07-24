@@ -13,7 +13,7 @@ Meteor.startup(function() {
 
 Meteor.methods({
 	
-	uploadFile: function(fileObj) {
+	uploadFile: function(fileObj, target) {
 
 		if(!this.userId) return null;
 

@@ -1,7 +1,9 @@
 
 Kepler.Upload = {
-	file: function(fileObj, callback) {
-		
+	uploadFile: function(fileObj, target, callback) {
+	
+	//TODO implement target redirection
+
 		if(this.fileReader)
 			this.fileReader.abort();
 		else

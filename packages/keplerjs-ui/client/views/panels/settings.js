@@ -11,7 +11,7 @@ Template.panelSettings.helpers({
 				active: gender===val
 			};
 		});
-	},	
+	},
 	places: function() {
 		return _.map(Meteor.settings.public.activePlaces, function(k) {
 			return {
@@ -129,11 +129,12 @@ Template.panelSettings.events({
 		if(!K.Upload) return false;
 
 		var input$ = $(e.target),
-			fileObj = e.originalEvent.target.files[0];
+			fileObj = e.originalEvent.target.files[0],
+			target = 'avatars';
 
 		input$.parent().addClass('loading-default');
 		
-		K.Upload.file(fileObj, function(err, url) {
+		K.Upload.uploadFile(fileObj, target, function(err, url) {
 			
 			input$.parent().removeClass('loading-default');
 

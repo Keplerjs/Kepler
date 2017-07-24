@@ -52,6 +52,9 @@ a.list-group-item {
 	background: #9bcb43;
 	color: #fff;
 }
+.list-group-item {
+	border: 1px solid #9bcb43;
+}
 
 .backhist {
 	display: inline-block;
