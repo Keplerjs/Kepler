@@ -1,10 +1,8 @@
 
 <template name="btnConnect">
 {{#with connectionStatus}}
-	{{#unless connected}}
-		<a class="btn" href="#" title="{{status}}">
-			<i class="icon icon-status-{{status}}"></i>
-		</a>
-	{{/unless}}
+	<a class="btn btn-connect-{{status}}" href="#" title="{{status}}">
+		<i class="icon icon-status-{{status}}"></i> <em class="text-muted">{{status}}</em>
+	</a>
 {{/with}}
 </template>

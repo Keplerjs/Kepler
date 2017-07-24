@@ -40,6 +40,10 @@
     font-size: 14px;
 }
 
+.sidebar > .nav > li > a.btn-connect-connected {
+    display: none;
+}
+
 li#navsearch {
     position: absolute;
     right: 7px;
