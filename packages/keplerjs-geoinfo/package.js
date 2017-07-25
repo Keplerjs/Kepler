@@ -21,7 +21,8 @@ Package.onUse(function(api) {
   ],'server');
 
   api.addFiles([
-    'plugin.js'
+    'plugin.js',
+    'i18n/it.js'
   ]);
 
   api.addFiles([

@@ -49,7 +49,7 @@ Kepler.Place.include({
 
 			if(track.properties.type==='access') {
 
-				track.properties.name = i18n('tracks.'+track.properties.type);
+				track.properties.name = i18n('trackstype.'+track.properties.type);
 				
 				parkPoints.push( K.Util.geo.createFeature('Point', track.geometry.coordinates[0], {type:'parking'}) );
 			}

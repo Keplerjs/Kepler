@@ -1,4 +1,27 @@
-//TODO Assets.getText
+
+i18n.map('it', {
+	labels: {
+		type: "Tipo",
+		likeplaces: "Tipologia"
+	},
+	categories: {
+		rock: "Falesia",
+		boulder: "Boulder",
+		indoor: "Palestra",
+		long: "Via lunga",
+		ice: "Ghiaccio",	
+		iron: "Via ferrata",
+		water: "Deep water",
+		trad: "Via Tradizionale",
+		dry: "Dry Tooling",			
+		bigwall: "Big wall",
+		building: "Buildering",
+		pool: "Piscina",
+		alp: "Alpinismo",
+		club: "Associazione",
+		market: "Negozio"
+	}
+});
 
 i18n.map('it', {
 	titles: {
@@ -16,22 +39,7 @@ i18n.map('it', {
 		checkins: "Persone a {$1}",
 		login: "Accedi",
 		about: "About Us",
-		page404: "Pagina non trovata!",
-	
-	//plugins
-		convers: "Messaggi",
-		conver: "Conversazione",
-		userConver: "Conversazione con {$1}",
-		userConverleave: "<i class=\"text-muted\"> <b>{$1}</b> ha lasciato la conversazione.</i>",		
-		placeConvers: "Conversazioni a {$1}",
-		notif: "Notifiche"
-	},
-	tabs: {
-		geoinfo: "Geografia",			
-		pois: "Luoghi utili",
-		tracks: "Sentieri",
-		weather: "Meteo",
-		stview: "Street View"
+		page404: "Pagina non trovata!"
 	},
 	btns: {
 		checkin: "Sei qui!",
@@ -58,21 +66,6 @@ i18n.map('it', {
 		signinfb: "Registrati con Facebook",
 		signingp: "Registrati con Google",
 		forgotpw: "Password persa?",
-
-	//plugins
-		weather_forecasts: "Previsioni Meteo",
-		share: "Invia",
-		pois: "Luoghi utili vicini",
-		tracks: "Sentieri vicini",
-		stview: "Vista parcheggio",
-		notif: "Notifiche",
-		notifclean: "Viste tutte!",
-		events: "Eventi",
-		conversend: "Messaggio",
-		convers: "Messaggi",
-		msgsend: "Invia",
-		convernew: "Nuova",
-		converdel: "Cancella!",
 		friendadd: "Aggiungi",
 		frienddel: "Rimuovi",
 		friendpending: "In Attesa...",
@@ -112,66 +105,8 @@ i18n.map('it', {
 		nohist: "Nessun luogo di recente",
 		nofavs: "Nessun luogo preferito",
 		nohistplace: "Nessuna visita di recente",
-		notfound: "Nessun risultato trovato",
-
-	//plugins
-		type: "Tipo",
-		likeplaces: "Tipologia",		
-		share: "Condividi",
-		msgnew: "Scrivi un commento...",
-		msgsmore: "commenti...",
-		convertit: "Titolo nuova conversazione...",
-		noconvers: "Nessun messaggio di recente",
-		eventsuser: "Luoghi in programma",
-		noevents: "Nessun evento in programma",
-		//plugin geoinfo
-		loc: "Località",
-		reg: "Regione",
-		naz: "Nazione",
-		prov: "Provincia",
-		com: "Comune",
-		esp: "Esposizione",
-		season: "Stagione",
-		shadow: "In ombra",
-		ele: "Quota",
-		sunrise: "Alba",
-		sunset: "Tramonto",
-		//plugin tracks
-		time: "Durata",
-		len: "Distanza",
-		asc: "In salita",
-		dis: "In discesa",		
+		notfound: "Nessun risultato trovato",		
 	},
-	pois: {
-		place: "Arrivo",
-		parking: "Parcheggio",
-		water: "Fontana",
-		drink: "Dove bere!",
-		eat: "Dove mangiare"
-	},
-	tracks: {
-		access: "Avvicinamento",
-		other: "Altro",
-	},
-	categories: {
-		rock: "Falesia",
-		boulder: "Boulder",
-		indoor: "Palestra",
-		long: "Via lunga",
-		ice: "Ghiaccio",	
-		iron: "Via ferrata",
-		water: "Deep water",
-		trad: "Via Tradizionale",
-		dry: "Dry Tooling",			
-		bigwall: "Big wall",
-		building: "Buildering",
-		pool: "Piscina",
-		alp: "Alpinismo",
-		club: "Associazione",
-		market: "Negozio"
-	},
-	upload_error_imageNotValid: "Solo immagini JPG/PNG, max ",
-	
 	map_attrib:"<a href=\"http://osm.org/\">osm.org</a>",
 	map_gps_error: "GPS disabilitato",
 	map_layers: {

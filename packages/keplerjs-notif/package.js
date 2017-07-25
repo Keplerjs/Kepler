@@ -15,7 +15,8 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-    'plugin.js',    
+    'plugin.js',
+    'i18n/it.js', 
     'collections/notifs.js',
     'modules/Notif.js'
   ]);
