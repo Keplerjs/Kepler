@@ -8,7 +8,7 @@ Router.map(function() {
 		data: function() {
 			if(!this.ready()) return null;
 			return {
-				title: i18n('titles.notifications'),
+				title: i18n('titles.notif'),
 				className: 'notifications',
 				headerTemplate: 'list_notif_clean',		
 				itemsTemplate: 'item_notif',

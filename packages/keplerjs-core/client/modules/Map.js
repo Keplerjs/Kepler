@@ -22,6 +22,8 @@ var layers = {},
 
 layers.baselayer = new L.TileLayer(' ');
 
+layers.cursor = L.cursor();
+
 layers.users = new L.LayerGroup();
 
 layers.cluster = new L.MarkerClusterGroup({
@@ -58,7 +60,6 @@ layers.places = new L.LayerJSON({
 	callData: function(bbox, callback) {
 
 		var sub = Meteor.subscribe('placesByBBox', bbox, function() {
-
 			callback( K.findPlacesByBBox(bbox).fetch() );
 		});
 
@@ -93,7 +94,7 @@ layers.geojson = new L.GeoJSON(null, {
 		var tmpl, $popup;
 
 	//TODO move to pois plugin
-	//create template for layers.geojson popup that contains {{> pluginsPlaceholder 'popupGeojson'}}
+	//create template for layer geojson popup that contains {{> pluginsPlaceholder 'popupGeojson'}}
 
 		if(feature.geometry.type==='LineString')
 			tmpl = Template.popupTrack;
@@ -118,13 +119,13 @@ controls.zoom = L.control.zoom({
 
 controls.attrib = L.control.attribution({
 	position: 'bottomright',
-	prefix: i18n('controls.attrib')
+	prefix: i18n('map_attrib')
 });
 
 controls.gps = L.control.gps({
 	position: 'bottomright',
-	title: i18n('controls.gps.title'),
-	textErr: null,//i18n('controls.gps.error'),
+	title: '',
+	textErr: i18n('map_gps_error'),
 	marker: new L.Marker([0,0], {
 		icon: L.divIcon({className: 'marker-gps'})
 	}),
@@ -142,8 +143,6 @@ controls.gps = L.control.gps({
 			K.Profile.user.icon.animate();
 	}
 });
-
-layers.cursor = L.cursor();
 
 Kepler.Map = {
 
@@ -198,16 +197,16 @@ Kepler.Map = {
 		$(window).on('orientationchange'+(K.Util.isMobile()?'':' resize'), _.debounce(function(e) {
 
 			$(window).scrollTop(0);
-			//console.log('invalidateSize', (new Date).getTime(), self._map.getSize() )
 			self._map.invalidateSize(false);
 
 		}, Meteor.settings.public.typeDelay+1000) );
 
-		if(_.isFunction(cb))
+		if(_.isFunction(cb)) {
 			self._map.whenReady(function() {
 				self._deps.bbox.changed();
 				cb.call(self);
 			}, self);
+		}
 
 		return this;
 	},
@@ -363,6 +362,9 @@ Kepler.Map = {
 	addGeojson: function(geoData, cb) {
 		if(this.ready) {
 			geoData = _.isArray(geoData) ? geoData : [geoData];
+
+			if(!this.isVisible())
+				this.sidebar$.removeClass('expanded');
 
 			this._map.closePopup();
 

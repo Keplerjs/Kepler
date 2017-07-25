@@ -1,6 +1,23 @@
 /*
 	Leaflet CUSTOMIZATIONS
 */
+
+.leaflet-container {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	cursor: default;
+/*	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;*/
+}
+.leaflet-dragging .leaflet-container {
+	cursor: move;
+}
+
 .leaflet-right {
 	z-index: 1;
 }

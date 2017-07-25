@@ -22,7 +22,7 @@ Template.registerHelper('placeById', function(id) {
 });
 
 Template.registerHelper('placeType', function(type) {
-	return i18n('places.'+type) || '';
+	return i18n('categories.'+type) || '';
 });
 
 Template.registerHelper('isRoute', function(name, clas) {

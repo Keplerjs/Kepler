@@ -139,7 +139,7 @@
 .icon-status-offline,
 .icon-status-waiting,
 .icon-status-connecting,
-.icon-status-disconnect{ background-position: 0 -168px;  } 
+.icon-status-disconnect{ background-position: 0 -180px;  } 
 
 /* ICON POIS */
 .icon-parking{ background-position: -60px 0; } 
@@ -195,6 +195,7 @@
 .icon-checkout{ background-position: -120px -240px;  }
 .icon-useradd{ background-position: -120px -270px;  } 
 .icon-userdel{ background-position: -120px -300px;  }
+.icon-userpend{ background-position: -120px -330px;  }
 
 .icon-userbid{ background-position: -120px -330px;  } 
 .icon-placeinfo{ background-position: -120px -360px;  } 

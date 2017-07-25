@@ -16,7 +16,7 @@ Template.panelSettings.helpers({
 		return _.map(Meteor.settings.public.activePlaces, function(k) {
 			return {
 				val: k,
-				name: i18n('places.'+k),
+				name: i18n('categories.'+k),
 				active: _.contains(K.Profile.data.likeplaces, k)
 			};
 		});
@@ -39,7 +39,7 @@ Template.panelSettings.helpers({
 			return {
 				key: k,
 				val: k,
-				name: i18n('layers.'+k),
+				name: i18n('map_layers.'+k),
 				active: k===layer,
 				url: _.template(val,{s:'a',z:'15',x:'17374',y:'11667'})
 			};

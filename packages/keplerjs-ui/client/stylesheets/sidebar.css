@@ -9,10 +9,9 @@
 	background: none;    
     height: auto;
     padding: 4px;
-    /*background: rgba(0,0,0,0.2)*/
 }
 .sidebar.expanded {
-	height: calc(100%);
+    height: calc(100%);
 }
 .sidebar.expanded > .tab-content {
 	margin-top: 4px;

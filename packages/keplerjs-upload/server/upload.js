@@ -36,7 +36,7 @@ Meteor.methods({
 			
 			console.log('uploadFile: error ', _.omit(fileObj,'blob') );
 
-			throw new Meteor.Error(500, i18n('upload.error_imageNotValid') + K.Util.humanize.filesize(Meteor.settings.public.maxImageSize) );
+			throw new Meteor.Error(500, i18n('upload_error_imageNotValid') + K.Util.humanize.filesize(Meteor.settings.public.maxImageSize) );
 		}
 
 		console.log('uploadFile: wrinting...', fileBig);
@@ -56,7 +56,7 @@ Meteor.methods({
 			}
 			catch(e) {
 				console.log('uploadFile: error ', e);
-				return i18n('upload.error_imageNotValid');
+				return i18n('upload_error_imageNotValid');
 			}
 			console.log('uploadFile: resized', fileMin);
 		}
