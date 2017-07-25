@@ -12,10 +12,10 @@
 		{{#if shadow}}<!-- <i class="icon icon-shadow"></i>  --><label>{{i18n 'labels.shadow'}}</label>&nbsp;{{shadow}} <br />{{/if}}
 		{{#if esp}}<!-- <i class="icon icon-esp"></i>  --><label>{{i18n 'labels.esp'}}</label>&nbsp;{{humanAzimut esp}} <br />{{/if}}
 		{{#if ele}}<!-- <i class="icon icon-ele"></i> --> <label>{{i18n 'labels.ele'}}</label>&nbsp;{{ele}}m <br />{{/if}}
-		{{#if loc}}<!-- <i class="icon icon-sun"></i> --> 
-			<label>{{i18n 'labels.sunrise'}}</label>&nbsp;{{sunrise loc}} 
-			<label>{{i18n 'labels.sunset'}}</label>&nbsp;{{sunset loc}} 
-		{{/if}}
+		{{#with suncalc loc}}
+			<label>{{i18n 'labels.sunrise'}}</label>&nbsp;{{sunrise}}<br>
+			<label>{{i18n 'labels.sunset'}}</label>&nbsp;{{sunset}} 
+		{{/with}}
 		</div>
 	</div>
 </template>

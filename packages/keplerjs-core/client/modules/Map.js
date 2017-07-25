@@ -305,11 +305,6 @@ Kepler.Map = {
 		return this;
 	},
 
-	getCenter: function() {
-		var ll = this._map.getCenter();
-		return [ll.lat, ll.lng];
-	},
-
 	getBBox: function() {
 		if(this.ready) {
 			this._deps.bbox.depend();
@@ -328,6 +323,14 @@ Kepler.Map = {
 		}
 	},
 	
+	getCenter: function() {
+		
+		//TODO calc by this.getBBox()
+
+		var ll = this._map.getCenter();
+		return [ll.lat, ll.lng];
+	},
+
 	showLoc: function(loc, cb) {
 		if(this.ready) {
 			if(_.isFunction(cb))

@@ -6,12 +6,19 @@ Package.describe({
   git: ''
 });
 
+Npm.depends({
+  "suncalc": "1.8.0"
+});
+
 Package.onUse(function(api) {
 
   api.versionsFrom("METEOR@1.0");
   
+  api.addFiles([
+    '.npm/package/node_modules/suncalc/suncalc.js'
+  ],'client');
+
   api.use([
-    'alisalaah:suncalc',
     'keplerjs:core'
   ]);
 
@@ -26,6 +33,7 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
+    'client/modules/Geoinfo.js',
     'client/helpers.js',
     'client/stylesheets/popups.css',
     'client/views/panels.html',
