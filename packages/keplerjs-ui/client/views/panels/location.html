@@ -8,8 +8,10 @@
 		{{#if checkin}}
 			{{#with placeById checkin}}
 			<li class="list-group-item">
+				
 				{{> item_place}} <br />
-				{{> place_btns_all}}
+
+				{{> place_btns_panel}}
 			</li>
 			{{/with}}
 		{{else}}

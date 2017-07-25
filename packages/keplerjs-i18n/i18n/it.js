@@ -18,7 +18,7 @@ i18n.map('it', {
 		page404: "Pagina non trovata!"
 	},
 	btns: {
-		checkin: "Sei qui!",
+		checkin: "Entra!",
 		checkout: "Esci!",
 		info: "Info",
 		nav: "Naviga",

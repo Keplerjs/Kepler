@@ -47,3 +47,9 @@
 .friends-search:active + .icon-search {
 	display: none;
 }
+
+.place-btn-star.btn-default.active,
+.place-btn-checkin.btn-default.active {
+	background-color: none;
+	box-shadow: none;
+}
