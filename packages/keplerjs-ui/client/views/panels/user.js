@@ -1,4 +1,11 @@
 
+Template.panelUser.helpers({
+
+	fullname: function() {
+		return this.username!==this.name ? this.username+' ('+this.name+')': this.username;
+	}
+});
+
 Template.panelUser.events({
 	'click .nav-tabs a': function(e, tmpl) {
 		e.preventDefault();
