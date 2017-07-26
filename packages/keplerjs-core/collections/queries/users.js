@@ -25,6 +25,12 @@ K.extend({
 
 		return Users.find({_id: usersIds }, K.filters.userItem);
 	},
+/*	findUsersBlockMe: function(usersIds) {
+
+		usersIds = _.isArray(usersIds) ? {$in: usersIds} : usersIds;
+
+		return Users.find({_id: usersIds }, K.filters.userBlockMe);
+	},	*/
 	findUserById: function(userId) {
 
 		return Users.find(userId, K.filters.userPanel);

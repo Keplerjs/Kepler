@@ -28,7 +28,9 @@ Kepler.User = Class.extend({
 
 			if(self.isMe())
 				self.data = K.findCurrentUser(self.id).fetch()[0];
-			else
+/*			else if(self.isBlockMe())
+				self.data = K.findUsersBlockMe(self.id).fetch()[0];*/
+			else 
 				self.data = K.findFriendById(self.id).fetch()[0];
 			
 			_.extend(self, self.data);
@@ -97,6 +99,10 @@ Kepler.User = Class.extend({
 	isBlocked: function() {
 		return K.Profile.hasBlocked(this.id);
 	},
+/*	isBlockMe: function() {
+		console.log(this.data)
+		return _.contains(this.data.usersBlocked, K.Profile.id);
+	},	*/	
 	isOnline: function() {
 		this._dep.depend();
 //TODO aggiuni this.isMe()

@@ -5,7 +5,7 @@ Kepler.filters = {
 //Profile
 	currentUser: {
 		fields: {
-			name:1, username:1, avatar:1, status:1, checkin:1, online:1, loc:1, mob:1, friends:1, createdAt:1, gender:1, city:1, lang:1, loclast:1, onlinelast:1, favorites:1, hist:1, usersPending:1, usersReceive:1, usersBlocked:1, emails:1, isAdmin:1, settings:1,
+			name:1, username:1, avatar:1, status:1, checkin:1, online:1, loc:1, mob:1, friends:1, createdAt:1, gender:1, city:1, lang:1, loclast:1, onlinelast:1, favorites:1, hist:1, usersBlocked:1, usersPending:1, usersReceive:1, emails:1, isAdmin:1, settings:1,
 			profile:1
 		}
 	},
@@ -22,14 +22,19 @@ Kepler.filters = {
 	},
 	userPanel: {
 		fields: {
-			name:1, username:1, avatar:1, status:1, /********************************/ friends:1, createdAt:1, gender:1, city:1, lang:1
+			name:1, username:1, avatar:1, status:1, /********************************/ friends:1, createdAt:1, gender:1, city:1, lang:1, /*******************************************/ usersBlocked:1
 		}
 	},		
 	userItem: { 
 		fields: {
-			name:1, username:1, avatar:1, status:1
+			name:1, username:1, avatar:1, status:1,
 		}
 	},
+/*	userBlockMe: { 
+		fields: {
+			name:1, username:1, avatar:1, usersBlocked:1
+		}
+	},*/
 
 //Places
 	placePanel: {
