@@ -22,7 +22,9 @@ Different packages can play different roles. So here's a quick overview of the d
 * keplerjs:api
 
 **keplerjs:core** contains the heart of Kepler, and itself depends on a set of core packages: *keplerjs:lib*, *keplerjs:i18n*
+
 **keplerjs:ui** define the base front-end structure od Kepler app the basic views and the minimum CSS for interface behavior.
+
 **keplerjs:api** implement a simple RESTful API for basic operations and it is reachable to this url */api*.
 
 #### Plugin Packages
