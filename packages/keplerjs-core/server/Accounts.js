@@ -6,7 +6,7 @@
 Meteor.startup(function () {	
 	Accounts.config({
 		sendVerificationEmail: false,
-		forbidClientAccountCreation: !Meteor.settings.public.accountCreation
+		forbidClientAccountCreation: !Meteor.settings.accountCreation
 	});
 	//http://developers.facebook.com/docs/authentication/permissions/
 	Accounts.loginServiceConfiguration.remove({service: 'facebook'});

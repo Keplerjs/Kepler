@@ -1,17 +1,8 @@
 {
-	"adminUsers": ["admin"],
 	"public": {
-		"accountCreation": true,
 		"searchMinLen": 1,
 		"searchMaxRes": 20,
 		"typeDelay": 300,
-		"maxHist": 3,
-
-		"maxTracks": 2,
-		"maxTracksDist": 1050,
-		"maxPois": 10,
-		"maxPoisDist": 500,
-		"maxNotifList": 5,
 		"map": {
 			"zoom": 10,
 			"minZoom": 10,
@@ -38,10 +29,20 @@
 			"de": "Deutsch",
 			"es": "Español"
 		},
+
+		"maxHist": 3,
+		"maxTracks": 2,
+		"maxTracksDist": 1050,
+		"maxPois": 10,
+		"maxPoisDist": 500,
+		"maxNotifList": 5,
+
 		"upload": {
 			"maxFileSize": 5800000
 		}
 	},
+	"adminUsers": ["admin"],
+	"accountCreation": true,	
 	"upload": {
 		"targets": {
 			"avatars": {
