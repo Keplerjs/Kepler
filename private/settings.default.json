@@ -1,8 +1,5 @@
 {
 	"adminUsers": ["admin"],
-	"dirs": {
-		"avatars": "/var/www/static.app_meteor.net/avatars/"
-	},
 	"public": {
 		"urls": {
 			"avatars": "/static/avatars/"
@@ -10,17 +7,16 @@
 		"accountCreation": true,
 		"searchMinLen": 1,
 		"searchMaxRes": 20,
-		"typeDelay": 300,		
+		"typeDelay": 300,
+		"maxHist": 3,
+		"maxImageSize": 5800000,
+
 		"maxTracks": 2,
 		"maxTracksDist": 1050,
 		"maxPois": 10,
 		"maxPoisDist": 500,
 		"maxNotifList": 5,
-		"maxHist": 3,		
-		"checkinMaxDist": 500,
-		"bboxMinShift": 200,
-		"gpsMinShift": 40,
-		"maxImageSize": 5800000,
+
 		"avatarSize": {
 			"width": 140,
 			"height": 140,
@@ -30,17 +26,20 @@
 			"zoom": 10,
 			"minZoom": 10,
 			"maxZoom": 19,
-			"layer": "road",			
 			"center": [42.047801, 13.250885],
-			"maxBounds": [[36.282794, 5.361328], [47.542735, 21.071777]]
-		},
-		"showLocZoom": 16,
-		"layers": {
-			"road": "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-			"cycle": "http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png",
-			"landscape": "http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png",			
-			"transport": "http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png"
-		},		
+			"maxBounds": [[36.282794, 5.361328], [47.542735, 21.071777]],
+
+			"checkinMaxDist": 500,
+			"bboxMinShift": 200,
+			"gpsMinShift": 40,
+			"showLocZoom": 16,
+			"layer": "road",			
+			"layers": {
+				"road": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+				"landscape": "https://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png",			
+				"transport": "https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png"
+			}			
+		},	
 		"langDef": "it",
 		"langs": {
 			"it": "Italiano",
@@ -49,6 +48,9 @@
 			"de": "Deutsch",
 			"es": "Español"
 		}
+	},
+	"dirs": {
+		"avatars": "/var/www/app.meteor.com/avatars/"
 	},
 	"accounts": {
 		"geonamesUser": "",
