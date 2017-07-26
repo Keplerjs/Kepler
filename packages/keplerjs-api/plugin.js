@@ -1,5 +1,0 @@
-
-K.Plugin({
-	name: 'api'
-});
-

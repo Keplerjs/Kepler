@@ -56,7 +56,7 @@ layers.cluster = new L.MarkerClusterGroup({
 layers.places = new L.LayerJSON({
 	caching: false,
 	layerTarget: layers.cluster,
-	minShift: Meteor.settings.public.bboxMinShift,
+	minShift: Meteor.settings.public.map.bboxMinShift,
 	callData: function(bbox, callback) {
 
 		var sub = Meteor.subscribe('placesByBBox', bbox, function() {
@@ -291,18 +291,21 @@ Kepler.Map = {
 	},
 
 	setOpts: function(opts) {
+		
+		var defOpts = Meteor.settings.public.map;
+
 		if(this.ready) {
-			opts = _.extend({}, Meteor.settings.public.map, opts);
+			opts = _.extend({}, defOpts, opts);
 
 			if(!K.Util.valid.loc(opts.center))
-				opts.center = Meteor.settings.public.map.center;
+				opts.center = defOpts.center;
 			
-			if(!Meteor.settings.public.layers[opts.layer])
-				opts.layer = Meteor.settings.public.map.layer;
+			if(!opts.layers[opts.layer])
+				opts.layer = defOpts.layer;
 
 			this._setView(opts.center, opts.zoom);
 
-			layers.baselayer.setUrl( Meteor.settings.public.layers[opts.layer] );
+			layers.baselayer.setUrl( defOpts.layers[opts.layer] );
 		}
 		return this;
 	},
@@ -339,7 +342,7 @@ Kepler.Map = {
 				this._map.once("moveend zoomend", cb);
 			
 			if(loc && K.Util.valid.loc(loc))
-				this._setView( L.latLng(loc) , Meteor.settings.public.showLocZoom);
+				this._setView( L.latLng(loc) , Meteor.settings.public.map.showLocZoom);
 		}
 		return this;
 	},

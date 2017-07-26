@@ -15,12 +15,12 @@ Meteor.methods({
 		{
 			var shift = K.Util.geo.distance(userData.loclast, loc);
 
-			if(userData.loclast===null || shift >= Meteor.settings.public.gpsMinShift)
+			if(userData.loclast===null || shift >= Meteor.settings.public.map.gpsMinShift)
 			{
 				var nearPlace = Places.findOne({
 						loc: {
 							'$near': loc,
-							'$maxDistance': K.Util.geo.meters2rad(Meteor.settings.public.checkinMaxDist)
+							'$maxDistance': K.Util.geo.meters2rad(Meteor.settings.public.map.checkinMaxDist)
 						}
 					});
 

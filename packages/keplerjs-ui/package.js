@@ -21,10 +21,6 @@ Package.onUse(function(api) {
     'keplerjs:core'
   ]);
 
-  api.addFiles([
-    'plugin.js'
-  ]);
-
   api.addFiles(globsync('client/**/*.*'), 'client');
   
 });
