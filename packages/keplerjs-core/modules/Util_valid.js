@@ -56,7 +56,7 @@ Kepler.Util.valid = {
 		if(_.isUndefined(fileObj.size) || _.isUndefined(fileObj.type))
 			return false;
 
-		return (fileObj.size <= Meteor.settings.public.maxImageSize &&
+		return (fileObj.size <= Meteor.settings.public.upload.maxFileSize &&
 			_.contains(['image/png','image/jpeg'], fileObj.type) );
 	}
 };

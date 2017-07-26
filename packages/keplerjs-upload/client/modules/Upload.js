@@ -2,8 +2,6 @@
 Kepler.Upload = {
 	uploadFile: function(fileObj, target, callback) {
 	
-	//TODO implement target redirection
-
 		if(this.fileReader)
 			this.fileReader.abort();
 		else
@@ -16,12 +14,12 @@ Kepler.Upload = {
 					type: fileObj.type,
 					size: fileObj.size,
 					blob: e.target.result
-				}, callback);
+				}, target, callback);
 			}
 			this.fileReader.readAsBinaryString(fileObj);
 		}
 		else
-			callback({message: i18n('upload_error_imageNotValid') + K.Util.humanize.filesize(Meteor.settings.public.maxImageSize) });
+			callback({message: i18n('upload_error_imageNotValid') + K.Util.humanize.filesize(Meteor.settings.public.upload.maxFileSize) });
 
 		return this;
 	}
