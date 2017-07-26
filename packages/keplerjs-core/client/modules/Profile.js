@@ -93,10 +93,14 @@ Kepler.Profile = {
 		Meteor.call('friendDel', userId);
 		return this;
 	},
-	friendBlock: function(userId) {
-		Meteor.call('friendBlock', userId);
+	userBlock: function(userId) {
+		Meteor.call('userBlock', userId);
 		return this;
 	},
+	userUnblock: function(userId) {
+		Meteor.call('userUnblock', userId);
+		return this;
+	},	
 	addCheckin: function(placeId) {
 		var self = this;
 		Meteor.call('addCheckin', placeId, function() {

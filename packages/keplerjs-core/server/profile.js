@@ -9,7 +9,7 @@ Meteor.methods({
 
 		var userData = Meteor.user()
 		
-		console.log('setLoc', userData.username, loc);
+		//console.log('Profile: setLoc', userData.username, loc);
 
 		if(K.Util.valid.loc(loc))
 		{
@@ -39,7 +39,6 @@ Meteor.methods({
 						'settings.map.center': loc
 					}
 				});
-				console.log('setLoc', _.pick(userData,'loc','loclast','checkin'), loc);
 			}
 			else
 				Users.update(this.userId, {
@@ -86,7 +85,7 @@ Meteor.methods({
 				}
 			});
 		
-		console.log('addCheckin', userData.username, placeData.name);
+		console.log('Profile: addCheckin', userData.username, placeData.name);
 	},
 	removeCheckin: function(placeId) {
 
@@ -103,7 +102,7 @@ Meteor.methods({
 				}
 			});
 		
-		console.log('removeCheckin', this.userId, placeId);
+		console.log('Profile: removeCheckin', this.userId, placeId);
 	},	
 	friendAdd: function(pendUserId) {
 		
@@ -112,7 +111,7 @@ Meteor.methods({
 		Users.update(this.userId, {$addToSet: {usersPending: pendUserId} });
 		Users.update(pendUserId, {$addToSet: {usersReceive: this.userId} });
 
-		console.log('friendAdd Pending', this.userId, pendUserId);
+		console.log('Profile: friendAdd Pending', this.userId, pendUserId);
 	},
 	friendConfirm: function(confirmUserId) {
 		
@@ -120,7 +119,7 @@ Meteor.methods({
 
 		K.updateFriendship(this.userId, confirmUserId);
 
-		console.log('friendConfirm', this.userId, confirmUserId);
+		console.log('Profile: friendConfirm', this.userId, confirmUserId);
 	},
 	friendDel: function(delUserId) {
 
@@ -129,9 +128,9 @@ Meteor.methods({
 		Users.update(this.userId, {$pull: {friends: delUserId} });
 		Users.update(delUserId, {$pull: {friends: this.userId} });
 		
-		console.log('friendDel', this.userId, delUserId);
+		console.log('Profile: friendDel', this.userId, delUserId);
 	},
-	friendBlock: function(blockUserId) {
+	userBlock: function(blockUserId) {
 
 		if(!this.userId) return null;
 		
@@ -139,9 +138,25 @@ Meteor.methods({
 			$pull: {friends: blockUserId},
 			$addToSet: {usersBlocked: blockUserId}
 		});
-		Users.update(blockUserId, {$pull: {friends: this.userId} });
+		Users.update(blockUserId, {
+			$pull: {
+				friends: this.userId,
+				usersPending: this.userId,
+				usersReceive: this.userId
+			}
+		});
 
-		console.log('friendBlock', this.userId, blockUserId);
+		console.log('Profile: userBlock', this.userId, blockUserId);
+	},
+	userUnblock: function(unblockUserId) {
+
+		if(!this.userId) return null;
+		
+		Users.update(this.userId, {
+			$pull: {usersBlocked: unblockUserId}
+		});
+
+		console.log('Profile: userUnblock', this.userId, unblockUserId);
 	},	
 	addFavorite: function(placeId) {
 
@@ -150,7 +165,7 @@ Meteor.methods({
 		Places.update(placeId, {$inc: {rank: 1} });
 		Users.update(this.userId, {$addToSet: {favorites: placeId} });
 		
-		console.log('addFavorite', this.userId, placeId);
+		console.log('Profile: addFavorite', this.userId, placeId);
 	},
 	removeFavorite: function(placeId) {
 		
@@ -159,6 +174,6 @@ Meteor.methods({
 		Places.update({_id: placeId, rank: {$gt: 0} }, {$inc: {rank: -1} });
 		Users.update(this.userId, {$pull: {favorites: placeId} });
 		
-		console.log('removeFavorite', this.userId, placeId);
+		console.log('Profile: removeFavorite', this.userId, placeId);
 	}
 });

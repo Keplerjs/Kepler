@@ -12,7 +12,29 @@
 		<div class="panel-body">
 
 			{{> tab_bio}}
+
+		{{#if isBlocked}}
 			
+			<br>
+			<ul class="list-group">		
+				<li class="list-group-item">
+					<i class="icon icon-report"></i> {{i18n 'labels.userblocked'}}
+				</li>
+			</ul>
+
+		{{else}}
+			
+			<div class="row">
+				<div class="col-xs-12">
+					<i class="icon icon-{{#if isOnline}}online{{else}}offline{{/if}}{{#if mob}}-mob{{/if}} user-device"></i> 
+					{{#if isOnline}}
+					<b class="text-green">online</b>
+					{{else}}
+					<b class="text-gray">offline</b>
+					{{/if}}
+				</div>
+			</div>
+
 			<div class="row">
 				<div class="col-xs-12">
 					{{> user_btns2}}
@@ -34,7 +56,7 @@
 					<a href="#tab_friends" data-toggle="tab">
 						<i class="icon icon-users"></i> <span>{{i18n 'btns.friends'}}</span>
 					</a>
-				</li>			
+				</li>
 				{{#if isFriend}}
 				<li class="user-btn-star">
 					<a href="#tab_histuser" data-toggle="tab">
@@ -63,6 +85,7 @@
 				</div>
 				{{/if}}
 			</div>
+		{{/if}}
 		</div>		
 	</div>
 
@@ -70,46 +93,32 @@
 
 
 <template name="user_btns2">
-	<div class="user-btns">
+<div class="user-btns">
+	<div class="btn-group pull-right" data-toggle="buttons">
 	{{#if isFriend}}
-		<div class="btn-group pull-right" data-toggle="buttons">
-			<a data-userid="{{id}}" class="btn btn-sm btn-default user-btn-del" href="#">
-				<i class="icon icon-userdel"></i>
-			</a>
-			<a data-userid="{{id}}" class="btn btn-sm btn-default user-btn-block disabled" href="#">
-				<i class="icon icon-report"></i>
-			</a>
-		</div>
+		<a data-userid="{{id}}" class="btn btn-sm btn-default user-btn-del" href="#">
+			<i class="icon icon-userdel"></i>
+		</a>
 	{{else}}
 		{{#if isPending}}
-			<div class="btn-group pull-right" data-toggle="buttons">
-				<a class="btn btn-sm btn-default" href="#">
-					<i class="icon icon-userpend"></i> <span>{{i18n 'btns.friendpending'}}</span>
-				</a>
-			</div>
+			<a class="btn btn-sm btn-default" href="#">
+				<i class="icon icon-userpend"></i> <span>{{i18n 'btns.friendpending'}}</span>
+			</a>
 		{{else}}
 			{{#if isReceive}}
-				<div class="btn-group pull-right" data-toggle="buttons">
-					<a class="btn btn-sm btn-warning user-btn-confirm" href="#">
-						<i class="icon icon-useradd"></i> <span>{{i18n 'btns.friendconfirm'}}</span>
-					</a>
-				</div>
+				<a class="btn btn-sm btn-warning user-btn-confirm" href="#">
+					<i class="icon icon-useradd"></i> <span>{{i18n 'btns.friendconfirm'}}</span>
+				</a>
 			{{else}}
-				{{#if isBlocked}}
-					<div class="btn-group pull-right" data-toggle="buttons">
-						<a class="btn btn-sm btn-default user-btn-unblock disabled" href="#">
-							<i class="icon icon-report"></i> <span>{{i18n 'btns.friendunblock'}}</span>
-						</a>
-					</div>
-				{{else}}
-					<div class="btn-group pull-right" data-toggle="buttons">
-						<a class="btn btn-sm btn-default user-btn-add" href="#">
-							<i class="icon icon-useradd"></i> <span>{{i18n 'btns.friendadd'}}</span>
-						</a>
-					</div>
-				{{/if}}
+				<a class="btn btn-sm btn-default user-btn-add" href="#">
+					<i class="icon icon-useradd"></i> <span>{{i18n 'btns.friendadd'}}</span>
+				</a>
 			{{/if}}
 		{{/if}}
 	{{/if}}
+		<a data-userid="{{id}}" class="btn btn-sm btn-default user-btn-block" href="#">
+			<i class="icon icon-report"></i>
+		</a>
 	</div>
+</div>
 </template>

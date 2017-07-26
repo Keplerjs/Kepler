@@ -20,8 +20,8 @@ Template.user_btns2.onRendered(function() {
 			K.Profile.friendDel($(e.target).data('userid'));
 		});
 	this.$('.user-btn-block')
-		.btsConfirmButton(i18n('btns.friendblock'), function(e) {
-			K.Profile.friendBlock($(e.target).data('userid'));
+		.btsConfirmButton(i18n('btns.userBlock'), function(e) {
+			K.Profile.userBlock($(e.target).data('userid'));
 		});	
 });
 

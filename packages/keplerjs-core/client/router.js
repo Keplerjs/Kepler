@@ -96,14 +96,24 @@ Router.map(function() {
 	});
 
 //TODO use panel list
-/*	this.route('panelSettingsBlock', {
+	this.route('panelSettingsBlock', {
 		path: '/settings/blocked',
-		layoutTemplate: 'layoutPage',
+		template: 'panelList',
+		layoutTemplate: 'layoutMap',
 		loadingTemplate: 'pageLoading',
 		waitOn: function() {
 			return Meteor.subscribe('usersByIds', K.Profile.data.usersBlocked );
+		},
+		data: function() {
+			if(!this.ready()) return null;
+			return {
+				title: i18n('titles.settingsBlocked'),
+				className: 'settingsBlocked',
+				itemsTemplate: 'item_user_blocked',
+				items: _.map(K.Profile.data.usersBlocked, K.userById)
+			};
 		}
-	});	*/
+	});
 
 	this.route('friends', {
 		path: '/friends',

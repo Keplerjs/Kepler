@@ -111,15 +111,15 @@
 				</div>
 				{{/each}}
 			</div>
-			<!-- TODO
+
 			<div class="form-group">
 				<label class="col-xs-3 control-label">{{i18n 'labels.privacy'}}</label>
 				<div class="col-xs-9 col-xs-offset-3">
-					<a class="btn btn-default" href="/settings/blocked">
+					<a class="btn btn-default" href="{{pathFor route='panelSettingsBlock'}}">
 						<i class="icon icon-report"></i> {{i18n 'btns.usersblocked'}}
 					</a>
 				</div>
-			</div> -->
+			</div>
 
 			{{> pluginPlaceholder name='panelSettings'}}
 
@@ -142,29 +142,15 @@
 
 </template>
 
-<!-- 
-<template name="pageSettingsBlock">
-
-	{{> header}}
-
-	<section id="settingsBlock">
-	{{#with currentUser}}
-		<div class="list-group col-sm-6 col-sm-offset-3">
-		{{#if usersBlocked.length}}
-			<ul class="list-group list-items">		
-				{{#each usersBlocked}}
-				<li class="list-group-item">
-					{{#with userById this}}
-						{{> item_user}}
-					{{/with}}
-				</li>
-				{{/each}}
-			</ul>		
-		{{else}}
-			<div class="text-gray text-center">{{i18n 'labels.nolistitems'}}</div>
-		{{/if}}
+<template name="item_user_blocked">
+	<div class="block-item">
+		<div class="pull-left">
+			{{> item_user}}
 		</div>
-	{{/with}}
-	</section>
-
-</template> -->
+		<div class="btn-group pull-right" data-toggle="buttons">
+			<a class="btn btn-sm btn-default user-btn-unblock" href="#">
+				<i class="icon icon-report"></i> <span>{{i18n 'btns.userUnblock'}}</span>
+			</a>
+		</div>
+	</div>
+</template>

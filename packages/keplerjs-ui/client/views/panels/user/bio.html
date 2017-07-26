@@ -5,17 +5,9 @@
 		<div class="col-xs-4">
 			<img class="icon-avatar icon-avatar-big" src="{{avatar}}" />
 		</div>
-		<div class="col-xs-8">
-
-			<div class="text-right">
-				{{#if isOnline}}
-				<b class="text-green">online</b>
-				{{else}}
-				<b class="text-gray">offline</b>
-				{{/if}}
-				<i class="icon icon-{{#if isOnline}}online{{else}}offline{{/if}}{{#if mob}}-mob{{/if}} user-device"></i> 
-			</div>
-			
+		<div class="col-xs-8">			
+			{{#if username}}<label>{{i18n 'labels.username'}}</label> <span>{{username}}</span><br />{{/if}}
+			{{#if name}}<label>{{i18n 'labels.name'}}</label> <span>{{name}}</span><br />{{/if}}
 			<label>{{i18n 'labels.signupdate'}}</label> <time>{{humanDate createdAt}}</time>
 			<br />
 			{{#if city}}<label>{{i18n 'labels.city'}}</label> <span class="text-capitalize">{{city}}</span><br />{{/if}}
