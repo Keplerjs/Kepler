@@ -17,8 +17,9 @@ keplerjs:theme
 #keplerjs:theme-climb
 keplerjs:api
 keplerjs:upload
-keplerjs:share
 keplerjs:notif
+keplerjs:categories
+keplerjs:share
 keplerjs:conver
 keplerjs:events
 keplerjs:geoinfo
@@ -27,5 +28,3 @@ keplerjs:pois
 keplerjs:tracks
 keplerjs:googlemaps
 keplerjs:osm
-
-keplerjs:categories

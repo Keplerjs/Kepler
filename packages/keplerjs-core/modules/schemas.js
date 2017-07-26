@@ -9,9 +9,9 @@ Kepler.schemas = {
 		name: '',	       //place title
 		createdAt: '',	   //new Date() of place insert
 		userId: '',	   	   //user to created it
-		type: '',	       //place tipology
 		active: 0,	       //place visible in map
 		rank: 0,		   //sum of all users's favorites
+		indoor:0,		   //is an indoor place
 		loc: [],		   //coordinates lat,lng
 		desc: '',		   //place description
 		warn: '',          //place warnings and dangers
@@ -31,7 +31,6 @@ Kepler.schemas = {
 		gender: '',
 		city: '',
 		lang: 'it',
-		likeplaces: [],	   //(TODO rename in types) tipologia climber i18n.places
 		loc: null,		   //current gps position
 		loclast: null,	   //lat gps position
 		checkin: null,	   //id Place where I am

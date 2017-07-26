@@ -22,6 +22,7 @@ Template.item_conver.helpers({
 
 		else if(this.targetType==='user') {
 			var user = K.userById(this.targetId);
+			if(!user) return null;
 			return user.isMe() ? K.userById(this.userId) : user;
 		}
 	},	

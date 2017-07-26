@@ -110,6 +110,7 @@
 /* MARKER */
 .marker-cluster{ background-position: -30px 0;      } 
 .marker-active { background-position: -30px -30px;  } 
+.marker-place  { background-position: -30px -60px;  } 
 .marker-rock   { background-position: -30px -60px;  } 
 .marker-gray   { background-position: -30px -90px;  } 
 .marker-indoor { background-position: -30px -120px; } 

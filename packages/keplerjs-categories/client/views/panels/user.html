@@ -1,0 +1,13 @@
+
+<template name="panelUser_cats">
+	{{#if userCats.length}}
+	<div class="row">
+		<div class="col-xs-12">	
+		<label>{{i18n 'labels.usercats'}}</label>
+		{{#each userCats}}
+			<small class="">{{this}}</small>
+		{{/each}}
+		</div>
+	</div>
+	{{/if}}
+</template>

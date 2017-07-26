@@ -19,12 +19,6 @@
 			<label>{{i18n 'labels.signupdate'}}</label> <time>{{humanDate createdAt}}</time>
 			<br />
 			{{#if city}}<label>{{i18n 'labels.city'}}</label> <span class="text-capitalize">{{city}}</span><br />{{/if}}
-			{{#if places.length}}
-				<label>{{i18n 'labels.likeplaces'}}</label>
-				{{#each places}}
-					<small class="">{{this}}</small>, 
-				{{/each}}
-			{{/if}}
 		</div>
 	</div>
 

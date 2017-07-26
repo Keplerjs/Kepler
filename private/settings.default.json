@@ -8,7 +8,6 @@
 			"avatars": "/static/avatars/"
 		},
 		"accountCreation": true,
-		"geoipLocation": false,	
 		"searchMinLen": 1,
 		"searchMaxRes": 20,
 		"typeDelay": 300,		
@@ -49,16 +48,7 @@
 			"fr": "Français",
 			"de": "Deutsch",
 			"es": "Español"
-		},
-		"activePlaces": [
-			"rock","boulder","indoor","long"
-		],
-		"deactivePlaces": [
-			"ice","iron","water","trad","dry","bigwall","building","pool","alp","club","market"
-		],
-		"rocks": [
-			"sandstone","granite","limestone","basalt","ice","other"
-		]
+		}
 	},
 	"accounts": {
 		"geonamesUser": "",

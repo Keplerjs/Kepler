@@ -1,32 +1,49 @@
-/*
-
-//TODO share obejcts to overpass by osm node or way id
-
-[out:json];way(42764800);(._;>;);
-out body;way(56219784);(._;>;);
-out body;
-
-*/
 
 K.Plugin({
-	name: 'categories',
-	/*placeholders: {
-		panelPlace: ['panelPlace_pois'],
-		popupPlace: 'popupPlace_pois'
-	},*/
-/*	filters: {
+	name: 'cats',
+	placeholders: {
+		panelSettings: 'panelSettings_cats',
+		panelPlace: 'panelPlace_cats',
+		panelUser: 'panelUser_cats'
+	},
+	filters: {
+		currentUser: {
+			fields: {
+				cats: 1
+			}
+		},
+		friendPanel: {
+			fields: {
+				cats: 1
+			}
+		},	
+		userPanel: {
+			fields: {
+				cats: 1
+			}
+		},		
 		placePanel: {
 			fields: {
-				osm: 1
+				cats: 1
+			}
+		},
+		placeItem: {
+			fields: {
+				cats: 1
+			}
+		},
+		placeSearch: {
+			fields: {
+				cats: 1
 			}
 		}
 	},
 	schemas: {
 		place: {
-			source: {
-				type: 'osm',
-				//node id, user, tags
-			}
-		}
-	},*/
+			cats: []
+		},
+		user: {
+			cats: []
+		}		
+	}
 });

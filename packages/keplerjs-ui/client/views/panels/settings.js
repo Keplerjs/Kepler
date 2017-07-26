@@ -12,15 +12,6 @@ Template.panelSettings.helpers({
 			};
 		});
 	},
-	places: function() {
-		return _.map(Meteor.settings.public.activePlaces, function(k) {
-			return {
-				val: k,
-				name: i18n('categories.'+k),
-				active: _.contains(K.Profile.data.likeplaces, k)
-			};
-		});
-	},
 	lang: function() {
 		return K.Profile.data.lang
 	},
@@ -86,16 +77,6 @@ Template.panelSettings.events({
 		var val = $(e.currentTarget).val();
 		Users.update(Meteor.userId(), { $set: {'city': val } });
 	}, Meteor.settings.public.typeDelay),
-
-	'change #likeplaces input': function(e) {
-		var val = $(e.currentTarget).val(),
-			liked = $(e.currentTarget).is(':checked');
-
-		if(!liked)
-			Users.update(Meteor.userId(), { $pull: {'likeplaces': val } });
-		else
-			Users.update(Meteor.userId(), { $addToSet: {'likeplaces': val } });
-	},
 
 	'change #maplayer input': _.debounce(function(e) {
 		e.preventDefault();

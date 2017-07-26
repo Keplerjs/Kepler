@@ -7,10 +7,10 @@ Kepler.placeholders = {
 	panelSettings: [],	
 	panelProfile: [],
 	panelPlace: [],
-	popupCursor: [],
+	panelUser: [],		
 	popupPlace: [],
 	popupUser: [],
+	popupCursor: [],	
 	itemPlace:  [],
-	panelUser: [],
 	itemUser: []
 };

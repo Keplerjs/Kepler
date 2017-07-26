@@ -49,13 +49,13 @@ Kepler.Place = Class.extend({
 		if(!self.marker) {
 			self.icon = new L.NodeIcon({
 				nodeHtml: L.DomUtil.create('div'),
-				className: (self.name && self.type)? 'marker-'+self.type : 'marker-gray',
+				className: self.name ? 'marker-place' : 'marker-gray',
 			});
 			self.marker = new L.Marker(self.loc, {icon: self.icon});
 			self.marker.item = self;
 			self.marker.on('click mousedown', function(e) {
 					if(!this._popup) {
-						self.popup$ = L.DomUtil.create('div','popup-place');
+						self.popup$ = L.DomUtil.create('div','popup-'+self.type);
 						Blaze.renderWithData(Template[self.templatePopup], self, self.popup$);
 						this.bindPopup(self.popup$, { closeButton:false, minWidth:120 });
 					}
@@ -81,7 +81,7 @@ Kepler.Place = Class.extend({
 	},
 	
 	isOutdoor: function() {
-		return this.type != 'indoor';
+		return !this.indoor;
 	},
 
 	isCheckin: function() {
