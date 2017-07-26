@@ -134,11 +134,13 @@ controls.gps = L.control.gps({
 	}
 })
 .on({
-	gpsdisabled: function(e) {
+	'gps:disabled': function(e) {
 		K.Profile.setLoc(null);
 	},
-	gpslocated: function(e) {
+	'gps:located': function(e) {
+
 		K.Profile.setLoc([e.latlng.lat, e.latlng.lng]);
+
 		if(K.Profile.user && K.Profile.user.icon)
 			K.Profile.user.icon.animate();
 	}

@@ -93,6 +93,7 @@
 				{{#each emails}}
 				<div class="col-xs-9 col-xs-offset-3">
 					<div class="input-group">
+						<input disabled="disabled" id="email" class="form-control" type="email" data-value="{{address}}" value="{{address}}" />
 						<div class="input-group-addon">
 						{{#if verified}}
 							<span class="text-green">
@@ -106,7 +107,6 @@
 							</span>
 						{{/if}}						
 						</div>
-						<input disabled="disabled" id="email" class="form-control" type="email" data-value="{{address}}" value="{{address}}" />
 					</div>
 				</div>
 				{{/each}}
