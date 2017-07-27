@@ -1,0 +1,12 @@
+
+i18n.map('en', {
+	title_placePois: "Points of interest",
+
+	btn_pois: "Nearby points of interest",
+
+	pois_type_place: "Arrival",
+	pois_type_parking: "Parking",
+	pois_type_water: "Fountain",
+	pois_type_drink: "Where to drink!",
+	pois_type_eat: "Where to eat"
+});

@@ -19,6 +19,7 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'i18n/it.js',
+    'i18n/en.js',
     'config.js'
   ]);
 

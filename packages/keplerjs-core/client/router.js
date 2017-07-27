@@ -16,7 +16,10 @@ Router.waitOn(function() {
 	}
 	else {
 		return Meteor.subscribe('currentUser', function() {
-			K.Profile.init(function() {
+
+			K.Profile.init(function(data) {
+
+				i18n.setLanguage(data.lang);
 				
 				if(K.Admin.isMe())
 					K.Admin.loadMethods();

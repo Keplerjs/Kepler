@@ -37,7 +37,7 @@ Kepler.Profile = {
 				self.placeCheckin = K.placeById(self.data.checkin);
 		});
 
-		if(_.isFunction(cb)) cb.call(self);
+		if(_.isFunction(cb)) cb.call(self, self.data);
 
 		return this;
 	},

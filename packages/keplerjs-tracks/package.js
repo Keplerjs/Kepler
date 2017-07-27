@@ -18,6 +18,7 @@ Package.onUse(function(api) {
   api.addFiles([
     'plugin.js',
     'i18n/it.js',
+    'i18n/en.js',
     'collections/tracks.js',
     'collections/queries.js'
   ]);
