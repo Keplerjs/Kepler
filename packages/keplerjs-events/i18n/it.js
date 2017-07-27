@@ -1,10 +1,6 @@
 
 i18n.map('it', {
-	btns: {
-		events: "Eventi"
-	},
-	labels: {
-		eventsuser: "Luoghi in programma",
-		noevents: "Nessun evento in programma",
-	}
+	btn_events: "Eventi",
+	label_eventsuser: "Luoghi in programma",
+	label_noevents: "Nessun evento in programma"
 });

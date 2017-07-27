@@ -7,7 +7,7 @@ Template.panelSettings.helpers({
 			return {
 				key: k,
 				val: val,
-				name: i18n('genders.'+k),
+				name: i18n('gender_'+k),
 				active: gender===val
 			};
 		});
@@ -26,11 +26,11 @@ Template.panelSettings.helpers({
 	},	
 	layers: function() {
 		var layer = K.Profile.getOpts('map.layer') || Meteor.settings.public.map.layer;
-		return _.map(Meteor.settings.public.layers, function(val, k) {
+		return _.map(Meteor.settings.public.map.layers, function(val, k) {
 			return {
 				key: k,
 				val: k,
-				name: i18n('map_layers.'+k),
+				name: i18n('map_layer_'+k),
 				active: k===layer,
 				url: _.template(val,{s:'a',z:'15',x:'17374',y:'11667'})
 			};

@@ -1,9 +1,8 @@
 
 i18n.map('it', {
-	labels: {
-		type: "Tipo",
-		usercats: "Tipologia"
-	},
+	label_type: "Tipo",
+	label_usercats: "Tipologia",
+	
 	cats: {
 		place: {
 			rock: "Falesia",

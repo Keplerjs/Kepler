@@ -16,11 +16,11 @@ Template.panelUser.events({
 Template.user_btns2.onRendered(function() {
 	
 	this.$('.user-btn-del')
-		.btsConfirmButton(i18n('btns.frienddel'), function(e) {
+		.btsConfirmButton(i18n('btn_frienddel'), function(e) {
 			K.Profile.friendDel($(e.target).data('userid'));
 		});
 	this.$('.user-btn-block')
-		.btsConfirmButton(i18n('btns.userBlock'), function(e) {
+		.btsConfirmButton(i18n('btn_userBlock'), function(e) {
 			K.Profile.userBlock($(e.target).data('userid'));
 		});	
 });

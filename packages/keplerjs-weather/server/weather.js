@@ -20,7 +20,7 @@ var weatherAPI = function(ll) {
 		return null;
 	}
 
-	if(res.statusCode == 200 && res.data && res.data.forecast)
+	if(res && res.statusCode == 200 && res.data && res.data.forecast)
 	{
 		console.log("weatherAPI()", ll);	
 		return _.map(res.data.forecast.simpleforecast.forecastday, function(day) {

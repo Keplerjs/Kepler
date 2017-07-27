@@ -57,7 +57,7 @@ K.extend({
 		else
 		{
 			var user = K.findUsersByIds([userId]).fetch()[0],
-				title = i18n('titles.userConver', user.name);
+				title = i18n('title_userConver', user.name);
 
 			convId = K.insertConver(userId, 'user', title );
 		}

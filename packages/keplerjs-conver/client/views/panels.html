@@ -2,7 +2,7 @@
 <template name="panelProfile_conver">
 	<a class="list-group-item" href="/convers">
 		<i class="icon icon-mes"></i>
-		 {{i18n 'btns.convers'}} 
+		 {{i18n 'btn_convers'}} 
 		<span class="badge">{{convers.length}}</span>
 	</a>
 </template>
@@ -10,7 +10,7 @@
 <template name="panelUser_conver">
 	<div class="btn-group" data-toggle="buttons">			
 		<a class="btn btn-sm btn-default" href="/user/{{id}}/conver">
-			<i class="icon icon-mes"></i> <span>{{i18n 'btns.conversend'}}</span>
+			<i class="icon icon-mes"></i> <span>{{i18n 'btn_conversend'}}</span>
 		</a>
 	</div>
 </template>
@@ -46,7 +46,7 @@
 <template name="converInput">
 	<form id="converInput">
 		<div class="col-xs-12">
-			<textarea name="body" rows="1" placeholder="{{i18n 'labels.msgnew'}}"  maxlength="300" aria-expanded="true" aria-label="{{i18n 'labels.msgnew'}}"></textarea>
+			<textarea name="body" rows="1" placeholder="{{i18n 'label_msgnew'}}"  maxlength="300" aria-expanded="true" aria-label="{{i18n 'label_msgnew'}}"></textarea>
 		</div>
 	</form>
 </template>
@@ -54,11 +54,11 @@
 <template name="conver_place_new">
 	<form class="form-horizontal item_conver-new" role="form">
 		<div class="input-group">
-			<input class="form-control conver-title-new" tyte="text" maxlength="60" placeholder="{{i18n 'labels.convertit'}}" aria-label="{{i18n 'labels.convertit'}}" aria-expanded="true" />
+			<input class="form-control conver-title-new" tyte="text" maxlength="60" placeholder="{{i18n 'label_convertit'}}" aria-label="{{i18n 'label_convertit'}}" aria-expanded="true" />
 			<span class="input-group-btn">
 				<a class="btn btn-default conver-btn-new">
 					<i class="icon icon-add"></i>
-					{{i18n 'btns.convernew'}}
+					{{i18n 'btn_convernew'}}
 				</a>
 			</span>
 		</div>

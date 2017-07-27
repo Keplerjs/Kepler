@@ -4,7 +4,7 @@ Template.item_conver.onRendered(function() {
 	var convid = this.data._id;
 
 	this.$('.conver-btn-del')
-		.btsConfirmButton(i18n('btns.converdel'), function(e) {
+		.btsConfirmButton(i18n('btn_converdel'), function(e) {
 			
 			var btn$ = $(e.target),
 				list$ = btn$.parents('.list-group');
@@ -32,7 +32,7 @@ Template.item_conver.helpers({
 		if(this.lastMsg)
 			title = _.str.truncate(_.str.stripTags(this.lastMsg.body), 30);
 		else
-			title = i18n('titles.msgpriv');
+			title = i18n('title_msgpriv');
 
 		return title || '...';
 	},

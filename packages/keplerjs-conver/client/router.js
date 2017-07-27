@@ -10,7 +10,7 @@ Router.map(function() {
 		},
 		data: function() {
 			return {
-				title: i18n('titles.convers'),
+				title: i18n('title_convers'),
 				className: 'convers',
 				itemsTemplate: 'item_conver',
 				items: K.findConversByIds(K.Profile.data.convers).fetch(),
@@ -30,7 +30,7 @@ Router.map(function() {
 			if(!this.ready()) return null;
 			var place = K.placeById(this.params.placeId);
 			return place && {
-				title: i18n('titles.placeConvers', place.name),
+				title: i18n('title_placeConvers', place.name),
 				className: 'placeConvers',
 				headerTemplate: 'conver_place_new',
 				headerData: place,		

@@ -1,19 +1,14 @@
 
 i18n.map('it', {
-	tabs: {
-		tracks: "Sentieri",
-	},
-	btns: {
-		tracks: "Sentieri vicini",
-	},
-	labels: {
-		time: "Durata",
-		len: "Distanza",
-		asc: "In salita",
-		dis: "In discesa",
-	},
-	trackstype: {
-		access: "Avvicinamento",
-		other: "Altro",
-	}
+	title_tracks: "Sentieri",
+	
+	btn_tracks: "Sentieri vicini",
+	
+	label_time: "Durata",
+	label_len: "Distanza",
+	label_asc: "In salita",
+	label_dis: "In discesa",
+	
+	tracks_type_access: "Avvicinamento",
+	tracks_type_other: "Altro",
 });

@@ -2,7 +2,7 @@
 <template name="panelPlace_share">
 
 	<form class="form-inline">
-		<label>{{i18n 'labels.share'}}</label><br />
+		<label>{{i18n 'label_share'}}</label><br />
 		<div class="input-group input-group-sm">
 			<input class="form-control input-share" size="12" type="text" value="{{absoluteUrl 'place/'}}{{id}}" />
 			<span class="input-group-btn">
@@ -12,16 +12,16 @@
 		<div class="btn-group" role="group">
 		{{#with urls}}
 			<a href="{{apple}}" class="btn btn-sm btn-default" target="_blank">
-				<i class="icon icon-nav"></i>&nbsp;<span class="hidden-xs">{{i18n 'btns.nav'}}</span>
+				<i class="icon icon-nav"></i>&nbsp;<span class="hidden-xs">{{i18n 'btn_nav'}}</span>
 			</a>
 			<a href="{{google}}" class="btn btn-sm btn-default" target="_blank">
-				<i class="icon icon-nav-goo"></i>&nbsp;<span class="hidden-xs">Google</span>
+				<i class="icon icon-nav-goo"></i>&nbsp;<span class="hidden-xs">{{i18n 'btn_google'}}</span>
 			</a>
 <!-- 			<a href="{{bing}}" class="btn btn-sm btn-default" target="_blank">
-				<i class="icon icon-nav-goo"></i>&nbsp;<span class="hidden-xs">Bing</span>
+				<i class="icon icon-nav-goo"></i>&nbsp;<span class="hidden-xs">{{i18n 'btn_bing'}}</span>
 			</a> -->
 			<a href="{{osm}}" class="btn btn-sm btn-default" target="_blank">
-				<i class="icon icon-nav-osm"></i>&nbsp;<span class="hidden-xs">OSM</span>
+				<i class="icon icon-nav-osm"></i>&nbsp;<span class="hidden-xs">{{i18n 'btn_osm'}}</span>
 			</a>
 		{{/with}}
 		</div>

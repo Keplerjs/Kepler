@@ -19,7 +19,7 @@
 			<br>
 			<ul class="list-group">		
 				<li class="list-group-item">
-					<i class="icon icon-report"></i> {{i18n 'labels.userblocked'}}
+					<i class="icon icon-report"></i> {{i18n 'label_userblocked'}}
 				</li>
 			</ul>
 
@@ -55,18 +55,18 @@
 			<ul class="nav nav-tabs">
 				<li class="active">
 					<a href="#tab_friends" data-toggle="tab">
-						<i class="icon icon-users"></i> <span>{{i18n 'btns.friends'}}</span>
+						<i class="icon icon-users"></i> <span>{{i18n 'btn_friends'}}</span>
 					</a>
 				</li>
 				{{#if isFriend}}
 				<li class="user-btn-star">
 					<a href="#tab_histuser" data-toggle="tab">
-						<i class="icon icon-hist"></i> <span>{{i18n 'btns.hist'}}</span>
+						<i class="icon icon-hist"></i> <span>{{i18n 'btn_hist'}}</span>
 					</a>
 				</li>
 				<li class="user-btn-star">
 					<a href="#tab_favs" data-toggle="tab">
-						<i class="icon icon-star"></i> <span>{{i18n 'btns.favs'}}</span>
+						<i class="icon icon-star"></i> <span>{{i18n 'btn_favs'}}</span>
 					</a>
 				</li>
 				{{/if}}
@@ -103,16 +103,16 @@
 	{{else}}
 		{{#if isPending}}
 			<a class="btn btn-sm btn-default" href="#">
-				<i class="icon icon-userpend"></i> <span>{{i18n 'btns.friendpending'}}</span>
+				<i class="icon icon-userpend"></i> <span>{{i18n 'btn_friendpending'}}</span>
 			</a>
 		{{else}}
 			{{#if isReceive}}
 				<a class="btn btn-sm btn-warning user-btn-confirm" href="#">
-					<i class="icon icon-useradd"></i> <span>{{i18n 'btns.friendconfirm'}}</span>
+					<i class="icon icon-useradd"></i> <span>{{i18n 'btn_friendconfirm'}}</span>
 				</a>
 			{{else}}
 				<a class="btn btn-sm btn-default user-btn-add" href="#">
-					<i class="icon icon-useradd"></i> <span>{{i18n 'btns.friendadd'}}</span>
+					<i class="icon icon-useradd"></i> <span>{{i18n 'btn_friendadd'}}</span>
 				</a>
 			{{/if}}
 		{{/if}}

@@ -5,7 +5,7 @@
 	<ul class="list-group">
 		{{#if desc}}
 		<li class="list-group-item">
-			<label>{{i18n 'labels.desc'}}</label><br />
+			<label>{{i18n 'label_desc'}}</label><br />
 			<p class="place-desc">{{desc}}</p>
 		</li>
 		{{/if}}
@@ -17,12 +17,12 @@
 		{{#if or createdAt userId}}
 		<li class="list-group-item">
 			{{#if createdAt}}
-				<label>{{i18n 'labels.createdAt'}}</label>
+				<label>{{i18n 'label_createdAt'}}</label>
 				<time>{{humanDateUTC createdAt}}</time>
 				<br />
 			{{/if}}
 			{{#if userId}}
-				<label>{{i18n 'labels.creator'}}</label>
+				<label>{{i18n 'label_creator'}}</label>
 				{{#with userById userId}}
 					{{> item_user}}
 				{{/with}}

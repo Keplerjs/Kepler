@@ -5,7 +5,7 @@
 	<div class="panel-heading bg-primary">
 		<h4 class="pull-left">
 			<a class="backhist" href="javascript:history.back()"><i class="icon icon-ar-left-w"></i></a> 
-			{{i18n 'titles.settings'}}
+			{{i18n 'title_settings'}}
 		</h4>
 		<a class="close pull-right" href="/">&times;</a>
 	</div>
@@ -18,21 +18,21 @@
 					<img class="icon-avatar icon-avatar-big" src="{{avatar}}" />
 				</div>
 				<div class="col-sm-9 col-xs-9">
-					<label for="fileavatar">{{i18n 'btns.avatar'}}</label>
+					<label for="fileavatar">{{i18n 'btn_avatar'}}</label>
 					<input id="fileavatar" class="form-control" type="file" />
 					<label class="text-danger"></label>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label class="col-xs-3 control-label">{{i18n 'labels.username'}}</label>
+				<label class="col-xs-3 control-label">{{i18n 'label_username'}}</label>
 				<div class="col-xs-9">
 					<label class="text-primary control-label">{{username}}</label>
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label for="name" class="col-xs-3 control-label">{{i18n 'labels.name'}}</label>
+				<label for="name" class="col-xs-3 control-label">{{i18n 'label_name'}}</label>
 				<div class="col-xs-9 has-feedback">
 					<input id="name" class="form-control" type="text" value="{{name}}">
 					<span style="display:none" class="form-control-feedback icon icon-del"></span>
@@ -40,14 +40,14 @@
 			</div>
 
 			<div class="form-group">
-				<label for="city" class="col-xs-3 control-label">{{i18n 'labels.city'}}</label>
+				<label for="city" class="col-xs-3 control-label">{{i18n 'label_city'}}</label>
 				<div class="col-xs-9">
 					<input id="city" class="form-control" type="text" value="{{city}}" />
 				</div>
 			</div>
 
 			<div class="form-group">
-				<label class="col-xs-3 control-label">{{i18n 'labels.lang'}}</label>
+				<label class="col-xs-3 control-label">{{i18n 'label_lang'}}</label>
 				<div class="col-xs-9 col-xs-offset-3">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="icon icon-lang-{{lang}}"></i></span>
@@ -61,7 +61,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="gender" class="col-xs-3 control-label">{{i18n 'labels.gender'}}</label>
+				<label for="gender" class="col-xs-3 control-label">{{i18n 'label_gender'}}</label>
 				<div class="col-xs-9">
 					<div id="gender" class="btn-group" data-toggle="buttons">
 					{{#each genders}}
@@ -75,7 +75,7 @@
 			</div>
 
 			<div class="form-group">
-				<label class="col-xs-3 control-label">{{i18n 'labels.layer'}}</label>
+				<label class="col-xs-3 control-label">{{i18n 'label_layer'}}</label>
 				<div class="col-xs-9 col-xs-offset-3">
 					<div id="maplayer" class="btn-group" data-toggle="buttons">
 					{{#each layers}}
@@ -89,7 +89,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="email" class="col-xs-3 control-label">{{i18n 'labels.email'}}</label>
+				<label for="email" class="col-xs-3 control-label">{{i18n 'label_email'}}</label>
 				{{#each emails}}
 				<div class="col-xs-9 col-xs-offset-3">
 					<div class="input-group">
@@ -98,12 +98,12 @@
 						{{#if verified}}
 							<span class="text-green">
 							<i class="icon icon-success hidden-xs"></i> 
-							{{i18n 'btns.verified'}}
+							{{i18n 'btn_verified'}}
 							</span>
 						{{else}}
 							<span class="text-danger">
 							<i class="icon icon-warning hidden-xs"></i> 
-							{{i18n 'btns.notverified'}}
+							{{i18n 'btn_notverified'}}
 							</span>
 						{{/if}}						
 						</div>
@@ -113,10 +113,10 @@
 			</div>
 
 			<div class="form-group">
-				<label class="col-xs-3 control-label">{{i18n 'labels.privacy'}}</label>
+				<label class="col-xs-3 control-label">{{i18n 'label_privacy'}}</label>
 				<div class="col-xs-9 col-xs-offset-3">
 					<a class="btn btn-default" href="{{pathFor route='panelSettingsBlock'}}">
-						<i class="icon icon-report"></i> {{i18n 'btns.usersblocked'}}
+						<i class="icon icon-report"></i> {{i18n 'btn_usersblocked'}}
 					</a>
 				</div>
 			</div>
@@ -124,7 +124,7 @@
 			{{> pluginPlaceholder name='panelSettings'}}
 
 			<div class="form-group">
-				<label class="col-xs-3 control-label">{{i18n 'labels.signupdate'}}</label>
+				<label class="col-xs-3 control-label">{{i18n 'label_signupdate'}}</label>
 				<div class="col-xs-9">
 					<label class="control-label"><time>{{humanDate createdAt}}</time></label>
 				</div>
@@ -149,7 +149,7 @@
 		</div>
 		<div class="btn-group pull-right" data-toggle="buttons">
 			<a class="btn btn-sm btn-default user-btn-unblock" href="#">
-				<i class="icon icon-report"></i> <span>{{i18n 'btns.userUnblock'}}</span>
+				<i class="icon icon-report"></i> <span>{{i18n 'btn_userUnblock'}}</span>
 			</a>
 		</div>
 	</div>

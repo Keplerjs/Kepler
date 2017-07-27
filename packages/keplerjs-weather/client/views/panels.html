@@ -3,16 +3,16 @@
 	{{#if isOutdoor}}
 	<div class="list-group">
 		<span class="list-group-item active">
-			{{i18n 'tabs.weather'}}
+			{{i18n 'title_weather'}}
 		</span>
-		<!-- TODO <label>{{i18n 'labels.season'}}</label>  {{season}}<br /> -->
+		<!-- TODO <label>{{i18n 'label_season'}}</label>  {{season}}<br /> -->
 		{{#if weather}}
 			<span class="list-group-item">
 			{{> panelPlace_weather_forecast}}
 			</span>
 		{{else}}
 			<a class="list-group-item place-btn-weather" href="#" target="_blank">
-				<i class="icon icon-weather"></i> <span>{{i18n 'btns.weather_forecasts'}}</span>
+				<i class="icon icon-weather"></i> <span>{{i18n 'btn_weather_forecasts'}}</span>
 			</a>
 		{{/if}}
 	</div>

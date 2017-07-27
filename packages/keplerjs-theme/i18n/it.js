@@ -1,12 +1,9 @@
 
 i18n.map('it', {
-	website: {
-		name: "KeplerJs",
-		slogan: "The full-stack real-time geo-social network framework",
-		desc: "lets users share favorite places and join discussions."
-	},
-	titles: {
-		home: "Benvenuto",
-		about: "About"
-	}
+	title_home: "Benvenuto",
+	title_pageAbout: "About",
+
+	website_name: "KeplerJs",
+	website_slogan: "The full-stack real-time geo-social network framework",
+	website_desc: "lets users share favorite places and join discussions."
 });

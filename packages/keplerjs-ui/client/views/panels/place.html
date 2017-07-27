@@ -18,12 +18,12 @@
 		<ul class="nav nav-tabs">
 			<li class="active">
 				<a href="#tab_info" data-toggle="tab">
-					<i class="icon icon-placeinfo"></i> <span>{{i18n 'btns.info'}}</span>
+					<i class="icon icon-placeinfo"></i> <span>{{i18n 'btn_info'}}</span>
 				</a>
 			</li>		
 			<li>
 				<a href="#tab_histplace" data-toggle="tab">
-					<i class="icon icon-hist"></i> <span>{{i18n 'btns.hist'}}</span>
+					<i class="icon icon-hist"></i> <span>{{i18n 'btn_hist'}}</span>
 				</a>
 			</li>			
 		</ul>
@@ -65,9 +65,9 @@
 			<i class="icon {{#if isCheckin}} icon-checkin {{else}} icon-uncheckin {{/if}}"></i>
 			<span class="{{#if isCheckin}} text-primary {{else}} text-muted {{/if}}">
 			{{#if isCheckin}}
-				{{i18n 'btns.checkout'}}
+				{{i18n 'btn_checkout'}}
 			{{else}}
-				{{i18n 'btns.checkin'}}
+				{{i18n 'btn_checkin'}}
 			{{/if}}
 			</span>
 			<input type="checkbox" checked={{isCheckin}} />

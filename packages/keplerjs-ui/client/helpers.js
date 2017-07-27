@@ -21,10 +21,6 @@ Template.registerHelper('placeById', function(id) {
 	return K.placeById(id);
 });
 
-Template.registerHelper('placeType', function(type) {
-	return i18n('categories.'+type) || '';
-});
-
 Template.registerHelper('isRoute', function(name, clas) {
 	var cur = Router.current();
 	return cur.route && cur.route.getName()===name ? clas:'';
@@ -32,7 +28,7 @@ Template.registerHelper('isRoute', function(name, clas) {
 
 Template.registerHelper('routeTitle', function() {
 	var cur = Router.current();
-	return cur.route && i18n('titles.'+ cur.route.getName() );
+	return cur.route && i18n('title_'+ cur.route.getName() );
 });
 
 Template.registerHelper('connectionStatus', function() {
@@ -43,8 +39,8 @@ Template.registerHelper('or', function() {
 	return _.some(_.initial(arguments));
 });
 
-Template.registerHelper('humanAzimut', function(ang, tiny) {
-	return K.Util.humanize.azimut(ang, parseInt(tiny));
+Template.registerHelper('humanAzimut', function(ang) {
+	return K.Util.humanize.azimut(ang);
 });
 
 Template.registerHelper('humanTime', function(sec, ago) {

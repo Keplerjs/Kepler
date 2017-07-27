@@ -28,7 +28,7 @@ Router.waitOn(function() {
 Router.onAfterAction(function() {
 	var self = this;
 
-	document.title = i18n('titles.'+this.route.getName()) || _.str.capitalize(this.route.getName());
+	document.title = i18n('title_'+this.route.getName()) || _.str.capitalize(this.route.getName());
 
 	if(this.route.options.layoutTemplate==='layoutMap') {
 
@@ -107,7 +107,7 @@ Router.map(function() {
 		data: function() {
 			if(!this.ready()) return null;
 			return {
-				title: i18n('titles.settingsBlocked'),
+				title: i18n('title_settingsBlocked'),
 				className: 'settingsBlocked',
 				itemsTemplate: 'item_user_blocked',
 				items: _.map(K.Profile.data.usersBlocked, K.userById)
@@ -126,7 +126,7 @@ Router.map(function() {
 		data: function() {
 			if(!this.ready()) return null;
 			return {
-				title: i18n('titles.friends'),
+				title: i18n('title_friends'),
 				className: 'friends',			
 				headerTemplate: 'search_user',
 				itemsTemplate: 'item_user_friend',
@@ -146,7 +146,7 @@ Router.map(function() {
 				places = K.findPlacesByBBox(bbox).fetch();
 
 			return {
-				title: i18n('titles.placesNearby'),
+				title: i18n('title_placesNearby'),
 				className: 'placesNearby',
 				headerTemplate: 'search_place',
 				itemsTemplate: 'item_place_search',
@@ -172,7 +172,7 @@ Router.map(function() {
 			var places = K.findPlacesByDate().fetch();
 
 			return {
-				title: i18n('titles.placesNews'),
+				title: i18n('title_placesNews'),
 				className: 'placesNews',
 				headerTemplate: 'search_place',
 				itemsTemplate: 'item_place_search',
@@ -193,7 +193,7 @@ Router.map(function() {
 		data: function() {
 			if(!this.ready()) return null;
 			return {
-				title: i18n('titles.favorites'),
+				title: i18n('title_favorites'),
 				className: 'favorites',
 				itemsTemplate: 'item_place_favorite',
 				items: _.map(K.Profile.data.favorites, function(id) {
@@ -216,7 +216,7 @@ Router.map(function() {
 		data: function() {
 			if(!this.ready()) return null;
 			return {
-				title: i18n('titles.histplaces'),
+				title: i18n('title_histplaces'),
 				className: 'history',
 				itemsTemplate: 'item_place_favorite',
 				items: _.map(K.Profile.data.hist, K.placeById)
@@ -266,7 +266,7 @@ Router.map(function() {
 			if(!this.ready()) return null;
 			var place = K.placeById(this.params.placeId);
 			return place && {
-				title: i18n('titles.checkins', place.name),
+				title: i18n('title_checkins', place.name),
 				className: 'checkins',
 				itemsTemplate: 'item_user',
 				items: _.map(place.checkins, function(id) {

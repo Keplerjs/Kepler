@@ -41,7 +41,7 @@ Kepler.Place.include({
 			return {
 				type: type,
 				count: val,
-				title: i18n('poistype.'+type)
+				title: i18n('pois_type_'+type)
 			};
 		});
 	},
