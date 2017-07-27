@@ -1,5 +1,8 @@
 
 <template name="upload_inputfile">
-	<input id="{{id}}" class="{{className}}" type="file" />
-	<label class="text-danger"></label>
+	<div class="upload-box">
+		<label class="control-label">{{i18n 'label_uploadfile'}}</label>
+		<input id="{{id}}" class="{{className}}" data-target="{{target}}" type="file" />
+		<label class="text-danger"></label>
+	</div>
 </template>

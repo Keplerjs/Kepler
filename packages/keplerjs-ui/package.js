@@ -18,7 +18,7 @@ Package.onUse(function(api) {
   api.versionsFrom("METEOR@1.0");
   
   api.use([
-    'keplerjs:core'
+    'keplerjs:core',
   ]);
 
   api.addFiles(globsync('client/**/*.*'), 'client');

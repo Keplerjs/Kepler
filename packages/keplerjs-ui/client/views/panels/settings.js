@@ -100,8 +100,11 @@ Template.panelSettings.events({
 	'change #lang': function(e) {
 		e.preventDefault();
 
-		var val = $(e.currentTarget).val();
-		Users.update(Meteor.userId(), { $set: {'lang': val} });
+		var lang = $(e.currentTarget).val();
+
+		Users.update(Meteor.userId(), { $set: {'lang': lang} });
+
+		i18n.setLanguage(lang);
 	},
 
 	'change #fileavatar': function(e) {
