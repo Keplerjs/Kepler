@@ -21,7 +21,7 @@
 				"transport": "https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png"
 			}			
 		},
-		"langDef": "it",
+		"langDef": "en",
 		"langs": {
 			"it": "Italiano",
 			"en": "English",
