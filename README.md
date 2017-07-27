@@ -54,5 +54,123 @@ A plugin only need to make your own package depend on *keplerjs:core* or others 
 Are expected to be developed by the great community of Meteor developers
 
 
+#### keplerjs:core
+
+
+```
+├── client
+│   ├── Accounts.js
+│   ├── Map.js
+│   ├── Place.js
+│   ├── Profile.js
+│   ├── router.js
+│   └── User.js
+│
+├── collections
+│   ├── queries
+│   │   ├── places.js
+│   │   └── users.js
+│   │
+│   ├── places.js
+│   └── users.js
+│
+├── modules
+│   ├── Admin.js
+│   ├── Cache.js
+│   ├── filters.js
+│   ├── placeholders.js
+│   ├── Plugin.js
+│   ├── schemas.js
+│   ├── Util_geo.js
+│   ├── Util_humanize.js
+│   ├── Util.js
+│   └── Util_valid.js
+│
+├── server
+│   ├── pubs
+│   │   ├── places.js
+│   │   ├── profile.js
+│   │   └── users.js
+│   │
+│   ├── Accounts.js
+│   ├── places.js
+│   └── profile.js
+│
+├── Kepler.js
+└── package.js
+```
+
+#### keplerjs:ui
+```
+├── client
+│   ├── stylesheets
+│   │   ├── panels
+│   │   │   ├── list.css
+│   │   │   ├── place.css
+│   │   │   ├── settings.css
+│   │   │   └── user.css
+│   │   │
+│   │   ├── header.css
+│   │   ├── icons.css
+│   │   ├── items.css
+│   │   ├── login.css
+│   │   ├── main.css
+│   │   ├── markers.css
+│   │   ├── popups.css
+│   │   ├── scrollbars.css
+│   │   └── sidebar.css
+│   │
+│   ├── views
+│   │   ├── items
+│   │   │   ├── place.html
+│   │   │   ├── place.js
+│   │   │   └── user.html
+│   │   │
+│   │   ├── panels
+│   │   │   ├── place
+│   │   │   │   ├── histplace.html
+│   │   │   │   └── info.html
+│   │   │   │   
+│   │   │   ├── user
+│   │   │   │   ├── bio.html
+│   │   │   │   ├── favorites.html
+│   │   │   │   ├── friends.html
+│   │   │   │   ├── friends.js
+│   │   │   │   └── histuser.html
+│   │   │   │  
+│   │   │   ├── friends.html
+│   │   │   ├── friends.js
+│   │   │   ├── location.html
+│   │   │   ├── panelList.html
+│   │   │   ├── panelList.js
+│   │   │   ├── place.html
+│   │   │   ├── place.js
+│   │   │   ├── places.html
+│   │   │   ├── places.js
+│   │   │   ├── profile.html
+│   │   │   ├── settings.html
+│   │   │   ├── settings.js
+│   │   │   ├── user.html
+│   │   │   └── user.js
+│   │   │
+│   │   ├── btnConnect.html
+│   │   ├── btnConnect.js
+│   │   ├── errors.html
+│   │   ├── footer.html
+│   │   ├── formLogin.html
+│   │   ├── header.html
+│   │   ├── loaders.html
+│   │   ├── pluginPlaceholder.html
+│   │   ├── pluginPlaceholder.js
+│   │   ├── popups.html
+│   │   └── sidebarNav.html
+│   │
+│   ├── helpers.js
+│   ├── home.html
+│   ├── layouts.html
+│   └── main.html
+└── package.js
+```
+
 ### License
 Note that Kepler is distributed under the [MIT License](http://opensource.org/licenses/MIT)
