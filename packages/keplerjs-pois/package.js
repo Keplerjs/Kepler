@@ -22,7 +22,7 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-    'client/models/Place_pois.js',
+    'client/Place_pois.js',
     'client/views/popups.html',    
     'client/views/panels.html',
     'client/views/panels.js',

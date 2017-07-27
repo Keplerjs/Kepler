@@ -25,9 +25,9 @@
 		"langs": {
 			"it": "Italiano",
 			"en": "English",
+			"es": "Español",			
 			"fr": "Français",
-			"de": "Deutsch",
-			"es": "Español"
+			"de": "Deutsch"
 		},
 
 		"maxHist": 3,

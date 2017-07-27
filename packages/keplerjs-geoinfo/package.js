@@ -34,7 +34,7 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-    'client/modules/Geoinfo.js',
+    'client/Geoinfo.js',
     'client/helpers.js',
     'client/stylesheets/popups.css',
     'client/views/panels.html',
@@ -43,8 +43,8 @@ Package.onUse(function(api) {
   ],'client');
 
   api.addFiles([
-    'server/modules/Geoapi.js',
-    'server/modules/Geoinfo.js',
+    'server/Geoapi.js',
+    'server/Geoinfo.js',
     'server/places.js',  
   ],'server');
   

@@ -24,7 +24,7 @@ Package.onUse(function (api) {
   ]);
 
   api.addFiles([
-  	'client/models/Place_streetview.js',
+  	'client/Place_streetview.js',
     'client/views/panels.html',
     'client/views/panels.js',
   ],'client');
