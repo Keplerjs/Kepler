@@ -31,19 +31,23 @@ Package.onUse(function(api) {
   api.addFiles([
     '.npm/package/node_modules/leaflet/dist/leaflet-src.js',
     '.npm/package/node_modules/leaflet/dist/leaflet.css',
+
     '.npm/package/node_modules/leaflet-gps/dist/leaflet-gps.src.js',
     '.npm/package/node_modules/leaflet-gps/dist/leaflet-gps.src.css',
+
     '.npm/package/node_modules/leaflet-layerjson/dist/leaflet-layerjson.src.js',
     '.npm/package/node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css',
+    '.npm/package/node_modules/leaflet.markercluster/dist/MarkerCluster.css',
     '.npm/package/node_modules/leaflet.markercluster/dist/MarkerCluster.css',
     '.npm/package/node_modules/leaflet.markercluster/dist/leaflet.markercluster-src.js'
   ],'client');
 
-/* //TODO
+ //TODO
   api.addAssets([
     '.npm/package/node_modules/leaflet/dist/images/marker-icon.png',
     '.npm/package/node_modules/leaflet/dist/images/marker-shadow.png',
-  ],'client');*/
+    '.npm/package/node_modules/leaflet-gps/images/gps-icon.png',
+  ],'client');
 
   var packages = [
     'meteor-platform',

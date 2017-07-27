@@ -55,8 +55,8 @@ L.Cursor = L.Class.extend({
 		.on('mousedown', this.pickMarkerLocation, this);
 	},
 	_createPopup: function() {
-		var div = L.DomUtil.create('div',' ');
-		this.marker.bindPopup(div, { closeButton: false, minWidth: 200});
+		var div = L.DomUtil.create('div','');
+		this.marker.bindPopup(div, { closeButton: false, minWidth: 120});
 		return div;
 	},
 	pickMarkerLocation: function(e) {

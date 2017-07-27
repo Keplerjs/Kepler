@@ -65,10 +65,13 @@ Kepler.User = Class.extend({
 			self.marker.item = self;
 			self.marker.on('click mousedown', function(e) {
 				if(!this._popup) {
-					self.popup$ = L.DomUtil.create('div','popup-'+self.type);
+					self.popup$ = L.DomUtil.create('div','');
 					Blaze.renderWithData(Template[self.templatePopup], self, self.popup$);
-					this.bindPopup(self.popup$, { closeButton:false });
+					this.bindPopup(self.popup$.firstChild, { closeButton:false });
 				}
+			}).once('add', function() {
+				if(self.templateMarker)
+					Blaze.renderWithData(Template[self.templateMarker], self, self.icon.nodeHtml);
 			});
 		}
 		return self.marker;

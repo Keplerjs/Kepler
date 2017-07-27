@@ -80,9 +80,11 @@ i18n.map ('en', {
 	label_nohistplace: "No recent visit",
 	label_notfound: "No results found",
 
+	map_zoomout: "",
+	map_zoomin: "",
 	map_attrib: "<a href=\"http://osm.org/\"> osm.org </a>",
 	map_gps_error: "gps unavailable",
-	map_layer_road: "Stradale",
+	map_layer_road: "Roads",
 	map_layer_landscape: "Trekking",
 	map_layer_transport: "Transport",
 	map_layer_satellite: "Satellite",

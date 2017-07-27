@@ -2,26 +2,6 @@
 	Leaflet CUSTOMIZATIONS
 */
 
-.leaflet-container {
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	cursor: default;
-/*	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;*/
-}
-.leaflet-dragging .leaflet-container {
-	cursor: move;
-}
-
-.leaflet-right {
-	z-index: 1;
-}
-
 /* CONTROLS */
 .leaflet-left.leaflet-top .leaflet-control,
 .leaflet-left.leaflet-bottom .leaflet-control,
@@ -40,7 +20,6 @@
 }
 
 /* ZOOM */
-
 .leaflet-bar-part,
 .leaflet-touch .leaflet-bar-part {
 	border-bottom: 1px solid rgba(95,156,209,1);
@@ -95,11 +74,6 @@
 }
 
 /* GPS */
-.leaflet-control.leaflet-control-gps {
-	float: right;
-	clear: both;
-	z-index: 10;
-}
 .leaflet-control-gps .gps-button,
 .leaflet-control-gps .gps-button:hover {
 	display:block;
@@ -130,34 +104,6 @@
 	margin: -9px auto 0;
 }
 
-/* LAYERS */
-/*
-.leaflet-control-layers,
-.leaflet-touch .leaflet-control-layers {
-	border-radius:6px;
-	color: #528BB7;
-	font-size: 1.125em;
-	font-weight: bold;
-}
-.leaflet-control-layers-toggle,
-.leaflet-touch .leaflet-control-layers-toggle {
-	background-position: center center;
-	width: 32px;
-	height: 32px;
-}
-.leaflet-control-layers-separator {
-	float:left;
-	height: 30px;
-	width:0px;
-	border-top: none;
-	border-left:1px solid #aaa;
-	margin: 5px;
-}
-.leaflet-control-layers-base,
-.leaflet-control-layers-overlays {
-	float:left;
-}
-*/
 
 /* SCALE */
 
@@ -173,13 +119,6 @@
 	background-color: rgba(255, 255, 255, 0.3);
 	z-index:1;
 }
-
-
-/* PERMALINK */
-
-.leaflet-control-permalink {
-}
-
 
 /* ATTRIBUTION */
 .leaflet-right.leaflet-bottom .leaflet-control.leaflet-control-attribution {

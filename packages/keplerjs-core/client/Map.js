@@ -3,6 +3,8 @@
 
 	//TODO include Leaflet.GeometryUtil
 */
+
+
 var layers = {},
 	controls = {},
 	styles = {
@@ -113,8 +115,8 @@ layers.geojson = new L.GeoJSON(null, {
 
 controls.zoom = L.control.zoom({
 	position: 'bottomright',
-	zoomOutText: '',
-	zoomInText: ''	
+	zoomOutText: i18n('map_zoomout'),
+	zoomInText: i18n('map_zoomin')
 });
 
 controls.attrib = L.control.attribution({
@@ -355,6 +357,7 @@ Kepler.Map = {
 
 			else if(item.type==='user')
 				item.marker.addTo( layers.users );
+
 		}
 		return this;
 	},

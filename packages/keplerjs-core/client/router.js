@@ -44,13 +44,13 @@ Router.onAfterAction(function() {
 
 				K.Map.init(map$, K.Profile.getOpts('map'), function() {
 					//TODO plugins hook event
+					//self.next();
 				});
 			}
 		}, 10);
 	}
 	else
 		K.Map.destroy();
-
 });
 
 Router.map(function() {
