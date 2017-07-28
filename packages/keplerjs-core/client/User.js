@@ -65,10 +65,10 @@ Kepler.User = Class.extend({
 			self.marker.item = self;
 			self.marker.on('click mousedown', function(e) {
 				if(!this._popup) {
-					self.popup$ = L.DomUtil.create('div','');
+					var div = L.DomUtil.create('div','');
 					if(Template[self.templatePopup])
-						Blaze.renderWithData(Template[self.templatePopup], self, self.popup$);
-					this.bindPopup(self.popup$.firstChild, { closeButton:false });
+						Blaze.renderWithData(Template[self.templatePopup], self, div);
+					this.bindPopup(div.firstChild, { closeButton:false });
 				}
 			}).once('add', function() {
 				if(Template[self.templateMarker])
@@ -109,7 +109,7 @@ Kepler.User = Class.extend({
 	},	*/	
 	isOnline: function() {
 		this._dep.depend();
-//TODO aggiuni this.isMe()
+	//TODO aggiuni this.isMe()
 		if(K.Profile.getOnline() && this.isFriend() || this.isMe())
 			return this.online;
 	},

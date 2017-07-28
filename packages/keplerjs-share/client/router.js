@@ -11,7 +11,7 @@ Router.map(function() {
 			var loc = K.Util.geo.roundLoc([this.params.lat, this.params.lng]);
 
 			K.Map.showLoc(loc, function() {
-				K.Map.Cursor.setLoc(loc);
+				K.Map.cursor.setLoc(loc);
 			});
 		},
 		data: { hideSidebar: true }

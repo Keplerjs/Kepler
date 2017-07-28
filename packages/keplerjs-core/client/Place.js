@@ -55,10 +55,10 @@ Kepler.Place = Class.extend({
 			self.marker.item = self;
 			self.marker.on('click mousedown', function(e) {
 					if(!this._popup) {
-						self.popup$ = L.DomUtil.create('div','');
+						var div = L.DomUtil.create('div','');
 						if(Template[self.templatePopup])
-							Blaze.renderWithData(Template[self.templatePopup], self, self.popup$);
-						this.bindPopup(self.popup$.firstChild, { closeButton:false, minWidth:120 });
+							Blaze.renderWithData(Template[self.templatePopup], self, div);
+						this.bindPopup(div.firstChild, { closeButton:false, minWidth:120 });
 					}
 				}).once('add', function() {
 					if(Template[self.templateMarker])

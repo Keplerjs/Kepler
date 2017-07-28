@@ -3,7 +3,7 @@ Template.popupCursor_admin.events({
 	'click .popup-create': function(e,tmpl) {
 		Meteor.call('insertPlace', this.loc, function(err, placeId) {
 
-			K.Map.Cursor.hide();
+			K.Map.cursor.hide();
 
 			Meteor.subscribe('placeById', placeId, function() {
 				

@@ -4,23 +4,10 @@
 	//TODO include Leaflet.GeometryUtil
 */
 
+var mapSettings = Meteor.settings.public.map;
 
 var layers = {},
-	controls = {},
-	styles = {
-		def: {		//default geojson style
-			color: '#b6f', weight: 5, opacity:0.7
-		},
-		access: {	//tracks
-			color: '#66f', weight: 8, opacity: 0.7
-		},
-		placeCircle: {	//circle around place
-			color: '#f33', weight: 4, opacity: 0.7, radius: 15,
-		},	
-		poiLine: {	//line from place to pois
-			color: '#f33', weight: 4, opacity: 0.7, dashArray: '1,6'
-		}
-	};
+	controls = {};
 
 layers.baselayer = new L.TileLayer(' ');
 
@@ -58,7 +45,7 @@ layers.cluster = new L.MarkerClusterGroup({
 layers.places = new L.LayerJSON({
 	caching: false,
 	layerTarget: layers.cluster,
-	minShift: Meteor.settings.public.map.bboxMinShift,
+	minShift: mapSettings.bboxMinShift,
 	callData: function(bbox, callback) {
 
 		var sub = Meteor.subscribe('placesByBBox', bbox, function() {
@@ -75,9 +62,9 @@ layers.places = new L.LayerJSON({
 });
 
 layers.geojson = new L.GeoJSON(null, {
-	//autoclear: false,
+	//DEBUG autoclear: false,
 	style: function (feature) {
-		return styles[feature.properties.type || 'def'] || styles.def;
+		return mapSettings.styles[feature.properties.type || 'default'] || mapSettings.styles.default;
 	},
 	pointToLayer: function(feature, latlng) {	//costruisce marker POI
 
@@ -154,13 +141,11 @@ Kepler.Map = {
 
 	_map: null,
 
-	base: layers.baselayer,
-
 	_deps: {
 		bbox: new Tracker.Dependency()
 	},
 
-	Cursor: layers.cursor,
+	cursor: layers.cursor,
 
 	init: function(div, opts, cb) {		//render map and add controls/layers
 
@@ -189,7 +174,7 @@ Kepler.Map = {
 
 		self.setOpts(opts);
 
-		self.Cursor.on('popupopen', function(e) {
+		self.cursor.on('popupopen', function(e) {
 			var cursorData = {
 					loc: [e.latlng.lat, e.latlng.lng]
 				};
@@ -203,7 +188,7 @@ Kepler.Map = {
 			$(window).scrollTop(0);
 			self._map.invalidateSize(false);
 
-		}, Meteor.settings.public.typeDelay+1000) );
+		}, 1000) );
 
 		if(_.isFunction(cb)) {
 			self._map.whenReady(function() {
@@ -293,21 +278,19 @@ Kepler.Map = {
 	},
 
 	setOpts: function(opts) {
-		
-		var defOpts = Meteor.settings.public.map;
 
 		if(this.ready) {
-			opts = _.extend({}, defOpts, opts);
+			opts = _.extend({}, mapSettings, opts);
 
 			if(!K.Util.valid.loc(opts.center))
-				opts.center = defOpts.center;
+				opts.center = mapSettings.center;
 			
 			if(!opts.layers[opts.layer])
-				opts.layer = defOpts.layer;
+				opts.layer = mapSettings.layer;
 
 			this._setView(opts.center, opts.zoom);
 
-			layers.baselayer.setUrl( defOpts.layers[opts.layer] );
+			layers.baselayer.setUrl( mapSettings.layers[opts.layer] );
 		}
 		return this;
 	},
@@ -344,7 +327,7 @@ Kepler.Map = {
 				this._map.once("moveend zoomend", cb);
 			
 			if(loc && K.Util.valid.loc(loc))
-				this._setView( L.latLng(loc) , Meteor.settings.public.map.showLocZoom);
+				this._setView( L.latLng(loc) , mapSettings.showLocZoom);
 		}
 		return this;
 	},

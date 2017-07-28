@@ -8,6 +8,8 @@ Router.configure({
 
 Router.waitOn(function() {
 
+	var self = this;
+
 	if(!Meteor.user()) {
 		if(Meteor.loggingIn())
 			this.render(this.loadingTemplate);
@@ -20,7 +22,7 @@ Router.waitOn(function() {
 			K.Profile.init(function(data) {
 
 				i18n.setLanguage(data.lang);
-				
+
 				if(K.Admin.isMe())
 					K.Admin.loadMethods();
 			});
@@ -29,27 +31,26 @@ Router.waitOn(function() {
 });
 
 Router.onAfterAction(function() {
-	var self = this;
 
 	document.title = i18n('title_'+this.route.getName()) || _.str.capitalize(this.route.getName());
 
-	if(this.route.options.layoutTemplate==='layoutMap') {
+	if(this.ready() && K.Profile.ready) {
 
-		//PATCH render map after template layoutMap is rendered
-		Meteor.setTimeout(function() {
-			
-			var map$ = $('#map')[0];
+		if(this.route.options.layoutTemplate==='layoutMap') {
 
-			if( self.ready() && map$ && K.Profile.data) {
+			//PATCH render map after template layoutMap is rendered
+			//Template.layoutMap.onRendered(function() {
 
-				K.Map.init(map$, K.Profile.getOpts('map'), function() {
-					//TODO plugins hook event
-				});
-			}
-		}, 10);
+			Meteor.setTimeout(function() {
+				
+				K.Map.init($('#map')[0], K.Profile.getOpts('map'));
+
+			},10);
+		
+		}
+		else 
+			K.Map.destroy();
 	}
-	else
-		K.Map.destroy();
 });
 
 Router.map(function() {
