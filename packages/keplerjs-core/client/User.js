@@ -35,12 +35,12 @@ Kepler.User = Class.extend({
 			
 			_.extend(self, self.data);
 
-			if(self.loc && !self.checkin && self.online)
+			if(self.online && self.loc && !self.checkin)
 			{
 				self.buildMarker();
 
 				K.Map.addItem(self);
-				
+
 				self.marker.setLatLng(self.loc);
 			}
 			else

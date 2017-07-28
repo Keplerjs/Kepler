@@ -13,6 +13,7 @@ Meteor.publish('currentUser', function() {
 			retCurs.push( K.findPlaceById(userData.checkin) );
 
 		console.log('Pub: currentUser', userData.username );
+
 		return retCurs;
 	}
 	else

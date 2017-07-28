@@ -1,3 +1,6 @@
+
+//TODO https://github.com/jeromeetienne/microevent.js/blob/master/package.json
+
 Package.describe({
 	name: 'keplerjs:lib',
 	version: '0.0.1',

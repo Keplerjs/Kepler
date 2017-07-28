@@ -123,7 +123,6 @@ Router.map(function() {
 		template: 'panelList',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
-			if(K.Profile.data)
 			return Meteor.subscribe('friendsByIds', K.Profile.data.friends);
 		},
 		data: function() {

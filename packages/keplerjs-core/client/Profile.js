@@ -35,9 +35,21 @@ Kepler.Profile = {
 
 			if(self.data.checkin)
 				self.placeCheckin = K.placeById(self.data.checkin);
+
+			if(self.data.online)
+				Meteor.subscribe('friendsByIds', K.Profile.data.friends, function() {
+					_.map(K.Profile.data.friends, function(id) {
+						K.Map.addItem(K.userById(id));
+					});
+				});
+			else
+				_.map(K.Profile.data.friends, function(id) {
+					K.Map.removeItem(K.userById(id));
+				});
 		});
 
-		if(_.isFunction(cb)) cb.call(self, self.data);
+		if(_.isFunction(cb))
+			cb.call(self, self.data);
 
 		return this;
 	},

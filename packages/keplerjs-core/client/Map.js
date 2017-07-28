@@ -139,6 +139,8 @@ Kepler.Map = {
 
 	ready: false,
 
+	_items: [],
+
 	_map: null,
 
 	_deps: {
@@ -190,12 +192,19 @@ Kepler.Map = {
 
 		}, 1000) );
 
-		if(_.isFunction(cb)) {
-			self._map.whenReady(function() {
-				self._deps.bbox.changed();
+		
+		self._map.whenReady(function() {
+			
+			self._deps.bbox.changed();
+
+			for(var i in self._items)
+				self.addItem(self._items[i]);
+
+			if(_.isFunction(cb))
 				cb.call(self);
-			}, self);
-		}
+
+		}, self);
+		
 
 		return this;
 	},
@@ -204,6 +213,8 @@ Kepler.Map = {
 		
 		if(this.ready) {
 			this.ready = false;
+
+			this._items = [];
 
 			this._map
 				.removeLayer(layers.baselayer)
@@ -333,15 +344,16 @@ Kepler.Map = {
 	},
 
 	addItem: function(item) {
-		if(this.ready) {
-
+		if(this.ready && item.marker) {
 			if(item.type==='place')
 				item.marker.addTo( layers.places );
 
 			else if(item.type==='user')
 				item.marker.addTo( layers.users );
-
 		}
+		else
+			this._items.push(item);
+
 		return this;
 	},
 
