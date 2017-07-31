@@ -30,6 +30,15 @@ Router.waitOn(function() {
 	}
 });
 
+/*
+Template.layoutMap.onRendered(function() {
+	K.Map.init($('#map')[0], K.Profile.getOpts('map'));
+});
+Template.layoutMap.onDestroyed(function() {
+	K.Map.destroy();
+});
+*/
+
 Router.onAfterAction(function() {
 
 	document.title = i18n('title_'+this.route.getName()) || _.str.capitalize(this.route.getName());

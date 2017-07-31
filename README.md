@@ -5,13 +5,37 @@
 The full-stack real-time geo-social network framework
 lets users share favorite places and join discussions
 
+## Links
 
-Built with [Meteor](http://meteor.com)
+* [Github](https://github.com/Keplerjs)
+* [NPM](https://www.npmjs.com/org/keplerjs)
+* [Atmospherejs](https://atmospherejs.com/keplerjs)
 
-### Packages
+### Install
+
+Prerequisites:
+
+* [Meteor](https://www.meteor.com/install)
+
+```sh
+meteor start
+```
+
+And open http://localhost:3000/ in your browser.
+
+#### Settings
+Default settings file: *private/settings.sample.json*
+Special configurations of individual plugins can be overridden.
+To see *packages/plugin-dir/plugin.js* file in the *settings* section.
+
+```sh
+meteor --settings settings.sample.json 
+```
+
+### Architecture
 
 Kepler uses a [package-based architecture](http://experimentsinmeteor.com/package-based-architecture/), meaning that the entirety of its codebase resides in */packages*
-Different packages can play different roles. So here's a quick overview of the different package categories you'll come across. 
+Different packages can play different behaviors. So here's a quick overview of the different package categories you'll come across. 
 
 #### Core Packages
 
@@ -23,9 +47,10 @@ Different packages can play different roles. So here's a quick overview of the d
 
 **keplerjs:core** contains the heart of Kepler, and itself depends on a set of core packages: *keplerjs:lib*, *keplerjs:i18n*
 
-**keplerjs:ui** define the base front-end structure od Kepler app the basic views and the minimum CSS for interface behavior.
+**keplerjs:ui** define the base front-end structure of Kepler app, the basic views and the minimum CSS for the html interface.
 
 **keplerjs:api** implement a simple RESTful API for basic operations and it is reachable to this url */api*.
+
 
 #### Plugin Packages
 
@@ -51,7 +76,7 @@ A plugin only need to make your own package depend on *keplerjs:core* or others 
 
 ####  3rd party Plugins Packages
 
-Are expected to be developed by the great community of Meteor developers
+*Are expected to be developed by the great community of Meteor developers...*
 
 
 #### keplerjs:core
@@ -81,6 +106,7 @@ Are expected to be developed by the great community of Meteor developers
 │   ├── placeholders.js
 │   ├── Plugin.js
 │   ├── schemas.js
+│   ├── settings.js
 │   ├── Util_geo.js
 │   ├── Util_humanize.js
 │   ├── Util.js

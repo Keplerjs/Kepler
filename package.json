@@ -1,0 +1,25 @@
+{
+  "name": "keplerjs",
+  "version": "1.0.0",
+  "description": "The full-stack real-time geo-social network framework",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Keplerjs/Kepler.git"
+  },
+  "keywords": [
+    "social-network",
+    "framework",
+    "leaflet",
+    "mapping"
+  ],
+  "author": {
+    "name": "Stefano Cudini",
+    "email": "stefano.cudini@gmail.com",
+    "url": "http://labs.easyblog.it/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Keplerjs/Kepler/issues"
+  },
+  "homepage": "https://github.com/Keplerjs/Kepler#readme"
+}

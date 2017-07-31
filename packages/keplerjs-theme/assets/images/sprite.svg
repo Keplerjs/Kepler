@@ -26,15 +26,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="8"
-     inkscape:cx="141.832"
-     inkscape:cy="552.03805"
+     inkscape:zoom="11.313708"
+     inkscape:cx="145.78939"
+     inkscape:cy="558.07545"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="1285"
+     inkscape:window-width="1274"
      inkscape:window-height="1014"
-     inkscape:window-x="591"
+     inkscape:window-x="638"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
      inkscape:snap-global="false"
@@ -16686,16 +16686,6 @@
        y2="181.87138" />
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient8368"
-       id="linearGradient8374"
-       x1="-39.067646"
-       y1="457.50842"
-       x2="-39.067646"
-       y2="477.48419"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(80.433391,2.2980969)" />
-    <linearGradient
-       inkscape:collect="always"
        xlink:href="#linearGradient5345"
        id="linearGradient7106"
        gradientUnits="userSpaceOnUse"
@@ -18000,6 +17990,19 @@
      id="layer1"
      style="display:inline"
      transform="translate(0,-452.36197)">
+    <path
+       inkscape:export-ydpi="24.438169"
+       inkscape:export-xdpi="24.438169"
+       inkscape:export-filename="/public/images/mini-online.png"
+       transform="matrix(0.89872449,0,0,0.89872449,-255.46825,193.90226)"
+       d="m 436.85215,331.08105 a 9.1010866,9.1010866 0 1 1 -18.20217,0 9.1010866,9.1010866 0 1 1 18.20217,0 z"
+       sodipodi:ry="9.1010866"
+       sodipodi:rx="9.1010866"
+       sodipodi:cy="331.08105"
+       sodipodi:cx="427.75107"
+       id="path6069"
+       style="color:#000000;fill:#8dd36d;fill-opacity:0.46354167;fill-rule:evenodd;stroke:none;stroke-width:1.20000005;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       sodipodi:type="arc" />
     <path
        inkscape:connector-curvature="0"
        style="fill:url(#linearGradient10287);fill-opacity:1;stroke:none"
@@ -20585,8 +20588,8 @@
        sodipodi:cy="331.08105"
        sodipodi:rx="9.1010866"
        sodipodi:ry="9.1010866"
-       d="m 436.85215,331.08105 c 0,5.0264 -4.07469,9.10109 -9.10108,9.10109 -5.02639,0 -9.10109,-4.07469 -9.10109,-9.10109 0,-5.02639 4.0747,-9.10108 9.10109,-9.10108 5.02639,0 9.10108,4.07469 9.10108,9.10108 z"
-       transform="matrix(0.62538909,0,0,0.62538909,-138.23938,284.39843)"
+       d="m 436.85215,331.08105 a 9.1010866,9.1010866 0 1 1 -18.20217,0 9.1010866,9.1010866 0 1 1 18.20217,0 z"
+       transform="matrix(0.55249965,0,0,0.55249965,-107.3702,308.53074)"
        inkscape:export-filename="/public/images/mini-online.png"
        inkscape:export-xdpi="24.438169"
        inkscape:export-ydpi="24.438169" />
@@ -21045,19 +21048,6 @@
            inkscape:connector-curvature="0" />
       </g>
     </g>
-    <path
-       inkscape:export-ydpi="24.438169"
-       inkscape:export-xdpi="24.438169"
-       inkscape:export-filename="/public/images/mini-online.png"
-       transform="matrix(0.62538909,0,0,0.62538909,-108.19584,284.39843)"
-       d="m 436.85215,331.08105 c 0,5.0264 -4.07469,9.10109 -9.10108,9.10109 -5.02639,0 -9.10109,-4.07469 -9.10109,-9.10109 0,-5.02639 4.0747,-9.10108 9.10109,-9.10108 5.02639,0 9.10108,4.07469 9.10108,9.10108 z"
-       sodipodi:ry="9.1010866"
-       sodipodi:rx="9.1010866"
-       sodipodi:cy="331.08105"
-       sodipodi:cx="427.75107"
-       id="path6057"
-       style="color:#000000;fill:#d2d2d2;fill-opacity:0.91764706;fill-rule:evenodd;stroke:#a4a4a4;stroke-width:1.20000005000000010;stroke-opacity:0.97647059000000003;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       sodipodi:type="arc" />
     <path
        inkscape:export-ydpi="26.398663"
        inkscape:export-xdpi="26.398663"
@@ -21841,14 +21831,14 @@
        id="path8081"
        inkscape:connector-curvature="0" />
     <rect
-       style="fill:url(#linearGradient8374);fill-opacity:1;stroke:#385300;stroke-width:0.59999999999999998;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       style="fill:#97c838;fill-opacity:1;stroke:#5d8a00;stroke-width:0.59129487999999997;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect8366"
-       width="23.364017"
-       height="23.364017"
-       x="30.567619"
-       y="458.37756"
-       rx="4.061645"
-       ry="4.061645" />
+       width="23.025038"
+       height="23.025038"
+       x="30.487482"
+       y="458.84946"
+       rx="2.647666"
+       ry="2.647666" />
     <g
        style="fill:#0078cd;fill-opacity:1;stroke:none"
        id="g5620"
@@ -22329,5 +22319,18 @@
            sodipodi:type="arc" />
       </g>
     </g>
+    <path
+       inkscape:export-ydpi="24.438169"
+       inkscape:export-xdpi="24.438169"
+       inkscape:export-filename="/public/images/mini-online.png"
+       transform="matrix(0.55249965,0,0,0.55249965,-77.315782,308.53074)"
+       d="m 436.85215,331.08105 a 9.1010866,9.1010866 0 1 1 -18.20217,0 9.1010866,9.1010866 0 1 1 18.20217,0 z"
+       sodipodi:ry="9.1010866"
+       sodipodi:rx="9.1010866"
+       sodipodi:cy="331.08105"
+       sodipodi:cx="427.75107"
+       id="path6841"
+       style="color:#000000;fill:#d2d2d2;fill-opacity:0.91764706;fill-rule:evenodd;stroke:#a4a4a4;stroke-width:1.20000005;stroke-opacity:0.97647059;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       sodipodi:type="arc" />
   </g>
 </svg>

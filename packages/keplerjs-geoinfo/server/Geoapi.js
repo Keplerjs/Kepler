@@ -21,7 +21,7 @@ var httpGet = function(url) {
 			return null;
 
 	} catch(e) {
-		console.log('Geoinfo: error', e.statusCode || e.response.statusCode, url);
+		console.log('Geoinfo: error', e.statusCode || (e.response && e.response.statusCode), url);
 		return null;
 	}
 }

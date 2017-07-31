@@ -7,4 +7,5 @@ public/users
 public/node_modules
 nohup.out
 .npm
+start.sh
 ./settings.json
