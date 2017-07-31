@@ -29,7 +29,7 @@ Special configurations of individual plugins can be overridden.
 To see *packages/plugin-dir/plugin.js* file in the *settings* section.
 
 ```sh
-meteor --settings settings.sample.json 
+meteor --settings private/settings.sample.json 
 ```
 
 ### Architecture
