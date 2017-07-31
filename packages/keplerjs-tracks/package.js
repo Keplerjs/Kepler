@@ -2,8 +2,8 @@
 Package.describe({
   name: 'keplerjs:tracks',
   summary: 'keplerjs plugin tracks',
-  version: '0.0.1',
-  git: ''
+  version: "1.1.0",
+  git: "https://github.com/Keplerjs/Kepler.git"
 });
 
 Package.onUse(function(api) {
@@ -11,8 +11,8 @@ Package.onUse(function(api) {
   api.versionsFrom("METEOR@1.0");
   
   api.use([
-    'keplerjs:core@0.0.1',
-    'keplerjs:geoinfo@0.0.1'
+    'keplerjs:core@1.1.0',
+    'keplerjs:geoinfo@1.1.0'
   ]);
 
   api.addFiles([

@@ -2,8 +2,8 @@
 Package.describe({
   name: 'keplerjs:upload',
   summary: 'keplerjs plugin for files upload',
-  version: '0.0.1',
-  git: ''
+  version: "1.1.0",
+  git: "https://github.com/Keplerjs/Kepler.git"
 });
 
 Package.onUse(function(api) {
@@ -15,7 +15,7 @@ Package.onUse(function(api) {
   ], 'server');
 
   api.use([  
-    'keplerjs:core@0.0.1',
+    'keplerjs:core@1.1.0',
   ]);
 
   api.addFiles([

@@ -3,9 +3,9 @@
 
 Package.describe({
 	name: 'keplerjs:lib',
-	version: '0.0.1',
 	summary: 'keplerjs 3rd party packages and libraries',
-	git: ''
+  version: "1.1.0",
+  git: "https://github.com/Keplerjs/Kepler.git"
 });
   
 Npm.depends({

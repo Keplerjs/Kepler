@@ -2,8 +2,8 @@
 Package.describe({
   name: 'keplerjs:geoinfo',
   summary: 'keplerjs plugin geoinfo',
-  version: '0.0.1',
-  git: ''
+  version: "1.1.0",
+  git: "https://github.com/Keplerjs/Kepler.git"
 });
 
 Npm.depends({
@@ -19,7 +19,7 @@ Package.onUse(function(api) {
   ],'client');
 
   api.use([
-    'keplerjs:core@0.0.1',
+    'keplerjs:core@1.1.0',
   ]);
 
   api.use([

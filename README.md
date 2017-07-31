@@ -39,18 +39,11 @@ Different packages can play different behaviors. So here's a quick overview of t
 
 #### Core Packages
 
-* keplerjs:lib
-* keplerjs:i18n
-* keplerjs:core
-* keplerjs:ui
-* keplerjs:api
-
-**keplerjs:core** contains the heart of Kepler, and itself depends on a set of core packages: *keplerjs:lib*, *keplerjs:i18n*
-
-**keplerjs:ui** define the base front-end structure of Kepler app, the basic views and the minimum CSS for the html interface.
-
-**keplerjs:api** implement a simple RESTful API for basic operations and it is reachable to this url */api*.
-
+* [keplerjs:lib](packages/keplerjs-lib/README.md)
+* [keplerjs:i18n](packages/keplerjs-i18n/README.md)
+* [keplerjs:core](packages/keplerjs-core/README.md)
+* [keplerjs:ui](packages/keplerjs-ui/README.md)
+* [keplerjs:api](packages/keplerjs-api/README.md)
 
 #### Plugin Packages
 
@@ -60,143 +53,23 @@ A plugin only need to make your own package depend on *keplerjs:core* or others 
 
 #### Core Plugins
 
-* keplerjs:theme
-* keplerjs:upload
-* keplerjs:notif
-* keplerjs:categories
-* keplerjs:share
-* keplerjs:conver
-* keplerjs:events
-* keplerjs:geoinfo
-* keplerjs:weather
-* keplerjs:pois
-* keplerjs:tracks
-* keplerjs:googlemaps
-* keplerjs:osm
+* [keplerjs:categories](packages/keplerjs-categories/README.md)
+* [keplerjs:conver](packages/keplerjs-conver/README.md)
+* [keplerjs:events](packages/keplerjs-events/README.md)
+* [keplerjs:geoinfo](packages/keplerjs-geoinfo/README.md)
+* [keplerjs:googlemaps](packages/keplerjs-googlemaps/README.md)
+* [keplerjs:notif](packages/keplerjs-notif/README.md)
+* [keplerjs:osm](packages/keplerjs-osm/README.md)
+* [keplerjs:pois](packages/keplerjs-pois/README.md)
+* [keplerjs:share](packages/keplerjs-share/README.md)
+* [keplerjs:theme](packages/keplerjs-theme/README.md)
+* [keplerjs:tracks](packages/keplerjs-tracks/README.md)
+* [keplerjs:upload](packages/keplerjs-upload/README.md)
+* [keplerjs:weather](packages/keplerjs-weather/README.md)
 
 ####  3rd party Plugins Packages
 
 *Are expected to be developed by the great community of Meteor developers...*
-
-
-#### keplerjs:core
-
-
-```
-├── client
-│   ├── Accounts.js
-│   ├── Map.js
-│   ├── Place.js
-│   ├── Profile.js
-│   ├── router.js
-│   └── User.js
-│
-├── collections
-│   ├── queries
-│   │   ├── places.js
-│   │   └── users.js
-│   │
-│   ├── places.js
-│   └── users.js
-│
-├── modules
-│   ├── Admin.js
-│   ├── Cache.js
-│   ├── filters.js
-│   ├── placeholders.js
-│   ├── Plugin.js
-│   ├── schemas.js
-│   ├── settings.js
-│   ├── Util_geo.js
-│   ├── Util_humanize.js
-│   ├── Util.js
-│   └── Util_valid.js
-│
-├── server
-│   ├── pubs
-│   │   ├── places.js
-│   │   ├── profile.js
-│   │   └── users.js
-│   │
-│   ├── Accounts.js
-│   ├── places.js
-│   └── profile.js
-│
-├── Kepler.js
-└── package.js
-```
-
-#### keplerjs:ui
-```
-├── client
-│   ├── stylesheets
-│   │   ├── panels
-│   │   │   ├── list.css
-│   │   │   ├── place.css
-│   │   │   ├── settings.css
-│   │   │   └── user.css
-│   │   │
-│   │   ├── header.css
-│   │   ├── icons.css
-│   │   ├── items.css
-│   │   ├── login.css
-│   │   ├── main.css
-│   │   ├── markers.css
-│   │   ├── popups.css
-│   │   ├── scrollbars.css
-│   │   └── sidebar.css
-│   │
-│   ├── views
-│   │   ├── items
-│   │   │   ├── place.html
-│   │   │   ├── place.js
-│   │   │   └── user.html
-│   │   │
-│   │   ├── panels
-│   │   │   ├── place
-│   │   │   │   ├── histplace.html
-│   │   │   │   └── info.html
-│   │   │   │   
-│   │   │   ├── user
-│   │   │   │   ├── bio.html
-│   │   │   │   ├── favorites.html
-│   │   │   │   ├── friends.html
-│   │   │   │   ├── friends.js
-│   │   │   │   └── histuser.html
-│   │   │   │  
-│   │   │   ├── friends.html
-│   │   │   ├── friends.js
-│   │   │   ├── location.html
-│   │   │   ├── panelList.html
-│   │   │   ├── panelList.js
-│   │   │   ├── place.html
-│   │   │   ├── place.js
-│   │   │   ├── places.html
-│   │   │   ├── places.js
-│   │   │   ├── profile.html
-│   │   │   ├── settings.html
-│   │   │   ├── settings.js
-│   │   │   ├── user.html
-│   │   │   └── user.js
-│   │   │
-│   │   ├── btnConnect.html
-│   │   ├── btnConnect.js
-│   │   ├── errors.html
-│   │   ├── footer.html
-│   │   ├── formLogin.html
-│   │   ├── header.html
-│   │   ├── loaders.html
-│   │   ├── pluginPlaceholder.html
-│   │   ├── pluginPlaceholder.js
-│   │   ├── popups.html
-│   │   └── sidebarNav.html
-│   │
-│   ├── helpers.js
-│   ├── home.html
-│   ├── layouts.html
-│   └── main.html
-└── package.js
-```
 
 ### License
 Note that Kepler is distributed under the [MIT License](http://opensource.org/licenses/MIT)

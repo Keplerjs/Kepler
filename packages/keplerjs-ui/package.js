@@ -2,8 +2,8 @@
 Package.describe({
   name: 'keplerjs:ui',
   summary: 'keplerjs plugin base User Interface',
-  version: '0.0.1',
-  git: ''
+  version: "1.1.0",
+  git: "https://github.com/Keplerjs/Kepler.git"
 });
 
 Package.onUse(function(api) {
@@ -18,7 +18,7 @@ Package.onUse(function(api) {
   api.versionsFrom("METEOR@1.0");
   
   api.use([
-    'keplerjs:core@0.0.1',
+    'keplerjs:core@1.1.0',
   ]);
 
   api.addFiles(globsync('client/**/*.*'), 'client');
