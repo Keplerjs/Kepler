@@ -11,8 +11,8 @@ Package.onUse(function(api) {
   api.versionsFrom("METEOR@1.0");
   
   api.use([
-    'keplerjs:core',
-    'keplerjs:geoinfo'
+    'keplerjs:core@0.0.1',
+    'keplerjs:geoinfo@0.0.1'
   ]);
 
   api.addFiles([

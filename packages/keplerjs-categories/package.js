@@ -11,7 +11,7 @@ Package.onUse(function(api) {
   api.versionsFrom("METEOR@1.0");
 
   var packages = [
-    'keplerjs:core',
+    'keplerjs:core@0.0.1',
   ];
 
   api.use(packages);

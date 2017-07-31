@@ -53,15 +53,15 @@ Package.onUse(function(api) {
   ],'client');
 
   var packages = [
-    'meteor-platform',
-    'reactive-var',
-    'matb33:collection-hooks',
-    'underscorestring:underscore.string',
-    'kidovate:bootstrap-slider',
-    'iron:router',
-    'mrt:modernizr-meteor',
-    'twbs:bootstrap',
-    'ian:accounts-ui-bootstrap-3'
+    'meteor-platform@1.2.4',
+    'reactive-var@1.0.7',
+    'matb33:collection-hooks@0.8.1',
+    'underscorestring:underscore.string@3.2.0',
+    'kidovate:bootstrap-slider@0.0.5',
+    'iron:router@1.0.9',
+    'mrt:modernizr-meteor@2.6.2',
+    'twbs:bootstrap@3.3.6',
+    'ian:accounts-ui-bootstrap-3@1.2.80'
   ];
 
   api.use(packages);

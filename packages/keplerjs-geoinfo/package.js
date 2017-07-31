@@ -19,12 +19,12 @@ Package.onUse(function(api) {
   ],'client');
 
   api.use([
-    'keplerjs:core'
+    'keplerjs:core@0.0.1',
   ]);
 
   api.use([
-    'http',
-    'robodo:async',
+    'http@1.1.3',
+    'robodo:async@0.9.0',
   ],'server');
 
   api.addFiles([

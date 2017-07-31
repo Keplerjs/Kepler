@@ -11,7 +11,7 @@ Package.onUse(function(api) {
   api.versionsFrom("METEOR@1.0");
 
   var packages = [
-    'anti:i18n'
+    'anti:i18n@0.4.3'
   ];
 
   api.use(packages);

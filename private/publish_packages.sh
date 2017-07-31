@@ -1,7 +1,12 @@
 for d in ../packages/* ; do
+  
+  name=$(echo "$d"|tr '-' ':'|cut -d'/' -f3)
+  
   echo "$d"
+  
   cd $d
-  meteor publish
-  pwd
+  echo "## $name" > README.md
+  meteor publish --create
+
   cd ../../private
 done

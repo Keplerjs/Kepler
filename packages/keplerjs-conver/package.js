@@ -18,11 +18,11 @@ Package.onUse(function(api) {
   api.versionsFrom("METEOR@1.0");
   
   api.use([
-    'verron:autosize'
+    'verron:autosize@3.0.8'
   ],'client');
 
   api.use([
-    'keplerjs:core',
+    'keplerjs:core@0.0.1',
   ]);
 
   api.addFiles([
