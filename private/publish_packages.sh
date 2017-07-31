@@ -1,7 +1,7 @@
 for d in ../packages/* ; do
   echo "$d"
   cd $d
-  #meteor publish
+  meteor publish
   pwd
   cd ../../private
 done
