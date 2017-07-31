@@ -27,6 +27,7 @@
 	margin: 0 2px 2px 0;
 	padding: 20px 10px;
 	border-radius: 4px;
+	min-width: 90px;
 }
 #settings #maplayer label.btn.active {
 	border-color: #337ab7;

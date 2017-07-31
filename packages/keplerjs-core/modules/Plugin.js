@@ -10,7 +10,9 @@ Kepler.Plugin = function(plugin) {
 	{
 		if(!this.plugins[plugin.name]) {
 		
-		
+			if(Meteor.isServer)
+				console.log('Plugin: ', plugin.name);
+
 			if(_.isObject(plugin.placeholders))
 				_.each(K.placeholders, function(tmpls, name) {
 					if(plugin.placeholders[name])
@@ -23,10 +25,8 @@ Kepler.Plugin = function(plugin) {
 			if(_.isObject(plugin.schemas))
 				_.deepExtend(K.schemas, plugin.schemas);
 
-//TODO show settings only in server!!!
-
-/*			if(_.isObject(plugin.settings))
-				_.deepExtend(K.settings, plugin.settings);*/
+			if(_.isObject(plugin.settings))
+				_.deepExtend(K.settings, plugin.settings);
 
 			this.plugins[plugin.name] = plugin;
 		}
@@ -36,3 +36,10 @@ Kepler.Plugin = function(plugin) {
 	else
 		console.warn("Plugin: require name", plugin)
 };
+
+Meteor.startup(function() {
+
+	_.deepExtend(K.settings, Meteor.settings);
+
+	//console.log('Meteor.startup Plugin.js', K.settings)
+});

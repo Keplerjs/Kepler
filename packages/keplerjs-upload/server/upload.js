@@ -4,12 +4,20 @@ Meteor.startup(function() {
 
 	var fs = Npm.require('fs');
 
-	_.each(Meteor.settings.upload.targets, function(conf) {
-		if(!fs.existsSync(conf.path)) {
-			console.log('Upload: create target path ', conf.path);
-			fs.mkdirSync(conf.path, 0755);
-		}
-	});
+	if(K.settings.upload && K.settings.upload.targets) {
+		_.each(K.settings.upload.targets, function(conf) {
+			if(conf && !_.isEmpty(conf.path)) {
+				if(!fs.existsSync(conf.path)) {
+					console.log("Upload: create target path ", conf.path);
+					fs.mkdirSync(conf.path, 0755);
+				}
+			}
+			else
+				console.warn("Upload: need to define path in upload.targets on your settings.json");
+		});
+	}
+	else
+		console.warn("Upload: need to define path in upload.targets on your settings.json");	
 });
 
 
@@ -21,12 +29,12 @@ Meteor.methods({
 
 		var fs = Npm.require('fs');
 
-		if(!Meteor.settings.upload.targets[target]) {
+		if(!K.settings.upload.targets[target]) {
 			throw new Meteor.Error(500, i18n('upload_error_targetNotValid')+' '+target);
 			return null;
 		}
 
-		var upSets = Meteor.settings.upload.targets[target];
+		var upSets = K.settings.upload.targets[target];
 
 		var	filePath = upSets.path,
 			fileUrl = upSets.url,
@@ -45,11 +53,13 @@ Meteor.methods({
 				customArgs: ['-auto-orient']
 			});
 
-		if(!K.Util.valid.image(fileObj)) {
+		fileObj.size = Buffer.byteLength(fileObj.blob, 'binary');
+
+		if(fileObj.size > K.settings.public.upload.maxFileSize) {
 			
 			console.log('Upload: error ', _.omit(fileObj,'blob') );
 
-			throw new Meteor.Error(500, i18n('upload_error_imageNotValid') + K.Util.humanize.filesize(Meteor.settings.public.maxFileSize) );
+			throw new Meteor.Error(500, i18n('upload_error_imageNotValid') + K.Util.humanize.filesize(K.settings.public.maxFileSize) );
 		}
 
 		console.log('Upload: wrinting...', fileBig);

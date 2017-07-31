@@ -1,8 +1,8 @@
 
 var Future = Npm.require('fibers/future');
 
-var cacheGeoinfo = true
-	roundLocGeoinfo = 4;
+//TODO move to settings
+var roundLocGeoinfo = 4;
 
 /*Meteor.startup(function() {
 	_.each(geoFields, function(opt,field) {
@@ -14,49 +14,49 @@ var cacheGeoinfo = true
 var geoFields = {
 	ele: {
 		name: 'elevation',
-		cache: true,
+		caching: true,
 		roundLoc: 8,
 		func: K.Geoapi.elevationAPILocal
 	},
 	esp: {
 		name: 'aspect',
-		cache: true,
+		caching: true,
 		roundLoc: 8,
 		func: K.Geoapi.aspectAPILocal
 	},
 	near: {
 		name: 'near',
-		cache: true,
+		caching: true,
 		roundLoc: roundLocGeoinfo,
 		func: K.Geoapi.nearAPI
 	},
 	com: {
 		name: 'municipality',
-		cache: true,
+		caching: true,
 		roundLoc: roundLocGeoinfo,
 		func: K.Geoapi.municipalityAPI
 	},
 	prov: {
 		name: 'province',
-		cache: true,
+		caching: true,
 		roundLoc: roundLocGeoinfo,
 		func: K.Geoapi.provinceAPI
 	},
 	reg: {
 		name: 'region',
-		cache: true,
+		caching: true,
 		roundLoc: roundLocGeoinfo,
 		func: K.Geoapi.regionAPI
 	},
 	naz: {
 		name: 'country',
-		cache: true,
+		caching: true,
 		roundLoc: roundLocGeoinfo,
 		func: K.Geoapi.countryAPI
 	},
 	loc: {
 		name: 'loc',
-		cache: false,
+		caching: false,
 		roundLoc: roundLocGeoinfo,
 		func: function(loc) {
 			return loc;
@@ -77,7 +77,7 @@ Kepler.Geoinfo = {
 					
 					var ll = K.Util.geo.roundLoc(loc, opt.roundLoc);
 				 	
-				 	if(cacheGeoinfo && opt.cache)
+				 	if(K.settings.geoinfo.caching && opt.caching)
 				 		cb(null, K.Cache.get(ll, opt.name, opt.func) );
 				 	else
 				 		cb(null, opt.func(ll) );

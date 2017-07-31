@@ -9,7 +9,7 @@ var	getOpts = {
 var weatherAPI = function(ll) {
 
 	var url = _.template("http://api.wunderground.com/api/{key}/forecast/q/{lat},{lon}.json", {
-			key: Meteor.settings.accounts.wundergroundKey,
+			key: K.settings.weather.wundergroundKey,
 			lat: ll[0], lon: ll[1]
 		});
 

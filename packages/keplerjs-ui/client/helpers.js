@@ -10,7 +10,11 @@ Template.registerHelper('absoluteUrl', function(url) {
 });
 
 Template.registerHelper('settings', function(prop) {
-	return K.Util.getPath(Meteor.settings.public, prop);
+	return K.Util.getPath(K.settings.public, prop);
+});
+
+Template.registerHelper('pluginLoaded', function(name) {
+	return !!K.plugins[name];
 });
 
 Template.registerHelper('userById', function(id) {

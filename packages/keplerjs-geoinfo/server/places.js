@@ -4,14 +4,16 @@ K.extend({
 	
 		if(!K.Admin.isMe()) return null;
 		
-		console.log('Geoapi: updatePlaceGeoinfo...', place.name);
+		console.log('Geoinfo: updatePlaceGeoinfo...', place.name);
 
 		var ret = K.Geoinfo.getFieldsByLoc(place.loc);
 
 		Places.update(place._id, {
-			$set: {geoinfo: ret}
+			$set: {
+				geoinfo: ret
+			}
 		});
-		console.log('Geoapi: updatePlaceGeoinfo', place.name, ret);
+		console.log('Geoinfo: updatePlaceGeoinfo', place.name, ret);
 	}
 });
 
@@ -31,7 +33,7 @@ Meteor.methods({
 
 		if(!this.userId && !K.Util.valid.loc(loc)) return null;
 
-		console.log('Geoapi: findGeoinfoByLoc...', loc);
+		console.log('Geoinfo: findGeoinfoByLoc...', loc);
 
 		var ret = K.Geoinfo.getFieldsByLoc(loc, fields);
 

@@ -17,7 +17,7 @@ Kepler.Admin = {
 
 		if(user) {
 			if(Meteor.isServer)
-				return _.contains(Meteor.settings.adminUsers, user.username);
+				return _.contains(K.settings.admin.adminUsers, user.username);
 
 			else if(Meteor.isClient)
 				return user.isAdmin;
@@ -60,28 +60,33 @@ Kepler.Admin = {
 };
 
 
-Meteor.startup(function(){
+Meteor.startup(function() {
 
-K.Plugin({
-	name: 'admin',
-	placeholders: {
-		panelPlace: 'panelPlace_admin',
-		panelUser: 'panelUser_admin',
-		//popupPlace: 'popupPlace_admin',
-		popupCursor: 'popupCursor_admin'
-	},
-	schemas: {
-		user: {
-			isAdmin: 0
-		}
-	},
-	filters: {
-		currentUser: {
-			fields: {
-				isAdmin: 1
+	K.Plugin({
+		name: 'admin',
+		placeholders: {
+			panelPlace: 'panelPlace_admin',
+			panelUser: 'panelUser_admin',
+			//popupPlace: 'popupPlace_admin',
+			popupCursor: 'popupCursor_admin'
+		},
+		schemas: {
+			user: {
+				isAdmin: 0
+			}
+		},
+		filters: {
+			currentUser: {
+				fields: {
+					isAdmin: 1
+				}
+			}
+		},
+		settings: {
+			"admin": {
+				"adminUsers": ["admin"]
 			}
 		}
-	}
-});
+	});
 
 });

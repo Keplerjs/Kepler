@@ -4,8 +4,6 @@
 	//TODO include Leaflet.GeometryUtil
 */
 
-var mapSettings = Meteor.settings.public.map;
-
 var layers = {},
 	controls = {};
 
@@ -45,7 +43,7 @@ layers.cluster = new L.MarkerClusterGroup({
 layers.places = new L.LayerJSON({
 	caching: false,
 	layerTarget: layers.cluster,
-	minShift: mapSettings.bboxMinShift,
+	minShift: K.settings.public.map.bboxMinShift,
 	callData: function(bbox, callback) {
 
 		var sub = Meteor.subscribe('placesByBBox', bbox, function() {
@@ -64,7 +62,8 @@ layers.places = new L.LayerJSON({
 layers.geojson = new L.GeoJSON(null, {
 	//DEBUG autoclear: false,
 	style: function (feature) {
-		return mapSettings.styles[feature.properties.type || 'default'] || mapSettings.styles.default;
+		var styles = K.settings.public.map.styles;
+		return styles[feature.properties.type || 'default'] || styles.default;
 	},
 	pointToLayer: function(feature, latlng) {	//costruisce marker POI
 
@@ -291,17 +290,17 @@ Kepler.Map = {
 	setOpts: function(opts) {
 
 		if(this.ready) {
-			opts = _.extend({}, mapSettings, opts);
+			opts = _.extend({}, K.settings.public.map, opts);
 
 			if(!K.Util.valid.loc(opts.center))
-				opts.center = mapSettings.center;
+				opts.center = K.settings.public.map.center;
 			
 			if(!opts.layers[opts.layer])
-				opts.layer = mapSettings.layer;
+				opts.layer = K.settings.public.map.layer;
 
 			this._setView(opts.center, opts.zoom);
 
-			layers.baselayer.setUrl( mapSettings.layers[opts.layer] );
+			layers.baselayer.setUrl( K.settings.public.map.layers[opts.layer] );
 		}
 		return this;
 	},
@@ -338,7 +337,7 @@ Kepler.Map = {
 				this._map.once("moveend zoomend", cb);
 			
 			if(loc && K.Util.valid.loc(loc))
-				this._setView( L.latLng(loc) , mapSettings.showLocZoom);
+				this._setView( L.latLng(loc) , K.settings.public.map.showLocZoom);
 		}
 		return this;
 	},

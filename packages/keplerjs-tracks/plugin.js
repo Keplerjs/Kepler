@@ -13,9 +13,11 @@ K.Plugin({
 		}
 	},
 	settings: {
-		public: {
-			"maxTracks": 1,
-			"maxTracksDist": 150
+		"public": {
+			"tracks": {
+				"maxDistance": 150,
+				"limit": 2				
+			}
 		}
 	}
 });

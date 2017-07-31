@@ -18,9 +18,11 @@
 					<img class="icon-avatar icon-avatar-big" src="{{avatar}}" />
 				</div>
 				<div class="col-sm-9 col-xs-9">
+				{{#if pluginLoaded 'upload'}}
 					<label for="fileavatar">{{i18n 'btn_avatar'}}</label>
 					<input id="fileavatar" class="form-control" type="file" />
 					<label class="text-danger"></label>
+				{{/if}}
 				</div>
 			</div>
 

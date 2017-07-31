@@ -13,9 +13,11 @@ K.Plugin({
 		}
 	},
 	settings: {
-		public: {
-			"maxPois": 10,
-			"maxPoisDist": 1000
+		"public": {
+			"pois": {
+				"maxDistance": 1000,
+				"limit": 10				
+			}
 		}
 	}
 });

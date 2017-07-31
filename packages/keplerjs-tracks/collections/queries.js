@@ -10,7 +10,7 @@ findTracksByLoc = function(ll) {
 		where = {
 			'properties.end.coordinates': {
 				'$near': ll,
-				'$maxDistance': Meteor.settings.public.maxTracksDist
+				'$maxDistance': K.settings.public.tracks.maxDistance
 			}
 		};
 	}
@@ -22,11 +22,11 @@ findTracksByLoc = function(ll) {
 						'type': 'Point',
 						'coordinates': [ll[1],ll[0]]
 					},
-					'$maxDistance': Meteor.settings.public.maxTracksDist
+					'$maxDistance': K.settings.public.tracks.maxDistance
 				}
 			}
 		};
 	}
 
-	return Tracks.find(where, {limit: Meteor.settings.public.maxTracks });
+	return Tracks.find(where, {limit: K.settings.public.tracks.limit });
 };

@@ -46,13 +46,13 @@ Kepler.filters = {
 		fields: {
 			loc:1, name:1, rank:1, indoor:1, checkins:1, createdAt:1, userId:1
 		},
-		limit: Meteor.settings.public.searchMaxRes
+		limit: 20
 	},
 	placeSearch: {
 		fields: {
 		           name:1, rank:1, indoor:1, checkins:1
 		},
 		sort: { name:1 },
-		limit: Meteor.settings.public.searchMaxRes
+		limit: 20
 	}
 };

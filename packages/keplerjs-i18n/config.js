@@ -1,7 +1,7 @@
 
 Meteor.startup(function() {
 
-	i18n.setDefaultLanguage(Meteor.settings.public.langDef);
+	i18n.setDefaultLanguage(K.settings.public.lang);
 
 	if(Meteor.isClient)
 		accountsUIBootstrap3.setLanguage(i18n.getLanguage());

@@ -50,6 +50,7 @@ Router.route(paths.place, opts)
 .get(function (req, res) {
 
 	var out = Places.findOne({name: this.params.name }, K.filters.placeItem);
+
 	delete out.loc;
 
 	writeOut(req, res, out);

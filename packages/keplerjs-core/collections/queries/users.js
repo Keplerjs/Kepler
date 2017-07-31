@@ -6,7 +6,7 @@ K.extend({
 	findUsersByName: function(initial) {
 		initial = K.Util.sanitizeRegExp(initial);
 
-		if(initial.length < Meteor.settings.public.searchMinLen)
+		if(initial.length < 3)
 			return null;
 
 		var reg = new RegExp('^'+ initial, 'i'),

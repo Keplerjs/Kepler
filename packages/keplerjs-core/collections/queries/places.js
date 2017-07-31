@@ -8,7 +8,6 @@ K.extend({
 	},
 	findPlacesByCheckins: function(usersIds) {
 		usersIds = _.isArray(usersIds) ? {$in: usersIds} : usersIds;
-		
 		return Places.find({checkins: usersIds }, K.filters.placeItem);
 	},
 	findPlacesByBBox: function(bbox) {
@@ -66,7 +65,7 @@ K.extend({
 	findPlacesByName: function(initial) {
 		initial = K.Util.sanitizeRegExp(initial);
 
-		if(initial.length < Meteor.settings.public.searchMinLen)
+		if(initial.length < 3)
 			return null;
 
 		var ex = new RegExp('^'+ initial, 'i');

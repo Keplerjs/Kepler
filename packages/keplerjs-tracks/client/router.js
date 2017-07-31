@@ -10,7 +10,6 @@ Router.map(function() {
 		},
 		onAfterAction: function() {
 			var place = K.placeById( this.params.placeId );
-
 			if(place)
 				place.showTracks();
 		},

@@ -1,54 +1,9 @@
 {
 	"public": {
-		"searchMinLen": 1,
-		"searchMaxRes": 20,
-		"typeDelay": 300,
 		"map": {
-			"zoom": 10,
-			"minZoom": 10,
-			"maxZoom": 19,
-			"center": [42.047801, 13.250885],
-			"maxBounds": [[36.282794, 5.361328], [47.542735, 21.071777]],
-
-			"checkinMaxDist": 500,
-			"bboxMinShift": 200,
-			"gpsMinShift": 40,
-			"showLocZoom": 16,
-			"layer": "road",			
-			"layers": {
-				"road": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-				"landscape": "https://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png",			
-				"transport": "https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png"
-			},
-			"styles": {
-				"default": { "color": "#b6f", "weight": 5, "opacity": 0.7 },
-				"access": {	"color": "#66f", "weight": 8, "opacity": 0.7 },
-				"placeCircle": { "color": "#f33", "weight": 4, "opacity": 0.7, "radius": 15 },	
-				"poiLine": { "color": "#f33", "weight": 4, "opacity": 0.7, "dashArray": "1,6" }
-			}		
-		},
-		"langDef": "en",
-		"langs": {
-			"it": "Italiano",
-			"en": "English",
-			"es": "Español",			
-			"fr": "Français",
-			"de": "Deutsch"
-		},
-
-		"maxHist": 3,
-		"maxTracks": 2,
-		"maxTracksDist": 1050,
-		"maxPois": 10,
-		"maxPoisDist": 500,
-		"maxNotifList": 5,
-
-		"upload": {
-			"maxFileSize": 5800000
+			"center": [41.047801, 12.0885]
 		}
 	},
-	"adminUsers": ["admin"],
-	"accountCreation": true,
 	"upload": {
 		"targets": {
 			"avatars": {
@@ -57,10 +12,14 @@
 			}
 		}
 	},
-	"accounts": {
+	"geoinfo": {
 		"geonamesUser": "climbo",
-		"ipinfodbKey": "ac735b1e635d4ec5b0ba271b287eb42c2161eabfbbc53894cb6ea642c210befd",
-		"wundergroundKey": "6a7ab4b56e163782",
+		"ipinfodbKey": "ac735b1e635d4ec5b0ba271b287eb42c2161eabfbbc53894cb6ea642c210befd"
+	},
+	"weather": {
+		"wundergroundKey": "6a7ab4b56e163782"
+	},
+	"accounts": {
 		"facebook": {
 			"service": "facebook",
 			"appId": "527957493928101",

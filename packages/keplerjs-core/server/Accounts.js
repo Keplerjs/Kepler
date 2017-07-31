@@ -6,18 +6,18 @@
 Meteor.startup(function () {	
 	Accounts.config({
 		sendVerificationEmail: false,
-		forbidClientAccountCreation: !Meteor.settings.accountCreation
+		forbidClientAccountCreation: !K.settings.accounts.creation
 	});
 	//http://developers.facebook.com/docs/authentication/permissions/
 	Accounts.loginServiceConfiguration.remove({service: 'facebook'});
-	Accounts.loginServiceConfiguration.insert(Meteor.settings.accounts.facebook);
+	Accounts.loginServiceConfiguration.insert(K.settings.accounts.facebook);
 	//https://cloud.google.com/console
 	Accounts.loginServiceConfiguration.remove({service: 'google'});	
-	Accounts.loginServiceConfiguration.insert(Meteor.settings.accounts.google);
+	Accounts.loginServiceConfiguration.insert(K.settings.accounts.google);
 	//Accounts.loginServiceConfiguration.remove({service: 'twitter'});
-	//Accounts.loginServiceConfiguration.insert(Meteor.settings.accounts.twitter);
-	Accounts.emailTemplates.siteName = Meteor.settings.public.siteName;
-	Accounts.emailTemplates.from = Meteor.settings.public.siteEmail;
+	//Accounts.loginServiceConfiguration.insert(K.settings.accounts.twitter);
+	//TODO Accounts.emailTemplates.siteName = ;
+	//TODO Accounts.emailTemplates.from = ;
 });
 
 Accounts.onLogin(function(login) {
@@ -50,7 +50,7 @@ Accounts.onCreateUser(function(options, user) {
 	var profile = options.profile,
 		username = user.username,
 		name = user.username,
-		lang = Meteor.settings.public.langDef,
+		lang = K.settings.public.lang,
 		avatar = '',
 		gender = null,
 		emails = user.emails;

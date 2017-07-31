@@ -1,16 +1,15 @@
 /*
 	server module for compute geospatial data by 3rd party services
 */
-var geonamesUser = Meteor.settings.accounts.geonamesUser,
-	ipinfodbKey = Meteor.settings.accounts.ipinfodbKey,
-	getOpts = {
-		timeout: 20000,	//timeout connessioni http remote
-		httpHeaders: {
-			'User-Agent': ''
-		}
-	};
 
 var httpGet = function(url) {
+
+	var getOpts = {
+			timeout: 20000,	//timeout connessioni http remote
+			httpHeaders: {
+				'User-Agent': ''
+			}
+		};
 
 	try {
 		
@@ -67,12 +66,12 @@ Kepler.Geoapi = {
 			srcSRTM = {
 				par: 'srtm3',
 				url: 'http://api.geonames.org/srtm3JSON?'+
-					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+geonamesUser,
+					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+K.settings.geoinfo.geonamesUser,
 			},
 			srcASTER = {
 				par: 'astergdem',
 				url: 'http://api.geonames.org/astergdemJSON?'+
-					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+geonamesUser,
+					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+K.settings.geoinfo.geonamesUser,
 			};
 
 		data = httpGet(src.url);
@@ -89,7 +88,7 @@ Kepler.Geoapi = {
 		var data, ret, src = {
 				par: 'name',
 				url: 'http://api.geonames.org/findNearbyJSON?lang=IT&style=SHORT&'+
-					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+geonamesUser
+					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+K.settings.geoinfo.geonamesUser
 			};
 
 		data = httpGet(src.url);
@@ -106,7 +105,7 @@ Kepler.Geoapi = {
 		var data, ret, src = {
 				par: 'adminName3',
 				url: 'http://api.geonames.org/countrySubdivisionJSON?lang=IT&level=3&'+
-					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+geonamesUser
+					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+K.settings.geoinfo.geonamesUser
 			};
 
 		data = httpGet(src.url);
@@ -123,7 +122,7 @@ Kepler.Geoapi = {
 		var data, ret, src = {
 				par: 'adminName2',
 				url: 'http://api.geonames.org/countrySubdivisionJSON?lang=IT&level=3&'+
-					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+geonamesUser
+					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+K.settings.geoinfo.geonamesUser
 			};
 
 		data = httpGet(src.url);
@@ -140,7 +139,7 @@ Kepler.Geoapi = {
 		var data, ret, src = {
 				par: 'adminName1',
 				url: 'http://api.geonames.org/countrySubdivisionJSON?lang=IT&level=3&'+
-					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+geonamesUser
+					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+K.settings.geoinfo.geonamesUser
 			};
 
 		data = httpGet(src.url);
@@ -157,7 +156,7 @@ Kepler.Geoapi = {
 		var data, ret, src = {
 				par: 'countryName',
 				url: 'http://api.geonames.org/countrySubdivisionJSON?lang=IT&'+
-					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+geonamesUser
+					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+K.settings.geoinfo.geonamesUser
 			};
 			
 		data = httpGet(src.url);
@@ -173,7 +172,7 @@ Kepler.Geoapi = {
 		
 		var data, ret, src = {
 				par: '',
-				url: 'http://api.ipinfodb.com/v3/ip-city/?key='+ipinfodbKey+
+				url: 'http://api.ipinfodb.com/v3/ip-city/?key='+K.settings.geoinfo.ipinfodbKey+
 						'&format=json&ip='+ip
 			};
 

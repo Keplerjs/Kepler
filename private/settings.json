@@ -1,0 +1,39 @@
+{
+	"public": {
+		"map": {
+			"center": [41.047801, 12.0885]
+		}
+	},
+	"upload": {
+		"targets": {
+			"avatars": {
+				"url": "/static/avatars/",
+				"path": "/var/www/static.app_meteor.net/avatars/"
+			}
+		}
+	},
+	"geoinfo": {
+		"geonamesUser": "demo",
+		"ipinfodbKey": "4343335b1e635d44444c5b0ba271b287eb42c216344253894cb6ea642c210befd"
+	},
+	"weather": {
+		"wundergroundKey": "6a7ab32334343dca163782"
+	},
+	"accounts": {
+		"facebook": {
+			"service": "facebook",
+			"appId": "527324563928101",
+			"secret": "ae38887d16342200a380dbfd56c4f908"
+		},
+		"google": {
+			"service": "google",
+			"clientId": "19287333365-674tq3dcnbstgai085g76ua67uioo70c.apps.googleusercontent.com",
+			"secret": "XsU2MUv2SWKIkwkw4pNAoWaP"
+		},
+		"twitter": {
+			"service": "twitter",
+			"consumerKey": "F3a4HAHSHSOkf7S4J1k9SBsB",
+			"secret": "iwwjgho1wahgdKdpRea5qVDmYnj46Zd2iX3XHRFsoIK6dryy9g"			
+		}		
+	}	
+}

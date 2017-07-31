@@ -8,7 +8,7 @@ findPoisByLoc = function(ll) {
 	if(Meteor.isClient) {
 		where = {
 			'$near': ll,
-			'$maxDistance': Meteor.settings.public.maxPoisDist
+			'$maxDistance': K.settings.public.pois.maxDistance
 		};
 	}
 	else if(Meteor.isServer) {
@@ -18,12 +18,12 @@ findPoisByLoc = function(ll) {
 					'type': 'Point',
 					'coordinates': [ll[1],ll[0]]
 				},
-				'$maxDistance': Meteor.settings.public.maxPoisDist
+				'$maxDistance': K.settings.public.pois.maxDistance
 			}
 		};
 	}
 
 	return Pois.find({
 			'geometry.coordinates': where
-		}, {limit: Meteor.settings.public.maxPois });
+		}, {limit: K.settings.public.pois.limit });
 }

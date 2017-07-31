@@ -7,7 +7,7 @@ findOsmByLoc = function(ll) {
 	if(Meteor.isClient) {
 		where = {
 			'$near': ll,
-			'$maxDistance': Meteor.settings.public.maxPoisDist
+			'$maxDistance': 1000
 		};
 	}
 	else if(Meteor.isServer) {
@@ -17,13 +17,13 @@ findOsmByLoc = function(ll) {
 					'type': 'Point',
 					'coordinates': [ll[1],ll[0]]
 				},
-				'$maxDistance': Meteor.settings.public.maxPoisDist
+				'$maxDistance': 1000
 			}
 		};
 	}
 
 	return Osm.find({
 			'geometry.coordinates': where
-		}, {limit: Meteor.settings.public.maxPois });
+		}, {limit:10 });
 };
 

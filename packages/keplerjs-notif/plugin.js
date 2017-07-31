@@ -17,9 +17,4 @@ K.Plugin({
 			}
 		}
 	}
-/*	settings: {
-		public: {
-			"maxNotifList": 5
-		}
-	}*/
 });

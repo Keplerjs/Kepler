@@ -1,14 +1,19 @@
 
 K.Plugin({
 	name: 'upload',
-/*	settings: {
-		dirs: {
-			upload: "/var/www/mysite.com/static/uploads/"
-		},		
-		public: {
-			urls: {
-				upload: "/static/uploads/"
+	settings: {
+		"public": {
+			"upload": {
+				"maxFileSize": 5800000
+			}
+		},
+		"upload": {
+			"targets": {
+				"avatars": {
+					"url": "",
+					"path": ""
+				}
 			}
 		}
-	}*/
+	}
 });

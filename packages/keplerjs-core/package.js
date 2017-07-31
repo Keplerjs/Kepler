@@ -29,7 +29,7 @@ Package.onUse(function(api) {
   api.addFiles(globsync('lib/**/*.js'));
   api.addFiles(globsync('modules/**/*.js'));
   api.addFiles(globsync('collections/**/*.js'));
-  
+
   api.addFiles(globsync('client/**/*.*'),  'client');
   api.addFiles(globsync('server/**/*.js'), 'server');
 

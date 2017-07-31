@@ -1,5 +1,4 @@
 
-
 Template.panelSettings.helpers({
 	genders: function() {
 		var gender = Meteor.user() && (Meteor.user().gender || 'none');
@@ -16,17 +15,17 @@ Template.panelSettings.helpers({
 		return K.Profile.data.lang
 	},
 	langs: function() {
-		return _.map(Meteor.settings.public.langs, function(val, k) {
+		return _.map(K.settings.public.langs, function(v,k) {
 			return {
 				key: k,
-				val: val,
+				val: v,
 				active: k===K.Profile.data.lang
 			};
 		});
-	},	
+	},
 	layers: function() {
-		var layer = K.Profile.getOpts('map.layer') || Meteor.settings.public.map.layer;
-		return _.map(Meteor.settings.public.map.layers, function(val, k) {
+		var layer = K.Profile.getOpts('map.layer') || K.settings.public.map.layer;
+		return _.map(K.settings.public.map.layers, function(val, k) {
 			return {
 				key: k,
 				val: k,
@@ -50,7 +49,7 @@ Template.panelSettings.events({
 			feed$.hide();
 			Users.update(Meteor.userId(), { $set: {'name': val } });
 		}
-	}, Meteor.settings.public.typeDelay),
+	}, 300),
 
 /*	'keyup #email': _.debounce(function(e) {
 		var val = $(e.target).val(),
@@ -71,12 +70,12 @@ Template.panelSettings.events({
 			// 	}
 			// });
 		}
-	}, Meteor.settings.public.typeDelay),*/
+	}, 300),*/
 
 	'keyup #city': _.debounce(function(e) {
 		var val = $(e.currentTarget).val();
 		Users.update(Meteor.userId(), { $set: {'city': val } });
-	}, Meteor.settings.public.typeDelay),
+	}, 300),
 
 	'change #maplayer input': _.debounce(function(e) {
 		e.preventDefault();
@@ -87,7 +86,7 @@ Template.panelSettings.events({
 
 		K.Map.setOpts({layer: val });
 
-	}, Meteor.settings.public.typeDelay),
+	}, 300),
 
 	'change #gender input': _.debounce(function(e) {
 		e.preventDefault();
@@ -95,7 +94,7 @@ Template.panelSettings.events({
 		var val = $(e.currentTarget).val();
 		Users.update(Meteor.userId(), { $set: {'gender': val } });
 
-	}, Meteor.settings.public.typeDelay),
+	}, 300),
 
 	'change #lang': function(e) {
 		e.preventDefault();
@@ -119,7 +118,7 @@ Template.panelSettings.events({
 		input$.parent().addClass('loading-default');
 		
 		K.Upload.uploadFile(fileObj, target, function(err, url) {
-			
+			console.log(err,url)
 			input$.parent().removeClass('loading-default');
 
 			if(err)

@@ -46,17 +46,5 @@ Kepler.Util.valid = {
 	email: function(email) {
 		var reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		return reg.test(email);
-	},
-
-	image: function(fileObj) {
-		
-		if(Meteor.isServer)
-			fileObj.size = Buffer.byteLength(fileObj.blob, 'binary');
-		
-		if(_.isUndefined(fileObj.size) || _.isUndefined(fileObj.type))
-			return false;
-
-		return (fileObj.size <= Meteor.settings.public.upload.maxFileSize &&
-			_.contains(['image/png','image/jpeg'], fileObj.type) );
 	}
 };

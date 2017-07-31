@@ -16,7 +16,6 @@ K.Plugin({
 				prov: '',	//province
 				reg: '',	//district
 				naz: '',	//country
-				//shadow
 			}
 		}
 	},
@@ -28,6 +27,10 @@ K.Plugin({
 		}
 	},
 	settings: {
-		cacheGeoinfo: true
+		"geoinfo": {
+			"caching": true,
+			"geonamesUser": "",
+			"ipinfodbKey": ""
+		}
 	}
 });
