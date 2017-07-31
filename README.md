@@ -5,11 +5,6 @@
 The full-stack real-time geo-social network framework
 lets users share favorite places and join discussions
 
-## Links
-
-* [Github](https://github.com/Keplerjs)
-* [NPM](https://www.npmjs.com/org/keplerjs)
-* [Atmospherejs](https://atmospherejs.com/keplerjs)
 
 ### Install
 
@@ -70,6 +65,17 @@ A plugin only need to make your own package depend on *keplerjs:core* or others 
 ####  3rd party Plugins Packages
 
 *Are expected to be developed by the great community of Meteor developers...*
+
+
+### Links
+
+*[DEMO online](https://keplerjs.herokuapp.com/)*
+
+* [Roadmap](https://trello.com/b/FBK72QEJ/keplerjs-roadmap)
+* [Github](https://github.com/Keplerjs)
+* [NPM](https://www.npmjs.com/org/keplerjs)
+* [Atmospherejs](https://atmospherejs.com/keplerjs)
+
 
 ### License
 Note that Kepler is distributed under the [MIT License](http://opensource.org/licenses/MIT)
