@@ -68,8 +68,8 @@ Template.registerHelper('humanDistance', function(dis, sign) {
 	return K.Util.humanize.distance(dis, parseInt(sign));
 });
 
-Template.registerHelper('humanLoc', function(loc) {
-	return K.Util.humanize.loc(loc);
+Template.registerHelper('humanLoc', function(loc, pre) {
+	return K.Util.humanize.loc(loc, parseInt(pre));
 });
 
 Template.registerHelper('stringify', function(prop) {

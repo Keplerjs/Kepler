@@ -136,25 +136,31 @@ controls.gps = L.control.gps({
 
 Kepler.Map = {
 
-	ready: false,
-
 	_items: [],
 
 	_map: null,
 
 	_deps: {
+		ready: new ReactiveVar(false),
 		bbox: new Tracker.Dependency()
 	},
 
 	cursor: layers.cursor,
 
+	ready: function(val) {
+		if(!_.isUndefined(val))
+			this._deps.ready.set(val);
+		return this._deps.ready.get();
+	},
+	
 	init: function(div, opts, cb) {		//render map and add controls/layers
 
 		var self = this;
 
-		if(self.ready) return this;
-
-		self.ready = true;
+		if(self.ready())
+			return this;
+		else
+			self.ready(true);
 
 		self._map = new L.Map(div, {		
 			attributionControl: false,
@@ -209,9 +215,8 @@ Kepler.Map = {
 	},
 
 	destroy: function() {
-		
-		if(this.ready) {
-			this.ready = false;
+		if(this.ready()) {
+			this.ready(false);
 
 			this._items = [];
 
@@ -245,7 +250,7 @@ Kepler.Map = {
 	},
 	
 	_setView: function(loc, zoom) {
-		if(this.ready) {
+		if(this.ready()) {
 			this._map.setView(loc, zoom);
 			/*
 			//TODO 
@@ -261,7 +266,7 @@ Kepler.Map = {
 	},
 	
 	enable: function() {
-		if(this.ready) {
+		if(this.ready()) {
 			this._map.addLayer(layers.cluster);
 			this._map.addLayer(layers.places);
 			this._map.addLayer(layers.users);
@@ -270,7 +275,7 @@ Kepler.Map = {
 	},
 	
 	disable: function() {
-		if(this.ready) {
+		if(this.ready()) {
 			this._map.removeLayer(layers.places);
 			this._map.removeLayer(layers.cluster);
 			this._map.removeLayer(layers.users);
@@ -279,17 +284,17 @@ Kepler.Map = {
 	},
 
 	isVisible: function() {
-		if(!this.ready) return false;
+		if(!this.ready()) return false;
 
 		var mapw = this._map.getSize().x,
 			panelw = (this.sidebar$.hasClass('expanded') && this.sidebar$.width()) || 0;
 
-		return this.ready && (mapw-panelw > 40);
+		return this.ready() && (mapw-panelw > 40);
 	},
 
 	setOpts: function(opts) {
 
-		if(this.ready) {
+		if(this.ready()) {
 			opts = _.extend({}, K.settings.public.map, opts);
 
 			if(!K.Util.valid.loc(opts.center))
@@ -306,7 +311,7 @@ Kepler.Map = {
 	},
 
 	getBBox: function() {
-		if(this.ready) {
+		if(this.ready()) {
 			this._deps.bbox.depend();
 
 			var bbox = this._map.getBounds(),
@@ -332,7 +337,7 @@ Kepler.Map = {
 	},
 
 	showLoc: function(loc, cb) {
-		if(this.ready) {
+		if(this.ready()) {
 			if(_.isFunction(cb))
 				this._map.once("moveend zoomend", cb);
 			
@@ -343,7 +348,7 @@ Kepler.Map = {
 	},
 
 	addItem: function(item) {
-		if(this.ready && item.marker) {
+		if(this.ready() && item.marker) {
 			if(item.type==='place')
 				item.marker.addTo( layers.places );
 
@@ -352,12 +357,14 @@ Kepler.Map = {
 		}
 		else
 			this._items.push(item);
+		
+		//TODO remove item buffer(no more useful after this.ready() is added)
 
 		return this;
 	},
 
 	removeItem: function(item) {
-		if(this.ready) {
+		if(this.ready()) {
 			if(item && item.marker)
 				this._map.removeLayer(item.marker);
 		}
@@ -365,7 +372,7 @@ Kepler.Map = {
 	},
 
 	addGeojson: function(geoData, cb) {
-		if(this.ready) {
+		if(this.ready()) {
 			geoData = _.isArray(geoData) ? geoData : [geoData];
 
 			if(!this.isVisible())

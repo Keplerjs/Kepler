@@ -10,8 +10,10 @@ Router.map(function() {
 		},
 		onAfterAction: function() {
 			var place = K.placeById( this.params.placeId );
-			if(place)
+			if(place) {
+				place.showLoc();
 				place.showTracks();
+			}
 		},
 		data: { hideSidebar: true }
 	});
