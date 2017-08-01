@@ -44,7 +44,6 @@ Different packages can play different behaviors. So here's a quick overview of t
 * [keplerjs:i18n](packages/keplerjs-i18n)
 * [keplerjs:core](packages/keplerjs-core)
 * [keplerjs:ui](packages/keplerjs-ui)
-* [keplerjs:api](packages/keplerjs-api)
 
 #### Plugin Packages
 
@@ -52,18 +51,20 @@ These plugin packages provide additional features for your Kepler app.
 A plugin to work and to be defined as a rule to contain a file *plugin.js* that defines the behavior and configuration in the kepler environment.
 A plugin only need to make your own package depend on *keplerjs:core* or others plugins if needed.
 
-#### Core Plugins
+#### Base Plugins
 
+* [keplerjs:api](packages/keplerjs-api)
+* [keplerjs:theme](packages/keplerjs-theme)
 * [keplerjs:categories](packages/keplerjs-categories)
 * [keplerjs:conver](packages/keplerjs-conver)
 * [keplerjs:events](packages/keplerjs-events)
+* [keplerjs:favorites](packages/keplerjs-favorites)
 * [keplerjs:geoinfo](packages/keplerjs-geoinfo)
 * [keplerjs:googlemaps](packages/keplerjs-googlemaps)
 * [keplerjs:notif](packages/keplerjs-notif)
 * [keplerjs:osm](packages/keplerjs-osm)
 * [keplerjs:pois](packages/keplerjs-pois)
 * [keplerjs:share](packages/keplerjs-share)
-* [keplerjs:theme](packages/keplerjs-theme)
 * [keplerjs:tracks](packages/keplerjs-tracks)
 * [keplerjs:upload](packages/keplerjs-upload)
 * [keplerjs:weather](packages/keplerjs-weather)
