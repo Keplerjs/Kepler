@@ -17,8 +17,6 @@ lets users share favorite places and join discussions
 
 ### Install
 
-Prerequisites:
-
 ```sh
 npm i
 npm start

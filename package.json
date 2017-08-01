@@ -7,7 +7,7 @@
     "url": "git+ssh://git@github.com/Keplerjs/Kepler.git"
   },
   "scripts": {
-    "start": "meteor start"
+    "start": "meteor"
   },
   "keywords": [
     "social-network",

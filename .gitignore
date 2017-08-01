@@ -1,6 +1,7 @@
 app.log
 app.pid
 npm-debug.log
+package-lock.json
 node_modules
 smart.lock
 public/users
