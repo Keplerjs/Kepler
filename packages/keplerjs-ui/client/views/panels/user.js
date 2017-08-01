@@ -6,13 +6,13 @@ Template.panelUser.helpers({
 	}
 });
 
-Template.panelUser.events({
+/*Template.panelUser.events({
 	'click .nav-tabs a': function(e, tmpl) {
 		e.preventDefault();
 		$(e.currentTarget).tab('show');
 	}
 });
-
+*/
 Template.user_btns2.onRendered(function() {
 	
 	this.$('.user-btn-del')

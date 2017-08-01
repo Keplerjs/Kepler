@@ -17,6 +17,8 @@ Kepler.Place = Class.extend({
 
 		self._dep = new Tracker.Dependency();
 
+	//TODO replace with Reactive Var!!!
+
 		self.rData = function() {
 			self._dep.depend();
 			return self;
@@ -89,19 +91,10 @@ Kepler.Place = Class.extend({
 	isCheckin: function() {
 		return K.Profile.data.checkin && (K.Profile.data.checkin === this.id);
 	},
-	
-	isFavorite: function() {
-		return Meteor.user() && _.contains(Meteor.user().favorites, this.id);
-	},
 
 	checkinsCount: function() {
 		this._dep.depend();
 		return this.checkins && this.checkins.length;
-	},
-
-	getRank: function() {
-		this._dep.depend();
-		return this.rank;
 	}
 });
 

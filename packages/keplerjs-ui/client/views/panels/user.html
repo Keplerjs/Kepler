@@ -42,14 +42,6 @@
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="col-xs-12">
-				
-					{{> pluginPlaceholder name='panelUser'}}
-				
-				</div>
-			</div>
-
 			{{> tab_location}}
 
 			<ul class="nav nav-tabs">
@@ -59,14 +51,9 @@
 					</a>
 				</li>
 				{{#if isFriend}}
-				<li class="user-btn-star">
+				<li class="user-btn-hist">
 					<a href="#tab_histuser" data-toggle="tab">
 						<i class="icon icon-hist"></i> <span>{{i18n 'btn_hist'}}</span>
-					</a>
-				</li>
-				<li class="user-btn-star">
-					<a href="#tab_favs" data-toggle="tab">
-						<i class="icon icon-star"></i> <span>{{i18n 'btn_favs'}}</span>
 					</a>
 				</li>
 				{{/if}}
@@ -81,11 +68,17 @@
 				<div class="tab-pane" id="tab_histuser">
 					{{> tab_histuser}}
 				</div>
-				<div class="tab-pane" id="tab_favs">
-					{{> tab_favorites}}
-				</div>
 				{{/if}}
 			</div>
+
+			<div class="row">
+				<div class="col-xs-12">
+				
+					{{> pluginPlaceholder name='panelUser'}}
+				
+				</div>
+			</div>
+
 		{{/if}}
 		</div>		
 	</div>
@@ -94,8 +87,16 @@
 
 
 <template name="user_btns2">
-<div class="user-btns">
-	<div class="btn-group pull-right" data-toggle="buttons">
+<div class="user-btns pull-right">
+
+	<div class="btn-group" data-toggle="buttons">
+	
+		{{> pluginPlaceholder name='itemUser'}}
+
+	</div>
+
+	<div class="btn-group" data-toggle="buttons">
+
 	{{#if isFriend}}
 		<a data-userid="{{id}}" class="btn btn-sm btn-default user-btn-del" href="#">
 			<i class="icon icon-userdel"></i>

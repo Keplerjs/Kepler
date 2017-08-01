@@ -1,0 +1,29 @@
+
+<template name="panelProfile_favorites">
+	<a class="list-group-item" href="/favorites">
+		<i class="icon icon-star"></i>
+		 {{i18n 'btn_favs'}} 
+		<span class="badge">{{favorites.length}}</span>
+	</a>
+</template>
+
+<template name="panelUser_favorites">
+{{#if isFriend}}
+	{{#if favorites.length}}
+		<ul class="list-group">
+			<li class="list-group-item active">		
+				<!-- <i class="icon icon-star"></i>  --><span>{{i18n 'label_favsplaces'}}</span>
+			</li>
+			{{#each favorites}}
+			<li class="list-group-item">
+				{{#with placeById this}}
+					{{> item_place}}
+				{{/with}}
+			</li>
+			{{/each}}
+		</ul>
+	{{else}}
+		<label class="text-gray"><i>{{i18n 'label_nofavs'}}</i></label>				
+	{{/if}}
+{{/if}}	
+</template>

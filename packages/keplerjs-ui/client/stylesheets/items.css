@@ -1,9 +1,5 @@
 
-.user-item,
-.friend-item,
-.place-item,
-.favorite-item,
-.place-btn-name {
+.list-group > .list-group-item > div {
 	height: auto;
 	overflow: hidden;
 }

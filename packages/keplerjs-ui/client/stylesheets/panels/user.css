@@ -1,5 +1,5 @@
-#user .user-btns .place-btn-star,
-#tab_favs .place-btn-checkins {
+
+#user .user-btns .place-btn-star {
 	display: none;
 }
 

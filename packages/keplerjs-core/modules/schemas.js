@@ -10,7 +10,6 @@ Kepler.schemas = {
 		createdAt: '',	   //new Date() of place insert
 		userId: '',	   	   //user to created it
 		active: 0,	       //place visible in map
-		rank: 0,		   //sum of all users's favorites
 		indoor:0,		   //is an indoor place
 		loc: [],		   //coordinates lat,lng
 		desc: '',		   //place description
@@ -37,7 +36,6 @@ Kepler.schemas = {
 		online: 0,		   //stato di visibilita rispetto ai miei friends
 		onlinelast: null,  //last online status datetime
 		mob: 0,			   //if my device is mobile
-		favorites: [],	   //id place preferiti		
 		friends: [],	   //ids users friends
 		usersPending: [],  //ids users that I send request
 		usersReceive: [],  //ids users that I receive request

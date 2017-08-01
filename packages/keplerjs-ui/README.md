@@ -36,7 +36,6 @@ Define the base front-end structure of Kepler app, the basic views and the minim
 │   │   │   │   
 │   │   │   ├── user
 │   │   │   │   ├── bio.html
-│   │   │   │   ├── favorites.html
 │   │   │   │   ├── friends.html
 │   │   │   │   ├── friends.js
 │   │   │   │   └── histuser.html

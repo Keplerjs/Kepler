@@ -1,0 +1,20 @@
+
+
+<template name="item_place_favorite">
+	<div class="favorite-item">
+		<div class="pull-left">
+			{{> item_place}}
+		</div>
+		<div class="pull-right">
+			{{> place_btns}}
+		</div>
+	</div>
+</template>
+
+<template name="itemPlace_favorites">
+	<a class="btn btn-sm btn-default place-btn-star">
+		<i class="icon {{#if isFavorite}} icon-star {{else}} icon-unstar {{/if}}"></i>
+		<span class="badge {{#unless getRank}} bg-gray {{/unless}}">{{getRank}}</span>
+		<input type="checkbox" checked={{isFavorite}} />
+	</a>	
+</template>

@@ -8,7 +8,6 @@ i18n.map('en', {
 	website_desc: "lets climbers share favorite rock spot, gym and join discussions.",	
 
 	title_places: "Rock Spots",
-	title_favorites: "Favorite places",
 	title_placesNearby: "Nearby Spots",
 	btn_users: "Climbers",
 	btn_places: "Rock Spots",

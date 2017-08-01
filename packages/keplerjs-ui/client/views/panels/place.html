@@ -50,10 +50,10 @@
 
 <template name="place_btns_panel">	
 	<div class="row">
-		<div class="col-sm-6">
+		<div class="col-sm-2">
 			{{> place_btns3}}
 		</div>
-		<div class="col-sm-6 text-right">
+		<div class="col-sm-10 text-right">
 			{{> place_btns}}
 		</div>		
 	</div>
@@ -71,11 +71,6 @@
 			{{/if}}
 			</span>
 			<input type="checkbox" checked={{isCheckin}} />
-		</label>
-		<label class="btn btn-sm btn-default place-btn-star">
-			<i class="icon {{#if isFavorite}} icon-star {{else}} icon-unstar {{/if}}"></i>
-			<span class="badge {{#unless getRank}} bg-gray {{/unless}}">{{getRank}}</span>
-			<input type="checkbox" checked={{isFavorite}} />
-		</label>		
+		</label>	
 	</div>
 </template>
