@@ -1,6 +1,6 @@
 {
   "name": "keplerjs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "The full-stack real-time geo-social network framework",
   "repository": {
     "type": "git",
@@ -11,6 +11,8 @@
   },
   "keywords": [
     "social-network",
+    "social",
+    "geo-social",
     "framework",
     "leaflet",
     "mapping"
