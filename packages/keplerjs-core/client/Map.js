@@ -3,162 +3,19 @@
 
 	//TODO include Leaflet.GeometryUtil
 */
-var layers = {
-
-	baselayer: new L.TileLayer(' '),
-	users: new L.LayerGroup(),
-
-	cursor: new L.Cursor({
-		popup: {
-			closeButton: false,
-			minWidth: 120
-		}
-	}).on('popupopen', function(e) {
-		var cursorData = {
-				loc: [e.latlng.lat, e.latlng.lng]
-			};
-		this.popup$.innerHTML = '';
-		Blaze.renderWithData(Template.popupCursor, cursorData, this.popup$);
-	}),
-
-	cluster: new L.MarkerClusterGroup({
-		spiderfyDistanceMultiplier: 1.4,
-		showCoverageOnHover: false,
-		maxClusterRadius: 40,
-		iconCreateFunction: function(cluster) {
-			if(!cluster.$icon)
-				cluster.$icon = L.DomUtil.create('div');
-
-			cluster.checkinsCount = function() {
-				var places = _.map(cluster.getAllChildMarkers(), function(marker) {
-					return marker.item.id;
-				});
-				return K.findCheckinsCountByPlaces(places);
-			};
-			
-			if(!cluster.icon) {
-				Blaze.renderWithData(Template.item_place_cluster, cluster, cluster.$icon);
-				cluster.icon = new L.NodeIcon({
-					className: 'marker-cluster',
-					nodeHtml: cluster.$icon
-				});
-			}
-
-			return cluster.icon;
-		}
-	}),
-
-	places: new L.LayerJSON({
-		caching: false,
-		layerTarget: this.cluster,
-		minShift: K.settings.public.map.bboxMinShift,
-		callData: function(bbox, callback) {
-
-			var sub = Meteor.subscribe('placesByBBox', bbox, function() {
-				callback( K.findPlacesByBBox(bbox).fetch() );
-			});
-
-			return {
-				abort: sub.stop
-			};
-		},
-		dataToMarker: function(data) {	//eseguito una sola volta per ogni place
-			return K.placeById(data._id).marker;
-		}
-	}),
-
-	geojson: new L.GeoJSON(null, {
-		//DEBUG autoclear: false,
-		style: function (feature) {
-			var styles = K.settings.public.map.styles;
-			return styles[feature.properties.type || 'default'] || styles.default;
-		},
-		pointToLayer: function(feature, latlng) {	//costruisce marker POI
-
-			if(feature.properties.type==='placeCircle')	//evidenzia place nei pois
-				return new L.CircleMarker(latlng);
-			else
-			{
-				var iconPoi = L.DomUtil.create('div');
-				L.DomUtil.create('i', 'icon icon-'+feature.properties.type, iconPoi);
-				return new L.Marker(latlng, {
-						icon: new L.NodeIcon({className:'marker-poi', nodeHtml: iconPoi})
-					});
-			}
-		},
-		onEachFeature: function (feature, layer) {
-			var tmpl, $popup;
-
-		//TODO move to pois plugin
-		//create template for layer geojson popup that contains 
-		//{{> pluginsPlaceholder 'popupGeojson'}}
-
-			if(feature.geometry.type==='LineString')
-				tmpl = Template.popupTrack;
-
-			else if(feature.geometry.type==='Point')
-				tmpl = Template.popupPoi;
-
-			if(tmpl && feature.properties) {
-				$popup = L.DomUtil.create('div','');
-				Blaze.renderWithData(tmpl, feature.properties.tags || feature.properties, $popup);
-				layer.bindPopup($popup, {closeButton:false} );
-			}
-		}
-	})
-};
-////LAYERS/
-
-var controls = {
-
-	zoom: new L.Control.Zoom({
-		position: 'bottomright',
-		zoomOutText: i18n('map_zoomout'),
-		zoomInText: i18n('map_zoomin')
-	}),
-
-	attrib: new L.Control.Attribution({
-		position: 'bottomright',
-		prefix: i18n('map_attrib')
-	}),
-
-	gps: new L.Control.Gps({
-		position: 'bottomright',
-		title: '',
-		textErr: i18n('map_gps_error'),
-		marker: new L.Marker([0,0], {
-			icon: L.divIcon({className: 'marker-gps'})
-		}),
-		callErr: function(err) {
-			console.warn(err);
-		}
-	})
-	.on({
-		'gps:disabled': function(e) {
-			K.Profile.setLoc(null);
-		},
-		'gps:located': function(e) {
-
-			K.Profile.setLoc([e.latlng.lat, e.latlng.lng]);
-
-			if(K.Profile.user && K.Profile.user.icon)
-				K.Profile.user.icon.animate();
-		}
-	})
-};
 
 Kepler.Map = {
 
-	_items: [],
+	map: null,
+	
+	cursor: null,
 
-	_map: null,
+	_items: [],
 
 	_deps: {
 		ready: new ReactiveVar(false),
 		bbox: new Tracker.Dependency()
 	},
-
-	cursor: layers.cursor,
 
 	ready: function(val) {
 		if(!_.isUndefined(val))
@@ -175,14 +32,24 @@ Kepler.Map = {
 		else
 			self.ready(true);
 
-		self._map = new L.Map(div, {		
+		self.map = new L.Map(div, {		
 			attributionControl: false,
 			zoomControl: false			
 		});
 
+		self.cursor = new L.Cursor({
+			popup: {
+				closeButton: false,
+				minWidth: 120
+			}
+		});
+
 		self.sidebar$ = $('#sidebar');
 
-		self._addControls();
+		self.layers = self._initLayers();
+		self.controls = self._initControls();
+
+		self._addComponents();
 
 		self.setOpts(opts);
 
@@ -190,11 +57,11 @@ Kepler.Map = {
 		$(window).on('orientationchange'+(K.Util.isMobile()?'':' resize'), _.debounce(function(e) {
 
 			$(window).scrollTop(0);
-			self._map.invalidateSize(false);
+			self.map.invalidateSize(false);
 
 		}, 1000) );
 
-		self._map.whenReady(function() {
+		self.map.whenReady(function() {
 			
 			self._deps.bbox.changed();
 
@@ -207,83 +74,76 @@ Kepler.Map = {
 		.on('moveend zoomend', function(e) {
 			self._deps.bbox.changed();
 			//autoclean geojson layer
-			if(layers.geojson.getLayers().length) {
-				if(e.target.getBoundsZoom(layers.geojson.getBounds()) - e.target.getZoom() > 2)
-					layers.geojson.clearLayers();
+			if(self.layers.geojson.getLayers().length) {
+				if(e.target.getBoundsZoom(self.layers.geojson.getBounds()) - e.target.getZoom() > 2)
+					self.layers.geojson.clearLayers();
 			}
 		});
-		
+
+		self.cursor.on('popupopen', function(e) {
+			var cursorData = {
+					loc: [e.latlng.lat, e.latlng.lng]
+				};
+			this.popup$.innerHTML = '';
+			Blaze.renderWithData(Template.popupCursor, cursorData, this.popup$);
+		});
 
 		return this;
 	},
 
 	destroy: function() {
+
+		var l = this.layers,
+			c = this.controls;
+
 		if(this.ready()) {
 			this.ready(false);
 
 			this._items = [];
 
-			this._map
-				.removeLayer(layers.baselayer)
-				.removeLayer(layers.cluster)
-				.removeLayer(layers.places)				
-				.removeLayer(layers.cursor)
-				.removeLayer(layers.geojson)
-				.removeLayer(layers.users)
-				.removeControl(controls.attrib)
-				.removeControl(controls.zoom)				
-				.removeControl(controls.gps);
+			this.map
+				.removeLayer(this.cursor)			
+				.removeLayer(l.baselayer)
+				.removeLayer(l.cluster)
+				.removeLayer(l.places)				
+				.removeLayer(l.geojson)
+				.removeLayer(l.users)				
+				.removeControl(c.attrib)
+				.removeControl(c.zoom)				
+				.removeControl(c.gps);
 			
-			this._map.remove();	
+			this.map.remove();	
 		}
 		return this;
 	},
 
-	_addControls: function(lays) {
-		this._map
-			.addLayer(layers.baselayer)
-			.addLayer(layers.cluster)
-			.addLayer(layers.places)				
-			.addLayer(layers.cursor)
-			.addLayer(layers.geojson)
-			.addLayer(layers.users)
-			.addControl(controls.attrib)
-			.addControl(controls.zoom)
-			.addControl(controls.gps);
+	_addComponents: function() {
+		var l = this.layers,
+			c = this.controls;		
+		this.map
+			.addLayer(this.cursor)
+			.addLayer(l.baselayer)
+			.addLayer(l.cluster)
+			.addLayer(l.places)				
+			.addLayer(l.geojson)
+			.addLayer(l.users)			
+			.addControl(c.attrib)
+			.addControl(c.zoom)
+			.addControl(c.gps);
 	},
 	
 	_setView: function(loc, zoom) {
 		if(this.ready()) {
-			this._map.setView(loc, zoom);
+			this.map.setView(loc, zoom);
 			/*
 			//TODO 
 			if(this.sidebar$.hasClass('expanded')) {
-				var p = this._map.latLngToContainerPoint(L.latLng(loc));
+				var p = this.map.latLngToContainerPoint(L.latLng(loc));
 				p = L.point(p.x - sidebar$.width(), p.y);
-				loc = this._map.containerPointToLatLng(p);
+				loc = this.map.containerPointToLatLng(p);
 			}
-			this._map.setView(loc, zoom);
+			this.map.setView(loc, zoom);
 			//*/
-		}
-		return this;
-	},
-	
-	enable: function() {
-		if(this.ready()) {
-			this._map
-				.addLayer(layers.cluster)
-				.addLayer(layers.places)
-				.addLayer(layers.users);
-		}
-		return this;
-	},
-	
-	disable: function() {
-		if(this.ready()) {
-			this._map
-				.removeLayer(layers.users)
-				.removeLayer(layers.places)
-				.removeLayer(layers.cluster);
 		}
 		return this;
 	},
@@ -291,7 +151,7 @@ Kepler.Map = {
 	isVisible: function() {
 		if(!this.ready()) return false;
 
-		var mapw = this._map.getSize().x,
+		var mapw = this.map.getSize().x,
 			panelw = (this.sidebar$.hasClass('expanded') && this.sidebar$.width()) || 0;
 
 		return this.ready() && (mapw-panelw > 40);
@@ -310,7 +170,7 @@ Kepler.Map = {
 
 			this._setView(opts.center, opts.zoom);
 
-			layers.baselayer.setUrl( K.settings.public.map.layers[opts.layer] );
+			this.layers.baselayer.setUrl( K.settings.public.map.layers[opts.layer] );
 		}
 		return this;
 	},
@@ -319,14 +179,14 @@ Kepler.Map = {
 		if(this.ready()) {
 			this._deps.bbox.depend();
 
-			var bbox = this._map.getBounds(),
+			var bbox = this.map.getBounds(),
 				sw = bbox.getSouthWest(),
 				ne = bbox.getNorthEast();
 
 			if(this.sidebar$.hasClass('expanded')) {
-				var p = this._map.latLngToContainerPoint(sw);
+				var p = this.map.latLngToContainerPoint(sw);
 				p.x += this.sidebar$.width();
-				sw = this._map.containerPointToLatLng(p);
+				sw = this.map.containerPointToLatLng(p);
 			}
 
 			return K.Util.geo.roundBbox([[sw.lat, sw.lng], [ne.lat, ne.lng]]);
@@ -341,7 +201,7 @@ Kepler.Map = {
 	showLoc: function(loc, cb) {
 		if(this.ready()) {
 			if(_.isFunction(cb))
-				this._map.once("moveend zoomend", cb);
+				this.map.once("moveend zoomend", cb);
 			
 			if(loc && K.Util.valid.loc(loc))
 				this._setView( L.latLng(loc) , K.settings.public.map.showLocZoom);
@@ -352,23 +212,20 @@ Kepler.Map = {
 	addItem: function(item) {
 		if(this.ready() && item.marker) {
 			if(item.type==='place')
-				item.marker.addTo( layers.places );
+				item.marker.addTo( this.layers.places );
 
 			else if(item.type==='user')
-				item.marker.addTo( layers.users );
+				item.marker.addTo( this.layers.users );
 		}
 		else
 			this._items.push(item);
-		
-		//TODO remove item buffer(no more useful after this.ready() is added)
-
 		return this;
 	},
 
 	removeItem: function(item) {
 		if(this.ready()) {
 			if(item && item.marker)
-				this._map.removeLayer(item.marker);
+				this.map.removeLayer(item.marker);
 		}
 		return this;
 	},
@@ -380,21 +237,21 @@ Kepler.Map = {
 			if(!this.isVisible())
 				this.sidebar$.removeClass('expanded');
 
-			this._map.closePopup();
+			this.map.closePopup();
 
-			layers.geojson.clearLayers();
+			this.layers.geojson.clearLayers();
 			
 			for(var i in geoData) {
 				if(geoData[i] && (geoData[i].features || geoData[i].feature))
-					layers.geojson.addData(geoData[i]);
+					this.layers.geojson.addData(geoData[i]);
 			}
 
-			var bb = layers.geojson.getBounds(),
-				zoom = this._map.getBoundsZoom(bb),
+			var bb = this.layers.geojson.getBounds(),
+				zoom = this.map.getBoundsZoom(bb),
 				loc = bb.getCenter();
 
 			if(_.isFunction(cb))
-				this._map.once("moveend zoomend", cb);
+				this.map.once("moveend zoomend", cb);
 			
 			this._setView(loc, zoom);
 		}
