@@ -19,10 +19,9 @@ lets users share favorite places and join discussions
 
 Prerequisites:
 
-* [Meteor](https://www.meteor.com/install)
-
 ```sh
-meteor start
+npm i
+npm start
 ```
 
 And open http://localhost:3000/ in your browser.
