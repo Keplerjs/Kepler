@@ -47,10 +47,8 @@ iron:router@1.0.9
 iron:url@1.0.9
 jquery@1.11.6
 keplerjs:api@1.1.0
-keplerjs:categories@1.1.0
 keplerjs:conver@1.1.0
 keplerjs:core@1.1.0
-keplerjs:events@1.1.0
 keplerjs:geoinfo@1.1.0
 keplerjs:googlemaps@1.1.0
 keplerjs:i18n@1.1.0

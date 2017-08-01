@@ -19,9 +19,9 @@ keplerjs:api
 keplerjs:upload
 keplerjs:notif
 #keplerjs:categories
+#keplerjs:events
 keplerjs:share
 keplerjs:conver
-keplerjs:events
 keplerjs:geoinfo
 keplerjs:weather
 keplerjs:pois
