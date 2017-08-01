@@ -3,136 +3,148 @@
 
 	//TODO include Leaflet.GeometryUtil
 */
+var layers = {
 
-var layers = {},
-	controls = {};
+	baselayer: new L.TileLayer(' '),
+	users: new L.LayerGroup(),
 
-layers.baselayer = new L.TileLayer(' ');
-
-layers.cursor = L.cursor();
-
-layers.users = new L.LayerGroup();
-
-layers.cluster = new L.MarkerClusterGroup({
-	spiderfyDistanceMultiplier: 1.4,
-	showCoverageOnHover: false,
-	maxClusterRadius: 40,
-	iconCreateFunction: function(cluster) {
-		if(!cluster.$icon)
-			cluster.$icon = L.DomUtil.create('div');
-
-		cluster.checkinsCount = function() {
-			var places = _.map(cluster.getAllChildMarkers(), function(marker) {
-				return marker.item.id;
-			});
-			return K.findCheckinsCountByPlaces(places);
-		};
-		
-		if(!cluster.icon) {
-			Blaze.renderWithData(Template.item_place_cluster, cluster, cluster.$icon);
-			cluster.icon = new L.NodeIcon({
-				className: 'marker-cluster',
-				nodeHtml: cluster.$icon
-			});
+	cursor: new L.Cursor({
+		popup: {
+			closeButton: false,
+			minWidth: 120
 		}
+	}).on('popupopen', function(e) {
+		var cursorData = {
+				loc: [e.latlng.lat, e.latlng.lng]
+			};
+		this.popup$.innerHTML = '';
+		Blaze.renderWithData(Template.popupCursor, cursorData, this.popup$);
+	}),
 
-		return cluster.icon;
-	}
-});
+	cluster: new L.MarkerClusterGroup({
+		spiderfyDistanceMultiplier: 1.4,
+		showCoverageOnHover: false,
+		maxClusterRadius: 40,
+		iconCreateFunction: function(cluster) {
+			if(!cluster.$icon)
+				cluster.$icon = L.DomUtil.create('div');
 
-layers.places = new L.LayerJSON({
-	caching: false,
-	layerTarget: layers.cluster,
-	minShift: K.settings.public.map.bboxMinShift,
-	callData: function(bbox, callback) {
-
-		var sub = Meteor.subscribe('placesByBBox', bbox, function() {
-			callback( K.findPlacesByBBox(bbox).fetch() );
-		});
-
-		return {
-			abort: sub.stop
-		};
-	},
-	dataToMarker: function(data) {	//eseguito una sola volta per ogni place
-		return K.placeById(data._id).marker;
-	}
-});
-
-layers.geojson = new L.GeoJSON(null, {
-	//DEBUG autoclear: false,
-	style: function (feature) {
-		var styles = K.settings.public.map.styles;
-		return styles[feature.properties.type || 'default'] || styles.default;
-	},
-	pointToLayer: function(feature, latlng) {	//costruisce marker POI
-
-		if(feature.properties.type==='placeCircle')	//evidenzia place nei pois
-			return new L.CircleMarker(latlng);
-		else
-		{
-			var iconPoi = L.DomUtil.create('div');
-			L.DomUtil.create('i', 'icon icon-'+feature.properties.type, iconPoi);
-			return new L.Marker(latlng, {
-					icon: new L.NodeIcon({className:'marker-poi', nodeHtml: iconPoi})
+			cluster.checkinsCount = function() {
+				var places = _.map(cluster.getAllChildMarkers(), function(marker) {
+					return marker.item.id;
 				});
+				return K.findCheckinsCountByPlaces(places);
+			};
+			
+			if(!cluster.icon) {
+				Blaze.renderWithData(Template.item_place_cluster, cluster, cluster.$icon);
+				cluster.icon = new L.NodeIcon({
+					className: 'marker-cluster',
+					nodeHtml: cluster.$icon
+				});
+			}
+
+			return cluster.icon;
 		}
-	},
-	onEachFeature: function (feature, layer) {
-		var tmpl, $popup;
+	}),
 
-	//TODO move to pois plugin
-	//create template for layer geojson popup that contains {{> pluginsPlaceholder 'popupGeojson'}}
+	places: new L.LayerJSON({
+		caching: false,
+		layerTarget: this.cluster,
+		minShift: K.settings.public.map.bboxMinShift,
+		callData: function(bbox, callback) {
 
-		if(feature.geometry.type==='LineString')
-			tmpl = Template.popupTrack;
+			var sub = Meteor.subscribe('placesByBBox', bbox, function() {
+				callback( K.findPlacesByBBox(bbox).fetch() );
+			});
 
-		else if(feature.geometry.type==='Point')
-			tmpl = Template.popupPoi;
-
-		if(tmpl && feature.properties) {
-			$popup = L.DomUtil.create('div','');
-			Blaze.renderWithData(tmpl, feature.properties.tags || feature.properties, $popup);
-			layer.bindPopup($popup, {closeButton:false} );
+			return {
+				abort: sub.stop
+			};
+		},
+		dataToMarker: function(data) {	//eseguito una sola volta per ogni place
+			return K.placeById(data._id).marker;
 		}
-	}
-});
+	}),
+
+	geojson: new L.GeoJSON(null, {
+		//DEBUG autoclear: false,
+		style: function (feature) {
+			var styles = K.settings.public.map.styles;
+			return styles[feature.properties.type || 'default'] || styles.default;
+		},
+		pointToLayer: function(feature, latlng) {	//costruisce marker POI
+
+			if(feature.properties.type==='placeCircle')	//evidenzia place nei pois
+				return new L.CircleMarker(latlng);
+			else
+			{
+				var iconPoi = L.DomUtil.create('div');
+				L.DomUtil.create('i', 'icon icon-'+feature.properties.type, iconPoi);
+				return new L.Marker(latlng, {
+						icon: new L.NodeIcon({className:'marker-poi', nodeHtml: iconPoi})
+					});
+			}
+		},
+		onEachFeature: function (feature, layer) {
+			var tmpl, $popup;
+
+		//TODO move to pois plugin
+		//create template for layer geojson popup that contains {{> pluginsPlaceholder 'popupGeojson'}}
+
+			if(feature.geometry.type==='LineString')
+				tmpl = Template.popupTrack;
+
+			else if(feature.geometry.type==='Point')
+				tmpl = Template.popupPoi;
+
+			if(tmpl && feature.properties) {
+				$popup = L.DomUtil.create('div','');
+				Blaze.renderWithData(tmpl, feature.properties.tags || feature.properties, $popup);
+				layer.bindPopup($popup, {closeButton:false} );
+			}
+		}
+	})
+};
 ////LAYERS/
 
-controls.zoom = L.control.zoom({
-	position: 'bottomright',
-	zoomOutText: i18n('map_zoomout'),
-	zoomInText: i18n('map_zoomin')
-});
+var controls = {
 
-controls.attrib = L.control.attribution({
-	position: 'bottomright',
-	prefix: i18n('map_attrib')
-});
-
-controls.gps = L.control.gps({
-	position: 'bottomright',
-	title: '',
-	textErr: i18n('map_gps_error'),
-	marker: new L.Marker([0,0], {
-		icon: L.divIcon({className: 'marker-gps'})
+	zoom: new L.Control.Zoom({
+		position: 'bottomright',
+		zoomOutText: i18n('map_zoomout'),
+		zoomInText: i18n('map_zoomin')
 	}),
-	callErr: function(err) {
-		console.warn(err);
-	}
-})
-.on({
-	'gps:disabled': function(e) {
-		K.Profile.setLoc(null);
-	},
-	'gps:located': function(e) {
 
-		K.Profile.setLoc([e.latlng.lat, e.latlng.lng]);
+	attrib: new L.Control.Attribution({
+		position: 'bottomright',
+		prefix: i18n('map_attrib')
+	}),
 
-		if(K.Profile.user && K.Profile.user.icon)
-			K.Profile.user.icon.animate();
-	}
-});
+	gps: new L.Control.Gps({
+		position: 'bottomright',
+		title: '',
+		textErr: i18n('map_gps_error'),
+		marker: new L.Marker([0,0], {
+			icon: L.divIcon({className: 'marker-gps'})
+		}),
+		callErr: function(err) {
+			console.warn(err);
+		}
+	})
+	.on({
+		'gps:disabled': function(e) {
+			K.Profile.setLoc(null);
+		},
+		'gps:located': function(e) {
+
+			K.Profile.setLoc([e.latlng.lat, e.latlng.lng]);
+
+			if(K.Profile.user && K.Profile.user.icon)
+				K.Profile.user.icon.animate();
+		}
+	})
+};
 
 Kepler.Map = {
 
@@ -153,7 +165,7 @@ Kepler.Map = {
 		return this._deps.ready.get();
 	},
 	
-	init: function(div, opts, cb) {		//render map and add controls/layers
+	init: function(div, opts, cb) {
 
 		var self = this;
 
@@ -165,29 +177,13 @@ Kepler.Map = {
 		self._map = new L.Map(div, {		
 			attributionControl: false,
 			zoomControl: false			
-		})
-		.on('moveend zoomend', function(e) {
-			self._deps.bbox.changed();
-			//autoclean geojson layer
-			if(layers.geojson.getLayers().length) {
-				if(e.target.getBoundsZoom(layers.geojson.getBounds()) - e.target.getZoom() > 2)
-					layers.geojson.clearLayers();
-			}
 		});
 
 		self.sidebar$ = $('#sidebar');
-
+		
 		self._addControls();
 
 		self.setOpts(opts);
-
-		self.cursor.on('popupopen', function(e) {
-			var cursorData = {
-					loc: [e.latlng.lat, e.latlng.lng]
-				};
-			this.popup$.innerHTML = '';
-			Blaze.renderWithData(Template.popupCursor, cursorData, this.popup$);
-		});
 
 		//Fix only for Safari event resize! when shift to fullscreen
 		$(window).on('orientationchange'+(K.Util.isMobile()?'':' resize'), _.debounce(function(e) {
@@ -197,7 +193,6 @@ Kepler.Map = {
 
 		}, 1000) );
 
-		
 		self._map.whenReady(function() {
 			
 			self._deps.bbox.changed();
@@ -207,8 +202,15 @@ Kepler.Map = {
 
 			if(_.isFunction(cb))
 				cb.call(self);
-
-		}, self);
+		})
+		.on('moveend zoomend', function(e) {
+			self._deps.bbox.changed();
+			//autoclean geojson layer
+			if(layers.geojson.getLayers().length) {
+				if(e.target.getBoundsZoom(layers.geojson.getBounds()) - e.target.getZoom() > 2)
+					layers.geojson.clearLayers();
+			}
+		});
 		
 
 		return this;
@@ -236,7 +238,7 @@ Kepler.Map = {
 		return this;
 	},
 
-	_addControls: function() {
+	_addControls: function(lays) {
 		this._map
 			.addLayer(layers.baselayer)
 			.addLayer(layers.cluster)
@@ -267,18 +269,20 @@ Kepler.Map = {
 	
 	enable: function() {
 		if(this.ready()) {
-			this._map.addLayer(layers.cluster);
-			this._map.addLayer(layers.places);
-			this._map.addLayer(layers.users);
+			this._map
+				.addLayer(layers.cluster)
+				.addLayer(layers.places)
+				.addLayer(layers.users);
 		}
 		return this;
 	},
 	
 	disable: function() {
 		if(this.ready()) {
-			this._map.removeLayer(layers.places);
-			this._map.removeLayer(layers.cluster);
-			this._map.removeLayer(layers.users);
+			this._map
+				.removeLayer(layers.users)
+				.removeLayer(layers.places)
+				.removeLayer(layers.cluster);
 		}
 		return this;
 	},

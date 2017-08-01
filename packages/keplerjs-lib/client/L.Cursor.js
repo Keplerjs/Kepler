@@ -4,6 +4,8 @@ L.Cursor = L.Class.extend({
 	includes: L.Mixin.Events,
 
 	options: {
+		popup: {
+		}
 	},
 
 	initialize: function(options) {
@@ -56,7 +58,7 @@ L.Cursor = L.Class.extend({
 	},
 	_createPopup: function() {
 		var div = L.DomUtil.create('div','');
-		this.marker.bindPopup(div, { closeButton: false, minWidth: 120});
+		this.marker.bindPopup(div, this.options.popup);
 		return div;
 	},
 	pickMarkerLocation: function(e) {
