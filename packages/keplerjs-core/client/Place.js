@@ -1,4 +1,6 @@
-
+/*
+	Model for instantiate places
+*/
 Kepler.Place = Class.extend({
 
 	id: null,

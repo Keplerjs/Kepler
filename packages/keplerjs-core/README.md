@@ -6,6 +6,8 @@ contains the heart of Kepler, and itself depends on a set of core packages: *kep
 ├── client
 │   ├── Accounts.js
 │   ├── Map.js
+│   ├── Map_layers.js
+│   ├── Map_controls.js
 │   ├── Place.js
 │   ├── Profile.js
 │   ├── router.js

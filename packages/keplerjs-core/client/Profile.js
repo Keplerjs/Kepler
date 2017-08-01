@@ -1,5 +1,5 @@
 /*
-	manage user logged
+	Module for logged user profile
 
 	//TODO extend by K.User	
 */

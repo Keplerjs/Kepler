@@ -1,5 +1,5 @@
 /*
-	module for main map
+	Module for main map
 
 	//TODO include Leaflet.GeometryUtil
 */
@@ -7,10 +7,10 @@
 Kepler.Map = {
 
 	map: null,
-	
 	cursor: null,
-
-	_items: [],
+	layers: {},
+	controls: {},
+	items: [],
 
 	_deps: {
 		ready: new ReactiveVar(false),
@@ -65,8 +65,8 @@ Kepler.Map = {
 			
 			self._deps.bbox.changed();
 
-			for(var i in self._items)
-				self.addItem(self._items[i]);
+			for(var i in self.items)
+				self.addItem(self.items[i]);
 
 			if(_.isFunction(cb))
 				cb.call(self);
@@ -99,7 +99,7 @@ Kepler.Map = {
 		if(this.ready()) {
 			this.ready(false);
 
-			this._items = [];
+			this.items = [];
 
 			this.map
 				.removeLayer(this.cursor)			
@@ -218,7 +218,7 @@ Kepler.Map = {
 				item.marker.addTo( this.layers.users );
 		}
 		else
-			this._items.push(item);
+			this.items.push(item);
 		return this;
 	},
 

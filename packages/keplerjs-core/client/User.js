@@ -1,4 +1,6 @@
-
+/*
+	Model for instantiate users
+*/
 Kepler.User = Class.extend({
 
 	id: null,
