@@ -90,7 +90,8 @@ var layers = {
 			var tmpl, $popup;
 
 		//TODO move to pois plugin
-		//create template for layer geojson popup that contains {{> pluginsPlaceholder 'popupGeojson'}}
+		//create template for layer geojson popup that contains 
+		//{{> pluginsPlaceholder 'popupGeojson'}}
 
 			if(feature.geometry.type==='LineString')
 				tmpl = Template.popupTrack;
@@ -180,7 +181,7 @@ Kepler.Map = {
 		});
 
 		self.sidebar$ = $('#sidebar');
-		
+
 		self._addControls();
 
 		self.setOpts(opts);
@@ -333,11 +334,8 @@ Kepler.Map = {
 	},
 	
 	getCenter: function() {
-		
-		//TODO calc by this.getBBox()
-
-		var ll = this._map.getCenter();
-		return [ll.lat, ll.lng];
+		if(this.ready())
+			return L.latLngBounds(this.getBBox()).getCenter();
 	},
 
 	showLoc: function(loc, cb) {

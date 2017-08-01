@@ -4,7 +4,7 @@ K.Plugin({
 	placeholders: {
 		panelPlace: ['panelPlace_share'],
 		popupCursor: 'popupCursor_share',
-		popupUser: 'popupCursor_share'
+		//popupUser: 'popupCursor_share'
 	},
 /*	settings: {
 		public: {
