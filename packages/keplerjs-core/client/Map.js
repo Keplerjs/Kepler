@@ -230,8 +230,9 @@ Kepler.Map = {
 		return this;
 	},
 
-	addGeojson: function(geoData, cb) {
+	addGeojson: function(geoData, opts, cb) {
 		if(this.ready()) {
+
 			geoData = _.isArray(geoData) ? geoData : [geoData];
 
 			if(!this.isVisible())
@@ -240,12 +241,15 @@ Kepler.Map = {
 			this.map.closePopup();
 
 			this.layers.geojson.clearLayers();
-			
+
 			for(var i in geoData) {
 				if(geoData[i] && (geoData[i].features || geoData[i].feature))
 					this.layers.geojson.addData(geoData[i]);
 			}
 
+			if(opts && opts.style)
+				this.layers.geojson.setStyle(opts.style);
+			
 			var bb = this.layers.geojson.getBounds(),
 				zoom = this.map.getBoundsZoom(bb),
 				loc = bb.getCenter();

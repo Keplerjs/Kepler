@@ -10,7 +10,8 @@ Kepler.placeholders = {
 	panelUser: [],		
 	popupPlace: [],
 	popupUser: [],
-	popupCursor: [],	
+	popupCursor: [],
+	popupGeojson: [],	
 	itemPlace:  [],
 	itemUser: []
 };

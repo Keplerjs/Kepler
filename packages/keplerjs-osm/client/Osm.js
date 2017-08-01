@@ -50,22 +50,3 @@ Kepler.Osm = {
 		});
 	}	
 };
-
-/*
-	pointToLayer: function(feature, latlng) {	//costruisce marker POI
-
-		if(feature.properties.type==='placeCircle')	//evidenzia place nei pois
-			return new L.CircleMarker(latlng);
-
-//TODO move to osm plugins extending K.Place
-/*		else if(feature.properties.tags)			//OSM point
-		{
-
-			var iconPoi = L.DomUtil.create('div'),
-				iconClass = K.Osm.iconByTags(feature.properties.tags);
-
-			L.DomUtil.create('i', iconClass, iconPoi);
-			return new L.Marker(latlng, {
-					icon: new L.NodeIcon({className:'marker-poi', nodeHtml: iconPoi})
-				});
-		}*/

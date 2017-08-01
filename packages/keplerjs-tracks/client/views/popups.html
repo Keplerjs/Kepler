@@ -8,7 +8,6 @@
 <template name="popupTrack">
 	{{#if time}}<i class="icon icon-time"></i> {{i18n 'label_time'}} {{humanTime time}} <br />{{/if}}
 	{{#if len}}<i class="icon icon-len"></i> {{i18n 'label_len'}} {{humanDistance len}} <br />{{/if}}
-
 	{{#if asc}}
 	<i class="icon icon-sal"></i> {{i18n 'label_asc'}} {{humanDistance dis 1 }}
 	{{else}}
@@ -16,4 +15,11 @@
 	<i class="icon icon-dis"></i> {{i18n 'label_dis'}} {{humanDistance dis 1 }}
 	{{/if}}
 	{{/if}}
+</template>
+
+
+<template name="popupGeojson_tracks">
+	{{#with properties}}
+		{{> popupTrack}}
+	{{/with}}
 </template>

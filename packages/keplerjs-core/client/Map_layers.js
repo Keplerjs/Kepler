@@ -57,40 +57,28 @@ _.extend(Kepler.Map, {
 
 		layers.geojson = new L.GeoJSON(null, {
 			//DEBUG autoclear: false,
+			
 			style: function (feature) {
-				var styles = K.settings.public.map.styles;
-				return styles[feature.properties.type || 'default'] || styles.default;
+				return K.settings.public.map.styles.default;
 			},
 			pointToLayer: function(feature, latlng) {	//costruisce marker POI
 
-				if(feature.properties.type==='placeCircle')	//evidenzia place nei pois
-					return new L.CircleMarker(latlng);
-				else
-				{
-					var iconPoi = L.DomUtil.create('div');
-					L.DomUtil.create('i', 'icon icon-'+feature.properties.type, iconPoi);
-					return new L.Marker(latlng, {
-							icon: new L.NodeIcon({className:'marker-poi', nodeHtml: iconPoi})
-						});
-				}
+				var iconPoi = L.DomUtil.create('div');
+				L.DomUtil.create('i', 'icon icon-'+feature.properties.type, iconPoi);
+				return new L.Marker(latlng, {
+						icon: new L.NodeIcon({className:'marker-poi', nodeHtml: iconPoi})
+					});
+
 			},
 			onEachFeature: function (feature, layer) {
-				var tmpl, $popup;
-
-			//TODO move to pois plugin
-			//create template for layer geojson popup that contains 
-			//{{> pluginsPlaceholder 'popupGeojson'}}
-
-				if(feature.geometry.type==='LineString')
-					tmpl = Template.popupTrack;
-
-				else if(feature.geometry.type==='Point')
-					tmpl = Template.popupPoi;
-
-				if(tmpl && feature.properties) {
-					$popup = L.DomUtil.create('div','');
-					Blaze.renderWithData(tmpl, feature.properties.tags || feature.properties, $popup);
-					layer.bindPopup($popup, {closeButton:false} );
+				
+				if(feature) {
+					var $popup = L.DomUtil.create('div','');
+					
+					if(feature.templatePopup && Template[feature.templatePopup]) {
+						Blaze.renderWithData(Template[feature.templatePopup], feature, $popup);
+						layer.bindPopup($popup, {closeButton:false} );	
+					}
 				}
 			}
 		});

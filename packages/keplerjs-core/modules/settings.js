@@ -32,10 +32,7 @@ Kepler.settings = {
 				"transport": "https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png"
 			},
 			"styles": {
-				"default": { "color": "#b6f", "weight": 5, "opacity": 0.7 },
-				"access":  { "color": "#66f", "weight": 8, "opacity": 0.7 },
-				"poiLine": { "color": "#f33", "weight": 4, "opacity": 0.7, "dashArray": "1,6" },
-				"placeCircle": { "color": "#f33", "weight": 4, "opacity": 0.7, "radius": 15 }
+				"default": { "color": "#b6f", "weight": 5, "opacity": 0.7 }
 			}	
 		}
 	},

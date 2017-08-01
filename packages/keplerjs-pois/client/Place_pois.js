@@ -23,10 +23,12 @@ Kepler.Place.include({
 	},
 	showPois: function(poisType) {
 		
-		var self = this;
+		var self = this
 
 		self.loadPois(function(poisList) {
-			K.Map.addGeojson( self.poisToGeojson(poisList, self, poisType) );
+			K.Map.addGeojson(self.poisToGeojson(poisList, self, poisType), {
+				style: K.settings.public.map.styles.pois
+			});
 		});
 	},	
 	getPoisList: function() {
@@ -54,13 +56,17 @@ Kepler.Place.include({
 			});
 		}
 
+		pois = _.map(pois, function(feature) {
+			feature.templatePopup = 'popupGeojson_pois';
+			return feature;
+		});
+
 		var gloc = [place.loc[1], place.loc[0]],
-			placeCircle = K.Util.geo.createFeature('Point', gloc, {type:'placeCircle'});
 			coordLines = _.map(pois, function(poi) {
 				return [gloc, poi.geometry.coordinates];
 			}),
 			poiLines = K.Util.geo.createFeature('MultiLineString', coordLines, {type:'poiLine'}),
-			features = _.union(placeCircle, pois, poiLines);
+			features = _.union(pois, poiLines);
 
 		return K.Util.geo.createFeatureColl(features);
 	}
