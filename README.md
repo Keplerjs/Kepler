@@ -9,6 +9,7 @@ lets users share favorite places and join discussions
 
 *[DEMO online](https://keplerjs.herokuapp.com/)* deployed on **Heroku**
 
+* [Blog](https://keplerjs.tumblr.com/)
 * [Roadmap](https://trello.com/b/FBK72QEJ/keplerjs-roadmap)
 * [Github](https://github.com/Keplerjs)
 * [NPM](https://www.npmjs.com/org/keplerjs)
