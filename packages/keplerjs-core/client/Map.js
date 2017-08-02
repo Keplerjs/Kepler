@@ -32,8 +32,9 @@ Kepler.Map = {
 		else
 			self.ready(true);
 
-		self.map = new L.Map(div, {		
+		self.map = new L.Map(div, {
 			attributionControl: false,
+			doubleClickZoom: false,			
 			zoomControl: false			
 		});
 
@@ -256,7 +257,7 @@ Kepler.Map = {
 
 			if(_.isFunction(cb))
 				this.map.once("moveend zoomend", cb);
-			
+
 			this._setView(loc, zoom);
 		}
 		return this;

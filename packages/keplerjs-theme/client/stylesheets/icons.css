@@ -33,6 +33,10 @@
 	height: 18px;
 	width: 18px;
 }
+.btn > .icon,
+.list-group-item > .icon {
+	margin-right: 2px;
+}
 .icon-avatar {
 	height: 30px;
 	width: 30px;
@@ -218,8 +222,8 @@
 .icon-sal{ background-position: -180px -180px;  }
 .icon-len{ background-position: -180px -210px;  } 
 .icon-time{ background-position: -180px -240px; } 
-.icon-nav-osm{ background-position: -180px -300px; } 
-.icon-nav-goo{ background-position: -180px -330px; } 
+.icon-osm{ background-position: -180px -300px; } 
+.icon-goo{ background-position: -180px -330px; } 
 
 .icon-lang-it{ background-position: -210px 0;      } 
 .icon-lang-fr{ background-position: -210px -30px;  }

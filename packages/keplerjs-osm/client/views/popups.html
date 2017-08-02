@@ -1,0 +1,63 @@
+
+<template name="popupCursor_osm">
+	<a class="btn-osmsearch btn btn-default btn-sm btn-block" href="#">
+		<i class="icon icon-osm"></i> {{i18n 'btn_osmsearch'}}
+	</a>
+</template>
+
+<template name="popupGeojson_osm">
+	<div class="popup-osm">
+		{{#if properties.tags.name}}
+		<a class="btn btn-block btn-default popup-tit">
+			<b>{{properties.tags.name}}</b>
+		</a>
+		{{/if}}
+		<div class="list-group-item">
+		{{#each arrayify properties.tags}}
+			<label>{{key}}:</label> <span>{{val}}</span><br>
+		{{/each}}
+      {{#each arrayify properties.meta}}
+         <b>{{key}}:</b> <em>{{val}}</em><br>
+      {{/each}}
+		</div>
+		<a class="btn-osmcreate btn btn-default btn-block" href="#">
+			<i class="icon icon-add"></i> {{i18n 'btn_osmcreate'}}
+		</a>
+	</div>
+</template>
+
+<!-- 
+{
+   "type":"Feature",
+   "id":"node/3517622759",
+   "properties":{
+      "type":"node",
+      "id":3517622759,
+      "tags":{
+         "addr:city":"Roma",
+         "addr:housenumber":"25",
+         "addr:postcode":"00183",
+         "addr:street":"Via Cerveteri",
+         "amenity":"restaurant",
+         "email":"bombayraj45@yahoo.it",
+         "name":"ristorante indiano Bombay palace",
+         "phone":"+39 067001945",
+         "website":"http://www.restaurantindianobombay.com/#_=_"
+      },
+      "relations":[
+
+      ],
+      "meta":{
+
+      }
+   },
+   "geometry":{
+      "type":"Point",
+      "coordinates":[
+         12.5123636,
+         41.8814402
+      ]
+   },
+   "templatePopup":"popupGeojson_osm"
+}
+ -->

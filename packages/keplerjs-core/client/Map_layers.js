@@ -63,22 +63,24 @@ _.extend(Kepler.Map, {
 			},
 			pointToLayer: function(feature, latlng) {	//costruisce marker POI
 
-				var iconPoi = L.DomUtil.create('div');
+//TODO feature.templateMarker!!! for markler icon
+
+/*				var iconPoi = L.DomUtil.create('div');
 				L.DomUtil.create('i', 'icon icon-'+feature.properties.type, iconPoi);
+*/
 				return new L.Marker(latlng, {
-						icon: new L.NodeIcon({className:'marker-poi', nodeHtml: iconPoi})
+						icon: new L.NodeIcon({
+							className:'marker-poi',
+							//nodeHtml: iconPoi
+						})
 					});
 
 			},
 			onEachFeature: function (feature, layer) {
-				
-				if(feature) {
-					var $popup = L.DomUtil.create('div','');
-					
-					if(feature.templatePopup && Template[feature.templatePopup]) {
-						Blaze.renderWithData(Template[feature.templatePopup], feature, $popup);
-						layer.bindPopup($popup, {closeButton:false} );	
-					}
+				if(feature && feature.templatePopup && Template[feature.templatePopup]) {
+					var div = L.DomUtil.create('div','');
+					Blaze.renderWithData(Template[feature.templatePopup], feature, div);
+					layer.bindPopup(div.firstChild, {closeButton:false} );	
 				}
 			}
 		});

@@ -43,6 +43,13 @@ Template.registerHelper('or', function() {
 	return _.some(_.initial(arguments));
 });
 
+Template.registerHelper('arrayify',function(obj){
+    var result = [];
+    for(var k in obj)
+    	result.push({key: k, val: obj[k] });
+    return result;
+});
+
 Template.registerHelper('humanAzimut', function(ang) {
 	return K.Util.humanize.azimut(ang);
 });

@@ -1,6 +1,6 @@
 
 Template.popupCursor_admin.events({
-	'click .popup-create': function(e,tmpl) {
+	'click .btn-create': function(e,tmpl) {
 		Meteor.call('insertPlace', this.loc, function(err, placeId) {
 
 			K.Map.cursor.hide();

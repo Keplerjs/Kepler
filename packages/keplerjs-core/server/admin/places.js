@@ -1,24 +1,23 @@
 
 K.Admin.methods({
-	insertPlace: function(loc) {
+	insertPlace: function(loc, obj) {
 
 		if(!K.Admin.isMe()) return null;
 
-		loc = K.Util.geo.roundLoc(loc);
-
-		//TODO don't create places too nearby
-		var D = new Date(),
-			d = D.getDate(),
-			m = D.getMonth()+1,
-			y = D.getFullYear(),
-			today = [d,m,y].join('.');
-
-
-		var name = K.Util.sanitizeName('new '+today+' '+K.Util.humanize.loc(loc,2,' '))
+		if(_.isUndefined(obj.name)) {
+			
+			var D = new Date(),
+				d = D.getDate(),
+				m = D.getMonth()+1,
+				y = D.getFullYear(),
+				today = [d,m,y].join('.');
+			
+			obj.name = 'new '+today+' '+K.Util.humanize.loc(loc,2,' ');
+		}
 
 		var place = _.deepExtend(K.schemas.place, {
-			name: name,
-			loc: loc,
+			name: K.Util.sanitizeName(obj.name),
+			loc: K.Util.geo.roundLoc(loc),
 			active: 0
 		});
 

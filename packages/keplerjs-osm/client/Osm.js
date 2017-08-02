@@ -1,17 +1,21 @@
+/*
 
-//TODO Osms = new Mongo.Collection('osm');
+http://wiki.openstreetmap.org/wiki/Overpass_API/Language_Guide
+http://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_API_by_Example
 
+regexp over keys
+http://wiki.openstreetmap.org/wiki/Overpass_API/Language_Guide#Tag_request_clauses_.28or_.22tag_filters.22.29
+
+*/
 var tags2poiClass = {
-'amenity=drinking_water': 'water',
-'amenity=parking': 'parking',
-'amenity=restaurant': 'eat',
-'tourism=camp_site': 'camp',
-'amenity=hospital': 'bed',
-'tourism=hotel': 'bed',
-'amenity=bar': 'drink'
+	'amenity=drinking_water': 'water',
+	'amenity=parking': 'parking',
+	'amenity=restaurant': 'eat',
+	'tourism=camp_site': 'camp',
+	'amenity=hospital': 'bed',
+	'tourism=hotel': 'bed',
+	'amenity=bar': 'drink'
 };
-
-//'highway=path',
 
 Kepler.Osm = {
 	
@@ -25,18 +29,26 @@ Kepler.Osm = {
 		return '';
 	},
 
-	loadQuery: function(filter) {
+	loadQuery: function(loc, filter) {
 
-		filter = filter || 'amenity=bar';
+		filter = filter || '~"."~"."';
 
-		var bbox = K.Map.getBBox();
+		//var bbox = K.Map.getBBox();
 		
-		Meteor.call('findOsmByBBox', filter, bbox, function(err, geojson) {
-			
-			//console.log('getOsmByBBox',geojson.features.length);
+		Meteor.call('findOsmByLoc', loc, filter, function(err, geojson) {
 
-			if(geojson.features.length)
-				K.Map.addGeojson(geojson);
+			if(err)
+				console.log('findOsmByLoc', err)
+			else if(geojson && geojson.features.length) {
+				geojson.features = _.map(geojson.features, function(f) {
+					//TODO filter properties.meta
+					f.templatePopup = 'popupGeojson_osm';
+					return f;
+				});
+				//K.Map.addGeojson(geojson);
+				K.Map.layers.geojson.clearLayers().addData(geojson);
+				K.Map.layers.geojson.invoke('openPopup')
+			}
 		});
 	},
 

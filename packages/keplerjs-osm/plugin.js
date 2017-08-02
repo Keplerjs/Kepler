@@ -10,11 +10,11 @@ out body;
 
 K.Plugin({
 	name: 'osm',
-	/*placeholders: {
-		panelPlace: ['panelPlace_pois'],
-		popupPlace: 'popupPlace_pois'
-	},*/
-/*	filters: {
+	placeholders: {
+		//panelPlace: ['panelPlace_osm'],
+		popupCursor: 'popupCursor_osm'
+	},
+	filters: {
 		placePanel: {
 			fields: {
 				osm: 1
@@ -28,5 +28,5 @@ K.Plugin({
 				//node id, user, tags
 			}
 		}
-	},*/
+	}
 });

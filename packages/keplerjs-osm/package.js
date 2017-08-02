@@ -16,14 +16,20 @@ Package.onUse(function (api) {
   api.use([
     'keplerjs:core@1.1.0',
   ]);
-
-  api.addFiles([
-    'plugin.js',
-    'collections/osm.js'
-  ]);
   
   api.addFiles([
-    'client/Osm.js'
+    'plugin.js',
+    'i18n/it.js',
+    'i18n/en.js',
+    'collections/osm.js'
+  ]);
+
+  api.addFiles([ 
+    'client/Osm.js',    
+    'client/views/panels.html',
+    'client/views/popups.html',    
+    'client/views/popups.js',    
+    'client/stylesheets/osm.css'
   ],'client');
 
   api.addFiles([

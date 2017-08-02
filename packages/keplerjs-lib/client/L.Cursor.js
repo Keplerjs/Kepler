@@ -21,15 +21,15 @@ L.Cursor = L.Class.extend({
 		self.marker = self._createMarker();
 		self.popup$ = self._createPopup();
 		
-		self._map.on('click', self._onClick, self);
+		self._map.on('click', self._onSwitch, self);
 	},
 
 	onRemove: function(map) {
-		map.off('click', this._onClick, this);
+		map.off('click', this._onSwitch, this);
 		map.removeLayer(this.marker);
 	},
 	
-	_onClick: function(e) {
+	_onSwitch: function(e) {
 		if(this._map.hasLayer(this.marker))
 			this.hide();
 		else

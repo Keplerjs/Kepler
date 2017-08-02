@@ -32,16 +32,12 @@
 	background: none
 }
 
-
 .popup-tit {
 	text-transform: capitalize;
 	margin-bottom: 8px;
 	border: none;
 }
 
-.popup-near {
-	text-transform:capitalize;
-}
 .btn.disabled.popup-btn-star {/*patch*/
 	overflow: hidden;
 	opacity: 1;
