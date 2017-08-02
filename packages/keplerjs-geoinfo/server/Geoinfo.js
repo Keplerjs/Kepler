@@ -16,43 +16,43 @@ var geoFields = {
 		name: 'elevation',
 		caching: true,
 		roundLoc: 8,
-		func: K.Geoapi.elevationAPI
+		func: K.Geoapi.elevation
 	},
 	esp: {
 		name: 'aspect',
 		caching: true,
 		roundLoc: 8,
-		func: K.Geoapi.aspectAPILocal
+		func: K.Geoapi.aspectLocal
 	},
 	near: {
 		name: 'near',
 		caching: true,
 		roundLoc: roundLocGeoinfo,
-		func: K.Geoapi.nearAPI
+		func: K.Geoapi.near
 	},
 	com: {
 		name: 'municipality',
 		caching: true,
 		roundLoc: roundLocGeoinfo,
-		func: K.Geoapi.municipalityAPI
+		func: K.Geoapi.municipality
 	},
 	prov: {
 		name: 'province',
 		caching: true,
 		roundLoc: roundLocGeoinfo,
-		func: K.Geoapi.provinceAPI
+		func: K.Geoapi.province
 	},
 	reg: {
 		name: 'region',
 		caching: true,
 		roundLoc: roundLocGeoinfo,
-		func: K.Geoapi.regionAPI
+		func: K.Geoapi.region
 	},
 	naz: {
 		name: 'country',
 		caching: true,
 		roundLoc: roundLocGeoinfo,
-		func: K.Geoapi.countryAPI
+		func: K.Geoapi.country
 	},
 	loc: {
 		name: 'loc',
@@ -93,5 +93,32 @@ Kepler.Geoinfo = {
 		});
 
 		return future.wait();
+	},
+	getGeocoding: function(text) {
+
+		var ori = [],
+			ret = [];
+
+		ori = K.Geoapi.geocoding(text);
+
+		ret = _.filter(ori, function(r) {
+			return r.osm_type === 'node'
+				   && r.class === 'place';
+		});
+		
+		ret = _.map(ret, function(r) {
+			var disp = r.display_name.split(','),
+				full = _.rest(disp).join(',');
+
+			return {
+				name: disp[0],
+				full: full,
+				loc: K.Util.geo.roundLoc([r.lat, r.lon])
+			};
+		});
+
+		console.log('getGeocoding', ret, ori);
+
+		return ret;
 	}
 };

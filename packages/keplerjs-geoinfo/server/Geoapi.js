@@ -15,8 +15,6 @@ var httpGet = function(url) {
 		
 		var res = HTTP.get(url, getOpts);
 
-console.log(url,'DATA:',res.data)
-
 		if(res && res.data)
 			return res.data;
 		else
@@ -30,7 +28,7 @@ console.log(url,'DATA:',res.data)
 
 Kepler.Geoapi = {	
 
-	aspectAPILocal: function(ll) {
+	aspectLocal: function(ll) {
 
 		var data, ret, src = {
 				par: 'aspect',
@@ -46,7 +44,7 @@ Kepler.Geoapi = {
 
 		return ret;
 	},
-	elevationAPILocal: function(ll) {
+	elevationLocal: function(ll) {
 
 		var data, ret, src = {
 				par: 'ele',
@@ -62,7 +60,7 @@ Kepler.Geoapi = {
 
 		return ret;
 	},
-	elevationAPI: function(ll) {
+	elevation: function(ll) {
 
 		var res, ret, 
 			src = {
@@ -80,7 +78,7 @@ Kepler.Geoapi = {
 
 		return ret;
 	},
-	nearAPI: function(ll) {
+	near: function(ll) {
 
 		var data, ret, src = {
 				par: 'name',
@@ -97,7 +95,7 @@ Kepler.Geoapi = {
 
 		return ret;
 	},
-	municipalityAPI: function(ll) {
+	municipality: function(ll) {
 
 		var data, ret, src = {
 				par: 'adminName3',
@@ -114,7 +112,7 @@ Kepler.Geoapi = {
 
 		return ret;
 	},
-	provinceAPI: function(ll) {
+	province: function(ll) {
 
 		var data, ret, src = {
 				par: 'adminName2',
@@ -131,7 +129,7 @@ Kepler.Geoapi = {
 
 		return ret;
 	},
-	regionAPI: function(ll) {
+	region: function(ll) {
 
 		var data, ret, src = {
 				par: 'adminName1',
@@ -148,7 +146,7 @@ Kepler.Geoapi = {
 
 		return ret;
 	},
-	countryAPI: function(ll) {
+	country: function(ll) {
 
 		var data, ret, src = {
 				par: 'countryName',
@@ -165,7 +163,29 @@ Kepler.Geoapi = {
 
 		return ret;
 	},
-	geoipAPI: function(ip) {
+	geocoding: function(text) {
+		
+		/*url: 'http://nominatim.openstreetmap.org/search?format=json&q={s}',
+		jsonpParam: 'json_callback',
+		propertyName: 'display_name',
+		propertyLoc: ['lat','lon'],*/
+
+		var data, ret, src = {
+				par: '',
+				url: 'http://nominatim.openstreetmap.org/search?format=json'+
+					 '&q='+text
+			};
+			
+		data = httpGet(src.url);
+
+		if(data.length)
+			ret = data;
+		else
+			ret = null;
+
+		return ret;
+	},
+	geoip: function(ip) {
 		
 		var data, ret, src = {
 				par: '',
@@ -182,7 +202,7 @@ Kepler.Geoapi = {
 			ret = null;
 
 		return ret;
-		//API: http://ipinfodb.com/ip_location_api.php
+		//: http://ipinfodb.com/ip_location_api.php
 		/*{
 			"statusCode" : "OK", "statusMessage" : "",
 			"ipAddress" : "62.56.230.41",

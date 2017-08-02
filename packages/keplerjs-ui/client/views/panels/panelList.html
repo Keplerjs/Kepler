@@ -11,9 +11,9 @@
 		<div class="panel-body">
 
 		{{#if headerTemplate}}
-			<div class="list-header">
-				{{> Template.dynamic template=headerTemplate data=headerData}}
-			</div>
+		<div class="list-header">
+			{{> Template.dynamic template=headerTemplate data=headerData}}
+		</div>
 		{{/if}}
 		
 		<div class="list-items list-group">
@@ -28,7 +28,14 @@
 					{{i18n 'label_nolistitems'}}
 				</div-->
 			{{/if}}
-			</div>
+		</div>
+
+		{{#if footerTemplate}}
+		<div class="list-footer">
+			{{> Template.dynamic template=footerTemplate data=footerData}}
+		</div>
+		{{/if}}
+
 		</div>
 	</div>
 </template>

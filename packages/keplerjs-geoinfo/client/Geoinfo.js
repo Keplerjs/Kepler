@@ -19,8 +19,21 @@ Kepler.Geoinfo = {
 			sunrise: format(times.sunrise),
 			sunset: format(times.sunset)
 		};
-	}
+	},
+	
+	geocoding: function(text, cb) {
+		
+		//var ret = new ReactiveVar([]);
 
+		Meteor.call('findGeocoding', text, function(err, data) {
+			if(err)
+	            console.log('Geoinfo',err);
+	        else
+	            cb(data);//ret.set(data);
+		});
+
+		//return ret.get();
+	}
 	/*
 	//TODO
 	getAzimut: function(loc) {

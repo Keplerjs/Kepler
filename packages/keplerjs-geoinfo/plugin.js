@@ -3,7 +3,7 @@ K.Plugin({
 	name: 'geoinfo',
 	placeholders: {
 		panelPlace: 'panelPlace_geoinfo',
-		//popupCursor: 'popupCursor_geoinfo'
+		popupCursor: 'popupCursor_geoinfo'
 	},	
 	schemas: {
 		place: {

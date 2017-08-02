@@ -2,6 +2,8 @@
 K.Admin.methods({
 	insertPlace: function(loc, obj) {
 
+		obj = obj || {};
+
 		if(!K.Admin.isMe()) return null;
 
 		if(_.isUndefined(obj.name)) {

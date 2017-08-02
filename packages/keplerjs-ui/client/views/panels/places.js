@@ -4,18 +4,18 @@ Template.search_place.onRendered(function() {
 	$(this.firstNode).parent().siblings('.list-items').btsListFilter('.places-search', {
 		itemChild: '.place-btn-name',
 		loadingClass: 'loading-lg',
-		sourceData: function(val, callback) {
-			
+		sourceData: function(val, cb) {
 			Meteor.subscribe('placesByName', val, function() {
 			
 				var places = _.map( K.findPlacesByName(val).fetch(), function(place) {
 					return K.placeById(place._id);
 				});
 
-				callback(places);
+				cb(places);
 			});
 		},
 		sourceNode: function(data) {
+			console.log('sourceNode',data)
 			var item$ = $('<li class="list-group-item"></li>');
 			Blaze.renderWithData(Template.item_place_search, data, item$[0]);
 			return item$;

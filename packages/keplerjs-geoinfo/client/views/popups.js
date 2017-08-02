@@ -20,4 +20,4 @@ Template.popupCursor_geoinfo.helpers({
 	geoinfo: function() {
 		return Template.instance().geoinfo.get();
 	}
-})
+});

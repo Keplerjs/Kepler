@@ -35,7 +35,15 @@ Meteor.methods({
 
 		console.log('Geoinfo: findGeoinfoByLoc...', loc);
 
-		var ret = K.Geoinfo.getFieldsByLoc(loc, fields);
+		return K.Geoinfo.getFieldsByLoc(loc, fields);
+	},
+	findGeocoding: function(text) {
+
+		if(!this.userId) return null;
+
+		var ret = K.Geoinfo.getGeocoding(text);
+
+		console.log('Geoinfo: findGeocoding', text, ret);
 
 		return ret;
 	}

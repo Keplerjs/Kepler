@@ -24,7 +24,15 @@
 .list-items .list-group-item .btn-group > .btn {
 	padding: 5px;
 }
+.list-footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding-top: 10px;
+	border-top: 1px solid #ddd
 
+}
 /*.list-items-grid .list-group-item {
 	float: left;
 	clear: none;
