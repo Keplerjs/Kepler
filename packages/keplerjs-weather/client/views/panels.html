@@ -10,6 +10,9 @@
 			<span class="list-group-item">
 			{{> panelPlace_weather_forecast}}
 			</span>
+			<div style="font-size:10px" class="text-muted text-right">
+				provided by <a href="http://www.wunderground.com/" target="_blank">wunderground.com</a>
+			</div>
 		{{else}}
 			<a class="list-group-item place-btn-weather" href="#" target="_blank">
 				<i class="icon icon-weather"></i> <span>{{i18n 'btn_weather_forecasts'}}</span>
@@ -54,9 +57,5 @@
 			</div>
 		</div>
 	{{/each}}
-	<br />
-	<div style="font-size:10px" class="text-right">
-		<a href="http://www.wunderground.com/" target="_blank">wunderground.com</a>
-	</div>
 
 </template>
