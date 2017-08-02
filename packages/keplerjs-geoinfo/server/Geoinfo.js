@@ -16,7 +16,7 @@ var geoFields = {
 		name: 'elevation',
 		caching: true,
 		roundLoc: 8,
-		func: K.Geoapi.elevationAPILocal
+		func: K.Geoapi.elevationAPI
 	},
 	esp: {
 		name: 'aspect',

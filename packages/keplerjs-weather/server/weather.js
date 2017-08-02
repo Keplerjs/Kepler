@@ -16,13 +16,12 @@ var weatherAPI = function(ll) {
 	try {
 		res = HTTP.get(url, getOpts);
 	} catch(e) {
-		console.log('weatherAPI: error');
+		console.log('Weather: error',e);
 		return null;
 	}
 
 	if(res && res.statusCode == 200 && res.data && res.data.forecast)
 	{
-		console.log("weatherAPI()", ll);	
 		return _.map(res.data.forecast.simpleforecast.forecastday, function(day) {
 			
 			return {
@@ -49,8 +48,6 @@ var weatherAPI = function(ll) {
 
 Meteor.methods({
 	getWeatherByLoc: function(ll) {
-
-		console.log("getWeatherByLoc()",ll);
 
 		ll = K.Util.geo.roundLoc(ll, 2);
 

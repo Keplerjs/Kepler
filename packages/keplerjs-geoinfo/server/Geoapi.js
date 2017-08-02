@@ -15,6 +15,8 @@ var httpGet = function(url) {
 		
 		var res = HTTP.get(url, getOpts);
 
+console.log(url,'DATA:',res.data)
+
 		if(res && res.data)
 			return res.data;
 		else
@@ -60,24 +62,19 @@ Kepler.Geoapi = {
 
 		return ret;
 	},
-	elevationAPIGeonames: function(ll) {
+	elevationAPI: function(ll) {
 
 		var res, ret, 
-			srcSRTM = {
-				par: 'srtm3',
-				url: 'http://api.geonames.org/srtm3JSON?'+
-					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+K.settings.geoinfo.geonamesUser,
-			},
-			srcASTER = {
-				par: 'astergdem',
-				url: 'http://api.geonames.org/astergdemJSON?'+
+			src = {
+				par: 'srtm1',
+				url: 'http://api.geonames.org/srtm1JSON?'+
 					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+K.settings.geoinfo.geonamesUser,
 			};
 
 		data = httpGet(src.url);
 		
-		if(data && data.geonames && data.geonames[0] && data.geonames[0][srcASTER.par])
-			ret = K.Util.sanitizeName(data.geonames[0][srcASTER.par]);
+		if(data && data[src.par])
+			ret = parseInt(data[src.par]);
 		else
 			ret = null;
 
@@ -195,4 +192,12 @@ Kepler.Geoapi = {
 			"timeZone" : "+00:00"
 		}*/		
 	}
+	//TODO timezone used within SunCalc
+	//http://www.geonames.org/export/web-services.html
+/*
+	Webservice Type : REST 
+	Url : api.geonames.org/timezone?
+	Parameters : lat,lng, radius (buffer in km for closest timezone in coastal areas),lang (for countryName), date (date for sunrise/sunset);
+	Result : the timezone at the lat/lng with gmt offset (1. January) and dst offset (1. July) 
+	Example http://api.geonames.org/timezone?lat=47.01&lng=10.2&username=demo */
 };
