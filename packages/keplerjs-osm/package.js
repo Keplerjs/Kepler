@@ -34,6 +34,7 @@ Package.onUse(function (api) {
 
   api.addFiles([
     'server/osm.js',
+    'server/places.js',
     'server/pubs.js'
   ],'server');
 

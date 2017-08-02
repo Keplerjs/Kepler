@@ -1,7 +1,7 @@
 
 _.extend(Kepler.Map, {
 
-	_initLayers: function() {
+	_initLayers: function(map) {
 
 		var layers = {};
 
@@ -78,10 +78,18 @@ _.extend(Kepler.Map, {
 			},
 			onEachFeature: function (feature, layer) {
 				if(feature && feature.templatePopup && Template[feature.templatePopup]) {
-					var div = L.DomUtil.create('div','');
+					var div = L.DomUtil.create('div','popup-geojson');
 					Blaze.renderWithData(Template[feature.templatePopup], feature, div);
-					layer.bindPopup(div.firstChild, {closeButton:false} );	
+					layer.bindPopup(div, {closeButton:false} );	
 				}
+			}
+		});
+
+		map.on('moveend zoomend', function(e) {
+			//autoclean geojson layer
+			if(layers.geojson.getLayers().length) {
+				if(e.target.getBoundsZoom(layers.geojson.getBounds()) - e.target.getZoom() > 2)
+					layers.geojson.clearLayers();
 			}
 		});
 

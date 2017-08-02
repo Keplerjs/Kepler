@@ -64,7 +64,7 @@ Kepler.Place = Class.extend({
 							Blaze.renderWithData(Template[self.templatePopup], self, div);
 						this.bindPopup(div.firstChild, { closeButton:false, minWidth:120 });
 					}
-				}).once('add', function() {
+				}).once('add', function(e) {
 					if(Template[self.templateMarker])
 						Blaze.renderWithData(Template[self.templateMarker], self, self.icon.nodeHtml);
 				});

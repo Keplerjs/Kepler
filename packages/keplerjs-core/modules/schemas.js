@@ -9,13 +9,15 @@ Kepler.schemas = {
 		name: '',	       //place title
 		createdAt: '',	   //new Date() of place insert
 		userId: '',	   	   //user to created it
-		active: 0,	       //place visible in map
+		active:0,	       //place visible in map
 		indoor:0,		   //is an indoor place
 		loc: [],		   //coordinates lat,lng
-		desc: '',		   //place description
-		warn: '',          //place warnings and dangers
 		checkins: [],	   //users inside place	
 		hist: [],		   //recents checkins
+		desc: '',		   //place description
+		warn: '',          //place warnings and dangers
+		websites: [],	   //website url of place
+		emails: [],		   //contanct emails for place
 		source: {},		   //describe source of data
 	},
 	
@@ -35,13 +37,13 @@ Kepler.schemas = {
 		checkin: null,	   //id Place where I am
 		online: 0,		   //stato di visibilita rispetto ai miei friends
 		onlinelast: null,  //last online status datetime
-		mob: 0,			   //if my device is mobile
+		mob:0,			   //if my device is mobile
 		friends: [],	   //ids users friends
 		usersPending: [],  //ids users that I send request
 		usersReceive: [],  //ids users that I receive request
 		usersBlocked: [],  //ids users that I blocked
 		hist: [],		   //last places visited
-		isAdmin: 0,		   //if user is an admin
+		isAdmin:0,		   //if user is an admin
 		source: {},		   //source of registration by single signon		
 		settings: {
 			map: {

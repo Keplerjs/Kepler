@@ -22,10 +22,12 @@
 
 .leaflet-popup-content > div {
 	border-radius: 4px;	
-	background: #fff;
 	color: #579ad4;
 	padding: 4px;
 	margin: 0;
+}
+.leaflet-popup-content .popup-geojson {
+	background: none
 }
 
 .leaflet-popup-content .popup-place {

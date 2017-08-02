@@ -6,16 +6,8 @@ K.Admin.methods({
 
 		if(!K.Admin.isMe()) return null;
 
-		if(_.isUndefined(obj.name)) {
-			
-			var D = new Date(),
-				d = D.getDate(),
-				m = D.getMonth()+1,
-				y = D.getFullYear(),
-				today = [d,m,y].join('.');
-			
-			obj.name = 'new '+today+' '+K.Util.humanize.loc(loc,2,' ');
-		}
+		if(_.isUndefined(obj.name))
+			obj.name = K.Util.timeName('new '+K.Util.humanize.loc(loc,2));
 
 		var place = _.deepExtend(K.schemas.place, {
 			name: K.Util.sanitizeName(obj.name),

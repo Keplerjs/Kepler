@@ -28,27 +28,65 @@ Kepler.Osm = {
 		}
 		return '';
 	},
+	
+	loadById: function(osmId) {
 
-	loadQuery: function(loc, filter) {
-
-		filter = filter || '~"."~"."';
-
-		//var bbox = K.Map.getBBox();
-		
-		Meteor.call('findOsmByLoc', loc, filter, function(err, geojson) {
+		Meteor.call('findOsmById', osmId, function(err, geojson) {
 
 			if(err)
-				console.log('findOsmByLoc', err)
+				console.log('loadById', err)
 			else if(geojson && geojson.features.length) {
+
 				geojson.features = _.map(geojson.features, function(f) {
 					//TODO filter properties.meta
 					f.templatePopup = 'popupGeojson_osm';
 					return f;
 				});
-				//K.Map.addGeojson(geojson);
+				K.Map.cursor.hide();
 				K.Map.layers.geojson.clearLayers().addData(geojson);
-				K.Map.layers.geojson.invoke('openPopup')
+				K.Map.layers.geojson.invoke('openPopup');
 			}
+		});
+	},
+
+	loadByLoc: function(loc, filter) {
+
+		filter = filter || '~"."~"."';
+
+		Meteor.call('findOsmByLoc', loc, filter, function(err, geojson) {
+
+			if(err)
+				console.log('loadByLoc', err)
+			else if(geojson && geojson.features.length) {
+
+				geojson.features = _.map(geojson.features, function(f) {
+					//TODO filter properties.meta
+					f.templatePopup = 'popupGeojson_osm';
+					return f;
+				});
+				K.Map.cursor.hide();
+				K.Map.layers.geojson.clearLayers().addData(geojson);
+				K.Map.layers.geojson.invoke('openPopup');
+			}
+		});
+	},
+
+	insertPlace: function(obj) {
+		console.log('Osm: insertPlace',obj)
+		Meteor.call('insertPlaceByOsmId', obj.properties.id, function(err, placeId) {
+
+			K.Map.cursor.hide();
+			K.Map.layers.geojson.clearLayers();
+
+			if(placeId)
+			Meteor.subscribe('placeById', placeId, function() {
+				
+				var place = K.placeById(placeId);
+				
+				K.Map.addItem( place );
+
+				place.loadPanel();
+			});
 		});
 	},
 
@@ -60,5 +98,5 @@ Kepler.Osm = {
 			if(geojson.features.length>0)
 				K.Map.addGeojson(geojson);
 		});
-	}	
+	}
 };

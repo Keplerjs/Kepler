@@ -4,7 +4,7 @@ K.extend({
 	
 		if(!K.Admin.isMe()) return null;
 		
-		console.log('Geoinfo: updatePlaceGeoinfo...', place.name);
+		console.log('Geoinfo: updatePlaceGeoinfo ', place.name);
 
 		var ret = K.Geoinfo.getFieldsByLoc(place.loc);
 
@@ -13,7 +13,6 @@ K.extend({
 				geoinfo: ret
 			}
 		});
-		console.log('Geoinfo: updatePlaceGeoinfo', place.name, ret);
 	}
 });
 

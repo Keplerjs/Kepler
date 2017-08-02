@@ -47,8 +47,8 @@ Kepler.Map = {
 
 		self.sidebar$ = $('#sidebar');
 
-		self.layers = self._initLayers();
-		self.controls = self._initControls();
+		self.layers = self._initLayers(self.map);
+		self.controls = self._initControls(self.map);
 
 		self._addComponents();
 
@@ -74,11 +74,6 @@ Kepler.Map = {
 		})
 		.on('moveend zoomend', function(e) {
 			self._deps.bbox.changed();
-			//autoclean geojson layer
-			if(self.layers.geojson.getLayers().length) {
-				if(e.target.getBoundsZoom(self.layers.geojson.getBounds()) - e.target.getZoom() > 2)
-					self.layers.geojson.clearLayers();
-			}
 		});
 
 		self.cursor.on('popupopen', function(e) {

@@ -28,6 +28,7 @@ Package.onUse(function(api) {
     'client/views/popups.html',    
     'client/views/panels.html',
     'client/views/panels.js',
+    'client/stylesheets/tracks.css',
     'client/router.js'
   ],'client');
 

@@ -90,6 +90,16 @@ Kepler.Util = {
 		return parseInt( K.Util.time() / expires[expire] );
 	},
 
+	timeName: function(prefix) {
+		prefix = prefix || '';
+		var D = new Date(),
+			d = D.getDate(),
+			m = D.getMonth()+1,
+			y = D.getFullYear(),
+			today = [d,m,y].join('.');
+		return K.Util.sanitizeName(prefix+' '+today);
+	},
+
 	isMobile: function() {
 		return L ? L.Browser.mobile : false;
 	}

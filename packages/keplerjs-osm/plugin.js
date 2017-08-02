@@ -11,21 +11,13 @@ out body;
 K.Plugin({
 	name: 'osm',
 	placeholders: {
-		//panelPlace: ['panelPlace_osm'],
+		panelPlace: ['panelPlace_osm'],
 		popupCursor: 'popupCursor_osm'
 	},
 	filters: {
 		placePanel: {
 			fields: {
 				osm: 1
-			}
-		}
-	},
-	schemas: {
-		place: {
-			source: {
-				type: 'osm',
-				//node id, user, tags
 			}
 		}
 	}

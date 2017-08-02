@@ -1,9 +1,35 @@
 
+//TODO rename this file in Osm.js and use K.Osm.methods.. namespace
+
 var Future = Npm.require('fibers/future'),
     Overpass = Npm.require('query-overpass');
 
 Meteor.methods({
   
+  findOsmById: function(osmId) {
+    
+    if(!this.userId) return null;
+    
+    var query = _.template('[out:json];{type}({id});out {meta};', {
+        id: osmId,
+        type: 'node',
+        meta: '',//'meta'
+      });
+
+    console.log('findOsmById', query);
+
+    var future = new Future();
+
+    Overpass(query, function(err, resp) {
+      if(err)
+        future.throw(err);
+      else
+        future.return(resp);
+    });
+
+    return future.wait();
+  },
+
   findOsmByLoc: function(loc, filter) {
     
     if(!this.userId) return null;

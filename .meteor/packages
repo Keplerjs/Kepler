@@ -21,6 +21,7 @@ keplerjs:notif
 #keplerjs:categories
 #keplerjs:events
 keplerjs:share
+keplerjs:osm
 keplerjs:favorites
 keplerjs:conver
 keplerjs:geoinfo
@@ -28,4 +29,3 @@ keplerjs:weather
 #keplerjs:pois
 #keplerjs:tracks
 keplerjs:googlemaps
-keplerjs:osm

@@ -1,6 +1,6 @@
 _.extend(Kepler.Map, {
 
-	_initControls: function() {
+	_initControls: function(map) {
 
 		var controls = {};
 
