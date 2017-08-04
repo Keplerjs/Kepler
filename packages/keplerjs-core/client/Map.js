@@ -164,6 +164,7 @@ Kepler.Map = {
 
 	setOpts: function(opts) {
 
+console.log(K.settings)
 		if(this.ready()) {
 			opts = _.extend({}, K.settings.public.map, opts);
 
@@ -172,6 +173,9 @@ Kepler.Map = {
 			
 			if(!opts.layers[opts.layer])
 				opts.layer = K.settings.public.map.layer;
+
+			if(opts.maxBounds)
+				this.map.setMaxBounds(opts.maxBounds);
 
 			this._setView(opts.center, opts.zoom);
 

@@ -55,12 +55,19 @@ Package.onUse(function(api) {
   var packages = [
     'meteor-platform@1.2.4',
     'reactive-var@1.0.7',
+    'email@1.0.10',
     'matb33:collection-hooks@0.8.1',
     'underscorestring:underscore.string@3.2.0',
     'kidovate:bootstrap-slider@0.0.5',
     'iron:router@1.0.9',
     'mrt:modernizr-meteor@2.6.2',
     'twbs:bootstrap@3.3.6',
+    'accounts-base@1.2.4',
+    'accounts-password@1.1.6',
+    'accounts-oauth@1.1.10',
+    'accounts-facebook@1.0.7',
+    'accounts-google@1.0.7',
+    'accounts-twitter@1.0.7',
     'ian:accounts-ui-bootstrap-3@1.2.80'
   ];
 

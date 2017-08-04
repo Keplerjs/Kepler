@@ -14,11 +14,11 @@ Kepler.settings = {
 			//"de": "Deutsch"
 		},
 		"map": {
-			"zoom": 10,
+			"zoom": 16,
 			"minZoom": 10,
 			"maxZoom": 19,
-			"center": [42.047801, 13.250885],
-			"maxBounds": [[36.282794, 5.361328], [47.542735, 21.071777]],
+			"center": [46.067246, 11.121511],
+			//italy "maxBounds": [[36.282794, 5.361328], [47.542735, 21.071777]],
 
 			"checkinMaxDist": 500,
 			"bboxMinShift": 200,
@@ -38,21 +38,24 @@ Kepler.settings = {
 	},
 	"accounts": {
 		"creation": true,
+		"verifyEmail": false,
 		"facebook": {
+			//http://developers.facebook.com/docs/authentication/permissions/
 			"service": "facebook",
 			"appId": "",
 			"secret": ""
 		},
 		"google": {
+			//https://cloud.google.com/console
 			"service": "google",
 			"clientId": "",
 			"secret": ""
 		},
-		"twitter": {
+/*		"twitter": {
 			"service": "twitter",
 			"consumerKey": "",
 			"secret": ""			
-		}		
+		}*/
 	}	
 };
 

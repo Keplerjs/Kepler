@@ -17,7 +17,7 @@
 Meteor.methods({
 	findStreetViewById: function(placeId) {
 		
-		console.log("getStreeViewById()",placeId, Googlemaps);
+		console.log("getStreeViewById()",placeId);
 
 		var url = "http://maps.googleapis.com/maps/api/streetview?"+
 		 		"size=200x200&location={loc}&sensor=false";

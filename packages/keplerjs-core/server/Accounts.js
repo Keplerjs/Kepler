@@ -5,15 +5,23 @@
 */
 Meteor.startup(function () {	
 	Accounts.config({
-		sendVerificationEmail: false,
+		sendVerificationEmail: K.settings.accounts.verifyEmail,
 		forbidClientAccountCreation: !K.settings.accounts.creation
 	});
-	//http://developers.facebook.com/docs/authentication/permissions/
-	Accounts.loginServiceConfiguration.remove({service: 'facebook'});
+
+	_.each(K.settings.accounts, function(conf, key) {
+		if(conf.service) {
+			console.log('Accounts: add ', key);
+			Accounts.loginServiceConfiguration.remove(_.pick(conf,'service'));
+			Accounts.loginServiceConfiguration.insert(conf);
+		}
+	});
+
+/*	Accounts.loginServiceConfiguration.remove({service: 'facebook'});
 	Accounts.loginServiceConfiguration.insert(K.settings.accounts.facebook);
-	//https://cloud.google.com/console
+	
 	Accounts.loginServiceConfiguration.remove({service: 'google'});	
-	Accounts.loginServiceConfiguration.insert(K.settings.accounts.google);
+	Accounts.loginServiceConfiguration.insert(K.settings.accounts.google);*/
 	//Accounts.loginServiceConfiguration.remove({service: 'twitter'});
 	//Accounts.loginServiceConfiguration.insert(K.settings.accounts.twitter);
 	//TODO Accounts.emailTemplates.siteName = ;
@@ -30,6 +38,7 @@ Accounts.onLogin(function(login) {
 	Users.update(login.user._id, {$set: sets});
 
 	console.log('Accounts: Login ',login.user.username, ip);
+
 });
 
 Accounts.onLoginFailure(function(e) {
