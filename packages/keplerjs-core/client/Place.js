@@ -111,7 +111,7 @@ Kepler.extend({
 			
 			if(K.Admin.isMe()) {
 				var iname = K.Util.sanitizeFilename(K.placesById[id].name);
-				K.Admin.placesByName[iname || id] = K.placesById[id];
+				K.Admin.placesByName[iname || 'id_'+id] = K.placesById[id];
 			}
 		}
 		

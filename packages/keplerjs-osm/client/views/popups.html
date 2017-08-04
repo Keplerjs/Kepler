@@ -23,10 +23,12 @@
 
 <template name="popupOsm">  
       {{#each arrayify properties.tags}}
-         <label>{{key}}:</label> <span>{{val}}</span><br>
+            <label>{{key}}:</label>
+            <a href="http://wiki.openstreetmap.org/wiki/Tag:{{key}}={{val}}" target="_blank"><span>{{val}}</span></a>
+            <br />
       {{/each}}
       {{#each arrayify properties.meta}}
-         <b>{{key}}:</b> <em>{{val}}</em><br>
+         <b>{{key}}:</b> <em>{{val}}</em><br />
       {{/each}}
       <label>{{i18n 'label_osmnode'}}</label> <a href="http://osm.org/{{id}}" target="_blank">{{properties.id}}</a>
 </template>

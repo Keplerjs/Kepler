@@ -54,12 +54,12 @@ div.leaflet-marker-icon {
 	height:30px;
 }
 .marker-cursor {
-	background-position: -30px -390px;
+	background-position: -30px -150px;
 	height: 30px;
 	width: 30px;
 }
 .marker-cursor:hover {
-	background-position: -30px -420px;
+	background-position: -30px -180px;
 	height: 30px;
 	width: 30px;
 }
@@ -117,12 +117,6 @@ div.leaflet-marker-icon {
 .marker-active { background-position: -30px -30px;  } 
 .marker-place  { background-position: -30px -60px;  } 
 .marker-gray   { background-position: -30px -90px;  } 
-.marker-indoor { background-position: -30px -120px; } 
-.marker-boulder{ background-position: -30px -150px; } 
-.marker-long   { background-position: -30px -180px; } 
-.marker-ice    { background-position: -30px -210px; } 
-.marker-iron   { background-position: -30px -240px; } 
-.marker-water  { background-position: -30px -270px; }
 
 /* MARKER USERS */
 .marker-profile{ background-position: -30px -300px; } 
@@ -130,7 +124,7 @@ div.leaflet-marker-icon {
 .marker-user{ background-position: -30px -330px; } 
 
 /* MARKER POIS */
-.marker-poi{ background-position: -30px -360px; }
+.marker-poi{ background-position: -30px -120px; }
 
 /* ICON UI */
 .icon-profile{ background-position: 0 -210px; } 

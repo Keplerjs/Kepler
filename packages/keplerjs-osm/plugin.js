@@ -20,5 +20,11 @@ K.Plugin({
 				osm: 1
 			}
 		}
+	},
+	settings: {
+		"public": {
+			"osm": {
+			}
+		}
 	}
 });

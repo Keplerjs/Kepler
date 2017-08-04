@@ -134,7 +134,7 @@ Kepler.extend({
 			//TODO move to admin moduile
 			if(K.Admin.isMe()) {
 				var iname = K.Util.sanitizeFilename(K.usersById[id].name);
-				K.Admin.usersByName[iname || id] = K.usersById[id];
+				K.Admin.usersByName[iname || 'id_'+id] = K.usersById[id];
 			}
 		}
 		

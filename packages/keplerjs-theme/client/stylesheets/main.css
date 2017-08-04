@@ -4,9 +4,6 @@ body {
 	color: #2b5777;
 	background: #eee;	
 }
-a {
-	color:#2b5777;
-}
 .loading-sm {
 	background: url('/packages/keplerjs_theme/assets/images/loader-sm.gif') no-repeat center center #fff;
 }

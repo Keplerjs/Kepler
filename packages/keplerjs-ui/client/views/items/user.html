@@ -5,6 +5,12 @@
 	</a>
 </template>
 
+<template name="item_user_name">
+	<a class="btn user-btn-name" href="/user/{{_id}}">
+		<u>{{username}}</u>
+	</a>
+</template>
+
 <template name="item_user_friend">
 	<div class="friend-item {{#unless isOnline}}offline{{/unless}}">
 		<div class="pull-left">

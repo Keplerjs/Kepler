@@ -29,10 +29,10 @@ var osmToPlace = function(osm) {
 		prop = feature.properties,
 		coords = feature.geometry.coordinates;
 
-	var name = prop.tags.name || K.Util.timeName('osm '+prop.id)
+	var name = prop.tags.name || '';//K.Util.timeName('osm '+prop.id)
 
 	var place = _.deepExtend(K.schemas.place, {
-		name: K.Util.sanitizeName(name),
+		name: name, //K.Util.sanitizeName(name),
 		loc: K.Util.geo.roundLoc(coords.reverse()),
 		active: 0,
 		osm: feature,
