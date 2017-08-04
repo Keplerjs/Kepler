@@ -34,6 +34,10 @@
 	background: none
 }
 
+.popup-user {
+	background: #fff
+}
+
 .popup-tit {
 	text-transform: capitalize;
 	margin-bottom: 8px;

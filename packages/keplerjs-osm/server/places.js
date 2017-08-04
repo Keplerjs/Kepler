@@ -7,10 +7,6 @@
       "type":"node",
       "id":3517622759,
       "tags":{
-         "addr:city":"Roma",
-         "addr:housenumber":"25",
-         "addr:postcode":"00183",
-         "addr:street":"Via Cerveteri",
          "amenity":"restaurant",
          "email":"bombayraj45@yahoo.it",
          "name":"ristorante indiano Bombay palace",
@@ -44,9 +40,7 @@ var osmToPlace = function(osm) {
 			type: 'osm'
 		}
 	});
-
-	console.log('osmToPlace', feature, place);
-
+	
 	return place;
 };
 

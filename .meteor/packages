@@ -18,14 +18,14 @@ keplerjs:theme
 keplerjs:api
 keplerjs:upload
 keplerjs:notif
-#keplerjs:categories
-#keplerjs:events
+keplerjs:categories
 keplerjs:share
 keplerjs:osm
 keplerjs:favorites
 keplerjs:conver
 keplerjs:geoinfo
 keplerjs:weather
+keplerjs:googlemaps
 #keplerjs:pois
 #keplerjs:tracks
-keplerjs:googlemaps
+#keplerjs:events

@@ -1,6 +1,9 @@
 
 Places = new Mongo.Collection('places');
 
+if(Meteor.isServer)
+	Places._ensureIndex({"loc": "2d"});
+
 //TODO limt hist size
 //http://stackoverflow.com/questions/21466297/slice-array-in-mongodb-after-addtoset-update
 // $addToSet: {

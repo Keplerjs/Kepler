@@ -9,7 +9,7 @@ Meteor.methods({
 
 		var userData = Meteor.user()
 		
-		//console.log('Profile: setLoc', userData.username, loc);
+		console.log('Profile: setLoc', userData.username, loc);
 
 		if(K.Util.valid.loc(loc))
 		{
