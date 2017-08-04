@@ -4,8 +4,6 @@ L.Cursor = L.Class.extend({
 	includes: L.Mixin.Events,
 
 	options: {
-		popup: {
-		}
 	},
 
 	initialize: function(options) {
@@ -19,7 +17,6 @@ L.Cursor = L.Class.extend({
 		self._map = map;
 
 		self.marker = self._createMarker();
-		self.popup$ = self._createPopup();
 		
 		self._map.on('click', self._onSwitch, self);
 	},
@@ -56,14 +53,8 @@ L.Cursor = L.Class.extend({
 		.on('mousedown', L.DomEvent.stop, this)
 		.on('mousedown', this.pickMarkerLocation, this);
 	},
-	_createPopup: function() {
-		var div = L.DomUtil.create('div','');
-		this.marker.bindPopup(div, this.options.popup);
-		return div;
-	},
 	pickMarkerLocation: function(e) {
 		var self = this;
-		self.popup$.innerHTML = '';
 		self.fire('popupopen', {
 			latlng: self.marker.getLatLng()
 		});

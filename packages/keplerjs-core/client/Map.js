@@ -76,13 +76,22 @@ Kepler.Map = {
 			self._deps.bbox.changed();
 		});
 
-		self.cursor.on('popupopen', function(e) {
+		self.cursor.marker.on('click mousedown', function(e) {
+			var div = L.DomUtil.create('div',''),
+				cursorData = {
+					loc: [e.latlng.lat, e.latlng.lng]
+				};
+			Blaze.renderWithData(Template.popupCursor, cursorData, div);
+			this.bindPopup(div.firstChild, { closeButton:false });
+		})
+
+/*		self.cursor.on('popupopen', function(e) {
 			var cursorData = {
 					loc: [e.latlng.lat, e.latlng.lng]
 				};
 			this.popup$.innerHTML = '';
 			Blaze.renderWithData(Template.popupCursor, cursorData, this.popup$);
-		});
+		});*/
 
 		return this;
 	},
