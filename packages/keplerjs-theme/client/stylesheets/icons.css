@@ -47,8 +47,8 @@
 	background-position: 0 -810px;
     background-size: 1000%
 }
-.icon-marker,
-.leaflet-marker-icon {
+div.icon-marker,
+div.leaflet-marker-icon {
 	display: inline-block;
 	width:27px;
 	height:30px;

@@ -78,8 +78,6 @@ i18n.map('it', {
 	label_nohistplace: "Nessuna visita di recente",
 	label_notfound: "Nessun risultato trovato",
 	
-	map_zoomout: "",
-	map_zoomin: "",
 	map_attrib:"<a href=\"http://osm.org/\">osm.org</a>",
 	map_gps_error: "gps non disponibile",
 	map_layer_road: "Stradale",

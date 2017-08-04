@@ -5,5 +5,8 @@ i18n.map('en', {
 
 	website_name: "KeplerJs",
 	website_slogan: "The full-stack real-time geo-social network framework",
-	website_desc: "lets users share favorite places and join discussions."
+	website_desc: "lets users share favorite places and join discussions.",
+
+	map_zoomout: " ",
+	map_zoomin: " ",	
 });

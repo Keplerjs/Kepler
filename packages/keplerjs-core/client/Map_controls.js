@@ -4,11 +4,17 @@ _.extend(Kepler.Map, {
 
 		var controls = {};
 
-		controls.zoom = new L.Control.Zoom({
-			position: 'bottomright',
-			zoomOutText: i18n('map_zoomout'),
-			zoomInText: i18n('map_zoomin')
-		});
+		var zoomOpts = {
+			position: 'bottomright'
+		};
+
+		if(i18n('map_zoomout'))
+			zoomOpts.zoomOutText = i18n('map_zoomout');
+		
+		if(i18n('map_zoomin'))
+			zoomOpts.zoomInText = i18n('map_zoomin');
+
+		controls.zoom = new L.Control.Zoom(zoomOpts);
 
 		controls.attrib = new L.Control.Attribution({
 			position: 'bottomright',

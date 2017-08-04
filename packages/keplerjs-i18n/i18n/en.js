@@ -75,8 +75,6 @@ i18n.map ('en', {
 	btn_userBlock: "Block",
 	btn_usersblocked: "Blocked Users",
 	btn_userUnblock: "Unlock",
-	map_zoomout: "",
-	map_zoomin: "",
 	map_attrib: "<a href=\"http://osm.org/\"> osm.org </a>",
 	map_gps_error: "gps unavailable",
 	map_layer_road: "Roads",

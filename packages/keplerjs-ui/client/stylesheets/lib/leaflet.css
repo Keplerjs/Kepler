@@ -38,3 +38,9 @@
 	clear: both;
 	z-index: 10;
 }
+
+.leaflet-marker-icon {
+	background-image: url('/packages/keplerjs_lib/.npm/package/node_modules/leaflet/dist/images/marker-icon.png');
+	background-repeat: no-repeat;
+	background-position: center bottom;
+}
