@@ -6,7 +6,7 @@
 Meteor.startup(function() {
 	_.deepExtend(K.settings, Meteor.settings);
 	
-	//console.log('Settings: ',JSON.stringify(K.settings));
+	console.log('Settings: ',JSON.stringify(Meteor.settings));
 });
 
 Kepler.settings = {
@@ -54,7 +54,7 @@ Kepler.settings = {
 			"secret": ""
 		},
 		"google": {
-			//https://cloud.google.com/console
+			//https://console.developers.google.com/
 			"service": "google",
 			"clientId": "",
 			"secret": ""

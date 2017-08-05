@@ -15,7 +15,7 @@ keplerjs:theme
 keplerjs:api
 keplerjs:upload
 keplerjs:notif
-keplerjs:categories
+#keplerjs:categories
 keplerjs:share
 keplerjs:osm
 keplerjs:favorites

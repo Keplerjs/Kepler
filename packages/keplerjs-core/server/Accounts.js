@@ -11,6 +11,7 @@ Meteor.startup(function () {
 
 	_.each(K.settings.accounts, function(conf, key) {
 		if(conf.service) {
+			console.log('Accounts: config ', key)
 			Accounts.loginServiceConfiguration.remove(_.pick(conf,'service'));
 			Accounts.loginServiceConfiguration.insert(conf);
 		}
