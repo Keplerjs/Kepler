@@ -15,7 +15,7 @@ if(Meteor.isServer)
 // 	hist: { $each: [placeId], $slice: 5 }
 // }
 
-//doc of before.insert in https://github.com/matb33/meteor-collection-hooks
+//https://github.com/matb33/meteor-collection-hooks
 Places.before.insert(function(userId, doc) {
 	doc.createdAt = K.Util.time();
 	doc.userId = userId;

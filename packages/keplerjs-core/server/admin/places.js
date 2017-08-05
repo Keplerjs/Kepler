@@ -1,20 +1,10 @@
 
 K.Admin.methods({
-	insertPlaceByLoc: function(loc, obj) {
+	removePlaceById: function(placeId) {
 
 		if(!K.Admin.isMe()) return null;
 
-		var placeId = Meteor.call('insertPlace', obj);
-		
-		console.log('Admin: insertPlaceByLoc', place.name);
-
-		return placeId;
-	},
-	removePlace: function(placeId) {
-
-		if(!K.Admin.isMe()) return null;
-
-		Places.remove(placeId);
+		Meteor.call('removePlace', placeId);
 	},
 	clonePlace: function(placeId) {
 

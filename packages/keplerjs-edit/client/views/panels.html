@@ -3,7 +3,7 @@
 {{#if or createdAt userId}}
 
 	<div class="row">
-		<div class="col-xs-8">
+		<div class="col-sm-8">
 		{{#if createdAt}}
 			<label>{{i18n 'label_createdAt'}}</label>
 			<time>{{humanDateUTC createdAt}}</time>
@@ -16,10 +16,12 @@
 			{{/with}}
 		{{/if}}
 		</div>
-		<div class="col-xs-3">
+		<div class="col-sm-3 text-right">
+		{{#if isEditable}}
 			<a class="btn btn btn-default disabled" href="#">
 				<i class="icon icon-edit"></i> {{i18n 'btn_edit'}}
 			</a>
+		{{/if}}
 		</div>
 	</div>
 	<hr />

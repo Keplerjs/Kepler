@@ -7,6 +7,6 @@ if(Meteor.isServer)
 
 Users.allow({
 	update: function (userId, doc, fields, modifier) {
-		return userId && doc._id === userId;
+		return userId && userId === doc._id;
 	}
 });

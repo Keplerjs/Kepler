@@ -21,9 +21,13 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
+    'client/Place_edit.js',    
     'client/views/panels.html',
-    //'client/views/panels.js',
     //'client/router.js'    
   ],'client');
 
+/*  api.addFiles([
+    'modules/Edit.js'
+  ]);
+*/
 });
