@@ -24,7 +24,7 @@ Package.onUse(function(api) {
   api.use(packages);
   api.imply(packages);
 
-  api.addFiles(globsync('Kepler.js'));
+  api.addFiles(['Kepler.js','settings.js']);
   api.addFiles(globsync('i18n/**/*.js'));  
   api.addFiles(globsync('lib/**/*.js'));
   api.addFiles(globsync('modules/**/*.js'));

@@ -31,15 +31,15 @@ var osmToPlace = function(osm) {
 
 	var name = prop.tags.name || '';//K.Util.timeName('osm '+prop.id)
 
-	var place = _.deepExtend(K.schemas.place, {
+	var place = {
 		name: name, //K.Util.sanitizeName(name),
-		loc: K.Util.geo.roundLoc(coords.reverse()),
+		loc: coords.reverse(),
 		active: 0,
 		osm: feature,
 		source: {
 			type: 'osm'
 		}
-	});
+	};
 	
 	return place;
 };
@@ -49,14 +49,14 @@ Meteor.methods({
 
 		if(!this.userId) return null;
 
-		console.log('Osm: insertPlaceByOsmId ',osmId)
-
 		var obj = Meteor.call('findOsmById', osmId);
-
-		var placeData = osmToPlace(obj),
-			placeId = Places.insert(placeData);
 		
-		console.log('Osm: insertPlaceByOsmId', placeId, placeData.name);
+		if(!obj) return null;
+
+		var placeData = osmToPlace(obj);	
+		var placeId = Meteor.call('insertPlace', placeData);
+		
+		console.log('Osm: insertPlaceByOsmId', osmId, placeData);
 
 		return placeId;
 	}

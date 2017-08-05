@@ -10,13 +10,13 @@ Meteor.methods({
     
     if(!this.userId) return null;
     
-    var query = _.template('[out:json];{type}({id});out {meta};', {
+    var query = _.template('[out:json];{type}({id});out{meta};', {
         id: osmId,
         type: 'node',
-        meta: '',//'meta'
+        meta: '',//' meta'
       });
 
-    console.log('findOsmById', query);
+    console.log('findOsmById', '"'+query+'"');
 
     var future = new Future();
 
@@ -36,12 +36,12 @@ Meteor.methods({
 
     filter = filter || '~".*"~"."';
     
-    var query = _.template('[out:json];{type}(around:{radius},{lat},{lon}){filter};out {meta} {limit};', {
+    var query = _.template('[out:json];{type}(around:{radius},{lat},{lon}){filter};out{meta} {limit};', {
         lat: loc[0], lon: loc[1],
         filter: filter ? '['+filter+']' : '',
         type: 'node',
-        meta: '',//'meta',
-        radius: 20,
+        radius: 20,        
+        meta: '',//' meta',
         limit: 1
       });
 

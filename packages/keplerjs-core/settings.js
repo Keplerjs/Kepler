@@ -2,6 +2,11 @@
 	defautl Kepler settings
 	use settings.json in root application having the same structure to overwrite the following values
 */
+
+Meteor.startup(function() {
+	_.deepExtend(K.settings, Meteor.settings);
+});
+
 Kepler.settings = {
 
 	"public": {
@@ -39,6 +44,7 @@ Kepler.settings = {
 	"accounts": {
 		"creation": true,
 		"verifyEmail": false,
+		/*
 		"facebook": {
 			//http://developers.facebook.com/docs/authentication/permissions/
 			"service": "facebook",
@@ -51,7 +57,7 @@ Kepler.settings = {
 			"clientId": "",
 			"secret": ""
 		},
-/*		"twitter": {
+		"twitter": {
 			"service": "twitter",
 			"consumerKey": "",
 			"secret": ""			

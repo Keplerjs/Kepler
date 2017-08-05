@@ -1,23 +1,12 @@
 
 K.Admin.methods({
-	insertPlace: function(loc, obj) {
-
-		obj = obj || {};
+	insertPlaceByLoc: function(loc, obj) {
 
 		if(!K.Admin.isMe()) return null;
 
-		if(_.isUndefined(obj.name))
-			obj.name = K.Util.timeName('new '+K.Util.humanize.loc(loc,2));
-
-		var place = _.deepExtend(K.schemas.place, {
-			name: obj.name,
-			loc: K.Util.geo.roundLoc(loc),
-			active: 0
-		});
-
-		var placeId = Places.insert(place);
+		var placeId = Meteor.call('insertPlace', obj);
 		
-		console.log('Admin: insertPlace', placeId, place.name);
+		console.log('Admin: insertPlaceByLoc', place.name);
 
 		return placeId;
 	},
@@ -41,11 +30,9 @@ K.Admin.methods({
 
 		place.name = '(copy)'+place.name;
 
-		place = _.deepExtend(K.schemas.place, place);
-
-		var newId = Places.insert(place);
+		var newId = Meteor.call('insertPlace', place);
 		
-		console.log('Admin: clonePlace', placeId, place.name);
+		console.log('Admin: clonePlace', place.name);
 
 		return newId;
 	},

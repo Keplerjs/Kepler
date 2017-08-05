@@ -27,6 +27,9 @@ Meteor.publish('placeById', function(placeId) {
 			retCurs = [];
 
 		retCurs.push(placeCur);
+		
+		if(!placeData)
+			return retCurs;
 
 		var usersIds = _.union(placeData.hist, placeData.checkins);
 		

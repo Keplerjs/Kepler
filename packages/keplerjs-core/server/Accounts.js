@@ -11,7 +11,6 @@ Meteor.startup(function () {
 
 	_.each(K.settings.accounts, function(conf, key) {
 		if(conf.service) {
-			console.log('Accounts: add ', key);
 			Accounts.loginServiceConfiguration.remove(_.pick(conf,'service'));
 			Accounts.loginServiceConfiguration.insert(conf);
 		}
@@ -28,21 +27,24 @@ Meteor.startup(function () {
 	//TODO Accounts.emailTemplates.from = ;
 });
 
-Accounts.onLogin(function(login) {
+Accounts.onLogin(function(e) {
 
-	var ip = login.connection.httpHeaders['x-real-ip'] || login.connection.clientAddress,
-		sets = {
-			online: 1
-		};
-		
-	Users.update(login.user._id, {$set: sets});
+	var ip = e.connection.httpHeaders['x-real-ip'] || e.connection.clientAddress;
+	
+	console.log('Accounts: onLogin ',e.user.username, ip);
 
-	console.log('Accounts: Login ',login.user.username, ip);
-
+	if(e.user && e.user._id)
+		Users.update(e.user._id, {
+			$set: {
+				online: 1
+			}
+		});
 });
 
 Accounts.onLoginFailure(function(e) {
-	console.log('Accounts: Login Failure ', e.methodArguments);
+	var ip = e.connection.httpHeaders['x-real-ip'] || e.connection.clientAddress,
+		username = e.methodArguments[0].user.username;
+	console.log('Accounts: onLoginFailure ', username, ip);
 });
 
 /*
@@ -88,7 +90,7 @@ Accounts.onCreateUser(function(options, user) {
 			verified: user.services.google.verified_email
 		}];
 	}
-	// else if(user.services.twitter) {
+	//TODO else if(user.services.twitter) {
 	// 	name = user.services.twitter.name;
 	// 	username = user.services.twitter.screenName;
 	// 	avatar = 'http://twitter.com/api/users/profile_image/'+username;
@@ -105,7 +107,7 @@ Accounts.onCreateUser(function(options, user) {
 		emails: emails
 	});
 
-	console.log('Accounts: Create User ', retuser.username);
+	console.log('Accounts: onCreateUser ', retuser.username);
 
 	return retuser;
 });

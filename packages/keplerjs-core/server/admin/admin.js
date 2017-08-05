@@ -13,17 +13,20 @@ Meteor.methods({
 
 Users.after.insert(function(userId, doc) {
 	
-	var userAdmin = Users.findOne({username:'admin'});
-
-	K.updateFriendship(doc._id, userAdmin._id);
+	if(K.settings.admin.adminUsers) {
+		var userAdmin = Users.findOne({username: K.settings.admin.adminUsers[0] });
+		if(userAdmin)
+			K.updateFriendship(doc._id, userAdmin._id);
+	}
 });
 
 
 Accounts.onLogin(function(login) {
 
-	Users.update(login.user._id, {
-		$set: {
-			isAdmin: K.Admin.isMe(login.user)
-		}
-	});
+	if(login.user && login.user._id)
+		Users.update(login.user._id, {
+			$set: {
+				isAdmin: K.Admin.isMe(login.user)
+			}
+		});
 });

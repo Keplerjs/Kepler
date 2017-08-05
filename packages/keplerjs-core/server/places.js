@@ -1,15 +1,15 @@
 
 Meteor.methods({
-	insertPlaceByLoc: function(loc) {
+	insertPlace: function(obj) {
 
-		if(!this.userId || !K.Util.valid.loc(loc)) return null;
+		if(!this.userId) return null;
 
-		var placeId = Places.insert({
-				loc: K.Util.geo.roundLoc(loc)
-			});
+		var place = _.deepExtend({}, K.schemas.place, obj);
+console.log('insertPlace',place)
+		var placeId = Places.insert(place);
 
-		console.log('insertPlaceByLoc', loc, placeId);
+		console.log('insertPlace', place.name || placeId);
 
 		return placeId;
-	}
+	}	
 });

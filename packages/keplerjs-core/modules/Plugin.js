@@ -36,10 +36,3 @@ Kepler.Plugin = function(plugin) {
 	else
 		console.warn("Plugin: require name", plugin)
 };
-
-Meteor.startup(function() {
-
-	_.deepExtend(K.settings, Meteor.settings);
-
-	//console.log('Meteor.startup Plugin.js', K.settings)
-});

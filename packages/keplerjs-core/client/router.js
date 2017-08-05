@@ -221,6 +221,12 @@ Router.map(function() {
 		data: function() {
 			if(!this.ready()) return null;
 			var place = K.placeById( this.params.placeId );
+
+			if(!place){
+				Router.go('root');
+				return null;
+			}
+
 			return place.rData();
 		}
 	});
