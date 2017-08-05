@@ -5,8 +5,8 @@
 
 Meteor.startup(function() {
 	_.deepExtend(K.settings, Meteor.settings);
-
-	console.log('Settings: ',JSON.stringify(Meteor.settings));
+	
+	//console.log('Settings: ',JSON.stringify(K.settings));
 });
 
 Kepler.settings = {
