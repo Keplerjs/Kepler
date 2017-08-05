@@ -42,9 +42,8 @@ Accounts.onLogin(function(e) {
 });
 
 Accounts.onLoginFailure(function(e) {
-	var ip = e.connection.httpHeaders['x-real-ip'] || e.connection.clientAddress,
-		username = e.methodArguments[0].user.username;
-	console.log('Accounts: onLoginFailure ', username, ip);
+	var ip = e.connection.httpHeaders['x-real-ip'] || e.connection.clientAddress;
+	console.log('Accounts: onLoginFailure ', e.methodArguments, ip);
 });
 
 /*
