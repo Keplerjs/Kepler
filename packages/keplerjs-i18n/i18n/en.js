@@ -45,6 +45,8 @@ i18n.map ('en', {
 	label_nohistplace: "No recent visit",
 	label_notfound: "No results found",
 
+	btn_ok: "ok",
+	btn_cancel: "cancel",
 	btn_checkin: "Enter!",
 	btn_checkout: "Exit!",
 	btn_info: "Info",

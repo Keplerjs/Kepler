@@ -164,7 +164,6 @@ Kepler.Map = {
 
 	setOpts: function(opts) {
 
-console.log(K.settings)
 		if(this.ready()) {
 			opts = _.extend({}, K.settings.public.map, opts);
 

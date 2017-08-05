@@ -33,17 +33,19 @@ Meteor.methods({
   findOsmByLoc: function(loc, filter) {
     
     if(!this.userId) return null;
+
+    filter = filter || '~".*"~"."';
     
     var query = _.template('[out:json];{type}(around:{radius},{lat},{lon}){filter};out {meta} {limit};', {
         lat: loc[0], lon: loc[1],
         filter: filter ? '['+filter+']' : '',
         type: 'node',
         meta: '',//'meta',
-        radius: 30,
+        radius: 20,
         limit: 1
       });
 
-    console.log('findOsmByLoc', query);
+    console.log('findOsmByLoc... ', query);
 
     var future = new Future();
 
@@ -60,6 +62,8 @@ Meteor.methods({
 	findOsmByBBox: function(filter, bb, type) {
 		
 		if(!this.userId) return null;
+
+    filter = filter || '~".+"~".+"';
 		
 		var query = _.template('[out:json];{type}({lat1},{lon1},{lat2},{lon2}){filter};out;', {
 				lat1: bb[0][0], lon1: bb[0][1],

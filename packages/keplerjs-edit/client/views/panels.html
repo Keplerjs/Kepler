@@ -1,0 +1,28 @@
+
+<template name="panelPlace_edit">
+{{#if or createdAt userId}}
+
+	<div class="row">
+		<div class="col-xs-8">
+		{{#if createdAt}}
+			<label>{{i18n 'label_createdAt'}}</label>
+			<time>{{humanDateUTC createdAt}}</time>
+			<br />
+		{{/if}}
+		{{#if userId}}
+			<label>{{i18n 'label_creator'}}</label>
+			{{#with userById userId}}
+				{{> item_user_name}}
+			{{/with}}
+		{{/if}}
+		</div>
+		<div class="col-xs-3">
+			<a class="btn btn btn-default disabled" href="#">
+				<i class="icon icon-edit"></i> {{i18n 'btn_edit'}}
+			</a>
+		</div>
+	</div>
+	<hr />
+
+{{/if}}
+</template>

@@ -10,7 +10,7 @@ K.Admin.methods({
 			obj.name = K.Util.timeName('new '+K.Util.humanize.loc(loc,2));
 
 		var place = _.deepExtend(K.schemas.place, {
-			name: K.Util.sanitizeName(obj.name),
+			name: obj.name,
 			loc: K.Util.geo.roundLoc(loc),
 			active: 0
 		});

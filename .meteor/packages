@@ -9,6 +9,7 @@ standard-minifier-js
 
 keplerjs:core
 keplerjs:ui
+keplerjs:edit
 keplerjs:theme
 #keplerjs:theme-climb
 keplerjs:api

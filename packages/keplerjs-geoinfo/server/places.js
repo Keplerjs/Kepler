@@ -16,7 +16,6 @@ K.extend({
 	}
 });
 
-//doc of before.insert in https://github.com/matb33/meteor-collection-hooks
 Places.after.insert(function(userId, doc) {
 	if(doc.loc)
 		K.updatePlaceGeoinfo(doc);

@@ -17,6 +17,13 @@ if(Meteor.isServer)
 
 //doc of before.insert in https://github.com/matb33/meteor-collection-hooks
 Places.before.insert(function(userId, doc) {
-	doc.createdAt = K.Util.time();
-	doc.userId = userId;
+
+	doc = doc || {};
+
+	doc = _.deepExtend(K.schemas.place, {
+		loc: K.Util.geo.roundLoc(doc.loc),
+		createdAt: K.Util.time(),
+		userId: userId,
+		name: doc.name //K.Util.sanitizeName(doc.name)
+	});
 });

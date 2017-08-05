@@ -17,6 +17,8 @@ i18n.map('it', {
 	title_about: "About Us",
 	title_page404: "Pagina non trovata!",
 
+	btn_ok: "ok",
+	btn_cancel: "annulla",
 	btn_checkin: "Entra!",
 	btn_checkout: "Esci!",
 	btn_info: "Info",

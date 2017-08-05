@@ -21,10 +21,15 @@ K.Plugin({
 			}
 		}
 	},
+	schemas: {
+		place: {
+			osm: {}
+		}
+	},
 	settings: {
-		"public": {
-			"osm": {
-			}
+		"osm": {
+			"overpassUrl": "http://overpass-api.de/api/interpreter",
+			"overpassTimeout": null
 		}
 	}
 });

@@ -14,20 +14,6 @@
 			<i class="icon icon-danger"></i> {{warn}}
 		</li>
 		{{/if}}
-		{{#if or createdAt userId}}
-		<li class="list-group-item">
-			{{#if createdAt}}
-				<label>{{i18n 'label_createdAt'}}</label>
-				<time>{{humanDateUTC createdAt}}</time>
-			{{/if}}
-			{{#if userId}}
-				<label>{{i18n 'label_creator'}}</label>
-				{{#with userById userId}}
-					{{> item_user_name}}
-				{{/with}}
-			{{/if}}
-			</li>
-		{{/if}}	
 	</ul>
 
 </template>
