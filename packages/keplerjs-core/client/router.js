@@ -8,25 +8,28 @@ Router.configure({
 
 Router.waitOn(function() {
 
-	var self = this;
+	var routeName = this.route.getName();
 
-	if(!Meteor.user()) {
-		if(Meteor.loggingIn())
-			this.render(this.loadingTemplate);
-		else
-			Router.go('home');
-	}
-	else {
-		return Meteor.subscribe('currentUser', function() {
+	if(!K.settings.router.public[routeName]) {
+		
+		if(!Meteor.user()) {
+			if(Meteor.loggingIn())
+				this.render(this.loadingTemplate);
+			else
+				Router.go('home');
+		}
+		else {
+			return Meteor.subscribe('currentUser', function() {
 
-			K.Profile.init(function(data) {
+				K.Profile.init(function(data) {
 
-				i18n.setLanguage(data.lang);
+					i18n.setLanguage(data.lang);
 
-				if(K.Admin.isMe())
-					K.Admin.loadMethods();
+					if(K.Admin.isMe())
+						K.Admin.loadMethods();
+				});
 			});
-		});
+		}
 	}
 });
 
@@ -41,7 +44,9 @@ Template.layoutMap.onDestroyed(function() {
 
 Router.onAfterAction(function() {
 
-	document.title = i18n('title_'+this.route.getName()) || _.str.capitalize(this.route.getName());
+	var routeName = this.route.getName();
+
+	document.title = i18n('title_'+routeName) || _.str.capitalize(routeName);
 
 	if(this.ready() && K.Profile.ready) {
 

@@ -5,8 +5,9 @@
 
 Meteor.startup(function() {
 	_.deepExtend(K.settings, Meteor.settings);
-	
-	console.log('Settings: ',JSON.stringify(Meteor.settings));
+
+	if(Meteor.isServer)
+		console.log("Settings: METEOR_SETTINGS='"+JSON.stringify(Meteor.settings)+"'");
 });
 
 Kepler.settings = {
@@ -41,6 +42,11 @@ Kepler.settings = {
 			"styles": {
 				"default": { "color": "#b6f", "weight": 5, "opacity": 0.7 }
 			}	
+		}
+	},
+	"router": {
+		"public": {
+			"about": 1
 		}
 	},
 	"accounts": {

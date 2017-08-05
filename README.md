@@ -69,7 +69,7 @@ A plugin only need to make your own package depend on *keplerjs:core* or others 
 * [keplerjs:upload](packages/keplerjs-upload)
 * [keplerjs:weather](packages/keplerjs-weather)
 
-####  3rd party Plugins Packages
+####  3rd party Plugins
 
 *Are expected to be developed by the great community of Meteor developers...*
 
