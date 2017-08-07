@@ -1,8 +1,7 @@
 body {
 	font-family: Helvetica,Arial,sans-serif;
-	color: #2b5777;	
-	background: url('/packages/keplerjs_theme/assets/images/back-hex.png') repeat-x top center;
-	background-color: #ddd;	
+	color: #2b5777;
+	background-color: #ddd;
 }
 .loading-sm {
 	background: url('/packages/keplerjs_theme/assets/images/loader-sm.gif') no-repeat center center #fff;
@@ -21,8 +20,9 @@ body {
 	background: url('/packages/keplerjs_theme/assets/images/loader-bar.gif') no-repeat center center #fff;
 }
 
-#home {
-	padding-top: 46px;
+body > .container,
+body > .container-fluid {
+	background: url('/packages/keplerjs_theme/assets/images/back-hex.png') repeat-x top center #ddd;
 }
 
 #logo {
@@ -33,7 +33,7 @@ body {
 }
 
 #slogan {
-	margin: 25px auto;
+	margin: 10px auto;
 	font-size: 14px;
 	letter-spacing: 2px;
 	text-shadow: 0 0 3px rgba(0,0,0,0.2);

@@ -10,22 +10,13 @@
 	text-align: center;
 	color: #f80;	
 }
-.container-full {
-	position: absolute;
-	height: 100%;
-	width: 100%;
-}
-
 /* PAGES*/
-.container section {
-	margin-top: 50px;
-	background: #fff;
-}
-.container-full section {
-	min-height: 100%;
-	overflow: hidden;
+
+.container section,
+.container-fluid section {
+	margin-top: 40px;
 }
 
-.container-full footer {
+footer {
 	padding: 20px;
 }

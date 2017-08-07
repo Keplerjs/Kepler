@@ -1,14 +1,16 @@
 
 <template name="layoutFull">
-	<div class="container-full">
+	<div class="container-fluid">
 	    {{> yield}}
 	</div>
 </template>
 
 <template name="layoutPage">
+	{{> header}}
 	<div class="container">
 		{{> yield}}
 	</div>
+	{{> footer}}
 </template>
 
 <template name="layoutMap">

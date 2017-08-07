@@ -1,39 +1,32 @@
 
 <template name="pageAbout">
+	<section id="about">
+		<div class="text-center">
+			<img src="/packages/keplerjs_theme/assets/images/logo-200.png" />
+			
+			<h2><b>{{i18n 'website_name'}}</b></h2>
 
-{{> header}}
+			<p id="slogan">{{i18n 'website_slogan'}}</p>
+			
+			<p>
+				Built with <br />
+				<a href="https://nodejs.org/"><b>NodeJS</b></a>,
+				<a href="https://www.meteor.com/"><b>Meteor</b></a>,
+				<a href="https://www.mongodb.com/"><b>MongoDB</b></a>,
+				<a href="http://leafletjs.com/"><b>Leaflet</b></a>
+				<br />
+				over 
+				<br />
+				<a href="http://www.osm.org/"><b>OpenStreetMap</b></a>
+			</p>
 
-<section id="about">
-	<div class="col-xs-12 col-md-4 col-md-offset-4 text-center">
-	
-		<img src="/packages/keplerjs_theme/assets/images/logo-200.png" />
-		
-		<h2><b>{{i18n 'website_name'}}</b></h2>
-
-		<p id="slogan">{{i18n 'website_slogan'}}</p>
-		
-		<p>
-			Built with <br />
-			<a href="https://nodejs.org/"><b>NodeJS</b></a>,
-			<a href="https://www.meteor.com/"><b>Meteor</b></a>,
-			<a href="https://www.mongodb.com/"><b>MongoDB</b></a>,
-			<a href="http://leafletjs.com/"><b>Leaflet</b></a>
 			<br />
-			over 
-			<br />
-			<a href="http://www.osm.org/"><b>OpenStreetMap</b></a>
-		</p>
 
-		<br />
-
-		<p>
-			<a class="btn btn-default" href="https://github.com/keplerjs">
-				<i class="icon icon-git"></i> Github
-			</a>
-		</p>
-
-
-	</div>
-</section>
-
+			<p>
+				<a class="btn btn-default" href="https://github.com/keplerjs">
+					<i class="icon icon-git"></i> Github
+				</a>
+			</p>
+		</div>
+	</section>
 </template>

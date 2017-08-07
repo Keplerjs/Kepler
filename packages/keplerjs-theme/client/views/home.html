@@ -1,16 +1,14 @@
 
 <template name="pageHome_theme">
+	<div class="text-center">
+		<img id="logo" src="/packages/keplerjs_theme/assets/images/logo-200.png" />
+		
+		<h2><b>{{i18n 'website_name'}}</b></h2>
 
-	<img id="logo" src="/packages/keplerjs_theme/assets/images/logo-200.png" />
-	
-	<h2><b>{{i18n 'website_name'}}</b></h2>
+		<p id="slogan">{{i18n 'website_slogan'}}</p>
 
-	<p id="slogan">{{i18n 'website_slogan'}}</p>
-
-	<p>
-
-	<a class=" clearfix" href="{{pathFor route='pageAbout'}}">About</a>
-
-	</p>
-
+		<p>
+			<a class=" clearfix" href="{{pathFor route='pageAbout'}}">About</a>
+		</p>
+	</div>
 </template>
