@@ -11,7 +11,7 @@ Package.describe({
 Npm.depends({
   "bootstrap-switch": "3.3.2",
   "bootstrap-list-filter": "0.3.2",
-  "bootstrap-confirm-button": "0.2.1",
+  "bootstrap-confirm-button": "0.2.2",
   "leaflet": "0.7.7",
   "leaflet-gps": "1.5.1",
   "leaflet-layerjson": "0.1.8",
