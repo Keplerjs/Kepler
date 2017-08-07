@@ -4,16 +4,16 @@
 var Future = Npm.require('fibers/future'),
     Overpass = Npm.require('query-overpass');
 
-/*var overpassOpts = {
+var overOpts = {
+  meta: true,
   flatProperties: false,
-  overpassUrl: "http://overpass-api.de/api/interpreter"
+  //overpassUrl: "http://overpass-api.de/api/interpreter"
 };
-
+/*
 http://overpass-api.de/api/interpreter
 http://overpass.osm.rambler.ru/cgi/interpreter
 http://api.openstreetmap.fr/oapi/interpreter
 https://overpass.osm.vi-di.fr/api/interpreter
-
 */
 Meteor.methods({
   
@@ -24,7 +24,7 @@ Meteor.methods({
     var query = _.template('[out:json];{type}({id});out{meta};', {
         id: osmId,
         type: 'node',
-        meta: '',//' meta'
+        meta: overOpts.meta ? ' meta' : ''
       });
 
     console.log('findOsmById', '"'+query+'"');
@@ -36,7 +36,7 @@ Meteor.methods({
         future.throw(err);
       else
         future.return(resp);
-    });
+    }, overOpts);
 
     return future.wait();
   },
@@ -52,7 +52,7 @@ Meteor.methods({
         filter: filter ? '['+filter+']' : '',
         type: 'node',
         radius: 20,        
-        meta: '',//' meta',
+        meta: overOpts.meta ? ' meta' : '',
         limit: 1
       });
 
@@ -65,7 +65,7 @@ Meteor.methods({
         future.throw(err);
       else
         future.return(resp);
-    });
+    }, overOpts);
 
     return future.wait();
   },
@@ -92,7 +92,7 @@ Meteor.methods({
 				future.throw(err);
 			else
 				future.return(resp);
-		});
+		}, overOpts);
 
 		return future.wait();
 	}

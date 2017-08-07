@@ -21,16 +21,33 @@
 	</div>
 </template>
 
-<template name="popupOsm">  
-      {{#each arrayify properties.tags}}
-            <label>{{key}}:</label>
-            <a href="http://wiki.openstreetmap.org/wiki/Tag:{{key}}={{val}}" target="_blank"><span>{{val}}</span></a>
+<template name="popupOsm"> 
+   <div class="row">
+      <div class="col-sm-12">
+         {{#each keys}}
+            <label>
+               <a href="{{url}}" target="_blank">
+               {{key}}
+               </a>
+            </label>
+            <span>{{val}}</span>
             <br />
-      {{/each}}
-      {{#each arrayify properties.meta}}
-         <b>{{key}}:</b> <em>{{val}}</em><br />
-      {{/each}}
-      <label>{{i18n 'label_osmid'}}</label> <a href="http://osm.org/{{id}}" target="_blank">{{properties.id}}</a>
+         {{/each}}
+<!--       </div>
+      <div class="col-sm-6"> -->
+         <br />
+         <label>{{i18n 'label_osmid'}}</label>
+         <a class="btn btn-xs btn-link" href="http://osm.org/{{id}}" target="_blank">{{properties.id}}</a>
+         <br />
+         {{#with properties.meta}}
+         <label>{{i18n 'label_osmuser'}}</label>
+            <a class="btn btn-xs btn-link" href="http://osm.org/user/{{user}}" target="_blank">{{user}}</a>
+         <br />
+         <label>{{i18n 'label_osmdate'}}</label>
+            <small>{{humanDate timestamp}}</small>
+         {{/with}}      
+      </div>
+   </div>
 </template>
 <!--  OSM data structure
 {

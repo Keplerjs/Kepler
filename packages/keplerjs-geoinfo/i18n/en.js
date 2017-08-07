@@ -13,7 +13,7 @@ i18n.map('en', {
 	label_esp: "Exposure",
 	label_season: "Season",
 	label_shadow: "In shadow",
-	label_ele: "Quota",
+	label_ele: "Elevation",
 	label_sunrise: "Sunrise",
 	label_sunset: "Sunset",
 });

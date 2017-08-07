@@ -44,6 +44,7 @@ i18n.map ('en', {
 	label_nohist: "No recent place",
 	label_nohistplace: "No recent visit",
 	label_notfound: "No results found",
+	label_version: "Version",
 
 	btn_ok: "ok",
 	btn_cancel: "cancel",

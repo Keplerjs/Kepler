@@ -21,6 +21,7 @@ K.extend({
 		Users.update(Meteor.userId(), {
 			$push: {
 				notifs: {
+					//TODO createdAt
 					type: type,
 					msg: text
 				}

@@ -62,15 +62,6 @@ Template.registerHelper('humanDate', function(date) {
 	return K.Util.humanize.date(date);
 });
 
-Template.registerHelper('humanDateUTC', function(dateutc) {
-	var date = new Date(dateutc),
-		d = date.getDate(),
-		m = date.getMonth()+1,
-		y = date.getFullYear(),
-		dmy = d+'-'+m+'-'+y;
-	return K.Util.humanize.date(dmy);
-});
-
 Template.registerHelper('humanDistance', function(dis, sign) {
 	return K.Util.humanize.distance(dis, parseInt(sign));
 });

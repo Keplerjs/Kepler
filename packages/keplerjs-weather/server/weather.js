@@ -26,7 +26,7 @@ var weatherAPI = function(ll) {
 			
 			return {
 				//today: day.period==1 || day.period==0,
-				date:  day.date.day+'-'+day.date.month+'-'+day.date.year,
+				date:  day.date.year+'-'+day.date.month+'-'+day.date.day,
 				//TODO EJSON Date
 				temp:  {
 					min: day.low.celsius,

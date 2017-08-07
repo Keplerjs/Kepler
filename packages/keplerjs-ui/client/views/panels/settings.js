@@ -34,7 +34,10 @@ Template.panelSettings.helpers({
 				url: _.template(val,{s:'a',z:'15',x:'17374',y:'11667'})
 			};
 		});
-	}	
+	},
+	version: function() {
+		return K.version;
+	}
 });
 
 Template.panelSettings.events({

@@ -41,9 +41,9 @@ Kepler.Util.humanize = {
 		
 		date = date || new Date();
 		sep = sep || ' ';
-		showyear = showyear || false;
+		showyear = showyear || true;
 	
-		function fromString(all, d,m,y) {
+		function fromDMY(all, d,m,y) {
 
 				var oggi = new Date(),
 					giorno = oggi.getDate(),
@@ -55,32 +55,43 @@ Kepler.Util.humanize = {
 					ret = '',
 					dweek = (new Date(y, m-1, d)).getDay();
 
-				var fulldate = d +sep+ months[parseInt(m)-1] + (showyear ? sep+y : '');	//full date
-			
+				var fulldate = d +sep+ months[parseInt(m)-1] + (y!=anno ? sep+y : '');
+
 				if(m==mese && y==anno)
 				{
 					if( days_near[d-giorno+1] )
 						ret = days_near[d-giorno+1] + sep;
 					else
 						ret = days[dweek] + sep + fulldate;
-					//TODO remove day of week if is too a week ago
 				}
 				else
 					ret = fulldate;
 			
 				return ret;
 			}
-		if(_.isString(date))
-			return date.replace(/^(\d{1,2})-(\d{1,2})-(\d{4})$/, fromString);
 
-		else if(_.isDate(date))
-			return fromString(null, date.getDate(), date.getMonth()+1, date.getFullYear() );
-
-		else if(_.isNumber(date)) {
+		if(_.isNumber(date)) {
 			date = new Date(date)
-			return fromString(null, date.getDate(), date.getMonth()+1, date.getFullYear() );
+			return fromDMY(null, date.getDate(), date.getMonth()+1, date.getFullYear() );
 		}
 
+		else if(_.isString(date)) {
+			var m;
+			if(m = date.match(/^(\d{1,2})-(\d{1,2})-(\d{4})$/)) {
+				return fromDMY(null, m[1], m[2], m[3]);
+			}
+			else if(m = date.match(/^(\d{4})-(\d{1,2})-(\d{1,2}).*/)) {
+				return fromDMY(null, m[3], m[2], m[1]);
+			} else {
+				date = new Date(date);
+				return fromDMY(null, date.getDate(), date.getMonth()+1, date.getFullYear() );
+			}
+		}
+
+		else if(_.isDate(date))
+			return fromDMY(null, date.getDate(), date.getMonth()+1, date.getFullYear() );
+		else
+			return null;
 	},
 
 	distance: function(d, sign) {
