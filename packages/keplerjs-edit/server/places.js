@@ -8,7 +8,7 @@ Meteor.methods({
 
 		var placeId = Places.insert(place);
 
-		console.log('insertPlace', place.name || placeId);
+		console.log('Edit: insertPlace', place.name || placeId);
 
 		return placeId;
 	},
@@ -18,9 +18,28 @@ Meteor.methods({
 
 		var placeData = Places.findOne(placeId);
 		
-		if(placeData.userId === this.userId)
+		if(placeData.userId === this.userId) {
+			
 			Places.remove(placeId);
 
-		console.log('removePlace', placeId);
-	}
+			console.log('Edit: removePlace', placeId);
+		}		
+	},
+	updatePlace: function(placeId, data) {
+		
+		if(!this.userId) return null;
+
+		var placeData = Places.findOne(placeId);
+		
+		if(placeData.userId === this.userId) {
+
+			Places.update(placeId, {
+				$set: {
+					name: K.Util.sanitizeName(data.name)
+				}
+			});
+
+			console.log('Edit: renamePlace', data.name);			
+		}	
+	},	
 });

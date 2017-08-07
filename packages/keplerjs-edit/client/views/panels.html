@@ -47,8 +47,22 @@
 		</div>
 		<div class="panel-body">
 
-			<em>Work in progress...</em>
-		
+			<div class="text-right">
+				<a class="btn-editdel btn btn btn-default" href="#">
+					<i class="icon icon-del"></i> {{i18n 'btn_del'}}
+				</a>
+			</div>
+
+			<hr />
+
+			<label class="control-label">{{i18n 'label_name'}}</label>
+			<div class="input-group">
+				<input class="input-editren form-control" type="text" value="{{name}}" />
+				<span class="input-group-btn">
+					<a class="btn-editren btn btn-default" href="#">{{i18n 'btn_ren'}}</a>
+				</span>
+			</div>
+
 			{{> pluginPlaceholder name='panelPlaceEdit'}}
 
 		</div>	

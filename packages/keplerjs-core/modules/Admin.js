@@ -8,6 +8,8 @@ Kepler.Admin = {
 	
 	method: {},	//list of server methods
 
+	prefix: 'admin_',
+
 	usersByName: {},
 	placesByName: {},
 
@@ -30,13 +32,17 @@ Kepler.Admin = {
 	methods: function(defs) {	//server
 	
 		var self = this;
+			newDef = {};
 
 		_.each(defs, function(func, name) {
-			if(!self.method[name])
+			name = self.prefix+name;
+			if(!self.method[name]){
 				self.method[name] = func;
+				newDef[name] = func;
+			}
 		});
 
-		Meteor.methods(defs);
+		Meteor.methods(newDef);
 	},
 
 	loadMethods: function() {	//client
@@ -47,9 +53,11 @@ Kepler.Admin = {
 			if(err)
 				console.warn('adminGetMethods', err);
 			else {
+				//console.log('Admin: methods ', names)
 				_.each(names, function(name) {
-					if(!self[name]){
-						self[name] = function() {
+					var localname = name.replace(self.prefix,'');
+					if(!self[localname]){
+						self[localname] = function() {
 							return Meteor.apply(name, arguments);
 						};
 					}

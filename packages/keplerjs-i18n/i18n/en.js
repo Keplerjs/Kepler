@@ -70,7 +70,7 @@ i18n.map ('en', {
 	btn_signingp: "Register with Google",
 	btn_forgotpw: "Lost Password?",
 	btn_friendadd: "Add",
-	btn_frienddel: "Remove",
+	btn_frienddel: "Unfriend",
 	btn_friendpending: "Waiting ...",
 	btn_friendconfirm: "Confirm Friendship",
 	btn_friendreceive: "Request for Friendship",

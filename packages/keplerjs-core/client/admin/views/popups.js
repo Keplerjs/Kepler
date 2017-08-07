@@ -24,25 +24,9 @@ Template.popupPlace_admin.events({
 		
 		self.marker.drag();
 	},
-	'click .popup-canc': function(e,tmpl) {
+	'click .popup-movecanc': function(e,tmpl) {
 		$(e.target).hide();
 		$(e.target).siblings('.popup-move').text('Move');
 		this.marker.drag();
-	},	
-	'click .popup-clone': function(e,tmpl) {
-		Meteor.call('clonePlace', this.id, function(err, placeId) {
-			Meteor.subscribe('placeById', placeId, function() {
-				var place = K.placeById(placeId);
-				K.Map.addItem( place );
-				place.showLoc();
-			});
-		});
-	},	
-	'click .popup-ren': function(e,tmpl) {
-		var self = this;
-		//if(confirm("Rinominare?"))
-			Meteor.call('renamePlace', this.id, tmpl.$('.popup-reninput').val(), function() {
-				self.update();
-			});
 	}
 });

@@ -1,40 +1,12 @@
 
 K.Admin.methods({
-	removePlaceById: function(placeId) {
+	removePlace: function(placeId) {
 
 		if(!K.Admin.isMe()) return null;
 
-		Meteor.call('removePlace', placeId);
-	},
-	clonePlace: function(placeId) {
+		Places.remove(placeId);
 
-		if(!K.Admin.isMe()) return null;
-
-		var place = K.findPlaceById(placeId).fetch()[0],
-			offset = 0.02;
-
-		place.loc[0] += offset;
-		place.loc[1] += offset;
-		
-		delete place._id;
-
-		place.name = '(copy)'+place.name;
-
-		var newId = Meteor.call('insertPlace', place);
-		
-		console.log('Admin: clonePlace', place.name);
-
-		return newId;
-	},
-	renamePlace: function(placeId, name) {
-		
-		if(!K.Admin.isMe()) return null;
-
-		var iname = K.Util.sanitizeName(name);
-
-		Places.update(placeId, {$set: {name: iname} });
-		
-		console.log('Admin: renamePlace', placeId, name);
+		console.log('Admin: removePlace', placeId);		
 	},
 	movePlace: function(placeId, loc) {
 
