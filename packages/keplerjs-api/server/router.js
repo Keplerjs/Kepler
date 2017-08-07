@@ -1,6 +1,6 @@
 //https://github.com/mondora/mondora-iron-router-rest-auth/
 
-var paths = {
+var urls = {
 		root: '/api',
 		place: '/api/place/:name',
 		placeHist: '/api/place/:name/hist',
@@ -32,12 +32,12 @@ function writeOut(req, res, out) {
 	res.end( JSON.stringify(out) );
 }
 
-Router.route(paths.root, opts)
+Router.route(urls.root, opts)
 .get(function (req, res) {
 
 	var out = {};
 
-	_.each(paths, function(path, name) {
+	_.each(urls, function(path, name) {
 		path = path.replace(/^\//,'')
 				   .replace(/:name/,'<name>');
 		out[name] = Meteor.absoluteUrl(path);
@@ -46,7 +46,7 @@ Router.route(paths.root, opts)
 	writeOut(req, res, out);
 });
 
-Router.route(paths.place, opts)
+Router.route(urls.place, opts)
 .get(function (req, res) {
 
 	var out = Places.findOne({name: this.params.name }, K.filters.placeItem);
@@ -56,7 +56,7 @@ Router.route(paths.place, opts)
 	writeOut(req, res, out);
 });
 
-Router.route(paths.placeHist, opts)
+Router.route(urls.placeHist, opts)
 .get(function (req, res) {
 
 	var placeData = Places.findOne({name: this.params.name }),
@@ -65,7 +65,7 @@ Router.route(paths.placeHist, opts)
 	writeOut(req, res, out);
 });
 
-Router.route(paths.placeCheckins, opts)
+Router.route(urls.placeCheckins, opts)
 .get(function (req, res) {
 
 	var placeData = Places.findOne({name: this.params.name }),
@@ -74,7 +74,7 @@ Router.route(paths.placeCheckins, opts)
 	writeOut(req, res, out);
 });
 
-Router.route(paths.placeConvers, opts)
+Router.route(urls.placeConvers, opts)
 .get(function (req, res) {
 
 	var placeData = Places.findOne({name: this.params.name }),
@@ -83,7 +83,7 @@ Router.route(paths.placeConvers, opts)
 	writeOut(req, res, out);
 });
 
-Router.route(paths.searchPlace, opts)
+Router.route(urls.searchPlace, opts)
 .get(function (req, res) {
 
 	var out = K.getPlacesByName(this.params.name).fetch();
@@ -91,7 +91,7 @@ Router.route(paths.searchPlace, opts)
 	writeOut(req, res, out);
 });
 
-Router.route(paths.searchUser, opts)
+Router.route(urls.searchUser, opts)
 .get(function (req, res) {
 
 	var out = K.getPlacesByName(this.params.name).fetch();

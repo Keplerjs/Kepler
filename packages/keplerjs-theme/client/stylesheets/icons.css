@@ -223,6 +223,8 @@ div.leaflet-marker-icon {
 .icon-osm{ background-position: -180px -300px; } 
 .icon-goo{ background-position: -180px -330px; } 
 
+.icon-git{ background-position: -180px -360px; } 
+
 .icon-lang-it{ background-position: -210px 0;      } 
 .icon-lang-fr{ background-position: -210px -30px;  }
 .icon-lang-de{ background-position: -210px -60px;  } 

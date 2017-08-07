@@ -33,15 +33,6 @@ Router.waitOn(function() {
 	}
 });
 
-/*
-Template.layoutMap.onRendered(function() {
-	K.Map.init($('#map')[0], K.Profile.getOpts('map'));
-});
-Template.layoutMap.onDestroyed(function() {
-	K.Map.destroy();
-});
-*/
-
 Router.onAfterAction(function() {
 
 	var routeName = this.route.getName();
@@ -51,7 +42,14 @@ Router.onAfterAction(function() {
 	if(this.ready() && K.Profile.ready) {
 
 		if(this.route.options.layoutTemplate==='layoutMap') {
-
+			/*
+			Template.layoutMap.onRendered(function() {
+				K.Map.init($('#map')[0], K.Profile.getOpts('map'));
+			});
+			Template.layoutMap.onDestroyed(function() {
+				K.Map.destroy();
+			});
+			*/
 			//PATCH render map after template layoutMap is rendered
 			//Template.layoutMap.onRendered(function() {
 
@@ -83,8 +81,6 @@ Router.map(function() {
 			Router.go('home');
 		}
 	});
-
-	//MAP PAGES
 
 	this.route('root', {
 		path: '/',
