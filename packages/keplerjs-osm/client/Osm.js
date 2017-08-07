@@ -42,7 +42,7 @@ Kepler.Osm = {
 					f.templatePopup = 'popupGeojson_osm';
 					return f;
 				});
-				//K.Map.cursor.hide();
+				K.Map.cursor.hide();
 				K.Map.layers.geojson.clearLayers().addData(geojson);
 				K.Map.layers.geojson.invoke('openPopup');
 			}
@@ -81,8 +81,11 @@ Kepler.Osm = {
 
 			if(err)
 				console.log(err)
-			else
+			else {
+				//K.Map.cursor.hide();
+				K.Map.layers.geojson.clearLayers();
 				Router.go('panelPlace', {placeId: placeId});
+			}
 			
 		});
 	},

@@ -16,7 +16,10 @@ Meteor.methods({
 
 		if(!this.userId) return null;
 
-		Places.remove(placeId);
+		var placeData = Places.findOne(placeId);
+		
+		if(placeData.userId === this.userId)
+			Places.remove(placeId);
 
 		console.log('removePlace', placeId);
 	}

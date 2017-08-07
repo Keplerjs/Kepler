@@ -53,10 +53,11 @@ Meteor.methods({
 		
 		if(!obj) return null;
 
-		var placeData = osmToPlace(obj);	
+		var placeData = osmToPlace(obj);
+		
 		var placeId = Meteor.call('insertPlace', placeData);
 		
-		console.log('Osm: insertPlaceByOsmId', osmId, placeData);
+		console.log('Osm: insertPlaceByOsmId', osmId);
 
 		return placeId;
 	}

@@ -1,22 +1,4 @@
 
-Template.popupCursor_admin.events({
-	'click .btn-create': function(e,tmpl) {
-		Meteor.call('insertPlace', this.loc, function(err, placeId) {
-
-			K.Map.cursor.hide();
-
-			Meteor.subscribe('placeById', placeId, function() {
-				
-				var place = K.placeById(placeId);
-				
-				K.Map.addItem( place );
-
-				place.loadPanel();
-			});
-		});
-	},
-});
-
 Template.popupPlace_admin.events({
 //	debug actions
 	'click .popup-move': function(e,tmpl) {
@@ -56,14 +38,6 @@ Template.popupPlace_admin.events({
 			});
 		});
 	},	
-	'click .popup-del': function(e,tmpl) {
-		var self = this;
-		if(confirm("Eliminare?"))
-			Meteor.call('removePlace', self.id, function(err) {
-				K.Map.removeItem(self);
-				Router.go('root');
-			});
-	},
 	'click .popup-ren': function(e,tmpl) {
 		var self = this;
 		//if(confirm("Rinominare?"))

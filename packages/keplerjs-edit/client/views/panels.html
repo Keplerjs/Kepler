@@ -3,7 +3,7 @@
 {{#if or createdAt userId}}
 
 	<div class="row">
-		<div class="col-sm-8">
+		<div class="col-sm-6">
 		{{#if createdAt}}
 			<label>{{i18n 'label_createdAt'}}</label>
 			<time>{{humanDateUTC createdAt}}</time>
@@ -16,15 +16,42 @@
 			{{/with}}
 		{{/if}}
 		</div>
-		<div class="col-sm-3 text-right">
+		<div class="col-sm-6 text-right">
 		{{#if isEditable}}
-			<a class="btn btn btn-default disabled" href="#">
+		<div class="btn-group" role="group">
+			<a class="btn btn btn-default" href="/place/{{id}}/edit">
 				<i class="icon icon-edit"></i> {{i18n 'btn_edit'}}
 			</a>
+			<a class="btn-editdel btn btn btn-default" href="#">
+				<i class="icon icon-del"></i>
+			</a>
+		</div>
 		{{/if}}
 		</div>
 	</div>
 	<hr />
 
 {{/if}}
+</template>
+
+
+<template name="panelPlaceEdit">
+
+	<div id="place" class="panel">
+		<div class="panel-heading bg-primary">
+			<h4 class="pull-left">
+				<a class="backhist" href="javascript:history.back()"><i class="icon icon-ar-left-w"></i></a> 
+				{{i18n 'title_edit'}}: {{#if name}} {{name}} {{else}}<i>{{i18n 'label_noname'}}</i>{{/if}}
+			</h4>
+			<a class="close pull-right" href="/">&times;</a>
+		</div>
+		<div class="panel-body">
+
+			<em>Work in progress...</em>
+		
+			{{> pluginPlaceholder name='panelPlaceEdit'}}
+
+		</div>	
+	</div>
+
 </template>

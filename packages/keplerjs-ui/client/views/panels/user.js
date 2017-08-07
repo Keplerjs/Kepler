@@ -14,14 +14,14 @@ Template.panelUser.helpers({
 });
 */
 Template.user_btns2.onRendered(function() {
-	
-	this.$('.user-btn-del')
+	var self = this;
+	self.$('.user-btn-del')
 		.btsConfirmButton(i18n('btn_frienddel'), function(e) {
-			K.Profile.friendDel($(e.target).data('userid'));
+			K.Profile.friendDel(self.data.id);
 		});
-	this.$('.user-btn-block')
+	self.$('.user-btn-block')
 		.btsConfirmButton(i18n('btn_userBlock'), function(e) {
-			K.Profile.userBlock($(e.target).data('userid'));
+			K.Profile.userBlock(self.data.id);
 		});	
 });
 
