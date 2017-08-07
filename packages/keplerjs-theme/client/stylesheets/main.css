@@ -1,9 +1,8 @@
 body {
-	/*font-family: Helvetica,Arial,sans-serif;*/
-	font-family: Roboto, Arial, sans-serif;
+	font-family: Helvetica,Arial,sans-serif;
 	color: #2b5777;	
 	background: url('/packages/keplerjs_theme/assets/images/back-hex.png') repeat-x top center;
-	background-color: #eee;		
+	background-color: #ddd;	
 }
 .loading-sm {
 	background: url('/packages/keplerjs_theme/assets/images/loader-sm.gif') no-repeat center center #fff;
@@ -39,4 +38,3 @@ body {
 	letter-spacing: 2px;
 	text-shadow: 0 0 3px rgba(0,0,0,0.2);
 }
-
