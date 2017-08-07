@@ -54,6 +54,8 @@ A plugin only need to make your own package depend on *keplerjs:core* or others 
 #### Base Plugins
 
 * [keplerjs:api](packages/keplerjs-api)
+* [keplerjs:edit](packages/keplerjs-edit)
+* [keplerjs:admin](packages/keplerjs-admin)
 * [keplerjs:theme](packages/keplerjs-theme)
 * [keplerjs:categories](packages/keplerjs-categories)
 * [keplerjs:conver](packages/keplerjs-conver)
