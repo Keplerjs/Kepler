@@ -26,9 +26,6 @@ Kepler = K = {
 	Profile: {},     //module for user logged data       (client)
 	Map: {},         //module map, controls, layers      (client)
 
-	//managing
-	Admin: {},       //methods only for admin users      (client,server)
-
 	extend: function(e) {
 		_.extend(this, e);
 	}

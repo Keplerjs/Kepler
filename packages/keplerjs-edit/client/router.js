@@ -1,9 +1,9 @@
 
 Router.map(function() {
 
-	this.route('panelPlaceEdit', {
+	this.route('panelEdit', {
 		path: '/place/:placeId/edit',
-		template: 'panelPlaceEdit',
+		template: 'panelEdit',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			return Meteor.subscribe('placeById', this.params.placeId);

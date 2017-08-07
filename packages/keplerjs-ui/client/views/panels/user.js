@@ -15,14 +15,12 @@ Template.panelUser.helpers({
 */
 Template.user_btns2.onRendered(function() {
 	var self = this;
-	self.$('.user-btn-del')
-		.btsConfirmButton(i18n('btn_frienddel'), function(e) {
-			K.Profile.friendDel(self.data.id);
-		});
-	self.$('.user-btn-block')
-		.btsConfirmButton(i18n('btn_userBlock'), function(e) {
-			K.Profile.userBlock(self.data.id);
-		});	
+	self.$('.user-btn-del').btsConfirmButton(function(e) {
+		K.Profile.friendDel(self.data.id);
+	});
+	self.$('.user-btn-block').btsConfirmButton(function(e) {
+		K.Profile.userBlock(self.data.id);
+	});	
 });
 
 Template.user_btns2.events({

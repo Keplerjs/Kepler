@@ -1,4 +1,5 @@
 
+if(K.Admin)
 K.Admin.methods({
 	insertNotif: function(text, type) {
 		

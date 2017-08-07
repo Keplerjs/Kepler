@@ -74,7 +74,7 @@ i18n.map ('en', {
 	btn_friendpending: "Waiting ...",
 	btn_friendconfirm: "Confirm Friendship",
 	btn_friendreceive: "Request for Friendship",
-	btn_userBlock: "Block",
+	btn_userBlock: "Block user!",
 	btn_usersblocked: "Blocked Users",
 	btn_userUnblock: "Unlock",
 	map_attrib: "<a href=\"http://osm.org/\"> osm.org </a>",

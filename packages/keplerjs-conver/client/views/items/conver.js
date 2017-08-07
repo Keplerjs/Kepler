@@ -3,15 +3,12 @@ Template.item_conver.onRendered(function() {
 	
 	var convid = this.data._id;
 
-	this.$('.conver-btn-del')
-		.btsConfirmButton(i18n('btn_converdel'), function(e) {
-			
-			var btn$ = $(e.target),
-				list$ = btn$.parents('.list-group');
+	this.$('.conver-btn-del').btsConfirmButton(function(e) {
 
-			K.Conver.removeConver( convid );		
-			btn$.parents('.list-group-item').remove();
-		});
+		K.Conver.removeConver( convid );
+
+		$(e.target).parents('.list-group-item').remove();
+	});
 });
 
 Template.item_conver.helpers({

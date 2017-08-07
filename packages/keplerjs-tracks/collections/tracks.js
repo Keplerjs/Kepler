@@ -2,11 +2,11 @@
 Tracks = new Mongo.Collection('tracks');
 
 /*	
-//TODO make observer
+//TODO move to Tracks.after.insert(function(){ ... })
 
-updateTracks: function() {		//estende proprieta di una traccia con dati geografici
+updateTracksGeoinfo: function() {
 
-		if(!K.Admin.isMe()) return null;
+//estende proprieta di una traccia con dati geografici
 
 		Tracks.find().forEach(function (track) {
 

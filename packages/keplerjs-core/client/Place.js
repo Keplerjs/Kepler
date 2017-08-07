@@ -106,14 +106,7 @@ Kepler.extend({
 		check(id, String);
 		
 		if(!K.placesById[id] && K.findPlaceById(id).fetch()[0])
-		{
 			K.placesById[id] = new K.Place(id);
-			
-			if(K.Admin.isMe()) {
-				var iname = K.Util.sanitizeFilename(K.placesById[id].name);
-				K.Admin.placesByName[iname || 'id_'+id] = K.placesById[id];
-			}
-		}
 		
 		return K.placesById[id] || null;
 	}

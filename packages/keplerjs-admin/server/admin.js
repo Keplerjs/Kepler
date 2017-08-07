@@ -10,7 +10,6 @@ Meteor.methods({
 	}
 });
 
-
 Users.after.insert(function(userId, doc) {
 	
 	if(K.settings.admin.adminUsers) {

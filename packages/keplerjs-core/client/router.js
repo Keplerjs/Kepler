@@ -25,7 +25,8 @@ Router.waitOn(function() {
 
 					i18n.setLanguage(data.lang);
 
-					if(K.Admin.isMe())
+					//TODO move to plugin admin
+					if(K.Admin && K.Admin.isMe())
 						K.Admin.loadMethods();
 				});
 			});

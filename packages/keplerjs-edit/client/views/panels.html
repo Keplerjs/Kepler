@@ -22,7 +22,7 @@
 			<a class="btn btn btn-default" href="/place/{{id}}/edit">
 				<i class="icon icon-edit"></i> {{i18n 'btn_edit'}}
 			</a>
-			<a class="btn-editdel btn btn btn-default" href="#">
+			<a class="btn-editdel btn btn btn-default" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
 				<i class="icon icon-del"></i>
 			</a>
 		</div>
@@ -35,7 +35,7 @@
 </template>
 
 
-<template name="panelPlaceEdit">
+<template name="panelEdit">
 
 	<div id="place" class="panel">
 		<div class="panel-heading bg-primary">
@@ -48,7 +48,7 @@
 		<div class="panel-body">
 
 			<div class="text-right">
-				<a class="btn-editdel btn btn btn-default" href="#">
+				<a class="btn-editdel btn btn btn-default" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
 					<i class="icon icon-del"></i> {{i18n 'btn_del'}}
 				</a>
 			</div>
@@ -63,7 +63,7 @@
 				</span>
 			</div>
 
-			{{> pluginPlaceholder name='panelPlaceEdit'}}
+			{{> pluginPlaceholder name='panelEdit'}}
 
 		</div>	
 	</div>

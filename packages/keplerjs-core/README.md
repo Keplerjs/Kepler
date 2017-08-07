@@ -22,7 +22,6 @@ contains the heart of Kepler, and itself depends on a set of core packages: *kep
 │   └── users.js
 │
 ├── modules
-│   ├── Admin.js
 │   ├── Cache.js
 │   ├── filters.js
 │   ├── placeholders.js

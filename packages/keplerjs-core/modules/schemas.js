@@ -43,7 +43,6 @@ Kepler.schemas = {
 		usersReceive: [],  //ids users that I receive request
 		usersBlocked: [],  //ids users that I blocked
 		hist: [],		   //last places visited
-		isAdmin:0,		   //if user is an admin
 		source: {},		   //source of registration by single signon		
 		settings: {
 			map: {
