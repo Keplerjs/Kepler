@@ -12,7 +12,7 @@ Router.map(function() {
 			if(!this.ready()) return null;
 			var place = K.placeById( this.params.placeId );
 
-			if(!place){
+			if(!place) {
 				Router.go('root');
 				return null;
 			}

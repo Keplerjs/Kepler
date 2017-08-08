@@ -1,10 +1,16 @@
 
 <template name="popupPlace_admin">
 
-	<div class="btn-group">
-		<a class="popup-move btn btn-sm btn-primary" href="#">Move</a> 
-		<a class="popup-movecanc btn btn-sm btn-default" style="display:none" href="#">Cancel</a>
-	</div>
+<!-- 		<a class="popup-move btn btn-primary" href="#">
+		Move
+	</a>  -->
+	<a class="popup-movecanc btn btn-default" style="display:none" href="#">
+		Cancel
+	</a>
+	<a class="btn-editdel btn btn btn-default" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
+		<i class="icon icon-del"></i> {{i18n 'btn_del'}}
+	</a>
+
 	
 </template>
 

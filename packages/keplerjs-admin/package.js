@@ -27,11 +27,12 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'client/Place_admin.js',
+    'client/helpers.js',    
     'client/views/panels.html',
-    //'client/views/panels.js',
-/*    'client/views/popups.html',
+    'client/views/panels.js',
+    'client/views/popups.html',
     'client/views/popups.js',
-    'client/router.js' */   
+    //'client/router.js'   
   ],'client');
 
   api.addFiles([

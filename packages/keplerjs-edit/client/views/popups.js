@@ -6,7 +6,7 @@ Template.popupCursor_edit.events({
 
 			Meteor.subscribe('placeById', placeId, function() {
 
-				Router.go('panelPlaceEdit', {placeId: placeId});
+				Router.go('panelEdit', {placeId: placeId});
 
 				var place = K.placeById(placeId);
 				

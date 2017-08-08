@@ -28,13 +28,6 @@ Template.popupOsm.helpers({
 		var ret = [];
 
 		_.each(this.properties.tags, function(val, key) {
-						
-/*			var K = key,
-				keys = key.split(':');
-
-			if(keys[0])
-				K = keys[0];*/
-
 			ret.push({
 				key: key,
 				url: 'http://wiki.openstreetmap.org/wiki/Key:'+key,

@@ -29,6 +29,10 @@ Kepler.Admin = {
 			return false
 	},
 
+	call: function(method) {
+		return Meteor.apply(this.prefix+method);
+	},
+
 	methods: function(defs) {	//server
 	
 		var self = this;

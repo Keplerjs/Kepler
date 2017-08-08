@@ -132,9 +132,9 @@ Kepler.extend({
 	userById: function(id) {
 		check(id, String);
 		
-		if(!K.usersById[id] && K.findUserById(id).fetch()[0])
-			K.usersById[id] = new K.User(id);
+		if(!K.usersById['id_'+id] && K.findUserById(id).fetch()[0])
+			K.usersById['id_'+id] = new K.User(id);
 		
-		return K.usersById[id] || null;
+		return K.usersById['id_'+id] || null;
 	}
 });

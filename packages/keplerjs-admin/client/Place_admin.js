@@ -1,11 +1,12 @@
-/*
-TODO extend isEditable
+
+
 Kepler.Place.include({
 	
 	isEditable: function() {
-		return this.userId ? K.Profile.id === this.userId : false;
+
+		return K.Admin.isMe() || (this.userId ? K.Profile.id === this.userId : false);
 	}
-});*/
+});
 
 /*
 Kepler.extend({

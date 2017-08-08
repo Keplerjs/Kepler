@@ -109,9 +109,9 @@ Kepler.extend({
 	placeById: function(id) {
 		check(id, String);
 		
-		if(!K.placesById[id] && K.findPlaceById(id).fetch()[0])
-			K.placesById[id] = new K.Place(id);
+		if(!K.placesById['id_'+id] && K.findPlaceById(id).fetch()[0])
+			K.placesById['id_'+id] = new K.Place(id);
 		
-		return K.placesById[id] || null;
+		return K.placesById['id_'+id] || null;
 	}
 });
