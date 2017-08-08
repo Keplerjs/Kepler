@@ -47,6 +47,7 @@ iron:middleware-stack@1.0.9
 iron:router@1.0.9
 iron:url@1.0.9
 jquery@1.11.6
+keplerjs:admin@1.1.0
 keplerjs:conver@1.1.0
 keplerjs:core@1.1.0
 keplerjs:edit@1.1.0
@@ -54,10 +55,12 @@ keplerjs:favorites@1.1.0
 keplerjs:geoinfo@1.1.0
 keplerjs:i18n@1.1.0
 keplerjs:lib@1.1.0
+keplerjs:notif@1.1.0
 keplerjs:osm@1.1.0
 keplerjs:share@1.1.0
 keplerjs:theme@1.1.0
 keplerjs:ui@1.1.0
+keplerjs:weather@1.1.0
 kidovate:bootstrap-slider@0.0.5
 launch-screen@1.0.8
 livedata@1.0.16
@@ -112,3 +115,4 @@ url@1.0.7
 verron:autosize@3.0.8
 webapp@1.2.6
 webapp-hashing@1.0.7
+zenorocha:clipboard@1.7.1

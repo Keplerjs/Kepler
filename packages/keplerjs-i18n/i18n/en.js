@@ -62,7 +62,7 @@ i18n.map ('en', {
 	btn_verify: "Verify",
 	btn_verified: "Verified",
 	btn_notverified: "Verify",
-	btn_logout: "Exit",
+	btn_logout: "Logout",
 	btn_home: "Homepage",
 	btn_enter: "Log in",
 	btn_signup: "Register",

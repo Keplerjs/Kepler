@@ -39,7 +39,8 @@
     font-size: 14px;
 }
 
-.sidebar > .nav > li > a.btn-connect-connected {
+.sidebar > .nav > li .btn-connect-status,
+.sidebar > .nav > li .btn-connect-connected {
     display: none;
 }
 

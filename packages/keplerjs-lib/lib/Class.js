@@ -44,6 +44,8 @@ Class.include = function (props) {
 	_.extend(this.prototype, props);
 };
 
+//TODO https://github.com/scottcorgan/tiny-emitter
+
 //TODO include https://github.com/jeromeetienne/microevent.js/blob/master/package.json
 
 

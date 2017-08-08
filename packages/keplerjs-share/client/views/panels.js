@@ -12,18 +12,21 @@ Template.panelPlace_share.helpers({
 		return {
 			google: _.template("http://maps.google.com/maps?ll={lat},{lon}&amp;spn=0.5,0.5&amp;t=h&amp;q={lat},{lon}", loc),
 			apple: _.template("http://maps.apple.com/?ll={lat},{lon}", loc),
-			//TODO bing: _.template("http://maps.live.com/default.aspx?v=2&amp;cp={lat}~{lon}&amp;style=h", loc),			
-			osm: _.template("http://osm.org/?mlat={lat}&amp;mlon={lon}#map={zoom}/{lat}/{lon}", loc)
+			osm: _.template("http://osm.org/?mlat={lat}&amp;mlon={lon}#map={zoom}/{lat}/{lon}", loc),
+			//TODO bing: _.template("http://maps.live.com/default.aspx?v=2&amp;cp={lat}~{lon}&amp;style=h", loc),
 		};
 
 	}
 });
 
-Template.panelPlace_share.events({
-	'click .input-share': function(e, tmpl) {
-		$(e.target).select();
-	}
-})
+Template.panelPlace_share.onRendered(function() {
+	var self = this;
+	var clip = new Clipboard( this.find('.btn-share') );
+	clip.on('success', function(e) {
+        self.$('.btn-share').tooltip('show')
+    });
+
+});
 
 /*
 Google Maps
