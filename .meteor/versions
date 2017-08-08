@@ -47,8 +47,10 @@ iron:middleware-stack@1.0.9
 iron:router@1.0.9
 iron:url@1.0.9
 jquery@1.11.6
+keplerjs:conver@1.1.0
 keplerjs:core@1.1.0
 keplerjs:edit@1.1.0
+keplerjs:favorites@1.1.0
 keplerjs:geoinfo@1.1.0
 keplerjs:i18n@1.1.0
 keplerjs:lib@1.1.0
@@ -107,5 +109,6 @@ ui@1.0.9
 underscore@1.0.6
 underscorestring:underscore.string@3.2.0
 url@1.0.7
+verron:autosize@3.0.8
 webapp@1.2.6
 webapp-hashing@1.0.7

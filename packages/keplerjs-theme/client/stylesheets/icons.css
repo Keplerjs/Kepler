@@ -36,10 +36,6 @@
 	height: 18px;
 	width: 18px;
 }
-.btn > .icon,
-.list-group-item > .icon {
-	margin-right: 2px;
-}
 .icon-avatar {
 	height: 30px;
 	width: 30px;

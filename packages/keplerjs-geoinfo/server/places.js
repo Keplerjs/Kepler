@@ -2,8 +2,6 @@
 K.extend({
 	updatePlaceGeoinfo: function(place) {
 	
-		if(!K.Admin.isMe()) return null;
-		
 		console.log('Geoinfo: updatePlaceGeoinfo ', place.name);
 
 		var ret = K.Geoinfo.getFieldsByLoc(place.loc);

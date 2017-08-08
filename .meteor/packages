@@ -19,8 +19,8 @@ keplerjs:edit
 #keplerjs:categories
 keplerjs:share
 keplerjs:osm
-#keplerjs:favorites
-#keplerjs:conver
+keplerjs:favorites
+keplerjs:conver
 keplerjs:geoinfo
 #keplerjs:weather
 #keplerjs:googlemaps

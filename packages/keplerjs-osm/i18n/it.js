@@ -1,6 +1,6 @@
 
 i18n.map('it', {
-	title_placeOsm: "Dati OpenStreetMap",
+	title_placeOsm: "OpenStreetMap",
 	label_osminfo: "OpenStreetMap info",
 	
 	label_osmid: "Id",
