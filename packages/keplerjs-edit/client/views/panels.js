@@ -1,17 +1,4 @@
 
-Template.panelPlace_edit.onRendered(function() {
-	var self = this;
-	self.$('.btn-editdel').btsConfirmButton(function(e) {
-			
-		Meteor.call('removePlace', self.data.id, function(err) {
-		
-			K.Map.removeItem(self.data);
-		
-			Router.go('root');
-		});			
-	});
-});
-
 Template.panelEdit.onRendered(function() {
 	var self = this;
 	self.$('.btn-editdel').btsConfirmButton(function(e) {

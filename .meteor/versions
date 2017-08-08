@@ -47,22 +47,15 @@ iron:middleware-stack@1.0.9
 iron:router@1.0.9
 iron:url@1.0.9
 jquery@1.11.6
-keplerjs:admin@1.1.0
-keplerjs:api@1.1.0
-keplerjs:conver@1.1.0
 keplerjs:core@1.1.0
 keplerjs:edit@1.1.0
-keplerjs:favorites@1.1.0
 keplerjs:geoinfo@1.1.0
 keplerjs:i18n@1.1.0
 keplerjs:lib@1.1.0
-keplerjs:notif@1.1.0
 keplerjs:osm@1.1.0
 keplerjs:share@1.1.0
 keplerjs:theme@1.1.0
 keplerjs:ui@1.1.0
-keplerjs:upload@1.1.0
-keplerjs:weather@1.1.0
 kidovate:bootstrap-slider@0.0.5
 launch-screen@1.0.8
 livedata@1.0.16
@@ -79,7 +72,6 @@ modules@0.5.1
 modules-runtime@0.6.1
 mongo@1.1.5
 mongo-id@1.0.2
-mrt:imagemagick@0.1.2
 mrt:modernizr-meteor@2.6.2
 npm-bcrypt@0.7.8_2
 npm-mongo@1.4.41
@@ -115,6 +107,5 @@ ui@1.0.9
 underscore@1.0.6
 underscorestring:underscore.string@3.2.0
 url@1.0.7
-verron:autosize@3.0.8
 webapp@1.2.6
 webapp-hashing@1.0.7

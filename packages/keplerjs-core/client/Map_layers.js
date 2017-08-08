@@ -23,6 +23,11 @@ _.extend(Kepler.Map, {
 					});
 					return K.findCheckinsCountByPlaces(places);
 				};
+
+				clust.getChildCount = function() {
+					console.log(this)
+					return this._markers.length
+				};
 				
 				if(!clust.icon) {
 					Blaze.renderWithData(Template.item_place_cluster, clust, clust.$icon);
