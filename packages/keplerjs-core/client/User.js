@@ -60,7 +60,12 @@ Kepler.User = Class.extend({
 		var self = this;
 		
 		if(!self.marker) {
+			var iconOpts = K.settings.public.map.icons;
 			self.icon = new L.NodeIcon({
+				/*conSize: new L.Point(iconOpts.iconSize),
+				iconAnchor: new L.Point(iconOpts.iconAnchor),
+				popupAnchor: new L.Point(iconOpts.popupAnchor),*/
+				nodeHtml: L.DomUtil.create('div'),
 				className: self.isMe() ? 'marker-profile' : 'marker-friend'
 			});
 			self.marker = new L.Marker(self.loc, {icon: self.icon});

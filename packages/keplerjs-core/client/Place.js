@@ -51,7 +51,11 @@ Kepler.Place = Class.extend({
 		var self = this;
 
 		if(!self.marker) {
+			var iconOpts = K.settings.public.map.icons;
 			self.icon = new L.NodeIcon({
+				/*iconSize: new L.Point(iconOpts.iconSize),
+				iconAnchor: new L.Point(iconOpts.iconAnchor),
+				popupAnchor: new L.Point(iconOpts.popupAnchor),*/
 				nodeHtml: L.DomUtil.create('div'),
 				className: self.name ? 'marker-place' : 'marker-gray',
 			});
