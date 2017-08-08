@@ -25,7 +25,6 @@ _.extend(Kepler.Map, {
 				};
 
 				clust.getChildCount = function() {
-					console.log(this)
 					return this._markers.length
 				};
 				

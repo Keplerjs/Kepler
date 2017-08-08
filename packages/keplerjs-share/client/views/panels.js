@@ -21,11 +21,14 @@ Template.panelPlace_share.helpers({
 
 Template.panelPlace_share.onRendered(function() {
 	var self = this;
-	var clip = new Clipboard( this.find('.btn-share') );
-	clip.on('success', function(e) {
-        self.$('.btn-share').tooltip('show')
-    });
-
+	new Clipboard(self.find('.btn-share'), {
+		target: function() {
+			return self.find('.input-share');
+		}
+	}).on('success', function() {
+		self.$('.btn-share').tooltip('show');
+		self.$('.input-share').blur()
+	})
 });
 
 /*
