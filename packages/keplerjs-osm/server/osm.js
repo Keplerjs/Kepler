@@ -49,12 +49,13 @@ Meteor.methods({
         lat: loc[0], lon: loc[1],
         filter: filter ? '['+filter+']' : '',
         type: 'node',
-        radius: 20,        
+        radius: 200,        
         meta: overOpts.meta ? ' meta' : '',
         limit: 1
       });
 
     console.log('Osm: findOsmByLoc', '"'+query+'"');
+    console.log("https://overpass-api.de/api/interpreter?data="+encodeURIComponent(query));
 
     var future = new Future();
 
@@ -72,7 +73,7 @@ Meteor.methods({
 		
 		if(!this.userId) return null;
 
-    filter = filter || '~".+"~".+"';
+    filter = filter || '~".*"~"."';
 		
 		var query = _.template('[out:json];{type}({lat1},{lon1},{lat2},{lon2}){filter};out;', {
 				lat1: bb[0][0], lon1: bb[0][1],
@@ -81,7 +82,8 @@ Meteor.methods({
 				filter: filter ? '['+filter+']' : ''
 			});
 		
-    console.log('findOsmByBBox', query);
+    console.log('Osm: findOsmByBBox', query);
+    console.log("https://overpass-api.de/api/interpreter?data="+encodeURIComponent(query));
 
 		var future = new Future();
 
