@@ -119,19 +119,3 @@
 	background-color: rgba(255, 255, 255, 0.3);
 	z-index:1;
 }
-
-/* ATTRIBUTION */
-.leaflet-right.leaflet-bottom .leaflet-control.leaflet-control-attribution {
-	border: none;
-	background: none;
-	line-height: 12px;
-	color: #666;
-	padding: 0 4px 4px 4px;	
-	margin: 0 -4px -4px 0;
-	font-size: 11px;
-	text-shadow:0 0 2px #fff;
-}
-.leaflet-control-attribution a {
-	text-decoration: none;
-	letter-spacing: 1px;
-}

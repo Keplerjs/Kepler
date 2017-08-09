@@ -1,7 +1,10 @@
 body {
 	font-family: Helvetica,Arial,sans-serif;
-	color: #2b5777;
 	background-color: #ddd;
+	color: #257;	
+}
+a {
+	color: #257;
 }
 .loading-sm {
 	background: url('/packages/keplerjs_theme/assets/images/loader-sm.gif') no-repeat center center #fff;

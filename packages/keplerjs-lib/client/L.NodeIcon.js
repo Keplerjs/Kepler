@@ -7,8 +7,8 @@
 L.NodeIcon = L.Icon.extend({
 
 	options: {
-		iconSize: new L.Point(27, 30),
-		iconAnchor: new L.Point(13, 30),
+		iconSize: new L.Point(30, 30),
+		iconAnchor: new L.Point(15, 30),
 		popupAnchor: new L.Point(0, -30),
 		className: 'leaflet-div-icon',
 		nodeHtml: null

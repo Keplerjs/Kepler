@@ -4,11 +4,6 @@ _.extend(Kepler.Map, {
 
 		var controls = {};
 
-		controls.attrib = new L.Control.Attribution({
-			position: 'bottomright',
-			prefix: i18n('map_attrib')
-		});
-
 		var zOpts = {
 			position: 'bottomright'
 		};

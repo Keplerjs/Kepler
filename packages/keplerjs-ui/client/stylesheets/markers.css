@@ -47,7 +47,10 @@
 }
 .marker-cluster .badge-cluster {
 	position: absolute;
-	top: 10px;
-	left: 4px;
+	top: 7px;
+	left: 7px;
 }
 
+.leaflet-marker-icon {
+	border: none
+}

@@ -30,10 +30,11 @@ _.extend(Kepler.Map, {
 			iconCreateFunction: function(clust) {
 
 				clust.getCheckinsCount = function() {
-					var places = _.map(clust.getAllChildMarkers(), function(marker) {
+					var placeIds = _.map(clust.getAllChildMarkers(), function(marker) {
 						return marker.item.id;
 					});
-					return K.findCheckinsCountByPlaces(places);
+					console.log(placeIds)
+					return K.findCheckinsCountByPlaces(placeIds);
 				};
 				
 				var div = L.DomUtil.create('div');

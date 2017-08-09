@@ -37,7 +37,7 @@
 }
 .list-group-item,
 a.list-group-item {
-	color: #2b5777;
+	color: #257;
 }
 .list-group-item.active {
 	color: #fff;
@@ -86,10 +86,10 @@ a.list-group-item {
 	color: #5cb85c
 }
 .text-primary {
-    color: #2b5777;
+    color: #257;
 }
 .btn-default {
-	color: #2b5777
+	color: #257
 }
 
 .badge {
@@ -109,12 +109,12 @@ label {
 	background-color: #f80;
 }
 .badge.badge-cluster {
-	background-color: #2b5777;
+	background-color: #257;
 }
 .badge.badge-red,
 .list-group-item.active > .badge, .nav-pills > .active > a > .badge.badge-red {
 	background-color: #ef0000;
-	color: #2b5777;
+	color: #257;
 }
 .badge.badge-red {
 	color: #fff
