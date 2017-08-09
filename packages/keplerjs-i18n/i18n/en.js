@@ -46,8 +46,8 @@ i18n.map ('en', {
 	label_notfound: "No results found",
 	label_version: "Version",
 
-	btn_ok: "ok",
-	btn_cancel: "cancel",
+	btn_ok: "Ok",
+	btn_cancel: "Cancel",
 	btn_checkin: "Enter!",
 	btn_checkout: "Exit!",
 	btn_info: "Info",

@@ -10,10 +10,8 @@ var overOpts = {
   //overpassUrl: "http://overpass-api.de/api/interpreter"
 };
 /*
-http://overpass-api.de/api/interpreter
-http://overpass.osm.rambler.ru/cgi/interpreter
-http://api.openstreetmap.fr/oapi/interpreter
-https://overpass.osm.vi-di.fr/api/interpreter
+overpassUrl:"http://overpass.osm.rambler.ru/cgi/interpreter"
+overpassUrl:"http://api.openstreetmap.fr/oapi/interpreter"
 */
 Meteor.methods({
   
@@ -27,7 +25,7 @@ Meteor.methods({
         meta: overOpts.meta ? ' meta' : ''
       });
 
-    console.log('findOsmById', '"'+query+'"');
+    console.log('Osm: findOsmById', '"'+query+'"');
 
     var future = new Future();
 
@@ -56,7 +54,7 @@ Meteor.methods({
         limit: 1
       });
 
-    console.log('findOsmByLoc... ', query);
+    console.log('Osm: findOsmByLoc', '"'+query+'"');
 
     var future = new Future();
 

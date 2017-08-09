@@ -9,6 +9,19 @@ _.extend(Kepler.Map, {
 
 		layers.users = new L.LayerGroup();
 
+		layers.cursor = new L.Cursor({
+			className: 'marker-cursor'
+		});
+		layers.cursor.marker.on('click', function(e) {
+			var div = L.DomUtil.create('div'),
+				cursorData = {
+					loc: [e.latlng.lat, e.latlng.lng]
+				};
+			Blaze.renderWithData(Template.popupCursor, cursorData, div);
+			this.bindPopup(div.firstChild, { closeButton:false });
+		});
+
+		if(L.MarkerClusterGroup)
 		layers.cluster = new L.MarkerClusterGroup({
 			spiderfyDistanceMultiplier: 1.4,
 			showCoverageOnHover: false,
@@ -54,10 +67,15 @@ _.extend(Kepler.Map, {
 					abort: sub.stop
 				};
 			},
+			propertyId: '_id',			
 			dataToMarker: function(data) {	//eseguito una sola volta per ogni place
-				return K.placeById(data._id).marker;
+				var place= K.placeById(data._id),
+					mark = place.marker;
+				//console.log('dataToMarker',data,place,mark)
+				return mark;
 			}
 		});
+
 
 		layers.geojson = new L.GeoJSON(null, {
 			//DEBUG autoclear: false,

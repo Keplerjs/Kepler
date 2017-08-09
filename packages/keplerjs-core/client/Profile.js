@@ -71,6 +71,8 @@ Kepler.Profile = {
 		var self = this;
 		Meteor.call('setLoc', loc, function(err) {
 			self.user.update();
+			if(self.user && self.user.icon)
+				self.user.icon.animate();
 		});
 		return this;
 	},	

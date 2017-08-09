@@ -53,11 +53,6 @@ div.leaflet-marker-icon {
 	height:30px;
 }
 .marker-cursor {
-	background-position: -30px -150px;
-	height: 30px;
-	width: 30px;
-}
-.marker-cursor:hover {
 	background-position: -30px -180px;
 	height: 30px;
 	width: 30px;

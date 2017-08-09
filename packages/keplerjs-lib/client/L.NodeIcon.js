@@ -17,7 +17,8 @@ L.NodeIcon = L.Icon.extend({
 	createIcon: function(oldIcon) {
 		this.nodeHtml = oldIcon ? oldIcon : (this.options.nodeHtml || L.DomUtil.create('div'));
 		this._setIconStyles(this.nodeHtml, 'icon');
-		this.anim = L.DomUtil.create('div','marker-anim', this.nodeHtml);
+		if(!this.anim)
+			this.anim = L.DomUtil.create('div','marker-anim', this.nodeHtml);
 		this.anim.style.display = 'none';
 		return this.nodeHtml;
 	},
@@ -41,7 +42,3 @@ L.NodeIcon = L.Icon.extend({
 		return null;
 	}
 });
-
-L.nodeIcon = function (options) {
-	return new L.NodeIcon(options);
-};

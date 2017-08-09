@@ -7,7 +7,6 @@
 Kepler.Map = {
 
 	map: null,
-	cursor: null,
 	layers: {},
 	controls: {},
 	items: [],
@@ -38,16 +37,10 @@ Kepler.Map = {
 			zoomControl: false			
 		});
 
-		self.cursor = new L.Cursor({
-			popup: {
-				closeButton: false,
-				minWidth: 120
-			}
-		});
-
-		self.sidebar$ = $('#sidebar');
+		self.sidebar = $('#sidebar');
 
 		self.layers = self._initLayers(self.map);
+
 		self.controls = self._initControls(self.map);
 
 		self._addComponents();
@@ -76,23 +69,6 @@ Kepler.Map = {
 			self._deps.bbox.changed();
 		});
 
-		self.cursor.marker.on('click mousedown', function(e) {
-			var div = L.DomUtil.create('div',''),
-				cursorData = {
-					loc: [e.latlng.lat, e.latlng.lng]
-				};
-			Blaze.renderWithData(Template.popupCursor, cursorData, div);
-			this.bindPopup(div.firstChild, { closeButton:false });
-		})
-
-/*		self.cursor.on('popupopen', function(e) {
-			var cursorData = {
-					loc: [e.latlng.lat, e.latlng.lng]
-				};
-			this.popup$.innerHTML = '';
-			Blaze.renderWithData(Template.popupCursor, cursorData, this.popup$);
-		});*/
-
 		return this;
 	},
 
@@ -106,35 +82,23 @@ Kepler.Map = {
 
 			this.items = [];
 
-			this.map
-				.removeLayer(this.cursor)			
-				.removeLayer(l.baselayer)
-				.removeLayer(l.cluster)
-				.removeLayer(l.places)				
-				.removeLayer(l.geojson)
-				.removeLayer(l.users)				
-				.removeControl(c.attrib)
-				.removeControl(c.zoom)				
-				.removeControl(c.gps);
+			for(var l in this.layers)
+				this.map.removeLayer(this.layers[l])
 			
+			for(var c in this.controls)
+				this.map.removeControl(this.controls[c])
+
 			this.map.remove();	
 		}
 		return this;
 	},
 
 	_addComponents: function() {
-		var l = this.layers,
-			c = this.controls;		
-		this.map
-			.addLayer(this.cursor)
-			.addLayer(l.baselayer)
-			.addLayer(l.cluster)
-			.addLayer(l.places)				
-			.addLayer(l.geojson)
-			.addLayer(l.users)			
-			.addControl(c.attrib)
-			.addControl(c.zoom)
-			.addControl(c.gps);
+		for(var l in this.layers)
+			this.map.addLayer(this.layers[l]);
+		
+		for(var c in this.controls)
+			this.map.addControl(this.controls[c]);
 	},
 	
 	_setView: function(loc, zoom) {
@@ -142,7 +106,7 @@ Kepler.Map = {
 			this.map.setView(loc, zoom);
 			/*
 			//TODO 
-			if(this.sidebar$.hasClass('expanded')) {
+			if(this.sidebar.hasClass('expanded')) {
 				var p = this.map.latLngToContainerPoint(L.latLng(loc));
 				p = L.point(p.x - sidebar$.width(), p.y);
 				loc = this.map.containerPointToLatLng(p);
@@ -157,7 +121,7 @@ Kepler.Map = {
 		if(!this.ready()) return false;
 
 		var mapw = this.map.getSize().x,
-			panelw = (this.sidebar$.hasClass('expanded') && this.sidebar$.width()) || 0;
+			panelw = (this.sidebar.hasClass('expanded') && this.sidebar.width()) || 0;
 
 		return this.ready() && (mapw-panelw > 40);
 	},
@@ -176,9 +140,11 @@ Kepler.Map = {
 			if(opts.maxBounds)
 				this.map.setMaxBounds(opts.maxBounds);
 
-			this._setView(opts.center, opts.zoom);
+			if(opts.center)
+				this._setView(opts.center, opts.zoom);
 
-			this.layers.baselayer.setUrl( K.settings.public.map.layers[opts.layer] );
+			if(opts.layer)
+				this.layers.baselayer.setUrl( K.settings.public.map.layers[opts.layer] );
 		}
 		return this;
 	},
@@ -191,9 +157,9 @@ Kepler.Map = {
 				sw = bbox.getSouthWest(),
 				ne = bbox.getNorthEast();
 
-			if(this.sidebar$.hasClass('expanded')) {
+			if(this.sidebar.hasClass('expanded')) {
 				var p = this.map.latLngToContainerPoint(sw);
-				p.x += this.sidebar$.width();
+				p.x += this.sidebar.width();
 				sw = this.map.containerPointToLatLng(p);
 			}
 
@@ -244,7 +210,7 @@ Kepler.Map = {
 			geoData = _.isArray(geoData) ? geoData : [geoData];
 
 			if(!this.isVisible())
-				this.sidebar$.removeClass('expanded');
+				this.sidebar.removeClass('expanded');
 
 			this.map.closePopup();
 
@@ -268,6 +234,11 @@ Kepler.Map = {
 			this._setView(loc, zoom);
 		}
 		return this;
+	},
+	hideCursor: function() {
+		this.layers.cursor.hide();
+	},
+	showCursor: function(loc) {
+		this.layers.cursor.setLoc(loc)
 	}
 };
-

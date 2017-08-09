@@ -70,7 +70,7 @@ Kepler.User = Class.extend({
 			});
 			self.marker = new L.Marker(self.loc, {icon: self.icon});
 			self.marker.item = self;
-			self.marker.on('click mousedown', function(e) {
+			self.marker.on('click', function(e) {
 				if(!this._popup) {
 					var div = L.DomUtil.create('div','');
 					if(Template[self.templatePopup])

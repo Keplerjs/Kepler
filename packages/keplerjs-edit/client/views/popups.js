@@ -10,7 +10,7 @@ Template.popupCursor_edit.events({
 
 				var place = K.placeById(placeId);
 				
-				K.Map.cursor.hide();
+				K.Map.hideCursor();
 				K.Map.addItem( place );
 			});
 		});

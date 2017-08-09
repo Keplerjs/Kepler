@@ -15,10 +15,6 @@
 	cursor: move;
 }
 
-.leaflet-right {
-	z-index: 1;
-}
-
 /* CONTROLS */
 .leaflet-left.leaflet-top .leaflet-control,
 .leaflet-left.leaflet-bottom .leaflet-control,

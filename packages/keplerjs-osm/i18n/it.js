@@ -7,6 +7,6 @@ i18n.map('it', {
 	label_osmuser: "Utente",
 	label_osmdate: "Data",
 
-	btn_osmsearch: "Cerca luogo OSM vicino",
-	btn_osmcreate: "Create Luogo!"	
+	btn_osmsearch: "Cerca luogo OSM!",
+	btn_osmcreate: "Importa luogo OSM!"	
 });
