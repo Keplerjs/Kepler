@@ -76,12 +76,6 @@
 	background-position: -236px 0;
 }
 
-.marker-cluster .badge {
-	position: absolute;
-	bottom: -5px;
-	left: 0;
-}
-
 /* CONTROLS */
 .leaflet-control-search .search-button:hover,
 .leaflet-control-search .search-button {

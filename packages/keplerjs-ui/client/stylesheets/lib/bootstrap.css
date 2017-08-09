@@ -13,8 +13,9 @@
     background-color: #eee;
 }
 
-.btn,
-.list-group-item {
+.list-group .row,
+.btn-group .btn,
+.list-group {
 	background: #fff;
 	backface-visibility: hidden;
 }

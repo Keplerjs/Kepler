@@ -37,3 +37,17 @@
 	width: 38px;	
 	cursor: move;
 }
+
+.marker-place .badge-checkins,
+.marker-cluster .badge-checkins {
+	position: absolute;
+	top: -2px;
+	right: -2px;
+	z-index: 1000;
+}
+.marker-cluster .badge-cluster {
+	position: absolute;
+	top: 10px;
+	left: 4px;
+}
+

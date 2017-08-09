@@ -28,29 +28,22 @@ _.extend(Kepler.Map, {
 			showCoverageOnHover: false,
 			maxClusterRadius: 40,
 			iconCreateFunction: function(clust) {
-				if(!clust.$icon)
-					clust.$icon = L.DomUtil.create('div');
 
-				clust.checkinsCount = function() {
+				clust.getCheckinsCount = function() {
 					var places = _.map(clust.getAllChildMarkers(), function(marker) {
 						return marker.item.id;
 					});
 					return K.findCheckinsCountByPlaces(places);
 				};
-
-				clust.getChildCount = function() {
-					return this._markers.length
-				};
 				
-				if(!clust.icon) {
-					Blaze.renderWithData(Template.item_place_cluster, clust, clust.$icon);
-					clust.icon = new L.NodeIcon({
-						className: 'marker-cluster',
-						nodeHtml: clust.$icon
-					});
-				}
-
-				return clust.icon;
+				var div = L.DomUtil.create('div');
+				
+				Blaze.renderWithData(Template.markerCluster, clust, div);
+				
+				return new L.NodeIcon({
+					className: 'marker-cluster',
+					nodeHtml: div
+				});
 			}
 		});
 

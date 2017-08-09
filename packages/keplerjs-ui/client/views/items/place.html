@@ -6,12 +6,16 @@
 </template>
 
 <template name="markerPlace">
-	{{#if checkinsCount}}<b class="badge badge-orange">{{checkinsCount}}</b>{{/if}}
+	{{#if checkinsCount}}
+		<b class="badge-checkins badge">{{checkinsCount}}</b>
+	{{/if}}
 </template>
 
-<template name="item_place_cluster">
-	{{#if checkinsCount}}<b class="badge badge-orange">{{checkinsCount}}</b>{{/if}}
-	<b class="badge badge-blue">{{getChildCount}}</b>	
+<template name="markerCluster">
+	{{#if getCheckinsCount}}
+		<b class="badge-checkins badge">{{getCheckinsCount}}</b>
+	{{/if}}
+	<b class="badge-cluster badge">{{getChildCount}}</b>	
 </template>
 
 <template name="item_place_search">
@@ -48,7 +52,7 @@
 
 		<a class="btn btn-sm btn-default place-btn-checkins" href="/place/{{id}}/checkins">
 			<i class="icon {{#if checkinsCount}} icon-users {{else}} icon-unusers {{/if}}"></i>
-			<span class="badge {{#unless checkinsCount}} bg-gray {{/unless}}">{{checkinsCount}}</span>
+			<span class="badge badge-checkins {{#unless checkinsCount}} bg-gray {{/unless}}">{{checkinsCount}}</span>
 		</a>
 		<a class="btn btn-sm btn-default" href="/place/{{id}}/map">
 			<i class="icon icon-map"></i>

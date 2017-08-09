@@ -27,10 +27,6 @@
 	color:#fff;
 	background-color:#8BCEDF;
 }
-.place-btn-checkins .badge:not(.bg-gray) {
-	color:#fff;
-	background-color:#F69714;
-}
 .popup-btn-star .badge:not(.bg-gray),
 .place-btn-star .badge:not(.bg-gray) {
 	color:#fff;

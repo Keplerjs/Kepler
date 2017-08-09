@@ -22,8 +22,8 @@ keplerjs:osm
 keplerjs:favorites
 keplerjs:conver
 keplerjs:geoinfo
-keplerjs:weather
-keplerjs:googlemaps
-#keplerjs:pois
-#keplerjs:tracks
+#keplerjs:weather
+#keplerjs:googlemaps
+keplerjs:pois
+keplerjs:tracks
 #keplerjs:events

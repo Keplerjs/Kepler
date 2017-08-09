@@ -73,14 +73,6 @@ div.leaflet-marker-icon {
 .marker-anim {
 	background-position: -236px 0;
 }
-
-.marker-cluster .badge {
-	background: #fff;
-	position: absolute;
-	bottom: 4px;
-	left: 4px;
-}
-
 /* CONTROLS */
 .leaflet-control-search .search-button:hover,
 .leaflet-control-search .search-button {
