@@ -1,6 +1,7 @@
 
 .list-header {
 	margin-bottom: 10px;
+	overflow:hidden;
 }
 .list-items.list-group {
 	margin: 0;
