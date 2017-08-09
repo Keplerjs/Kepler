@@ -12,3 +12,9 @@
 .label-default {
     background-color: #eee;
 }
+
+.btn,
+.list-group-item {
+	background: #fff;
+	backface-visibility: hidden;
+}

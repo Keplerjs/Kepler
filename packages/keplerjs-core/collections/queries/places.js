@@ -65,7 +65,7 @@ K.extend({
 	findPlacesByName: function(initial) {
 		initial = K.Util.sanitizeRegExp(initial);
 
-		if(initial.length < 3)
+		if(initial.length < 2)
 			return null;
 
 		var ex = new RegExp('^'+ initial, 'i');

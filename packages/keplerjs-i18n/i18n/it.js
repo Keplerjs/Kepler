@@ -44,7 +44,7 @@ i18n.map('it', {
 	btn_friendadd: "Aggiungi",
 	btn_frienddel: "Rimuovi",
 	btn_friendpending: "In Attesa...",
-	btn_friendconfirm: "Conferma amicizia",
+	btn_friendconfirm: "Conferma amico",
 	btn_friendreceive: "Richiesta di amicizia",
 	btn_userBlock: "Blocca utente!",
 	btn_usersblocked: "Utenti bloccati",

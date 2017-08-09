@@ -13,7 +13,7 @@ Template.panelUser.helpers({
 	}
 });
 */
-Template.user_btns2.onRendered(function() {
+Template.panel_user_btns.onRendered(function() {
 	var self = this;
 	self.$('.user-btn-del').btsConfirmButton(function(e) {
 		K.Profile.friendDel(self.data.id);
@@ -23,7 +23,7 @@ Template.user_btns2.onRendered(function() {
 	});	
 });
 
-Template.user_btns2.events({
+Template.panel_user_btns.events({
 	'click .user-btn-add': function(e, tmpl) {
 		K.Profile.friendAdd(this.id);
 	},

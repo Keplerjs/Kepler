@@ -110,10 +110,9 @@ Kepler.User = Class.extend({
 	isBlocked: function() {
 		return K.Profile.hasBlocked(this.id);
 	},
-/*	isBlockMe: function() {
-		console.log(this.data)
+	isBlockMe: function() {
 		return _.contains(this.data.usersBlocked, K.Profile.id);
-	},	*/	
+	},
 	isOnline: function() {
 		this._dep.depend();
 	//TODO aggiuni this.isMe()

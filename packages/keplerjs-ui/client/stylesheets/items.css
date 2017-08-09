@@ -11,6 +11,10 @@
 	margin: 0;
 	font-size: 14px;	
 	line-height: 30px;
+	/*TODO
+		width: 100px;
+  	text-overflow: ellipsis;
+  	*/
 }
 
 .user-btn-name u {
