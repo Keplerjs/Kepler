@@ -1,11 +1,11 @@
 
 _.extend(Kepler.Map, {
 
-	_initLayers: function(map) {
+	_initLayers: function(map, opts) {
 
 		var layers = {};
 
-		layers.baselayer = new L.TileLayer(' ');
+		layers.baselayer = new L.TileLayer(K.settings.public.map.layers[opts.layer]);
 
 		layers.users = new L.LayerGroup();
 
@@ -19,7 +19,8 @@ _.extend(Kepler.Map, {
 					loc: [ll.lat, ll.lng]
 				};
 			Blaze.renderWithData(Template.popupCursor, cursorData, div);
-			this.bindPopup(div.firstChild);
+			
+			this.bindPopup(div.firstChild, opts.popup);
 		});
 
 		if(L.MarkerClusterGroup)
@@ -33,7 +34,6 @@ _.extend(Kepler.Map, {
 					var placeIds = _.map(clust.getAllChildMarkers(), function(marker) {
 						return marker.item.id;
 					});
-					console.log(placeIds)
 					return K.findCheckinsCountByPlaces(placeIds);
 				};
 				
@@ -51,7 +51,7 @@ _.extend(Kepler.Map, {
 		layers.places = new L.LayerJSON({
 			caching: false,
 			layerTarget: layers.cluster,
-			minShift: K.settings.public.map.bboxMinShift,
+			minShift: opts.bboxMinShift,
 			callData: function(bbox, callback) {
 
 				var sub = Meteor.subscribe('placesByBBox', bbox, function() {
@@ -76,7 +76,7 @@ _.extend(Kepler.Map, {
 			//DEBUG autoclear: false,
 			
 			style: function (feature) {
-				return K.settings.public.map.styles.default;
+				return opts.styles.default;
 			},
 			pointToLayer: function(feature, latlng) {	//costruisce marker POI
 
@@ -97,7 +97,7 @@ _.extend(Kepler.Map, {
 				if(feature && feature.templatePopup && Template[feature.templatePopup]) {
 					var div = L.DomUtil.create('div','popup-geojson');
 					Blaze.renderWithData(Template[feature.templatePopup], feature, div);
-					layer.bindPopup(div, {closeButton:false} );	
+					layer.bindPopup(div, opts.popup);	
 				}
 			}
 		});

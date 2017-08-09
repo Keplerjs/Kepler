@@ -39,14 +39,20 @@ Kepler.settings = {
 				"landscape": "https://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png",			
 				"transport": "https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png"
 			},
-			"icons": {
-				"iconSize": [27, 30],
-				"iconAnchor": [13, 30],
+			"popup": {
+				"autoPanPaddingTopLeft": [50, 50],
+				"autoPanPaddingBottomRight": [50, 50],
+				"closeButton": false,
+				"minWidth": 120
+			},
+			"icon": {
+				"iconSize": [30, 30],
+				"iconAnchor": [15, 30],
 				"popupAnchor": [0, -30]
 			},
 			"styles": {
 				"default": { "color": "#b6f", "weight": 5, "opacity": 0.7 }
-			}	
+			}
 		}
 	},
 	"router": {

@@ -1,6 +1,6 @@
 _.extend(Kepler.Map, {
 
-	_initControls: function(map) {
+	_initControls: function(map, opts) {
 
 		var controls = {};
 
@@ -18,12 +18,12 @@ _.extend(Kepler.Map, {
 
 		if(L.Control.Gps)
 		controls.gps = new L.Control.Gps({
-			autoActive: false,//FIX if true cause problem to load baselayer
+			autoActive: false,
 			autoCenter: true,
 			marker: K.Profile.user.marker,
 			style: {opacity:0,fillOpacity:0},
 			position: 'bottomright',
-			title: '',
+			title: i18n('map_gps_title'),
 			textErr: i18n('map_gps_error'),
 			callErr: function(err) {
 				console.warn(err);

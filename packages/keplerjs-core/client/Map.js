@@ -7,6 +7,7 @@
 Kepler.Map = {
 
 	map: null,
+	options: {},
 	layers: {},
 	controls: {},
 	items: [],
@@ -31,7 +32,11 @@ Kepler.Map = {
 		else
 			self.ready(true);
 
+		self.options = self.setOpts(opts);
+
 		self.map = new L.Map(div, {
+			zoom: self.options.zoom,
+			center: self.options.center,
 			attributionControl: false,
 			doubleClickZoom: false,			
 			zoomControl: false			
@@ -39,13 +44,10 @@ Kepler.Map = {
 
 		self.sidebar = $('#sidebar');
 
-		self.layers = self._initLayers(self.map);
-
-		self.controls = self._initControls(self.map);
+		self.layers = self._initLayers(self.map, self.options);
+		self.controls = self._initControls(self.map, self.options);
 
 		self._addComponents();
-
-		self.setOpts(opts);
 
 		//Fix only for Safari event resize! when shift to fullscreen
 		$(window).on('orientationchange'+(K.Util.isMobile()?'':' resize'), _.debounce(function(e) {
@@ -126,10 +128,12 @@ Kepler.Map = {
 		return this.ready() && (mapw-panelw > 40);
 	},
 
-	setOpts: function(opts) {
-
+	setOpts: function(options) {
 		if(this.ready()) {
-			opts = _.extend({}, K.settings.public.map, opts);
+			var opts = _.extend({}, K.settings.public.map, options);
+
+			opts.autoPanPaddingTopLeft = L.point(opts.autoPanPaddingTopLeft);
+			opts.autoPanPaddingBottomRight = L.point(opts.autoPanPaddingTopLeft);
 
 			if(!K.Util.valid.loc(opts.center))
 				opts.center = K.settings.public.map.center;
@@ -140,13 +144,10 @@ Kepler.Map = {
 			if(opts.maxBounds)
 				this.map.setMaxBounds(opts.maxBounds);
 
-			if(opts.center)
-				this._setView(opts.center, opts.zoom);
-
-			if(opts.layer)
+			if(opts.layer && this.layers && this.layers.baselayer)
 				this.layers.baselayer.setUrl( K.settings.public.map.layers[opts.layer] );
 		}
-		return this;
+		return opts;
 	},
 
 	getBBox: function() {
@@ -178,7 +179,7 @@ Kepler.Map = {
 				this.map.once("moveend zoomend", cb);
 			
 			if(loc && K.Util.valid.loc(loc))
-				this._setView( L.latLng(loc) , K.settings.public.map.showLocZoom);
+				this._setView( L.latLng(loc) , this.options.showLocZoom);
 		}
 		return this;
 	},

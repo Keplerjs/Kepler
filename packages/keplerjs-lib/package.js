@@ -14,7 +14,7 @@ Npm.depends({
   "bootstrap-confirm-button": "0.2.2",
   "leaflet": "1.1.0",
   "leaflet-gps": "1.6.0",
-  "leaflet-layerjson": "0.2.3",
+  "leaflet-layerjson": "0.2.5",
   "leaflet.markercluster": "1.0.6",
   //"leaflet": "0.7.7","leaflet.markercluster": "0.5.0",   
 });

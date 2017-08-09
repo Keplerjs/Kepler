@@ -60,7 +60,7 @@ Kepler.User = Class.extend({
 		var self = this;
 		
 		if(!self.marker) {
-			var iconOpts = K.settings.public.map.icons;
+			var iconOpts = K.settings.public.map.icon;
 			self.icon = new L.NodeIcon({
 				/*conSize: new L.Point(iconOpts.iconSize),
 				iconAnchor: new L.Point(iconOpts.iconAnchor),
@@ -75,7 +75,7 @@ Kepler.User = Class.extend({
 					var div = L.DomUtil.create('div','');
 					if(Template[self.templatePopup])
 						Blaze.renderWithData(Template[self.templatePopup], self, div);
-					this.bindPopup(div.firstChild, { closeButton:false });
+					this.bindPopup(div.firstChild, K.settings.public.map.popup);
 				}
 			}).once('add', function() {
 				if(Template[self.templateMarker])

@@ -82,6 +82,7 @@ i18n.map('it', {
 	label_version: "Versione",
 
 	map_attrib:"<a href=\"http://osm.org/\">osm.org</a>",
+	map_gps_title: "Tua posizione",
 	map_gps_error: "gps non disponibile",
 	map_layer_road: "Stradale",
 	map_layer_landscape: "Trekking",

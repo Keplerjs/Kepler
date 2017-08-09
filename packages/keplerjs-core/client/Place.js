@@ -51,7 +51,7 @@ Kepler.Place = Class.extend({
 		var self = this;
 
 		if(!self.marker) {
-			var iconOpts = K.settings.public.map.icons;
+			var iconOpts = K.settings.public.map.icon;
 			self.icon = new L.NodeIcon({
 				/*iconSize: new L.Point(iconOpts.iconSize),
 				iconAnchor: new L.Point(iconOpts.iconAnchor),
@@ -66,7 +66,7 @@ Kepler.Place = Class.extend({
 						var div = L.DomUtil.create('div','');
 						if(Template[self.templatePopup])
 							Blaze.renderWithData(Template[self.templatePopup], self, div);
-						this.bindPopup(div.firstChild, { closeButton:false, minWidth:120 });
+						this.bindPopup(div.firstChild, K.settings.public.map.popup);
 					}
 				}).once('add', function(e) {
 					if(Template[self.templateMarker])
