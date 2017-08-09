@@ -11,14 +11,15 @@ _.extend(Kepler.Map, {
 
 		layers.cursor = new L.Cursor({
 			className: 'marker-cursor'
-		});
-		layers.cursor.marker.on('click', function(e) {
+		})
+		layers.cursor.marker.on('add', function(e) {
 			var div = L.DomUtil.create('div'),
+				ll = this.getLatLng(),
 				cursorData = {
-					loc: [e.latlng.lat, e.latlng.lng]
+					loc: [ll.lat, ll.lng]
 				};
 			Blaze.renderWithData(Template.popupCursor, cursorData, div);
-			this.bindPopup(div.firstChild, { closeButton:false });
+			this.bindPopup(div.firstChild);
 		});
 
 		if(L.MarkerClusterGroup)
