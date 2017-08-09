@@ -32,6 +32,8 @@ Kepler.Map = {
 		else
 			self.ready(true);
 
+		self.sidebar = $('#sidebar');
+
 		self.options = self.setOpts(opts);
 
 		self.map = new L.Map(div, {
@@ -41,8 +43,6 @@ Kepler.Map = {
 			doubleClickZoom: false,			
 			zoomControl: false			
 		});
-
-		self.sidebar = $('#sidebar');
 
 		self.layers = self._initLayers(self.map, self.options);
 		self.controls = self._initControls(self.map, self.options);
@@ -132,8 +132,8 @@ Kepler.Map = {
 		if(this.ready()) {
 			var opts = _.extend({}, K.settings.public.map, options);
 
-			opts.autoPanPaddingTopLeft = L.point(opts.autoPanPaddingTopLeft);
-			opts.autoPanPaddingBottomRight = L.point(opts.autoPanPaddingTopLeft);
+			opts.popup.autoPanPaddingTopLeft = L.point(opts.popup.autoPanPaddingTopLeft);
+			opts.popup.autoPanPaddingBottomRight = L.point(opts.popup.autoPanPaddingTopLeft);
 
 			if(!K.Util.valid.loc(opts.center))
 				opts.center = K.settings.public.map.center;

@@ -138,9 +138,9 @@ header h4,
 	line-height: 30px;
 	width: 26px;
 	text-align: center;
-	display: inline-block;
-	float: right;
-	opacity: 1
+	opacity: 1;
+	position: absolute;
+	right: 8px;
 }
 
 .nav-tabs > li > a {

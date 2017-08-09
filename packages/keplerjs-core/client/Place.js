@@ -66,7 +66,7 @@ Kepler.Place = Class.extend({
 						var div = L.DomUtil.create('div','');
 						if(Template[self.templatePopup])
 							Blaze.renderWithData(Template[self.templatePopup], self, div);
-						this.bindPopup(div.firstChild, K.settings.public.map.popup);
+						this.bindPopup(div.firstChild, K.Map.options.popup);
 					}
 				}).once('add', function(e) {
 					if(Template[self.templateMarker])
