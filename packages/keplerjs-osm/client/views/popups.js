@@ -10,7 +10,6 @@ Template.popupCursor_osm.events({
 		K.Osm.loadByLoc(tmpl.data.loc, function(data) {
 			$(e.target).removeClass('disabled');
 			icon$.removeClass('icon-loader');
-			console.log('found', data)
 		});
 	}
 });

@@ -49,7 +49,7 @@ Meteor.methods({
         lat: loc[0], lon: loc[1],
         filter: filter ? '['+filter+']' : '',
         type: 'node',
-        radius: 200,        
+        radius: 20,        
         meta: overOpts.meta ? ' meta' : '',
         limit: 1
       });
