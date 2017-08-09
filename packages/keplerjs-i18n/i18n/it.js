@@ -22,7 +22,7 @@ i18n.map('it', {
 	btn_checkin: "Entra!",
 	btn_checkout: "Esci!",
 	btn_info: "Info",
-	btn_hist: "Recenti",
+	btn_hist: "Visite",
 	btn_friends: "Amici", 		
 	btn_places: "Luoghi",
 	btn_profile: "Profilo",

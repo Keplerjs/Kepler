@@ -51,7 +51,7 @@ i18n.map ('en', {
 	btn_checkin: "Enter!",
 	btn_checkout: "Exit!",
 	btn_info: "Info",
-	btn_hist: "Recents",
+	btn_hist: "Visits",
 	btn_friends: "Friends",
 	btn_places: "Places",
 	btn_profile: "Profile",

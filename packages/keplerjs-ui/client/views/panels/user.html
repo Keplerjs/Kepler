@@ -45,22 +45,25 @@
 							{{> pluginPlaceholder name='itemUser'}}
 						</div>
 
-						{{> panel_user_btns}}
+						{{> user_btns_panel}}
 
 					</div>
 				</div>
 			</div>
 
-			{{> tab_location}}
-
 			<ul class="nav nav-tabs">
 				<li class="active">
+					<a href="#tab_info" data-toggle="tab">
+						<i class="icon icon-info"></i> <span>{{i18n 'btn_info'}}</span>
+					</a>
+				</li>
+				<li class="">
 					<a href="#tab_friends" data-toggle="tab">
 						<i class="icon icon-users"></i> <span>{{i18n 'btn_friends'}}</span>
 					</a>
 				</li>
 				{{#if isFriend}}
-				<li class="user-btn-hist">
+				<li class="">
 					<a href="#tab_histuser" data-toggle="tab">
 						<i class="icon icon-hist"></i> <span>{{i18n 'btn_hist'}}</span>
 					</a>
@@ -70,7 +73,14 @@
 
 			<div class="tab-content">
 				<br />
-				<div class="tab-pane active" id="tab_friends">
+				<div class="tab-pane active" id="tab_info">
+			
+					{{> tab_location}}
+
+					{{> pluginPlaceholder name='panelUser'}}
+
+				</div>
+				<div class="tab-pane" id="tab_friends">
 					{{> tab_friends}}		
 				</div>
 				{{#if isFriend}}
@@ -80,14 +90,6 @@
 				{{/if}}
 			</div>
 
-			<div class="row">
-				<div class="col-xs-12">
-				
-					{{> pluginPlaceholder name='panelUser'}}
-				
-				</div>
-			</div>
-
 		{{/if}}
 		</div>		
 	</div>
@@ -95,7 +97,7 @@
 </template>
 
 
-<template name="panel_user_btns">
+<template name="user_btns_panel">
 	<div class="btn-group" data-toggle="buttons">
 
 	{{#if isFriend}}

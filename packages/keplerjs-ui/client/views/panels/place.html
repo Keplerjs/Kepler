@@ -11,16 +11,23 @@
 	</div>
 	<div class="panel-body">
 	
-		{{> place_btns_panel}}
+		<div class="row">
+			<div class="col-xs-3">
+				{{> place_btns_panel}}
+			</div>
+			<div class="col-xs-9 text-right">
+				{{> place_btns}}
+			</div>		
+		</div>
 
 		<br />
 
 		<ul class="nav nav-tabs">
 			<li class="active">
 				<a href="#tab_info" data-toggle="tab">
-					<i class="icon icon-placeinfo"></i> <span>{{i18n 'btn_info'}}</span>
+					<i class="icon icon-info"></i> <span>{{i18n 'btn_info'}}</span>
 				</a>
-			</li>		
+			</li>
 			<li>
 				<a href="#tab_histplace" data-toggle="tab">
 					<i class="icon icon-hist"></i> <span>{{i18n 'btn_hist'}}</span>
@@ -48,18 +55,7 @@
 </template>
 
 
-<template name="place_btns_panel">	
-	<div class="row">
-		<div class="col-xs-3">
-			{{> place_btns3}}
-		</div>
-		<div class="col-xs-9 text-right">
-			{{> place_btns}}
-		</div>		
-	</div>
-</template>
-
-<template name="place_btns3">	
+<template name="place_btns_panel">		
 	<div class="btn-group" data-toggle="buttons">
 		<label class="place-btn-checkin btn btn-sm btn-default">
 			<i class="icon {{#if isCheckin}} icon-checkin {{else}} icon-uncheckin {{/if}}"></i>

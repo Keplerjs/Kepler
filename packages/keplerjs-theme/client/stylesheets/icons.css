@@ -190,7 +190,7 @@ div.leaflet-marker-icon {
 .icon-userpend{ background-position: -120px -330px;  }
 
 .icon-userbid{ background-position: -120px -330px;  } 
-.icon-placeinfo{ background-position: -120px -360px;  } 
+.icon-info{ background-position: -120px -360px;  } 
 .icon-hist{ background-position: -120px -390px;  } 
 .icon-cal{ background-position: -120px -420px;  } 
 .icon-weather{ background-position: -120px -450px;  }

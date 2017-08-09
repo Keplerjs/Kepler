@@ -9,11 +9,11 @@
 
 <template name="panelUser_favorites">
 {{#if isFriend}}
-	{{#if favorites.length}}
-		<ul class="list-group">
-			<li class="list-group-item active">		
-				<!-- <i class="icon icon-star"></i>  --><span>{{i18n 'label_favsplaces'}}</span>
-			</li>
+	<ul class="list-group">
+		<li class="list-group-item active">		
+			<span>{{i18n 'label_favsplaces'}}</span>
+		</li>
+		{{#if favorites.length}}
 			{{#each favorites}}
 			<li class="list-group-item">
 				{{#with placeById this}}
@@ -21,9 +21,12 @@
 				{{/with}}
 			</li>
 			{{/each}}
-		</ul>
-	{{else}}
-		<label class="text-gray"><i>{{i18n 'label_nofavs'}}</i></label>				
-	{{/if}}
+		{{else}}
+			<li class="list-group-item">
+				<label class="text-gray"><i>{{i18n 'label_nofavs'}}</i></label>
+			</li>
+		{{/if}}
+	</ul>
 {{/if}}	
 </template>
+
