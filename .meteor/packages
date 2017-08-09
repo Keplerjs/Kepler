@@ -14,7 +14,7 @@ keplerjs:theme
 #keplerjs:api
 keplerjs:edit
 keplerjs:admin
-#keplerjs:upload
+keplerjs:upload
 keplerjs:notif
 #keplerjs:categories
 keplerjs:share

@@ -1,6 +1,9 @@
 
 K.Plugin({
 	name: 'upload',
+	placeholders: {
+		panelSettings: 'panelSettings_upload'
+	},
 	settings: {
 		"public": {
 			"upload": {

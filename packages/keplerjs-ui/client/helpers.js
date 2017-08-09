@@ -13,10 +13,6 @@ Template.registerHelper('settings', function(prop) {
 	return K.Util.getPath(K.settings.public, prop);
 });
 
-Template.registerHelper('pluginLoaded', function(name) {
-	return !!K.plugins[name];
-});
-
 Template.registerHelper('userById', function(id) {
 	return K.userById(id);
 });
