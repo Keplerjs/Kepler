@@ -14,7 +14,7 @@
 }
 
 .list-group .row,
-.btn-group .btn,
+.btn-default,
 .list-group {
 	background: #fff;
 	backface-visibility: hidden;

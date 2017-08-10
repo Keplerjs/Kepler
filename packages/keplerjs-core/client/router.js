@@ -87,13 +87,18 @@ Router.map(function() {
 		path: '/',
 		template: 'empty',
 		layoutTemplate: 'layoutMap',
-		data: { hideSidebar: true }
+		waitOn: function() {
+			Session.set('showSidebar', false);
+		}
 	});
 
 	this.route('profile', {
 		path: '/profile',
 		template: 'panelProfile',
 		layoutTemplate: 'layoutMap',
+		waitOn: function() {
+			Session.set('showSidebar', true);
+		},
 		data: function() {
 			return K.Profile.user;
 		}
@@ -104,6 +109,9 @@ Router.map(function() {
 		template: 'panelSettings',
 		layoutTemplate: 'layoutMap',
 		loadingTemplate: 'pageLoading',
+		waitOn: function() {
+			Session.set('showSidebar', true);
+		},		
 		data: function() {
 			return Meteor.user();
 		}
@@ -116,6 +124,7 @@ Router.map(function() {
 		layoutTemplate: 'layoutMap',
 		loadingTemplate: 'pageLoading',
 		waitOn: function() {
+			Session.set('showSidebar', true);
 			return Meteor.subscribe('usersByIds', K.Profile.data.usersBlocked );
 		},
 		data: function() {
@@ -134,6 +143,7 @@ Router.map(function() {
 		template: 'panelList',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
+			Session.set('showSidebar', true);
 			return Meteor.subscribe('friendsByIds', K.Profile.data.friends);
 		},
 		data: function() {
@@ -152,6 +162,9 @@ Router.map(function() {
 		path: '/places',
 		template: 'panelList',
 		layoutTemplate: 'layoutMap',
+		waitOn: function() {
+			Session.set('showSidebar', true);
+		},
 		data: function() {
 			if(!this.ready()) return null;
 
@@ -177,6 +190,7 @@ Router.map(function() {
 		template: 'panelList',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
+			Session.set('showSidebar', true);
 			return Meteor.subscribe('placesByDate');
 		},
 		data: function() {
@@ -201,6 +215,7 @@ Router.map(function() {
 		template: 'panelList',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
+			Session.set('showSidebar', true);
 			return Meteor.subscribe('placesByIds', K.Profile.data.hist);
 		},
 		data: function() {
@@ -218,8 +233,9 @@ Router.map(function() {
 		path: '/place/:placeId',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
+			Session.set('showSidebar', true);
 			return Meteor.subscribe('placeById', this.params.placeId);
-		},
+		},	
 		data: function() {
 			if(!this.ready()) return null;
 			var place = K.placeById( this.params.placeId );
@@ -238,6 +254,7 @@ Router.map(function() {
 		template: 'empty',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
+			Session.set('showSidebar', false);
 			return Meteor.subscribe('placeById', this.params.placeId);
 		},
 		onAfterAction: function() {
@@ -247,8 +264,7 @@ Router.map(function() {
 
 			if(place)
 				place.showLoc();
-		},
-		data: { hideSidebar: true }
+		}
 	});
 
 	this.route('placeCheckins', {
@@ -256,6 +272,7 @@ Router.map(function() {
 		template: 'panelList',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
+			Session.set('showSidebar', true);
 			return Meteor.subscribe('usersByPlace', this.params.placeId);
 		},
 		data: function() {
@@ -276,6 +293,7 @@ Router.map(function() {
 		path: '/user/:userId',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
+			Session.set('showSidebar', true);
 			if(this.params.userId===Meteor.userId())
 				Router.go('profile');
 			else
@@ -297,6 +315,7 @@ Router.map(function() {
 		template: 'empty',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
+			Session.set('showSidebar', false);
 			return Meteor.subscribe('friendsByIds', [this.params.userId]);
 		},
 		onAfterAction: function() {
@@ -304,8 +323,7 @@ Router.map(function() {
 
 			if(user)
 				user.showLoc();
-		},		
-		data: { hideSidebar: true }
+		}
 	});	
 
 });

@@ -12,6 +12,7 @@ Package.onUse(function(api) {
   
   api.use([
     'keplerjs:core@1.1.0',
+    'keplerjs:osm@1.1.0',
   ]);
 
   api.addFiles([

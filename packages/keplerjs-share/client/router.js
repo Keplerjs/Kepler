@@ -5,6 +5,9 @@ Router.map(function() {
 		path: '/map/:lat,:lng',
 		template: 'empty',
 		layoutTemplate: 'layoutMap',
+		waitOn: function() {
+			Session.set('showSidebar', false);
+		},
 		onAfterAction: function() {
 			if(!this.ready()) return null;
 			
@@ -13,8 +16,7 @@ Router.map(function() {
 			K.Map.showLoc(loc, function() {
 				K.Map.showCursor(loc);
 			});
-		},
-		data: { hideSidebar: true }
+		}
 	});
 	
 });

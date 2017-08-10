@@ -5,21 +5,30 @@
     left: 0;
     right: 0;
     width: 320px;
+    height: auto;  
 	z-index: 1000;
 	background: none;    
-    height: auto;
     padding: 4px;
+    background: rgba(255,255,255,0.6)
 }
 .sidebar.expanded {
     height: calc(100%);
 }
+.sidebar > .tab-content {
+    display: none;
+}
 .sidebar.expanded > .tab-content {
-	margin-top: 4px;
-	box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    display: block;
+}
+
+
+.sidebar > .tab-content {
+    margin-top: 4px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
     border-radius:4px;
     overflow: hidden;
 }
-.sidebar .nav-pills {
+.sidebar > .nav {
 	background: #fff;/*rgba(255,255,255,0.6);*/
     border-radius:4px;
 	box-shadow: 0 0 5px rgba(0,0,0,0.3);
@@ -51,14 +60,13 @@ li#navsearch {
     text-align: right;
     background: #fff
 }
-
 .sidebar .panel {
 	border: none;
 	border-radius: 0;
 	box-shadow: none;
 	margin-bottom: 0;
 }
-.panel-heading {
+.sidebar .panel-heading {
 	height: 36px;
 	padding: 1px 3px;
 }
@@ -71,7 +79,7 @@ li#navsearch {
     padding: 4px;
     margin: 4px;
 	background: #fff;
-    max-height: calc(100% - 100px);
+    max-height: calc(100% - 90px);
 	overflow-x: hidden;
 	overflow-y: scroll;
     border-radius: 0;

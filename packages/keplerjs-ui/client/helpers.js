@@ -1,10 +1,4 @@
 
-/*
-//TODO
-Template.registerHelper('hideSidebar', function(prop) {
-	return Session.get('hideSidebar');
-});
-*/
 Template.registerHelper('absoluteUrl', function(url) {
 	return Meteor.absoluteUrl(url)
 });

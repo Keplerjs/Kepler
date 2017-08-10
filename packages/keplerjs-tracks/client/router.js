@@ -6,6 +6,7 @@ Router.map(function() {
 		template: 'empty',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
+			Session.set('showSidebar', false);
 			return Meteor.subscribe('tracksByPlace', this.params.placeId);
 		},
 		onAfterAction: function() {
@@ -14,8 +15,7 @@ Router.map(function() {
 				place.showLoc();
 				place.showTracks();
 			}
-		},
-		data: { hideSidebar: true }
+		}
 	});
 
 });

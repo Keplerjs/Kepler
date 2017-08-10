@@ -11,9 +11,9 @@ keplerjs:core
 keplerjs:ui
 keplerjs:theme
 #keplerjs:theme-climb
-#keplerjs:api
+keplerjs:api
 keplerjs:edit
-keplerjs:admin
+
 keplerjs:upload
 keplerjs:notif
 #keplerjs:categories
@@ -22,8 +22,9 @@ keplerjs:osm
 keplerjs:favorites
 keplerjs:conver
 keplerjs:geoinfo
-#keplerjs:weather
-#keplerjs:googlemaps
+keplerjs:weather
+keplerjs:googlemaps
 keplerjs:pois
 keplerjs:tracks
-#keplerjs:events
+keplerjs:events
+keplerjs:admin

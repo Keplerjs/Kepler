@@ -6,6 +6,7 @@ Router.map(function() {
 		template: 'panelList',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
+			Session.set('showSidebar', true);
 			return Meteor.subscribe('placesByIds', K.Profile.data.favorites);
 		},
 		data: function() {

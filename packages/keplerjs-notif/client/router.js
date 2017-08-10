@@ -5,6 +5,9 @@ Router.map(function() {
 		path: '/notifications',
 		template: 'panelList',
 		layoutTemplate: 'layoutMap',
+		waitOn: function() {
+			Session.set('showSidebar', true);
+		},
 		data: function() {
 			if(!this.ready()) return null;
 			return {

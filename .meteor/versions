@@ -48,11 +48,14 @@ iron:router@1.0.9
 iron:url@1.0.9
 jquery@1.11.6
 keplerjs:admin@1.1.0
+keplerjs:api@1.1.0
 keplerjs:conver@1.1.0
 keplerjs:core@1.1.0
 keplerjs:edit@1.1.0
+keplerjs:events@1.1.0
 keplerjs:favorites@1.1.0
 keplerjs:geoinfo@1.1.0
+keplerjs:googlemaps@1.1.0
 keplerjs:i18n@1.1.0
 keplerjs:lib@1.1.0
 keplerjs:notif@1.1.0
@@ -63,6 +66,7 @@ keplerjs:theme@1.1.0
 keplerjs:tracks@1.1.0
 keplerjs:ui@1.1.0
 keplerjs:upload@1.1.0
+keplerjs:weather@1.1.0
 kidovate:bootstrap-slider@0.0.5
 launch-screen@1.0.8
 livedata@1.0.16

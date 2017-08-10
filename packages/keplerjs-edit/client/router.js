@@ -6,6 +6,7 @@ Router.map(function() {
 		template: 'panelEdit',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
+			Session.set('showSidebar', true);
 			return Meteor.subscribe('placeById', this.params.placeId);
 		},
 		data: function() {

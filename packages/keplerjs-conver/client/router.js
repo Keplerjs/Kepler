@@ -6,6 +6,7 @@ Router.map(function() {
 		template: 'panelList',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
+			Session.set('showSidebar', true);
 			return Meteor.subscribe('conversByIds', K.Profile.data.convers);
 		},
 		data: function() {
@@ -24,6 +25,7 @@ Router.map(function() {
 		template: 'panelList',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
+			Session.set('showSidebar', true);
 			return Meteor.subscribe('conversByTarget', this.params.placeId);
 		},
 		data: function() {
@@ -45,6 +47,7 @@ Router.map(function() {
 		template: 'empty',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
+			Session.set('showSidebar', true);			
 			if(this.params.userId===Meteor.userId())
 				Router.go('convers');
 			else
@@ -56,6 +59,7 @@ Router.map(function() {
 		path: '/conver/:convId',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
+			Session.set('showSidebar', true);			
 			return Meteor.subscribe('converById', this.params.convId);
 		},
 		data: function() {

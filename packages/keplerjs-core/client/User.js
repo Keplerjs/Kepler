@@ -79,7 +79,7 @@ Kepler.User = Class.extend({
 				}
 			}).once('add', function() {
 				if(Template[self.templateMarker])
-					Blaze.renderWithData(Template[self.templateMarker], self, self.icon.nodeHtml);
+					Blaze.renderWithData(Template[self.templateMarker], self.rData, self.icon.nodeHtml);
 			});
 		}
 		return self.marker;

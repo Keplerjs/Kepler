@@ -18,7 +18,7 @@
 
 		<div id="map" class="sidebar-map"></div>
 
-		<div id="sidebar" class="sidebar {{#unless hideSidebar}} expanded {{/unless}}">
+		<div id="sidebar" class="sidebar {{#if showSidebar}} expanded {{/if}}">
 			
 			{{> sidebarNav}}
 
@@ -32,4 +32,7 @@
 		</div>
 
 	</div>
+</template>
+
+<template name="empty">
 </template>
