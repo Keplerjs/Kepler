@@ -45,7 +45,8 @@ Package.onUse(function(api) {
   api.addFiles([
     'server/Geoapi.js',
     'server/Geoinfo.js',
-    'server/places.js',  
+    'server/admin.js',
+    'server/places.js',
   ],'server');
   
 });

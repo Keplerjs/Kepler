@@ -17,8 +17,8 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'plugin.js',
-/*    'i18n/it.js',
-    'i18n/en.js'*/
+    'i18n/it.js',
+    'i18n/en.js'
   ]);
 
   api.addFiles([
@@ -30,8 +30,6 @@ Package.onUse(function(api) {
     'client/helpers.js',    
     'client/views/panels.html',
     'client/views/panels.js',
-    'client/views/popups.html',
-    'client/views/popups.js',
     //'client/router.js'   
   ],'client');
 

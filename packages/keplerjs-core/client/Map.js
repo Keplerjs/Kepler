@@ -185,7 +185,7 @@ Kepler.Map = {
 	},
 
 	addItem: function(item) {
-		if(this.ready() && item.marker) {
+		if(this.ready() && item && item.marker) {
 			if(item.type==='place')
 				item.marker.addTo( this.layers.places );
 

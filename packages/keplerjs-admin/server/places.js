@@ -6,13 +6,17 @@ K.Admin.methods({
 
 		Places.remove(placeId);
 
+		//TODO remove ref
+
 		console.log('Admin: removePlace', placeId);		
 	},
 	movePlace: function(placeId, loc) {
 
 		if(!K.Admin.isMe()) return null;
 
-		Places.update(placeId, {$set: {loc: loc} });
+		Places.update(placeId, {
+			$set: {loc: loc}
+		});
 
 		console.log('Admin: movePlace', placeId, loc);
 	},	
@@ -40,7 +44,11 @@ K.Admin.methods({
 			placeId = placeData._id;
 
 		if(placeData.checkins)
-			Users.update({_id: {$in: placeData.checkins }}, {$set: {checkin: null} });
+			Users.update({_id: {$in: placeData.checkins }}, {
+				$set: {
+					checkin: null
+				}
+			},{ multi: true });
 
 		Places.update(placeId, {
 			$set: {
@@ -52,14 +60,14 @@ K.Admin.methods({
 		
 		if(!K.Admin.isMe()) return null;
 
-		Users.update(true, {$set: {hist: []} }, { multi: true });
-		Places.update(true, {$set: {hist: []} }, { multi: true });
+		Users.update({}, {$set: {hist: []} }, { multi: true });
+		Places.update({}, {$set: {hist: []} }, { multi: true });
 	},	
 	cleanAllCheckins: function() {
 		
 		if(!K.Admin.isMe()) return null;
 
-		Users.update(true, {$set: {checkin: null} }, { multi: true });
-		Places.update(true, {$set: {checkins: []} }, { multi: true });
+		Users.update({}, {$set: {checkin: null} }, { multi: true });
+		Places.update({}, {$set: {checkins: []} }, { multi: true });
 	}
 });

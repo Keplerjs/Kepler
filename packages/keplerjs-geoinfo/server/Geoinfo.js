@@ -4,74 +4,66 @@ var Future = Npm.require('fibers/future');
 //TODO move to settings
 var roundLocGeoinfo = 4;
 
-/*Meteor.startup(function() {
-	_.each(geoFields, function(opt,field) {
-		console.log('Geoinfo: cache clean ', opt.name);
-		K.Cache.clean(opt.name);
-	});
-});*/
-
-var geoFields = {
-	ele: {
-		name: 'elevation',
-		caching: true,
-		roundLoc: 8,
-		func: K.Geoapi.elevation
-	},
-	esp: {
-		name: 'aspect',
-		caching: true,
-		roundLoc: 8,
-		func: K.Geoapi.aspectLocal
-	},
-	near: {
-		name: 'near',
-		caching: true,
-		roundLoc: roundLocGeoinfo,
-		func: K.Geoapi.near
-	},
-	com: {
-		name: 'municipality',
-		caching: true,
-		roundLoc: roundLocGeoinfo,
-		func: K.Geoapi.municipality
-	},
-	prov: {
-		name: 'province',
-		caching: true,
-		roundLoc: roundLocGeoinfo,
-		func: K.Geoapi.province
-	},
-	reg: {
-		name: 'region',
-		caching: true,
-		roundLoc: roundLocGeoinfo,
-		func: K.Geoapi.region
-	},
-	naz: {
-		name: 'country',
-		caching: true,
-		roundLoc: roundLocGeoinfo,
-		func: K.Geoapi.country
-	},
-	loc: {
-		name: 'loc',
-		caching: false,
-		roundLoc: roundLocGeoinfo,
-		func: function(loc) {
-			return loc;
-		}
-	}
-};
-
 Kepler.Geoinfo = {
+	geoFields: {
+		ele: {
+			name: 'elevation',
+			caching: true,
+			roundLoc: 8,
+			func: K.Geoapi.elevation
+		},
+		esp: {
+			name: 'aspect',
+			caching: true,
+			roundLoc: 8,
+			func: K.Geoapi.aspectLocal
+		},
+		near: {
+			name: 'near',
+			caching: true,
+			roundLoc: roundLocGeoinfo,
+			func: K.Geoapi.near
+		},
+		com: {
+			name: 'municipality',
+			caching: true,
+			roundLoc: roundLocGeoinfo,
+			func: K.Geoapi.municipality
+		},
+		prov: {
+			name: 'province',
+			caching: true,
+			roundLoc: roundLocGeoinfo,
+			func: K.Geoapi.province
+		},
+		reg: {
+			name: 'region',
+			caching: true,
+			roundLoc: roundLocGeoinfo,
+			func: K.Geoapi.region
+		},
+		naz: {
+			name: 'country',
+			caching: true,
+			roundLoc: roundLocGeoinfo,
+			func: K.Geoapi.country
+		},
+		loc: {
+			name: 'loc',
+			caching: false,
+			roundLoc: roundLocGeoinfo,
+			func: function(loc) {
+				return loc;
+			}
+		}
+	},	
 	getFieldsByLoc: function(loc, fields) {
 
 		var future = new Future();
 
 		var tasks = {};
 
-		_.each(geoFields, function(opt, field) {
+		_.each(this.geoFields, function(opt, field) {
 			tasks[field] = function(cb) {
 				Meteor.defer(function() {
 					

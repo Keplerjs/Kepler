@@ -5,7 +5,16 @@ K.Admin.methods({
 		
 		if(!K.Admin.isMe()) return null;
 
-		Users.update(true, {$set: {favorites: []} }, { multi: true });
-		Places.update(true, {$set: {rank: 0} }, { multi: true });
+		Users.update({}, {
+			$set: {
+				favorites: []
+			}
+		}, { multi: true });
+
+		Places.update({}, {
+			$set: {
+				rank: 0
+			}
+		}, { multi: true });
 	}
 });
