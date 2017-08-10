@@ -120,7 +120,7 @@
 .marker-user{ background-position: -30px -330px; } 
 
 /* MARKER POIS */
-.marker-poi{ background-position: -30px -360px; }
+.marker-geojson{ background-position: -30px -360px; }
 
 /* ICON UI */
 .icon-profile{ background-position: 0 -210px; } 

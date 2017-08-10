@@ -26,7 +26,7 @@ Kepler.settings = {
 			"minZoom": 10,
 			"maxZoom": 19,
 			"center": [46.067246, 11.121511],
-			//italy "maxBounds": [[36.282794, 5.361328], [47.542735, 21.071777]],
+			//ITALY "maxBounds": [[36.282794, 5.361328], [47.542735, 21.071777]],
 
 			"checkinMaxDist": 100,
 			"bboxMinShift": 200,

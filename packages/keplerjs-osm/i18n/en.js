@@ -8,5 +8,5 @@ i18n.map('en', {
 	label_osmdate: "Date",
 
 	btn_osmsearch: "Search OSM place!",
-	btn_osmcreate: "Import OSM place!"
+	btn_osmimport: "Import OSM place!"
 });

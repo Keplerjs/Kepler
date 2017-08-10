@@ -2,8 +2,7 @@
 Template.popupCursor_osm.events({
 	'click .btn-osmsearch': function(e,tmpl) {
 
-		var icon$ = tmpl.$('.btn-osmsearch .icon');
-		
+		var icon$ = $(e.target).find('.icon');
 		$(e.target).addClass('disabled');
 		icon$.addClass('icon-loader');
 		
@@ -15,8 +14,16 @@ Template.popupCursor_osm.events({
 });
 
 Template.popupGeojson_osm.events({
-	'click .btn-osmcreate': function(e,tmpl) {
-		K.Osm.insertPlace(tmpl.data);
+	'click .btn-osmimport': function(e,tmpl) {
+		
+		var icon$ = $(e.target).find('.icon');
+		$(e.target).addClass('disabled');
+		icon$.addClass('icon-loader');
+
+		K.Osm.importPlace(tmpl.data, function(placeId) {
+			$(e.target).removeClass('disabled');
+			icon$.removeClass('icon-loader');
+		});
 	}
 });
 

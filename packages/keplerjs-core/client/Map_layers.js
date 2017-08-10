@@ -66,15 +66,12 @@ _.extend(Kepler.Map, {
 			dataToMarker: function(data) {	//eseguito una sola volta per ogni place
 				var place= K.placeById(data._id),
 					mark = place.marker;
-				//console.log('dataToMarker',data,place,mark)
 				return mark;
 			}
 		});
 
 
 		layers.geojson = new L.GeoJSON(null, {
-			//DEBUG autoclear: false,
-			
 			style: function (feature) {
 				return opts.styles.default;
 			},
@@ -87,7 +84,7 @@ _.extend(Kepler.Map, {
 */
 				return new L.Marker(latlng, {
 						icon: new L.NodeIcon({
-							className:'marker-poi',
+							className:'marker-geojson',
 							//nodeHtml: iconPoi
 						})
 					});
@@ -102,8 +99,8 @@ _.extend(Kepler.Map, {
 			}
 		});
 
-		map.on('moveend zoomend', function(e) {
-			//autoclean geojson layer
+		//autoclean geojson layer
+		map.on('zoomend', function(e) {
 			if(layers.geojson.getLayers().length) {
 				if(e.target.getBoundsZoom(layers.geojson.getBounds()) - e.target.getZoom() > 2)
 					layers.geojson.clearLayers();

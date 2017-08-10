@@ -71,11 +71,6 @@ Kepler.Place = Class.extend({
 					Blaze.renderWithData(Template[self.templatePopup], self, div);
 				
 				self.marker.bindPopup(div.firstChild, K.Map.options.popup);
-				
-				self.marker.on('popupopen popupclose', function(e) {
-					console.log(e.type)
-				})
-
 			});
 			
 		}

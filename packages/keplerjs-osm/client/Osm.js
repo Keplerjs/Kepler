@@ -63,7 +63,7 @@ Kepler.Osm = {
 		});
 	},
 
-	insertPlace: function(obj, cb) {
+	importPlace: function(obj, cb) {
 		
 		Meteor.call('insertPlaceByOsmId', obj.properties.id, function(err, placeId) {
 
@@ -74,7 +74,8 @@ Kepler.Osm = {
 				K.Map.layers.geojson.clearLayers();
 				Router.go('panelPlace', {placeId: placeId});
 			}
-			
+			if(_.isFunction(cb))
+				cb(placeId);
 		});
 	},
 

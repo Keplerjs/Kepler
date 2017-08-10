@@ -37,10 +37,12 @@ Kepler.Map = {
 		self.options = self.setOpts(opts);
 
 		self.map = new L.Map(div, {
-			zoom: self.options.zoom,
 			center: self.options.center,
+			zoom: self.options.zoom,
+			minZoom: self.options.minZoom,
+			maxBounds: self.options.maxBounds,
 			attributionControl: false,
-			doubleClickZoom: false,			
+			doubleClickZoom: false,
 			zoomControl: false			
 		});
 
@@ -51,14 +53,11 @@ Kepler.Map = {
 
 		//Fix only for Safari event resize! when shift to fullscreen
 		$(window).on('orientationchange'+(K.Util.isMobile()?'':' resize'), _.debounce(function(e) {
-
 			$(window).scrollTop(0);
 			self.map.invalidateSize(false);
-
 		}, 1000) );
 
-		self.map.whenReady(function() {
-			
+		self.map.whenReady(function() {	
 			self._deps.bbox.changed();
 
 			for(var i in self.items)
@@ -72,6 +71,28 @@ Kepler.Map = {
 		});
 
 		return this;
+	},
+
+	setOpts: function(options) {
+		if(this.ready()) {
+			var opts = _.extend({}, K.settings.public.map, options);
+
+			opts.popup.autoPanPaddingTopLeft = L.point(opts.popup.autoPanPaddingTopLeft);
+			opts.popup.autoPanPaddingBottomRight = L.point(opts.popup.autoPanPaddingTopLeft);
+
+			if(!K.Util.valid.loc(opts.center))
+				opts.center = K.settings.public.map.center;
+			
+			if(!opts.layers[opts.layer])
+				opts.layer = K.settings.public.map.layer;
+
+/*			if(opts.maxBounds)
+				this.map.setMaxBounds(opts.maxBounds);*/
+
+			if(opts.layer && this.layers && this.layers.baselayer)
+				this.layers.baselayer.setUrl( K.settings.public.map.layers[opts.layer] );
+		}
+		return opts;
 	},
 
 	destroy: function() {
@@ -126,28 +147,6 @@ Kepler.Map = {
 			panelw = (this.sidebar.hasClass('expanded') && this.sidebar.width()) || 0;
 
 		return this.ready() && (mapw-panelw > 40);
-	},
-
-	setOpts: function(options) {
-		if(this.ready()) {
-			var opts = _.extend({}, K.settings.public.map, options);
-
-			opts.popup.autoPanPaddingTopLeft = L.point(opts.popup.autoPanPaddingTopLeft);
-			opts.popup.autoPanPaddingBottomRight = L.point(opts.popup.autoPanPaddingTopLeft);
-
-			if(!K.Util.valid.loc(opts.center))
-				opts.center = K.settings.public.map.center;
-			
-			if(!opts.layers[opts.layer])
-				opts.layer = K.settings.public.map.layer;
-
-			if(opts.maxBounds)
-				this.map.setMaxBounds(opts.maxBounds);
-
-			if(opts.layer && this.layers && this.layers.baselayer)
-				this.layers.baselayer.setUrl( K.settings.public.map.layers[opts.layer] );
-		}
-		return opts;
 	},
 
 	getBBox: function() {
