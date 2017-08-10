@@ -13,6 +13,7 @@ keplerjs:theme
 #keplerjs:theme-climb
 keplerjs:api
 keplerjs:edit
+keplerjs:admin
 
 keplerjs:upload
 keplerjs:notif
@@ -27,4 +28,3 @@ keplerjs:googlemaps
 keplerjs:pois
 keplerjs:tracks
 keplerjs:events
-keplerjs:admin

@@ -210,7 +210,7 @@ Kepler.Map = {
 			geoData = _.isArray(geoData) ? geoData : [geoData];
 
 			if(!this.isVisible())
-				this.sidebar.removeClass('expanded');
+				Session.set('showSidebar', false);
 
 			this.map.closePopup();
 

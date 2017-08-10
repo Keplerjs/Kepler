@@ -1,6 +1,6 @@
 
 Template.layoutMap.onCreated(function() {
-	Session.set('showSidebar',true);
+	Session.set('showSidebar',false);
 });
 
 Template.layoutMap.helpers({
