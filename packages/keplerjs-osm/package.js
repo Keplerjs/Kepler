@@ -27,6 +27,7 @@ Package.onUse(function (api) {
   api.addFiles([ 
     'client/Osm.js',    
     'client/views/panels.html',
+    'client/views/markers.html',
     'client/views/popups.html',    
     'client/views/popups.js',    
     'client/stylesheets/osm.css'

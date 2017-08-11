@@ -2,14 +2,14 @@
 <template name="panelPlace_weather">
 	{{#if isOutdoor}}
 	<div class="list-group">
-		<span class="list-group-item active">
+		<div class="list-group-item active">
 			{{i18n 'title_weather'}}
-		</span>
+		</div>
 		<!-- TODO <label>{{i18n 'label_season'}}</label>  {{season}}<br /> -->
 		{{#if weather}}
-			<span class="list-group-item">
+			<div class="list-group-item">
 			{{> panelPlace_weather_forecast}}
-			</span>
+			</div>
 			<div style="font-size:10px" class="text-muted text-right">
 				provided by <a href="http://www.wunderground.com/" target="_blank">wunderground.com</a>
 			</div>

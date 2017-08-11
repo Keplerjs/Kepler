@@ -23,7 +23,7 @@
 
 <template name="popupOsm"> 
    <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-12">
          {{#each keys}}
             <label>
                <a href="{{url}}" target="_blank">
@@ -34,16 +34,16 @@
             <br />
          {{/each}}
        </div>
-      <div class="col-sm-6">
+   </div>
+   <div class="row">
+      <div class="col-sm-12">
          <label>{{i18n 'label_osmid'}}</label>
          <a class="btn btn-xs btn-link" href="http://osm.org/{{id}}" target="_blank">{{properties.id}}</a>
-         <br />
          {{#with properties.meta}}
          <label>{{i18n 'label_osmuser'}}</label>
             <a class="btn btn-xs btn-link" href="http://osm.org/user/{{user}}" target="_blank">{{user}}</a>
-         <br />
          <label>{{i18n 'label_osmdate'}}</label>
-            <a class="btn btn-xs disabled">{{humanDate timestamp}}</a>
+            <a class="btn btn-xs disabled">{{date timestamp}}</a>
          {{/with}}      
       </div>
    </div>

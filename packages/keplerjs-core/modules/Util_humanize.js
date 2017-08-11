@@ -37,11 +37,10 @@ Kepler.Util.humanize = {
 		return ret;
 	},
 
-	date: function(date, sep, showyear) {
+	date: function(date, sep) {
 		
 		date = date || new Date();
 		sep = sep || ' ';
-		showyear = showyear || true;
 	
 		function fromDMY(all, d,m,y) {
 

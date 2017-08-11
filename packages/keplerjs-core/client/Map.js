@@ -205,6 +205,7 @@ Kepler.Map = {
 	},
 
 	addGeojson: function(geoData, opts, cb) {
+		
 		if(this.ready()) {
 
 			geoData = _.isArray(geoData) ? geoData : [geoData];

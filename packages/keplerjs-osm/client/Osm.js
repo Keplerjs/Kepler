@@ -29,14 +29,15 @@ Kepler.Osm = {
 			}
 			else if(geojson && geojson.features.length) {
 
-				geojson.features = _.map(geojson.features, function(f) {
-					//TODO filter properties.meta
-					f.templatePopup = 'popupGeojson_osm';
-					return f;
+				geojson.features = _.map(geojson.features, function(feature) {
+					feature.templateMarker = 'markerOsm';
+					feature.templatePopup = 'popupGeojson_osm';
+					return feature;
 				});
 				K.Map.hideCursor();
-				K.Map.layers.geojson.clearLayers().addData(geojson);
-				K.Map.layers.geojson.invoke('openPopup');
+				K.Map.addGeojson(geojson, null, function() {
+					K.Map.layers.geojson.invoke('openPopup');
+				});
 			}
 			if(_.isFunction(cb))
 				cb(geojson);
@@ -58,7 +59,7 @@ Kepler.Osm = {
 				cb(placeId);
 		});
 	},
-
+/*
 	loadTracks: function() {
 		var opts = {
 			filter: 'highway=unclassified',
@@ -72,5 +73,5 @@ Kepler.Osm = {
 			if(geojson.features.length>0)
 				K.Map.addGeojson(geojson);
 		});
-	}
+	}*/
 };

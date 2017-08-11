@@ -48,6 +48,11 @@ Template.registerHelper('humanTime', function(sec, ago) {
 	return K.Util.humanize.time(sec, parseInt(ago));
 });
 
+Template.registerHelper('date', function(date) {
+	date = new Date(date)
+	return [date.getDate(), date.getMonth()+1, date.getFullYear()].join('/');
+});
+
 Template.registerHelper('humanDate', function(date) {
 	return K.Util.humanize.date(date);
 });

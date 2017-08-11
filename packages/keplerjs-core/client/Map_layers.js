@@ -85,7 +85,7 @@ _.extend(Kepler.Map, {
 
 				return new L.Marker(latlng, {
 						icon: new L.NodeIcon({
-							className: 'marker-geojson',
+							className: feature.classMarker||'marker-geojson',
 							nodeHtml: div.firstChild
 						})
 					});
