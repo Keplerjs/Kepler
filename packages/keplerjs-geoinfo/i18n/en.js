@@ -3,8 +3,6 @@ i18n.map('en', {
 
 	title_geoinfo: "Geography",
 
-	btn_pois: "Nearby Useful Locations",
-
 	label_loc: "Location",
 	label_reg: "Region",
 	label_naz: "Nation",

@@ -111,6 +111,7 @@ div.leaflet-marker-icon {
 
 /* MARKER POIS */
 .marker-geojson{ background-position: -30px -120px; }
+.marker-poi{ background-position: -30px -120px; }
 
 /* ICON UI */
 .icon-profile{ background-position: 0 -210px; } 

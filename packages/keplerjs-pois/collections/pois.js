@@ -1,10 +1,20 @@
 
 Pois = new Mongo.Collection('pois');
 
+Pois.before.insert(function(userId, doc) {
+	doc.createdAt = K.Util.time();
+});
+
+
+if(Meteor.isServer) {
+	Pois._ensureIndex({"geometry.coordinates": "2dsphere"});
+	Pois._ensureIndex({"id": 1}, {unique: 1});
+}
+
 findPoisByLoc = function(ll) {
 
 	var where;
-	
+
 	if(Meteor.isClient) {
 		where = {
 			'$near': ll,

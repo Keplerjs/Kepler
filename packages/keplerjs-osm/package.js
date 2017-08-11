@@ -33,7 +33,7 @@ Package.onUse(function (api) {
   ],'client');
 
   api.addFiles([
-    'server/osm.js',
+    'server/Osm.js',
     'server/places.js',
     'server/pubs.js'
   ],'server');

@@ -16,6 +16,7 @@ Kepler.Geoinfo = {
 		}
 
 		return {
+			//TODO return all times!
 			sunrise: format(times.sunrise),
 			sunset: format(times.sunset)
 		};

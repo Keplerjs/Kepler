@@ -82,21 +82,5 @@ K.Admin.methods({
 				usersReceive: []
 			}
 		}, { multi: true });
-	},		
-	removeAllUsers: function() {
-		
-		if(!K.Admin.isMe()) return null;
-
-		Users.find({_id: {$ne: this.userId }}).forEach(function(user) {
-			Meteor.call('removeUser', user.username);
-		});
-		Users.update(this.userId, {
-			$set: {
-				friends: [],
-				usersBlocked: [],
-				usersPending: [],
-				usersReceive: []
-			}
-   		});
-	}	
+	}
 });

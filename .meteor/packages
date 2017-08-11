@@ -13,18 +13,18 @@ keplerjs:theme
 #keplerjs:theme-climb
 keplerjs:api
 keplerjs:edit
-keplerjs:admin
+#keplerjs:admin
 
 keplerjs:upload
-keplerjs:notif
-#keplerjs:categories
 keplerjs:share
 keplerjs:osm
+#keplerjs:categories
+keplerjs:notif
 keplerjs:favorites
 keplerjs:conver
-keplerjs:geoinfo
-keplerjs:weather
-keplerjs:googlemaps
-keplerjs:pois
-keplerjs:tracks
+#keplerjs:geoinfo
 keplerjs:events
+keplerjs:pois
+#keplerjs:tracks
+#keplerjs:weather
+#keplerjs:googlemaps

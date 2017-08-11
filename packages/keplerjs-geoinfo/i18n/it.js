@@ -1,8 +1,6 @@
 
 i18n.map('it', {
 	title_geoinfo: "Geografia",
-	
-	btn_pois: "Luoghi utili vicini",
 
 	label_loc: "Località",
 	label_reg: "Regione",

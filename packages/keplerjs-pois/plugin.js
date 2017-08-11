@@ -21,8 +21,18 @@ K.Plugin({
 				}
 			},
 			"pois": {
-				"maxDistance": 1000,
-				"limit": 10				
+				"limit": 10,
+				"maxDistance": 800,
+				"typesByTags": {
+					"amenity=drinking_water": "water",
+					"amenity=restaurant": "eat",
+					"amenity=hospital":   "bed",
+					"amenity=parking":    "parking",
+					"amenity=cafe":       "drink",
+					"amenity=bar":        "drink",
+					"tourism=camp_site":  "camp",
+					"tourism=hotel":      "bed"
+				}
 			}
 		}
 	}
