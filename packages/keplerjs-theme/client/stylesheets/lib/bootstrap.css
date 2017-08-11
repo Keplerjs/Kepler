@@ -108,6 +108,9 @@ label {
 .badge.badge-checkins {
 	background-color: #f80;
 }
+.badge.bg-gray {
+	background-color: #ccc;
+}
 .badge.badge-cluster {
 	background-color: #257;
 }

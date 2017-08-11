@@ -1,6 +1,6 @@
 
 <template name="panelPlace_geoinfo">
-	
+	{{#if geoinfo}}
 	<ul class="list-group">
 		<li class="list-group-item active">		
 			{{i18n 'title_geoinfo'}}
@@ -14,5 +14,5 @@
 			provided by <a href="http://www.geonames.org/" target="_blank">geonames</a>
 		</div>		
 	</ul>
-
+	{{/if}}
 </template>

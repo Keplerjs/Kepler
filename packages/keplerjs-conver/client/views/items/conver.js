@@ -34,12 +34,18 @@ Template.item_conver.helpers({
 		return title || '...';
 	},
 	usersIds: function() {
-		var exclude = [this.userId, K.Profile.id];
 		
-		if(this.targetType==='user')
-			exclude.push(this.targetId);
+		var exclude = [this.userId, K.Profile.id];
 
-		return _.last(_.difference(this.usersIds, exclude), 3);
-		//return _.last(this.usersIds, 3);
+		if(this.targetType==='place')
+			exclude = [];
+		
+		if(this.targetType==='user'){
+			exclude.push(this.targetId);
+		}
+
+		var users = _.last(_.difference(this.usersIds, exclude), 3);
+
+		return users;
 	}
 });
