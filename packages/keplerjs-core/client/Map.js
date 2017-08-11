@@ -86,9 +86,6 @@ Kepler.Map = {
 			if(!opts.layers[opts.layer])
 				opts.layer = K.settings.public.map.layer;
 
-/*			if(opts.maxBounds)
-				this.map.setMaxBounds(opts.maxBounds);*/
-
 			if(opts.layer && this.layers && this.layers.baselayer)
 				this.layers.baselayer.setUrl( K.settings.public.map.layers[opts.layer] );
 		}
@@ -123,29 +120,6 @@ Kepler.Map = {
 		for(var c in this.controls)
 			this.map.addControl(this.controls[c]);
 	},
-	
-	_setView: function(loc, zoom) {
-		if(this.ready()) {
-			this.map.setView(loc, zoom);
-	
-		//TODO rewrite using only bboxes
-/*
-			var mapw = this.map.getSize().x,
-				panelw = (this.sidebar.hasClass('expanded') && this.sidebar.width()) || 0;
-			
-			var viewportW = mapw - panelw;
-			
-			var p = this.map.latLngToContainerPoint(L.latLng(loc));
-			
-			p = L.point(p.x-(panelw/2), p.y);
-
-			loc = this.map.containerPointToLatLng(p);
-	
-			this.map.setView(loc, zoom);*/
-			//*/
-		}
-		return this;
-	},
 
 	isVisible: function() {
 		if(!this.ready()) return false;
@@ -155,6 +129,29 @@ Kepler.Map = {
 			viewportW = mapw - panelw;
 
 		return viewportW > 40;
+	},
+	
+	setView: function(loc, zoom) {
+		if(this.ready()) {
+			var sidebarW = (this.sidebar.hasClass('expanded') && this.sidebar.width()) || 0;
+			
+			this.map.setView(loc, zoom);/*, {
+				//TODO Leaflet 1.1.0 not yet implement paddingTopLeft
+				//only documented
+				paddingTopLeft: L.point(sidebarW,0)
+			});*/
+		}
+		return this;
+	},
+
+	fitBounds: function(bbox) {
+		if(this.ready()) {
+			var sidebarW = (this.sidebar.hasClass('expanded') && this.sidebar.width()) || 0;
+			this.map.fitBounds(bbox, {
+				paddingTopLeft: L.point(sidebarW,0)
+			});
+		}
+		return this;
 	},
 
 	getBBox: function() {
@@ -180,17 +177,6 @@ Kepler.Map = {
 			return L.latLngBounds(this.getBBox()).getCenter();
 	},
 
-	showLoc: function(loc, cb) {
-		if(this.ready()) {
-			if(_.isFunction(cb))
-				this.map.once("moveend zoomend", cb);
-			
-			if(loc && K.Util.valid.loc(loc))
-				this._setView( L.latLng(loc) , this.options.showLocZoom);
-		}
-		return this;
-	},
-
 	addItem: function(item) {
 		if(this.ready() && item && item.marker) {
 			if(item.type==='place')
@@ -208,6 +194,21 @@ Kepler.Map = {
 		if(this.ready()) {
 			if(item && item.marker)
 				this.map.removeLayer(item.marker);
+		}
+		return this;
+	},
+
+	showLoc: function(loc, cb) {
+		if(this.ready()) {
+
+			if(!this.isVisible())
+				Session.set('showSidebar', false);
+			
+			if(_.isFunction(cb))
+				this.map.once("moveend zoomend", cb);
+			
+			if(loc && K.Util.valid.loc(loc))
+				this.setView( L.latLng(loc) , this.options.showLocZoom);
 		}
 		return this;
 	},
@@ -233,14 +234,10 @@ Kepler.Map = {
 			if(opts && opts.style)
 				this.layers.geojson.setStyle(opts.style);
 			
-			var bb = this.layers.geojson.getBounds(),
-				zoom = this.map.getBoundsZoom(bb),
-				loc = bb.getCenter();
-
 			if(_.isFunction(cb))
 				this.map.once("moveend zoomend", cb);
 
-			this._setView(loc, zoom);
+			this.fitBounds(this.layers.geojson.getBounds());
 		}
 		return this;
 	},
