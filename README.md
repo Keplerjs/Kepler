@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/Keplerjs/Kepler.png?label=ready&title=Ready)](https://waffle.io/Keplerjs/Kepler?utm_source=badge)
 ![KeplerJs](./keplerjs.png) 
 
 ## KeplerJS
