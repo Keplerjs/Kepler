@@ -77,15 +77,16 @@ _.extend(Kepler.Map, {
 			},
 			pointToLayer: function(feature, latlng) {	//costruisce marker POI
 
-//TODO feature.templateMarker!!! for markler icon
+				var div = L.DomUtil.create('div');
 
-/*				var iconPoi = L.DomUtil.create('div');
-				L.DomUtil.create('i', 'icon icon-'+feature.properties.type, iconPoi);
-*/
+				if(feature && feature.templateMarker && Template[feature.templateMarker]) {
+					Blaze.renderWithData(Template[feature.templateMarker], feature, div);
+				}
+
 				return new L.Marker(latlng, {
 						icon: new L.NodeIcon({
-							className:'marker-geojson',
-							//nodeHtml: iconPoi
+							className: 'marker-geojson',
+							nodeHtml: div.firstChild
 						})
 					});
 
@@ -102,7 +103,7 @@ _.extend(Kepler.Map, {
 		//autoclean geojson layer
 		map.on('zoomend', function(e) {
 			if(layers.geojson.getLayers().length) {
-				if(e.target.getBoundsZoom(layers.geojson.getBounds()) - e.target.getZoom() > 2)
+				if(e.target.getBoundsZoom(layers.geojson.getBounds()) - e.target.getZoom() > 1)
 					layers.geojson.clearLayers();
 			}
 		});

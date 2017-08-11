@@ -38,4 +38,5 @@ Package.onUse(function (api) {
     'server/pubs.js'
   ],'server');
 
+//TODO export Osm client and server
 });

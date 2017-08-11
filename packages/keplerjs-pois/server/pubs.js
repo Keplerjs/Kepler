@@ -8,7 +8,7 @@ Meteor.publish('poisByPlace', function(placeId) {
 
 		var poisCur = findPoisByLoc(placeData.loc);
 
-		//if(poisCur.count()===0) {
+		if(poisCur.count()===0) {
 			var geojson = K.Osm.findOsmByLoc(placeData.loc, {
 				filter: _.keys(K.settings.public.pois.typesByTags),
 				radius: 200,
@@ -27,7 +27,7 @@ Meteor.publish('poisByPlace', function(placeId) {
 				});
 			}
 			console.log('Pub: poisByPlace insert from osm ', geojson.features.length);
-		//}
+		}
 
 		console.log('Pub: poisByPlace', placeData.name, poisCur.count());
 

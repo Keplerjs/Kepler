@@ -15,7 +15,7 @@ L.NodeIcon = L.Icon.extend({
 	},
 	
 	createIcon: function(oldIcon) {
-		this.nodeHtml = oldIcon ? oldIcon : (this.options.nodeHtml || L.DomUtil.create('div'));
+		this.nodeHtml = oldIcon ? oldIcon : (this.options.nodeHtml || L.DomUtil.create('div',this.options.className));
 		this._setIconStyles(this.nodeHtml, 'icon');
 		if(!this.anim)
 			this.anim = L.DomUtil.create('div','marker-anim', this.nodeHtml);

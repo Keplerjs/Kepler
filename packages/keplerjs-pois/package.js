@@ -23,7 +23,10 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
+    'client/Pois.js',
     'client/Place_pois.js',
+    'client/helpers.js',
+    'client/views/markers.html', 
     'client/views/popups.html',    
     'client/views/panels.html',
     'client/views/panels.js',

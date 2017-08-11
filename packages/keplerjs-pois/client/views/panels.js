@@ -1,8 +1,15 @@
 
 Template.panelPlace_pois.events({
 	'click .panel-btn-poisList': function(e, tmpl) {
-		e.preventDefault();
-		this.loadPois();
+
+		var icon$ = $(e.target).find('.icon');
+		$(e.target).addClass('disabled');
+		icon$.addClass('icon-loader');
+		
+		this.loadPois(function() {
+			$(e.target).removeClass('disabled');
+			icon$.removeClass('icon-loader');
+		});
 	},
 	'click .panel-btn-poi': function(e, tmpl) {
 		e.preventDefault();

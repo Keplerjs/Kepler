@@ -11,8 +11,8 @@
 			{{> panelPlace_pois_list}}
 			</div>
 		{{else}}
-			<a class="list-group-item panel-btn-poisList" href="#" target="_blank">
-				<i class="icon icon-pois"></i> <span>{{i18n 'btn_pois'}}</span>
+			<a class="list-group-item panel-btn-poisList" href="#">
+				<i class="icon icon-pois"></i> {{i18n 'btn_pois'}}
 			</a>
 		{{/if}}
 	</div>
@@ -22,7 +22,7 @@
 <template name="panelPlace_pois_list">
 	{{#each getPoisList}}
 	<a class="list-group-item panel-btn-poi" href="#">
-		{{#if icon}}<i class="{{icon}}"></i>{{/if}} 
+		<i class="icon icon-{{type}}"></i>
 		{{title}}
 		<span class="badge bg-gray">{{count}}</span>
 	</a>

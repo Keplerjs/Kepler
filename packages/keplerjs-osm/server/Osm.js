@@ -66,7 +66,7 @@ Kepler.Osm = {
 
     var query = this.queryBuilder(loc, opts);
 
-    console.log('Osm: findOsmByLoc', '"'+query+'"');
+    console.log('Osm: findOsmByLoc');//, '"'+query+'"');
     //console.log("https://overpass-api.de/api/interpreter?data="+encodeURIComponent(query));
 
     var future = new Future();
@@ -91,7 +91,7 @@ Kepler.Osm = {
         meta: overOpts.meta ? ' meta' : ''
       });
 
-    console.log('Osm: findOsmById', '"'+query+'"');
+    console.log('Osm: findOsmById');
 
     var future = new Future();
 
@@ -123,7 +123,7 @@ Kepler.Osm = {
 			limit: opts.limit
 		});
 		
-    console.log('Osm: findOsmByBBox', query);
+    console.log('Osm: findOsmByBBox');
     //console.log("https://overpass-api.de/api/interpreter?data="+encodeURIComponent(query));
 
 		var future = new Future();

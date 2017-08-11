@@ -54,3 +54,9 @@
 .leaflet-marker-icon {
 	border: none
 }
+
+.leaflet-marker-icon .icon {
+	position: absolute;
+	top: 0;
+	left: 7px;
+}

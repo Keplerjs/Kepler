@@ -33,3 +33,7 @@
 	border: 1px solid #FFAB1D;
 	background-color: rgba(255,170,30,0.5);
 }
+
+.btn-block .icon {
+	text-align: left;
+}
