@@ -127,14 +127,21 @@ Kepler.Map = {
 	_setView: function(loc, zoom) {
 		if(this.ready()) {
 			this.map.setView(loc, zoom);
-			/*
-			//TODO 
-			if(this.sidebar.hasClass('expanded')) {
-				var p = this.map.latLngToContainerPoint(L.latLng(loc));
-				p = L.point(p.x - sidebar$.width(), p.y);
-				loc = this.map.containerPointToLatLng(p);
-			}
-			this.map.setView(loc, zoom);
+	
+		//TODO rewrite using only bboxes
+/*
+			var mapw = this.map.getSize().x,
+				panelw = (this.sidebar.hasClass('expanded') && this.sidebar.width()) || 0;
+			
+			var viewportW = mapw - panelw;
+			
+			var p = this.map.latLngToContainerPoint(L.latLng(loc));
+			
+			p = L.point(p.x-(panelw/2), p.y);
+
+			loc = this.map.containerPointToLatLng(p);
+	
+			this.map.setView(loc, zoom);*/
 			//*/
 		}
 		return this;
@@ -144,9 +151,10 @@ Kepler.Map = {
 		if(!this.ready()) return false;
 
 		var mapw = this.map.getSize().x,
-			panelw = (this.sidebar.hasClass('expanded') && this.sidebar.width()) || 0;
+			panelw = (this.sidebar.hasClass('expanded') && this.sidebar.width()) || 0,
+			viewportW = mapw - panelw;
 
-		return this.ready() && (mapw-panelw > 40);
+		return viewportW > 40;
 	},
 
 	getBBox: function() {
