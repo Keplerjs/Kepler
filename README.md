@@ -64,7 +64,9 @@ Contains *methods*, *subscriptions* and *business logic* that can be used in oth
 * [K.Profile](packages/keplerjs-core/client/Profile.js)
   define methods logic and manage data of the current *logged user*
 * [K.Map](packages/keplerjs-core/client/Map.js)
-  manages and builds the primary [Leaflet](http://leafletjs.com/) map with all its [layers](packages/keplerjs-core/client/Map_layers.js) and [controls](packages/keplerjs-core/client/Map_controls.js)
+  manages and builds the primary [Leaflet](http://leafletjs.com/)
+  - [K.Map.layers](packages/keplerjs-core/client/Map_layers.js)
+  - [K.Map.controls](packages/keplerjs-core/client/Map_controls.js)
 
 ##### Configurations (client,server):
 Any basic configuration can be extended by plugins with their *plugin.js* file
