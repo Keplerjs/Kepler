@@ -88,7 +88,7 @@ Contains *methods*, *subscriptions* and *business logic* that can be used in oth
 * [K.Profile](packages/keplerjs-core/client/Profile.js)
   define methods logic and manage data of the current *logged user*
 * [K.Map](packages/keplerjs-core/client/Map.js)
-  Manages and builds the primary [Leaflet](http://leafletjs.com/) map with all its [layers](packages/keplerjs-core/client/Map_layers.js) and [controls](packages/keplerjs-core/client/Map_controls.js))
+  manages and builds the primary [Leaflet](http://leafletjs.com/) map with all its [layers](packages/keplerjs-core/client/Map_layers.js) and [controls](packages/keplerjs-core/client/Map_controls.js))
 
 ##### Modules (client,server):
 * [K.Cache](packages/keplerjs-core/modules/Cache.js)
@@ -113,7 +113,24 @@ Contains *methods*, *subscriptions* and *business logic* that can be used in oth
   contains the main default settings extended by *Kepler plugins* and from *Meteor.settings*
 
 ### UI Placeholders
+Kepler implements a convenient mechanism to give plugins the ability to place their contents in the platform's basic structure. 
+Using the dynamic template **[pluginPlaceholder](packages/keplerjs-ui/client/views/pluginPlaceholder.js)** and register the plugin's templates inside the *plugin.js* in the section placeholders.
 
+Here an example of definitions of contents for the plugin [keplerjs:share](packages/keplerjs-share/plugin.js)
+```
+K.Plugin({
+	name: 'share',
+	placeholders: {
+		panelPlace: ['panelPlace_share','panelPlace_share2'],   //single or more templates
+		popupCursor: 'popupCursor_share',
+		//popupUser: 'popupCursor_share'
+	}
+});
+```
+And of placeholder positioned inside the [place panel template](packages/keplerjs-ui/client/views/panels/place.html#L45)
+```
+{{> pluginPlaceholder name='panelPlace'}}
+```
 
 ### Settings
 A example of custom settings is *private/settings.sample.json*
