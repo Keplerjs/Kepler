@@ -102,14 +102,21 @@ Contains *methods*, *subscriptions* and *business logic* that can be used in oth
   - [K.Util.valid](packages/keplerjs-core/modules/Util_valid.js)
 
 ##### Configurations (client,server):
-* [K.settings](packages/keplerjs-core/settings.js)
+
 * [K.schemas](packages/keplerjs-core/modules/schemas.js)
+  defines the data structures for documents in the collections, can be extended by *Kepler plugins* to host the plugin fields
 * [K.filters](packages/keplerjs-core/modules/filters.js)
+  defines the fields exposed in the queries for pubblications and methods, the structure of this file is deliberately aligned to enhance the different levels of data privacy
 * [K.placeholders](packages/keplerjs-core/modules/placeholders.js)
+  defines the *placeholders* in the UI where the plugins can extend the content with others *temaplates/views*
+* [K.settings](packages/keplerjs-core/settings.js)
+  contains the main default settings extended by *Kepler plugins* and from *Meteor.settings*
+
+### UI Placeholders
 
 
 ### Settings
-The main default settings are located in [K.settings](packages/keplerjs-core/settings.js) and an example of custom settings is *private/settings.sample.json*
+A example of custom settings is *private/settings.sample.json*
 Special configurations of individual plugins can be overridden.
 To see *packages/\<plugin-name\>/plugin.js* file in the *settings* section.
 
