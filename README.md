@@ -14,15 +14,6 @@ lets users share favorite places and join discussions
 * Roadmap: [Trello](https://trello.com/b/FBK72QEJ/keplerjs-roadmap), [Waffle](https://waffle.io/Keplerjs/Kepler)
 * News: [Twitter](https://twitter.com/Kepler_JS), [Tumblr](https://keplerjs.tumblr.com/)
 
-### Install
-
-```sh
-npm i
-npm start
-```
-
-And open *http://localhost:3000/* in your browser.
-
 ## Architecture
 
 Kepler uses a [package-based architecture](http://experimentsinmeteor.com/package-based-architecture/), meaning that the entirety of its codebase resides in */packages*
@@ -104,16 +95,6 @@ And of placeholder positioned inside the place panel [template](packages/keplerj
 {{> pluginPlaceholder name='panelPlace'}}
 ```
 
-### Settings
-A example of custom settings is *private/settings.sample.json*
-Special configurations of individual plugins can be overridden.
-To see *packages/\<plugin-name\>/plugin.js* file in the *settings* section.
-
-```sh
-meteor --settings private/settings.sample.json 
-```
-
-
 ### Kepler Plugins
 
 The *Kepler plugin packages* provide useful features for your Kepler application. A *plugin package* only need to make your own package depend on *keplerjs:core* or others plugins if needed.
@@ -145,6 +126,24 @@ The *Kepler plugin packages* provide useful features for your Kepler application
 ####  3rd party Plugins
 
 *Are expected to be developed by the great community of Meteor developers...*
+
+
+## Install
+
+```sh
+npm i
+npm start
+```
+
+And open *http://localhost:3000/* in your browser.
+### Settings
+A example of custom settings is *private/settings.sample.json*
+Special configurations of individual plugins can be overridden.
+To see *packages/\<plugin-name\>/plugin.js* file in the *settings* section.
+
+```sh
+meteor --settings private/settings.sample.json 
+```
 
 ### License
 Note that Kepler is distributed under the [MIT License](http://opensource.org/licenses/MIT)
