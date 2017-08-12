@@ -67,7 +67,7 @@ Contains *methods*, *subscriptions* and *business logic* that can be used in oth
   manages and builds the primary [Leaflet](http://leafletjs.com/) map with all its [layers](packages/keplerjs-core/client/Map_layers.js) and [controls](packages/keplerjs-core/client/Map_controls.js)
 
 ##### Configurations (client,server):
-Any basic configuration can be extended by plugins with their [plugin.js]() file
+Any basic configuration can be extended by plugins with their *plugin.js* file
 * [K.schemas](packages/keplerjs-core/modules/schemas.js)
   defines the data structures for documents in the collections, can be extended by *Kepler plugins* to host the plugin fields
 * [K.filters](packages/keplerjs-core/modules/filters.js)
