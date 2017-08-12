@@ -13,7 +13,7 @@ Meteor.publish('tracksByIds', function(trackIds) {
 		this.ready();	
 });
 
-Meteor.publish('tracksByPlace', function(placeId, bbox) {
+Meteor.publish('tracksByPlace', function(placeId) {
 
 	if(this.userId) {
 
@@ -24,14 +24,14 @@ Meteor.publish('tracksByPlace', function(placeId, bbox) {
 
 		if(tracksCur.count()===0) {
 
-			var geojson = K.Osm.findOsmByBBox(bbox, {
+			var geojson = K.Osm.findOsmByLoc(placeData.loc, {
 				type: 'way',
 				filter: _.keys(K.settings.public.tracks.typesByTags),
 				radius: K.settings.public.tracks.maxDistance,
 				limit: K.settings.public.tracks.limit,
 				meta: false
 			});
-			console.log(geojson)
+			
 			if(!geojson || !geojson.features)
 				return [];
 

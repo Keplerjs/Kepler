@@ -22,14 +22,16 @@ K.Plugin({
 			},
 			"pois": {
 				"limit": 10,
-				"maxDistance": 800,
+				"maxDistance": 1500,
 				"typesByTags": {
 					"amenity=drinking_water": "water",
+					"amenity=fountain":  "water",
 					"amenity=restaurant": "eat",
 					"amenity=hospital":   "bed",
 					"amenity=parking":    "parking",
 					"amenity=cafe":       "drink",
 					"amenity=bar":        "drink",
+					//"highway=bus_stop":   "bus",
 					"tourism=camp_site":  "camp",
 					"tourism=hotel":      "bed"
 				}

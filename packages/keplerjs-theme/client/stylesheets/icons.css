@@ -78,10 +78,10 @@ div.leaflet-marker-icon {
 /* CONTROLS */
 .leaflet-control-search .search-button:hover,
 .leaflet-control-search .search-button {
-	background-position: 0 0;
+	background-position: 0 -30px;
 }
 .leaflet-control-search .search-cancel {
-	background-position: -90px -30px;
+	background-position: -90px -90px;
 }
 .leaflet-control-gps .gps-button.loading,
 .leaflet-control-gps .gps-button.loading:hover {
@@ -89,23 +89,23 @@ div.leaflet-marker-icon {
 }
 .leaflet-control-gps .gps-button,
 .leaflet-control-gps .gps-button:hover {
-	background-position: 0 -30px;
+	background-position: 0 -90px;
 }
 .leaflet-control-gps .gps-button.disabled,
 .leaflet-control-gps .gps-button.disabled:hover {
-	background-position: 0 0;
+	background-position: 0 -60px;
 }
 .leaflet-control-gps .gps-button.active,
 .leaflet-control-gps .gps-button.active:hover {
-	background-position: 0 -60px;
+	background-position: 0 -120px;
 }
 .leaflet-bar a.leaflet-control-zoom-in,
 .leaflet-touch .leaflet-bar a.leaflet-control-zoom-in {
-	background-position: 0 -90px;
+	background-position: 0 -150px;
 }
 .leaflet-bar a.leaflet-control-zoom-out,
 .leaflet-touch .leaflet-bar a.leaflet-control-zoom-out {
-	background-position: 0 -120px;
+	background-position: 0 -180px;
 }
 
 /* MARKER */
@@ -123,17 +123,17 @@ div.leaflet-marker-icon {
 .marker-geojson{ background-position: -30px -150px; }
 
 /* ICON UI */
-.icon-profile{ background-position: 0 -210px; } 
-.icon-friends{ background-position: 0 -240px; }
-.icon-avatar { background-position: 0 -270px; }
+.icon-profile{ background-position: 0 -270px; } 
+.icon-friends{ background-position: 0 -300px; }
+.icon-avatar { background-position: 0 -330px; }
 
 
-.icon-status-connected{ background-position: 0 -150px;  } 
+.icon-status-connected{ background-position: 0 -210px;  } 
 .icon-status-failed,
 .icon-status-offline,
 .icon-status-waiting,
 .icon-status-connecting,
-.icon-status-disconnect{ background-position: 0 -180px;  } 
+.icon-status-disconnect{ background-position: 0 -240px;  } 
 
 /* ICON POIS */
 .icon-parking{ background-position: -60px 0; } 
