@@ -28,7 +28,7 @@ And open *http://localhost:3000/* in your browser.
 Kepler uses a [package-based architecture](http://experimentsinmeteor.com/package-based-architecture/), meaning that the entirety of its codebase resides in */packages*
 Different packages can play different behaviors. So here's a quick overview of the different package categories you'll come across. 
 
-### Core Packages
+### Base Packages
 
 These packages are indispensable for basic platform operation. And observing dependency relationships should be loaded into this exact order:
 
@@ -37,40 +37,8 @@ These packages are indispensable for basic platform operation. And observing dep
 * [keplerjs:core](packages/keplerjs-core)
 * [keplerjs:ui](packages/keplerjs-ui)
 
-### Kepler Plugins
-
-The *Kepler plugin packages* provide useful features for your Kepler application.
-A **Kepler plugin** is a standard Meteor package that contains a **plugin.js** file that defines the behaviors and configuration in the kepler environment, similar in concept to [Package.js](http://docs.meteor.com/api/packagejs.html).
-A *plugin package* only need to make your own package depend on *keplerjs:core* or others plugins if needed.
-
-
-#### Base Plugins
-* [keplerjs:edit](packages/keplerjs-edit)
-* [keplerjs:admin](packages/keplerjs-admin)
-* [keplerjs:theme](packages/keplerjs-theme)
-
-#### Optional Plugins
-
-* [keplerjs:api](packages/keplerjs-api)
-* [keplerjs:upload](packages/keplerjs-upload)
-* [keplerjs:geoinfo](packages/keplerjs-geoinfo)
-* [keplerjs:osm](packages/keplerjs-osm)
-* [keplerjs:categories](packages/keplerjs-categories)
-
-#### Additional Plugins
-* [keplerjs:conver](packages/keplerjs-conver)
-* [keplerjs:events](packages/keplerjs-events)
-* [keplerjs:favorites](packages/keplerjs-favorites)
-* [keplerjs:googlemaps](packages/keplerjs-googlemaps)
-* [keplerjs:notif](packages/keplerjs-notif)
-* [keplerjs:pois](packages/keplerjs-pois)
-* [keplerjs:share](packages/keplerjs-share)
-* [keplerjs:tracks](packages/keplerjs-tracks)
-* [keplerjs:weather](packages/keplerjs-weather)
-
-####  3rd party Plugins
-
-*Are expected to be developed by the great community of Meteor developers...*
+### Kepler plugin
+A Kepler plugin is a standard Meteor package that contains a **plugin.js** file that defines the behaviors and configuration in the kepler environment, similar in concept to [Package.js](http://docs.meteor.com/api/packagejs.html).
 
 
 ## Kepler Environment
@@ -84,15 +52,9 @@ Usually in some kepler plugins these can be extended adding behaviors/methods us
    define logic and manage data of the *places* shown on the map and UI
 * [K.User](packages/keplerjs-core/client/User.js)
   define logic and manage data of the *users* shown on the map and UI
-
-##### Modules (client):
-Contains *methods*, *subscriptions* and *business logic* that can be used in other parts of the code, often in views or other modules and models istances.
-* [K.Profile](packages/keplerjs-core/client/Profile.js)
-  define methods logic and manage data of the current *logged user*
-* [K.Map](packages/keplerjs-core/client/Map.js)
-  manages and builds the primary [Leaflet](http://leafletjs.com/) map with all its [layers](packages/keplerjs-core/client/Map_layers.js) and [controls](packages/keplerjs-core/client/Map_controls.js))
-
+  
 ##### Modules (client,server):
+Contains *methods*, *subscriptions* and *business logic* that can be used in other parts of the code, often in views, models or other modules.
 * [K.Cache](packages/keplerjs-core/modules/Cache.js)
   implement simple and smart general-purpose caching system based on *key-value*
 * [K.Plugin](packages/keplerjs-core/modules/Plugin.js)
@@ -103,9 +65,15 @@ Contains *methods*, *subscriptions* and *business logic* that can be used in oth
   - [K.Util.valid](packages/keplerjs-core/modules/Util_valid.js)
   - [K.Util.sanitize](packages/keplerjs-core/modules/Util_sanitize.js)
   - [K.Util.humanize](packages/keplerjs-core/modules/Util_humanize.js)
-  
-##### Configurations (client,server):
 
+##### Modules (client):
+* [K.Profile](packages/keplerjs-core/client/Profile.js)
+  define methods logic and manage data of the current *logged user*
+* [K.Map](packages/keplerjs-core/client/Map.js)
+  manages and builds the primary [Leaflet](http://leafletjs.com/) map with all its [layers](packages/keplerjs-core/client/Map_layers.js) and [controls](packages/keplerjs-core/client/Map_controls.js))
+
+##### Configurations (client,server):
+Any basic configuration can be extended by plugins with their [plugin.js]() file
 * [K.schemas](packages/keplerjs-core/modules/schemas.js)
   defines the data structures for documents in the collections, can be extended by *Kepler plugins* to host the plugin fields
 * [K.filters](packages/keplerjs-core/modules/filters.js)
@@ -143,6 +111,39 @@ To see *packages/\<plugin-name\>/plugin.js* file in the *settings* section.
 ```sh
 meteor --settings private/settings.sample.json 
 ```
+
+
+### Kepler Plugins
+
+The *Kepler plugin packages* provide useful features for your Kepler application. A *plugin package* only need to make your own package depend on *keplerjs:core* or others plugins if needed.
+
+#### Base Plugins
+* [keplerjs:edit](packages/keplerjs-edit)
+* [keplerjs:admin](packages/keplerjs-admin)
+* [keplerjs:theme](packages/keplerjs-theme)
+
+#### Optional Plugins
+
+* [keplerjs:api](packages/keplerjs-api)
+* [keplerjs:upload](packages/keplerjs-upload)
+* [keplerjs:geoinfo](packages/keplerjs-geoinfo)
+* [keplerjs:osm](packages/keplerjs-osm)
+* [keplerjs:categories](packages/keplerjs-categories)
+
+#### Additional Plugins
+* [keplerjs:conver](packages/keplerjs-conver)
+* [keplerjs:events](packages/keplerjs-events)
+* [keplerjs:favorites](packages/keplerjs-favorites)
+* [keplerjs:googlemaps](packages/keplerjs-googlemaps)
+* [keplerjs:notif](packages/keplerjs-notif)
+* [keplerjs:pois](packages/keplerjs-pois)
+* [keplerjs:share](packages/keplerjs-share)
+* [keplerjs:tracks](packages/keplerjs-tracks)
+* [keplerjs:weather](packages/keplerjs-weather)
+
+####  3rd party Plugins
+
+*Are expected to be developed by the great community of Meteor developers...*
 
 ### License
 Note that Kepler is distributed under the [MIT License](http://opensource.org/licenses/MIT)
