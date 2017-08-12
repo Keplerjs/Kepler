@@ -12,6 +12,7 @@ Package.onUse(function(api) {
   
   api.use([
     'keplerjs:core@1.1.0',
+    'keplerjs:osm@1.1.0',
     'keplerjs:geoinfo@1.1.0'
   ]);
 
@@ -35,4 +36,8 @@ Package.onUse(function(api) {
     'server/pubs.js',
   ],'server');
   
+  api.export([
+    'Tracks'
+  ]);
+
 });

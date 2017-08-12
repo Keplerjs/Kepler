@@ -12,7 +12,7 @@ Kepler.Place.include({
 		if(self.tracksList)
 			cb(self.tracksList);
 		else
-			Meteor.subscribe('tracksByPlace', self.id, function() {
+			Meteor.subscribe('tracksByPlace', self.id, K.Map.getBBox(), function() {
 				
 				self.tracksList = findTracksByLoc(self.loc).fetch();
 				

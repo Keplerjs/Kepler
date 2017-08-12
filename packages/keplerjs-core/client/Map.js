@@ -145,7 +145,7 @@ Kepler.Map = {
 	},
 
 	fitBounds: function(bbox) {
-		if(this.ready()) {
+		if(this.ready() && bbox.isValid()) {
 			var sidebarW = (this.sidebar.hasClass('expanded') && this.sidebar.width()) || 0;
 			this.map.fitBounds(bbox, {
 				paddingTopLeft: L.point(sidebarW,0)

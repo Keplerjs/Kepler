@@ -21,8 +21,13 @@ K.Plugin({
 				}	
 			},
 			"tracks": {
-				"maxDistance": 150,
-				"limit": 2				
+				"limit": 10,				
+				"maxDistance": 1000,
+				"typesByTags": {
+					"highway=path": "path",
+					"highway=track": "path",
+					"highway=footway": "path"
+				}			
 			}
 		}
 	}

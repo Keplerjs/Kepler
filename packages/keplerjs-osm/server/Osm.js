@@ -114,21 +114,23 @@ Kepler.Osm = {
       limit: K.settings.osm.findByBBoxLimit,
     });
 
-		var query = _.template('[out:json];{type}({lat1},{lon1},{lat2},{lon2})[{filter}];out;', {
+		var query = _.template(
+      '[out:json];{type}({lat1},{lon1},{lat2},{lon2})[{filter}];(._;>;);out;', {
 			lat1: bbox[0][0], lon1: bbox[0][1],
 			lat2: bbox[1][0], lon2: bbox[1][1],
-			meta: opts.meta ? ' meta' : '',        
 			filter: opts.filter,
-			type: opts.type,       
+			type: opts.type, 
+      meta: opts.meta ? ' meta' : '',
 			limit: opts.limit
 		});
 		
-    console.log('Osm: findOsmByBBox');
+    console.log('Osm: findOsmByBBox', query);
     //console.log("https://overpass-api.de/api/interpreter?data="+encodeURIComponent(query));
 
 		var future = new Future();
 
 		Overpass(query, function(err, resp) {
+      console.log(err,resp)
 			if(err){
         console.log('Osm: overpass error', err)
 				future.throw(err);

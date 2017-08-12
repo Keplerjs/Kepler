@@ -59,19 +59,19 @@ Kepler.Osm = {
 				cb(placeId);
 		});
 	},
-/*
+
 	loadTracks: function() {
 		var opts = {
-			filter: 'highway=unclassified',
+			filter: 'highway=path',
 			type: 'way'
 		};
 
 		Meteor.call('findOsmByBBox', K.Map.getBBox(), opts, function(err, geojson) {
 			
-			console.log(geojson);
+			console.log(err, geojson);
 
 			if(geojson.features.length>0)
 				K.Map.addGeojson(geojson);
 		});
-	}*/
+	}
 };
