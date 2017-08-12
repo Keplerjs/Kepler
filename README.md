@@ -81,18 +81,18 @@ Any basic configuration can be extended by plugins with their *plugin.js* file
 Kepler implements a convenient mechanism to give plugins the ability to place their contents in the platform's basic structure. 
 Using the dynamic template [pluginPlaceholder](packages/keplerjs-ui/client/views/pluginPlaceholder.js) and register the plugin's templates inside the *plugin.js* in the section placeholders.
 
-Here an example of definitions of contents for the plugin [keplerjs:share](packages/keplerjs-share/plugin.js)
+Here an example of definitions of placeholders for the plugin [keplerjs:share](packages/keplerjs-share/plugin.js)
 ```
 K.Plugin({
 	name: 'share',
 	placeholders: {
-		panelPlace: ['panelPlace_share','panelPlace_share2'],   //single or more templates
-		popupCursor: 'popupCursor_share',
-		//popupUser: 'popupCursor_share'
+		panelPlace: ['panelPlace_share','panelPlace_share2'],
+		popupCursor: 'popupCursor_share'
 	}
 });
 ```
-And of placeholder positioned inside the place panel [template](packages/keplerjs-ui/client/views/panels/place.html#L45)
+Any plugin can be define single or many template for each placeholder.
+The placeholder positioned inside the place panel [template](packages/keplerjs-ui/client/views/panels/place.html#L45) is:
 ```
 {{> pluginPlaceholder name='panelPlace'}}
 ```
