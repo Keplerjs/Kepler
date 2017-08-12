@@ -49,17 +49,6 @@ These packages are indispensable for basic platform operation. And observing dep
 * [keplerjs:core](packages/keplerjs-core)
 * [keplerjs:ui](packages/keplerjs-ui)
 
-#### kepler Environment
-Most of the logic and configuration modules are contained in the pkg *keplerjs:core* under the namespace **Kepler.** or **K.** is the same thing. Inside this namespace the general rule is that *Modules* or *Models* are capitalized, example:
-[K.Place](),
-K.User, K.Profile, K.Map, K.Util, K.Cache, K.Plugin, 
-
-instead the configuration objects are lowercase.
-	schemas
-	filters
-	placeholders
-	settings
-
 #### Kepler Plugins
 
 The *Kepler plugin packages* provide useful features for your Kepler application.
@@ -93,6 +82,31 @@ A plugin only need to make your own package depend on *keplerjs:core* or others 
 ####  3rd party Plugins
 
 *Are expected to be developed by the great community of Meteor developers...*
+
+
+### Kepler Environment
+Most of the logic and configuration modules are contained in the pkg *keplerjs:core* under the namespace **Kepler.** or **K.** is the same thing. Inside this namespace the general rule is that *Modules* or *Models* are capitalized.
+##### Client Models
+Define "Class" for create new istances of Kepler objects:
+
+* [K.Place](packages/keplerjs-core/client/Place.js)
+* [K.User](packages/keplerjs-core/client/Ulace.js)
+
+Client Modules:
+* [K.Profile](packages/keplerjs-core/client/Profile.js)
+* [K.Map](packages/keplerjs-core/client/Map.js)
+
+Client/Server Modules:
+* [K.Cache](packages/keplerjs-core/modules/Cache.js)
+* [K.Plugin](packages/keplerjs-core/modules/Plugin.js)
+* [K.Util](packages/keplerjs-core/modules/Util.js)
+
+Instead the configuration objects are lowercase.
+* [K.settings](packages/keplerjs-core/settings.js)
+* [K.schemas](packages/keplerjs-core/modules/schemas.js)
+* [K.filters](packages/keplerjs-core/modules/filter.js)
+* [K.placeholders](packages/keplerjs-core/modules/placeholders.js)
+
 
 ### License
 Note that Kepler is distributed under the [MIT License](http://opensource.org/licenses/MIT)
