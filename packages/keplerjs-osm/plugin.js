@@ -29,11 +29,14 @@ K.Plugin({
 	settings: {
 		"osm": {
 			"findByLocDist": 20,
-			"findByLocLimit": 1,
-			"findByBBoxLimit": 20,
-			"overpassUrl": "http://overpass-api.de/api/interpreter",
-			"overpassMeta": true,
-			"overpassTimeout": null
+			"findByLocLimit": 10,
+			"findByBBoxLimit": 10,
+			"overpass": {
+				"flatProperties": false,
+				//"overpassUrl": "http://overpass-api.de/api/interpreter",
+				//"overpassTimeout": null,
+				"overpassMeta": true
+			}
 		}
 	}
 });
