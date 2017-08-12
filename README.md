@@ -69,7 +69,7 @@ Contains *methods*, *subscriptions* and *business logic* that can be used in oth
 ##### Configurations (client,server):
 Any basic configuration can be extended by plugins with their *plugin.js* file
 * [K.schemas](packages/keplerjs-core/modules/schemas.js)
-  defines the data structures for documents in the collections, can be extended by *Kepler plugins* to host the plugin fields
+  defines structures for documents in the collections, can be extended by *Kepler plugins* to host the plugin fields
 * [K.filters](packages/keplerjs-core/modules/filters.js)
   defines the fields exposed in the queries for pubblications and methods, the structure of this file is deliberately aligned to enhance the different levels of data privacy
 * [K.placeholders](packages/keplerjs-core/modules/placeholders.js)
