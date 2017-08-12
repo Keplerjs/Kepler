@@ -52,8 +52,7 @@ These packages are indispensable for basic platform operation. And observing dep
 #### Kepler Plugins
 
 The *Kepler plugin packages* provide useful features for your Kepler application.
-A *Kepler plugin* is a simple meteor package that contains a **plugin.js** file that defines the behaviors and configuration in the kepler environment.
-A plugin only need to make your own package depend on *keplerjs:core* or others plugins if needed.
+A **Kepler plugin** is a simple meteor package that contains a **plugin.js** file that defines the behaviors and configuration in the kepler environment. A plugin only need to make your own package depend on *keplerjs:core* or others plugins if needed.
 
 #### Base Plugins
 * [keplerjs:edit](packages/keplerjs-edit)
@@ -85,7 +84,7 @@ A plugin only need to make your own package depend on *keplerjs:core* or others 
 
 
 ### Kepler Environment
-Most of the logic and configuration modules are contained in the pkg *keplerjs:core* under the namespace **Kepler.** or **K.** is the same thing. Inside this namespace the general rule is that *Modules* or *Models* are capitalized instead the configuration objects are lowercase.
+Most of the logic and configuration modules are contained in the package [keplerjs:core](packages/keplerjs-core/README.md) under the namespace **Kepler.** or **K.** is the same thing. Inside this namespace the general rule is that *Modules* or *Models* are capitalized instead the configuration objects are lowercase.
 
 ##### Models (client)
 Define the "Classes" for create new istances of Kepler objects.
