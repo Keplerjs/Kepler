@@ -21,7 +21,7 @@ npm i
 npm start
 ```
 
-And open http://localhost:3000/ in your browser.
+And open *http://localhost:3000/* in your browser.
 
 ## Architecture
 
@@ -84,16 +84,22 @@ Usually in some kepler plugins these can be extended adding behaviors/methods us
   define logic and manage data of the *users* shown on the map and UI
 
 ##### Modules (client):
-Contains *methods*, *subscriptions* and *business logic* that can be used in other parts of the code, often in views or other modules and model istances.
+Contains *methods*, *subscriptions* and *business logic* that can be used in other parts of the code, often in views or other modules and models istances.
 * [K.Profile](packages/keplerjs-core/client/Profile.js)
-  define methods logic and manage data of the *logged user*
+  define methods logic and manage data of the current *logged user*
 * [K.Map](packages/keplerjs-core/client/Map.js)
-  Manages and builds the primary leaflet with all its layers and controls 
+  Manages and builds the primary [Leaflet](http://leafletjs.com/) map with all its [layers](packages/keplerjs-core/client/Map_layers.js) and [controls](packages/keplerjs-core/client/Map_controls.js))
 
 ##### Modules (client,server):
 * [K.Cache](packages/keplerjs-core/modules/Cache.js)
+  implement simple and smart general-purpose caching system based on *key-value*
 * [K.Plugin](packages/keplerjs-core/modules/Plugin.js)
+  define and manage registered *Kepler plugins* in application, similar in concept to [Package.js](http://docs.meteor.com/api/packagejs.html)
 * [K.Util](packages/keplerjs-core/modules/Util.js)
+  large collection of generic functions, they are organized for categories:
+  - [K.Util.geo](packages/keplerjs-core/modules/Util_geo.js) 
+  - [K.Util.humanize](packages/keplerjs-core/modules/Util_humanize.js)
+  - [K.Util.valid](packages/keplerjs-core/modules/Util_valid.js)
 
 ##### Configurations (client,server):
 * [K.settings](packages/keplerjs-core/settings.js)
