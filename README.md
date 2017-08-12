@@ -37,8 +37,8 @@ These packages are indispensable for basic platform operation. And observing dep
 * [keplerjs:core](packages/keplerjs-core)
 * [keplerjs:ui](packages/keplerjs-ui)
 
-### Kepler plugin
-A Kepler plugin is a standard Meteor package that contains a **plugin.js** file that defines the behaviors and configuration in the kepler environment, similar in concept to [Package.js](http://docs.meteor.com/api/packagejs.html).
+### Plugins
+A **Kepler plugin** is a standard Meteor package that contains a **plugin.js** file that defines the behaviors and configuration in the kepler environment, similar in concept to [Package.js](http://docs.meteor.com/api/packagejs.html).
 
 
 ## Kepler Environment
