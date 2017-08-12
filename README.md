@@ -7,6 +7,7 @@ lets users share favorite places and join discussions
 
 *[Official DEMO](https://keplerjs.herokuapp.com/)* (deployed on *Heroku*)
 
+[Version 1.1.0](https://github.com/Keplerjs/Kepler/releases)
 
 * Source code: [Github](https://github.com/Keplerjs)
 * Meteor packages: [Atmospherejs](https://atmospherejs.com/keplerjs)
@@ -127,15 +128,17 @@ The *Kepler plugin packages* provide useful features for your Kepler application
 
 *Are expected to be developed by the great community of Meteor developers...*
 
-
 ## Install
 
+Install the latest version of [Node](https://nodejs.org) and [NPM](https://www.npmjs.com/get-npm).
+You can then install [Meteor](https://www.meteor.com/install).
+Clone or download the [Kepler repo](https://github.com/Keplerjs/Kepler) locally, then:
 ```sh
-npm i
+npm install
 npm start
 ```
-
 And open *http://localhost:3000/* in your browser.
+
 ### Settings
 A example of custom settings is [settings.sample.json](private/settings.sample.json) other special settings of individual plugins can be overridden always using this same file.
 To see *packages/\<plugin-name\>/plugin.js* file in the *settings* section.
