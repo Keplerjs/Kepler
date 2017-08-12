@@ -53,10 +53,10 @@ Contains *methods*, *subscriptions* and *business logic* that can be used in oth
   define and manage registered *Kepler plugins* in application
 * [K.Util](packages/keplerjs-core/modules/Util.js)
   large collection of generic functions, they are organized for categories:
-  - [K.Util.geo](packages/keplerjs-core/modules/Util_geo.js) 
-  - [K.Util.valid](packages/keplerjs-core/modules/Util_valid.js)
-  - [K.Util.sanitize](packages/keplerjs-core/modules/Util_sanitize.js)
   - [K.Util.humanize](packages/keplerjs-core/modules/Util_humanize.js)
+  - [K.Util.sanitize](packages/keplerjs-core/modules/Util_sanitize.js)
+  - [K.Util.valid](packages/keplerjs-core/modules/Util_valid.js)
+  - [K.Util.geo](packages/keplerjs-core/modules/Util_geo.js) 
 
 ##### Modules (client):
 * [K.Profile](packages/keplerjs-core/client/Profile.js)
