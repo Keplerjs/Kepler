@@ -32,7 +32,7 @@ body > .container-fluid {
 	height:200px;
 	width:200px;
 	border:none;
-	margin: 4px auto;
+	margin: 0 auto;
 }
 
 #slogan {
