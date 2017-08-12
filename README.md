@@ -33,7 +33,7 @@ A **Kepler plugin** is a standard Meteor package that contains a **plugin.js** f
 
 
 ## Kepler Environment
-Most of the logic and configuration modules are contained in the package [keplerjs:core](packages/keplerjs-core/README.md) under the namespace **[Kepler.](packages/keplerjs-core/Kepler.js)** or **K.** is the same thing. Inside this namespace the general rule is that *Modules* or *Models* are capitalized instead the configuration objects are lowercase.
+Most of the logic and configuration modules are contained in the package [keplerjs:core](packages/keplerjs-core/README.md) under the [Kepler namespace](packages/keplerjs-core/Kepler.js) **Kepler.** or **K.** is the same thing. Inside this namespace the general rule is that *Modules* or *Models* are capitalized instead the configuration objects are lowercase.
 The views that define the base **User Interface** structure of Kepler are contained in [keplerjs:ui](packages/keplerjs-ui/README.md). This also contains the [helpers templates](packages/keplerjs-ui/client/helpers.js) used by all views and the minimum CSS essential for the behavior of the UI.
 
 ##### Models (client)
@@ -77,7 +77,7 @@ Any basic configuration can be extended by plugins with their [plugin.js]() file
 
 ### UI Placeholders
 Kepler implements a convenient mechanism to give plugins the ability to place their contents in the platform's basic structure. 
-Using the dynamic template **[pluginPlaceholder](packages/keplerjs-ui/client/views/pluginPlaceholder.js)** and register the plugin's templates inside the *plugin.js* in the section placeholders.
+Using the dynamic template [pluginPlaceholder](packages/keplerjs-ui/client/views/pluginPlaceholder.js) and register the plugin's templates inside the *plugin.js* in the section placeholders.
 
 Here an example of definitions of contents for the plugin [keplerjs:share](packages/keplerjs-share/plugin.js)
 ```
