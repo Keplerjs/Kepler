@@ -19,7 +19,7 @@ lets users share favorite places and join discussions
 Kepler uses a [package-based architecture](http://experimentsinmeteor.com/package-based-architecture/), meaning that the entirety of its codebase resides in */packages*
 Different packages can play different behaviors. So here's a quick overview of the different package categories you'll come across. 
 
-### Base Packages
+#### Base Packages
 
 These packages are indispensable for basic platform operation. And observing dependency relationships should be loaded into this exact order:
 
@@ -28,7 +28,7 @@ These packages are indispensable for basic platform operation. And observing dep
 * [keplerjs:core](packages/keplerjs-core)
 * [keplerjs:ui](packages/keplerjs-ui)
 
-### Plugins
+#### Plugins
 A **Kepler plugin** is a standard Meteor package that contains a **plugin.js** file that defines the behaviors and configuration in the kepler environment, similar in concept to [Package.js](http://docs.meteor.com/api/packagejs.html).
 
 
