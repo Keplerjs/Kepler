@@ -99,7 +99,7 @@ K.Plugin({
 	}
 });
 ```
-And of placeholder positioned inside the [place panel template](packages/keplerjs-ui/client/views/panels/place.html#L45)
+And of placeholder positioned inside the place panel [template](packages/keplerjs-ui/client/views/panels/place.html#L45)
 ```
 {{> pluginPlaceholder name='panelPlace'}}
 ```
