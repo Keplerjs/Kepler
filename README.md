@@ -1,11 +1,9 @@
 ![KeplerJs](keplerjs.png) 
 
-## KeplerJS
+# KeplerJS
 
 The full-stack real-time geo-social network framework
 lets users share favorite places and join discussions
-
-### Links
 
 *[Official DEMO](https://keplerjs.herokuapp.com/)* deployed on **Heroku**
 
@@ -18,7 +16,6 @@ lets users share favorite places and join discussions
 
 ### Install
 
-
 ```sh
 npm i
 npm start
@@ -26,30 +23,21 @@ npm start
 
 And open http://localhost:3000/ in your browser.
 
-#### Settings
-Default settings file: *private/settings.sample.json*
-Special configurations of individual plugins can be overridden.
-To see *packages/plugin-dir/plugin.js* file in the *settings* section.
-
-```sh
-meteor --settings private/settings.sample.json 
-```
-
-### Architecture
+## Architecture
 
 Kepler uses a [package-based architecture](http://experimentsinmeteor.com/package-based-architecture/), meaning that the entirety of its codebase resides in */packages*
 Different packages can play different behaviors. So here's a quick overview of the different package categories you'll come across. 
 
-#### Core Packages
+### Core Packages
 
-These packages are indispensable for basic platform operation. And observing dependency relationships should be loaded into this precise order:
+These packages are indispensable for basic platform operation. And observing dependency relationships should be loaded into this exact order:
 
 * [keplerjs:lib](packages/keplerjs-lib)
 * [keplerjs:i18n](packages/keplerjs-i18n)
 * [keplerjs:core](packages/keplerjs-core)
 * [keplerjs:ui](packages/keplerjs-ui)
 
-#### Kepler Plugins
+### Kepler Plugins
 
 The *Kepler plugin packages* provide useful features for your Kepler application.
 A **Kepler plugin** is a simple meteor package that contains a **plugin.js** file that defines the behaviors and configuration in the kepler environment. A plugin only need to make your own package depend on *keplerjs:core* or others plugins if needed.
@@ -83,7 +71,7 @@ A **Kepler plugin** is a simple meteor package that contains a **plugin.js** fil
 *Are expected to be developed by the great community of Meteor developers...*
 
 
-### Kepler Environment
+## Kepler Environment
 Most of the logic and configuration modules are contained in the package [keplerjs:core](packages/keplerjs-core/README.md) under the namespace **Kepler.** or **K.** is the same thing. Inside this namespace the general rule is that *Modules* or *Models* are capitalized instead the configuration objects are lowercase.
 
 ##### Models (client)
@@ -113,6 +101,15 @@ Contains *methods*, *subscriptions* and *business logic* that can be used in oth
 * [K.filters](packages/keplerjs-core/modules/filters.js)
 * [K.placeholders](packages/keplerjs-core/modules/placeholders.js)
 
+
+### Settings
+The main default settings are located in [K.settings](packages/keplerjs-core/settings.js) and an example of custom settings is *private/settings.sample.json*
+Special configurations of individual plugins can be overridden.
+To see *packages/\<plugin-name\>/plugin.js* file in the *settings* section.
+
+```sh
+meteor --settings private/settings.sample.json 
+```
 
 ### License
 Note that Kepler is distributed under the [MIT License](http://opensource.org/licenses/MIT)
