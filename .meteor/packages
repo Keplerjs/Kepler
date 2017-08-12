@@ -25,6 +25,6 @@ keplerjs:conver
 keplerjs:geoinfo
 keplerjs:events
 keplerjs:pois
-#keplerjs:tracks
+keplerjs:tracks
 keplerjs:weather
 #keplerjs:googlemaps

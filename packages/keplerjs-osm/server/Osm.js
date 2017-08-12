@@ -27,9 +27,9 @@ Kepler.Osm = {
     opts = _.defaults(opts || {}, {
       type: 'node',
       filter: '~".*"~"."',
-      radius: 20,
-      meta: overOpts.meta,
-      limit: 1,
+      radius: K.settings.osm.findByLocDist,
+      limit: K.settings.osm.findByLocLimit,
+      meta: K.settings.osm.overpassMeta,      
     });
 
     if(_.isArray(opts.filter)) {
@@ -88,7 +88,7 @@ Kepler.Osm = {
     var query = _.template('[out:json];{type}({id});out{meta};', {
         id: osmId,
         type: 'node',
-        meta: overOpts.meta ? ' meta' : ''
+        meta: K.settings.osm.overpassMeta ? ' meta' : ''
       });
 
     console.log('Osm: findOsmById');
@@ -110,8 +110,8 @@ Kepler.Osm = {
     opts = _.defaults(opts || {}, {
       type: 'node',
       filter: '~".*"~"."',
-      meta: overOpts.meta,
-      limit: 10,
+      meta: K.settings.osm.overpassMeta,
+      limit: K.settings.osm.findByBBoxLimit,
     });
 
 		var query = _.template('[out:json];{type}({lat1},{lon1},{lat2},{lon2})[{filter}];out;', {

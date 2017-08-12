@@ -85,10 +85,16 @@
 	background-color: #fff;
 }
 .leaflet-control-gps .gps-alert {
-	left:36px;
-	bottom:-2px;
+	left: auto;
+	right: 48px;
+	height: 40px;
+	padding: 5px;
+	bottom: 0;
 	width:auto;
 	font-size:1.2em;
+	background: #fff;
+	box-shadow: 0 0 4px rgba(0,0,0,0.3);
+	border: none;
 }
 
 .leaflet-popup-content-wrapper {

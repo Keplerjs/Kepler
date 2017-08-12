@@ -28,7 +28,11 @@ K.Plugin({
 	},
 	settings: {
 		"osm": {
+			"findByLocDist": 20,
+			"findByLocLimit": 1,
+			"findByBBoxLimit": 20,
 			"overpassUrl": "http://overpass-api.de/api/interpreter",
+			"overpassMeta": true,
 			"overpassTimeout": null
 		}
 	}

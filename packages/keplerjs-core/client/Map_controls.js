@@ -2,6 +2,8 @@ _.extend(Kepler.Map, {
 
 	_initControls: function(map, opts) {
 
+		var self = this;
+
 		var controls = {};
 
 		var zOpts = {
@@ -19,19 +21,25 @@ _.extend(Kepler.Map, {
 		if(L.Control.Gps)
 		controls.gps = new L.Control.Gps({
 			autoActive: false,
-			autoCenter: true,
+			autoCenter: false,
 			marker: K.Profile.user.marker,
 			style: {opacity:0,fillOpacity:0},
-			position: 'bottomright',
+			position: 'bottomright',			
 			title: i18n('map_gps_title'),
-			textErr: i18n('map_gps_error'),
-			callErr: function(err) {
-				console.warn(err);
-			}
+			textErr: '<i class="icon icon-warning"></i> '+i18n('map_gps_error')
 		})
 		.on({
 			'gps:located': function(e) {
-				K.Profile.setLoc([e.latlng.lat, e.latlng.lng]);
+
+				var loc = [e.latlng.lat, e.latlng.lng];
+				
+				this.showAlert('located');
+
+				//TODO minShift
+
+				K.Profile.setLoc(loc);
+
+				K.Map.showLoc(loc);
 			},
 			'gps:disabled': function(e) {
 				K.Profile.setLoc(null);

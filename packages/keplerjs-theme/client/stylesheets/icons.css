@@ -14,7 +14,9 @@
 .leaflet-control-gps .gps-button,
 .leaflet-control-gps .gps-button:hover,
 .leaflet-control-gps .gps-button.active,
-.leaflet-control-gps .gps-button.active:hover {
+.leaflet-control-gps .gps-button.active:hover,
+.leaflet-control-gps .gps-button.disabled,
+.leaflet-control-gps .gps-button.disabled:hover {
 	background: url("/packages/keplerjs_theme/assets/images/sprite.svg") no-repeat;
 }
 .icon.icon-social {
@@ -81,9 +83,17 @@ div.leaflet-marker-icon {
 .leaflet-control-search .search-cancel {
 	background-position: -90px -30px;
 }
+.leaflet-control-gps .gps-button.loading,
+.leaflet-control-gps .gps-button.loading:hover {
+	background: url("/packages/keplerjs_theme/assets/images/loader-default.gif") center center no-repeat;
+}
 .leaflet-control-gps .gps-button,
 .leaflet-control-gps .gps-button:hover {
 	background-position: 0 -30px;
+}
+.leaflet-control-gps .gps-button.disabled,
+.leaflet-control-gps .gps-button.disabled:hover {
+	background-position: 0 0;
 }
 .leaflet-control-gps .gps-button.active,
 .leaflet-control-gps .gps-button.active:hover {
