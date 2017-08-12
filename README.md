@@ -18,7 +18,6 @@ lets users share favorite places and join discussions
 ## Architecture
 
 Kepler uses a [package-based](http://experimentsinmeteor.com/package-based-architecture/) architecture, meaning that the entirety of its codebase resides in [/packages](packages)
-Different packages can play different behaviors. So here's a quick overview of the different package categories you'll come across. 
 
 #### Base Packages
 
