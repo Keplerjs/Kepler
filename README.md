@@ -40,7 +40,9 @@ These packages are indispensable for basic platform operation. And observing dep
 ### Kepler Plugins
 
 The *Kepler plugin packages* provide useful features for your Kepler application.
-A **Kepler plugin** is a simple meteor package that contains a **plugin.js** file that defines the behaviors and configuration in the kepler environment. A plugin only need to make your own package depend on *keplerjs:core* or others plugins if needed.
+A **Kepler plugin** is a standard Meteor package that contains a **plugin.js** file that defines the behaviors and configuration in the kepler environment, similar in concept to [Package.js](http://docs.meteor.com/api/packagejs.html).
+A plugin only need to make your own package depend on *keplerjs:core* or others plugins if needed.
+
 
 #### Base Plugins
 * [keplerjs:edit](packages/keplerjs-edit)
@@ -94,7 +96,7 @@ Contains *methods*, *subscriptions* and *business logic* that can be used in oth
 * [K.Cache](packages/keplerjs-core/modules/Cache.js)
   implement simple and smart general-purpose caching system based on *key-value*
 * [K.Plugin](packages/keplerjs-core/modules/Plugin.js)
-  define and manage registered *Kepler plugins* in application, similar in concept to [Package.js](http://docs.meteor.com/api/packagejs.html)
+  define and manage registered *Kepler plugins* in application
 * [K.Util](packages/keplerjs-core/modules/Util.js)
   large collection of generic functions, they are organized for categories:
   - [K.Util.geo](packages/keplerjs-core/modules/Util_geo.js) 
