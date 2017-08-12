@@ -32,7 +32,7 @@ var osmToPlace = function(osm) {
 	var name = prop.tags.name || '';//K.Util.timeName('osm '+prop.id)
 
 	var place = {
-		name: name, //K.Util.sanitizeName(name),
+		name: name, //K.Util.sanitize.name(name),
 		loc: coords.reverse(),
 		active: 0,
 		osm: feature,

@@ -5,7 +5,7 @@ Messages = new Mongo.Collection('messages');
 Messages.allow({
 	insert: function(userId, doc) {
 
-		//TODO doc.body = K.Util.sanitizeMsg(doc.body);
+		//TODO doc.body = K.Util.sanitize.text(doc.body);
 		
 		return userId && doc.convId;
 	},

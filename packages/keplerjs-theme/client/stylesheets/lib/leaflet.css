@@ -102,10 +102,10 @@
 	border: none;
 	text-shadow:none;
 	color:#ddd;
-	background: rgba(155, 203, 67,.85);
+	background: rgba(153, 204, 0,.85);
 }
 .leaflet-popup-tip {
-	background: rgba(155, 203, 67,.85);
+	background: rgba(153, 204, 0,.85);
 	border: none;	
 	margin: -9px auto 0;
 }

@@ -38,7 +38,7 @@ Kepler.Geoapi = {
 		data = httpGet(src.url);
 
 		if(data && data[src.par])
-			ret = K.Util.sanitizeName(data[src.par]);
+			ret = K.Util.sanitize.name(data[src.par]);
 		else
 			ret = null;
 
@@ -54,7 +54,7 @@ Kepler.Geoapi = {
 		data = httpGet(src.url);
 		
 		if(data && data[src.par])
-			ret = K.Util.sanitizeName(data[src.par]);
+			ret = K.Util.sanitize.name(data[src.par]);
 		else
 			ret = null;
 
@@ -89,7 +89,7 @@ Kepler.Geoapi = {
 		data = httpGet(src.url);
 
 		if(data && data.geonames && data.geonames[0] && data.geonames[0][src.par])
-			ret = K.Util.sanitizeName(data.geonames[0][src.par]);
+			ret = K.Util.sanitize.name(data.geonames[0][src.par]);
 		else
 			ret = null;
 
@@ -106,7 +106,7 @@ Kepler.Geoapi = {
 		data = httpGet(src.url);
 		
 		if(data && data[src.par])
-			ret = K.Util.sanitizeName(data[src.par]);
+			ret = K.Util.sanitize.name(data[src.par]);
 		else
 			ret = null;
 
@@ -123,7 +123,7 @@ Kepler.Geoapi = {
 		data = httpGet(src.url);
 
 		if(data && data[src.par])
-			ret = K.Util.sanitizeName(data[src.par]);
+			ret = K.Util.sanitize.name(data[src.par]);
 		else
 			ret = null;
 
@@ -140,7 +140,7 @@ Kepler.Geoapi = {
 		data = httpGet(src.url);
 		
 		if(data && data[src.par])
-			ret = K.Util.sanitizeName(data[src.par]);
+			ret = K.Util.sanitize.name(data[src.par]);
 		else
 			ret = null;
 
@@ -157,7 +157,7 @@ Kepler.Geoapi = {
 		data = httpGet(src.url);
 
 		if(data && data[src.par])
-			ret = K.Util.sanitizeName(data[src.par]);
+			ret = K.Util.sanitize.name(data[src.par]);
 		else
 			ret = null;
 

@@ -63,7 +63,7 @@ K.extend({
 		}, 0);
 	},
 	findPlacesByName: function(initial) {
-		initial = K.Util.sanitizeRegExp(initial);
+		initial = K.Util.sanitize.regExp(initial);
 
 		if(initial.length < 2)
 			return null;

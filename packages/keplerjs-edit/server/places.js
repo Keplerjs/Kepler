@@ -35,7 +35,7 @@ Meteor.methods({
 
 			Places.update(placeId, {
 				$set: {
-					name: K.Util.sanitizeName(data.name)
+					name: K.Util.sanitize.name(data.name)
 				}
 			});
 

@@ -4,7 +4,7 @@ K.extend({
 		return Users.find(userId, K.filters.currentUser);
 	},
 	findUsersByName: function(initial) {
-		initial = K.Util.sanitizeRegExp(initial);
+		initial = K.Util.sanitize.regExp(initial);
 
 		if(initial.length < 2)
 			return null;

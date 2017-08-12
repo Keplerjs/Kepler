@@ -1,5 +1,4 @@
 
-
 Kepler.Util.geo = {
 
 	roundLoc: function(ll, prec) {
