@@ -93,7 +93,7 @@ For now these are based on the popular John Resig [Class.js](packages/keplerjs-l
 Usually in some kepler plugins these can be extended adding behaviors/methods using files having the same name combined with the name of plugin extends it. (example [Place_pois.js](packages/keplerjs-pois/client/Place_pois.js))
 * [K.Place](packages/keplerjs-core/client/Place.js)
    define logic and manage data of the *places* shown on the map and UI
-* [K.User](packages/keplerjs-core/client/Ulace.js)
+* [K.User](packages/keplerjs-core/client/User.js)
   define logic and manage data of the *users* shown on the map and UI
 
 ##### Modules (client):
@@ -111,7 +111,7 @@ Contains *methods*, *subscriptions* and *business logic* that can be used in oth
 ##### Configurations (client,server):
 * [K.settings](packages/keplerjs-core/settings.js)
 * [K.schemas](packages/keplerjs-core/modules/schemas.js)
-* [K.filters](packages/keplerjs-core/modules/filter.js)
+* [K.filters](packages/keplerjs-core/modules/filters.js)
 * [K.placeholders](packages/keplerjs-core/modules/placeholders.js)
 
 
