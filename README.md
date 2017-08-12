@@ -92,6 +92,7 @@ K.Plugin({
 });
 ```
 Any plugin can be define single or many template for each placeholder.
+
 The placeholder positioned inside the place panel [template](packages/keplerjs-ui/client/views/panels/place.html#L45) is:
 ```
 {{> pluginPlaceholder name='panelPlace'}}
