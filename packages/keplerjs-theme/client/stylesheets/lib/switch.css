@@ -31,3 +31,8 @@
 	border: 1px solid #aaa;
 	border-radius: 4px;
 }
+
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-success,
+.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-success {
+	background: #9c0
+}

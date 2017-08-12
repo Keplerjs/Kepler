@@ -49,11 +49,11 @@ a.list-group-item {
 .list-group-item.active:hover,
 .list-group-item.active:active {
 	border: none;
-	background: #9bcb43;
+	background: #9c0;
 	color: #fff;
 }
 .list-group-item {
-	border: 1px solid #9bcb43;
+	border: 1px solid #9c0;
 }
 
 .backhist {
@@ -124,7 +124,7 @@ label {
 }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus  {
-	background-color: #9bcb43;
+	background-color: #9c0;
 }
 
 header h4,

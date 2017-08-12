@@ -7,17 +7,17 @@ lets users share favorite places and join discussions
 
 ### Links
 
-*[DEMO online](https://keplerjs.herokuapp.com/)* deployed on **Heroku**
+*[Official DEMO](https://keplerjs.herokuapp.com/)* deployed on **Heroku**
 
-* [Blog](https://keplerjs.tumblr.com/)
-* [Github](https://github.com/Keplerjs)
-* [NPM](https://www.npmjs.com/org/keplerjs)
-* [Atmospherejs](https://atmospherejs.com/keplerjs)
-* [Roadmap](https://trello.com/b/FBK72QEJ/keplerjs-roadmap)
 
-[![Stories in Ready](https://badge.waffle.io/Keplerjs/Kepler.png?label=ready&title=Ready)](https://waffle.io/Keplerjs/Kepler?utm_source=badge)
+* Source code: [Github](https://github.com/Keplerjs)
+* Meteor packages: [Atmospherejs](https://atmospherejs.com/keplerjs)
+* Npm packages: [NPM](https://www.npmjs.com/org/keplerjs)
+* Roadmap: [Trello](https://trello.com/b/FBK72QEJ/keplerjs-roadmap), [Waffle](https://waffle.io/Keplerjs/Kepler)
+* News: [Twitter](https://twitter.com/Kepler_JS), [Tumblr](https://keplerjs.tumblr.com/)
 
 ### Install
+
 
 ```sh
 npm i
@@ -85,23 +85,30 @@ A plugin only need to make your own package depend on *keplerjs:core* or others 
 
 
 ### Kepler Environment
-Most of the logic and configuration modules are contained in the pkg *keplerjs:core* under the namespace **Kepler.** or **K.** is the same thing. Inside this namespace the general rule is that *Modules* or *Models* are capitalized.
-##### Client Models
-Define "Class" for create new istances of Kepler objects:
+Most of the logic and configuration modules are contained in the pkg *keplerjs:core* under the namespace **Kepler.** or **K.** is the same thing. Inside this namespace the general rule is that *Modules* or *Models* are capitalized instead the configuration objects are lowercase.
 
+##### Models (client)
+Define the "Classes" for create new istances of Kepler objects.
+For now these are based on the popular John Resig [Class.js](packages/keplerjs-lib/lib/Class.js).
+Usually in some kepler plugins these can be extended adding behaviors/methods using files having the same name combined with the name of plugin extends it. (example [Place_pois.js](packages/keplerjs-pois/client/Place_pois.js))
 * [K.Place](packages/keplerjs-core/client/Place.js)
+   define logic and manage data of the *places* shown on the map and UI
 * [K.User](packages/keplerjs-core/client/Ulace.js)
+  define logic and manage data of the *users* shown on the map and UI
 
-Client Modules:
+##### Modules (client):
+Contains *methods*, *subscriptions* and *business logic* that can be used in other parts of the code, often in views or other modules and model istances.
 * [K.Profile](packages/keplerjs-core/client/Profile.js)
+  define methods logic and manage data of the *logged user*
 * [K.Map](packages/keplerjs-core/client/Map.js)
+  Manages and builds the primary leaflet with all its layers and controls 
 
-Client/Server Modules:
+##### Modules (client,server):
 * [K.Cache](packages/keplerjs-core/modules/Cache.js)
 * [K.Plugin](packages/keplerjs-core/modules/Plugin.js)
 * [K.Util](packages/keplerjs-core/modules/Util.js)
 
-Instead the configuration objects are lowercase.
+##### Configurations (client,server):
 * [K.settings](packages/keplerjs-core/settings.js)
 * [K.schemas](packages/keplerjs-core/modules/schemas.js)
 * [K.filters](packages/keplerjs-core/modules/filter.js)

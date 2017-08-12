@@ -20,9 +20,9 @@ Kepler = K = {
 	//utilities
 	Util: {},        //module utils functions            (client,server)
 	Cache: {},       //module caching system             (client,server)
+	Plugin: {},		 //module for managing plugins		 (client,server)
 
 	//core modules
-	Plugin: {},		 //module for managing plugins		 (client,server)
 	Profile: {},     //module for user logged data       (client)
 	Map: {},         //module map, controls, layers      (client)
 
