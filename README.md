@@ -5,7 +5,7 @@
 The full-stack real-time geo-social network framework
 lets users share favorite places and join discussions
 
-*[Official DEMO](https://keplerjs.herokuapp.com/)* deployed on **Heroku**
+*[Official DEMO](https://keplerjs.herokuapp.com/)* (deployed on *Heroku*)
 
 
 * Source code: [Github](https://github.com/Keplerjs)
