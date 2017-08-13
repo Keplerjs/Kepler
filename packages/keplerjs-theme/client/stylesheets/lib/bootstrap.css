@@ -31,10 +31,6 @@
 .has-feedback .form-control {
 	padding-right: 18px;
 }
-
-.bg-gray {
-	background-color: #ccc;
-}
 .list-group-item,
 a.list-group-item {
 	color: #257;
@@ -107,9 +103,6 @@ label {
 
 .badge.badge-checkins {
 	background-color: #f80;
-}
-.badge.bg-gray {
-	background-color: #ccc;
 }
 .badge.badge-cluster {
 	background-color: #257;

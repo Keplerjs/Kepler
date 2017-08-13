@@ -19,3 +19,10 @@
 	background: #fff;
 	backface-visibility: hidden;
 }
+
+.bg-gray {
+	background-color: #ccc;
+}
+.badge.bg-gray {
+	background-color: #ccc;
+}

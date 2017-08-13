@@ -1,27 +1,29 @@
 
 <template name="popupGeoinfo">
-	<div class="popup-geoinfo row">
+	{{#with fields}}
+	<div class="row">
 		<div class="col-sm-6">
 		{{#if near}}<label>{{i18n 'label_loc'}}</label>  {{near}} <br />{{/if}}
-		{{#if com}}<label>{{i18n 'label_com'}}</label>   {{com}} <br />{{/if}}
-		{{#if prov}}<label>{{i18n 'label_prov'}}</label> {{prov}}<br />{{/if}}
-		{{#if reg}}<label>{{i18n 'label_reg'}}</label>   {{reg}} <br />{{/if}}
-		{{#if naz}}<label>{{i18n 'label_naz'}}</label>   {{naz}} <br />{{/if}}
+		{{#if com}}<label>{{i18n 'label_com'}}</label>   {{com}}  <br />{{/if}}
+		{{#if prov}}<label>{{i18n 'label_prov'}}</label> {{prov}} <br />{{/if}}
+		{{#if reg}}<label>{{i18n 'label_reg'}}</label>   {{reg}}  <br />{{/if}}
+		{{#if naz}}<label>{{i18n 'label_naz'}}</label>   {{naz}}  <br />{{/if}}
 		</div>
 		<div class="col-sm-6">
-		{{#if shadow}}<!-- <i class="icon icon-shadow"></i>  --><label>{{i18n 'label_shadow'}}</label>&nbsp;{{shadow}} <br />{{/if}}
-		{{#if esp}}<!-- <i class="icon icon-esp"></i>  --><label>{{i18n 'label_esp'}}</label>&nbsp;{{humanAzimut esp}} <br />{{/if}}
-		{{#if ele}}<!-- <i class="icon icon-ele"></i> --> <label>{{i18n 'label_ele'}}</label>&nbsp;{{ele}}m <br />{{/if}}
-		{{#with suncalc loc}}
-			<label>{{i18n 'label_sunrise'}}</label>&nbsp;{{sunrise}}<br>
-			<label>{{i18n 'label_sunset'}}</label>&nbsp;{{sunset}} 
-		{{/with}}
+		{{#if shadow}}<label>{{i18n 'label_shadow'}}</label>&nbsp;{{shadow}}    <br />{{/if}}
+		{{#if esp}}<label>{{i18n 'label_esp'}}</label>&nbsp;{{humanAzimut esp}} <br />{{/if}}
+		{{#if ele}}<label>{{i18n 'label_ele'}}</label>&nbsp;{{ele}}m            <br />{{/if}}
+		{{#if sunrise}}<label>{{i18n 'label_sunrise'}}</label>&nbsp;{{sunrise}} <br />{{/if}}
+		{{#if sunset}}<label>{{i18n 'label_sunset'}}</label>&nbsp;{{sunset}}    <br />{{/if}}
 		</div>
 	</div>
+	{{/with}}
 </template>
 
 <template name="popupCursor_geoinfo">
 	{{#with geoinfo}}
+		<div class="popup-geoinfo">
 		{{> popupGeoinfo}}
+		</div>
 	{{/with}}
 </template>

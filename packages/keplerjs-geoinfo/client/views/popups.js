@@ -1,4 +1,21 @@
 
+
+Template.popupGeoinfo.helpers({
+	fields: function() {
+
+	
+		var ret = {},
+			suncalc = K.Geoinfo.suncalc(this.loc),
+			fields = _.extend({}, this, suncalc);
+
+		_.each(fields, function(val, field) {
+			if(K.settings.public.geoinfo.fields[field])
+				ret[field]= val;
+		});
+		return ret;
+	}
+});
+
 //https://stackoverflow.com/questions/22147813/how-to-use-meteor-methods-inside-of-a-template-helper
 Template.popupCursor_geoinfo.onCreated(function() {
 	

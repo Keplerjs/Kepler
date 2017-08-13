@@ -35,7 +35,6 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'client/Geoinfo.js',
-    'client/helpers.js',
     'client/stylesheets/popups.css',
     'client/views/panels.html',
     'client/views/popups.html',

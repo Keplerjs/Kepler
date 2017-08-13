@@ -5,7 +5,7 @@ var Future = Npm.require('fibers/future');
 var roundLocGeoinfo = 4;
 
 Kepler.Geoinfo = {
-	geoFields: {
+	fields: {
 		ele: {
 			name: 'elevation',
 			caching: true,
@@ -63,18 +63,20 @@ Kepler.Geoinfo = {
 
 		var tasks = {};
 
-		_.each(this.geoFields, function(opt, field) {
-			tasks[field] = function(cb) {
-				Meteor.defer(function() {
-					
-					var ll = K.Util.geo.roundLoc(loc, opt.roundLoc);
-				 	
-				 	if(K.settings.geoinfo.caching && opt.caching)
-				 		cb(null, K.Cache.get(ll, opt.name, opt.func) );
-				 	else
-				 		cb(null, opt.func(ll) );
-				});
-			};
+		_.each(this.fields, function(opt, field) {
+			if(K.settings.public.geoinfo.fields[field]) {
+				tasks[field] = function(cb) {
+					Meteor.defer(function() {
+						
+						var rloc = K.Util.geo.roundLoc(loc, opt.roundLoc);
+					 	
+					 	if(K.settings.geoinfo.caching && opt.caching)
+					 		cb(null, K.Cache.get(rloc, opt.name, opt.func) );
+					 	else
+					 		cb(null, opt.func(rloc) );
+					});
+				};
+			}
 		});
 
 		async.parallel(tasks, function(err, ret) {

@@ -5,7 +5,7 @@ K.Admin.methods({
 		
 		if(!K.Admin.isMe()) return false;
 
-		_.each(K.Geoinfo.geoFields, function(opt) {
+		_.each(K.Geoinfo.fields, function(opt) {
 			console.log('Geoinfo: cache clean ', opt.name);
 			K.Cache.clean(opt.name);
 		});

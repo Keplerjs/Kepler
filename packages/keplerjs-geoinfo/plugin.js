@@ -11,9 +11,9 @@ K.Plugin({
 				loc: [],	//location
 				ele: 0,		//elevation
 				esp: 0,		//aspect
+				prov: '',	//province
 				near: '',	//near locality
 				com: '',	//municipality
-				prov: '',	//province
 				reg: '',	//district
 				naz: '',	//country
 			}
@@ -27,7 +27,24 @@ K.Plugin({
 		}
 	},
 	settings: {
+		"public": {
+			"geoinfo": {
+				"fields": {	//active fields
+					"loc": true,
+					"ele": true,
+					"esp": false,
+					"prov": true,
+					"near": true,
+					"com": true,
+					"reg": true,
+					"naz": false,
+					"sunrise":true,
+					"sunset": true
+				}
+			}
+		},
 		"geoinfo": {
+			
 			"caching": true,
 			"geonamesUser": "",
 			"ipinfodbKey": ""
