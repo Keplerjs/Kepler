@@ -6,8 +6,9 @@
 Meteor.startup(function() {
 	_.deepExtend(K.settings, Meteor.settings);
 
-	if(Meteor.isServer)
-		console.log("Settings: METEOR_SETTINGS='"+JSON.stringify(Meteor.settings)+"'");
+	//enable in debugmode
+	//if(Meteor.isServer)
+	//	console.log("Settings: METEOR_SETTINGS='"+JSON.stringify(Meteor.settings)+"'");
 });
 
 Kepler.settings = {

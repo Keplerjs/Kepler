@@ -14,8 +14,7 @@ Package.onUse(function (api) {
   api.versionsFrom(['METEOR@1.0']);
   
   api.use([
-    'keplerjs:core@1.1.0',
-    'yauh:turfjs-server@1.0.0'
+    'keplerjs:core@1.1.0'
   ]);
   
   api.addFiles([

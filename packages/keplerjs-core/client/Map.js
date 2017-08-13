@@ -214,6 +214,8 @@ Kepler.Map = {
 	},
 
 	addGeojson: function(geoData, opts, cb) {
+
+		//TODO implement opts.extension to fitbounds of contents
 		
 		if(this.ready()) {
 

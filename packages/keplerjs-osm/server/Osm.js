@@ -26,7 +26,10 @@ Kepler.Osm = {
 	queryBuilder: function(loc, o) {
 		
 		//TODO [timeout:1];
-		var query = '',
+		var queryTmplAround = '{type}(around:{radius},{lat},{lon})[{filter}];',
+			queryTmplBbox = '{type}({lat1},{lon1},{lat2},{lon2})[{filter}];',
+			queryTmpl = queryTmplAround,
+			query = '',
 			head = '[out:json];',
 			tags = '',
 			foot = '',
@@ -43,9 +46,16 @@ Kepler.Osm = {
 		//console.log('Osm: queryBuilder',opts)
 
 		if(opts.type=='way') {
-			union = 'way(bn);'+union;
-			opts.type = 'node';			
+			//union = 'way(bn);'+union;
+			//opts.type = 'node';	
+			var b = K.Util.geo.meters2rad(opts.radius);
+			opts.lat1 = loc[0]-b;
+			opts.lon1 = loc[1]-b;
+			opts.lat2 = loc[0]+b;
+			opts.lon2 = loc[1]+b;
+			queryTmpl = queryTmplBbox;
 		}
+			
 
 		if(_.isArray(opts.filter)) {
 		
@@ -53,7 +63,11 @@ Kepler.Osm = {
 
 			tags += '(';
 			for(var f in opts.filter) {
-				tags += _.template('{type}(around:{radius},{lat},{lon})[{filter}];', {
+				tags += _.template(queryTmpl, {
+
+					lat1: opts.lat1, lon1: opts.lon1,
+					lat2: opts.lat2, lon2: opts.lon2,
+
 					type: opts.type,
 					radius: opts.radius,
 					lat: loc[0],
@@ -65,7 +79,11 @@ Kepler.Osm = {
 
 		}else{
 
-			tags = _.template('{type}(around:{radius},{lat},{lon})[{filter}];', {
+			tags = _.template(queryTmpl, {
+				
+				lat1: opts.lat1, lon1: opts.lon1,
+				lat2: opts.lat2, lon2: opts.lon2,
+
 				type: opts.type,
 				radius: opts.radius,
 				lat: loc[0],
@@ -95,8 +113,7 @@ Kepler.Osm = {
 
 		var geojson = this.overpassSync(query);
 
-
-		return geojson;
+		return  geojson;
 	},
 
 	findOsmByBBox: function(bbox, opts) {
