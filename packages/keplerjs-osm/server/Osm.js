@@ -1,10 +1,12 @@
 
 var Future = Npm.require('fibers/future'),
-		Overpass = Npm.require('query-overpass');
+	Overpass = Npm.require('query-overpass');
 
 Kepler.Osm = {
 
 	overpassSync: function(query) {
+
+		//TODO here implement caching system
 
 		var future = new Future();
 
@@ -21,56 +23,77 @@ Kepler.Osm = {
 		return future.wait();
 	},
 
-	queryBuilder: function(loc, opts) {
+	queryBuilder: function(loc, o) {
 		
 		//TODO [timeout:1];
-		var head = '[out:json];',
-				tags = '',
-				foot = '';
+		var query = '',
+			head = '[out:json];',
+			tags = '',
+			foot = '',
+			union = '(._;>;);';
 
-		opts = _.defaults(opts || {}, {
+		var opts = _.defaults(o || {}, {
 			type: 'node',
 			filter: '~".*"~"."',
 			radius: K.settings.osm.findByLocDist,
 			limit: K.settings.osm.findByLocLimit,
-			meta: K.settings.osm.overpassMeta,			
+			meta: K.settings.osm.overpassMeta
 		});
 
+		//console.log('Osm: queryBuilder',opts)
+
+		if(opts.type=='way') {
+			union = 'way(bn);'+union;
+			opts.type = 'node';			
+		}
+
 		if(_.isArray(opts.filter)) {
+		
+			//TODO rewrite using regexpression for multiple keys value 
+
 			tags += '(';
 			for(var f in opts.filter) {
 				tags += _.template('{type}(around:{radius},{lat},{lon})[{filter}];', {
+					type: opts.type,
+					radius: opts.radius,
 					lat: loc[0],
 					lon: loc[1],
-					radius: opts.radius,				 
 					filter: opts.filter[f],
-					type: opts.type,			 
 				});
 			}
-			tags += ');(._;>;);';
+			tags += ');';
+
 		}else{
+
 			tags = _.template('{type}(around:{radius},{lat},{lon})[{filter}];', {
+				type: opts.type,
+				radius: opts.radius,
 				lat: loc[0],
 				lon: loc[1],
-				radius: opts.radius,				 
-				filter: opts.filter,
-				type: opts.type,			 
+				filter: opts.filter
 			});
-		}
+		}			
 
 		foot = _.template('out{meta} {limit};', {
 			meta: opts.meta ? ' meta' : '',
 			limit: opts.limit
 		});
 
-		return head+tags+foot;
+		query = head+tags+union+foot;
+
+		console.log('Osm: queryBuilder ','"'+query+'"');
+
+		return query;
 	},
 	
 	findOsmByLoc: function(loc, opts) {
 
-		var query = this.queryBuilder(loc, opts);
+		//TODO for way generrate buffer of location and use findOsmByBBox
+		//https://stackoverflow.com/questions/44929064/how-to-get-bounding-box-based-on-distance-from-given-point
+		
+		console.log('Osm: findOsmByLoc', loc);
 
-		console.log('Osm: findOsmByLoc');
+		var query = this.queryBuilder(loc, opts);
 
 		return this.overpassSync(query);
 	},
@@ -84,6 +107,7 @@ Kepler.Osm = {
 			limit: K.settings.osm.findByBBoxLimit,
 		});
 
+		//TODO move to queryBuilder
 		var query = _.template('[out:json];{type}({lat1},{lon1},{lat2},{lon2})[{filter}];(._;>;);out{meta} {limit};', {
 			lat1: bbox[0][0], lon1: bbox[0][1],
 			lat2: bbox[1][0], lon2: bbox[1][1],
@@ -100,6 +124,7 @@ Kepler.Osm = {
 
 	findOsmById: function(osmId) {
 		
+		//TODO move to queryBuilder
 		var query = _.template('[out:json];{type}({id});out{meta};', {
 				id: osmId,
 				type: 'node',

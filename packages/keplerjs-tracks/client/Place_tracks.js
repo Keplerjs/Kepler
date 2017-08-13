@@ -12,7 +12,7 @@ Kepler.Place.include({
 		if(self.tracksList)
 			cb(self.tracksList);
 		else
-			Meteor.subscribe('tracksByPlace', self.id, K.Map.getBBox(), function() {
+			Meteor.subscribe('tracksByPlace', self.id, function() {
 				
 				self.tracksList = findTracksByLoc(self.loc).fetch();
 				
@@ -49,8 +49,9 @@ Kepler.Place.include({
 			track.templatePopup = 'popupGeojson_tracks';
 			return track;
 		});
+		var placePoint = K.Util.geo.createPoint([place.loc[1], place.loc[0]]);
 
-		return K.Util.geo.createFeatureColl(tracks);
+		return K.Util.geo.createFeatureColl( _.union(tracks, placePoint) );
 	}
 
 });

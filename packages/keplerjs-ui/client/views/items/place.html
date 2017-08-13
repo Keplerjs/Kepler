@@ -11,10 +11,14 @@
 			{{> item_place}}
 		</div>
 		<div class="pull-right">
+			<!-- TODO geoinfo placeholder 
 			<small class="control-label text-gray text-capitalize">
 			{{#if prov}} {{prov}} &bull; {{/if}}
 			{{#if reg}} {{reg}} {{/if}}
-			</small>
+			</small> -->
+			<a class="btn btn-sm btn-default" href="/place/{{id}}/map">
+				<i class="icon icon-map"></i>
+			</a>
 		</div>
 	</div>
 </template>

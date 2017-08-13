@@ -10,9 +10,6 @@ Kepler.Plugin = function(plugin) {
 	{
 		if(!this.plugins[plugin.name]) {
 		
-			if(Meteor.isServer)
-				console.log('Plugin: ', plugin.name);
-
 			if(_.isObject(plugin.placeholders))
 				_.each(K.placeholders, function(tmpls, name) {
 					if(plugin.placeholders[name])
@@ -36,3 +33,9 @@ Kepler.Plugin = function(plugin) {
 	else
 		console.warn("Plugin: require name", plugin)
 };
+
+if(Meteor.isServer) {
+	Meteor.startup(function() {
+		console.log('Plugin: plugins loaded is ', _.keys(K.plugins).join(','));
+	});
+}

@@ -27,6 +27,8 @@ Meteor.publish('poisByPlace', function(placeId) {
 				});
 			}
 			console.log('Pub: poisByPlace insert from osm ', geojson.features.length);
+
+			poisCur = findPoisByLoc(placeData.loc);
 		}
 
 		console.log('Pub: poisByPlace', placeData.name, poisCur.count());

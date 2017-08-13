@@ -28,7 +28,7 @@ K.Plugin({
 	},
 	settings: {
 		"osm": {
-			"findByLocDist": 20,
+			"findByLocDist": 50,
 			"findByLocLimit": 10,
 			"findByBBoxLimit": 10,
 			"overpass": {

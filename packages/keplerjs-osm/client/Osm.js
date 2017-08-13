@@ -22,7 +22,13 @@ Kepler.Osm = {
 
 	loadByLoc: function(loc, cb) {
 
-		Meteor.call('findOsmByLoc', loc, null, function(err, geojson) {
+		var opts = {
+			filter: '~".*"~".*"',//'highway~".*"',
+			type: 'node',//'way'
+			limit: 1
+		};
+
+		Meteor.call('findOsmByLoc', loc, opts, function(err, geojson) {
 
 			if(err){
 				console.log('findOsmByLoc',err)
@@ -62,7 +68,7 @@ Kepler.Osm = {
 
 	loadTracks: function() {
 		var opts = {
-			filter: 'highway=path',
+			filter: 'highway~".*"',
 			type: 'way'
 		};
 

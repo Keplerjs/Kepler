@@ -46,6 +46,8 @@ _.extend(Kepler.Map, {
 			}			
 		});
 
+		//controls.scale = L.control.scale({position:'topright'});
+
 		return controls;
 	}
 });
