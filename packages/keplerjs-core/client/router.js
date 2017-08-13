@@ -158,8 +158,8 @@ Router.map(function() {
 		}	
 	});
 
-	this.route('places', {
-		path: '/places',
+	this.route('placesNearby', {
+		path: '/places/nearby',
 		template: 'panelList',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
@@ -183,7 +183,7 @@ Router.map(function() {
 				})
 			};
 		}
-	});	
+	});
 
 	this.route('placesNews', {
 		path: '/places/news',
