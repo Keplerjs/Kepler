@@ -91,11 +91,12 @@ Kepler.Osm = {
 		//TODO for way generrate buffer of location and use findOsmByBBox
 		//https://stackoverflow.com/questions/44929064/how-to-get-bounding-box-based-on-distance-from-given-point
 		
-		console.log('Osm: findOsmByLoc', loc);
-
 		var query = this.queryBuilder(loc, opts);
 
-		return this.overpassSync(query);
+		var geojson = this.overpassSync(query);
+
+
+		return geojson;
 	},
 
 	findOsmByBBox: function(bbox, opts) {

@@ -33,8 +33,6 @@ _.extend(Kepler.Map, {
 
 				var loc = [e.latlng.lat, e.latlng.lng];
 				
-				this.showAlert('located');
-
 				//TODO minShift
 
 				K.Profile.setLoc(loc);

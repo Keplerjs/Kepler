@@ -23,13 +23,13 @@ Meteor.publish('tracksByPlace', function(placeId) {
 
 		var tracksCur = findTracksByLoc(loc);
 
-		if(true || tracksCur.count()===0) {
+		if(tracksCur.count()===0) {
 
 
 			var geojson = K.Osm.findOsmByLoc(loc, {
 				type: 'way',
-				filter: 'highway~".*"',//_.keys(K.settings.public.tracks.typesByTags),
-				radius: 2000,//K.settings.public.tracks.maxDistance,
+				filter: 'highway=path',//_.keys(K.settings.public.tracks.typesByTags),
+				radius: 10000,//K.settings.public.tracks.maxDistance,
 				limit: '',//10,//K.settings.public.tracks.limit,
 				meta: false
 			});
@@ -39,13 +39,15 @@ Meteor.publish('tracksByPlace', function(placeId) {
 				for(var i in geojson.features) {
 
 					var feature = geojson.features[i];
-
+					console.log(feature)
 					feature.properties.end = K.Util.geo.createPoint([loc[1], loc[0]]);
 					//used by findTracksByLoc
 
-					if(feature.properties.type==='way') {
+					if( feature.properties.type==='way' &&
+						feature.geometry.type==='LineString' ) {
+
 						Tracks.upsert({id: feature.id}, feature);
-						console.log('Pub: tracksByPlace insert from osm ',feature.id, feature.geometry.type);
+						console.log('Pub: tracksByPlace import from osm ',feature.id, feature.geometry.type);
 					}
 				}
 			}

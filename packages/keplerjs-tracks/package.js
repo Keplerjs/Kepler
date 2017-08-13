@@ -34,6 +34,7 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'server/pubs.js',
+    'server/tracks.js'
   ],'server');
   
   api.export([

@@ -1,46 +1,14 @@
 
-K.extend({
-	updatePlaceGeoinfo: function(place) {
-	
-		console.log('Geoinfo: updatePlaceGeoinfo ', place.name);
-
-		var ret = K.Geoinfo.getFieldsByLoc(place.loc);
-
-		Places.update(place._id, {
-			$set: {
-				geoinfo: ret
-			}
-		});
-	}
+//TODO using before instead after!!!
+Places.before.insert(function(userId, doc) {
+	console.log('Geoinfo: updatePlaceGeoinfo ', doc.name);
+	doc.geoinfo = K.Geoinfo.getFieldsByLoc(doc.loc)
 });
+/*
 
-Places.after.insert(function(userId, doc) {
-	if(doc.loc)
-		K.updatePlaceGeoinfo(doc);
-});
-
-Places.after.update(function(userId, doc, fieldNames, modifier, options) {
+//TODO uncomment whe edit plugin support moving place
+Places.before.update(function(userId, doc, fieldNames, modifier, options) {
 	if(_.contains(fieldNames,'loc'))
-		K.updatePlaceGeoinfo(doc);
+		doc.geoinfo = K.Geoinfo.getFieldsByLoc(doc.loc)
 });
-
-Meteor.methods({
-	findGeoinfoByLoc: function(loc, fields) {
-
-		if(!this.userId && !K.Util.valid.loc(loc)) return null;
-
-		console.log('Geoinfo: findGeoinfoByLoc...', loc);
-
-		return K.Geoinfo.getFieldsByLoc(loc, fields);
-	},
-	findGeocoding: function(text) {
-
-		if(!this.userId) return null;
-
-		var ret = K.Geoinfo.getGeocoding(text);
-
-		console.log('Geoinfo: findGeocoding', text, ret);
-
-		return ret;
-	}
-});
+*/

@@ -3,7 +3,6 @@
 Template.popupGeoinfo.helpers({
 	fields: function() {
 
-	
 		var ret = {},
 			suncalc = K.Geoinfo.suncalc(this.loc),
 			fields = _.extend({}, this, suncalc);
@@ -21,11 +20,19 @@ Template.popupCursor_geoinfo.onCreated(function() {
 	
 	var self = this;
 
+	self.showFields = {
+		"loc": true,
+		"ele": true,
+		//"esp": true,
+		"near": true
+	};
+
 	self.cursorData = Template.currentData();
 
     self.geoinfo = new ReactiveVar();
 
-    Meteor.call('findGeoinfoByLoc', self.cursorData.loc , function(err, data) {
+    Meteor.call('findGeoinfoByLoc', self.cursorData.loc, self.showFields, function(err, data) {
+
 		if(err)
             console.log(err);
         else
@@ -34,7 +41,7 @@ Template.popupCursor_geoinfo.onCreated(function() {
 });
 
 Template.popupCursor_geoinfo.helpers({
-	geoinfo: function() {
+	fields: function() {
 		return Template.instance().geoinfo.get();
 	}
 });

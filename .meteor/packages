@@ -17,12 +17,12 @@ keplerjs:admin
 
 keplerjs:upload
 keplerjs:share
+keplerjs:geoinfo
 keplerjs:osm
 #keplerjs:categories
 keplerjs:notif
 keplerjs:favorites
 keplerjs:conver
-keplerjs:geoinfo
 keplerjs:events
 keplerjs:pois
 keplerjs:tracks

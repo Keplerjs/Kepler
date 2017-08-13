@@ -3,7 +3,7 @@ i18n.map('en', {
 
 	title_geoinfo: "Geography",
 
-	label_loc: "Location",
+	label_loc: "Locality",
 	label_reg: "Region",
 	label_naz: "Nation",
 	label_prov: "Province",

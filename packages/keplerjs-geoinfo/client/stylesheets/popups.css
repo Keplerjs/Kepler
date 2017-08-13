@@ -2,5 +2,7 @@
 .popup-geoinfo {
 	text-transform: capitalize;
 	color: #333;
-	background-color: #fff
+	background-color: #fff;
+	padding: 4px 15px;
+	margin: 1px;
 }

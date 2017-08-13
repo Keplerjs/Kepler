@@ -82,7 +82,8 @@ Kepler.Geoapi = {
 
 		var data, ret, src = {
 				par: 'name',
-				url: 'http://api.geonames.org/findNearbyJSON?lang=IT&style=SHORT&'+
+				url: 'http://api.geonames.org/findNearbyJSON?lang=IT&'+
+					 'style=SHORT&'+
 					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+K.settings.geoinfo.geonamesUser
 			};
 

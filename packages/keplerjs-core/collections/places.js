@@ -22,3 +22,10 @@ Places.before.insert(function(userId, doc) {
 	//doc.name = K.util.sanitize.name(doc.name)
 	//doc.loc = K.Util.geo.roundLoc(doc.loc);
 });
+
+/*
+//TODO
+Places.before.update(function(userId, doc, fieldNames, modifier, options) {
+//modifier.$set.modifiedAt = K.Util.time();
+});
+*/

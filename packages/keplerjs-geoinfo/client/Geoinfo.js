@@ -1,4 +1,6 @@
 
+//move this module in client AND server
+
 Kepler.Geoinfo = {
 
 	suncalc: function(loc) {

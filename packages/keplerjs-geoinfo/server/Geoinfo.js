@@ -21,7 +21,7 @@ Kepler.Geoinfo = {
 		near: {
 			name: 'near',
 			caching: true,
-			roundLoc: roundLocGeoinfo,
+			roundLoc: 4,
 			func: K.Geoapi.near
 		},
 		com: {
@@ -59,12 +59,11 @@ Kepler.Geoinfo = {
 	},	
 	getFieldsByLoc: function(loc, fields) {
 
-		var future = new Future();
-
-		var tasks = {};
+		var fields = fields || K.settings.public.geoinfo.fields,
+			tasks = {};
 
 		_.each(this.fields, function(opt, field) {
-			if(K.settings.public.geoinfo.fields[field]) {
+			if(fields[field]) {
 				tasks[field] = function(cb) {
 					Meteor.defer(function() {
 						
@@ -78,6 +77,8 @@ Kepler.Geoinfo = {
 				};
 			}
 		});
+
+		var future = new Future();
 
 		async.parallel(tasks, function(err, ret) {
 			if(err)
@@ -116,3 +117,24 @@ Kepler.Geoinfo = {
 		return ret;
 	}
 };
+
+Meteor.methods({
+	findGeoinfoByLoc: function(loc, fields) {
+
+		if(!this.userId && !K.Util.valid.loc(loc)) return null;
+
+		console.log('Geoinfo: findGeoinfoByLoc...', loc, fields);
+
+		return K.Geoinfo.getFieldsByLoc(loc, fields);
+	},
+	findGeocoding: function(text) {
+
+		if(!this.userId) return null;
+
+		var ret = K.Geoinfo.getGeocoding(text);
+
+		console.log('Geoinfo: findGeocoding', text, ret);
+
+		return ret;
+	}
+});

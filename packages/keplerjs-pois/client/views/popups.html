@@ -5,7 +5,12 @@
 
 
 <template name="popupGeojson_pois">
-	<a href="#" class="btn btn-block btn-default popup-tit">
-		<i class="icon icon-{{poiTypeByTags properties.tags}}"></i> <b>{{properties.tags.name}}</b>
+	<a class="btn btn-block btn-default popup-tit">
+		<i class="icon icon-{{poiTypeByTags properties.tags}}"></i>
+		{{#if properties.tags.name}}
+			<b>{{properties.tags.name}}</b>
+		{{else}}
+			{{poiTypeNameByTags properties.tags}}
+		{{/if}}
 	</a>
 </template>

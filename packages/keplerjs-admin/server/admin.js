@@ -10,17 +10,6 @@ Meteor.methods({
 	}
 });
 
-Users.after.insert(function(userId, doc) {
-	
-	if(K.settings.admin.adminUsers) {
-		Users.find({
-			username: {$in: K.settings.admin.adminUsers}
-		}).forEach(function (user) {
-			K.updateFriendship(doc._id, user._id);
-		});
-	}
-});
-
 
 Accounts.onLogin(function(login) {
 
