@@ -235,7 +235,15 @@ Router.map(function() {
 		waitOn: function() {
 			Session.set('showSidebar', true);
 			return Meteor.subscribe('placeById', this.params.placeId);
-		},	
+		},
+		onAfterAction: function() {
+			if(!this.ready()) return null;
+
+			var place = K.placeById( this.params.placeId );
+
+			if(place)
+				place.showLoc();
+		},		
 		data: function() {
 			if(!this.ready()) return null;
 			var place = K.placeById( this.params.placeId );

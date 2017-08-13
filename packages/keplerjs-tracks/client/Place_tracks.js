@@ -49,10 +49,10 @@ Kepler.Place.include({
 			track.templatePopup = 'popupGeojson_tracks';
 			return track;
 		});
-		console.log(tracks)
-		var placePoint = K.Util.geo.createPoint([place.loc[1], place.loc[0]]);
+		//var placePoint = K.Util.geo.createPoint([place.loc[1], place.loc[0]]);
+ 		//tracks = _.union(tracks, placePoint);
 
-		return K.Util.geo.createFeatureColl( _.union(tracks, placePoint) );
+		return K.Util.geo.createFeatureColl( tracks );
 	}
 
 });

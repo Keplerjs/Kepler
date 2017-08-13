@@ -19,18 +19,19 @@ Meteor.publish('tracksByPlace', function(placeId) {
 
 		var placeCur = K.findPlaceById(placeId),
 			placeData = placeCur.fetch()[0],
-			loc = placeData.loc;
+			loc = placeData.loc,
+			imported = 0;
 
 		var tracksCur = findTracksByLoc(loc);
 
-		if(true || tracksCur.count()===0) {
-
+		//TODO optimize this condition caching
+		if(tracksCur.count()===0) {
 
 			var geojson = K.Osm.findOsmByLoc(loc, {
 				type: 'way',
 				filter: _.keys(K.settings.public.tracks.typesByTags),
-				radius: 1000,//K.settings.public.tracks.maxDistance,
-				limit: '',//10,//K.settings.public.tracks.limit,
+				radius: K.settings.public.tracks.maxDistance,
+				limit: ' ',//is limit of nodes NOT ways
 				meta: false
 			});
 			
@@ -43,17 +44,17 @@ Meteor.publish('tracksByPlace', function(placeId) {
 					if( feature.properties.type==='way' &&
 						feature.geometry.type==='LineString' ) {
 
-						Tracks.upsert({id: feature.id}, feature);
-						
-						console.log('Pub: tracksByPlace import from osm ',feature.properties);
+						imported = Tracks.upsert({id: feature.id}, feature);
 					}
 				}
 			}
 			
+			console.log('Pub: tracksByPlace import from osm ',imported);
+
 			tracksCur = findTracksByLoc(placeData.loc);
 		}
 
-		console.log('Pub: tracksByPlace', placeData.loc, tracksCur.count());
+		console.log('Pub: tracksByPlace', placeId, tracksCur.count());
 
 		return [
 			placeCur,

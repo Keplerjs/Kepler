@@ -1,10 +1,10 @@
 
 Kepler.Util.geo = {
 
-	roundLoc: function(ll, prec) {
+	roundLoc: function(loc, prec) {
 		prec = prec || 6; 
-		var lat = parseFloat(ll[0]).toFixed(prec),
-			lng = parseFloat(ll[1]).toFixed(prec)
+		var lat = parseFloat(loc[0]).toFixed(prec),
+			lng = parseFloat(loc[1]).toFixed(prec)
 		return [ parseFloat(lat), parseFloat(lng) ];
 	},
 

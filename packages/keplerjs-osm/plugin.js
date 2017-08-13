@@ -34,6 +34,7 @@ K.Plugin({
 			"overpass": {
 				"flatProperties": false,
 				//"overpassUrl": "http://overpass-api.de/api/interpreter",
+				//"overpassUrl": "http://overpass-api.de/api/interpreter",
 				//"overpassTimeout": null,
 				"overpassMeta": true
 			}

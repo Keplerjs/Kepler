@@ -46,16 +46,16 @@ Kepler.Osm = {
 		//console.log('Osm: queryBuilder',opts)
 
 		if(opts.type=='way') {
-			//union = 'way(bn);'+union;
-			//opts.type = 'node';	
-			var b = K.Util.geo.meters2rad(opts.radius);
-			opts.lat1 = loc[0]-b;
-			opts.lon1 = loc[1]-b;
-			opts.lat2 = loc[0]+b;
-			opts.lon2 = loc[1]+b;
 			queryTmpl = queryTmplBbox;
+			//union = 'way(bn);'+union;
+			var b = K.Util.geo.meters2rad(opts.radius);
+			opts.lat1 = parseFloat(loc[0]-b).toFixed(4);
+			opts.lon1 = parseFloat(loc[1]-b).toFixed(4);
+			opts.lat2 = parseFloat(loc[0]+b).toFixed(4);
+			opts.lon2 = parseFloat(loc[1]+b).toFixed(4);
 		}
-			
+
+console.log('queryBuilder:::', opts)
 
 		if(_.isArray(opts.filter)) {
 		
@@ -67,11 +67,12 @@ Kepler.Osm = {
 
 					lat1: opts.lat1, lon1: opts.lon1,
 					lat2: opts.lat2, lon2: opts.lon2,
+					
+					lat: loc[0],
+					lon: loc[1],
 
 					type: opts.type,
 					radius: opts.radius,
-					lat: loc[0],
-					lon: loc[1],
 					filter: opts.filter[f],
 				});
 			}
@@ -83,11 +84,12 @@ Kepler.Osm = {
 				
 				lat1: opts.lat1, lon1: opts.lon1,
 				lat2: opts.lat2, lon2: opts.lon2,
+				
+				lat: loc[0],
+				lon: loc[1],
 
 				type: opts.type,
 				radius: opts.radius,
-				lat: loc[0],
-				lon: loc[1],
 				filter: opts.filter
 			});
 		}			

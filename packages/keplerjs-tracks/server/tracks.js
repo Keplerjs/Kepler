@@ -4,8 +4,6 @@ Tracks.before.upsert(function(userId, selector, modifier, options) {
 	var track = modifier;
 	track.createdAt = K.Util.time();
 
-console.log('Tracks.before.upsert',track)
-
 	if( track && track.type==="Feature" && 
 		track.geometry.type==="LineString" ) {
 		

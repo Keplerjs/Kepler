@@ -22,7 +22,7 @@ K.Plugin({
 			},
 			"tracks": {
 				"limit": 10,				
-				"maxDistance": 1000,
+				"maxDistance": 2000,
 				"typesByTags": {
 					"highway=path": "path",
 					"highway=track": "path",
