@@ -15,7 +15,7 @@ K.extend({
 		if(targetType==='user')
 			usersIds.push(targetId);
 
-		var convData = _.extend(K.schemas.conver, {
+		var convData = _.extend({}, K.schemas.conver, {
 				title: title,
 				targetId: targetId,
 				targetType: targetType,

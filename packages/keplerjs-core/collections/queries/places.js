@@ -10,6 +10,14 @@ K.extend({
 		usersIds = _.isArray(usersIds) ? {$in: usersIds} : usersIds;
 		return Places.find({checkins: usersIds }, K.filters.placeItem);
 	},
+	findCheckinsCountByPlaces: function(placesIds) {
+		
+		var places = K.findPlacesByIds(placesIds).fetch();
+
+		return _.reduce(places, function(m, place) {
+			return m + place.checkins.length;
+		}, 0);
+	},	
 	findPlacesByBBox: function(bbox) {
 
 		//TODO limit bbox sizes!!! add limit
@@ -34,7 +42,10 @@ K.extend({
 						'$box': bbox
 					}
 				}
-			}, K.filters.placeItem);
+			}, _.extend({}, K.filters.placeItem, {
+					limit: 50
+				})
+			);
 		}
 	},
 	findPlacesByDate: function() {
@@ -47,26 +58,22 @@ K.extend({
 			createdAt: {
 				'$gte': dateFrom
 			}
-		}, _.extend(K.filters.placeItem, {
-				sort: {
-					createdAt: -1
-				}
+		}, _.extend({}, K.filters.placeItem, {
+				sort: { createdAt: -1 },
+				limit: 30
 			})
-		);	
+		);
 	},	
-	findCheckinsCountByPlaces: function(placesIds) {
-		
-		var places = K.findPlacesByIds(placesIds).fetch();
-
-		return _.reduce(places, function(m, place) {
-			return m + place.checkins.length;
-		}, 0);
-	},
 	findPlacesByName: function(initial) {
 		initial = K.Util.sanitize.regExp(initial);
 
 		if(initial.length < 2)
 			return null;
+
+		var filters = _.extend({}, K.filters.placeSearch, {
+			sort: { name:1 },
+			limit: 30
+		});
 
 		var ex = new RegExp('^'+ initial, 'i');
 			
@@ -74,13 +81,13 @@ K.extend({
 				$or: [
 					{name: ex},
 					{near: ex}
-				] }, K.filters.placeSearch);
+				] }, filters);
 
 		if(curPlace.count()===0)
-			curPlace = Places.find({prov: ex }, K.filters.placeSearch);
+			curPlace = Places.find({prov: ex }, filters);
 		
 		if(curPlace.count()===0)
-			curPlace = Places.find({reg: ex }, K.filters.placeSearch);
+			curPlace = Places.find({reg: ex }, filters);
 
 		return curPlace;
 	}

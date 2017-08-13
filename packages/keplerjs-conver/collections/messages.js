@@ -25,7 +25,7 @@ K.extend({
 
 		var convData = Convers.findOne(convId),
 			lastMsg = convData && convData.lastMsg,
-			newMsg = _.extend(K.schemas.converMsg, {
+			newMsg = _.extend({}, K.schemas.converMsg, {
 				updatedAt: K.Util.time(),
 				userId: Meteor.userId(),
 				convId: convId,

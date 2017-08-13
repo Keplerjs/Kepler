@@ -11,28 +11,14 @@
 			{{> item_place}}
 		</div>
 		<div class="pull-right">
-			<!-- TODO geoinfo placeholder 
+			<!-- TODO geoinfo placeholder -->
 			<small class="control-label text-gray text-capitalize">
-			{{#if prov}} {{prov}} &bull; {{/if}}
-			{{#if reg}} {{reg}} {{/if}}
-			</small> -->
+			{{#if createdAt}} {{humanTime createdAt 1}} {{/if}}
+			</small>
 			<a class="btn btn-sm btn-default" href="/place/{{id}}/map">
 				<i class="icon icon-map"></i>
 			</a>
 		</div>
-	</div>
-</template>
-
-<template name="item_place_nearby">
-	<div class="nearby-item">
-		<div class="pull-left">
-			{{> item_place}}
-			<br />
-			<small>{{near}}</small>
-		</div>
-		<div class="pull-right">
-			{{> place_btns}}
-		</div>		
 	</div>
 </template>
 

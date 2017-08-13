@@ -37,9 +37,10 @@ Kepler.Util.humanize = {
 		return ret;
 	},
 
-	date: function(date, sep) {
+	date: function(date, short) {
 		
 		date = date || new Date();
+		short = short || false;
 		sep = sep || ' ';
 	
 		function fromDMY(all, d,m,y) {

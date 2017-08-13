@@ -15,7 +15,6 @@ Template.search_place.onRendered(function() {
 			});
 		},
 		sourceNode: function(data) {
-			console.log('sourceNode',data)
 			var item$ = $('<li class="list-group-item"></li>');
 			Blaze.renderWithData(Template.item_place_search, data, item$[0]);
 			return item$;

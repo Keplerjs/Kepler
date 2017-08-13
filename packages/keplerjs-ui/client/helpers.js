@@ -53,8 +53,8 @@ Template.registerHelper('date', function(date) {
 	return [date.getDate(), date.getMonth()+1, date.getFullYear()].join('/');
 });
 
-Template.registerHelper('humanDate', function(date) {
-	return K.Util.humanize.date(date);
+Template.registerHelper('humanDate', function(date, short) {
+	return K.Util.humanize.date(date, short);
 });
 
 Template.registerHelper('humanDistance', function(dis, sign) {
