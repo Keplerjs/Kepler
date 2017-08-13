@@ -14,8 +14,9 @@ Template.panelList.helpers({
 			this.items.reverse();
 
 		return _.map(this.items, function(item) {
-			item.template = self.itemsTemplate || item.template;
-			return item;
+			return _.extend({}, item, {
+				template: self.itemsTemplate || item.template
+			});
 		});
 	}
 });

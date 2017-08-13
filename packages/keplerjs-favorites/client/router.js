@@ -16,9 +16,7 @@ Router.map(function() {
 				className: 'favorites',
 				itemsTemplate: 'item_place_favorite',
 				items: _.map(K.Profile.data.favorites, function(id) {
-					var place = K.placeById(id);
-					place.update();
-					return place.rData();
+					return place = K.placeById(id);
 				}),
 				sortBy: 'name'
 			};

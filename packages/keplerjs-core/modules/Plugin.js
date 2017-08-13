@@ -36,6 +36,6 @@ Kepler.Plugin = function(plugin) {
 
 if(Meteor.isServer) {
 	Meteor.startup(function() {
-		console.log('Plugin: plugins loaded is ', _.keys(K.plugins).join(','));
+		console.log('Plugins: ', _.keys(K.plugins).join(','));
 	});
 }

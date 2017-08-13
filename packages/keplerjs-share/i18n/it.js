@@ -6,6 +6,6 @@ i18n.map('it', {
 	btn_navapp: "App Navigazione",
 	btn_google: "Google",
 	btn_bing: "Bing",
-	btn_osm: "OSM",
+	btn_osm: "OpenStreetMap",
 	label_share: "Condividi"
 });
