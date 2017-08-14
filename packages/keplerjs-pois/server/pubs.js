@@ -11,8 +11,8 @@ Meteor.publish('poisByPlace', function(placeId) {
 		if(poisCur.count()===0) {
 			var geojson = K.Osm.findOsmByLoc(placeData.loc, {
 				filter: _.keys(K.settings.public.pois.typesByTags),
-				radius: 200,
-				limit: 10,
+				dist: K.settings.public.pois.maxDistance,
+				limit: K.settings.public.pois.limit,
 				meta: false
 			});
 			

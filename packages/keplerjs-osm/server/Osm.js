@@ -26,8 +26,8 @@ Kepler.Osm = {
 	queryBuilder: function(loc, o) {
 		
 		//TODO [timeout:1];
-		var queryTmplAround = '{type}(around:{radius},{lat},{lon})[{filter}];',
-			queryTmplBbox = '{type}({lat1},{lon1},{lat2},{lon2})[{filter}];',
+		var queryTmplAround = '{type}(around:{dist},{lat},{lon})[{filter}];',
+			queryTmplBbox = '{type}({bbox})[{filter}];',
 			queryTmpl = queryTmplAround,
 			query = '',
 			head = '[out:json];',
@@ -38,7 +38,7 @@ Kepler.Osm = {
 		var opts = _.defaults(o || {}, {
 			type: 'node',
 			filter: '~".*"~"."',
-			radius: K.settings.osm.findByLocDist,
+			dist: K.settings.osm.findByLocDist,
 			limit: K.settings.osm.findByLocLimit,
 			meta: K.settings.osm.overpassMeta
 		});
@@ -48,14 +48,17 @@ Kepler.Osm = {
 		if(opts.type=='way') {
 			queryTmpl = queryTmplBbox;
 			//union = 'way(bn);'+union;
-			var b = K.Util.geo.meters2rad(opts.radius);
-			opts.lat1 = parseFloat(loc[0]-b).toFixed(4);
-			opts.lon1 = parseFloat(loc[1]-b).toFixed(4);
-			opts.lat2 = parseFloat(loc[0]+b).toFixed(4);
-			opts.lon2 = parseFloat(loc[1]+b).toFixed(4);
-		}
+			var b = K.Util.geo.meters2rad(opts.dist),
+				lat1 = parseFloat(loc[0]-b).toFixed(4),
+				lon1 = parseFloat(loc[1]-b).toFixed(4),
+				lat2 = parseFloat(loc[0]+b).toFixed(4),
+				lon2 = parseFloat(loc[1]+b).toFixed(4);
 
-console.log('queryBuilder:::', opts)
+			//{lat1},{lon1},{lat2},{lon2}
+
+			bbox = [lat1,lon1,lat2,lon2].join(',');
+
+		}
 
 		if(_.isArray(opts.filter)) {
 		
@@ -65,14 +68,13 @@ console.log('queryBuilder:::', opts)
 			for(var f in opts.filter) {
 				tags += _.template(queryTmpl, {
 
-					lat1: opts.lat1, lon1: opts.lon1,
-					lat2: opts.lat2, lon2: opts.lon2,
+					bbox: bbox,
 					
 					lat: loc[0],
 					lon: loc[1],
 
 					type: opts.type,
-					radius: opts.radius,
+					dist: opts.dist,
 					filter: opts.filter[f],
 				});
 			}
@@ -82,14 +84,13 @@ console.log('queryBuilder:::', opts)
 
 			tags = _.template(queryTmpl, {
 				
-				lat1: opts.lat1, lon1: opts.lon1,
-				lat2: opts.lat2, lon2: opts.lon2,
+				bbox: bbox,
 				
 				lat: loc[0],
 				lon: loc[1],
 
 				type: opts.type,
-				radius: opts.radius,
+				dist: opts.dist,
 				filter: opts.filter
 			});
 		}			

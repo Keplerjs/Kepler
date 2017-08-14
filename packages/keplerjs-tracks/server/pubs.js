@@ -30,7 +30,7 @@ Meteor.publish('tracksByPlace', function(placeId) {
 			var geojson = K.Osm.findOsmByLoc(loc, {
 				type: 'way',
 				filter: _.keys(K.settings.public.tracks.typesByTags),
-				radius: K.settings.public.tracks.maxDistance,
+				dist: K.settings.public.tracks.maxDistance,
 				limit: ' ',//is limit of nodes NOT ways
 				meta: false
 			});

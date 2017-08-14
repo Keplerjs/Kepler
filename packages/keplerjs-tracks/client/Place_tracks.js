@@ -45,7 +45,6 @@ Kepler.Place.include({
 	tracksToGeojson: function(tracks, place) {
 
 		var tracks = _.map(tracks, function(track) {
-			track.properties.asc = track.properties.dis >= 0;
 			track.templatePopup = 'popupGeojson_tracks';
 			return track;
 		});

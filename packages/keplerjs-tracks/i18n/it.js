@@ -6,8 +6,7 @@ i18n.map('it', {
 	
 	label_time: "Durata",
 	label_len: "Distanza",
-	label_asc: "In salita",
-	label_dis: "In discesa",
+	label_dis: "Dislivello",
 	
 	tracks_type_access: "Avvicinamento",
 	tracks_type_other: "Altro",

@@ -6,8 +6,7 @@ i18n.map('en', {
 
 	label_time: "Duration",
 	label_len: "Distance",
-	label_asc: "Uphill",
-	label_dis: "Downhill",
+	label_dis: "Altitude",
 
 	tracks_type_access: "Approaching",
 	tracks_type_other: "Other",
