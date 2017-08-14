@@ -69,7 +69,7 @@ Kepler.Util.humanize = {
 			
 				return ret;
 			}
-
+			
 		if(_.isNumber(date)) {
 			date = new Date(date)
 			return fromDMY(null, date.getDate(), date.getMonth()+1, date.getFullYear() );
@@ -81,6 +81,7 @@ Kepler.Util.humanize = {
 				return fromDMY(null, m[1], m[2], m[3]);
 			}
 			else if(m = date.match(/^(\d{4})-(\d{1,2})-(\d{1,2}).*/)) {
+
 				return fromDMY(null, m[3], m[2], m[1]);
 			} else {
 				date = new Date(date);

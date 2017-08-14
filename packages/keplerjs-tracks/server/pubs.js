@@ -25,14 +25,13 @@ Meteor.publish('tracksByPlace', function(placeId) {
 		var tracksCur = findTracksByLoc(loc);
 
 		//TODO optimize this condition caching
-		if(tracksCur.count()===0) {
+		if(true || tracksCur.count()===0) {
 
 			var geojson = K.Osm.findOsmByLoc(loc, {
 				type: 'way',
 				filter: _.keys(K.settings.public.tracks.typesByTags),
 				dist: K.settings.public.tracks.maxDistance,
-				limit: ' ',//is limit of nodes NOT ways
-				meta: false
+				limit: 3000//is limit of nodes NOT ways
 			});
 			
 			if(geojson && geojson.features) {

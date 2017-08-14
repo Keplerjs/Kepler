@@ -9,7 +9,6 @@ Kepler.Place.include({
 
 		if(!self.weather)
 			Meteor.call('getWeatherByLoc', self.loc, function(err, weather) {
-
 				self.weather = K.Cache.set(self.loc, weather, 'weather');
 				self._dep.changed();
 			});

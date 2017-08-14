@@ -8,12 +8,13 @@ Meteor.publish('poisByPlace', function(placeId) {
 
 		var poisCur = findPoisByLoc(placeData.loc);
 
-		if(poisCur.count()===0) {
+		//TODO optimize this condition caching
+		if(true || poisCur.count()===0) {
+
 			var geojson = K.Osm.findOsmByLoc(placeData.loc, {
 				filter: _.keys(K.settings.public.pois.typesByTags),
 				dist: K.settings.public.pois.maxDistance,
-				limit: K.settings.public.pois.limit,
-				meta: false
+				limit: K.settings.public.pois.limit
 			});
 			
 			if(!geojson || !geojson.features)

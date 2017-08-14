@@ -22,7 +22,7 @@ K.Plugin({
 			},
 			"pois": {
 				"limit": 10,
-				"maxDistance": 1500,
+				"maxDistance": 500,
 				"typesByTags": {
 					"amenity=drinking_water": "water",
 					"amenity=fountain":  "water",

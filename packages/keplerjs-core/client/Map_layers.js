@@ -100,14 +100,14 @@ _.extend(Kepler.Map, {
 			}
 		});
 
-		//autoclean geojson layer
+/*		//autoclean geojson layer
 		map.on('zoomend', function(e) {
 			if(layers.geojson.getLayers().length) {
 				if(e.target.getBoundsZoom(layers.geojson.getBounds()) - e.target.getZoom() > 1)
 					layers.geojson.clearLayers();
 			}
 		});
-
+*/
 		return layers;
 	}
 });

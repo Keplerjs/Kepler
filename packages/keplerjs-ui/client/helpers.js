@@ -1,4 +1,6 @@
 
+//TODO use namespace K for all global helpers!
+
 Template.registerHelper('absoluteUrl', function(url) {
 	return Meteor.absoluteUrl(url)
 });
@@ -29,6 +31,10 @@ Template.registerHelper('connectionStatus', function() {
 	return Meteor.status();
 });
 
+Template.registerHelper('stringify', function(prop) {
+	return JSON.stringify(prop,null,4);
+});
+
 Template.registerHelper('or', function() {
 	return _.some(_.initial(arguments));
 });
@@ -48,8 +54,9 @@ Template.registerHelper('humanTime', function(sec, ago) {
 	return K.Util.humanize.time(sec, parseInt(ago));
 });
 
-Template.registerHelper('date', function(date) {
-	date = new Date(date)
+Template.registerHelper('numericDate', function(date) {
+	if(!date) return '';
+	date = new Date(date);
 	return [date.getDate(), date.getMonth()+1, date.getFullYear()].join('/');
 });
 
@@ -63,8 +70,4 @@ Template.registerHelper('humanDistance', function(dis, sign) {
 
 Template.registerHelper('humanLoc', function(loc, pre) {
 	return K.Util.humanize.loc(loc, parseInt(pre));
-});
-
-Template.registerHelper('stringify', function(prop) {
-	return JSON.stringify(prop,null,4);
 });

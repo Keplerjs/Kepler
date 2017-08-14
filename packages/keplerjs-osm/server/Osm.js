@@ -48,16 +48,15 @@ Kepler.Osm = {
 		if(opts.type=='way') {
 			queryTmpl = queryTmplBbox;
 			//union = 'way(bn);'+union;
+
+			//bbox buffer of location by dist
 			var b = K.Util.geo.meters2rad(opts.dist),
 				lat1 = parseFloat(loc[0]-b).toFixed(4),
 				lon1 = parseFloat(loc[1]-b).toFixed(4),
 				lat2 = parseFloat(loc[0]+b).toFixed(4),
 				lon2 = parseFloat(loc[1]+b).toFixed(4);
 
-			//{lat1},{lon1},{lat2},{lon2}
-
 			bbox = [lat1,lon1,lat2,lon2].join(',');
-
 		}
 
 		if(_.isArray(opts.filter)) {
