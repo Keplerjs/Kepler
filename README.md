@@ -33,7 +33,7 @@ In the near future Kepler as any open source projects will follow a community-dr
 
 ## Architecture
 
-Kepler uses a [package-based](http://experimentsinmeteor.com/package-based-architecture/) architecture, meaning that the entirety of its codebase resides in [/packages](packages)
+Kepler uses a [package-based](http://experimentsinmeteor.com/package-based-architecture/) architecture, meaning that the entirety of its codebase resides in [/packages](packages).
 
 #### Base Packages
 
