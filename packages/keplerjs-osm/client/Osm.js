@@ -50,9 +50,9 @@ Kepler.Osm = {
 		});
 	},
 
-	importPlace: function(obj, cb) {
+	importPlace: function(osmId, cb) {
 		
-		Meteor.call('insertPlaceByOsmId', obj.properties.id, function(err, placeId) {
+		Meteor.call('insertPlaceByOsmId', osmId, function(err, placeId) {
 
 			if(err)
 				console.log(err)
@@ -63,21 +63,6 @@ Kepler.Osm = {
 			}
 			if(_.isFunction(cb))
 				cb(placeId);
-		});
-	},
-
-	loadTracks: function() {
-		var opts = {
-			filter: 'highway~".*"',
-			type: 'way'
-		};
-
-		Meteor.call('findOsmByBBox', K.Map.getBBox(), opts, function(err, geojson) {
-			
-			console.log(err, geojson);
-
-			if(geojson.features.length>0)
-				K.Map.addGeojson(geojson);
 		});
 	}
 };

@@ -33,6 +33,7 @@ Package.onUse(function(api) {
   ],'client');
 
   api.addFiles([
+  	'server/admin.js',
     'server/pubs.js',
     'server/tracks.js'
   ],'server');

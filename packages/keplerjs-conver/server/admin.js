@@ -11,11 +11,11 @@ K.Admin.methods({
 			$set: {
 				convers: []
 			}
-   		},{multi: true});
+		},{multi: true});
 		Places.update({}, {
 			$set: {
 				convers: []
 			}
-   		},{multi: true});
+		},{multi: true});
 	}	
 });

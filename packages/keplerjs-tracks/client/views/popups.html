@@ -1,14 +1,16 @@
 
 <template name="popupPlace_tracks">
 	{{#if isOutdoor}}
-		<a class="btn btn-sm btn-default" href="/place/{{id}}/tracks"><i class="icon icon-gpx"></i></a>
+		<a class="btn btn-sm btn-default" href="/place/{{id}}/tracks">
+			<i class="icon icon-gpx"></i>
+		</a>
 	{{/if}}
 </template>
 
 <template name="popupTrack">
-	{{#if time}}<i class="icon icon-time"></i> {{i18n 'label_time'}} {{humanTime time}} <br />{{/if}}
-	{{#if len}}<i class="icon icon-len"></i> {{i18n 'label_len'}} {{humanDistance len}} <br />{{/if}}
-	{{#if dis}}<i class="icon icon-dis"></i> {{i18n 'label_dis'}} {{humanDistance dis}}{{/if}}
+	{{#if time}}<label><i class="icon icon-time"></i> {{i18n 'label_time'}} </label> {{humanTime time}}    <br>{{/if}}
+	{{#if len}}<label><i class="icon icon-len"></i> {{i18n 'label_len'}} </label>    {{humanDistance len}} <br>{{/if}}
+	{{#if dis}}<label><i class="icon icon-dis"></i> {{i18n 'label_dis'}} </label>    {{humanDistance dis}} <br>{{/if}}
 </template>
 
 

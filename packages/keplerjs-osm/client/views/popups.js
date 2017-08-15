@@ -20,7 +20,9 @@ Template.popupGeojson_osm.events({
 		$(e.target).addClass('disabled');
 		icon$.addClass('icon-loader');
 
-		K.Osm.importPlace(tmpl.data, function(placeId) {
+		var osmId = tmpl.data.properties.id;
+
+		K.Osm.importPlace(osmId, function(placeId) {
 			$(e.target).removeClass('disabled');
 			icon$.removeClass('icon-loader');
 		});

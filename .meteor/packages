@@ -10,7 +10,6 @@ standard-minifier-js
 keplerjs:core
 keplerjs:ui
 keplerjs:theme
-#keplerjs:theme-climb
 #keplerjs:api
 keplerjs:edit
 keplerjs:admin
