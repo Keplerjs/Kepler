@@ -2,7 +2,7 @@ The MIT License (MIT)
 
 Copyright (c) 2015-2017 Stefano Cudini
 
-*stefano.cudini@gmail.com*
+*stefano.cudini<span>@</span>gmail.com*
 
 All rights reserved.
 
