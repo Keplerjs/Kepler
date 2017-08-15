@@ -8,6 +8,12 @@ The full-stack real-time geo-social network framework
 
 [Version 1.1.0](https://github.com/Keplerjs/Kepler/releases)
 
+* Source code: [Github](https://github.com/Keplerjs)
+* Meteor packages: [Atmospherejs](https://atmospherejs.com/keplerjs)
+* Npm packages: [NPM](https://www.npmjs.com/org/keplerjs)
+* Roadmap: [Trello](https://trello.com/b/FBK72QEJ/keplerjs-roadmap), [Waffle](https://waffle.io/Keplerjs/Kepler)
+* News: [Twitter](https://twitter.com/Kepler_JS), [Tumblr](https://keplerjs.tumblr.com/)
+
 ## Introduction
 Kepler is a open source [geo-social](https://en.wikipedia.org/wiki/Geosocial_networking) solution that lets users share favorite places and join discussions in real-time. It can be seen as a layer above where users can interact with other open data platforms searching across [OpenStreetMap](http://www.openstreetmap.org/about), [Geonames](http://www.geonames.org/) among other sources.
 Out of the box, it can handle automatically importing data, conversations, sharing and much more.
@@ -20,16 +26,10 @@ Out of the box, it can handle automatically importing data, conversations, shari
 
 The name as the best Meteor tradition wants to remain in the space field, *Kepler* is inspired by [Kepler space telescope](https://en.wikipedia.org/wiki/Kepler_Mission) and wants to be seen as an evolution of the first and largest open source Meteor projects the old *Telescope* actual [VulcanJS](http://docs.vulcanjs.org/vulcan.html).
 
-"Any tool should be useful in the expected way, but a truly great tool lends itself to uses you never expected." 
+### Expectations
+In the near future Kepler as any open source projects will follow a community-driven evolution that will support it instead of the initial mission ad we hope it has growth beyond expectations.
+*"Any tool should be useful in the expected way, but a truly great tool lends itself to uses you never expected."*
  Eric S. Raymond
-
-## Links
-
-* Source code: [Github](https://github.com/Keplerjs)
-* Meteor packages: [Atmospherejs](https://atmospherejs.com/keplerjs)
-* Npm packages: [NPM](https://www.npmjs.com/org/keplerjs)
-* Roadmap: [Trello](https://trello.com/b/FBK72QEJ/keplerjs-roadmap), [Waffle](https://waffle.io/Keplerjs/Kepler)
-* News: [Twitter](https://twitter.com/Kepler_JS), [Tumblr](https://keplerjs.tumblr.com/)
 
 ## Architecture
 
