@@ -1,4 +1,4 @@
-/*
+close
 	Bootstrap CUSTOMIZATIONS
 */
 .btn {
@@ -51,19 +51,23 @@ a.list-group-item {
 .list-group-item {
 	border: 1px solid #9c0;
 }
-
-.backhist {
+.close,
+.back {
 	display: inline-block;
-	height: 26px;
-	width: 26px;
-	line-height: 26px;
+	height: 30px;
+	width: 30px;
+	line-height: 30px;
 	text-align: center;
 	background-color: rgba(255,255,255,0.2);
 	border-radius: 4px;
-	margin: 0 10px 0 4px;
+	margin: 2px;
+	padding: 0;
+	font-size: inherit;
 }
-.backhist:hover,
-.backhist:active {
+.close:hover,
+.close:active,
+.back:hover,
+.back:active {
 	background-color: rgba(255,255,255,0.5);	
 }
 
@@ -131,13 +135,13 @@ header h4,
 }
 
 .panel-heading .close {
-	line-height: 30px;
-	width: 26px;
-	text-align: center;
+	height: 30px;
+	width: 30px;
+	display: inline-block;
 	opacity: 1;
-	position: absolute;
-	right: 8px;
+	color:#fff;
 }
+
 
 .nav-tabs > li > a {
 	padding: 8px 10px; /* panel_place */

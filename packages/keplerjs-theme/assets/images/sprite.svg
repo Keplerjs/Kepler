@@ -27,8 +27,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="5.656854"
-     inkscape:cx="73.110303"
-     inkscape:cy="295.76"
+     inkscape:cx="83.241753"
+     inkscape:cy="43.147465"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -20034,7 +20034,7 @@
          inkscape:export-ydpi="25.36203" />
     </g>
     <path
-       style="color:#000000;fill:#0069b3;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.60000002;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       style="color:#000000;fill:#0069b3;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;stroke-miterlimit:4;stroke-dasharray:none"
        d="m 105.04171,971.4219 -8.998922,-8.99885 -2.85492,2.85488 6.21045,6.21053 -6.14006,6.14 2.78844,2.78848 8.995012,-8.99504 z"
        id="rect5238"
        inkscape:export-filename="_meteor/public/images/bottom.png"
@@ -20594,7 +20594,7 @@
        inkscape:export-filename="_meteor/public/images/bottom.png"
        id="path8018"
        d="m 93.187868,1001.3773 8.998922,-8.99891 2.85492,2.85488 -6.210462,6.21053 6.140072,6.14 -2.78844,2.7885 -8.995012,-8.995 z"
-       style="color:#000000;fill:#0069b3;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.60000002;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       style="color:#000000;fill:#0069b3;fill-opacity:1;fill-rule:evenodd;stroke:#0069b3;stroke-width:0.1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
        inkscape:connector-curvature="0" />
     <g
        id="g5621"
@@ -21099,12 +21099,12 @@
        inkscape:export-xdpi="16.125132"
        inkscape:export-filename="_meteor/public/images/bottom.png"
        id="path5981"
-       d="m 74.938311,971.4219 -8.998918,-8.99885 -2.85492,2.85488 6.21045,6.21053 -6.14006,6.14 2.78844,2.78848 8.995008,-8.99504 z"
-       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#0069b3;stroke-width:0.20000000000000001;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 74.818333,971.37499 -8.862973,-8.8629 -2.81179,2.81175 6.11663,6.1167 -6.047304,6.04725 2.746315,2.74635 8.859122,-8.85915 z"
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#0069b3;stroke-width:0.1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
        inkscape:connector-curvature="0" />
     <path
-       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#0069b3;stroke-width:0.20000000000000001;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 63.084473,1001.3773 8.998918,-8.99891 2.85492,2.85488 -6.210458,6.21053 6.140068,6.14 -2.78844,2.7885 -8.995007,-8.995 z"
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#0069b3;stroke-width:0.1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 63.14357,1001.3746 8.862972,-8.86289 2.811791,2.81176 -6.116638,6.11663 6.047312,6.0472 -2.746317,2.7464 -8.859119,-8.8591 z"
        id="path5983"
        inkscape:export-filename="_meteor/public/images/bottom.png"
        inkscape:export-xdpi="16.125132"
@@ -22188,5 +22188,15 @@
        d="M 45.0625 120.875 C 38.778894 120.875 33.6875 125.86165 33.6875 132 C 33.6875 138.13832 37.730903 140.47482 45.0625 148.875 C 52.394097 140.47482 56.40625 138.13832 56.40625 132 C 56.40625 125.86165 51.346105 120.875 45.0625 120.875 z M 45.0625 127.34375 C 47.478827 127.34375 49.4375 129.30242 49.4375 131.71875 C 49.4375 134.13507 47.478827 136.09375 45.0625 136.09375 C 42.646172 136.09375 40.65625 134.13507 40.65625 131.71875 C 40.65625 129.30242 42.646172 127.34375 45.0625 127.34375 z "
        transform="translate(0,452.36197)"
        id="path6888" />
+    <path
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#0069b3;stroke-width:0.1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 75.019473,1022.5938 -6.06826,6.0377 -5.976778,-5.9767 -2.774933,2.7749 6.037766,6.0683 -5.976779,6.0072 2.713946,2.714 6.037767,-6.0378 6.007272,5.9768 2.713945,-2.7444 -5.976778,-5.9768 6.068259,-6.0683 -2.805426,-2.7749 z"
+       id="path5983-6"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path6100"
+       d="m 105.12206,1022.5938 -6.068259,6.0377 -5.976778,-5.9767 -2.774933,2.7749 6.037766,6.0683 -5.976779,6.0072 2.713946,2.714 6.037767,-6.0378 6.00727,5.9768 2.71395,-2.7444 -5.97678,-5.9768 6.06826,-6.0683 -2.80543,-2.7749 z"
+       style="color:#000000;fill:#0069b3;fill-opacity:1;fill-rule:evenodd;stroke:#0069b3;stroke-width:0.1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
   </g>
 </svg>

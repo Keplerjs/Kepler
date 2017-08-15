@@ -57,7 +57,7 @@
 	background-color: #428bca
 }
 
-.backhist {
+.back {
 	display: inline-block;
 	height: 26px;
 	width: 26px;
@@ -67,8 +67,8 @@
 	border-radius: 4px;
 	margin: 0 10px 0 4px;
 }
-.backhist:hover,
-.backhist:active {
+.back:hover,
+.back:active {
 	background-color: rgba(255,255,255,0.5);	
 }
 

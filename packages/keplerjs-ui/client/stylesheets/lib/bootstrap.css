@@ -1,10 +1,5 @@
 
 .panel-heading .close {
-	line-height: 30px;
-	width: 26px;
-	text-align: center;
-	display: inline-block;
-	float: right;
 	opacity: 1;
 	color:#fff;
 }
