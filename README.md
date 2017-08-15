@@ -3,7 +3,6 @@
 # KeplerJS
 
 The full-stack real-time geo-social network framework
-lets users share favorite places and join discussions
 
 *[Official DEMO](https://keplerjs.herokuapp.com/)* (deployed on *Heroku*)
 
@@ -14,6 +13,16 @@ lets users share favorite places and join discussions
 * Npm packages: [NPM](https://www.npmjs.com/org/keplerjs)
 * Roadmap: [Trello](https://trello.com/b/FBK72QEJ/keplerjs-roadmap), [Waffle](https://waffle.io/Keplerjs/Kepler)
 * News: [Twitter](https://twitter.com/Kepler_JS), [Tumblr](https://keplerjs.tumblr.com/)
+
+## Introduction
+Kepler wants to be a open source [geo-social](https://en.wikipedia.org/wiki/Geosocial_networking) solution that lets users share favorite places and join discussions in real-time. It searches data across [OpenStreetMap](http://osm.org), [Geonames](http://www.geonames.org/) among other sources.
+
+
+* **full-stack**: because developed 100% in JavaScript using the [Meteor](https://www.meteor.com/) the best nodejs fullstack framework.
+* **real-time**: all events and changes within the platform are automatically transmitted from the server to the clients
+* **geo-social**: the main user interface is a web map that contains objects that represent places and users that you can interact with
+* **framework**: gives developers the ability to extend basic functionalities through an environment and a API
+* **modular**: development is based on an easily buildable plugin architecture
 
 ## Architecture
 
@@ -34,7 +43,7 @@ The [Kepler plugin packages](#kepler-plugins) provide useful features for your K
 A **Kepler plugin** is a standard Meteor package that contains a **plugin.js** file that defines the behaviors and configuration in the kepler environment, similar in concept to [Package.js](http://docs.meteor.com/api/packagejs.html).
 
 
-## Kepler Environment
+## API Framework
 Most of the logic and configuration modules are contained in [keplerjs:core](packages/keplerjs-core/README.md) under the [Kepler namespace](packages/keplerjs-core/Kepler.js) **Kepler.** or **K.** is the same thing. Inside this namespace the general rule is that *Modules* or *Models* are capitalized instead the configuration objects are lowercase.
 The views that define the base **User Interface** structure of Kepler are contained in [keplerjs:ui](packages/keplerjs-ui/README.md). This also contains the [helpers templates](packages/keplerjs-ui/client/helpers.js) used by all views and the minimum CSS essential for the behavior of the UI.
 
