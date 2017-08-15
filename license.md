@@ -1,6 +1,9 @@
 The MIT License (MIT)
 
-Copyright (c) 2015-2017 Stefano Cudini stefano.cudini@gmail.com
+Copyright (c) 2015-2017 Stefano Cudini
+
+*stefano.cudini@gmail.com*
+
 All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
