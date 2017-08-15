@@ -25,8 +25,7 @@ Out of the box, it can handle automatically importing data, conversations, shari
 * **framework**: gives developers the ability to extend basic functionalities through an environment and a API
 * **modular**: development is based on an easily buildable plugin architecture
 
-#### Story
-The name as by Meteor tradition wants to remain in the space field, *Kepler* is inspired by [Kepler space telescope](https://en.wikipedia.org/wiki/Kepler_Mission) and wants to be seen as an evolution of one of the first and largest open source Meteor projects the old Telescope actual [VulcanJS] (http://docs.vulcanjs.org/vulcan.html).
+The name as the best Meteor tradition wants to remain in the space field, *Kepler* is inspired by [Kepler space telescope](https://en.wikipedia.org/wiki/Kepler_Mission) and wants to be seen as an evolution of the first and largest open source Meteor projects the old *Telescope* actual [VulcanJS] (http://docs.vulcanjs.org/vulcan.html).
 
 ## Architecture
 
