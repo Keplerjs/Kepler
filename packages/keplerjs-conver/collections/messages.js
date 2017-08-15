@@ -19,7 +19,9 @@ Messages.allow({
 
 K.extend({
 	findMsgsByConver: function(convId) {
-		return Messages.find({convId: convId }, {sort: ['updatedAt'] });
+		return Messages.find({convId: convId }, {
+			sort: ['updatedAt']
+		});
 	},
 	insertMsgToConver: function(convId, body) {
 
