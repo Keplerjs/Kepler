@@ -2,7 +2,7 @@
 
 # KeplerJS
 
-The full-stack real-time geo-social network framework
+The full-stack real-time geo-social network platform
 
 *[Official DEMO](https://keplerjs.herokuapp.com/)* (deployed on *Heroku*)
 
