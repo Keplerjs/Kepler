@@ -20,11 +20,12 @@
 	{{/with}}
 </template>
 
-<template name="popupCursor_geoinfo">
+<template name="popupUser_geoinfo">
 	{{#with fields}}
 		<div class="popup-geoinfo">
 		{{#if near}}<label>{{i18n 'label_loc'}}</label>  <span class="text-nowrap">{{near}}</span> <br />{{/if}}
-		{{#if ele}}<label>{{i18n 'label_ele'}}</label>&nbsp;{{ele}}m            <br />{{/if}}
+		{{#if com}}<label>{{i18n 'label_com'}}</label>   <span class="text-nowrap">{{com}}</span>  <br />{{/if}}
+		{{#if reg}}<label>{{i18n 'label_reg'}}</label>   <span class="text-nowrap">{{reg}}</span>  <br />{{/if}}
 		</div>
 	{{/with}}
 </template>

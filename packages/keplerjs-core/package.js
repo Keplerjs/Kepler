@@ -1,8 +1,8 @@
 Package.describe({
 	name: 'keplerjs:core',
 	summary: 'keplerjs Meteor and 3rd party libraries',
-  version: '1.1.0',  
-  git: "https://github.com/Keplerjs/Kepler.git"
+	version: '1.1.0',  
+	git: "https://github.com/Keplerjs/Kepler.git"
 });
 
 Package.onUse(function(api) {
@@ -35,7 +35,7 @@ Package.onUse(function(api) {
 
   api.export([
     'Kepler', 'K',
-    'Places','Users'
+    'Places', 'Users'
   ]);
-  
+
 });

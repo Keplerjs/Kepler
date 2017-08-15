@@ -17,7 +17,7 @@
 
 		<div class="row">
 			<div class="col-xs-3">
-				{{> place_btns_panel}}
+				{{> place_btn_checkin}}
 			</div>
 			<div class="col-xs-9 text-right">
 				{{> place_btns}}
@@ -54,21 +54,4 @@
 	</div>	
 </div>
 
-</template>
-
-
-<template name="place_btns_panel">		
-	<div class="btn-group" data-toggle="buttons">
-		<label class="place-btn-checkin btn btn-sm btn-default">
-			<i class="icon {{#if isCheckin}} icon-checkin {{else}} icon-uncheckin {{/if}}"></i>
-			<span class="{{#if isCheckin}} text-primary {{else}} text-muted {{/if}}">
-			{{#if isCheckin}}
-				{{i18n 'btn_checkout'}}
-			{{else}}
-				{{i18n 'btn_checkin'}}
-			{{/if}}
-			</span>
-			<input type="checkbox" checked={{isCheckin}} />
-		</label>	
-	</div>
 </template>

@@ -16,22 +16,22 @@ Template.popupGeoinfo.helpers({
 });
 
 //https://stackoverflow.com/questions/22147813/how-to-use-meteor-methods-inside-of-a-template-helper
-Template.popupCursor_geoinfo.onCreated(function() {
+Template.popupUser_geoinfo.onCreated(function() {
 	
 	var self = this;
 
 	self.showFields = {
 		"loc": true,
-		"ele": true,
-		//"esp": true,
+		//"reg": true,
+		//"com": true,
 		"near": true
 	};
 
-	self.cursorData = Template.currentData();
+	self.userData = Template.currentData();
 
     self.geoinfo = new ReactiveVar();
 
-    Meteor.call('findGeoinfoByLoc', self.cursorData.loc, self.showFields, function(err, data) {
+    Meteor.call('findGeoinfoByLoc', self.userData.loc, self.showFields, function(err, data) {
 
 		if(err)
             console.log(err);
@@ -40,7 +40,7 @@ Template.popupCursor_geoinfo.onCreated(function() {
 	});
 });
 
-Template.popupCursor_geoinfo.helpers({
+Template.popupUser_geoinfo.helpers({
 	fields: function() {
 		return Template.instance().geoinfo.get();
 	}

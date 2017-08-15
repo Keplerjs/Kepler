@@ -8,15 +8,18 @@
 		{{#if checkin}}
 			{{#with placeById checkin}}
 			<li class="list-group-item">
-				
-				{{> item_place}} <br />
 
-				{{> place_btns_panel}}
+				{{> place_btn_checkin}}
+
+				{{> item_place}} 
+
 			</li>
 			{{/with}}
 		{{else}}
 		<li class="list-group-item">
 			{{> user_btns}}
+
+			{{> pluginPlaceholder name='popupUser'}}
 		</li>
 		{{/if}}
 	</ul>

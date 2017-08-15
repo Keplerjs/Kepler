@@ -3,16 +3,16 @@ K.Plugin({
 	name: 'geoinfo',
 	placeholders: {
 		panelPlace: 'panelPlace_geoinfo',
-		//popupCursor: 'popupCursor_geoinfo'
+		//popupUser: 'popupUser_geoinfo'
 	},	
 	schemas: {
 		place: {
 			geoinfo: {
 				loc: [],	//location
-				ele: 0,		//elevation
-				esp: 0,		//aspect
+				ele: 0,	//elevation
+				esp: 0,	//aspect
 				prov: '',	//province
-				near: '',	//near locality
+				near: '',	//locality
 				com: '',	//municipality
 				reg: '',	//district
 				naz: '',	//country
@@ -44,7 +44,6 @@ K.Plugin({
 			}
 		},
 		"geoinfo": {
-			
 			"caching": true,
 			"geonamesUser": "",
 			"ipinfodbKey": ""
