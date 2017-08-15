@@ -12,7 +12,7 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    inkscape:export-ydpi="90"
    inkscape:export-xdpi="90"
-   inkscape:export-filename="/home/z4k/www/climbo/climbo.net/public/images/sprite.png"
+   inkscape:export-filename="/home/z4k/www//images/sprite.png"
    sodipodi:docname="sprite.svg"
    inkscape:version="0.48.5 r10040"
    version="1.1"
@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.656854"
-     inkscape:cx="83.241753"
-     inkscape:cy="43.147465"
+     inkscape:zoom="1.4142135"
+     inkscape:cx="184.95669"
+     inkscape:cy="449.63136"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -18374,6 +18374,26 @@
        y1="857.24731"
        x2="51.999405"
        y2="851.36688" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6839"
+       id="linearGradient6085"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.5137165,0,0,1.5595091,-21.859354,-799.93985)"
+       x1="43.182446"
+       y1="857.24731"
+       x2="51.999405"
+       y2="851.36688" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6848"
+       id="linearGradient6087"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-0.07408595,0,0,0.07237308,120.26421,491.90757)"
+       x1="1025.4833"
+       y1="612.94897"
+       x2="1025.4833"
+       y2="316.63196" />
   </defs>
   <metadata
      id="metadata7">
