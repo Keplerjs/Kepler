@@ -15,14 +15,17 @@ The full-stack real-time geo-social network framework
 * News: [Twitter](https://twitter.com/Kepler_JS), [Tumblr](https://keplerjs.tumblr.com/)
 
 ## Introduction
-Kepler wants to be a open source [geo-social](https://en.wikipedia.org/wiki/Geosocial_networking) solution that lets users share favorite places and join discussions in real-time. It searches data across [OpenStreetMap](http://osm.org), [Geonames](http://www.geonames.org/) among other sources.
+Kepler is a open source [geo-social](https://en.wikipedia.org/wiki/Geosocial_networking) solution that lets users share favorite places and join discussions in real-time. It can be seen as a layer above where users can interact with other open data platforms searching across [OpenStreetMap](http://osm.org), [Geonames](http://www.geonames.org/) among other sources.
+Out of the box, it can handle automatically importing data, conversations, sharing and much more.
 
 
 * **full-stack**: because developed 100% in JavaScript using the [Meteor](https://www.meteor.com/) the best nodejs fullstack framework.
 * **real-time**: all events and changes within the platform are automatically transmitted from the server to the clients
-* **geo-social**: the main user interface is a web map that contains objects that represent places and users that you can interact with
+* **geo-social**: the main user interface is a web map that contains objects that represent places, users and others
 * **framework**: gives developers the ability to extend basic functionalities through an environment and a API
 * **modular**: development is based on an easily buildable plugin architecture
+
+
 
 ## Architecture
 
