@@ -1,7 +1,7 @@
 {
   "name": "keplerjs",
   "version": "1.1.0",
-  "description": "The full-stack real-time geo-social network framework",
+  "description": "The full-stack real-time geo-social network platform",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/Keplerjs/Kepler.git"
@@ -15,7 +15,7 @@
     "osm",
     "overpass",
     "geo-social",
-    "framework",
+    "platform",
     "leaflet",
     "mapping"
   ],

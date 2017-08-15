@@ -10,7 +10,6 @@ The full-stack real-time geo-social network platform
 
 * Source code: [Github](https://github.com/Keplerjs)
 * Meteor packages: [Atmospherejs](https://atmospherejs.com/keplerjs)
-* Npm packages: [NPM](https://www.npmjs.com/org/keplerjs)
 * Roadmap: [Trello](https://trello.com/b/FBK72QEJ/keplerjs-roadmap), [Waffle](https://waffle.io/Keplerjs/Kepler)
 * News: [Twitter](https://twitter.com/Kepler_JS), [Tumblr](https://keplerjs.tumblr.com/)
 
@@ -51,7 +50,7 @@ The [Kepler plugin packages](#kepler-plugins) provide useful features for your K
 A **Kepler plugin** is a standard Meteor package that contains a **plugin.js** file that defines the behaviors and configuration in the kepler environment, similar in concept to [Package.js](http://docs.meteor.com/api/packagejs.html).
 
 
-## API Framework
+## API
 Most of the logic and configuration modules are contained in [keplerjs:core](packages/keplerjs-core/README.md) under the [Kepler namespace](packages/keplerjs-core/Kepler.js) **Kepler.** or **K.** is the same thing. Inside this namespace the general rule is that *Modules* or *Models* are capitalized instead the configuration objects are lowercase.
 The views that define the base **User Interface** structure of Kepler are contained in [keplerjs:ui](packages/keplerjs-ui/README.md). This also contains the [helpers templates](packages/keplerjs-ui/client/helpers.js) used by all views and the minimum CSS essential for the behavior of the UI.
 
