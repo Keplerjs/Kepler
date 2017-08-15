@@ -37,18 +37,15 @@
 	</div>
 </template>
 
-<template name="place_btn_checkin">		
-	<div class="btn-group" data-toggle="buttons">
-		<label class="place-btn-checkin btn btn-sm btn-default">
-			<i class="icon {{#if isCheckin}} icon-checkin {{else}} icon-uncheckin {{/if}}"></i>
-			<span class="{{#if isCheckin}} {{else}} text-muted {{/if}}">
-			{{#if isCheckin}}
-				{{i18n 'btn_checkout'}}
-			{{else}}
-				{{i18n 'btn_checkin'}}
-			{{/if}}
-			</span>
-			<input type="checkbox" checked={{isCheckin}} />
-		</label>	
-	</div>
+<template name="place_btn_checkin">
+	<a class="place-btn-checkin btn btn-sm btn-default">
+		<i class="icon {{#if this.isCheckin}} icon-checkin {{else}} icon-uncheckin {{/if}}"></i>
+		<span class="{{#if isCheckin}} {{else}} text-muted {{/if}}">
+		{{#if isCheckin}}
+			{{i18n 'btn_checkout'}}
+		{{else}}
+			{{i18n 'btn_checkin'}}
+		{{/if}}
+		</span>
+	</a>
 </template>

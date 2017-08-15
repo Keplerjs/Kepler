@@ -1,0 +1,54 @@
+
+<template name="tabLocation">
+{{#if or getLoc getCheckin}}
+	<ul class="list-group">
+		<li class="list-group-item active">
+			<i class="icon icon-map"></i> {{i18n 'label_location'}}
+		</li>	
+		<li class="list-group-item">
+			<div>
+			<div class="pull-left">
+			{{> btns_location}}
+			</div>
+
+			{{#if getCheckin}}
+			{{#with placeById getCheckin}}
+				<div class="pull-right">
+				{{> place_btns}}
+				</div>
+			{{/with}}
+			{{/if}}
+			</div>
+		</li>
+		{{#if isMe}}
+		<li class="list-group-item">
+			{{#with placeById getCheckin}}
+				
+				{{> place_btn_checkin}}
+				
+			{{/with}}
+		</li>				
+		{{/if}}		
+	</ul>
+{{/if}}
+</template>
+
+<template name="btns_location">
+{{#if getCheckin}}
+
+	{{#with placeById getCheckin}}
+		
+		{{> item_place}} 
+		
+	{{/with}}
+
+{{else}}
+{{#if getLoc}}
+
+	<a class="btn btn-sm btn-default" href="/user/{{id}}/map">
+		<i class="icon icon-map"></i>
+	</a>
+
+{{/if}}
+{{/if}}
+</template>

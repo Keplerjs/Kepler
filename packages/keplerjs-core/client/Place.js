@@ -30,6 +30,7 @@ Kepler.Place = Class.extend({
 
 			self.data = K.findPlaceById(self.id).fetch()[0];
 			
+			//TODO rewrite loading data into place instance!
 			_.extend(self, self.data);
 
 			if(self.loc) {

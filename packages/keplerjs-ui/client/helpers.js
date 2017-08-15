@@ -32,7 +32,13 @@ Template.registerHelper('connectionStatus', function() {
 });
 
 Template.registerHelper('stringify', function(prop) {
-	return JSON.stringify(prop,null,4);
+	return '<pre>'+JSON.stringify(prop,null,4)+'</pre>';
+});
+
+Template.registerHelper('htmlComment', function() {
+	var args = _.toArray(arguments);
+	args.pop();
+	return '<!-- '+args.join(' ')+' -->';
 });
 
 Template.registerHelper('or', function() {

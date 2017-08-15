@@ -1,9 +1,17 @@
 
 .panel-heading .close {
+	position: absolute;
+	right: 1px;
+	top: 1px;
 	opacity: 1;
 	color:#fff;
 }
-
+.panel-heading h4 {
+	width: 88%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 .label-default {
     background-color: #eee;
 }

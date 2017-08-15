@@ -39,6 +39,9 @@
 .friend-item.offline .btn {
 	color: #888;
 }
+.friend-item .place-btn-name {
+	font-size: 12px;
+}
 
 .friends-search:active + .icon-search {
 	display: none;

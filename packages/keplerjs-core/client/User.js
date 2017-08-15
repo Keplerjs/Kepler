@@ -115,7 +115,6 @@ Kepler.User = Class.extend({
 	},
 	isOnline: function() {
 		this._dep.depend();
-	//TODO aggiuni this.isMe()
 		if(K.Profile.getOnline() && this.isFriend() || this.isMe())
 			return this.online;
 	},
@@ -123,6 +122,11 @@ Kepler.User = Class.extend({
 		this._dep.depend();	
 		if(K.Profile.getOnline() && this.isFriend() || this.isMe())
 			return this.loc;
+	},
+	getCheckin: function() {
+		this._dep.depend();	
+		if(K.Profile.getOnline() && this.isFriend() || this.isMe())
+			return this.checkin;
 	}
 });
 

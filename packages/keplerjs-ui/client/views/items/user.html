@@ -19,25 +19,12 @@
 		</div>
 		<div class="pull-right">
 		{{#if isOnline}}
-			{{> user_btns}}
+			
+			{{> btns_location}}
+			
 		{{/if}}
 		</div>
 	</div>
 </template>
 
-<template name="user_btns">
-	<div class="btn-group">
-	{{#if checkin}}
-		{{#with placeById checkin}}
-			{{> item_place}}
-		{{/with}}
-	{{else}}
-		{{#if getLoc}}
-		<a class="btn btn-sm btn-default" href="/user/{{id}}/map">
-			<i class="icon icon-map"></i>
-		</a>
-		{{/if}}
-	{{/if}}
-	</div>
-</template>
 

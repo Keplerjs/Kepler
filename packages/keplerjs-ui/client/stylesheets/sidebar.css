@@ -67,6 +67,7 @@ li#navsearch {
 	margin-bottom: 0;
 }
 .sidebar .panel-heading {
+	position: relative;
 	height: 36px;
 	padding: 1px;
 }

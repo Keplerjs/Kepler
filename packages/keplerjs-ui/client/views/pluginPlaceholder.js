@@ -6,7 +6,6 @@
 
 */
 Template.pluginPlaceholder.helpers({
-	
 	templates: function() {
 
 		var self = this,
