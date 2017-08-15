@@ -96,7 +96,7 @@ Any basic configuration can be extended by plugins with their *plugin.js* file
   contains the main default settings extended by *Kepler plugins* and from *Meteor.settings*
 
 ### UI Placeholders
-Kepler implements a convenient mechanism to give plugins the ability to place their contents in the platform's basic structure. 
+Kepler implements a convenient mechanism to give plugins the ability to extend the platform's basic structure. 
 Using the dynamic template [pluginPlaceholder](packages/keplerjs-ui/client/views/pluginPlaceholder.js) and register the plugin's templates inside the *plugin.js* in the section placeholders.
 
 Here an example of placeholders for the plugin [keplerjs:share](packages/keplerjs-share/plugin.js)
