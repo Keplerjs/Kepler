@@ -1,16 +1,17 @@
 
 <template name="popupPlace_pois">
-	<a class="btn btn-sm btn-default" href="/place/{{id}}/pois"><i class="icon icon-pois"></i></a>
+	<a class="btn btn-sm btn-default" href="/place/{{id}}/pois">
+		<i class="icon icon-pois"></i>
+	</a>
 </template>
 
 
 <template name="popupGeojson_pois">
 	<a class="btn btn-block btn-default popup-tit">
 		<i class="icon icon-{{poiTypeByTags properties.tags}}"></i>
-		{{#if properties.tags.name}}
-			<b>{{properties.tags.name}}</b>
-		{{else}}
-			{{poiTypeNameByTags properties.tags}}
-		{{/if}}
+		{{poiTypeNameByTags properties.tags}}
 	</a>
+	{{#if settings 'pois.importPois'}}
+		{{> popupGeojson_osm}}
+	{{/if}}
 </template>

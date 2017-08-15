@@ -4,7 +4,7 @@ K.Plugin({
 	placeholders: {
 		panelPlace: 'panelPlace_pois',
 		popupPlace: 'popupPlace_pois',
-		popupGeojson: 'popupGeojson_pois'
+		popupGeojson: 'popupGeojson_pois',
 	},
 	filters: {
 		placePanel: {
@@ -23,14 +23,15 @@ K.Plugin({
 			"pois": {
 				"limit": 10,
 				"maxDistance": 500,
+				"importPois": true,	//enable importing of pois like place
 				"typesByTags": {
+					"amenity=bar":        "drink",
 					"amenity=drinking_water": "water",
 					"amenity=fountain":  "water",
 					"amenity=restaurant": "eat",
 					"amenity=hospital":   "bed",
 					"amenity=parking":    "parking",
 					"amenity=cafe":       "drink",
-					"amenity=bar":        "drink",
 					//"highway=bus_stop":   "bus",
 					"tourism=picnic_site":"camp", 
 					"tourism=camp_site":  "camp",
