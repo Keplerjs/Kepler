@@ -19,13 +19,14 @@ Kepler is a open source [geo-social](https://en.wikipedia.org/wiki/Geosocial_net
 Out of the box, it can handle automatically importing data, conversations, sharing and much more.
 
 
-* **full-stack**: because developed 100% in JavaScript using the [Meteor](https://www.meteor.com/) the best nodejs fullstack framework.
+* **full-stack**: developed 100% in JavaScript using the [Meteor](https://www.meteor.com/) the best nodejs fullstack framework.
 * **real-time**: all events and changes within the platform are automatically transmitted from the server to the clients
 * **geo-social**: the main user interface is a web map that contains objects that represent places, users and others
 * **framework**: gives developers the ability to extend basic functionalities through an environment and a API
 * **modular**: development is based on an easily buildable plugin architecture
 
-
+#### Story
+The name as by Meteor tradition wants to remain in the space field, *Kepler* is inspired by [Kepler space telescope](https://en.wikipedia.org/wiki/Kepler_Mission) and wants to be seen as an evolution of one of the first and largest open source Meteor projects the old Telescope actual [VulcanJS] (http://docs.vulcanjs.org/vulcan.html).
 
 ## Architecture
 
