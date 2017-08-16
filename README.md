@@ -9,13 +9,13 @@ The full-stack real-time geo-social network platform
 [Version 1.1.0](https://github.com/Keplerjs/Kepler/releases)
 
 * Source code: [Github](https://github.com/Keplerjs)
-* Meteor packages: [Atmospherejs](https://atmospherejs.com/keplerjs)
+* Plugins packages: [Atmospherejs](https://atmospherejs.com/keplerjs)
 * Roadmap: [Trello](https://trello.com/b/FBK72QEJ/keplerjs-roadmap), [Waffle](https://waffle.io/Keplerjs/Kepler)
 * News: [Twitter](https://twitter.com/Kepler_JS), [Tumblr](https://keplerjs.tumblr.com/)
 
 ## Introduction
 Kepler is a open source [geo-social](https://en.wikipedia.org/wiki/Geosocial_networking) solution that lets users share favorite places and join discussions in real-time. It can be seen as a layer above where users can interact with other open data platforms searching across [OpenStreetMap](http://www.openstreetmap.org/about), [Geonames](http://www.geonames.org/) among other sources.
-Out of the box, it can handle automatically importing data, conversations, sharing and much more.
+Out of the box, it can handle automatically importing data, sharing and much more.
 
 * **full-stack**: developed 100% in JavaScript using the [Meteor](https://www.meteor.com/) the best nodejs fullstack framework.
 * **real-time**: all events and changes within the platform are automatically transmitted from the server to the clients
