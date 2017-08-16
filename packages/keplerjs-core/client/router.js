@@ -251,10 +251,10 @@ Router.map(function() {
 
 	this.route('placeMap', {
 		path: '/place/:placeId/map',
-		template: 'panelPlace',
+		template: 'empty',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
-			Session.set('showSidebar', true);
+			Session.set('showSidebar', false);
 			return Meteor.subscribe('placeById', this.params.placeId);
 		},
 		onAfterAction: function() {
@@ -264,17 +264,6 @@ Router.map(function() {
 
 			if(place)
 				place.showLoc();
-		},
-		data: function() {
-			if(!this.ready()) return null;
-			var place = K.placeById( this.params.placeId );
-
-			if(!place){
-				Router.go('root');
-				return null;
-			}
-
-			return place.rData();
 		}
 	});
 
