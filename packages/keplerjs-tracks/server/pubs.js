@@ -25,7 +25,7 @@ Meteor.publish('tracksByPlace', function(placeId) {
 		var tracksCur = findTracksByLoc(loc);
 
 		//TODO optimize this condition caching
-		if(true || tracksCur.count()===0) {
+		if(tracksCur.count()===0) {
 
 			var geojson = K.Osm.findOsmByLoc(loc, {
 				type: 'way',
