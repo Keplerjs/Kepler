@@ -2,12 +2,13 @@
 
 # KeplerJS
 
-The full-stack real-time geo-social network platform
+The open source full-stack geo-social network platform
 
 *[Official DEMO](https://keplerjs.herokuapp.com/)* (deployed on *Heroku*)
 
 [Version 1.1.0](https://github.com/Keplerjs/Kepler/releases)
 
+* Website: [keplerjs.github.io](https://keplerjs.github.io/)
 * Source code: [Github](https://github.com/Keplerjs)
 * Plugins packages: [Atmospherejs](https://atmospherejs.com/keplerjs)
 * Roadmap: [Trello](https://trello.com/b/FBK72QEJ/keplerjs-roadmap), [Waffle](https://waffle.io/Keplerjs/Kepler)
@@ -21,15 +22,14 @@ Out of the box, it can handle automatically importing data, sharing and much mor
 * **real-time**: all events and changes within the platform are automatically transmitted from the server to the clients
 * **geo-social**: the main user interface is a web map that contains objects that represent places, users and others
 * **framework**: gives developers the ability to extend basic functionalities through an environment and a API
-* **modular**: development is based on an easily buildable plugin architecture
+* **extensible**: development is based on an easily buildable plugin architecture
 
 The name as the best Meteor tradition wants to remain in the space field, *Kepler* is inspired by [Kepler space telescope](https://en.wikipedia.org/wiki/Kepler_Mission) and wants to be seen as an evolution of the first and largest open source Meteor projects the old *Telescope* actual [VulcanJS](http://docs.vulcanjs.org/vulcan.html).
 
 ### Expectations
 In the near future Kepler as any open source projects will follow a community-driven evolution that will support it instead of the initial mission ad we hope it has growth beyond expectations.
 
-*"Any tool should be useful in the expected way, but a truly great tool lends itself to uses you never expected."*
- Eric S. Raymond
+*"Any tool should be useful in the expected way, but a truly great tool lends itself to uses you never expected." Eric S. Raymond*
 
 ## Architecture
 
