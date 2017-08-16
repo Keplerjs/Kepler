@@ -1,7 +1,9 @@
 
 <template name="item_notif">
-	<div class="alert alert-{{type}} alert-dismissable">
-		<a class="close" data-dismiss="alert">&times;</a>
+	<div class="item-notif alert alert-{{type}} alert-dismissable">
+		<a class="close pull-right">
+			<i class="icon icon-close-blue"></i>
+		</a>
 		<div>
 			<i class="icon icon-{{type}}"></i>
 			{{{msg}}}

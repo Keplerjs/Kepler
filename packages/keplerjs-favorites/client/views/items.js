@@ -1,11 +1,10 @@
 
 Template.itemPlace_favorites.events({
-	'change .place-btn-star :checkbox': function(e, tmpl) {//MAI USARE CLICK, xke genera due esecuzioni!
-		if(e.target.checked)
-			K.Profile.addFavorite(this.id);
-		else
+	'click .place-btn-star': function(e, tmpl) {
+		if(this.isFavorite())
 			K.Profile.removeFavorite(this.id);
+		else
+			K.Profile.addFavorite(this.id);
 	}
 });
 
-		

@@ -18,8 +18,6 @@ Template.panelEdit.events({
 				name: tmpl.$('.input-editren').val()
 			};
 
-		Meteor.call('updatePlace', tmpl.data.id, data, function(err) {
-			tmpl.data.update();
-		});
+		Meteor.call('updatePlace', tmpl.data.id, data);
 	}
 });

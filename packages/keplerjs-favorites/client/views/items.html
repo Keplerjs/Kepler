@@ -12,9 +12,8 @@
 </template>
 
 <template name="itemPlace_favorites">
-	<a class="btn btn-sm btn-default place-btn-star">
+	<a class="place-btn-star btn btn-sm btn-default">
 		<i class="icon {{#if isFavorite}} icon-star {{else}} icon-unstar {{/if}}"></i>
 		<span class="badge {{#unless getRank}} bg-gray {{/unless}}">{{getRank}}</span>
-		<input type="checkbox" checked={{isFavorite}} />
 	</a>	
 </template>

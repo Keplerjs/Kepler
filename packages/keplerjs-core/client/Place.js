@@ -26,7 +26,7 @@ Kepler.Place = Class.extend({
 			return self;
 		};
 
-		self.update = function(comp) {	//sincronizza istanza con dati nel db
+		Tracker.autorun(function(comp) {	//sincronizza istanza con dati nel db
 
 			self.data = K.findPlaceById(self.id).fetch()[0];
 			
@@ -43,8 +43,7 @@ Kepler.Place = Class.extend({
 			self._dep.changed();
 
 			return self;
-		};
-		Tracker.autorun( self.update );
+		});
 	},
 
 	buildMarker: function() {

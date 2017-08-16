@@ -24,14 +24,14 @@ Kepler.User = Class.extend({
 			return self;
 		};
 
-		self.update = function(comp) {	//sincronizza istanza con dati nel db
+		self.update = function(){};
+
+		Tracker.autorun(function(comp) {	//sincronizza istanza con dati nel db
 
 			self.id =  self._id;
 
 			if(self.isMe())
 				self.data = K.findCurrentUser(self.id).fetch()[0];
-/*			else if(self.isBlockMe())
-				self.data = K.findUsersBlockMe(self.id).fetch()[0];*/
 			else 
 				self.data = K.findFriendById(self.id).fetch()[0];
 			
@@ -51,8 +51,8 @@ Kepler.User = Class.extend({
 			self._dep.changed();
 
 			return self;
-		};
-		Tracker.autorun( self.update );	//TODO aggiornare solo se amico
+		});
+		//Tracker.autorun( self.update );	//TODO aggiornare solo se amico
 	},
 
 	buildMarker: function() {

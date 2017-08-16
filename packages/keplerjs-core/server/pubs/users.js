@@ -13,7 +13,6 @@ Meteor.publish('userById', function(userId) {
 		if(userData && _.contains(userData.usersBlocked, this.userId)) {
 			//user block me
 			console.log('Pub: userById from Blocked user', userData.username)
-			//return K.findUsersBlockMe([userId]);
 			return K.findUsersByIds([userId]);
 		}
 

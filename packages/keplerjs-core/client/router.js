@@ -239,7 +239,7 @@ Router.map(function() {
 		data: function() {
 			if(!this.ready()) return null;
 			var place = K.placeById( this.params.placeId );
-
+			
 			if(!place){
 				Router.go('root');
 				return null;
@@ -313,7 +313,9 @@ Router.map(function() {
 		data: function() {
 			if(this.ready()) {
 				var user = K.userById(this.params.userId);
-				user.update();
+
+				//TODO don't use update to force reativity
+				//user.update();
 				return user.rData();
 			}
 			else

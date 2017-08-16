@@ -7,6 +7,7 @@ Kepler.Place.include({
 	},
 
 	isFavorite: function() {
-		return Meteor.user() && _.contains(Meteor.user().favorites, this.id);
+		this._dep.depend();
+		return K.Profile.data && _.contains(K.Profile.data.favorites, this.id);
 	}
 });

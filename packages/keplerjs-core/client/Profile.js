@@ -127,6 +127,8 @@ Kepler.Profile = {
 		var self = this;
 		Meteor.call('removeCheckin', placeId, function(err) {
 			self.placeCheckin = null;
+
+			//TODO don't use update to force reativity
 			self.user.update();
 		});
 		return this;
