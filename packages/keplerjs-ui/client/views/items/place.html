@@ -15,7 +15,7 @@
 			<small class="control-label text-gray text-capitalize">
 			{{#if createdAt}} {{humanTime createdAt 1}} {{/if}}
 			</small>
-			<a class="btn btn-sm btn-default" href="/place/{{id}}/map">
+			<a class="place-btn-map btn btn-sm btn-default" href="/place/{{id}}/map">
 				<i class="icon icon-map"></i>
 			</a>
 		</div>
@@ -31,7 +31,7 @@
 			<i class="icon {{#if checkinsCount}} icon-users {{else}} icon-unusers {{/if}}"></i>
 			<span class="badge badge-checkins {{#unless checkinsCount}} bg-gray {{/unless}}">{{checkinsCount}}</span>
 		</a>
-		<a class="btn btn-sm btn-default" href="/place/{{id}}/map">
+		<a class="place-btn-map btn btn-sm btn-default" href="/place/{{id}}/map">
 			<i class="icon icon-map"></i>
 		</a>
 	</div>

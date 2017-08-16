@@ -254,7 +254,7 @@ Router.map(function() {
 		template: 'empty',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
-			Session.set('showSidebar', false);
+			Session.set('showSidebar', true);
 			return Meteor.subscribe('placeById', this.params.placeId);
 		},
 		onAfterAction: function() {

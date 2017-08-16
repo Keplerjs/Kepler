@@ -7,3 +7,18 @@ Template.place_btn_checkin.events({
 			K.Profile.addCheckin(this.id);
 	}
 });
+
+
+
+Template.place_btns.events({
+	'click .place-btn-map': function(e, tmpl) {
+		e.preventDefault()
+		this.showLoc();
+	}
+});
+Template.item_place_search.events({
+	'click .place-btn-map': function(e, tmpl) {
+		e.preventDefault()
+		this.showLoc();
+	}
+});
