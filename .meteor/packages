@@ -26,4 +26,4 @@ keplerjs:events
 keplerjs:pois
 keplerjs:tracks
 keplerjs:weather
-#keplerjs:googlemaps
+keplerjs:googlemaps
