@@ -10,5 +10,6 @@ i18n.map('en', {
 	pois_type_drink: "Where to drink!",
 	pois_type_eat: "Where to eat",
 	pois_type_camp: "Where to camp",
-	pois_type_bed: "Where to sleep"
+	pois_type_bed: "Where to sleep",
+	pois_type_bus: "Bus stop"
 });
