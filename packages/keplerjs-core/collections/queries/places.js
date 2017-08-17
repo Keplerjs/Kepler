@@ -67,7 +67,7 @@ K.extend({
 	findPlacesByName: function(initial) {
 		initial = K.Util.sanitize.regExp(initial);
 
-		if(initial.length < 2)
+		if(!initial.length)
 			return null;
 
 		var filters = _.extend({}, K.filters.placeSearch, {

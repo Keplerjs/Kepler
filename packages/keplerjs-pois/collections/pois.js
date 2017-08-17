@@ -7,8 +7,8 @@ Pois.before.insert(function(userId, doc) {
 
 
 if(Meteor.isServer) {
-	Pois._ensureIndex({"geometry.coordinates": "2dsphere"});
 	Pois._ensureIndex({"id": 1}, {unique: 1});
+	Pois._ensureIndex({"geometry.coordinates": "2dsphere"});
 }
 
 findPoisByLoc = function(ll) {

@@ -6,7 +6,7 @@ K.extend({
 	findUsersByName: function(initial) {
 		initial = K.Util.sanitize.regExp(initial);
 
-		if(initial.length < 2)
+		if(!initial.length)
 			return null;
 
 		var reg = new RegExp('^'+ initial, 'i'),
