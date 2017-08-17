@@ -103,7 +103,7 @@ _.extend(Kepler.Map, {
 		//autoclean geojson layer
 		map.on('zoomend', function(e) {
 			if(layers.geojson.getLayers().length) {
-				if(e.target.getBoundsZoom(layers.geojson.getBounds()) - e.target.getZoom() > 3)
+				if(e.target.getBoundsZoom(layers.geojson.getBounds()) - e.target.getZoom() > 2)
 					layers.geojson.clearLayers();
 			}
 		});
