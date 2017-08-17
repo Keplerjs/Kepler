@@ -33,7 +33,7 @@ K.Plugin({
 					"amenity=hospital":   "bed",
 					"amenity=parking":    "parking",
 					"amenity=cafe":       "drink",
-					//"highway=bus_stop":   "bus",
+					"highway=bus_stop":   "bus",
 					"tourism=picnic_site":"camp", 
 					"tourism=camp_site":  "camp",
 					"tourism=hotel":      "bed"
