@@ -9,7 +9,8 @@ The open source full-stack geo-social network platform
 [Version 1.1.0](https://github.com/Keplerjs/Kepler/releases)
 
 * Website: [keplerjs.github.io](https://keplerjs.github.io/)
-* Roadmap: [Trello](https://trello.com/b/FBK72QEJ/keplerjs-roadmap) and [Waffle](https://waffle.io/Keplerjs/Kepler)
+* Roadmap: [Trello](https://trello.com/b/FBK72QEJ/keplerjs-roadmap) 
+* Issue and [Waffle](https://waffle.io/Keplerjs/Kepler)
 * News: [Twitter](https://twitter.com/Kepler_JS) or [Tumblr](https://keplerjs.tumblr.com/)
 * Source code: [Github](https://github.com/Keplerjs)
 * Plugins: [Atmospherejs](https://atmospherejs.com/keplerjs)
@@ -157,8 +158,7 @@ The placeholders positioned inside the template [panelPlace](packages/keplerjs-u
 
 ## Install
 
-Install the latest version of [Node](https://nodejs.org) and [NPM](https://www.npmjs.com/get-npm).
-You can then install [Meteor](https://www.meteor.com/install).
+Install the latest version of [Node](https://nodejs.org).
 Clone or download the [Kepler repo](https://github.com/Keplerjs/Kepler) locally, then:
 ```sh
 npm install
