@@ -9,15 +9,16 @@ The open source full-stack geo-social network platform
 [Version 1.1.0](https://github.com/Keplerjs/Kepler/releases)
 
 * Website: [keplerjs.github.io](https://keplerjs.github.io/)
+* Blog: [Medium](https://medium.com/@keplerjs)
 * Roadmap: [Trello](https://trello.com/b/FBK72QEJ/keplerjs-roadmap) 
-* Issue and [Waffle](https://waffle.io/Keplerjs/Kepler)
-* News: [Twitter](https://twitter.com/Kepler_JS) or [Tumblr](https://keplerjs.tumblr.com/)
+* Issues: [Waffle](https://waffle.io/Keplerjs/Kepler)
+* News: [Twitter](https://twitter.com/Kepler_JS)
 * Source code: [Github](https://github.com/Keplerjs)
 * Plugins: [Atmospherejs](https://atmospherejs.com/keplerjs)
 
 ## Introduction
 Kepler is a open source [geo-social](https://en.wikipedia.org/wiki/Geosocial_networking) solution that lets users share favorite places and join discussions in real-time. It can be seen as a platform where users can interact with other open data platforms searching across [OpenStreetMap](http://www.openstreetmap.org/about), [Geonames](http://www.geonames.org/) among other sources.
-The name as the best Meteor tradition wants to remain in the space field, *Kepler* is inspired by [Kepler space telescope](https://en.wikipedia.org/wiki/Kepler_Mission) and wants to be seen as an sequel of the first and largest open source Meteor projects the old *Telescope* actual *[VulcanJS](http://docs.vulcanjs.org/vulcan.html)*.
+The name as the best Meteor tradition wants to remain in the space field, *Kepler* is inspired by [Kepler space telescope](https://en.wikipedia.org/wiki/Kepler_Mission) and wants to be seen as an sequel of the first and largest open source Meteor projects the old *Telescope* current *[VulcanJS](http://docs.vulcanjs.org/vulcan.html)*.
 
 ### Mission
 Allows users to collect and georeferencing places on a modern web-mapping interface, describe them accurately, create relationships, sharing with other users and create a social environment. In addition to creating new place you can import pre-existing objects from Openstreetmap creating a social layer over OpenStreetMap.
@@ -126,7 +127,7 @@ The placeholders positioned inside the template [panelPlace](packages/keplerjs-u
 </template>
 ```
 
-### Kepler Plugins
+## KeplerJs Plugins
 
 #### Base Plugins
 * [keplerjs:edit](packages/keplerjs-edit)
