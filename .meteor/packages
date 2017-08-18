@@ -10,11 +10,11 @@ standard-minifier-js
 keplerjs:core
 keplerjs:ui
 keplerjs:theme
-keplerjs:api
+#keplerjs:api
 keplerjs:edit
 keplerjs:admin
 
-keplerjs:upload
+#keplerjs:upload
 keplerjs:share
 keplerjs:geoinfo
 keplerjs:osm
@@ -22,7 +22,7 @@ keplerjs:osm
 keplerjs:notif
 keplerjs:favorites
 keplerjs:conver
-keplerjs:events
+#keplerjs:events
 keplerjs:pois
 keplerjs:tracks
 keplerjs:weather

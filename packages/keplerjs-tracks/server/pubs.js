@@ -54,17 +54,19 @@ Meteor.publish('tracksByPlace', function(placeId) {
 					if( feature.properties.type==='way' &&
 						feature.geometry.type==='LineString' ) {
 
-						imported = Tracks.upsert({id: feature.id}, feature);
+						var ret = Tracks.upsert({id: feature.id}, feature);
+
+						imported += ret.numberAffected
 					}
 				}
 			}
 			
-			console.log('Pub: tracksByPlace import from osm ',imported);
+			console.log('Pub: tracksByPlace import from osm ',imported,'ways');
 
 			tracksCur = findTracksByLoc(placeData.loc);
 		//}
 
-		console.log('Pub: tracksByPlace', placeId, tracksCur.count());
+		console.log('Pub: tracksByPlace', placeId, tracksCur.count(),'tracks');
 
 		return [
 			placeCur,

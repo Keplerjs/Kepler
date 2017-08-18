@@ -3,10 +3,12 @@ Tracks._ensureIndex({"id": 1}, {unique: 1});
 Tracks._ensureIndex({"geometry": "2dsphere"});
 //Tracks._ensureIndex({"properties.end": "2dsphere"});
 
-Tracks.before.upsert(function(userId, selector, modifier, options) {
-	
+
+//TODO refact!
+
+Tracks.before.upsert(function(trackId, selector, modifier) {
+
 	var track = modifier;
-	track.createdAt = K.Util.time();
 
 	if( track && track.type==="Feature" && 
 		track.geometry.type==="LineString" ) {
@@ -27,6 +29,11 @@ Tracks.before.upsert(function(userId, selector, modifier, options) {
 		prop.time = parseInt( K.Util.geo.timeTrack(prop.len, prop.dis) );
 		prop.start= K.Util.geo.createPoint(p1);
 		prop.end  = K.Util.geo.createPoint(p2);
+		
+		prop.createdAt = K.Util.time();
+
+		delete prop.relations;
+		delete prop.meta;
 	}
 	
 	//Tracks.update(doc._id, track);
