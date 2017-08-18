@@ -1,4 +1,8 @@
 
+Tracks._ensureIndex({"id": 1}, {unique: 1});
+Tracks._ensureIndex({"geometry": "2dsphere"});
+//Tracks._ensureIndex({"properties.end": "2dsphere"});
+
 Tracks.before.upsert(function(userId, selector, modifier, options) {
 	
 	var track = modifier;
