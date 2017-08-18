@@ -117,6 +117,19 @@ Kepler.Util.geo = {
 		return d;
 	},
 
+	bufferLoc: function(loc, dist, corners) {
+		
+		corners = corners || false;
+
+		var b = K.Util.geo.meters2rad(dist),
+			lat1 = parseFloat((loc[0]-b).toFixed(4)),
+			lon1 = parseFloat((loc[1]-b).toFixed(4)),
+			lat2 = parseFloat((loc[0]+b).toFixed(4)),
+			lon2 = parseFloat((loc[1]+b).toFixed(4));
+
+		return corners ? [[lat1, lon1], [lat2, lon2]] : [lat1, lon1, lat2, lon2];
+	},
+
 	angleLocs: function(startLoc, endLoc) {
 
 		var RAD2DEG = 0.017453,

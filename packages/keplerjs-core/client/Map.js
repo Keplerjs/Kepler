@@ -173,8 +173,10 @@ Kepler.Map = {
 	},
 	
 	getCenter: function() {
-		if(this.ready())
-			return L.latLngBounds(this.getBBox()).getCenter();
+		if(this.ready()){
+			var ll = L.latLngBounds(this.getBBox()).getCenter();
+			return [ll.lat, ll.lng];
+		}
 	},
 
 	addItem: function(item) {

@@ -34,6 +34,7 @@ Kepler.Osm = {
 			head = '[out:json];',
 			tags = '',
 			foot = '',
+			bbox = '',
 			union = '(._;>;);';
 
 		var opts = _.defaults(o || {}, {
@@ -61,14 +62,12 @@ Kepler.Osm = {
 				queryTmpl = queryTmplBbox;
 				//union = 'way(bn);'+union;
 
-				//bbox buffer of location by dist
-				var b = K.Util.geo.meters2rad(opts.dist),
-					lat1 = parseFloat(loc[0]-b).toFixed(4),
-					lon1 = parseFloat(loc[1]-b).toFixed(4),
-					lat2 = parseFloat(loc[0]+b).toFixed(4),
-					lon2 = parseFloat(loc[1]+b).toFixed(4);
+				/*
+				//for debug opts.dist directly in browser console
+				L.rectangle(K.Util.geo.bufferLoc(K.Map.getCenter(), 100, true)).addTo(K.Map.map)
+				*/
 
-				bbox = [lat1,lon1,lat2,lon2].join(',');
+				bbox = K.Util.geo.bufferLoc(loc, opts.dist).join(',');
 			}
 
 			if(_.isArray(opts.filter)) {

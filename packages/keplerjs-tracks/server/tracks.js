@@ -30,6 +30,6 @@ Tracks.before.upsert(function(userId, selector, modifier, options) {
 	}
 	
 	//Tracks.update(doc._id, track);
-	console.log('Tracks: update properties', track.id );
+	console.log('Tracks: update properties', track.id);
 
 });

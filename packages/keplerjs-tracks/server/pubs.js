@@ -30,7 +30,7 @@ Meteor.publish('tracksByPlace', function(placeId) {
 					type: 'way',
 					filter: _.keys(K.settings.public.tracks.typesByTags),
 					dist: K.settings.public.tracks.maxDistance,
-					limit: 3000//is limit of nodes NOT ways
+					limit: ' '//unlimit find way! cause nodes splitting
 				});
 			}
 
@@ -42,8 +42,10 @@ Meteor.publish('tracksByPlace', function(placeId) {
 				geojson = K.Cache.get(cacheLoc, 'tracks', findOsm);
 			else
 				geojson = findOsm(placeData.loc); 
-			
+
 			if(geojson && geojson.features) {
+
+				console.log('Pub: tracksByPlace found in osm ',geojson.features.length);
 
 				for(var i in geojson.features) {
 
