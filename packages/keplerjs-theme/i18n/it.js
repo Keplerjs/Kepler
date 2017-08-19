@@ -4,7 +4,7 @@ i18n.map('it', {
 	title_pageAbout: "About",
 
 	website_name: "KeplerJs",
-	website_slogan: "The open source full-stack geo-social network framework",
+	website_slogan: "The open source full-stack geosocial network framework",
 
 	map_zoomout: " ",
 	map_zoomin: " ",
