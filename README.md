@@ -1,4 +1,5 @@
 ![KeplerJs](keplerjs.png) 
+
 **The open source full-stack geo-social network platform**
 
 * [Official DEMO](https://keplerjs.herokuapp.com/)
@@ -30,8 +31,6 @@ A place in Kepler can be linked to metadata from different sources automatically
 * **geo-social**: the main user interface is a web map contains objects that represent places, users and others
 * **framework**: gives developers the ability to extend basic functionalities through an environment and a API
 * **extensible**: development is based on an easily buildable plugin architecture
-
-[Learn more]
 
 ### Expectations
 In the near future Kepler as any open source projects will follow a community-driven evolution that will support it instead of the initial mission ad we hope it has growth beyond expectations.
