@@ -12,7 +12,7 @@
 [Source code](https://github.com/Keplerjs) | 
 [Issues](https://waffle.io/Keplerjs/Kepler) | 
 [Roadmap](https://trello.com/b/FBK72QEJ/keplerjs-roadmap) | 
-[Blog](https://medium.com/@keplerjs) | 
+[Blog](https://medium.com/keplerjs) | 
 [News](https://twitter.com/Kepler_JS) | 
 [Plugins](https://atmospherejs.com/keplerjs)
 
