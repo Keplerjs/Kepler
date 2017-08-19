@@ -24,18 +24,11 @@ The name as the best Meteor tradition wants to remain in the space field, *Keple
 Allows users to collect and georeferencing places on a modern web-mapping interface, describe them accurately, create relationships, sharing with other users and create a social environment. In addition to creating new place you can import pre-existing objects from Openstreetmap creating a social layer over OpenStreetMap.
 A place in Kepler can be linked to metadata from different sources automatically, it can be anything that has a geographic location fixed or movable, real or virtual.
 
-### Principles
-
-* **full-stack**: developed 100% in JavaScript using the [Meteor](https://www.meteor.com/) the best nodejs fullstack framework.
-* **real-time**: all events and changes within the platform are automatically transmitted from the server to the clients
-* **geo-social**: the main user interface is a web map contains objects that represent places, users and others
-* **framework**: gives developers the ability to extend basic functionalities through an environment and a API
-* **extensible**: development is based on an easily buildable plugin architecture
-
 ### Expectations
 In the near future Kepler as any open source projects will follow a community-driven evolution that will support it instead of the initial mission ad we hope it has growth beyond expectations.
 
-*"Any tool should be useful in the expected way, but a truly great tool lends itself to uses you never expected." Eric S. Raymond*
+*"Any tool should be useful in the expected way, but a truly great tool lends itself to uses you never expected."*
+Eric S. Raymond
 
 ## Install
 
@@ -45,8 +38,8 @@ Clone or download the [Kepler repo](https://github.com/Keplerjs/Kepler) locally,
 npm install
 npm start
 ```
-And open *http://localhost:3000/* in your browser.
+And open ```http://localhost:3000/``` in your browser.
 
-## Contribute
+## Author
 Created by [Stefano Cudini](https://github.com/stefanocudini) [@zakis](http://twitter.com/zakis) and other [contributors](https://github.com/Keplerjs/Kepler/graphs/contributors) under the [MIT](http://opensource.org/licenses/MIT) license.
                 
