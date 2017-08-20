@@ -1,6 +1,6 @@
 body {
 	font-family: Helvetica,Arial,sans-serif;
-	background-color: #ddd;
+	background-color: #eee;
 	color: #257;	
 }
 a {
@@ -25,12 +25,12 @@ a {
 
 body > .container,
 body > .container-fluid {
-	background: url('/packages/keplerjs_theme/assets/images/back-hex.png') repeat-x top center #ddd;
+	background: url('/packages/keplerjs_theme/assets/images/back-hex.png') repeat-x top center #eee;
 }
 
 #logo {
-	height:200px;
-	width:200px;
+	height:150px;
+	width:150px;
 	border:none;
 	margin: 0 auto;
 }

@@ -222,6 +222,8 @@ div.leaflet-marker-icon {
 
 .icon-git { background-position: -180px -360px; } 
 .icon-twit{ background-position: -180px -390px; } 
+.icon-face{ background-position: -180px -420px; } 
+.icon-medi{ background-position: -180px -450px; } 
 
 .icon-lang-it{ background-position: -210px 0;      } 
 .icon-lang-fr{ background-position: -210px -30px;  }
