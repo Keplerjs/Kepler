@@ -32,6 +32,29 @@
 {{/if}}
 </template>
 
+<template name="panelUser_edit">
+{{#if isFriend}}
+	<ul class="list-group">
+		<li class="list-group-item active">		
+			<span>{{i18n 'label_editplaces'}}</span>
+		</li>
+		{{#if places.length}}
+			{{#each places}}
+			<li class="list-group-item">
+				{{#with placeById this}}
+					{{> item_place}}
+				{{/with}}
+			</li>
+			{{/each}}
+		{{else}}
+			<li class="list-group-item">
+				<label class="text-gray"><i>{{i18n 'label_nofavs'}}</i></label>
+			</li>
+		{{/if}}
+	</ul>
+{{/if}}	
+</template>
+
 
 <template name="panelEdit">
 

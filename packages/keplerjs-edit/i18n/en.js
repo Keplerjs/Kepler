@@ -6,4 +6,6 @@ i18n.map('en', {
 	btn_edit: "Edit",
 	btn_del: "Remove",
 	btn_ren: "Rename",
+
+	label_editplaces: "Created places"
 });

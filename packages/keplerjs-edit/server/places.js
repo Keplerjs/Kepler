@@ -8,6 +8,11 @@ Meteor.methods({
 
 		var placeId = Places.insert(place);
 
+		Users.update(Meteor.userId(), {
+			$addToSet: {
+				places: placeId
+			}
+		});
 		console.log('Edit: insertPlace', place.name || placeId);
 
 		return placeId;

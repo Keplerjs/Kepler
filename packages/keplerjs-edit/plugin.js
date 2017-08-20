@@ -3,24 +3,45 @@ K.Plugin({
 	name: 'edit',
 	placeholders: {
 		panelPlace: 'panelPlace_edit',
+		panelUser: 'panelUser_edit',
 		popupCursor: 'popupCursor_edit'
 	},
-	/*schemas: {
-		userId: ''	   	   //user to created it
+	schemas: {
+		place: {
+			userId: null   //user creator of place
+		},
+		user: {
+			places: []	   //places created by user
+		}
 	},
 	filters: {
+		currentUser: {
+			fields: {
+				places:1
+			}
+		},		
 		placePanel: {
 			fields: {
 				userId:1
 			}
 		},
-		placeItem: {
+/*		placeItem: {
 			fields: {
 				userId:1
 			}
-		}
+		},*/
+		friendPanel: {
+			fields: {
+				places:1
+			}
+		},		
+		userPanel: {
+			fields: {
+				places:1
+			}
+		}	
 	},
-	settings: {
+	/*settings: {
 		public: {
 		}
 	}*/

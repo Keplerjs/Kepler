@@ -6,4 +6,6 @@ i18n.map('it', {
 	btn_edit: "Modifica",
 	btn_del: "Rimuovi",
 	btn_ren: "Rinomina",
+
+	label_editplaces: "Luoghi creati"
 });
