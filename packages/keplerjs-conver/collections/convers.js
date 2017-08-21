@@ -2,12 +2,21 @@
 Convers = new Mongo.Collection('convers');
 
 //TODO
+Convers.before.insert(function(userId, doc) {
+	doc.createdAt = K.Util.time();
+	
+	//TODO doc.userId = userId;
+});
+
+
 Convers.allow({
 	insert: function(userId, doc) {
 		return true;
 	},
 	update: function(userId, doc, fieldNames, modifier) {
-		
+
+//TODO move to before.insert
+
 		//if private conver update target user
 		if(doc.targetType==='user')
 			Users.update(doc.targetId, {
@@ -38,5 +47,23 @@ K.extend({
 	},
 	findConversByTarget: function(targetId) {
 		return Convers.find({targetId: targetId }, K.filters.converItem);
-	}
-});
+	},
+	findConversByDate: function() {
+	
+		var date = new Date();
+			date.setDate(date.getDate() - 10),
+			dateFrom = K.Util.time(date);
+
+		return Convers.find({
+			targetType: 'place'
+/*
+TODO			createdAt: {
+				'$gte': dateFrom
+			}*/
+		}, _.extend({}, K.filters.converItem, {
+				//sort: { createdAt: -1 },
+				limit: 30
+			})
+		);
+	},	
+});	

@@ -1,13 +1,15 @@
 
 i18n.map('it', {
-	title_convers: "Messaggi",
+	title_convers: "Conversazioni",
+	title_messages: "Tuoi Messaggi",
 	title_conver: "Conversazione",
 	title_userConver: "Conversazione con {$1}",
 	title_userConverleave: "<i class=\"text-muted\"> <b>{$1}</b> ha lasciato la conversazione.</i>",		
 	title_placeConvers: "Conversazioni a {$1}",
 	
 	btn_conversend: "Messaggio",
-	btn_convers: "Messaggi",
+	btn_messages: "Messaggi",
+	btn_convers: "Conversazioni",
 	btn_msgsend: "Invia",
 	btn_convernew: "Nuova",
 	btn_converdel: "Cancella!",

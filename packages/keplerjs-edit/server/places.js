@@ -44,7 +44,7 @@ Meteor.methods({
 				}
 			});
 
-			console.log('Edit: renamePlace', data.name);			
+			console.log('Edit: updatePlace', data.name);			
 		}	
-	},	
+	}
 });

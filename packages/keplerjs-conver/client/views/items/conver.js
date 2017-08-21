@@ -12,6 +12,9 @@ Template.item_conver.onRendered(function() {
 });
 
 Template.item_conver.helpers({
+	isMine: function() {
+		return 
+	},
 	target: function() {
 
 		if(this.targetType==='place')

@@ -1,4 +1,7 @@
 
+
+<!-- TODO split in two templates user convers and place convers -->
+
 <template name="item_conver">
 	<div class="conver-item">
 		<a class="btn btn-xs" href="/conver/{{_id}}">
@@ -7,6 +10,7 @@
 				{{#with target}}
 					{{> Template.dynamic template=this.template}}
 				{{/with}}
+				&bull;
 			</span>
 			{{/if}}		
 			<span class="conver-users">
@@ -20,9 +24,12 @@
 		</a>
 		<div class="pull-right">
 			<time>{{humanTime lastMsg.updatedAt 1}}</time>
+			{{#if isMine}}
 			<a class="btn btn-sm btn-default conver-btn-del" href="#" data-confirm-msg="{{i18n 'btn_converdel'}}">
 				<i class="icon icon-del"></i>
 			</a>
+			{{/if}}
 		</div>
+		{{! {stringify this} }}
 	</div>
 </template>

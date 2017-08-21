@@ -19,9 +19,9 @@ keplerjs:share
 keplerjs:geoinfo
 keplerjs:osm
 #keplerjs:categories
-keplerjs:notif
 keplerjs:favorites
 keplerjs:conver
+keplerjs:notif
 #keplerjs:events
 keplerjs:pois
 keplerjs:tracks

@@ -2,6 +2,7 @@
 K.Plugin({
 	name: 'conver',
 	placeholders: {
+		sidebarNav: 'sidebarNav_conver',
 		panelProfile: 'panelProfile_conver',
 		popupPlace: 'popupPlace_conver',
 		itemPlace: 'itemPlace_conver',

@@ -131,6 +131,3 @@ Meteor.methods({
 		return K.removeConver(convId);
 	}
 });
-
-
-

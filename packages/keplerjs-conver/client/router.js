@@ -7,12 +7,31 @@ Router.map(function() {
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			Session.set('showSidebar', true);
-			return Meteor.subscribe('conversByIds', K.Profile.data.convers);
+			return Meteor.subscribe('conversByDate');
 		},
 		data: function() {
 			return {
 				title: i18n('title_convers'),
 				className: 'convers',
+				itemsTemplate: 'item_conver',
+				items: K.findConversByDate().fetch(),
+				sortDesc: true
+			};
+		}
+	});
+
+	this.route('messages', {
+		path: '/messages',
+		template: 'panelList',
+		layoutTemplate: 'layoutMap',
+		waitOn: function() {
+			Session.set('showSidebar', true);
+			return Meteor.subscribe('conversByIds', K.Profile.data.convers);
+		},
+		data: function() {
+			return {
+				title: i18n('title_messages'),
+				className: 'messages',
 				itemsTemplate: 'item_conver',
 				items: K.findConversByIds(K.Profile.data.convers).fetch(),
 				sortDesc: true
