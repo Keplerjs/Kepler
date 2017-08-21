@@ -7,8 +7,8 @@
 
 # Links
 
-[Website](https://keplerjs.github.io/) | 
-[Documentation](https://keplerjs.github.io/docs) | 
+[Website](http://keplerjs.io/) | 
+[Documentation](http://docs.keplerjs.io/) | 
 [Source code](https://github.com/Keplerjs) | 
 [Issues](https://waffle.io/Keplerjs/Kepler) | 
 [Roadmap](https://trello.com/b/FBK72QEJ/keplerjs-roadmap) | 
