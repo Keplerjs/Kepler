@@ -13,7 +13,7 @@ Template.item_conver.onRendered(function() {
 
 Template.item_conver.helpers({
 	isMine: function() {
-		return 
+		return this.userId === Meteor.userId();
 	},
 	target: function() {
 
@@ -27,14 +27,16 @@ Template.item_conver.helpers({
 		}
 	},	
 	tit: function() {
-		var title = _.str.truncate(this.title, 30);
 
-		if(this.lastMsg)
-			title = _.str.truncate(_.str.stripTags(this.lastMsg.body), 30);
-		else
-			title = i18n('title_msgpriv');
+		var title  = '...';
 
-		return title || '...';
+		if(this.targetType==='place')
+			title = _.str.truncate(this.title, 30);
+
+		else if(this.targetType==='user')
+			title = this.lastMsg ? _.str.truncate(_.str.stripTags(this.lastMsg.body), 30) : i18n('title_msgpriv');
+
+		return title;
 	},
 	usersIds: function() {
 		

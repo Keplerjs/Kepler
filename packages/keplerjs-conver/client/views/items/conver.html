@@ -4,24 +4,28 @@
 
 <template name="item_conver">
 	<div class="conver-item">
-		<a class="btn btn-xs" href="/conver/{{_id}}">
-			{{#if target}}
-			<span class="conver-target">
-				{{#with target}}
-					{{> Template.dynamic template=this.template}}
-				{{/with}}
-				&bull;
-			</span>
-			{{/if}}		
-			<span class="conver-users">
-			{{#each usersIds}}
-				{{#with userById this}}
-					<b class="user-btn-name"><u>{{name}}</u></b>
-				{{/with}}
-			{{/each}}
-			</span>
-			<span class="conver-title"> {{{tit}}}</span>
-		</a>
+		{{#if target}}
+		<span class="conver-target">
+			{{#with target}}
+				{{> Template.dynamic template=this.template}}
+			{{/with}}
+		</span>
+		{{/if}}
+		{{#if usersIds}}
+		&bull;
+		<span class="conver-users">
+		{{#each usersIds}}
+			{{#with userById this}}
+				{{> item_user_name}}
+			{{/with}}
+		{{/each}}
+		</span><br>
+		{{/if}}
+		<span class="conver-title">
+			<a class="btn btn-link btn-xs" href="/conver/{{_id}}">
+				{{tit}}
+			</a>
+		</span>
 		<div class="pull-right">
 			<time>{{humanTime lastMsg.updatedAt 1}}</time>
 			{{#if isMine}}
@@ -30,6 +34,5 @@
 			</a>
 			{{/if}}
 		</div>
-		{{! {stringify this} }}
 	</div>
 </template>

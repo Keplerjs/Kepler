@@ -48,7 +48,7 @@ K.extend({
 	findConversByTarget: function(targetId) {
 		return Convers.find({targetId: targetId }, K.filters.converItem);
 	},
-	findConversByDate: function() {
+	findConversPlaces: function() {
 	
 		var date = new Date();
 			date.setDate(date.getDate() - 10),

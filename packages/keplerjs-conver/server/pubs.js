@@ -11,14 +11,15 @@ Meteor.publish('conversByIds', function(convIds) {
 			targetIds = _.uniq(_.flatten(_.pluck(conversData, 'targetId'))),
 			targetTypes = _.uniq(_.flatten(_.pluck(conversData, 'targetType'))),
 			retCurs = [conversCur];
+		
+		var placesIds = [];
+		_.each(conversData, function(c) {
+			if(c.targetType==='place')
+				placesIds.push(c.targetId)
+		});
 
-		//TODO add places!
-			
+		retCurs.push( K.findPlacesByIds(placesIds) );	
 		retCurs.push( K.findUsersByIds(usersIds) );
-
-		//TODO console.log(targetIds, targetTypes);
-		//if()
-		//	retCurs.push(K.findPlacesByIds( [conversData.targetId] ));
 
 		return retCurs;
 	}
@@ -69,19 +70,24 @@ Meteor.publish('conversByTarget', function(targetId) {
 });
 
 
-Meteor.publish('conversByDate', function() {
+Meteor.publish('conversPlaces', function() {
 	if(this.userId) {
-		console.log('Pub: conversByDate');
+		console.log('Pub: conversPlaces');
 
-		var conversCur = K.findConversByDate(),
+		var conversCur = K.findConversPlaces(),
 			conversData = conversCur.fetch(),
 			usersIds = _.uniq(_.flatten(_.pluck(conversData, 'usersIds'))),
-			targetIds = _.uniq(_.flatten(_.pluck(conversData, 'targetId'))),
-			targetTypes = _.uniq(_.flatten(_.pluck(conversData, 'targetType'))),
+			//targetIds = _.uniq(_.flatten(_.pluck(conversData, 'targetId'))),
+			//targetTypes = _.uniq(_.flatten(_.pluck(conversData, 'targetType'))),
 			retCurs = [conversCur];
 
-		//TODO add places!
-			
+		var placesIds = [];
+		_.each(conversData, function(c) {
+			if(c.targetType==='place')
+				placesIds.push(c.targetId)
+		});
+
+		retCurs.push( K.findPlacesByIds(placesIds) );
 		retCurs.push( K.findUsersByIds(usersIds) );
 		
 		return retCurs;
