@@ -36,11 +36,11 @@ Meteor.publish('converById', function(convId) {
 		var convCur = K.findConverById(convId),
 			convData = convCur.fetch()[0],
 			usersIds = convData && convData.usersIds;
-
+		//TODO K.findPlacesByIds(placesIds)
 		return [
 			convCur,
-			K.findMsgsByConver( convId ),
-			K.findUsersByIds( usersIds )
+			K.findMsgsByConver(convId),
+			K.findUsersByIds(usersIds)
 		];
 	}
 	else

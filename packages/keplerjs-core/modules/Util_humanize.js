@@ -10,7 +10,7 @@ Kepler.Util.humanize = {
 
 	time: function(sec, ago) {
 		//http://goo.gl/8DqYS
-		if(ago)
+		if(sec && ago)
 			sec = (K.Util.time()/1000) - (sec/1000);
 
 		var y = Math.floor(sec / 31536000),

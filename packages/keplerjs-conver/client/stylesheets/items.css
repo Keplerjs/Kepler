@@ -36,3 +36,8 @@
 	font-size: 12px;
 	color: #aaa;
 }
+
+.convers .conver-btn-del {
+	/* hide del button for list public convers */
+	display: none;
+}

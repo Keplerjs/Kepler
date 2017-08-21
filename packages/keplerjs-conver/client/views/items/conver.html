@@ -19,7 +19,8 @@
 				{{> item_user_name}}
 			{{/with}}
 		{{/each}}
-		</span><br>
+		</span>
+		<br />
 		{{/if}}
 		<span class="conver-title">
 			<a class="btn btn-link btn-xs" href="/conver/{{_id}}">
@@ -27,12 +28,13 @@
 			</a>
 		</span>
 		<div class="pull-right">
-			<time>{{humanTime lastMsg.updatedAt 1}}</time>
-			{{#if isMine}}
+			<time>{{humanTime date 1}}</time>
+			<a class="btn btn-sm btn-default" href="/conver/{{_id}}">
+				<i class="icon icon-mes"></i>
+			</a>			
 			<a class="btn btn-sm btn-default conver-btn-del" href="#" data-confirm-msg="{{i18n 'btn_converdel'}}">
 				<i class="icon icon-del"></i>
 			</a>
-			{{/if}}
 		</div>
 	</div>
 </template>

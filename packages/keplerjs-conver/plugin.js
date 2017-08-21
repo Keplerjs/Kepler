@@ -16,6 +16,7 @@ K.Plugin({
 			convers: [], 	   //ids conversations publics and privates
 		},
 		conver: {
+			createdAt: null,
 			title: '',         //Topic for the place wall or subject for the private convers
 			targetId: '',      //if null is a private users convers		
 			targetType: '',	   //type of target: user, place, event, pois		
@@ -38,12 +39,12 @@ K.Plugin({
 		},
 		converPanel: {
 			fields: {
-				title:1, targetId:1, targetType:1, userId:1, usersIds:1, lastMsg:1
+				title:1, targetId:1, targetType:1, userId:1, usersIds:1, lastMsg:1, createdAt:1
 			}
 		},
 		converItem: {
 			fields: {
-				title:1, targetId:1, targetType:1, userId:1, usersIds:1, lastMsg:1
+				title:1, targetId:1, targetType:1, userId:1, usersIds:1, lastMsg:1, createdAt:1
 			}
 		},
 		placePanel: {

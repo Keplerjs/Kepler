@@ -12,9 +12,6 @@ Template.item_conver.onRendered(function() {
 });
 
 Template.item_conver.helpers({
-	isMine: function() {
-		return this.userId === Meteor.userId();
-	},
 	target: function() {
 
 		if(this.targetType==='place')
@@ -25,7 +22,10 @@ Template.item_conver.helpers({
 			if(!user) return null;
 			return user.isMe() ? K.userById(this.userId) : user;
 		}
-	},	
+	},
+	date: function() {
+		return (this.lastMsg && this.lastMsg.updatedAt) || this.createdAt;
+	},
 	tit: function() {
 
 		var title  = '...';

@@ -61,7 +61,7 @@ TODO			createdAt: {
 				'$gte': dateFrom
 			}*/
 		}, _.extend({}, K.filters.converItem, {
-				//sort: { createdAt: -1 },
+				sort: { 'lastMsg.updatedAt': -1,  targetId: 1},
 				limit: 30
 			})
 		);
