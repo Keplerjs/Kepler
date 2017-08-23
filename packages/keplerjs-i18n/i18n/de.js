@@ -9,7 +9,7 @@ i18n.map('de', {
 	title_friends: "Deine Freunde",
 	title_places: "Orte",
 	title_placesNearby: "Orte in der Nähe",
-	title_placesNews: "Recent places",
+	title_placesNews: "Letzte Orte",
 	title_checkins: "Leute bei {$1}",
 	title_login: "Anmeldgen",
 	title_about: "Über uns",
