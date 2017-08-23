@@ -13,7 +13,7 @@ Npm.depends({
 Package.onUse(function(api) {
 
   api.versionsFrom("METEOR@1.0");
-  
+
   api.addFiles([
     '.npm/package/node_modules/suncalc/suncalc.js'
   ],'client');
@@ -30,7 +30,8 @@ Package.onUse(function(api) {
   api.addFiles([
     'plugin.js',
     'i18n/it.js',
-    'i18n/en.js'
+    'i18n/en.js',
+	'i18n/de.js'
   ]);
 
   api.addFiles([
@@ -47,5 +48,5 @@ Package.onUse(function(api) {
     'server/admin.js',
     'server/places.js',
   ],'server');
-  
+
 });

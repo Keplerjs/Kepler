@@ -18,9 +18,9 @@ Kepler.settings = {
 		"langs": {
 			"it": "Italiano",
 			"en": "English",
-			//"es": "Español",			
+			//"es": "Español",
 			//"fr": "Français",
-			//"de": "Deutsch"
+			"de": "Deutsch"
 		},
 		"map": {
 			"zoom": 16,
@@ -33,11 +33,11 @@ Kepler.settings = {
 			"bboxMinShift": 200,
 			"gpsMinShift": 40,
 			"showLocZoom": 16,
-			
+
 			"layer": "road",
 			"layers": {
 				"road": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-				"landscape": "https://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png",			
+				"landscape": "https://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png",
 				"transport": "https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png"
 			},
 			"popup": {
@@ -80,8 +80,7 @@ Kepler.settings = {
 		"twitter": {
 			"service": "twitter",
 			"consumerKey": "",
-			"secret": ""			
+			"secret": ""
 		}*/
-	}	
+	}
 };
-

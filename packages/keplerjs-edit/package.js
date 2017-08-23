@@ -9,7 +9,7 @@ Package.describe({
 Package.onUse(function(api) {
 
   api.versionsFrom("METEOR@1.0");
-  
+
   api.use([
     'keplerjs:core@1.1.0',
   ]);
@@ -17,17 +17,18 @@ Package.onUse(function(api) {
   api.addFiles([
     'plugin.js',
     'i18n/it.js',
-    'i18n/en.js'
+    'i18n/en.js',
+	'i18n/de.js'
   ]);
 
   api.addFiles([
-    'client/lib/L.Marker.drag.js',    
-    'client/Place_edit.js',    
+    'client/lib/L.Marker.drag.js',
+    'client/Place_edit.js',
     'client/views/panels.html',
     'client/views/panels.js',
     'client/views/popups.html',
     'client/views/popups.js',
-    'client/router.js'    
+    'client/router.js'
   ],'client');
 
   api.addFiles([

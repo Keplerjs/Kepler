@@ -11,17 +11,18 @@ Package.onUse(function(api) {
   api.versionsFrom("METEOR@1.0");
 
   api.use([
-    'mrt:imagemagick@0.1.2',   
+    'mrt:imagemagick@0.1.2',
   ], 'server');
 
-  api.use([  
+  api.use([
     'keplerjs:core@1.1.0',
   ]);
 
   api.addFiles([
     'plugin.js',
     'i18n/it.js',
-    'i18n/en.js'
+    'i18n/en.js',
+	'i18n/de.js'
   ]);
 
   api.addFiles([
@@ -29,7 +30,7 @@ Package.onUse(function(api) {
     'client/views/inputFileUpload.html',
     'client/views/inputFileUpload.js',
     'client/views/panels.html',
-    'client/views/panels.js',    
+    'client/views/panels.js',
   ],'client');
 
   api.addFiles([

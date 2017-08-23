@@ -21,6 +21,7 @@ Package.onUse(function(api) {
     'plugin.js',
     'i18n/it.js',
     'i18n/en.js',
+	'i18n/de.js',
     'modules/Cats.js'
   ]);
 
@@ -31,6 +32,6 @@ Package.onUse(function(api) {
     'client/views/panels/user.js',
     'client/views/panels/settings.html',
     'client/views/panels/settings.js'
-  ],'client');  
-  
+  ],'client');
+
 });
