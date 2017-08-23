@@ -9,7 +9,7 @@ Package.describe({
 Package.onUse(function(api) {
 
   api.versionsFrom("METEOR@1.0");
-  
+
   api.use([
     'keplerjs:core@1.1.0',
     'keplerjs:osm@1.1.0',
@@ -19,6 +19,7 @@ Package.onUse(function(api) {
     'plugin.js',
     'i18n/it.js',
     'i18n/en.js',
+	'i18n/de.js',
     'collections/pois.js'
   ]);
 
@@ -26,12 +27,12 @@ Package.onUse(function(api) {
     'client/Pois.js',
     'client/Place_pois.js',
     'client/helpers.js',
-    'client/views/markers.html', 
-    'client/views/popups.html',    
+    'client/views/markers.html',
+    'client/views/popups.html',
     'client/views/panels.html',
     'client/views/panels.js',
     'client/stylesheets/pois.css',
-    'client/router.js'    
+    'client/router.js'
   ],'client');
 
   api.addFiles([
@@ -39,7 +40,7 @@ Package.onUse(function(api) {
   	'server/admin.js',
     'server/pubs.js',
   ],'server');
-  
+
   api.export([
     'Pois'
   ]);

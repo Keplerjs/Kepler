@@ -10,27 +10,28 @@ Npm.depends({
 });
 
 Package.onUse(function (api) {
-  
+
   api.versionsFrom(['METEOR@1.0']);
-  
+
   api.use([
     'keplerjs:core@1.1.0',
     'keplerjs:edit@1.1.0'
   ]);
-  
+
   api.addFiles([
     'plugin.js',
     'i18n/it.js',
     'i18n/en.js',
+	'i18n/de.js',
     'collections/osm.js'
   ]);
 
-  api.addFiles([ 
-    'client/Osm.js',    
+  api.addFiles([
+    'client/Osm.js',
     'client/views/panels.html',
     'client/views/markers.html',
-    'client/views/popups.html',    
-    'client/views/popups.js',    
+    'client/views/popups.html',
+    'client/views/popups.js',
     'client/stylesheets/osm.css'
   ],'client');
 

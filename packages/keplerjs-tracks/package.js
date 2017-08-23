@@ -9,7 +9,7 @@ Package.describe({
 Package.onUse(function(api) {
 
   api.versionsFrom("METEOR@1.0");
-  
+
   api.use([
     'keplerjs:core@1.1.0',
     'keplerjs:osm@1.1.0',
@@ -20,12 +20,13 @@ Package.onUse(function(api) {
     'plugin.js',
     'i18n/it.js',
     'i18n/en.js',
+	'i18n/de.js',
     'collections/tracks.js'
   ]);
 
   api.addFiles([
     'client/Place_tracks.js',
-    'client/views/popups.html',    
+    'client/views/popups.html',
     'client/views/panels.html',
     'client/views/panels.js',
     'client/stylesheets/tracks.css',
@@ -37,7 +38,7 @@ Package.onUse(function(api) {
     'server/pubs.js',
     'server/tracks.js'
   ],'server');
-  
+
   api.export([
     'Tracks'
   ]);

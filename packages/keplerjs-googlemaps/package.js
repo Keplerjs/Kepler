@@ -11,9 +11,9 @@ Npm.depends({
 });
 
 Package.onUse(function (api) {
-  
+
   api.versionsFrom(['METEOR@1.0']);
-  
+
   api.use([
     'keplerjs:core@1.1.0',
   ]);
@@ -21,7 +21,8 @@ Package.onUse(function (api) {
   api.addFiles([
     'plugin.js',
     'i18n/it.js',
-    'i18n/en.js'
+    'i18n/en.js',
+	'i18n/de.js'
   ]);
 
   api.addFiles([

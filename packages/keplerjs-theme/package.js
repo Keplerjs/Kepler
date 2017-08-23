@@ -7,7 +7,7 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  
+
   var globsync = function(e){
     var pkg = 'keplerjs-theme',
         path = Npm.require('path'),
@@ -16,7 +16,7 @@ Package.onUse(function(api) {
   };
 
   api.versionsFrom("METEOR@1.0");
-  
+
   api.use([
     'keplerjs:core@1.1.0',
   ]);
@@ -24,11 +24,12 @@ Package.onUse(function(api) {
   api.addFiles([
     'plugin.js',
     'i18n/it.js',
-    'i18n/en.js'
+    'i18n/en.js',
+	'i18n/de.js'
   ]);
 
   api.addFiles(globsync('client/**/*.*'), 'client');
 
   api.addAssets(globsync('assets/images/**/*.*'), 'client');
-  
+
 });
