@@ -61,7 +61,7 @@ i18n.map('sv', {
 	btn_avatar: "Profilbild",
 	btn_verify: "Verifiera",
 	btn_verified: "Verifierad",
-	btn_notverified: "Verifierad",
+	btn_notverified: "Verifiera",
 	btn_logout: "Logga ut",
 	btn_home: "Hemsida",
 	btn_enter: "Logga in",
