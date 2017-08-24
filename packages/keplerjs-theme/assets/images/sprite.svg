@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="15.999999"
-     inkscape:cx="229.49491"
-     inkscape:cy="523.46661"
+     inkscape:zoom="11.313708"
+     inkscape:cx="229.88507"
+     inkscape:cy="439.87594"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -37,7 +37,7 @@
      inkscape:window-x="769"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:snap-global="true"
+     inkscape:snap-global="false"
      showguides="true"
      inkscape:guide-bbox="true"
      height="1000px"
@@ -22248,6 +22248,30 @@
        d="M 189 450.1875 C 184.12663 450.1875 180.1875 454.12663 180.1875 459 C 180.1875 463.87337 184.12663 467.8125 189 467.8125 C 193.87337 467.8125 197.8125 463.87337 197.8125 459 C 197.8125 454.12663 193.87337 450.1875 189 450.1875 z M 191.3125 453.5625 L 195.21875 455.5625 L 191.1875 462.0625 L 188.625 457.875 L 191.3125 453.5625 z M 182.71875 453.625 L 186.59375 455.5625 L 186.59375 464.25 L 182.84375 462.40625 C 182.80425 462.36675 182.71875 462.29758 182.71875 462.21875 L 182.71875 453.625 z M 187.09375 456.25 L 190.5625 461.90625 L 187.09375 460.15625 L 187.09375 456.25 z M 195.34375 456.25 L 195.34375 464.25 L 191.5625 462.40625 L 195.34375 456.25 z "
        transform="translate(0,452.36197)"
        id="path6105" />
+    <g
+       id="g6135">
+      <rect
+         id="rect6101"
+         height="18"
+         width="18"
+         x="210"
+         y="602.362"
+         style="fill:#006aa7" />
+      <rect
+         id="rect6103"
+         x="215.05583"
+         height="18"
+         width="3.6852005"
+         y="602.362"
+         style="fill:#fecc00" />
+      <rect
+         id="rect6105"
+         y="609.56201"
+         height="3.5999999"
+         width="18"
+         x="210"
+         style="fill:#fecc00" />
+    </g>
   </g>
   <style
      id="style6085"

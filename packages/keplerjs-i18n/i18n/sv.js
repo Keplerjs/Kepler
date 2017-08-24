@@ -1,3 +1,6 @@
+
+//TODO to complete translations in each i18n plugins
+
 i18n.map('sv', {
 
 	title_root: "Karta",

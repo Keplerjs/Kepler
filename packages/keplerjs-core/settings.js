@@ -1,12 +1,12 @@
 /*
-	defautl Kepler settings
+	Default KeplerJs settings
+
 	use settings.json in root application having the same structure to overwrite the following values
 */
 
 Meteor.startup(function() {
 	_.deepExtend(K.settings, Meteor.settings);
-
-	//enable in debugmode
+	//TODO uncomment when exists a 'debug mode'
 	//if(Meteor.isServer)
 	//	console.log("Settings: METEOR_SETTINGS='"+JSON.stringify(Meteor.settings)+"'");
 });
@@ -16,11 +16,12 @@ Kepler.settings = {
 	"public": {
 		"lang": "en",
 		"langs": {
-			"it": "Italiano",
 			"en": "English",
+			"it": "Italiano",
+			"de": "Deutsch",
+			"sv": "Svenska",
 			//"es": "Español",
 			//"fr": "Français",
-			"de": "Deutsch"
 		},
 		"map": {
 			"zoom": 16,

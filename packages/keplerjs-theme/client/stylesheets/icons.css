@@ -230,6 +230,7 @@ div.leaflet-marker-icon {
 .icon-lang-de{ background-position: -210px -60px;  } 
 .icon-lang-en{ background-position: -210px -90px;  } 
 .icon-lang-es{ background-position: -210px -120px; } 
+.icon-lang-sv{ background-position: -210px -150px; } 
 
 .icon-social.icon-social-tw {       background-position:0 0;     }
 .icon-social.icon-social-tw:hover { background-position:0 -31px; }
