@@ -4,8 +4,10 @@
 
 Kepler.Util.humanize = {
 
-	azimut: function(ang) {
-		return ang ? i18n('azimuth').split(',')[Math.round(ang/22.5)] : '';
+	azimut: function(ang, code) {
+		ang = parseFloat(ang);
+		var texts = code ? "n,nne,ne,ene,e,ese,se,sse,s,ssw,sw,wsw,w,wnw,nw,nnw,n" : i18n('azimuth');
+		return ang ? texts.split(',')[Math.round(ang/22.5)] : '';
 	},
 
 	time: function(sec, ago) {

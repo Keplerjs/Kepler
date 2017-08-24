@@ -79,7 +79,6 @@ i18n.map('de', {
 	btn_usersblocked: "Blockierte Nutzer",
 	btn_userUnblock: "Freischalten",
 
-	map_attrib: "<a href=\"http://osm.org/\"> osm.org </a>",
 	map_gps_title: "Dein Ort",
 	map_gps_error: "GPS deaktiviert",
 	map_layer_road: "Straßen",
@@ -91,7 +90,8 @@ i18n.map('de', {
 	gender_female: "Weiblich",
 	gender_none: "Keins",
 
-	azimuth: "Nord,Nord-Nordost,Nordost,Ost-Nordost,Osten,Ost-Südost,Südost,Süd-Südost,Süden,Süd-Südwest,Südwest,West-Südwest,Westen,West-Nordwest,Nordwest,Nord-Nordwest,Norden",
+	azimuth: "Nord,Nord-NordOst,Nord-Ost,Ost-NordOst,Osten,Ost-SüdOst,Süd-Ost,Süd-SüdOst,Süden,Süd-SüdEest,Süd-West,West-SüdEest,Westen,West-NordEest,Nord-West,Nord-NordWest,Norden",
+	
 	months_name: "Januar,Februar,März,April,Mai,Juni,Juli,August,September,Oktober,November,Dezember",
 	days_name: "Sonntag,Montag,Dienstag,Mittwoch,Donnerstag,Freitag,Samstag",
 	days_near: "Gestern,Heute,Morgen",

@@ -27,8 +27,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="15.999999"
-     inkscape:cx="194.79362"
-     inkscape:cy="161.44557"
+     inkscape:cx="229.49491"
+     inkscape:cy="523.46661"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -37,7 +37,7 @@
      inkscape:window-x="769"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:snap-global="false"
+     inkscape:snap-global="true"
      showguides="true"
      inkscape:guide-bbox="true"
      height="1000px"
@@ -21118,24 +21118,21 @@
        inkscape:export-ydpi="16.125132"
        inkscape:connector-curvature="0" />
     <g
-       style="display:inline"
-       inkscape:label="#surface1"
-       transform="matrix(0.05628489,0,0,0.07504518,210,512.36197)"
-       id="g53">
+       id="g6091">
       <path
          inkscape:connector-curvature="0"
          id="path55-3"
-         d="m 0,0 106.60156,0 0,239.85547 -106.60156,0 z m 0,0"
+         d="m 210.00009,518.36194 0,-6.00006 18,0 0,6.00006 z m 0,0"
          style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none" />
       <path
          inkscape:connector-curvature="0"
          id="path57"
-         d="m 106.60156,0 106.60156,0 0,239.85547 -106.60156,0 z m 0,0"
+         d="m 210,530.36197 0,-6.00005 18,0 0,6.00005 z m 0,0"
          style="fill:#ffd90a;fill-opacity:1;fill-rule:evenodd;stroke:none" />
       <path
          inkscape:connector-curvature="0"
          id="path59-8"
-         d="m 213.20312,0 106.60157,0 0,239.85547 -106.60157,0 z m 0,0"
+         d="m 210,524.36197 0,-6.00006 18,0 0,6.00006 z m 0,0"
          style="fill:#f3172e;fill-opacity:1;fill-rule:evenodd;stroke:none" />
     </g>
     <g

@@ -37,7 +37,7 @@ K.Plugin({
 					"near": true,
 					"com": true,
 					"reg": true,
-					"naz": false,
+					"naz": true,
 					"sunrise":true,
 					"sunset": true
 				}

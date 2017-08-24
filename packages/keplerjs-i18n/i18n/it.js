@@ -1,4 +1,3 @@
-
 i18n.map('it', {
 
 	title_root: "Mappa",
@@ -6,7 +5,6 @@ i18n.map('it', {
 	title_profile: "Il Tuo Profilo",
 	title_settings: "Impostazioni",
 	title_settingsBlocked: "Utenti bloccati",
-	
 	title_histplaces: "Luoghi recenti",
 	title_friends: "I Tuoi Amici",
 	title_places: "Luoghi",
@@ -93,7 +91,8 @@ i18n.map('it', {
 	gender_female: "Femmina",
 	gender_none: "Nessuno",
 
-	azimuth: "Nord,Nord-NordEst,Nord-Est,Est-NordEst,Est,Est-SudEst,Sud-Est,Sud-SudEst,Sud,Sud-SudOvest,Sud-Ovest,Ovest-SudOvest,Ovest,Ovest-SudOvest,Nord-Ovest,Nord-NordOvest,Nord",
+	azimuth: "Nord,Nord-NordEst,Nord-Est,Est-NordEst,Est,Est-SudEst,Sud-Est,Sud-SudEst,Sud,Sud-SudOvest,Sud-Ovest,Ovest-SudOvest,Ovest,Ovest-NordOvest,Nord-Ovest,Nord-NordOvest,Nord",
+
 	months_name:"Gennaio,Febbraio,Marzo,Aprile,Maggio,Giugno,Luglio,Agosto,Settembre,Ottobre,Novembre,Dicembre",
 	days_name: "Domenica,Lunedi,Martedi,Mercoledi,Giovedi,Venerdi,Sabato",	
 	days_near: "Ieri,Oggi,Domani",

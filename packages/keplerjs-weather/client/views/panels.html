@@ -46,6 +46,8 @@
 			<div class="row weather-labels">
 				<div class="col-xs-3">Prob. {{prob}}%</div>
 				<div class="col-xs-3">
+					<small class="text-nowrap">{{wind.ang}}°</small>
+					<br />
 					<small class="text-nowrap">{{humanAzimut wind.ang}}</small>
 					<br />
 					{{wind.vel}}Km/h
@@ -55,6 +57,7 @@
 				</div>
 				<div class="col-xs-3">Umid. {{humid}}%</div>
 			</div>
+			{{{stringify this}}}
 		</div>
 	{{/each}}
 

@@ -34,22 +34,23 @@
 .sky-icon.	{ background-position: -700px -50px }
 .sky-icon.	{ background-position: -750px -50px }*/
 
-.wind-icon.north{ background-position: 0 0 }
-.wind-icon.nne	{ background-position: -50px 0 }
-.wind-icon.ne	{ background-position: -100px 0 }
-.wind-icon.ene	{ background-position: -150px 0 }
-.wind-icon.east	{ background-position: -200px 0 }
-.wind-icon.ese	{ background-position: -250px 0 }
-.wind-icon.se	{ background-position: -300px 0 }
-.wind-icon.sse	{ background-position: -350px 0 }
-.wind-icon.south{ background-position: -400px 0 }
-.wind-icon.ssw	{ background-position: -450px 0 }
-.wind-icon.sw	{ background-position: -500px 0 }
-.wind-icon.wsw	{ background-position: -550px 0 }
-.wind-icon.west	{ background-position: -600px 0 }
-.wind-icon.wnw	{ background-position: -650px 0 }
-.wind-icon.nw	{ background-position: -700px 0 }
-.wind-icon.nnw	{ background-position: -750px 0 }
+.wind-icon.n    { background-position: -750px 0 }
+.wind-icon.nne	{ background-position: -700px 0 }
+.wind-icon.ne	{ background-position: -650px 0 }
+.wind-icon.ene	{ background-position: -600px 0 }
+.wind-icon.e	{ background-position: -550px 0 }
+.wind-icon.ese	{ background-position: -500px 0 }
+.wind-icon.se	{ background-position: -450px 0 }
+.wind-icon.sse	{ background-position: -400px 0 }
+.wind-icon.s    { background-position: -350px 0 }
+.wind-icon.ssw	{ background-position: -300px 0 }
+.wind-icon.sw	{ background-position: -250px 0 }
+.wind-icon.wsw	{ background-position: -200px 0 }
+.wind-icon.w	{ background-position: -150px 0 }
+.wind-icon.wnw	{ background-position: -100px 0 }
+.wind-icon.nw	{ background-position: -50px 0 }
+.wind-icon.nnw	{ background-position: 0 0 }
 
 .temp-icon { background-position: 0 -100px; }
 .umid-icon { background-position: -50px -100px; }
+

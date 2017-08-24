@@ -8,7 +8,7 @@ i18n.map('en', {
 	label_naz: "Nation",
 	label_prov: "Province",
 	label_com: "Municipality",
-	label_esp: "Exposure",
+	label_esp: "Aspect",
 	label_season: "Season",
 	label_shadow: "In shadow",
 	label_ele: "Elevation",
