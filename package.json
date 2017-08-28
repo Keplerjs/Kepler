@@ -31,6 +31,8 @@
   "homepage": "https://github.com/Keplerjs/Kepler#readme",
   "dependencies": {
     "babel-runtime": "^6.26.0",
+    "bcrypt": "^1.0.3",
+    "core-js": "^2.5.0",
     "meteor-node-stubs": "^0.2.11"
   }
 }

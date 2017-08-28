@@ -51,10 +51,11 @@ Package.onUse(function(api) {
 
   var packages = [
     'meteor-platform@1.2.4',
+	'shell-server@0.2.4',
+	'dynamic-import@0.1.1',    
     'reactive-var@1.0.7',
     //TODO 'standard-minifiers',
     'email@1.0.10',
-
 
     'matb33:collection-hooks@0.8.1',
     'underscorestring:underscore.string@3.2.0',
