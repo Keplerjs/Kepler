@@ -6,7 +6,7 @@ for d in ../packages/* ; do
   
   cd $d
   
-  meteor publish --create
+  meteor publish
 
   cd ../../private
 done

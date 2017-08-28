@@ -2,17 +2,17 @@
 Package.describe({
   name: 'keplerjs:share',
   summary: 'keplerjs plugin share',
-  version: "1.2.0",
+  version: "1.2.1",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
 Package.onUse(function(api) {
 
-  api.versionsFrom("METEOR@1.0");
+  api.versionsFrom("1.5.1");
 
   api.use([
-    'keplerjs:core@1.2.0',
-    'zenorocha:clipboard'
+    'keplerjs:core@1.2.1',
+    'zenorocha:clipboard@1.7.1'
   ]);
 
   api.addFiles([

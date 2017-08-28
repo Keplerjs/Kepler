@@ -2,13 +2,13 @@
 Package.describe({
   name: 'keplerjs:i18n',
   summary: 'keplerjs Internationalization package',
-  version: "1.2.0",
+  version: "1.2.1",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
 Package.onUse(function(api) {
 
-  api.versionsFrom("METEOR@1.0");
+  api.versionsFrom("1.5.1");
 
   var packages = [
     'anti:i18n@0.4.3'

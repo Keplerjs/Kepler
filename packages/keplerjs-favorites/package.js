@@ -2,16 +2,16 @@
 Package.describe({
   name: 'keplerjs:favorites',
   summary: 'keplerjs plugin favorites places',
-  version: "1.2.0",
+  version: "1.2.1",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
 Package.onUse(function(api) {
 
-  api.versionsFrom("METEOR@1.0");
+  api.versionsFrom("1.5.1");
 
   api.use([
-    'keplerjs:core@1.2.0',
+    'keplerjs:core@1.2.1',
   ]);
 
   api.addFiles([

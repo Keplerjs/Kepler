@@ -2,7 +2,7 @@
 Package.describe({
   name: 'keplerjs:geoinfo',
   summary: 'keplerjs plugin geoinfo',
-  version: "1.2.0",
+  version: "1.2.1",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
@@ -12,19 +12,18 @@ Npm.depends({
 
 Package.onUse(function(api) {
 
-  api.versionsFrom("METEOR@1.0");
+  api.versionsFrom("1.5.1");
 
   api.addFiles([
     '.npm/package/node_modules/suncalc/suncalc.js'
   ],'client');
 
   api.use([
-    'keplerjs:core@1.2.0',
+    'keplerjs:core@1.2.1',
   ]);
 
   api.use([
-    'http',
-    'robodo:async',
+    'robodo:async@0.9.0',
   ],'server');
 
   api.addFiles([

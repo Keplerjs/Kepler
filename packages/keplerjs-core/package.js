@@ -1,7 +1,7 @@
 Package.describe({
 	name: 'keplerjs:core',
 	summary: 'keplerjs Meteor and 3rd party libraries',
-	version: '1.2.0',  
+	version: '1.2.1',  
 	git: "https://github.com/Keplerjs/Kepler.git"
 });
 
@@ -14,11 +14,11 @@ Package.onUse(function(api) {
     return glob.sync(e, {cwd: path.join(process.cwd(),'packages',pkg) });
   };
 
-  api.versionsFrom("METEOR@1.0");
+  api.versionsFrom("1.5.1");
   
   var packages = [
-    'keplerjs:lib@1.2.0',
-    'keplerjs:i18n@1.2.0'
+    'keplerjs:lib@1.2.1',
+    'keplerjs:i18n@1.2.1'
   ];
 
   api.use(packages);

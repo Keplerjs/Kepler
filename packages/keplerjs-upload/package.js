@@ -2,20 +2,20 @@
 Package.describe({
   name: 'keplerjs:upload',
   summary: 'keplerjs plugin for files upload',
-  version: "1.2.0",
+  version: "1.2.1",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
 Package.onUse(function(api) {
 
-  api.versionsFrom("METEOR@1.0");
+  api.versionsFrom("1.5.1");
 
   api.use([
-    'mrt:imagemagick',
+    'mrt:imagemagick@0.1.2',
   ], 'server');
 
   api.use([
-    'keplerjs:core@1.2.0',
+    'keplerjs:core@1.2.1',
   ]);
 
   api.addFiles([

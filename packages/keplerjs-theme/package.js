@@ -2,7 +2,7 @@
 Package.describe({
   name: 'keplerjs:theme',
   summary: 'keplerjs plugin base Theme for UI',
-  version: "1.2.0",
+  version: "1.2.1",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
@@ -15,10 +15,10 @@ Package.onUse(function(api) {
     return glob.sync(e, {cwd: path.join(process.cwd(),'packages',pkg) });
   };
 
-  api.versionsFrom("METEOR@1.0");
+  api.versionsFrom("1.5.1");
 
   api.use([
-    'keplerjs:core@1.2.0',
+    'keplerjs:core@1.2.1',
   ]);
 
   api.addFiles([

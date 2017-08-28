@@ -4,7 +4,7 @@
 Package.describe({
 	name: 'keplerjs:lib',
 	summary: 'keplerjs 3rd party packages and libraries',
-  version: "1.2.0",
+  version: "1.2.1",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
   
@@ -20,7 +20,7 @@ Npm.depends({
 
 Package.onUse(function(api) {
 
-  api.versionsFrom("METEOR@1.0");
+  api.versionsFrom("1.5.1");
 
   //bootstrap plugins deps
   api.addFiles([
@@ -48,31 +48,31 @@ Package.onUse(function(api) {
   var packages = [
     'meteor-base',
     'mongo',
-	'blaze-html-templates',
     'reactive-var',
     'session',
     'tracker',
     'check',
 	'standard-minifier-css',
 	'standard-minifier-js',
-	'dynamic-import',	
+	'dynamic-import',
     'email',
-
-    'matb33:collection-hooks',
-    'underscorestring:underscore.string',
-    'kidovate:bootstrap-slider',
-    'iron:router',
-    'mrt:modernizr-meteor',
-    'twbs:bootstrap',
-    
+    'http',
     'accounts-base',
     'accounts-password',
     'accounts-oauth',
     'accounts-facebook',
     'accounts-google',
     'accounts-twitter',
-    'mstn:accounts-openstreetmap',
-    'ian:accounts-ui-bootstrap-3',
+
+	'blaze-html-templates@1.1.2',
+    'matb33:collection-hooks@0.8.4',
+    'underscorestring:underscore.string@3.3.4',
+    'kidovate:bootstrap-slider@0.0.5',
+    'iron:router@1.1.2',
+    'mrt:modernizr-meteor@2.6.2',
+    'twbs:bootstrap@3.3.6',
+    'ian:accounts-ui-bootstrap-3@1.2.89',
+    'mstn:accounts-openstreetmap@0.1.0',
   ];
 
   api.use(packages);
