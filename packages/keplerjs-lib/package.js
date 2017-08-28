@@ -52,7 +52,10 @@ Package.onUse(function(api) {
   var packages = [
     'meteor-platform@1.2.4',
     'reactive-var@1.0.7',
+    //TODO 'standard-minifiers',
     'email@1.0.10',
+
+
     'matb33:collection-hooks@0.8.1',
     'underscorestring:underscore.string@3.2.0',
     'kidovate:bootstrap-slider@0.0.5',
@@ -65,7 +68,7 @@ Package.onUse(function(api) {
     'accounts-facebook@1.0.7',
     'accounts-google@1.0.7',
     'accounts-twitter@1.0.7',
-    'mstn:accounts-openstreetmap@0.1.0',
+    //'mstn:accounts-openstreetmap@0.1.0',
     'ian:accounts-ui-bootstrap-3@1.2.80'
   ];
 
@@ -75,6 +78,7 @@ Package.onUse(function(api) {
   api.addFiles([
     'lib/deepExtend.js',
     'lib/Class.js',
+    'config/Accounts.js',
     'config/underscore.js',
     'config/leaflet.js',
   ]);

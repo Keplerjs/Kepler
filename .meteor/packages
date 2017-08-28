@@ -4,17 +4,15 @@
 # but you can also edit it by hand.
 
 
-standard-minifier-css
-standard-minifier-js
 
 keplerjs:core
 keplerjs:ui
 keplerjs:theme
-#keplerjs:api
+keplerjs:api
 keplerjs:edit
 keplerjs:admin
 
-#keplerjs:upload
+keplerjs:upload
 keplerjs:share
 keplerjs:geoinfo
 keplerjs:osm

@@ -24,13 +24,31 @@ Package.onUse(function(api) {
   api.use(packages);
   api.imply(packages);
 
-  api.addFiles(['Kepler.js','settings.js']);
-  api.addFiles(globsync('i18n/**/*.js'));  
-  api.addFiles(globsync('lib/**/*.js'));
-  api.addFiles(globsync('modules/**/*.js'));
+  api.addFiles([
+  	'Kepler.js',
+  	'settings.js',
+	'modules/Util.js',
+  	'modules/Util_geo.js',
+  	'modules/Util_humanize.js',
+  	'modules/Util_sanitize.js',
+  	'modules/Util_valid.js',  	
+  	'modules/Cache.js',
+  	'modules/Plugin.js',
+  	'modules/schemas.js',
+  	'modules/filters.js',
+  	'modules/placeholders.js',
+  ]);
   api.addFiles(globsync('collections/**/*.js'));
 
-  api.addFiles(globsync('client/**/*.*'),  'client');
+  api.addFiles([
+	'client/Map.js',
+	'client/Map_controls.js',
+	'client/Map_layers.js',
+	'client/Profile.js',	
+	'client/Place.js',
+	'client/User.js',
+	'client/router.js',
+  ], 'client');
   api.addFiles(globsync('server/**/*.js'), 'server');
 
   api.export([
