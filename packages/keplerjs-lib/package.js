@@ -4,7 +4,7 @@
 Package.describe({
 	name: 'keplerjs:lib',
 	summary: 'keplerjs 3rd party packages and libraries',
-  version: "1.1.0",
+  version: "1.2.0",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
   
@@ -16,7 +16,6 @@ Npm.depends({
   "leaflet-gps": "1.7.0",
   "leaflet-layerjson": "0.2.5",
   "leaflet.markercluster": "1.0.6",
-  //"leaflet": "0.7.7","leaflet.markercluster": "0.5.0",   
 });
 
 Package.onUse(function(api) {
@@ -32,12 +31,9 @@ Package.onUse(function(api) {
     //leaflet plugins deps
     '.npm/package/node_modules/leaflet/dist/leaflet-src.js',
     '.npm/package/node_modules/leaflet/dist/leaflet.css',
-
     '.npm/package/node_modules/leaflet-gps/dist/leaflet-gps.src.css',    
     '.npm/package/node_modules/leaflet-gps/dist/leaflet-gps.src.js',
-
     '.npm/package/node_modules/leaflet-layerjson/dist/leaflet-layerjson.src.js',
-    
     '.npm/package/node_modules/leaflet.markercluster/dist/MarkerCluster.css',
     '.npm/package/node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css',
     '.npm/package/node_modules/leaflet.markercluster/dist/leaflet.markercluster-src.js'

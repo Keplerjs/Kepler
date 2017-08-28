@@ -1,12 +1,12 @@
 Package.describe({
   name: "keplerjs:osm",
   summary: "Keplerjs Openstreetmap and Overpass API",
-  version: "1.1.0",
+  version: "1.2.0",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
 Npm.depends({
-  "query-overpass": "1.1.0",
+  "query-overpass": "1.2.0",
 });
 
 Package.onUse(function (api) {
@@ -14,8 +14,8 @@ Package.onUse(function (api) {
   api.versionsFrom(['METEOR@1.0']);
 
   api.use([
-    'keplerjs:core@1.1.0',
-    'keplerjs:edit@1.1.0'
+    'keplerjs:core@1.2.0',
+    'keplerjs:edit@1.2.0'
   ]);
 
   api.addFiles([

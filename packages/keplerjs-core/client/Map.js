@@ -136,7 +136,7 @@ Kepler.Map = {
 			var sidebarW = (this.sidebar.hasClass('expanded') && this.sidebar.width()) || 0;
 			
 			this.map.setView(loc, zoom);/*, {
-				//TODO Leaflet 1.1.0 not yet implement paddingTopLeft
+				//TODO Leaflet 1.2.0 not yet implement paddingTopLeft
 				//only documented
 				paddingTopLeft: L.point(sidebarW,0)
 			});*/
