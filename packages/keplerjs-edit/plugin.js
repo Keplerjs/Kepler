@@ -3,7 +3,7 @@ K.Plugin({
 	name: 'edit',
 	placeholders: {
 		panelPlace: 'panelPlace_edit',
-		panelUser: 'panelUser_edit',
+		//TODO panelUser: 'panelUser_edit',
 		popupCursor: 'popupCursor_edit'
 	},
 	schemas: {
