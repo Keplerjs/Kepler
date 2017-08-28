@@ -65,6 +65,7 @@ Package.onUse(function(api) {
     'accounts-facebook@1.0.7',
     'accounts-google@1.0.7',
     'accounts-twitter@1.0.7',
+    'mstn:accounts-openstreetmap@0.1.0',
     'ian:accounts-ui-bootstrap-3@1.2.80'
   ];
 

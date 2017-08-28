@@ -1,0 +1,14 @@
+{
+  "name": "mstn:openstreetmap-oauth",
+  "version": "0.1.0",
+  "description": "",
+  "main": "osm-oauth.client.js",
+  "dependencies": {
+    "xml2js": "^0.4.19"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mstn",
+  "license": "MIT"
+}
