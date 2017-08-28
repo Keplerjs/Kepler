@@ -66,6 +66,11 @@ Kepler.settings = {
 		"creation": true,
 		"verifyEmail": false,
 		/*
+		"openstreetmap": {
+			"service": "openstreetmap",
+			"consumerKey": "",
+			"secret": ""
+		}
 		"facebook": {
 			//http://developers.facebook.com/docs/authentication/permissions/
 			"service": "facebook",
