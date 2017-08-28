@@ -1,14 +1,3 @@
-/*
-
-CONTRIBUTING
-
-This package take care to contains the translations texts in all languages.
-But only for the core module.
-Each KeplerJs plugin has it's own i18n directory inside having the same structure of this.
-
-For dis/enable languages you can add its in the default /keplerjs-core/settings.js in langs property
-
-*/
 i18n.map('en', {
 
 	title_root: "Map",

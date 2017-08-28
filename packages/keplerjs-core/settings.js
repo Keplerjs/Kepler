@@ -20,8 +20,8 @@ Kepler.settings = {
 			"it": "Italiano",
 			"de": "Deutsch",
 			"sv": "Svenska",
-			//"es": "Español",
-			//"fr": "Français",
+			"es": "Español",
+			"fr": "Français",
 		},
 		"map": {
 			"zoom": 16,
