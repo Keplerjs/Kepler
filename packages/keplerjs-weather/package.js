@@ -15,7 +15,7 @@ Package.onUse(function(api) {
   ]);
 
   api.use([
-    'http@1.1.3',
+    'http',
   ],'server');
 
   api.addFiles([

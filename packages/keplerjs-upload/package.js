@@ -11,7 +11,7 @@ Package.onUse(function(api) {
   api.versionsFrom("METEOR@1.0");
 
   api.use([
-    'mrt:imagemagick@0.1.2',
+    'mrt:imagemagick',
   ], 'server');
 
   api.use([

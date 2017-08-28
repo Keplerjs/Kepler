@@ -12,7 +12,7 @@ Package.onUse(function(api) {
 
   api.use([
     'keplerjs:core@1.1.0',
-    'zenorocha:clipboard@1.7.1'
+    'zenorocha:clipboard'
   ]);
 
   api.addFiles([

@@ -14,11 +14,11 @@ keplerjs:upload
 keplerjs:share
 keplerjs:geoinfo
 keplerjs:osm
-#keplerjs:categories
+keplerjs:categories
 keplerjs:favorites
 keplerjs:conver
 keplerjs:notif
-#keplerjs:events
+keplerjs:events
 keplerjs:pois
 keplerjs:tracks
 keplerjs:weather

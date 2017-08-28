@@ -11,4 +11,5 @@ nohup.out
 start.sh
 settings.json
 packages.list
+versions.list
 

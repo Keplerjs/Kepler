@@ -23,8 +23,8 @@ Package.onUse(function(api) {
   ]);
 
   api.use([
-    'http@1.1.3',
-    'robodo:async@0.9.0',
+    'http',
+    'robodo:async',
   ],'server');
 
   api.addFiles([
