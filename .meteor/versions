@@ -88,8 +88,8 @@ mongo@1.1.22
 mongo-id@1.0.6
 mrt:imagemagick@0.1.2
 mrt:modernizr-meteor@2.6.2
-mstn:accounts-openstreetmap@0.1.0
-mstn:openstreetmap-oauth@0.0.1
+mstn:accounts-openstreetmap@0.2.0
+mstn:openstreetmap-oauth@0.1.0
 npm-bcrypt@0.9.3
 npm-mongo@2.2.30
 oauth@1.1.13

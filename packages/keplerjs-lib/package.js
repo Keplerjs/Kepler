@@ -65,7 +65,6 @@ Package.onUse(function(api) {
     'accounts-google',
     'accounts-twitter',
 
-
 	'blaze-html-templates@1.1.2',
     'matb33:collection-hooks@0.8.4',
     'underscorestring:underscore.string@3.3.4',
@@ -74,8 +73,7 @@ Package.onUse(function(api) {
     'mrt:modernizr-meteor@2.6.2',
     'twbs:bootstrap@3.3.6',
     'ian:accounts-ui-bootstrap-3@1.2.89',
-    //'accounts-ui',
-    'mstn:accounts-openstreetmap@0.1.0',
+    'mstn:accounts-openstreetmap@0.2.0',
   ];
 
   api.use(packages);

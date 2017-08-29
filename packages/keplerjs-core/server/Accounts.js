@@ -61,7 +61,7 @@ console.log('onCreateUser',user)
 		gender = null,
 		emails = user.emails,
 		source = {
-			service: 'signup',
+			service: 'keplerjs',
 			options: options,
 			user: user			
 		};
