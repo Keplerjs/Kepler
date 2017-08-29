@@ -50,7 +50,8 @@ Accounts.validateNewUser(function (user) {
 */
 Accounts.onCreateUser(function(options, user) {
 
-console.log('onCreateUser',options,user);
+console.log('onCreateUser',options)
+console.log('onCreateUser',user)
 
 	var profile = options.profile,
 		username = user.username,
@@ -82,7 +83,7 @@ console.log('onCreateUser',options,user);
 	{
 		source.service = 'google';
 		name = user.services.google.name;
-		username = _.str.slugify(name);
+		username = name;
 		avatar = user.services.google.picture;
 		gender = user.services.google.gender;
 		lang = user.services.google.locale.substr(0,2);		
@@ -94,11 +95,10 @@ console.log('onCreateUser',options,user);
 	else if(user.services.openstreetmap)
 	{
 		source.service = 'openstreetmap';
-		name = user.services.openstreetmap.screenName;
-		username = _.str.slugify(name);
-		avatar = user.services.openstreetmap.picture;
-		//gender = user.services.openstreetmap.gender;
-		lang = user.services.openstreetmap.languages[0];
+		name = options.profile.username;
+		username = options.profile.username;
+		avatar = options.profile.picture;
+		lang = options.profile.languages[0];
 /*		emails = [{
 			address: user.services.openstreetmap.email,
 			verified: user.services.openstreetmap.verified_email

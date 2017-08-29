@@ -74,6 +74,7 @@ Package.onUse(function(api) {
     'mrt:modernizr-meteor@2.6.2',
     'twbs:bootstrap@3.3.6',
     'ian:accounts-ui-bootstrap-3@1.2.89',
+    //'accounts-ui',
     'mstn:accounts-openstreetmap@0.1.0',
   ];
 
