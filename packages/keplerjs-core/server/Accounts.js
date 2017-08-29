@@ -12,20 +12,12 @@ Meteor.startup(function () {
 	_.each(K.settings.accounts, function(conf, key) {
 		if(conf.service) {
 			console.log('Accounts: config ', key)
-			Accounts.loginServiceConfiguration.remove(_.pick(conf,'service'));
-			Accounts.loginServiceConfiguration.insert(conf);
+			//Accounts.loginServiceConfiguration.remove(_.pick(conf,'service'));
+			//Accounts.loginServiceConfiguration.insert(conf);
+			ServiceConfiguration.configurations.remove(_.pick(conf,'service'));
+			ServiceConfiguration.configurations.insert(conf);
 		}
 	});
-
-/*	Accounts.loginServiceConfiguration.remove({service: 'facebook'});
-	Accounts.loginServiceConfiguration.insert(K.settings.accounts.facebook);
-	
-	Accounts.loginServiceConfiguration.remove({service: 'google'});	
-	Accounts.loginServiceConfiguration.insert(K.settings.accounts.google);*/
-	//Accounts.loginServiceConfiguration.remove({service: 'twitter'});
-	//Accounts.loginServiceConfiguration.insert(K.settings.accounts.twitter);
-	//TODO Accounts.emailTemplates.siteName = ;
-	//TODO Accounts.emailTemplates.from = ;
 });
 
 Accounts.onLogin(function(e) {
@@ -58,16 +50,24 @@ Accounts.validateNewUser(function (user) {
 */
 Accounts.onCreateUser(function(options, user) {
 
+console.log('onCreateUser',options,user);
+
 	var profile = options.profile,
 		username = user.username,
 		name = user.username,
 		lang = K.settings.public.lang,
 		avatar = '',
 		gender = null,
-		emails = user.emails;
+		emails = user.emails,
+		source = {
+			service: 'signup',
+			options: options,
+			user: user			
+		};
 
 	if(user.services.facebook)
 	{
+		source.service = 'facebook';
 		name = user.services.facebook.name;
 		username = user.services.facebook.username;
 		avatar = 'http://graph.facebook.com/'+user.services.facebook.id+'/picture';
@@ -80,6 +80,7 @@ Accounts.onCreateUser(function(options, user) {
 	}
 	else if(user.services.google)
 	{
+		source.service = 'google';
 		name = user.services.google.name;
 		username = _.str.slugify(name);
 		avatar = user.services.google.picture;
@@ -90,7 +91,21 @@ Accounts.onCreateUser(function(options, user) {
 			verified: user.services.google.verified_email
 		}];
 	}
+	else if(user.services.openstreetmap)
+	{
+		source.service = 'openstreetmap';
+		name = user.services.openstreetmap.screenName;
+		username = _.str.slugify(name);
+		avatar = user.services.openstreetmap.picture;
+		//gender = user.services.openstreetmap.gender;
+		lang = user.services.openstreetmap.languages[0];
+/*		emails = [{
+			address: user.services.openstreetmap.email,
+			verified: user.services.openstreetmap.verified_email
+		}];*/
+	}
 	//TODO else if(user.services.twitter) {
+	//	source.service = 'twitter';
 	// 	name = user.services.twitter.name;
 	// 	username = user.services.twitter.screenName;
 	// 	avatar = 'http://twitter.com/api/users/profile_image/'+username;
@@ -104,10 +119,11 @@ Accounts.onCreateUser(function(options, user) {
 		lang: lang,
 		avatar: avatar,
 		gender: gender,
-		emails: emails
+		emails: emails,
+		source: source
 	});
 
-	console.log('Accounts: onCreateUser ', retuser.username);
+	console.log('Accounts: onCreateUser ', retuser);
 
 	return retuser;
 });

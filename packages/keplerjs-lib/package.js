@@ -57,12 +57,14 @@ Package.onUse(function(api) {
 	'dynamic-import',
     'email',
     'http',
+    'service-configuration',
     'accounts-base',
     'accounts-password',
     'accounts-oauth',
     'accounts-facebook',
     'accounts-google',
     'accounts-twitter',
+
 
 	'blaze-html-templates@1.1.2',
     'matb33:collection-hooks@0.8.4',
