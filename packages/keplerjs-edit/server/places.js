@@ -26,7 +26,12 @@ Meteor.methods({
 		if(placeData.userId === this.userId) {
 			
 			Places.remove(placeId);
-
+			//TODO remove other references
+			Users.update(Meteor.userId(), {
+				$pull: {
+					places: placeId
+				}
+			});
 			console.log('Edit: removePlace', placeId);
 		}		
 	},

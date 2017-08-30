@@ -1,4 +1,13 @@
 
+
+<template name="panelProfile_edit">
+	<a class="list-group-item" href="/places/edits">
+		<i class="icon icon-edit"></i>
+		 {{i18n 'label_editplaces'}} 
+		<span class="badge">{{places.length}}</span>
+	</a>
+</template>
+
 <template name="panelPlace_edit">
 {{#if or createdAt userId}}
 

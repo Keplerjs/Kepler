@@ -2,6 +2,7 @@
 K.Plugin({
 	name: 'edit',
 	placeholders: {
+		panelProfile: 'panelProfile_edit',
 		panelPlace: 'panelPlace_edit',
 		//TODO panelUser: 'panelUser_edit',
 		popupCursor: 'popupCursor_edit'
