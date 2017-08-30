@@ -67,7 +67,7 @@ Accounts.onCreateUser(function(options, user) {
 	{
 		source.service = 'facebook';
 		name = user.services.facebook.name;
-		username = user.services.facebook.username;
+		username = user.services.facebook.username || name;
 		avatar = 'http://graph.facebook.com/'+user.services.facebook.id+'/picture';
 		gender = user.services.facebook.gender;
 		lang = user.services.facebook.locale.substr(0,2);		
@@ -120,7 +120,7 @@ Accounts.onCreateUser(function(options, user) {
 		source: source
 	});
 
-	console.log('Accounts: onCreateUser ', retuser);
+	console.log('Accounts: onCreateUser ', source.service, retuser.username);
 
 	return retuser;
 });
