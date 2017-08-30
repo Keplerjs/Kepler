@@ -60,7 +60,7 @@ Accounts.onCreateUser(function(options, user) {
 		source = {
 			service: 'keplerjs',
 			options: options,
-			user: user
+			user: user,
 			url: ''		
 		};
 
