@@ -125,8 +125,13 @@
 
 			{{#if source.service}}
 			<div class="form-group">
-				<label class="col-xs-3 control-label text-capitalize">{{source.service}}</label>
+				<label class="col-xs-3 control-label">{{i18n 'label_account'}}</label>
 				<div class="col-xs-9 col-xs-offset-3">
+				{{#if eq source.service 'keplerjs'}}
+					<a class="btn btn-default" href="/user/{{_id}}">
+						<i class="icon icon-kep"></i> {{_id}}
+					</a>
+				{{/if}}
 				{{#if eq source.service 'openstreetmap'}}
 					<a class="btn btn-default" href="{{source.url}}">
 						<i class="icon icon-osm"></i> {{source.url}}
@@ -136,7 +141,12 @@
 					<a class="btn btn-default" href="{{source.url}}">
 						<i class="icon icon-fb"></i> {{source.url}}
 					</a>
-				{{/if}}					
+				{{/if}}	
+				{{#if eq source.service 'google'}}
+					<a class="btn btn-default" href="{{source.url}}">
+						<i class="icon icon-goo"></i> {{source.url}}
+					</a>
+				{{/if}}	
 				</div>
 			</div>
 			{{/if}}

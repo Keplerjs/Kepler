@@ -36,6 +36,8 @@ i18n.map('en', {
 	label_privacy: "Privacy",
 	label_location: "Location",
 	label_userblocked: "Blocked User",
+	
+
 	label_histuser: "Recent visits",
 	label_histplace: "Recent visits",
 	label_nearplaces: "Nearby Places",
