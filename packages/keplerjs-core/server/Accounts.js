@@ -60,12 +60,14 @@ Accounts.onCreateUser(function(options, user) {
 		source = {
 			service: 'keplerjs',
 			options: options,
-			user: user			
+			user: user
+			url: ''		
 		};
 
 	if(user.services.facebook)
 	{
 		source.service = 'facebook';
+		source.url = user.services.facebook.link;
 		name = user.services.facebook.name;
 		username = user.services.facebook.username || name;
 		avatar = 'http://graph.facebook.com/'+user.services.facebook.id+'/picture';
@@ -74,11 +76,12 @@ Accounts.onCreateUser(function(options, user) {
 		emails = [{
 			address: user.services.facebook.email,
 			verified: true
-		}];
+		}]; 
 	}
 	else if(user.services.google)
 	{
 		source.service = 'google';
+		source.url = '';//user.services.google;
 		name = user.services.google.name;
 		username = name;
 		avatar = user.services.google.picture;
@@ -92,6 +95,7 @@ Accounts.onCreateUser(function(options, user) {
 	else if(user.services.openstreetmap)
 	{
 		source.service = 'openstreetmap';
+		source.url = "http://www.openstreetmap.org/user/"+options.profile.username;
 		name = options.profile.username;
 		username = options.profile.username;
 		avatar = options.profile.picture;
