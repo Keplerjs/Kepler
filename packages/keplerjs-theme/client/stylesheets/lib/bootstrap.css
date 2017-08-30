@@ -97,8 +97,12 @@ a.list-group-item {
     min-width: 16px;	
 }
 label {
-	color: #888;
+	color: #999;
+	font-weight: normal;
 	font-size: 12px;
+}
+.text-muted {
+	color: #aaa
 }
 .badge,
 .btn-default .badge {
