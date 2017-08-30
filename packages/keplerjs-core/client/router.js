@@ -153,7 +153,7 @@ Router.map(function() {
 				className: 'friends',			
 				headerTemplate: 'search_user',
 				itemsTemplate: 'item_user_friend',
-				items: _.map(K.Profile.data.friends, K.userById)
+				items: _.map(K.Profile.data.friends.reverse(), K.userById)
 			};
 		}	
 	});
