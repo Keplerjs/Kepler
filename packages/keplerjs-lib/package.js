@@ -15,7 +15,7 @@ Npm.depends({
   "leaflet": "1.2.0",
   "leaflet-gps": "1.7.0",
   "leaflet-layerjson": "0.2.5",
-  "leaflet.markercluster": "1.0.6",
+  "leaflet.markercluster": "1.1.0",
 });
 
 Package.onUse(function(api) {
@@ -63,7 +63,7 @@ Package.onUse(function(api) {
     'accounts-oauth',
     'accounts-facebook',
     'accounts-google',
-    'accounts-twitter',
+    //'accounts-twitter',
 
 	'blaze-html-templates@1.1.2',
     'matb33:collection-hooks@0.8.4',

@@ -45,6 +45,10 @@ Template.registerHelper('or', function() {
 	return _.some(_.initial(arguments));
 });
 
+Template.registerHelper('eq', function (a, b) {
+  return a === b;
+});
+
 Template.registerHelper('arrayify',function(obj){
     var result = [];
     for(var k in obj)

@@ -123,6 +123,24 @@
 				</div>
 			</div>
 
+			{{#if source.service}}
+			<div class="form-group">
+				<label class="col-xs-3 control-label text-capitalize">{{source.service}}</label>
+				<div class="col-xs-9 col-xs-offset-3">
+				{{#if eq source.service 'openstreetmap'}}
+					<a class="btn btn-default" href="http://www.openstreetmap.org/user/{{source.options.profile.username}}">
+						<i class="icon icon-osm"></i> {{source.options.profile.username}}
+					</a>
+				{{/if}}
+				{{#if eq source.service 'facebook'}}
+					<a class="btn btn-default" href="https://www.facebook.com/{{source.options.profile.username}}">
+						<i class="icon icon-fb"></i> {{source.options.profile.username}}
+					</a>
+				{{/if}}					
+				</div>
+			</div>
+			{{/if}}
+			
 			<div class="form-group">
 				<div class="col-xs-12">
 				{{> loginButtons}}

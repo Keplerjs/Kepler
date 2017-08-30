@@ -50,10 +50,7 @@ Accounts.validateNewUser(function (user) {
 */
 Accounts.onCreateUser(function(options, user) {
 
-console.log('onCreateUser',options)
-console.log('onCreateUser',user)
-
-	var profile = options.profile,
+	var profile = {},
 		username = user.username,
 		name = user.username,
 		lang = K.settings.public.lang,
