@@ -45,6 +45,10 @@ Template.registerHelper('or', function() {
 	return _.some(_.initial(arguments));
 });
 
+Template.registerHelper('and', function() {
+	return _.every(_.initial(arguments));
+});
+
 Template.registerHelper('eq', function (a, b) {
   return a === b;
 });

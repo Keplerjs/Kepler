@@ -25,8 +25,10 @@ Package.onUse(function(api) {
     'client/views/items.html',
     'client/views/items.js',
     'client/views/panels.html',
+    'client/views/panels.js',
     'client/Profile_favorites.js',
     'client/Place_favorites.js',
+    'client/User_favorites.js',
     'client/router.js',
     'client/stylesheets/favorites.css',
   ],'client');

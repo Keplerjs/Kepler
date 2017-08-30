@@ -26,8 +26,6 @@ Meteor.publish('userById', function(userId) {
 			placeIds = _.union(userData.checkin, userData.hist);
 
 			retCurs.push( K.findPlacesByIds(placeIds) );
-
-			//TODO places created
 		}
 		
 		this.added('users', userId, userData);	//add full fields for userCur
