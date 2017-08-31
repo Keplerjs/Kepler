@@ -4,7 +4,7 @@ K.Plugin({
 	placeholders: {
 		panelProfile: 'panelProfile_edit',
 		panelPlace: 'panelPlace_edit',
-		//TODO panelUser: 'panelUser_edit',
+		panelUser: 'panelUser_edit',
 		popupCursor: 'popupCursor_edit'
 	},
 	schemas: {
@@ -26,11 +26,6 @@ K.Plugin({
 				userId:1
 			}
 		},
-/*		placeItem: {
-			fields: {
-				userId:1
-			}
-		},*/
 		friendPanel: {
 			fields: {
 				places:1

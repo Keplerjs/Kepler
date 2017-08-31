@@ -23,7 +23,7 @@ K.Plugin({
 			"tracks": {
 				"limit": 5,
 				"caching": true,	//cache response by OSM overpass		
-				"maxDistance": 1000,
+				"maxDistance": 800,
 				"typesByTags": {
 					"highway=path": "path",
 					"highway=track": "path",

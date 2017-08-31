@@ -154,6 +154,7 @@ Router.map(function() {
 				headerTemplate: 'search_user',
 				itemsTemplate: 'item_user_friend',
 				items: _.map(K.Profile.data.friends.reverse(), K.userById)
+				//reverse sort friends by last added
 			};
 		}	
 	});

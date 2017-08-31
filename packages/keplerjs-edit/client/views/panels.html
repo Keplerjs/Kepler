@@ -46,22 +46,32 @@
 		<li class="list-group-item active">		
 			<span>{{i18n 'label_editplaces'}}</span>
 		</li>
+
 		{{#if places.length}}
-			{{#each places}}
-			<li class="list-group-item">
-				{{#with placeById this}}
-					{{> item_place}}
-				{{/with}}
-			</li>
-			{{/each}}
+
+			{{#if placesList}}
+				{{#each getPlacesList}}
+				<li class="list-group-item">
+					{{#with placeById this}}
+						{{> item_place}}
+					{{/with}}
+				</li>
+				{{/each}}
+			{{else}}
+				<a class="list-group-item panel-btn-placesList" href="#">
+					<i class="icon icon-edit"></i> {{i18n 'label_editplaces'}}
+				</a>
+			{{/if}}
+
 		{{else}}
 			<li class="list-group-item">
-				<label class="text-gray"><i>{{i18n 'label_nofavs'}}</i></label>
+				<label class="text-gray"><i>{{i18n 'label_noedits'}}</i></label>
 			</li>
 		{{/if}}
 	</ul>
 {{/if}}	
 </template>
+
 
 
 <template name="panelEdit">
