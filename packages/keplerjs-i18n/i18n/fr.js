@@ -86,7 +86,7 @@ i18n.map ('fr', {
 	map_layer_satellite: "Satellite",
 
 	genre_male: "Homme",
-	gender_female: "Femme",
+	gender_female: "Femme",	
 	gender_none: "Aucun",
 
 	azimut: "Nord,Nord-Nord-Est,Nord-Est,Est-Nord-Est,Est,Est-Sud-Est,Sud-Est,Sud-Sud-Est,Sud,Sud-Sud-Ouest,Sud-Ouest,Ouest-Sud-Ouest,Ouest,Ouest-Nord-Ouest,Nord-Ouest,Nord-Nord-Ouest,Nord",
