@@ -55,7 +55,21 @@ Kepler.settings = {
 			"styles": {
 				"default": { "color": "#b6f", "weight": 5, "opacity": 0.7 }
 			}
-		}
+		},
+		"ga": {
+			//https://github.com/reywood/meteor-iron-router-ga
+			"id": "UA-XXXX-Y",
+			/*"create": {
+                "cookieDomain": "example.com",
+                "cookieName": "my_ga_cookie",
+                "cookieExpires": 3600
+            },
+            "set": {
+                "forceSSL": true,
+                "anonymizeIp": true
+            },*/
+            "trackUserId": false
+		}		
 	},
 	"router": {
 		"public": {
@@ -64,7 +78,7 @@ Kepler.settings = {
 	},
 	"accounts": {
 		"creation": true,
-		"verifyEmail": false,
+		"verifyEmail": false,	
 		/*
 		"openstreetmap": {
 			"service": "openstreetmap",

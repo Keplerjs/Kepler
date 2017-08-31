@@ -101,6 +101,7 @@ reactive-dict@1.1.9
 reactive-var@1.0.11
 reload@1.1.11
 retry@1.0.9
+reywood:iron-router-ga@2.0.1
 robodo:async@0.9.0
 routepolicy@1.0.12
 service-configuration@1.0.11

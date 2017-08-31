@@ -1,9 +1,10 @@
 
 //TODO use https://github.com/DerMambo/ms-seo
-
 Router.configure({
 	loadingTemplate: 'panelLoading',
-	notFoundTemplate: 'page404'
+	notFoundTemplate: 'page404',
+	//https://github.com/reywood/meteor-iron-router-ga
+	trackPageView: true
 });
 
 Router.waitOn(function() {

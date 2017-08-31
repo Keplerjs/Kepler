@@ -70,6 +70,7 @@ Package.onUse(function(api) {
     'underscorestring:underscore.string@3.3.4',
     'kidovate:bootstrap-slider@0.0.5',
     'iron:router@1.1.2',
+	'reywood:iron-router-ga@2.0.1',
     'mrt:modernizr-meteor@2.6.2',
     'twbs:bootstrap@3.3.6',
     'ian:accounts-ui-bootstrap-3@1.2.89',
@@ -83,8 +84,9 @@ Package.onUse(function(api) {
     'lib/deepExtend.js',
     'lib/Class.js',
     'config/Accounts.js',
-    'config/underscore.js',
     'config/leaflet.js',
+    'config/router.js',
+    'config/underscore.js',
   ]);
   
   api.addFiles([
