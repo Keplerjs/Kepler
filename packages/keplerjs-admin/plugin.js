@@ -23,9 +23,3 @@ K.Plugin({
 		}
 	}
 });
-
-AdminConfig = {
-  collections: {
-    Places: {}
-  }
-};

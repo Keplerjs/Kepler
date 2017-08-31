@@ -89,14 +89,14 @@ i18n.map ('fr', {
 	gender_female: "Femme",
 	gender_none: "Aucun",
 
-	azimut: "Nord, Nord-Nord-Est, Nord-Est, Est-Nord-Est, Est, Est-Sud-Est, Sud-Est, Sud-Sud-Est, Sud, Sud-Sud-Ouest, Sud-Ouest, Ouest-Sud-Ouest, Ouest, Ouest-Nord-Ouest, Nord-Ouest , Nord-Nord-Ouest, Nord ",
-	months_name: "Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre Décembre",
-	days_name: "Dimanche, Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi",
-	days_near: "Hier, Aujourd'hui, Demain",
-	year: "année, années",
-	month: "mois, mois",
-	day: "jour, jours",
-	hour: "heure, heures",
-	minute: "min, min",
-	second: "sec, sec"
+	azimut: "Nord,Nord-Nord-Est,Nord-Est,Est-Nord-Est,Est,Est-Sud-Est,Sud-Est,Sud-Sud-Est,Sud,Sud-Sud-Ouest,Sud-Ouest,Ouest-Sud-Ouest,Ouest,Ouest-Nord-Ouest,Nord-Ouest,Nord-Nord-Ouest,Nord",
+	months_name: "Janvier,Février,Mars,Avril,Mai,Juin,Juillet,Août,Septembre,Octobre,Novembre,Décembre",
+	days_name: "Dimanche,Lundi,Mardi,Mercredi,Jeudi,Vendredi,Samedi",
+	days_near: "Hier,Aujourd'hui,Demain",
+	year: "année,années",
+	month: "mois,mois",
+	day: "jour,jours",
+	hour: "heure,heures",
+	minute: "min,min",
+	second: "sec,sec"
 });

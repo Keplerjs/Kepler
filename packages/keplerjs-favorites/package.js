@@ -18,7 +18,9 @@ Package.onUse(function(api) {
     'plugin.js',
     'i18n/it.js',
     'i18n/en.js',
-	'i18n/de.js'
+	'i18n/de.js',
+	'i18n/es.js',
+	'i18n/fr.js',
   ]);
 
   api.addFiles([

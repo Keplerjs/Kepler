@@ -107,9 +107,14 @@ Meteor.methods({
 	friendAdd: function(pendUserId) {
 		
 		if(!this.userId || this.userId===pendUserId) return null;
-
-		Users.update(this.userId, {$addToSet: {usersPending: pendUserId} });
-		Users.update(pendUserId, {$addToSet: {usersReceive: this.userId} });
+		
+/*		if(Users.find({}).count()) {
+			K.updateFriendship(this.userId, pendUserId);
+		}
+		else {*/
+			Users.update(this.userId, {$addToSet: {usersPending: pendUserId} });
+			Users.update(pendUserId, {$addToSet: {usersReceive: this.userId} });
+		//}
 
 		console.log('Profile: friendAdd Pending', this.userId, pendUserId);
 	},
