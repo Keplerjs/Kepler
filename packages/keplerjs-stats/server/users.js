@@ -14,7 +14,10 @@ WebApp.connectHandlers.use('/stats/users',function(req, res, next) {
 	var features = _.map(data, function(d) {
 		var loc = K.Util.geo.roundLoc(d.loc || d.loclast, 2) || [];
 		return K.Util.geo.createFeature('Point', loc.reverse(), {
-				rank: (d.places.length+1) * (d.friends.length+1) * (d.convers.length+1)* (d.hist.length+1)
+				rank: (d.places && d.places.length+1) * 
+					  (d.friends && d.friends.length+1) * 
+					  (d.convers && d.convers.length+1) *
+					  (d.hist && d.hist.length+1)
 			});
 	});
 
