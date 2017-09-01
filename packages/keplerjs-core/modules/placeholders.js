@@ -14,5 +14,6 @@ Kepler.placeholders = {
 	popupGeojson: [],	
 	itemPlace:  [],
 	itemUser: [],
-	footer: []
+	footer: [],
+	attribution: []
 };

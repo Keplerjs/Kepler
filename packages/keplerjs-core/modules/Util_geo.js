@@ -61,14 +61,14 @@ Kepler.Util.geo = {
 		};
 	},
 
-	createFeature: function(type, coords, props) {
+	createFeature: function(geom, coords, props) {
 		props = props || {};
 		coords = coords || [];
 		return {
 			"type": "Feature",
 			"properties": props,
 			"geometry": {
-				"type": type,
+				"type": geom,
 				"coordinates": coords
 			}
 		};
