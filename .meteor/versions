@@ -55,7 +55,6 @@ keplerjs:api@1.2.1
 keplerjs:conver@1.2.1
 keplerjs:core@1.2.1
 keplerjs:edit@1.2.1
-keplerjs:export@1.2.1
 keplerjs:favorites@1.2.1
 keplerjs:geoinfo@1.2.1
 keplerjs:googlemaps@1.2.1
@@ -65,6 +64,7 @@ keplerjs:notif@1.2.1
 keplerjs:osm@1.2.1
 keplerjs:pois@1.2.1
 keplerjs:share@1.2.1
+keplerjs:stats@1.2.1
 keplerjs:theme@1.2.1
 keplerjs:tracks@1.2.1
 keplerjs:ui@1.2.1

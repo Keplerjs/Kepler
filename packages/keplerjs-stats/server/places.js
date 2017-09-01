@@ -1,5 +1,7 @@
-
-WebApp.connectHandlers.use('/export/places',function(req, res, next) {
+/*
+	//TODO move it in plugin api
+*/
+WebApp.connectHandlers.use('/stats/places',function(req, res, next) {
 
 	console.log('Export: ', req.url)
 
@@ -17,7 +19,7 @@ WebApp.connectHandlers.use('/export/places',function(req, res, next) {
 	});
 
 	data = K.Util.geo.createFeatureColl(features);
-	
+
 	var jsonp = (req.query && req.query.jsonp) || 'jsonpcall';
 
 	res.end(jsonp+'('+JSON.stringify(data)+');');

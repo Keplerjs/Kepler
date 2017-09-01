@@ -1,7 +1,7 @@
 
 Package.describe({
-  name: 'keplerjs:export',
-  summary: 'keplerjs plugin export data',
+  name: 'keplerjs:stats',
+  summary: 'keplerjs plugin statistics data',
   version: "1.2.1",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
