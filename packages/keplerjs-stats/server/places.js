@@ -3,7 +3,7 @@
 */
 WebApp.connectHandlers.use('/stats/places',function(req, res, next) {
 
-	console.log('Export: ', req.url)
+	console.log('Stats: ', req.originalUrl)
 
 	res.writeHead(200, {
 		'Content-type': 'application/json'

@@ -19,7 +19,8 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-    'server/places.js'
+    'server/places.js',
+    'server/users.js'
   ],'server');
 
 });
