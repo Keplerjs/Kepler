@@ -1,5 +1,8 @@
 
 WebApp.connectHandlers.use('/export/places',function(req, res, next) {
+
+	console.log('Export: ', req.url)
+
 	res.writeHead(200, {
 		'Content-type': 'application/json'
 	});
@@ -14,6 +17,8 @@ WebApp.connectHandlers.use('/export/places',function(req, res, next) {
 	});
 
 	data = K.Util.geo.createFeatureColl(features);
+	
+	var jsonp = (req.query && req.query.jsonp) || 'jsonpcall';
 
-	res.end(JSON.stringify(data));
+	res.end(jsonp+'('+JSON.stringify(data)+');');
 });
