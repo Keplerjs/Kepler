@@ -1,7 +1,7 @@
 
 WebApp.connectHandlers.use('/stats/users',function(req, res, next) {
 
-	console.log('Stats: ', req.originalUrl)
+	//console.log('Stats: ', req.originalUrl)
 
 	res.writeHead(200, {
 		'Content-type': 'application/json'
