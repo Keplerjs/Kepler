@@ -1,5 +1,5 @@
 ## keplerjs:stats
 
-keplerjs plugin statistics data
+keplerjs plugin for statistical data analysis
 
 *Experimental*

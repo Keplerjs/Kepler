@@ -33,6 +33,7 @@
     "babel-runtime": "^6.26.0",
     "bcrypt": "^1.0.3",
     "core-js": "^2.5.0",
-    "meteor-node-stubs": "^0.2.11"
+    "meteor-node-stubs": "^0.2.11",
+    "simple-statistics": "^4.1.1"
   }
 }

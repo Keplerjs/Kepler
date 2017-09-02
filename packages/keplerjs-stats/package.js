@@ -6,6 +6,10 @@ Package.describe({
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
+Npm.depends({
+	'geostats': '1.5.0'
+});
+
 Package.onUse(function(api) {
 
   api.versionsFrom("1.5.1");
