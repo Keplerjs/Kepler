@@ -2,10 +2,18 @@
 	Module for main map
 
 	//TODO include Leaflet.GeometryUtil
+
+	//jsdoc: https://github.com/spadgos/sublime-jsdocs
 */
-
+/**
+ * [Map description]
+ * @type {Object}
+ */
 Kepler.Map = {
-
+	/**
+	 * [map description]
+	 * @type {[type]}
+	 */
 	map: null,
 	options: {},
 	layers: {},
@@ -16,13 +24,23 @@ Kepler.Map = {
 		ready: new ReactiveVar(false),
 		bbox: new Tracker.Dependency()
 	},
-
+	/**
+	 * [ready description]
+	 * @param  {[type]} val [description]
+	 * @return {[type]}     [description]
+	 */
 	ready: function(val) {
 		if(!_.isUndefined(val))
 			this._deps.ready.set(val);
 		return this._deps.ready.get();
 	},
-	
+	/**
+	 * [init description]
+	 * @param  {[type]}   div  [description]
+	 * @param  {[type]}   opts [description]
+	 * @param  {Function} cb   [description]
+	 * @return {[type]}        [description]
+	 */
 	init: function(div, opts, cb) {
 
 		var self = this;

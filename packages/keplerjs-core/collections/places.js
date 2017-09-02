@@ -21,6 +21,8 @@ Places.before.insert(function(userId, doc) {
 	doc.userId = userId;
 	//doc.name = K.util.sanitize.name(doc.name)
 	//doc.loc = K.Util.geo.roundLoc(doc.loc);
+
+	console.log('before.insert',doc)
 });
 
 /*

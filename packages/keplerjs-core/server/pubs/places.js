@@ -54,10 +54,10 @@ Meteor.publish('placesByIds', function(placesIds) {
 		this.ready();	
 });
 
-Meteor.publish('placesByDate', function(daysAgo) {
+Meteor.publish('placesByDate', function() {
 	if(this.userId) {
-		console.log('Pub: placesByDate', daysAgo);
-		return K.findPlacesByDate(daysAgo);
+		console.log('Pub: placesByDate');
+		return K.findPlacesByDate();
 	}
 	else
 		this.ready();

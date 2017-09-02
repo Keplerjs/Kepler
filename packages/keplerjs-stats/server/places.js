@@ -7,7 +7,7 @@ WebApp.connectHandlers.use('/stats/places',function(req, res, next) {
 	//console.log('Stats: ', req.originalUrl)
 
 	var data = Places.find({}, {
-		fields: { createdAt:1, loc:1, rank:1, checkins:1, hist:1, convers:1 },
+		fields: { createdAt:1, loc:1, rank:1, checkins:1, hist:1, convers:1, name:1 },
 		sort: { createdAt: -1},
 		//TODO limit
 	}).fetch();
@@ -19,7 +19,6 @@ WebApp.connectHandlers.use('/stats/places',function(req, res, next) {
 				(1+_.size(d.checkins)) * 
 				(1+_.size(d.convers)) *
 				(1+_.size(d.hist));
-
 
 		return {
 			loc: K.Util.geo.roundLoc(d.loc, 2),

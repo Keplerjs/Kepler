@@ -6,11 +6,33 @@
 			<img class="icon-avatar icon-avatar-big" src="{{avatar}}" />
 		</div>
 		<div class="col-xs-8">			
-			{{#if username}}<label>{{i18n 'label_username'}}</label> <span>{{username}}</span><br />{{/if}}
-			{{#if name}}<label>{{i18n 'label_name'}}</label> <span>{{name}}</span><br />{{/if}}
-			<label>{{i18n 'label_signupdate'}}</label> <time>{{humanDate createdAt}}</time>
+		{{#if username}}
+			<label>{{i18n 'label_username'}}</label>
+			<span>{{username}}</span>
 			<br />
-			{{#if city}}<label>{{i18n 'label_city'}}</label> <span class="text-capitalize">{{city}}</span><br />{{/if}}
+		{{/if}}
+
+		{{#if name}}
+			<label>{{i18n 'label_name'}}</label>
+			<span>{{name}}</span>
+			<br />
+		{{/if}}
+
+		{{#if city}}
+			<label>{{i18n 'label_city'}}</label>
+			<span class="text-capitalize">{{city}}</span><br />
+		{{/if}}
+
+		{{#if lang}}
+			<label>{{i18n 'label_lang'}}</label>
+			<i class="icon icon-lang-{{lang}}"></i>
+			{{settings 'langs' lang}}
+			<br />
+		{{/if}}
+
+			<label>{{i18n 'label_signupdate'}}</label> 
+			<time>{{humanDate createdAt}}</time>
+			<br />			
 		</div>
 	</div>
 

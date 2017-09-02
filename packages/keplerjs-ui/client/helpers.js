@@ -5,8 +5,9 @@ Template.registerHelper('absoluteUrl', function(url) {
 	return Meteor.absoluteUrl(url)
 });
 
-Template.registerHelper('settings', function(prop) {
-	return K.Util.getPath(K.settings.public, prop);
+Template.registerHelper('settings', function(prop, subprop) {
+	var path = _.isString(subprop) ? prop+'.'+subprop : prop;
+	return K.Util.getPath(K.settings.public, path);
 });
 
 Template.registerHelper('userById', function(id) {
