@@ -8,7 +8,7 @@ WebApp.connectHandlers.use('/stats/users',function(req, res, next) {
 
 	var data = Users.find({isAdmin: false}, {
 		fields: { createdAt:1, loc:1, loclast:1, places:1, friends:1, convers:1, hist:1, favorites:1 },
-		sort: { createdAt: 1},
+		sort: { createdAt: -1},
 		//TODO limit
 	}).fetch();
 
