@@ -8,7 +8,7 @@ WebApp.connectHandlers.use('/stats/places',function(req, res, next) {
 
 	var data = Places.find({}, {
 		fields: { createdAt:1, loc:1, rank:1, checkins:1, hist:1, convers:1 },
-		sort: { createdAt: -1},
+		sort: { createdAt: 1},
 		//TODO limit
 	}).fetch();
 
