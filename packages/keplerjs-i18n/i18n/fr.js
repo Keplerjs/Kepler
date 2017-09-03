@@ -48,8 +48,8 @@ i18n.map ('fr', {
 
 	btn_ok: "Ok",
 	btn_cancel: "Annuler",
-	btn_checkin: "Entre!",
-	btn_checkout: "Sors!",
+	btn_checkin: "Entre",
+	btn_checkout: "Sors",
 	btn_info: "Info",
 	btn_hist: "Historiques des visites",
 	btn_friends: "Amis",

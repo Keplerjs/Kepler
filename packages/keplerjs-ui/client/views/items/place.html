@@ -1,11 +1,13 @@
 
 <template name="item_place">
+<span class="item-place">
 	<a href="/place/{{id}}/map">
 		<i class="icon icon-map"></i>
 	</a>
 	<a class="btn place-btn-name" href="/place/{{id}}">
 		{{#if name}} {{name}} {{else}}<i>{{i18n 'label_noname'}}</i>{{/if}}
 	</a>
+</span>
 </template>
 
 <template name="item_place_search">
@@ -28,9 +30,6 @@
 		<a class="btn btn-sm btn-default place-btn-checkins" href="/place/{{id}}/checkins">
 			<i class="icon {{#if checkinsCount}} icon-users {{else}} icon-unusers {{/if}}"></i>
 			<span class="badge badge-checkins {{#unless checkinsCount}} bg-gray {{/unless}}">{{checkinsCount}}</span>
-		</a>
-		<a class="place-btn-map btn btn-sm btn-default" href="/place/{{id}}/map">
-			<i class="icon icon-map"></i>
 		</a>
 	</div>
 </template>

@@ -2,6 +2,7 @@
 K.Plugin({
 	name: 'admin',
 	placeholders: {
+		panelProfile: 'panelProfile_admin',
 		panelPlace: 'panelPlace_admin',
 		panelUser: 'panelUser_admin'
 	},

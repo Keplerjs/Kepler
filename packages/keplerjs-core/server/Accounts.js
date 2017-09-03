@@ -114,9 +114,9 @@ Accounts.onCreateUser(function(options, user) {
 	
 	var retuser = _.extend({}, user, K.schemas.user, {
 		createdAt: K.Util.time(),
-		username: K.Util.sanitize.name(username),
-		profile: profile,		
-		name: name,
+		username: K.Util.sanitize.username(username),
+		profile: profile,
+		name: K.Util.sanitize.name(name),
 		lang: lang.substr(0,2),
 		avatar: avatar,
 		gender: gender,

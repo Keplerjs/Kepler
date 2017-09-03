@@ -30,6 +30,7 @@
 .conver-item .icon-avatar {
 	height: 18px;
 	width: 18px;
+	background-size: 18px;
 }
 
 .conver-item .user-btn-name:after {

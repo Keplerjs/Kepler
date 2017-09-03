@@ -107,15 +107,21 @@ Kepler.Place = Class.extend({
 		return this.checkins && this.checkins.length;
 	}
 });
-
-Kepler.extend({
-	placesById: {},
-	placeById: function(id) {
-		check(id, String);
-		
-		if(!K.placesById['id_'+id] && K.findPlaceById(id).fetch()[0])
-			K.placesById['id_'+id] = new K.Place(id);
-		
-		return K.placesById['id_'+id] || null;
-	}
-});
+/**
+ * place instances index
+ * @type {Object}
+ */
+Kepler.placesById = {};
+/**
+ * create new Place instance or return it if exists
+ * @param  {String} id Mongo Id
+ * @return {Place}   K.Place instance
+ */	
+Kepler.placeById = function(id) {
+	check(id, String);
+	
+	if(id && !K.placesById['id_'+id] && K.findPlaceById(id).fetch()[0])
+		K.placesById['id_'+id] = new K.Place(id);
+	
+	return K.placesById['id_'+id] || null;
+};

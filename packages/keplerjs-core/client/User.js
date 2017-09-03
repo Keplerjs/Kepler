@@ -128,15 +128,21 @@ Kepler.User = Class.extend({
 			return this.checkin;
 	}
 });
-
-Kepler.extend({
-	usersById: {},
-	userById: function(id) {
-		check(id, String);
-		
-		if(!K.usersById['id_'+id] && K.findUserById(id).fetch()[0])
-			K.usersById['id_'+id] = new K.User(id);
-		
-		return K.usersById['id_'+id] || null;
-	}
-});
+/**
+ * user instances index
+ * @type {Object}
+ */
+Kepler.usersById = {};
+/**
+ * create new User instance or return it if exists
+ * @param  {String} id Mongo Id
+ * @return {User}   K.User instance
+ */
+Kepler.userById = function(id) {
+	check(id, String);
+	
+	if(!K.usersById['id_'+id] && K.findUserById(id).fetch()[0])
+		K.usersById['id_'+id] = new K.User(id);
+	
+	return K.usersById['id_'+id] || null;
+};

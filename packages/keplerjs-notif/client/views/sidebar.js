@@ -1,11 +1,11 @@
 
 /*
-Template.sidebarNav_notif.onCreated(function () {
+Template.navSidebar_notif.onCreated(function () {
   
 });
 */
-//Template.sidebarNav_notif.onRendered(function() {
-Template.sidebarNav_notif.onCreated(function () {
+//Template.navSidebar_notif.onRendered(function() {
+Template.navSidebar_notif.onCreated(function () {
 	
 	Tracker.autorun(function(comp) {
 

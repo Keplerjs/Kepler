@@ -17,8 +17,8 @@ i18n.map('it', {
 
 	btn_ok: "Ok",
 	btn_cancel: "Annulla",
-	btn_checkin: "Entra!",
-	btn_checkout: "Esci!",
+	btn_checkin: "Entra",
+	btn_checkout: "Esci",
 	btn_info: "Info",
 	btn_hist: "Visite",
 	btn_friends: "Amici", 		

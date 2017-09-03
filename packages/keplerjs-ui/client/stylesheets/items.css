@@ -1,7 +1,9 @@
 
-.list-group > .list-group-item > div {
-	height: auto;
-	overflow: hidden;
+.item-place,
+.friend-item {
+	white-space: nowrap;
+	width: 100%;
+	display: inline-block;
 }
 .user-btn-name,
 .place-btn-name {
@@ -11,16 +13,16 @@
 	margin: 0;
 	font-size: 14px;	
 	line-height: 30px;
-	/*TODO
-		width: 100px;
-  	text-overflow: ellipsis;
-  	*/
+	text-align: left;
+
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .user-btn-name u {
 	text-decoration: none;
 	margin-left: 2px;
 }
-
 /* item place */
 .place-btn-mes .badge:not(.bg-gray) {
 	color:#fff;
@@ -53,4 +55,9 @@
 .place-btn-checkin.btn-default.active {
 	background-color: none;
 	box-shadow: none;
+}
+
+.list-group > .list-group-item > div {
+	height: auto;
+	overflow: hidden;
 }

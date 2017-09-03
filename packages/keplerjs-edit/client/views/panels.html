@@ -41,7 +41,7 @@
 </template>
 
 <template name="panelUser_edit">
-{{#if isFriend}}
+{{#if and isFriend places.length}}
 	<ul class="list-group">
 		<li class="list-group-item active">		
 			<span>{{i18n 'label_editplaces'}}</span>

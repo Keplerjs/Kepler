@@ -2,7 +2,8 @@
 	list of core placeholders and loaded temaplates for each
 */
 Kepler.placeholders = {
-	sidebarNav: [],
+	navSidebar: [],
+	tabLocation: [],
 	pageHome: [],
 	panelSettings: [],	
 	panelProfile: [],

@@ -1,5 +1,4 @@
 .icon,
-.icon-avatar,
 .marker-anim,
 .marker-cursor,
 .marker-handledrag,
@@ -27,6 +26,16 @@
 .icon.icon-loader {
 	background: url("/packages/keplerjs_theme/assets/images/loader-icon.gif") no-repeat;
 }
+.icon-avatar {
+	background: url("/packages/keplerjs_theme/assets/images/avatar.svg") no-repeat;
+    background-size: cover;
+	height: 30px;
+	width: 30px;
+}
+.icon-avatar.icon-avatar-big {
+	height: 90px;
+	width: 90px;
+}
 
 .icon {
 	position: relative;
@@ -37,16 +46,6 @@
 	vertical-align: text-bottom;/*non modificare!*/
 	height: 18px;
 	width: 18px;
-}
-.icon-avatar {
-	height: 30px;
-	width: 30px;
-}
-.icon-avatar.icon-avatar-big {
-	height: 90px;
-	width: 90px;
-	background-position: 0 -990px;
-    background-size: 1000%
 }
 div.icon-marker,
 div.leaflet-marker-icon {
@@ -125,8 +124,6 @@ div.leaflet-marker-icon {
 /* ICON UI */
 .icon-profile{ background-position: 0 -270px; } 
 .icon-friends{ background-position: 0 -300px; }
-.icon-avatar { background-position: 0 -330px; }
-
 
 .icon-status-connected{ background-position: 0 -210px;  } 
 .icon-status-failed,

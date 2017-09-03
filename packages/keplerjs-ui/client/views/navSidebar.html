@@ -1,5 +1,5 @@
 
-<template name="sidebarNav">
+<template name="navSidebar">
 	<ul class="nav nav-pills" role="tablist">
 		<li class="{{ifRoute 'profile' 'active'}}">
 			<a class="btn btn-sm" href="{{pathFor route='profile'}}" role="tab">
@@ -19,7 +19,7 @@
 				<span> {{i18n 'btn_places'}}</span>
 			</a>
 		</li>
-		{{> pluginPlaceholder name='sidebarNav'}}
+		{{> pluginPlaceholder name='navSidebar'}}
 
 		<li class="pull-right">
 			{{> btnConnect}}

@@ -51,8 +51,8 @@ i18n.map('sv', {
 
 	btn_ok: "Ok",
 	btn_cancel: "Avbryt",
-	btn_checkin: "Checka in!",
-	btn_checkout: "Check ut!",
+	btn_checkin: "Checkain",
+	btn_checkout: "Checkut",
 	btn_info: "Info",
 	btn_hist: "Besökshistorik",
 	btn_friends: "Vänner",

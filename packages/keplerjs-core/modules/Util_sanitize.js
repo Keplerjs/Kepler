@@ -21,9 +21,19 @@ Kepler.Util.sanitize = {
 			.replace(/_+/g,' ')
 			.replace(/-+/g,' ')
 			.replace(/’+/g,'\'')
-			.replace(/[^a-z0-9\.' ]/g,'')
-			.replace(/\//g,'');
+			.replace(/[^a-z0-9\.' ]/g,'');
 		return _.str.clean(name);
+	},
+
+	username: function(uname) {
+		uname = _.str.clean(uname) || '';
+		uname = uname.toLowerCase()
+			.replace(/_+/g,' ')
+			.replace(/-+/g,' ')
+			.replace(/’+/g,'\'')
+			.replace(/[ ]/g,'.')
+			.replace(/[^a-z0-9\.]/g,'');
+		return uname.substr(0,16);
 	},
 
 	filename: function(name) {

@@ -38,8 +38,10 @@ Kepler.Util.valid = {
 				(lng != NaN && lng <= 90 && lng >= -90);
 	},
 
-	nameUser: function(name) {
-		var reg = /^[a-zA-Z ]{3,30}$/;
+	name: function(name) {
+		//maintain regexp compatible with K.Util.sanitize.name!!!
+		//...replace(/[^a-z0-9\.' ]/g,'');
+		var reg = /^[a-z0-9\.' ]$/;
 		return reg.test(name);
 	},
 	
