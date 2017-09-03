@@ -37,7 +37,7 @@ _.extend(Kepler.Map, {
 
 				K.Profile.setLoc(loc);
 
-				K.Map.showLoc(loc);
+				K.Map.setView(loc);
 			},
 			'gps:disabled': function(e) {
 				K.Profile.setLoc(null);

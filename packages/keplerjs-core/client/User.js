@@ -24,10 +24,9 @@ Kepler.User = Class.extend({
 			return self;
 		};
 
-		self.update = function(){};
-
-		Tracker.autorun(function(comp) {	//sincronizza istanza con dati nel db
-
+		//self.update = function(){};
+		//Tracker.autorun(function() {	//sincronizza istanza con dati nel db
+		self.update = function() {
 			self.id =  self._id;
 
 			if(self.isMe())
@@ -51,8 +50,8 @@ Kepler.User = Class.extend({
 			self._dep.changed();
 
 			return self;
-		});
-		//Tracker.autorun( self.update );	//TODO aggiornare solo se amico
+		};
+		Tracker.autorun( self.update );	//TODO aggiornare solo se amico
 	},
 
 	buildMarker: function() {

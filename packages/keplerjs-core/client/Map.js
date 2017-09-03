@@ -171,7 +171,10 @@ Kepler.Map = {
 		}
 		return this;
 	},
-
+	/**
+	 * get current bounding box of map
+	 * @return {[Array,Array]} "[[sw.lat, sw.lng], [ne.lat, ne.lng]]"
+	 */
 	getBBox: function() {
 		if(this.ready()) {
 			this._deps.bbox.depend();
@@ -189,14 +192,20 @@ Kepler.Map = {
 			return K.Util.geo.roundBbox([[sw.lat, sw.lng], [ne.lat, ne.lng]]);
 		}
 	},
-	
+	/**
+	 * getCenter of the map
+	 * @return {Array} location
+	 */
 	getCenter: function() {
 		if(this.ready()){
 			var ll = L.latLngBounds(this.getBBox()).getCenter();
 			return [ll.lat, ll.lng];
 		}
 	},
-
+	/**
+	 * add instance of Place or User to map
+	 * @param {Place|User} item [description]
+	 */
 	addItem: function(item) {
 		if(this.ready() && item && item.marker) {
 			if(item.type==='place')
@@ -217,7 +226,12 @@ Kepler.Map = {
 		}
 		return this;
 	},
-
+	/**
+	 * show location on map
+	 * @param  {Array}    loc location to show
+	 * @param  {Function} cb  callback on location shown
+	 * @return {K.Map}       [description]
+	 */
 	showLoc: function(loc, cb) {
 		if(this.ready()) {
 
