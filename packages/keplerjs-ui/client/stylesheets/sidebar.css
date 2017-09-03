@@ -35,6 +35,7 @@
     padding: 0   
 }
 .sidebar > .nav > li {
+	min-width: 34px;
     height: 34px;
     margin: 4px 2px 2px 0;
 }

@@ -4,6 +4,20 @@
 
 <template name="item_conver">
 	<div class="conver-item">
+		<span class="btn-group btn-group-justified">	
+			<a class="btn btn-sm conver-title" href="/conver/{{_id}}">
+				<i class="icon icon-mes"></i> {{tit}}
+			</a>
+			<div class="pull-right">
+				<time>{{humanTime date 1}}</time>
+				{{#if isMine}}
+				<a class="btn btn-sm btn-default conver-btn-del" href="#" data-confirm-msg="{{i18n 'btn_converdel'}}">
+					<i class="icon icon-del"></i>
+				</a>
+				{{/if}}
+			</div>
+		</span>		
+		
 		{{#if target}}
 		<span class="conver-target">
 			{{#with target}}
@@ -12,29 +26,13 @@
 		</span>
 		{{/if}}
 		{{#if usersIds}}
-		&bull;
-		<span class="conver-users">
+		<span class="conver-users pull-right">
 		{{#each usersIds}}
 			{{#with userById this}}
 				{{> item_user_name}}
 			{{/with}}
 		{{/each}}
 		</span>
-		<br />
 		{{/if}}
-		<span class="conver-title">
-			<a class="btn btn-link btn-xs" href="/conver/{{_id}}">
-				{{tit}}
-			</a>
-		</span>
-		<div class="pull-right">
-			<time>{{humanTime date 1}}</time>
-			<a class="btn btn-sm btn-default" href="/conver/{{_id}}">
-				<i class="icon icon-mes"></i>
-			</a>			
-			<a class="btn btn-sm btn-default conver-btn-del" href="#" data-confirm-msg="{{i18n 'btn_converdel'}}">
-				<i class="icon icon-del"></i>
-			</a>
-		</div>
 	</div>
 </template>

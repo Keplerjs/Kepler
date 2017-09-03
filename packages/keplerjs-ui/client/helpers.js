@@ -18,9 +18,9 @@ Template.registerHelper('placeById', function(id) {
 	return K.placeById(id);
 });
 
-Template.registerHelper('ifRoute', function(name, classTrue, classFalse) {
+Template.registerHelper('ifRoute', function(name, classTrue) {
 	var cur = Router.current();
-	return cur.route && cur.route.getName()===name ? classTrue : classFalse;
+	return cur.route && cur.route.getName()===name ? classTrue : '';
 });
 
 Template.registerHelper('routeTitle', function() {

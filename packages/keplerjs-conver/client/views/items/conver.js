@@ -12,6 +12,11 @@ Template.item_conver.onRendered(function() {
 });
 
 Template.item_conver.helpers({
+	isMine: function() {
+		return (this.targetType==='place' && this.userId === K.Profile.id) ||
+			   (this.targetType==='user' && this.userId === K.Profile.id) ||
+			   (this.targetType==='user' && this.targetId === K.Profile.id);
+	},
 	target: function() {
 
 		if(this.targetType==='place')
@@ -31,10 +36,10 @@ Template.item_conver.helpers({
 		var title  = '...';
 
 		if(this.targetType==='place')
-			title = _.str.truncate(this.title, 30);
+			title = _.str.truncate(this.title, 60);
 
 		else if(this.targetType==='user')
-			title = this.lastMsg ? _.str.truncate(_.str.stripTags(this.lastMsg.body), 30) : i18n('title_msgpriv');
+			title = this.lastMsg ? _.str.truncate(_.str.stripTags(this.lastMsg.body), 60) : i18n('title_msgpriv');
 
 		return title;
 	},
