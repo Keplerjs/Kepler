@@ -187,3 +187,11 @@ header h4,
 .alert.alert-online .close { color: #3eae3e }
 .alert.alert-users .close { color: #f59614 }
 .alert.alert-mes .close { color: #5FB3D8 }
+
+
+.tooltip-inner {
+    background-color: #257;
+}
+.tooltip.top .tooltip-arrow {
+    border-top-color: #257;
+}

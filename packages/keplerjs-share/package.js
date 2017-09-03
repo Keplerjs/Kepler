@@ -26,6 +26,7 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'client/views/popups.html',
+    'client/views/popups.js',
     'client/views/panels.html',
     'client/views/panels.js',
     'client/router.js'

@@ -26,7 +26,7 @@ Template.panelPlace_share.onRendered(function() {
 			return self.find('.input-share');
 		}
 	}).on('success', function() {
-		self.$('.btn-share').tooltip('show');
+		self.$('.btn-share').tooltip({title: i18n('btn_copied') }).tooltip('show');
 		self.$('.input-share').blur()
 	})
 });

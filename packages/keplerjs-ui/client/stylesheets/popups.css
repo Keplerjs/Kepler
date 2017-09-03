@@ -40,11 +40,15 @@
 
 .popup-tit {
 	text-transform: capitalize;
-	margin-bottom: 8px;
 	border: none;
 }
 
 .btn.disabled.popup-btn-star {/*patch*/
 	overflow: hidden;
 	opacity: 1;
+}
+
+.leaflet-popup-content .btn-block {
+	text-align:left;
+	margin-bottom: 4px;
 }

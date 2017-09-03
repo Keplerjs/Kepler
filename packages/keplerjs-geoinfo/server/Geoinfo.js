@@ -121,7 +121,7 @@ Kepler.Geoinfo = {
 Meteor.methods({
 	findGeoinfoByLoc: function(loc, fields) {
 
-		if(!this.userId && !K.Util.valid.loc(loc)) return null;
+		if(!this.userId || !K.Util.valid.loc(loc)) return null;
 
 		console.log('Geoinfo: findGeoinfoByLoc...', loc, fields);
 

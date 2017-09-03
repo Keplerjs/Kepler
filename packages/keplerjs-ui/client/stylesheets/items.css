@@ -5,6 +5,12 @@
 	width: 100%;
 	display: inline-block;
 }
+
+.item-place a:hover {
+	text-decoration: none;
+}
+
+
 .user-btn-name,
 .place-btn-name {
 	text-transform:capitalize;	

@@ -1,6 +1,10 @@
 
 <template name="popupCursor_share">
-	<a class="btn btn-default btn-sm btn-block" href="/map/{{humanLoc loc}}">
-		<i class="icon icon-share"></i> {{humanLoc loc}}
+
+	<div>
+	<a class="btn btn-sm btn-default btn-block btn-share" data-clipboard-text="{{absoluteUrl 'map/'}}{{humanLoc loc}}" href="#">
+		<i class="icon icon-share"></i> {{humanLoc loc 5}}
 	</a>
+	</div>	
+
 </template>
