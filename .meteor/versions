@@ -57,6 +57,7 @@ keplerjs:core@1.2.1
 keplerjs:edit@1.2.1
 keplerjs:favorites@1.2.1
 keplerjs:geoinfo@1.2.1
+keplerjs:googlemaps@1.2.2
 keplerjs:i18n@1.2.1
 keplerjs:lib@1.2.1
 keplerjs:notif@1.2.1
@@ -68,7 +69,7 @@ keplerjs:theme@1.2.1
 keplerjs:tracks@1.2.1
 keplerjs:ui@1.2.1
 keplerjs:upload@1.2.1
-keplerjs:weather@1.2.1
+keplerjs:wunderground@1.2.4
 kidovate:bootstrap-slider@0.0.5
 livedata@1.0.18
 localstorage@1.1.1
