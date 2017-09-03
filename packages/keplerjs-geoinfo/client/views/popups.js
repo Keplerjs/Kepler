@@ -22,9 +22,11 @@ Template.popupUser_geoinfo.onCreated(function() {
 
 	self.showFields = {
 		"loc": true,
+		"near": true,
+		//"come": true,
+		"prov": true,
 		//"reg": true,
-		//"com": true,
-		"near": true
+		"naz": true
 	};
 
 	self.userData = Template.currentData();

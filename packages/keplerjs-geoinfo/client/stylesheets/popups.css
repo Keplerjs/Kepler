@@ -1,8 +1,14 @@
 
-.popup-geoinfo {
+.geoinfo-admins {
 	text-transform: capitalize;
-	color: #333;
-	background-color: #fff;
-	padding: 4px 15px;
-	margin: 1px;
+	color: #257;
+	display: inline-block;
+	padding: 5px;
+}
+
+.geoinfo-admins span:after {
+	content: ",";
+}
+.geoinfo-admins span:last-child:after {
+    content: "";
 }

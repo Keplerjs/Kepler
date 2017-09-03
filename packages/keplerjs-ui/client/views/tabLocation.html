@@ -17,6 +17,9 @@
 					</div>
 					{{/with}}
 				{{/if}}
+
+				{{> pluginPlaceholder name='tabLocation'}}
+				
 			</div>
 		</li>
 		{{#if and getCheckin isMe}}
@@ -42,12 +45,12 @@
 	{{/with}}
 
 {{else}}
-{{#if getLoc}}
+	{{#if getLoc}}
 
-	<a class="btn btn-sm btn-default" href="/user/{{id}}/map">
-		<i class="icon icon-map"></i>
-	</a>
+		<a class="btn btn-sm btn-default" href="/user/{{id}}/map">
+			<i class="icon icon-map"></i>
+		</a>
 
-{{/if}}
+	{{/if}}
 {{/if}}
 </template>
