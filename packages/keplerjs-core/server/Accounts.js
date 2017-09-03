@@ -72,7 +72,7 @@ Accounts.onCreateUser(function(options, user) {
 		username = user.services.facebook.username || name;
 		avatar = 'http://graph.facebook.com/'+user.services.facebook.id+'/picture';
 		gender = user.services.facebook.gender;
-		lang = user.services.facebook.locale.substr(0,2);		
+		lang = user.services.facebook.locale;		
 		emails = [{
 			address: user.services.facebook.email,
 			verified: true
@@ -86,7 +86,7 @@ Accounts.onCreateUser(function(options, user) {
 		username = name;
 		avatar = user.services.google.picture;
 		gender = user.services.google.gender;
-		lang = user.services.google.locale.substr(0,2);		
+		lang = user.services.google.locale;		
 		emails = [{
 			address: user.services.google.email,
 			verified: user.services.google.verified_email
@@ -117,7 +117,7 @@ Accounts.onCreateUser(function(options, user) {
 		username: K.Util.sanitize.name(username),
 		profile: profile,		
 		name: name,
-		lang: lang,
+		lang: lang.substr(0,2),
 		avatar: avatar,
 		gender: gender,
 		emails: emails,
