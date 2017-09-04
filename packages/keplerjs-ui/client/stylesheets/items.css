@@ -20,10 +20,9 @@
 	font-size: 14px;	
 	line-height: 30px;
 	text-align: left;
-
-	display: inline-block;
+	/*display: inline-block;
 	overflow: hidden;
-	text-overflow: ellipsis;
+	text-overflow: ellipsis;*/
 }
 .user-btn-name u {
 	text-decoration: none;
