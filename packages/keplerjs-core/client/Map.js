@@ -248,7 +248,8 @@ Kepler.Map = {
 	},
 
 	addGeojson: function(geoData, opts, cb) {
-
+		opts = opts || {};
+		cb = cb || $.noop;
 		//TODO implement opts.bbox to fitbounds of contents
 		var self = this;
 		if(this.ready()) {
@@ -267,18 +268,24 @@ Kepler.Map = {
 					this.layers.geojson.addData(geoData[i]);
 			}
 
-			if(opts && opts.style)
+			if(opts.style)
 				this.layers.geojson.setStyle(opts.style);
 			
-			if(_.isFunction(cb))
-				this.map.once("moveend zoomend", cb);
-			
-			if(opts && opts.bbox)
-				self.fitBounds(bbox);
+			if(opts.noFitBounds) {
+				cb();
+			}
 			else
-				setTimeout(function() {
-					self.fitBounds(self.layers.geojson.getBounds());
-				},100);//geojson.addData() is slowly!
+			{
+				this.map.once("moveend zoomend", cb);
+
+				if(opts.bbox)
+					self.fitBounds(bbox);
+				else
+					setTimeout(function() {
+						self.fitBounds(self.layers.geojson.getBounds());
+					},100);//geojson.addData() is slowly!
+			}
+			
 		}
 		return this;
 	},

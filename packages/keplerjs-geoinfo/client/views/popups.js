@@ -1,6 +1,6 @@
 
 
-Template.popupGeoinfo.helpers({
+Template.tabGeoinfo.helpers({
 	fields: function() {
 
 		var ret = {},
@@ -16,7 +16,7 @@ Template.popupGeoinfo.helpers({
 });
 
 //https://stackoverflow.com/questions/22147813/how-to-use-meteor-methods-inside-of-a-template-helper
-Template.popupUser_geoinfo.onCreated(function() {
+Template.tabLocation_geoinfo.onCreated(function() {
 	
 	var self = this;
 
@@ -29,11 +29,11 @@ Template.popupUser_geoinfo.onCreated(function() {
 		"naz": true
 	};
 
-	self.userData = Template.currentData();
+	self.data = Template.currentData();
 
     self.geoinfo = new ReactiveVar();
 
-    Meteor.call('findGeoinfoByLoc', self.userData.loc, self.showFields, function(err, data) {
+    Meteor.call('findGeoinfoByLoc', self.data.loc, self.showFields, function(err, data) {
 
 		if(err)
             console.log(err);
@@ -42,8 +42,28 @@ Template.popupUser_geoinfo.onCreated(function() {
 	});
 });
 
-Template.popupUser_geoinfo.helpers({
+Template.tabLocation_geoinfo.helpers({
 	fields: function() {
 		return Template.instance().geoinfo.get();
+	}
+});
+
+Template.popupCursor_geoinfo.events({
+	'click .btn-geoinfo': function(e,tmpl) {
+
+		var icon$ = $(e.target).find('.icon');
+		$(e.target).addClass('disabled');
+		icon$.addClass('icon-loader');
+
+	    K.Geoinfo.loadByLoc(tmpl.data.loc, function(data) {
+			$(e.target).removeClass('disabled');
+			icon$.removeClass('icon-loader');
+		});
+	}
+});
+
+Template.popupGeojson_geoinfo.helpers({
+	fields: function() {
+		return Template.currentData().properties;
 	}
 });

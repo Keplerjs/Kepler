@@ -3,8 +3,8 @@ K.Plugin({
 	name: 'geoinfo',
 	placeholders: {
 		panelPlace: 'panelPlace_geoinfo',
-		tabLocation: 'popupUser_geoinfo',
-		//popupUser: 'popupUser_geoinfo'
+		tabLocation: 'tabLocation_geoinfo',
+		popupCursor: 'popupCursor_geoinfo'
 	},	
 	schemas: {
 		place: {
