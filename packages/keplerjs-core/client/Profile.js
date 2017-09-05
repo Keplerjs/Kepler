@@ -56,7 +56,8 @@ Kepler.Profile = {
 	getOnline: function() {
 		var self = this;
 		this._deps.online.depend();
-		return self.data.status==='online' || self.data.status==='away';
+		//TODO var mstatus = Meteor.status(); mstatus.connected &&
+		return (self.data.status==='online' || self.data.status==='away');
 	},	
 	setOnline: function(online) {
 		/*var self = this;
