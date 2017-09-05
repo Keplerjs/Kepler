@@ -41,6 +41,9 @@
 .popup-tit {
 	text-transform: capitalize;
 	border: none;
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;	
 }
 
 .btn.disabled.popup-btn-star {/*patch*/
