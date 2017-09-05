@@ -36,7 +36,7 @@ Kepler.Profile = {
 			if(self.data.checkin)
 				self.placeCheckin = K.placeById(self.data.checkin);
 
-			if(self.data.online)
+			if(self.data.status==='online' || self.data.status==='away')
 				Meteor.subscribe('friendsByIds', K.Profile.data.friends, function() {
 					_.map(K.Profile.data.friends, function(id) {
 						K.Map.addItem(K.userById(id));
@@ -53,8 +53,13 @@ Kepler.Profile = {
 
 		return this;
 	},
-	setOnline: function(online) {
+	getOnline: function() {
 		var self = this;
+		this._deps.online.depend();
+		return self.data.status==='online' || self.data.status==='away';
+	},	
+	setOnline: function(online) {
+		/*var self = this;
 		online = online ? 1 : 0;
 		if(online !== this.data.online)
 			Users.update(Meteor.userId(), {
@@ -64,7 +69,8 @@ Kepler.Profile = {
 				}
 			}, function(err) {
 				self._deps.online.changed();
-			});
+			});*/
+		Meteor.call('UserPresence:setDefaultStatus', online?'online':'offline');
 		return this;
 	},
 	setLoc: function(loc) {
@@ -76,10 +82,6 @@ Kepler.Profile = {
 		});
 		return this;
 	},	
-	getOnline: function() {
-		this._deps.online.depend();
-		return !!this.data.online;
-	},
 	getOpts: function(prop) {
 		return K.Util.getPath(this.data,'settings.'+prop);
 	},

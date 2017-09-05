@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8284271"
-     inkscape:cx="140.67746"
-     inkscape:cy="294.00261"
+     inkscape:zoom="5.6568542"
+     inkscape:cx="154.36854"
+     inkscape:cy="395.33874"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -91,6 +91,18 @@
   </sodipodi:namedview>
   <defs
      id="defs4">
+    <linearGradient
+       id="linearGradient6223"
+       inkscape:collect="always">
+      <stop
+         id="stop6225"
+         offset="0"
+         style="stop-color:#ffcd06;stop-opacity:1" />
+      <stop
+         id="stop6227"
+         offset="1"
+         style="stop-color:#ffeca1;stop-opacity:1" />
+    </linearGradient>
     <linearGradient
        inkscape:collect="always"
        id="linearGradient7441">
@@ -18657,6 +18669,15 @@
        y1="354.32645"
        x2="177.625"
        y2="378.73697" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6223"
+       id="linearGradient6221"
+       gradientUnits="userSpaceOnUse"
+       x1="428.06491"
+       y1="336.16379"
+       x2="428.06491"
+       y2="322.42349" />
   </defs>
   <metadata
      id="metadata7">
@@ -22924,6 +22945,19 @@
            sodipodi:type="arc" />
       </g>
     </g>
+    <path
+       inkscape:export-ydpi="24.438169"
+       inkscape:export-xdpi="24.438169"
+       inkscape:export-filename="/public/images/mini-online.png"
+       transform="matrix(0.55249965,0,0,0.55249965,-77.324705,518.44105)"
+       d="m 436.85215,331.08105 a 9.1010866,9.1010866 0 1 1 -18.20217,0 9.1010866,9.1010866 0 1 1 18.20217,0 z"
+       sodipodi:ry="9.1010866"
+       sodipodi:rx="9.1010866"
+       sodipodi:cy="331.08105"
+       sodipodi:cx="427.75107"
+       id="path6219"
+       style="color:#000000;fill:url(#linearGradient6221);fill-opacity:1;fill-rule:evenodd;stroke:#eca800;stroke-width:1.20000005000000010;stroke-opacity:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       sodipodi:type="arc" />
   </g>
   <style
      id="style6085"

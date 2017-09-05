@@ -34,12 +34,7 @@
 			<div class="row">
 				<div class="col-xs-4">
 					<label class="btn btn-sm">
-					<i class="icon icon-{{#if isOnline}}online{{else}}offline{{/if}}{{#if mob}}-mob{{/if}} user-device"></i> 
-					{{#if isOnline}}
-					<b class="text-green">online</b>
-					{{else}}
-					<b class="text-gray">offline</b>
-					{{/if}}
+					{{> status_user}}
 					</label>
 				</div>
 				<div class="col-xs-8 text-right">

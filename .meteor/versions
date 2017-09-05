@@ -71,6 +71,7 @@ keplerjs:ui@1.2.1
 keplerjs:upload@1.2.1
 keplerjs:wunderground@1.2.4
 kidovate:bootstrap-slider@0.0.5
+konecty:user-presence@1.2.9
 livedata@1.0.18
 localstorage@1.1.1
 logging@1.1.17
@@ -88,6 +89,7 @@ mrt:imagemagick@0.1.2
 mrt:modernizr-meteor@2.6.2
 mstn:accounts-openstreetmap@0.2.0
 mstn:openstreetmap-oauth@0.1.0
+nooitaf:colors@1.1.2_1
 npm-bcrypt@0.9.3
 npm-mongo@2.2.30
 oauth@1.1.13

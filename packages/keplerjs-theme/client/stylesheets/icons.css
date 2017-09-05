@@ -173,6 +173,7 @@ div.leaflet-marker-icon {
 .icon-offline-mob{ background-position: -150px 0;  }
 .icon-online{ background-position: -120px -30px;  }  
 .icon-offline{ background-position: -150px -30px;  } 
+.icon-away{ background-position: -150px -240px;  } 
 
 .icon-notif{ background-position: -120px -60px;  }
 .icon-unnotif{ background-position: -150px -60px;  }  

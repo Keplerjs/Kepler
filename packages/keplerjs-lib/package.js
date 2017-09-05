@@ -75,6 +75,9 @@ Package.onUse(function(api) {
     'twbs:bootstrap@3.3.6',
     'ian:accounts-ui-bootstrap-3@1.2.89',
     'mstn:accounts-openstreetmap@0.2.0',
+
+	'nooitaf:colors@1.1.2_1',	//https://www.npmjs.com/package/colors
+    'konecty:user-presence@1.2.9'
   ];
 
   api.use(packages);

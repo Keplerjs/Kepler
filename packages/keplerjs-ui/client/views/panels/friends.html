@@ -1,13 +1,16 @@
 
 <template name="search_user">
 	<form class="form-horizontal">
-		<div class="form-group has-feedback col-xs-9">
+		<div class="form-group has-feedback col-xs-7">
 			<!--div class="input-group"--> 
 				<input class="users-search form-control" type="text" placeholder="{{i18n 'label_findusers'}}" /> 
 				<!--span class="input-group-addon"><i class="icon icon-search"></i></span>
 			</div-->
 		</div>
 		<div class="text-right">
+			{{#with currentUser}}
+				{{> status_user}}
+			{{/with}}
 			<input class="form-control" id="switch_online" type="checkbox" />
 		</div>
 	</form>

@@ -83,13 +83,16 @@ a.list-group-item {
 	color: #aaa;
 }
 .text-green {
-	color: #5cb85c
+	color: #5cb85c;
+}
+.text-yellow {
+	color: #f6c32d;
 }
 .text-primary {
     color: #257;
 }
 .btn-default {
-	color: #257
+	color: #257;
 }
 
 .badge {

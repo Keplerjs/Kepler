@@ -28,15 +28,17 @@ Kepler.schemas = {
 		emails: [], 
 		profile: {},		//user data
 		avatar: '',		   //user photo
-		status: '',        //status mood message, shown in profile
+		status: '',        //
+		statusDefault: '', 
+		statusConnection:'',
+		mood: '',		   //status mood message, shown in profile
+
 		gender: '',
 		city: '',
 		lang: 'it',
 		loc: null,		   //current gps position
 		loclast: null,	   //lat gps position
 		checkin: null,	   //id Place where I am
-		online: 0,		   //stato di visibilita rispetto ai miei friends
-		onlinelast: null,  //last online status datetime
 		mob:0,			   //if my device is mobile
 		friends: [],	   //ids users friends
 		usersPending: [],  //ids users that I send request

@@ -36,7 +36,8 @@ Kepler.User = Class.extend({
 			
 			_.extend(self, self.data);
 
-			if(self.online && self.loc && !self.checkin)
+			if( (self.status==='online' ) && 
+				self.loc && !self.checkin)
 			{
 				self.buildMarker();
 
@@ -115,7 +116,7 @@ Kepler.User = Class.extend({
 	isOnline: function() {
 		this._dep.depend();
 		if(K.Profile.getOnline() && this.isFriend() || this.isMe())
-			return this.online;
+			return this.status==='online';
 	},
 	getLoc: function() {
 		this._dep.depend();	

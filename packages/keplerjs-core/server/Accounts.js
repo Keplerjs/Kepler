@@ -25,13 +25,13 @@ Accounts.onLogin(function(e) {
 	var ip = e.connection.httpHeaders['x-real-ip'] || e.connection.clientAddress;
 	
 	console.log('Accounts: onLogin ',e.user.username, ip);
-
+/*
 	if(e.user && e.user._id)
 		Users.update(e.user._id, {
 			$set: {
 				online: 1
 			}
-		});
+		});*/
 });
 
 Accounts.onLoginFailure(function(e) {
