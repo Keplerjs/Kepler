@@ -35,7 +35,13 @@ K.extend({
 
 		//TODO show friend location only if me is online
 
-		return Users.find({_id: usersIds }, K.filters.friendItem);
+		return Users.find({_id: usersIds }, _.extend({}, K.filters.friendItem, {
+				sort: {
+					status: -1,
+					name: 1
+				}
+			})
+		);
 	},
 	findFriendById: function(userId) {
 		return Users.find(userId, K.filters.friendPanel);

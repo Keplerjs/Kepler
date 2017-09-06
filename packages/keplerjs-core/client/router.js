@@ -149,35 +149,14 @@ Router.map(function() {
 		},
 		data: function() {
 			if(!this.ready()) return null;
+			var users = K.findFriendsByIds(K.Profile.data.friends).fetch(),
+				userIds = _.pluck(users,'_id');
 			return {
 				title: i18n('title_friends'),
 				className: 'friends',			
 				headerTemplate: 'search_user',
 				itemsTemplate: 'item_user_friend',
-				items: _.map(K.Profile.data.friends, K.userById),
-				sortBy: 'status',
-				sortDesc: 1
-			};
-		}	
-	});
-
-	this.route('users', {
-		path: '/users',
-		template: 'panelList',
-		layoutTemplate: 'layoutMap',
-		waitOn: function() {
-			Session.set('showSidebar', true);
-			return Meteor.subscribe('usersByIds', K.Profile.data.friends);
-		},
-		data: function() {
-			if(!this.ready()) return null;
-			return {
-				title: i18n('title_users'),
-				className: 'users',			
-				headerTemplate: 'search_user',
-				itemsTemplate: 'item_user_friend',
-				items: _.map(K.Profile.data.friends, K.userById)
-				//reverse sort friends by last added
+				items: _.map(userIds, K.userById)
 			};
 		}	
 	});

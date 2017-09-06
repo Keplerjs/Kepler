@@ -5,7 +5,7 @@ if(Meteor.isClient) {
 		// Time of inactivity to set user as away automaticly. Default 60000
 		UserPresence.awayTime = 10000;
 		// Set user as away when window loses focus. Defaults false
-		UserPresence.awayOnWindowBlur = true;
+		UserPresence.awayOnWindowBlur = false;
 		// Start monitor for user activity
 		UserPresence.start();
 	});
