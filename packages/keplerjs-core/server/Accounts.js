@@ -3,7 +3,7 @@
 	//TODO https://docs.meteor.com/api/passwords.html#Accounts-createUser
 
 */
-Meteor.startup(function () {	
+Meteor.startup(function() {	
 	Accounts.config({
 		sendVerificationEmail: K.settings.accounts.verifyEmail,
 		forbidClientAccountCreation: !K.settings.accounts.creation

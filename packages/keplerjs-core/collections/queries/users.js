@@ -80,7 +80,7 @@ K.extend({
 				sort: { 
 					createdAt: -1
 				},
-				limit: 30
+				limit: 100
 			})
 		);
 	}

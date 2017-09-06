@@ -111,7 +111,7 @@ _.extend(Kepler.Map, {
 		    if(z < K.settings.public.map.dataMinZoom)
 		        map.removeLayer(layers.cluster);
 		    else
-		        map.addLayer(layers.cluster);		
+		        map.addLayer(layers.cluster);
 		});
 
 		return layers;

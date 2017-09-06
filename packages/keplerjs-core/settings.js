@@ -25,7 +25,7 @@ Kepler.settings = {
 		},
 		"map": {
 			"zoom": 16,
-			"minZoom": 5,
+			"minZoom": 3,
 			"maxZoom": 19,
 			"center": [46.067246, 11.121511],
 			//ITALY "maxBounds": [[36.282794, 5.361328], [47.542735, 21.071777]],

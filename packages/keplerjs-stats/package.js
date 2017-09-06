@@ -1,9 +1,9 @@
 
 Package.describe({
-  name: 'keplerjs:stats',
-  summary: 'keplerjs plugin statistics data',
-  version: "1.2.1",
-  git: "https://github.com/Keplerjs/Kepler.git"
+	name: 'keplerjs:stats',
+	summary: 'keplerjs plugin statistics data',
+	version: "1.2.1",
+	git: "https://github.com/Keplerjs/Kepler.git"
 });
 
 Npm.depends({
@@ -19,10 +19,15 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-    'plugin.js',	
+    'plugin.js',
   ]);
 
   api.addFiles([
+  	'client/Stats.js'
+  ],'client');
+
+  api.addFiles([
+  	'server/Stats.js',
     'server/places.js',
     'server/users.js'
   ],'server');
