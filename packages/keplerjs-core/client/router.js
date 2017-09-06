@@ -149,12 +149,15 @@ Router.map(function() {
 		},
 		data: function() {
 			if(!this.ready()) return null;
+
+			var ids = K.findFriendsByIds(K.Profile.data.friends);
+
 			return {
 				title: i18n('title_friends'),
 				className: 'friends',			
 				headerTemplate: 'search_user',
 				itemsTemplate: 'item_user_friend',
-				items: _.map(K.Profile.data.friends.reverse(), K.userById)
+				items: _.map(_.pluck(ids,'_id'), K.userById)
 				//reverse sort friends by last added
 			};
 		}	
@@ -175,7 +178,7 @@ Router.map(function() {
 				className: 'users',			
 				headerTemplate: 'search_user',
 				itemsTemplate: 'item_user_friend',
-				items: _.map(K.Profile.data.friends.reverse(), K.userById)
+				items: _.map(K.Profile.data.friends, K.userById)
 				//reverse sort friends by last added
 			};
 		}	

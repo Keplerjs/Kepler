@@ -102,10 +102,17 @@ _.extend(Kepler.Map, {
 
 		//autoclean geojson layer
 		map.on('zoomend', function(e) {
+			var z = map.getZoom();
+
 			if(layers.geojson.getLayers().length) {
 				if(e.target.getBoundsZoom(layers.geojson.getBounds()) - e.target.getZoom() > 2)
 					layers.geojson.clearLayers();
 			}
+
+		    if(z < K.settings.public.map.dataMinZoom)
+		        map.removeLayer(layers.cluster);
+		    else
+		        map.addLayer(layers.cluster);		
 		});
 
 		return layers;

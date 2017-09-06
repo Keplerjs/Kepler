@@ -28,7 +28,7 @@ Kepler.schemas = {
 		emails: [], 
 		profile: {},		//user data
 		avatar: '',		   //user photo
-		status: '',        //
+		status: '',        
 		statusDefault: '', 
 		statusConnection:'',
 		mood: '',		   //status mood message, shown in profile

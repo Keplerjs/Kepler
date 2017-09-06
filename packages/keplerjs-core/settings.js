@@ -25,10 +25,12 @@ Kepler.settings = {
 		},
 		"map": {
 			"zoom": 16,
-			"minZoom": 10,
+			"minZoom": 5,
 			"maxZoom": 19,
 			"center": [46.067246, 11.121511],
 			//ITALY "maxBounds": [[36.282794, 5.361328], [47.542735, 21.071777]],
+
+			"dataMinZoom": 10,	//zoom limit to hide places and user
 
 			"checkinMaxDist": 100,
 			"bboxMinShift": 200,
