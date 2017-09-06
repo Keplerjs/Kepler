@@ -49,15 +49,14 @@ K.extend({
 		}
 	},
 	findPlacesByDate: function() {
-	
-/*
-TODO may be unuseful
+		/*
+		TODO may be unuseful
 		var date = new Date();
 			date.setDate(date.getDate() - 10),
 			dateFrom = K.Util.time(date);
-*/
+		*/
 		return Places.find({
-/*			createdAt: {
+			/*createdAt: {
 				'$gte': dateFrom
 			}*/
 		}, _.extend({}, K.filters.placeItem, {

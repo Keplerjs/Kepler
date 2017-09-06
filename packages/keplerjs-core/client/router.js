@@ -161,6 +161,28 @@ Router.map(function() {
 		}	
 	});
 
+	this.route('usersNews', {
+		path: '/users/news',
+		template: 'panelList',
+		layoutTemplate: 'layoutMap',
+		waitOn: function() {
+			Session.set('showSidebar', true);
+			return Meteor.subscribe('usersByDate');
+		},
+		data: function() {
+			if(!this.ready()) return null;
+			var users = K.findUsersByDate().fetch(),
+				userIds = _.pluck(users,'_id');
+			return {
+				title: i18n('title_usersNews'),
+				className: 'usersNews',			
+				headerTemplate: 'search_user',
+				itemsTemplate: 'item_user_search',
+				items: _.map(userIds, K.userById)
+			};
+		}	
+	});
+
 	this.route('placesNearby', {
 		path: '/places/nearby',
 		template: 'panelList',

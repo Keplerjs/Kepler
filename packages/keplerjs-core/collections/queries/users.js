@@ -3,22 +3,6 @@ K.extend({
 	findCurrentUser: function(userId) {
 		return Users.find(userId, K.filters.currentUser);
 	},
-	findUsersByName: function(initial) {
-		initial = K.Util.sanitize.regExp(initial);
-
-		if(!initial.length)
-			return null;
-
-		var reg = new RegExp('^'+ initial, 'i'),
-			curUser = Users.find({
-				//$or: [{	//in futuro cerca per username
-					name: reg
-					//},{username: reg}
-			//	]
-			}, K.filters.userItem);
-
-		return curUser;	
-	},
 	findUsersByIds: function(usersIds) {
 
 		usersIds = _.isArray(usersIds) ? {$in: usersIds} : usersIds;
@@ -28,7 +12,7 @@ K.extend({
 	findUserById: function(userId) {
 
 		return Users.find(userId, K.filters.userPanel);
-	},
+	},	
 	findFriendsByIds: function(usersIds) {
 
 		usersIds = _.isArray(usersIds) ? {$in: usersIds} : usersIds;
@@ -59,5 +43,45 @@ K.extend({
 				$addToSet: {friends: userId}
 			});
 		}
-	}	
+	},
+	findUsersByName: function(initial) {
+		initial = K.Util.sanitize.regExp(initial);
+
+		if(!initial.length)
+			return null;
+
+		var reg = new RegExp('^'+ initial, 'i'),
+			curUser = Users.find({
+				//$or: [{	//in futuro cerca per username
+					name: reg
+					//},{username: reg}
+			//	]
+			}, K.filters.userItem);
+
+		return curUser;	
+	},	
+	findUsersByDate: function() {
+		/*
+		TODO may be unuseful
+		var date = new Date();
+			date.setDate(date.getDate() - 10),
+			dateFrom = K.Util.time(date);
+		*/
+		var user = Meteor.user(),
+			exIds = _.union(user._id, user.friends);
+
+		return Users.find({
+			_id: {$nin: exIds}
+			//$ne: {$and: Meteor.user().friends}
+			/*createdAt: {
+				'$gte': dateFrom
+			}*/
+		}, _.extend({}, K.filters.userPanel, {
+				sort: { 
+					createdAt: -1
+				},
+				limit: 30
+			})
+		);
+	}
 });

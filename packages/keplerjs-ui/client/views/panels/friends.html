@@ -13,5 +13,16 @@
 			{{/with}}
 			<input class="form-control" id="switch_online" type="checkbox" />
 		</div>
+		<div class="text-right">
+		{{#if ifRoute 'usersNews'}}
+			<a class="btn btn-default pull-right" href="{{pathFor route='friends'}}">
+				{{i18n 'title_friends'}}<i class="icon icon"></i>
+			</a>
+		{{else}}
+			<a class="btn btn-default pull-right" href="{{pathFor route='usersNews'}}">
+				{{i18n 'title_usersNews'}}
+			</a>
+		{{/if}}
+		</div>
 	</form>
 </template>

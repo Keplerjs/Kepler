@@ -27,6 +27,17 @@
 	</div>
 </template>
 
+<template name="item_user_search">
+	<div class="">
+		<div class="pull-left">
+			{{> item_user}}
+		</div>
+		<div class="pull-right">
+		{{humanDate createdAt}} 
+		</div>
+	</div>
+</template>
+
 <template name="status_user">
 	<i class="icon icon-{{status}}{{#if mob}}-mob{{/if}} user-device"></i> 
 	{{#if eq status 'online'}}
