@@ -100,7 +100,6 @@ _.extend(Kepler.Map, {
 			}
 		});
 
-		//autoclean geojson layer
 		map.on('zoomend', function(e) {
 			var z = map.getZoom();
 
