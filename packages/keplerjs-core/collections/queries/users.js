@@ -19,7 +19,7 @@ K.extend({
 
 		//TODO show friend location only if me is online
 
-		return Users.find({_id: usersIds }, _.extend({}, K.filters.friendItem, {
+		return Users.find({_id: usersIds }, _.deepExtend({}, K.filters.friendItem, {
 				sort: {
 					status: -1,
 					name: 1
@@ -78,7 +78,7 @@ K.extend({
 			/*createdAt: {
 				'$gte': dateFrom
 			}*/
-		}, _.extend({}, K.filters.userPanel, {
+		}, _.deepExtend({}, K.filters.userPanel, {
 				sort: { 
 					createdAt: -1
 				},

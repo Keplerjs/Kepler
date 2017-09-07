@@ -59,8 +59,6 @@ Accounts.onCreateUser(function(options, user) {
 		emails = user.emails,
 		source = {
 			service: 'keplerjs',
-			options: options,
-			user: user,
 			url: ''		
 		};
 

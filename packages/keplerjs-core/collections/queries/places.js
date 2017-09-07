@@ -42,7 +42,7 @@ K.extend({
 						'$box': bbox
 					}
 				}
-			}, _.extend({}, K.filters.placeItem, {
+			}, _.deepExtend({}, K.filters.placeItem, {
 					limit: 50
 				})
 			);
@@ -59,7 +59,7 @@ K.extend({
 			/*createdAt: {
 				'$gte': dateFrom
 			}*/
-		}, _.extend({}, K.filters.placeItem, {
+		}, _.deepExtend({}, K.filters.placeItem, {
 				sort: { createdAt: -1 },
 				limit: 30
 			})
@@ -71,7 +71,7 @@ K.extend({
 		if(!initial.length)
 			return null;
 
-		var filters = _.extend({}, K.filters.placeSearch, {
+		var filters = _.deepExtend({}, K.filters.placeSearch, {
 			sort: { name:1 },
 			limit: 30
 		});
