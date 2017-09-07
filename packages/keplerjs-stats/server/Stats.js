@@ -4,6 +4,8 @@ var geostats = Npm.require('geostats');
 Kepler.Stats = {
 
 	findPlaces: function(noClassify) {
+		
+		noClassify = _.isUndefined(noClassify) ? K.settings.public.stats.noClassify : noClassify;
 
 		var data = Places.find({}, {
 			fields: { createdAt:1, loc:1, rank:1, checkins:1, hist:1, convers:1, name:1 },
@@ -25,15 +27,18 @@ Kepler.Stats = {
 			}
 		});
 
+		var stats = {
+			count: data.length
+		}
 
 		//raw cluster
-/*		data = _.map(_.groupBy(data,'loc'), function(d) {
+		data = _.map(_.groupBy(data,'loc'), function(d) {
 			var f = _.pluck(d,'factor').reduce(function(a,b){return a+b;}, 0);
 			return {
 				loc: d[0].loc,
 				factor: f
 			}
-		});*/
+		});
 
 
 		if(!noClassify) {
@@ -44,15 +49,22 @@ Kepler.Stats = {
 			//var classy = series.getClassJenks(10);
 		}
 
-		return K.Util.geo.createFeatureColl(_.map(data, function(d) {
+		var geojson = K.Util.geo.createFeatureColl(_.map(data, function(d) {
 			return K.Util.geo.createFeature('Point', d.loc.reverse(), {
 				rank: noClassify ? d.factor : series.getClass(d.factor)
 			});
 		}));
+
+		return {
+			stats: stats,
+			geojson: geojson
+		}
 	},
 
 	findUsers: function(noClassify) {
-			
+
+		noClassify = _.isUndefined(noClassify) ? K.settings.public.stats.noClassify : noClassify;
+
 		var data = Users.find({isAdmin: false}, {
 			fields: { createdAt:1, loc:1, loclast:1, places:1, friends:1, convers:1, hist:1, favorites:1 },
 			sort: { createdAt: -1},
@@ -69,7 +81,24 @@ Kepler.Stats = {
 					(1+_.size(d.hist));
 
 			return {
-				loc: K.Util.geo.roundLoc(d.loc || d.loclast, 2) || [],
+				loc: K.Util.geo.roundLoc(d.loc || d.loclast, 1) || [],
+				factor: f
+			}
+		});
+
+		var stats = {
+			count: data.length
+		}
+	
+		data = data.filter(function(d) {
+			return d.loc.length;
+		});
+
+		//raw cluster
+		data = _.map(_.groupBy(data,'loc'), function(d) {
+			var f = _.pluck(d,'factor').reduce(function(a,b){return a+b;}, 0);
+			return {
+				loc: d[0].loc,
 				factor: f
 			}
 		});
@@ -82,10 +111,15 @@ Kepler.Stats = {
 			//var classy = series.getClassJenks(10);
 		}
 
-		return K.Util.geo.createFeatureColl(_.map(data, function(d) {
+		var geojson = K.Util.geo.createFeatureColl(_.map(data, function(d) {
 			return K.Util.geo.createFeature('Point', d.loc.reverse(), {
 				rank: noClassify ? d.factor : series.getClass(d.factor)
 			});
 		}));
+		
+		return {
+			stats: stats,
+			geojson: geojson
+		}
 	}
 };

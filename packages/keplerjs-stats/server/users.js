@@ -1,15 +1,12 @@
 /*
 	//TODO move it in plugin api
 */
-
 WebApp.connectHandlers.use('/stats/users',function(req, res, next) {
 
-	var noClassify = !!req.query['noClassify'];
+	var noClassify = req.query['noClassify'];
 
-	var geojson = K.Stats.findUsers(noClassify);
-
-	var out = JSON.stringify(geojson);
-
+	var out = JSON.stringify( K.Stats.findUsers(noClassify) );
+console.log(out)
 	if(req.query && req.query['jsonp'])
 		out = req.query['jsonp']+'('+out+');';
 

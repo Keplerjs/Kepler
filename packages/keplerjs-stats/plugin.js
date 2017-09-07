@@ -1,4 +1,11 @@
 
 K.Plugin({
-	name: 'stats'
+	name: 'stats',
+	settings: {
+		"public": {
+			"stats": {
+				"noClassify": true	//disable geostatistics classification
+			}
+		}
+	}
 });
