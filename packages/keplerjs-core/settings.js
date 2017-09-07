@@ -34,6 +34,7 @@ Kepler.settings = {
 
 			"checkinMaxDist": 100,
 			"bboxMinShift": 200,
+			"bboxMaxDiagonal": 200000,//max bounding box diangonal size for pub findPlacesByBBox in meters
 			"gpsMinShift": 40,
 			"showLocZoom": 16,
 

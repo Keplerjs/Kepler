@@ -20,8 +20,6 @@ K.extend({
 	},	
 	findPlacesByBBox: function(bbox) {
 
-		//TODO limit bbox sizes!!! add limit
-
 		//PATCH while minimongo not supporting $within $box queries
 		if(Meteor.isClient) {
 

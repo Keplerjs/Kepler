@@ -1,9 +1,18 @@
 
 Meteor.publish('placesByBBox', function(bbox) {
 	if(this.userId) {
-		var cur = K.findPlacesByBBox(bbox);
-		console.log('Pub: placesByBBox ', cur.count() );
-		return cur;
+
+		var diag = K.Util.geo.distance(bbox[0],bbox[1]);
+
+		//console.log('Pub: placesByBBox ', diag);
+
+		if(diag < K.settings.public.map.bboxMaxDiagonal) {
+			var cur = K.findPlacesByBBox(bbox);
+			console.log('Pub: placesByBBox ', cur.count());
+			return cur;
+		}
+		else
+			this.ready();
 	}
 	else
 		this.ready();

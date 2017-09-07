@@ -43,8 +43,17 @@ _.extend(Kepler.Map, {
 				K.Profile.setLoc(null);
 			}			
 		});
-
-		//controls.scale = L.control.scale({position:'topright'});
+		
+		controls.scale = L.control.scale({
+			position:'bottomleft',
+			imperial: false,
+			metric: true
+		});
+		
+		controls.attrib = L.control.attribution({
+			position:'bottomleft',
+			prefix: '<a href="http://osm.org/copyright" target="_blank">&copy; osm.org</a>'
+		});
 
 		return controls;
 	}
