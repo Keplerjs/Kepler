@@ -71,7 +71,9 @@ K.extend({
 			exIds = _.union(user._id, user.friends);
 
 		return Users.find({
-			_id: {$nin: exIds}
+			
+			//EXCLUDE friends_id: {$nin: exIds}
+			
 			//$ne: {$and: Meteor.user().friends}
 			/*createdAt: {
 				'$gte': dateFrom
