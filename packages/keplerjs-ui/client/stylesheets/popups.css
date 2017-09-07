@@ -55,3 +55,8 @@
 	text-align:left;
 	margin-bottom: 3px;
 }
+
+.leaflet-popup-content .btn {
+	border-color: #ccc;	
+	border: 1px solid transparent;
+}

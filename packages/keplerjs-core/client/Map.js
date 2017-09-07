@@ -93,7 +93,7 @@ Kepler.Map = {
 
 	setOpts: function(options) {
 		if(this.ready()) {
-			var opts = _.extend({}, K.settings.public.map, options);
+			var opts = _.deepExtend({}, K.settings.public.map, options);
 
 			opts.popup.autoPanPaddingTopLeft = L.point(opts.popup.autoPanPaddingTopLeft);
 			opts.popup.autoPanPaddingBottomRight = L.point(opts.popup.autoPanPaddingTopLeft);

@@ -14,16 +14,27 @@ Kepler.Stats = {
 		//Clean data and calculate factors
 		var data = _.map(data, function(d) {
 
-			var f = (1+d.rank) * 
+			var l = K.Util.geo.roundLoc(d.loc, 1),
+				f = (1+d.rank) * 
 					(1+_.size(d.checkins)) * 
 					(1+_.size(d.convers)) *
 					(1+_.size(d.hist));
-
 			return {
-				loc: K.Util.geo.roundLoc(d.loc, 2),
+				loc: l,
 				factor: f
 			}
 		});
+
+
+		//raw cluster
+/*		data = _.map(_.groupBy(data,'loc'), function(d) {
+			var f = _.pluck(d,'factor').reduce(function(a,b){return a+b;}, 0);
+			return {
+				loc: d[0].loc,
+				factor: f
+			}
+		});*/
+
 
 		if(!noClassify) {
 			var factors = _.pluck(data, 'factor');

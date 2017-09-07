@@ -23,7 +23,7 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-  	'client/Stats.js'
+  	'client/Map_stats.js'
   ],'client');
 
   api.addFiles([

@@ -2,7 +2,7 @@
 Kepler.Util.geo = {
 
 	roundLoc: function(loc, prec) {
-		prec = prec || 6; 
+		prec = _.isNumber(prec) ? prec : 6; 
 		if( (typeof loc === 'undefined' || loc === null) ||
 			(typeof loc[0] === 'undefined' || loc[0] === null) ||
 			(typeof loc[1] === 'undefined' || loc[1] === null) )

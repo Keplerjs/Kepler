@@ -53,6 +53,13 @@ _.extend(Kepler.Map, {
 			layerTarget: layers.cluster,
 			minShift: opts.bboxMinShift,
 			callData: function(bbox, callback) {
+				
+				//TODO update underscore!
+				//TODO refact using _.after()
+				if(!this._loaded) {
+					this._loaded = 1;
+					return;
+				}
 
 				var sub = Meteor.subscribe('placesByBBox', bbox, function() {
 					callback( K.findPlacesByBBox(bbox).fetch() );

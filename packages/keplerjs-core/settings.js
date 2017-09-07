@@ -24,7 +24,7 @@ Kepler.settings = {
 			"fr": "Français",
 		},
 		"map": {
-			"zoom": 16,
+			"zoom": 5,
 			"minZoom": 3,
 			"maxZoom": 19,
 			"center": [46.067246, 11.121511],
