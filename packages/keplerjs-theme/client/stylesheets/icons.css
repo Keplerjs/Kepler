@@ -27,10 +27,12 @@
 	background: url("/packages/keplerjs_theme/assets/images/loader-icon.gif") no-repeat;
 }
 .icon-avatar {
-	background: url("/packages/keplerjs_theme/assets/images/avatar.svg") no-repeat;
     background-size: cover;
 	height: 30px;
 	width: 30px;
+}
+.icon-avatar-default {
+	background-image: url("/packages/keplerjs_theme/assets/images/avatar.svg");
 }
 .icon-avatar.icon-avatar-big {
 	height: 90px;
