@@ -40,7 +40,6 @@ i18n.map('en', {
 	label_privacy: "Privacy",
 	label_location: "Location",
 	label_userblocked: "Blocked User",
-	
 
 	label_histuser: "Recent visits",
 	label_histplace: "Recent visits",
@@ -82,6 +81,7 @@ i18n.map('en', {
 	btn_friendpending: "Waiting ...",
 	btn_friendconfirm: "Confirm Friend!",
 	btn_friendreceive: "Request for Friendship",
+	btn_friendaccept: "Friendship accepted",
 	btn_userBlock: "Block user!",
 	btn_usersblocked: "Blocked Users",
 	btn_userUnblock: "Unlock",

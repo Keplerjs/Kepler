@@ -78,6 +78,7 @@ i18n.map('sv', {
 	btn_friendpending: "Väntar ...",
 	btn_friendconfirm: "Bekräfta Vänn!",
 	btn_friendreceive: "Skicka Vännförfrågan",
+	btn_friendaccept: "Vännförfrågan godkänd",
 	btn_userBlock: "Blockera användare!",
 	btn_usersblocked: "Blockerade Användare",
 	btn_userUnblock: "Avblockera",

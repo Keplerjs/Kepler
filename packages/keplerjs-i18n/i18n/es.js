@@ -74,6 +74,7 @@ i18n.map ('es', {
 	btn_friendpending: "en curso ...",
 	btn_friendconfirm: "Confirma esta amistad",
 	btn_friendreceive: "Solicitud de amistad",
+	btn_friendaccept: "Amistad aprobado",
 	btn_userblock: "Bloquear usuario!",
 	btn_usersblocked: "Usuarios bloqueados",
 	btn_userunblock: "Desbloquear",

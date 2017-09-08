@@ -23,12 +23,13 @@ Router.waitOn(function() {
 			return Meteor.subscribe('currentUser', function() {
 
 				K.Profile.init(function(data) {
-
+					
 					i18n.setLanguage(data.lang);
 
 					//TODO move to plugin admin
-					if(K.Admin && K.Admin.isMe())
+					if(K.Admin && K.Admin.isMe()){
 						K.Admin.loadMethods();
+					}
 				});
 			});
 		}
@@ -39,7 +40,7 @@ Router.onAfterAction(function() {
 
 	var routeName = this.route.getName();
 
-	document.title = (this.data() && this.data().title) || i18n('title_'+routeName) || _.str.capitalize(routeName);
+	document.title =  i18n('title_'+routeName) || _.str.capitalize(routeName);
 
 	if(this.ready() && K.Profile.ready) {
 

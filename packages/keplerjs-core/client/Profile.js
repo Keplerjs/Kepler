@@ -20,8 +20,11 @@ Kepler.Profile = {
 	init: function(cb) {
 
 		var self = this;
-		
-		self.ready = true;
+
+		if(self.ready)
+			return self;
+		else
+			self.ready = true;
 
 		Tracker.autorun(function() {
 
