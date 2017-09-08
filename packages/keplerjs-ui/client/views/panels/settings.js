@@ -97,7 +97,6 @@ Template.panelSettings.events({
 	'keyup #mapcenter input': _.debounce(function(e) {
 		var val = $(e.currentTarget).val();
 		Users.update(Meteor.userId(), { $set: {'settings.map.center': val } });
-		console.log('settings.map.center', val)
 	}, 300),
 
 	'click #mapcenter .btn': _.debounce(function(e) {
