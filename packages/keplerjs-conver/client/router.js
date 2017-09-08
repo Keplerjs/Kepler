@@ -78,6 +78,7 @@ Router.map(function() {
 
 	this.route('panelConver', {
 		path: '/conver/:convId',
+		template: 'panelConver',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			Session.set('showSidebar', true);			

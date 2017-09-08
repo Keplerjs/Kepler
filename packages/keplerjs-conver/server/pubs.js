@@ -31,7 +31,7 @@ Meteor.publish('converById', function(convId) {
 
 	if(this.userId && convId)
 	{
-		console.log('Pub: converById', convData);	
+		console.log('Pub: converById', convId);	
 
 		var convCur = K.findConverById(convId),
 			convData = convCur.fetch()[0],

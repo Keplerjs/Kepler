@@ -27,7 +27,7 @@ Kepler.Conver = {
 	},
 	
 	loadConverWithUser: function(userId) {
-		Meteor.call('findConverWithUser', userId, function(err, convId) {
+		Meteor.call('findConverWithUser', userId, function(err, convId) {			
 			Router.go('panelConver', {convId: convId });
 		});
 	}	

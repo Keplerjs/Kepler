@@ -1,23 +1,35 @@
 
 Convers = new Mongo.Collection('convers');
 
+Convers.allow({
+	insert: function(userId, doc) {
+		return true;
+	},
+	update: function(userId, doc) {
+		return true;
+	},	
+	remove: function(userId, doc) {
+		return userId && doc.userId === userId;
+	}
+});
+
 //TODO
 Convers.before.insert(function(userId, doc) {
 	doc.createdAt = K.Util.time();
 	
 	//TODO doc.userId = userId;
 });
+/*
+Convers.after.update(function(userId, doc, fieldNames, modifier) {
 
+	console.log('Convers.after.update',doc.targetType)
 
-Convers.allow({
-	insert: function(userId, doc) {
-		return true;
-	},
-	remove: function(userId, doc) {
-		return userId && doc.userId === userId;
-	}
+	//if private conver update target user
+	if(doc.targetType==='user')
+		
+	//TODO FIXME ottimizzare... non eseguire sempre ad ogni messaggio
 });
-
+*/
 K.extend({
 	findConverById: function(convId) {
 		//TODO ritornare solo ultimi 10 messaggi!!

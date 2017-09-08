@@ -5,8 +5,6 @@
 K.extend({
 	insertConver: function(targetId, targetType, title, usersIds) {
 
-	//TODO use check()
-	
 		targetId = targetId || null;
 		targetType = targetType || null;
 		title = title || '';
@@ -31,13 +29,15 @@ K.extend({
 					convers: convId
 				}
 			});
+		else if(targetType==='user')
+			usersIds = _.union(usersIds, targetId);
 
-		Users.update(Meteor.userId(), {
+		Users.update({_id: {$in: usersIds } }, {
 			$addToSet: {
 				convers: convId
 			}
 		});
-		
+
 		console.log('Conver: insertConver', convId, targetId);
 
 		return convId;
@@ -47,7 +47,6 @@ K.extend({
 			convData = Convers.findOne({
 				$and: [
 					{ targetType: 'user' },
-					//{ usersIds: {$size: 2} },
 					{ usersIds: {$all: [Meteor.userId(), userId]} }
 				]
 			});
