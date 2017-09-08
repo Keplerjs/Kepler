@@ -13,21 +13,6 @@ Convers.allow({
 	insert: function(userId, doc) {
 		return true;
 	},
-	update: function(userId, doc, fieldNames, modifier) {
-
-//TODO move to before.insert
-
-		//if private conver update target user
-		if(doc.targetType==='user')
-			Users.update(doc.targetId, {
-				$addToSet: {
-					convers: doc._id
-				}
-			});
-		//TODO FIXME ottimizzare... non eseguire sempre ad ogni messaggio
-
-		return true;
-	},
 	remove: function(userId, doc) {
 		return userId && doc.userId === userId;
 	}

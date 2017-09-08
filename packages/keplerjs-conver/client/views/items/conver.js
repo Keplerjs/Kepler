@@ -12,11 +12,6 @@ Template.item_conver.onRendered(function() {
 });
 
 Template.item_conver.helpers({
-	isMine: function() {
-		return (this.targetType==='place' && this.userId === K.Profile.id) ||
-			   (this.targetType==='user' && this.userId === K.Profile.id) ||
-			   (this.targetType==='user' && this.targetId === K.Profile.id);
-	},
 	target: function() {
 
 		if(this.targetType==='place')

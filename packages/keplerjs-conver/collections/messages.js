@@ -55,5 +55,10 @@ K.extend({
 				lastMsg: newMsg
 			}
 		});
+		Users.update(Meteor.userId(), {
+			$addToSet: {
+				convers: convId
+			}
+		});
 	}
 });

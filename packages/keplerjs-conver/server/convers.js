@@ -71,6 +71,7 @@ K.extend({
 		var convData = Convers.findOne(convId);
 		
 		if( Convers.remove({_id: convId, userId: Meteor.userId() }) )
+		//user is owner
 		{
 			Messages.remove({convId: convId});
 			//TODO rimuove solo proprietario senza far sparire la conver
@@ -87,7 +88,7 @@ K.extend({
 					}
 				});
 		}
-		else	//se non è il creatore della conver la abbandona
+		else	//user isn't owner to leave conver
 		{
 			K.insertMsgToConver(convId, '<br />'+i18n('title_userConverleave', Meteor.user().name) );
 			Users.update(Meteor.userId(), {
