@@ -125,7 +125,7 @@ Kepler.Util.humanize = {
 		sep = sep || ',';
 		pre = pre || 6;
 		if(K.Util.valid.loc(ll))
-			return ll[0].toFixed(pre)+ sep +ll[1].toFixed(pre);
+			return parseFloat(ll[0]).toFixed(pre)+ sep +parseFloat(ll[1]).toFixed(pre);
 		else
 			return '';
 	}

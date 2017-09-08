@@ -36,7 +36,7 @@ Template.panelSettings.helpers({
 		});
 	},
 	mapcenter: function() {
-		return K.Profile.getOpts('map.center');
+		return K.Util.humanize.loc(K.Profile.getOpts('map.center'));
 	},
 	version: function() {
 		return K.version;
@@ -57,46 +57,9 @@ Template.panelSettings.events({
 		}
 	}, 300),
 
-/*	'keyup #email': _.debounce(function(e) {
-		var val = $(e.target).val(),
-			oldval = $(e.target).data('value'),
-			feed$ = $(e.target).next('.form-control-feedback');
-
-		if(!K.Util.valid.email(val))
-			feed$.show();
-		else {
-			feed$.hide();
-			//TODO
-			// Users.update(Meteor.userId(), {
-			// 	$set: {
-			// 		emails: [{
-			// 			address: val,
-			// 			verified: val==oldval
-			// 		}]
-			// 	}
-			// });
-		}
-	}, 300),*/
-
 	'keyup #city': _.debounce(function(e) {
 		var val = $(e.currentTarget).val();
 		Users.update(Meteor.userId(), { $set: {'city': val } });
-	}, 300),	
-
-	'change #maplayer input': _.debounce(function(e) {
-		e.preventDefault();
-
-		var val = $(e.currentTarget).val();
-		
-		Users.update(Meteor.userId(), { $set: {'settings.map.layer': val } });
-
-		K.Map.setOpts({layer: val });
-
-	}, 300),
-
-	'keyup #mapcenter input': _.debounce(function(e) {
-		var val = $(e.currentTarget).val();
-		Users.update(Meteor.userId(), { $set: {'settings.map.center': val } });
 	}, 300),
 
 	'click #mapcenter .btn': _.debounce(function(e) {
@@ -107,8 +70,8 @@ Template.panelSettings.events({
 			zom = K.Map.map.getZoom(),
 			val = K.Util.geo.roundLoc(cen);
 		
-		input$.val(val);
-
+		input$.val(K.Util.humanize.loc(val));
+		
 		Users.update(Meteor.userId(), {
 			$set: {
 				'settings.map.center': val,
@@ -133,7 +96,30 @@ Template.panelSettings.events({
 		Users.update(Meteor.userId(), { $set: {'lang': lang} });
 
 		i18n.setLanguage(lang);
-	}
+	},
+	/*
+	//TODO
+	'keyup #email': _.debounce(function(e) {
+		var val = $(e.target).val(),
+			oldval = $(e.target).data('value'),
+			feed$ = $(e.target).next('.form-control-feedback');
+
+		if(!K.Util.valid.email(val))
+			feed$.show();
+		else {
+			feed$.hide();
+			//TODO
+			// Users.update(Meteor.userId(), {
+			// 	$set: {
+			// 		emails: [{
+			// 			address: val,
+			// 			verified: val==oldval
+			// 		}]
+			// 	}
+			// });
+		}
+	}, 300),
+	*/	
 });
 
 Template.item_user_blocked.events({
