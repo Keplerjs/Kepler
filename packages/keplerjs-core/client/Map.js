@@ -98,8 +98,10 @@ Kepler.Map = {
 			opts.popup.autoPanPaddingTopLeft = L.point(opts.popup.autoPanPaddingTopLeft);
 			opts.popup.autoPanPaddingBottomRight = L.point(opts.popup.autoPanPaddingTopLeft);
 
-			if(!K.Util.valid.loc(opts.center))
+			if(!K.Util.valid.loc(options.center)){
 				opts.center = K.settings.public.map.center;
+				opts.zoom = K.settings.public.map.zoom;
+			}
 			
 			if(!opts.layers[opts.layer])
 				opts.layer = K.settings.public.map.layer;
