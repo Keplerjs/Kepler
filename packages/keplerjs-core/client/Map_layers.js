@@ -5,7 +5,7 @@ _.extend(Kepler.Map, {
 
 		var layers = {};
 
-		layers.baselayer = new L.TileLayer(opts.layers[opts.layer],{
+		layers.baselayer = new L.TileLayer(opts.layers[opts.layer], {
 			noWrap:true
 		});
 

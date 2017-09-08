@@ -74,7 +74,7 @@ Template.panelSettings.events({
 
 	}, 300),
 
-	'click #mapcenter .btn': _.debounce(function(e) {
+	'click #mapcenter .btn-mapcenter': _.debounce(function(e) {
 		e.preventDefault();
 
 		var input$ = $(e.currentTarget).parents('#mapcenter').find('input'),
@@ -88,6 +88,21 @@ Template.panelSettings.events({
 			$set: {
 				'settings.map.center': val,
 				'settings.map.zoom': zom
+			}
+		});
+	}, 300),
+
+	'click #mapcenter .btn-mapcancel': _.debounce(function(e) {
+		e.preventDefault();
+
+		var input$ = $(e.currentTarget).parents('#mapcenter').find('input');
+		
+		input$.val('');
+		
+		Users.update(Meteor.userId(), {
+			$set: {
+				'settings.map.center': null,
+				'settings.map.zoom': null
 			}
 		});
 	}, 300),

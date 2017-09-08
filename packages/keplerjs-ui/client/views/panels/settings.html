@@ -47,9 +47,13 @@
 					<div id="mapcenter" class="input-group">
 						<input class="form-control" readonly=readonly type="text" value="{{mapcenter}}" />
 						<div class="input-group-btn">
-							<a class="btn btn-default" href="#">
-							<i class="icon icon-map"></i> 
-							{{i18n 'btn_mapcenter'}}
+							{{#if mapcenter}}
+							<a class="btn btn-default btn-mapcancel" href="#">
+								<i class="icon icon-canc"></i>
+							</a>
+							{{/if}}
+							<a class="btn btn-default btn-mapcenter" href="#">
+								<i class="icon icon-map"></i> {{i18n 'btn_mapcenter'}}
 							</a>
 						</div>
 					</div>
