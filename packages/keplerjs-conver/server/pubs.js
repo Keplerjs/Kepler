@@ -1,7 +1,7 @@
 
 Meteor.publish('conversByIds', function(convIds) {
 
-	console.log('Pub: conversByIds', convIds);
+	console.log('Pub: conversByIds');
 
 	if(this.userId && convIds)
 	{

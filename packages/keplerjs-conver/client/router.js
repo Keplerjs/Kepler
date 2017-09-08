@@ -14,8 +14,7 @@ Router.map(function() {
 				title: i18n('title_convers'),
 				className: 'convers',
 				itemsTemplate: 'item_conver',
-				items: K.findConversPlaces().fetch(),
-				sortDesc: true
+				items: K.findConversPlaces().fetch()
 			};
 		}
 	});
@@ -34,6 +33,7 @@ Router.map(function() {
 				className: 'messages',
 				itemsTemplate: 'item_conver',
 				items: K.findConversByIds(K.Profile.data.convers).fetch(),
+				sortBy: 'lastMsg.updatedAt',
 				sortDesc: true
 			};
 		}

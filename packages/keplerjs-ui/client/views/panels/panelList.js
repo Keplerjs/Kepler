@@ -7,7 +7,7 @@ Template.panelList.helpers({
 
 		if(this.sortBy)
 			this.items = _.sortBy(this.items, function(item) {
-				return item ? item[self.sortBy] : 0;
+				return item ? K.Util.getPath(item,self.sortBy) : 0;
 			});
 
 		if(this.items && this.sortDesc)
