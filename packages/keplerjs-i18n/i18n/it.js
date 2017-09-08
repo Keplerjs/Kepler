@@ -65,6 +65,8 @@ i18n.map('it', {
 	label_gender: "Genere",
 	label_lang: "Lingua",
 	label_layer: "Mappa",
+	label_mapcenter: "Casa",
+	
 	label_account: "Account",
 	label_privacy: "Privacy",
 	label_location: "Posizione",

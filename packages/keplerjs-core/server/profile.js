@@ -36,7 +36,8 @@ Meteor.methods({
 					$set: {
 						loc: loc,
 						loclast: loc,
-						'settings.map.center': loc
+						'settings.map.center': loc,
+						'settings.map.zoom': K.settings.public.map.showLocZoom
 					}
 				});
 			}
@@ -78,7 +79,8 @@ Meteor.methods({
 					checkin: placeId,
 					loc: null,
 					loclast: placeData.loc,
-					'settings.map.center': placeData.loc
+					'settings.map.center': placeData.loc,
+					'settings.map.zoom': K.settings.public.map.showLocZoom
 				},
 				$addToSet: {
 					hist: placeId

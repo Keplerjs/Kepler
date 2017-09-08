@@ -12,6 +12,9 @@
 #settings #login-dropdown-list .dropdown-menu {
 	margin: 0
 }
+#settings #login-dropdown-list .btn-block {
+    width: 80%;
+}
 
 #settings label.btn.active {
 	border-color: #337ab7;

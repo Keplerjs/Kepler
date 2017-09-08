@@ -34,6 +34,8 @@ i18n.map('en', {
 	label_gender: "Gender",
 	label_lang: "Language",
 	label_layer: "Map",
+	label_mapcenter: "Home",
+
 	label_account: "Account",
 	label_privacy: "Privacy",
 	label_location: "Location",
@@ -63,6 +65,7 @@ i18n.map('en', {
 	btn_users: "People",
 	btn_settings: "Settings",
 	btn_avatar: "Photo profile",
+
 	btn_verify: "Verify",
 	btn_verified: "Verified",
 	btn_notverified: "Verify",

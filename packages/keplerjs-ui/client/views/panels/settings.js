@@ -35,6 +35,9 @@ Template.panelSettings.helpers({
 			};
 		});
 	},
+	mapcenter: function() {
+		return K.Profile.getOpts('map.center');
+	},
 	version: function() {
 		return K.version;
 	}
@@ -78,7 +81,7 @@ Template.panelSettings.events({
 	'keyup #city': _.debounce(function(e) {
 		var val = $(e.currentTarget).val();
 		Users.update(Meteor.userId(), { $set: {'city': val } });
-	}, 300),
+	}, 300),	
 
 	'change #maplayer input': _.debounce(function(e) {
 		e.preventDefault();
@@ -89,6 +92,30 @@ Template.panelSettings.events({
 
 		K.Map.setOpts({layer: val });
 
+	}, 300),
+
+	'keyup #mapcenter input': _.debounce(function(e) {
+		var val = $(e.currentTarget).val();
+		Users.update(Meteor.userId(), { $set: {'settings.map.center': val } });
+		console.log('settings.map.center', val)
+	}, 300),
+
+	'click #mapcenter .btn': _.debounce(function(e) {
+		e.preventDefault();
+
+		var input$ = $(e.currentTarget).parents('#mapcenter').find('input'),
+			cen = K.Map.getCursorLoc() || K.Map.getCenter(),
+			zom = K.Map.map.getZoom(),
+			val = K.Util.geo.roundLoc(cen);
+		
+		input$.val(val);
+
+		Users.update(Meteor.userId(), {
+			$set: {
+				'settings.map.center': val,
+				'settings.map.zoom': zom
+			}
+		});
 	}, 300),
 
 	'change #gender input': _.debounce(function(e) {

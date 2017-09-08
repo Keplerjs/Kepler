@@ -289,10 +289,31 @@ Kepler.Map = {
 		}
 		return this;
 	},
+	/**
+	 * hide cursor from map
+	 * @return {[type]} [description]
+	 */
 	hideCursor: function() {
 		this.layers.cursor.hide();
 	},
+	/**
+	 * show cursor on map
+	 * @param  {[type]} loc [description]
+	 * @return {[type]}     [description]
+	 */
 	showCursor: function(loc) {
 		this.layers.cursor.setLoc(loc)
+	},
+	/**
+	 * return current location of map cursor or null if it's hidden
+	 * @return {[Array]} location as array [lat,lng]
+	 */
+	getCursorLoc: function() {
+		var loc;
+		if(this.map.hasLayer(this.layers.cursor.marker)) {
+			var ll = this.layers.cursor.marker.getLatLng();	
+			loc = [ll.lat, ll.lng];
+		}
+		return loc;
 	}
 };
