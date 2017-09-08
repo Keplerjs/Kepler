@@ -11,7 +11,9 @@ Tracker.autorun(function(comp) {
 				return L.circleMarker(loc, {radius: r }).on('click', function(e) {
 					L.DomEvent.stopPropagation(e);
 					K.Map.map.removeLayer(placesLayer);
-					K.Map.map.flyTo(loc, K.settings.public.map.dataMinZoom)
+					K.Map.map.flyTo(loc, K.settings.public.map.dataMinZoom, {
+						duration: 1
+					})
 				});
 			},
 			style: {

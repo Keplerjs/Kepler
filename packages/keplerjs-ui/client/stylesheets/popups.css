@@ -53,10 +53,14 @@
 
 .leaflet-popup-content .btn-block {
 	text-align:left;
-	margin-bottom: 3px;
+	margin-bottom: 5px;
+}
+.leaflet-popup-content .btn-block:last-child {
+	margin-bottom: 0
 }
 
 .leaflet-popup-content .btn {
 	border-color: #ccc;	
-	border: 1px solid transparent;
+	border: none;
+	margin-right: 2px
 }
