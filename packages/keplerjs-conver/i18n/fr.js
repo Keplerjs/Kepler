@@ -4,7 +4,7 @@ i18n.map('fr', {
 	title_messages: "Tes Messagges",
 	title_conver: "Conversation",
 	title_userConver: "Conversation avec {$1}",
-	title_userConverleave: "<i class=\"text-muted\"><b>{$1}</b>a quitté la conversation.</i>",
+	title_userConverleave: "<i class=\"text-muted\"><b>{$1}</b> a quitté la conversation.</i>",
 	title_placeConvers: "Conversations avec {$1}",
 
 	btn_conversend: "Messagge",
