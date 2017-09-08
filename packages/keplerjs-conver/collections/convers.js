@@ -16,20 +16,28 @@ Convers.allow({
 //TODO
 Convers.before.insert(function(userId, doc) {
 	doc.createdAt = K.Util.time();
-	
-	//TODO doc.userId = userId;
 });
-/*
-Convers.after.update(function(userId, doc, fieldNames, modifier) {
 
-	console.log('Convers.after.update',doc.targetType)
+Convers.after.insert(function(userId, doc) {
+	if(K.Notif) {
+		if(doc.targetType==='user') {
+			
+			var userData = Users.findOne(userId);
 
-	//if private conver update target user
-	if(doc.targetType==='user')
-		
-	//TODO FIXME ottimizzare... non eseguire sempre ad ogni messaggio
+			Users.update(doc.targetId, {
+				$push: {
+					notifs: {
+						createdAt: K.Util.time(),
+						type: 'mes',
+						url: '/conver/'+doc._id,
+						msg: i18n('label_newmesfrom')+' <a href="/user/'+userId+'"><b>'+userData.username+'</b></a>'
+					}
+				}
+			});
+		}
+	}
 });
-*/
+
 K.extend({
 	findConverById: function(convId) {
 		//TODO ritornare solo ultimi 10 messaggi!!

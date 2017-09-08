@@ -18,4 +18,6 @@ i18n.map('en', {
 	label_msgsmore: "comments ...",
 	label_convertit: "New conversation title ...",
 	label_noconvers: "No recent posts",
+
+	label_newmesfrom: "New message from"
 });

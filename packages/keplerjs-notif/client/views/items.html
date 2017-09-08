@@ -5,8 +5,12 @@
 			<i class="icon icon-close-blue"></i>
 		</a>
 		<div>
-			<i class="icon icon-{{type}}"></i>
-			{{{msg}}}
+			{{#if url}}
+				<a href="{{url}}"><i class="icon icon-{{type}}"></i></a>
+			{{else}}
+				<i class="icon icon-{{type}}"></i>
+			{{/if}}
+			<span>{{{msg}}}</span>
 			<span class="pull-right">{{humanDate createdAt}}</span>
 		</div>
 	</div>
