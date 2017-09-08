@@ -117,10 +117,16 @@ _.extend(Kepler.Map, {
 					layers.geojson.clearLayers();
 			}
 
-		    if(z < K.settings.public.map.dataMinZoom)
-		        map.removeLayer(layers.cluster);
-		    else
-		        map.addLayer(layers.cluster);
+		    if(z < K.settings.public.map.dataMinZoom){
+				map.removeLayer(layers.users);
+				map.removeLayer(layers.cursor);
+				map.removeLayer(layers.cluster);
+		    }
+		    else {
+				map.addLayer(layers.users);
+				map.addLayer(layers.cursor);
+				map.addLayer(layers.cluster);
+		    }
 		});
 
 		return layers;
