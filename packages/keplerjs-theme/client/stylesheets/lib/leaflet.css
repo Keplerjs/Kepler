@@ -118,28 +118,29 @@
 	border-radius: 0;
 	box-shadow: none;
 	margin: 0;
-	padding: 3px;
+	padding: 0 2px;
+	display: inline-block;
+	height: 16px;
 	float: left;
 	clear: none;
 	color: #257;
 	text-shadow: 0 0 1px #fff;
 	background-color: rgba(255, 255, 255, 0.5);
 }
-/*.leaflet-left.leaflet-bottom .leaflet-control.leaflet-control-scale  {
-	border-top-right-radius: 3px;
-}*/
 /* SCALE */
 .leaflet-control-scale-line {
-	border: none;
-	padding: 2px 0 0 2px;
-	background: none;
 	border-left: 2px solid rgba(153,204,0,1);
 	border-right: 2px solid rgba(153,204,0,1);
 	overflow:visible;
 	border-bottom: 2px solid rgba(153,204,0,1);
 	background: none;
 	color: #257;
-	vertical-align: bottom;
 	text-shadow: none;
 	z-index:1;
+	height: 8px;
+	margin-bottom: 2px;
+	padding-bottom: 6px;
+	display: inline-block;
+	vertical-align: bottom;
+	line-height: 0
 }
