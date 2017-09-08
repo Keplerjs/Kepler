@@ -47,7 +47,7 @@ TODO			createdAt: {
 			}*/
 		}, _.deepExtend({}, K.filters.converItem, {
 				sort: { 'lastMsg.updatedAt': -1,  targetId: 1},
-				limit: 30
+				limit: 100
 			})
 		);
 	},	

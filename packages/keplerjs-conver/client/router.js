@@ -56,7 +56,9 @@ Router.map(function() {
 				headerTemplate: 'conver_place_new',
 				headerData: place,		
 				itemsTemplate: 'item_conver',
-				items: K.findConversByTarget(this.params.placeId).fetch()
+				items: K.findConversByTarget(this.params.placeId).fetch(),
+				sortBy: 'lastMsg.updatedAt',
+				sortDesc: true				
 			};
 		}
 	});

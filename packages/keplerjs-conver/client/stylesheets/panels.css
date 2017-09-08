@@ -2,11 +2,8 @@
 #conver .panel-body {
 	margin: 4px;
 	padding: 0;
-    position: absolute;
-    top: 84px;
-    left: 0;
-    right: 0;
-    bottom: 36px;
+
+    bottom: 38px;
 }
 #conver .list-group-item:last-child {
 	padding-bottom: 8px;

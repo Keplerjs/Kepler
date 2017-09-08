@@ -89,19 +89,8 @@ K.extend({
 				});
 		}
 		else	//user isn't owner to leave conver
-		{
-			K.insertMsgToConver(convId, '<br />'+i18n('title_userConverleave', Meteor.user().name) );
-			Users.update(Meteor.userId(), {
-				$pull: {
-					convers: convId
-				}
-			});
-			Convers.update(convId, {
-				$pull: {
-					usersIds: Meteor.userId()
-				}
-			});
-		}
+			K.insertLeaveToConver(convId);
+			
 		console.log('Conver: removeConver', convId);
 	}
 });

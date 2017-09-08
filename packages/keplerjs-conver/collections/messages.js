@@ -23,11 +23,48 @@ K.extend({
 			sort: ['updatedAt']
 		});
 	},
+	insertLeaveToConver: function(convId) {
+		var body = '<br />'+i18n('title_userConverleave', Meteor.user().name);
+		
+		var convData = Convers.findOne(convId),
+			lastMsg = convData && convData.lastMsg,
+			newMsg = _.deepExtend({}, K.schemas.converMsg, {
+				updatedAt: K.Util.time(),
+				userId: '',
+				convId: convId,
+				body: body
+			});
+
+		if(lastMsg && lastMsg.userId === newMsg.userId)	//append to my last msg
+		{
+			newMsg.body = lastMsg.body +'<br /> '+ newMsg.body;
+			delete newMsg._id;
+			Messages.update({_id: lastMsg._id }, {
+				$set: newMsg
+			});
+			newMsg._id = lastMsg._id;
+		}
+		else
+			newMsg._id = Messages.insert(newMsg);
+		
+		//TODO simplify using upsert
+
+		Users.update(Meteor.userId(), {
+			$pull: {
+				convers: convId
+			}
+		});
+		Convers.update(convId, {
+			$pull: {
+				usersIds: Meteor.userId()
+			}
+		});
+	},
 	insertMsgToConver: function(convId, body) {
 
 		var convData = Convers.findOne(convId),
 			lastMsg = convData && convData.lastMsg,
-			newMsg = _.extend({}, K.schemas.converMsg, {
+			newMsg = _.deepExtend({}, K.schemas.converMsg, {
 				updatedAt: K.Util.time(),
 				userId: Meteor.userId(),
 				convId: convId,
@@ -45,7 +82,8 @@ K.extend({
 		}
 		else
 			newMsg._id = Messages.insert(newMsg);
-		//TODO forse si semplifica con upsert o forse no
+		
+		//TODO simplify using upsert
 
 		Convers.update(convId, {
 			$addToSet: {
