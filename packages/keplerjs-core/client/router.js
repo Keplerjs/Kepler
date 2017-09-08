@@ -39,7 +39,7 @@ Router.onAfterAction(function() {
 
 	var routeName = this.route.getName();
 
-	document.title = i18n('title_'+routeName) || _.str.capitalize(routeName);
+	document.title = (this.data() && this.data().title) || i18n('title_'+routeName) || _.str.capitalize(routeName);
 
 	if(this.ready() && K.Profile.ready) {
 
