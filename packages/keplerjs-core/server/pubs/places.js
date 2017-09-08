@@ -46,8 +46,6 @@ Meteor.publish('placeById', function(placeId) {
 			retCurs.push( K.findUsersByIds(usersIds) );
 		//publish one cursor for collection users
 
-		console.log('Pub: placeById', placeData.name);
-
 		return retCurs;
 	}
 	else

@@ -26,10 +26,10 @@ Kepler.Place = Class.extend({
 			return self;
 		};
 
-		Tracker.autorun(function(comp) {	//sincronizza istanza con dati nel db
+		self.update = function(comp) {	//sincronizza istanza con dati nel db
 
 			self.data = K.findPlaceById(self.id).fetch()[0];
-			
+		
 			//TODO rewrite loading data into place instance!
 			_.extend(self, self.data);
 
@@ -43,7 +43,9 @@ Kepler.Place = Class.extend({
 			self._dep.changed();
 
 			return self;
-		});
+		};
+		
+		Tracker.autorun(self.update);
 	},
 
 	buildMarker: function() {

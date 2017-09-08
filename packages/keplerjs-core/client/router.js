@@ -260,7 +260,7 @@ Router.map(function() {
 		waitOn: function() {
 			Session.set('showSidebar', true);
 			return Meteor.subscribe('placeById', this.params.placeId);
-		},	
+		},
 		data: function() {
 			if(!this.ready()) return null;
 			var place = K.placeById( this.params.placeId );
@@ -269,6 +269,8 @@ Router.map(function() {
 				Router.go('root');
 				return null;
 			}
+
+			place.update();	//update instance adding new fields by placeById
 
 			return place.rData();
 		}
@@ -327,9 +329,14 @@ Router.map(function() {
 		data: function() {
 			if(this.ready()) {
 				var user = K.userById(this.params.userId);
+				
+				if(!user){
+					Router.go('root');
+					return null;
+				}
 
-				//TODO don't use update to force reativity
-				//user.update();
+				user.update();	//update instance adding new fields by userById
+				
 				return user.rData();
 			}
 			else

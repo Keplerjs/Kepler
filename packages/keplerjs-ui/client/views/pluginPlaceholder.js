@@ -16,12 +16,16 @@ Template.pluginPlaceholder.helpers({
 		_.each(K.placeholders, function(templates, placeholder) {
 
 			if(placeholder === self.name) {
+
+				var pluginData = Template.parentData();
+
+				//console.log('pluginData', self.name, pluginData)
 			
 				_.each(templates, function(pluginTemplate) {
 					if(Template[pluginTemplate]) {
 						ret.push({
 							pluginTemplate: pluginTemplate,
-							pluginData: Template.parentData()
+							pluginData: pluginData
 						});
 					}
 				});

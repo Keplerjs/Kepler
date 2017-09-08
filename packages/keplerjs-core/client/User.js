@@ -52,6 +52,7 @@ Kepler.User = Class.extend({
 
 			return self;
 		};
+		
 		Tracker.autorun( self.update );	//TODO aggiornare solo se amico
 	},
 
