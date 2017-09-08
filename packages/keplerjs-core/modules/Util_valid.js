@@ -34,8 +34,10 @@ Kepler.Util.valid = {
 		lat = parseFloat(lat);
 		lng = parseFloat(lng);
 
-		return  (lat != NaN && lat <= 90 && lat >= -90) &&
-				(lng != NaN && lng <= 90 && lng >= -90);
+		/* world bounds [[-90, -180], [90, 180]] */
+		return  (lat != NaN && lng != NaN) && 
+				(lat <= 90 && lat >= -90) &&
+				(lng <= 180 && lng >= -180);
 	},
 
 	name: function(name) {
