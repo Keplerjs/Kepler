@@ -25,17 +25,24 @@ Kepler.Util.humanize = {
 
 		if(y>0)
 			ret+=' '+y+i18n('year').split(',')[y>1?1:0];
+
 		if(y<2 && m>0)
 			ret+=' '+m+i18n('month').split(',')[m>1?1:0];
+
 		if(m<2 && d>0)
 			ret+=' '+d+i18n('day').split(',')[d>1?1:0];
+
 		if(d<2 && h>0)
 			ret+=' '+h+i18n('hour').split(',')[h>1?1:0];
-		if(h<3 && i>0)
-			ret+=' '+i+i18n('minute').split(',')[i>1?1:0];
-		if(h<1 && i<3 && s>0 && i<1)
-			ret+=' '+s+i18n('second').split(',')[s>1?1:0];
 
+		if(d<1) {
+			if(h<1 && i>0)
+				ret+=' '+i+i18n('minute').split(',')[i>1?1:0];
+						
+			if(i<2 && s>0 && i<1)
+				ret+=' '+s+i18n('second').split(',')[s>1?1:0];
+		}
+		
 		return ret;
 	},
 
@@ -63,8 +70,10 @@ Kepler.Util.humanize = {
 				{
 					if( days_near[d-giorno+1] )
 						ret = days_near[d-giorno+1] + sep;
-					else
-						ret = days[dweek] + sep + fulldate;
+					else{
+						ret = Math.abs(d-giorno)<6 ? days[dweek]+sep : '';
+						ret += fulldate;
+					}
 				}
 				else
 					ret = fulldate;

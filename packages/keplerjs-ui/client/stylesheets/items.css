@@ -65,3 +65,8 @@
 	height: auto;
 	overflow: hidden;
 }
+
+time {
+	color:#aaa;
+	font-size: 12px;
+}

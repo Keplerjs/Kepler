@@ -36,8 +36,6 @@
 }
 .msg-item time {
 	float: right;
-	font-size: small;
-	color: #aaa;
 }
 
 #converInput {
