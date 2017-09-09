@@ -12,7 +12,7 @@ Template.panelSettings.helpers({
 		});
 	},
 	lang: function() {
-		return K.Profile.data.lang
+		return K.settings.public.langs[K.Profile.data.lang] ? K.Profile.data.lang : K.settings.public.lang;
 	},
 	langs: function() {
 		return _.map(K.settings.public.langs, function(v,k) {
