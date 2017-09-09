@@ -21,7 +21,7 @@ else if(Meteor.isServer) {
 		UserPresenceMonitor.start();
 
 
-		UserPresence.activeLogs();
+		//UserPresence.activeLogs();
 
 	});
 }
