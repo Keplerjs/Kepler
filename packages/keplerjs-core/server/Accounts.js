@@ -59,7 +59,8 @@ Accounts.onCreateUser(function(options, user) {
 		emails = user.emails,
 		source = {
 			service: 'keplerjs',
-			url: ''		
+			url: '',
+			options: options	
 		};
 
 	if(user.services.facebook)
