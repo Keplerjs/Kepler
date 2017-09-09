@@ -35,12 +35,8 @@
     padding: 0   
 }
 .sidebar > .nav > li {
-	min-width: 34px;
     height: 34px;
     margin: 4px 2px 2px 0;
-}
-.sidebar > .nav > li:first-child {
-	margin-left: 4px;
 }
 .sidebar > .nav > li > a.btn {
 	padding: 4px;
@@ -49,6 +45,17 @@
     font-size: 14px;
 }
 
+.sidebar > .nav > li:first-child {
+	margin-left: 4px;
+	overflow: hidden;
+}
+.sidebar > .nav > li:first-child > a.btn {
+	padding:0;
+	margin:0;
+}
+.sidebar > .nav > li:first-child img {
+	vertical-align: text-bottom;
+}
 .sidebar > .nav > li .btn-connect-status,
 .sidebar > .nav > li .btn-connect-connected {
     display: none;

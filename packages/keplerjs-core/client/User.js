@@ -128,6 +128,9 @@ Kepler.User = Class.extend({
 		this._dep.depend();	
 		if(K.Profile.getOnline() && this.isFriend() || this.isMe())
 			return this.checkin;
+	},
+	getFullname: function() {
+		return this.username!==this.name ? this.username+' ('+this.name+')': this.username;
 	}
 });
 /**

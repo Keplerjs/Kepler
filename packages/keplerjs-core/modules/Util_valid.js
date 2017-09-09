@@ -43,7 +43,7 @@ Kepler.Util.valid = {
 	name: function(name) {
 		//maintain regexp compatible with K.Util.sanitize.name!!!
 		//...replace(/[^a-z0-9\.' ]/g,'');
-		var reg = /^[a-z0-9\.' ]$/;
+		var reg = /^[a-zA-Z0-9\.' ]$/;
 		return reg.test(name);
 	},
 	

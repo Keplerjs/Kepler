@@ -1,10 +1,4 @@
 
-Template.panelUser.helpers({
-	fullname: function() {
-		return this.username!==this.name ? this.username+' ('+this.name+')': this.username;
-	}
-});
-
 Template.user_btns_panel.onRendered(function() {
 	var self = this;
 	self.$('.user-btn-del').btsConfirmButton(function(e) {

@@ -2,8 +2,8 @@
 <template name="tab_bio">
 
 	<div class="row">
-		<div class="col-xs-4">
-			<img class="icon-avatar icon-avatar-big {{#unless avatar}}icon-avatar-default{{/unless}}" src="{{avatar}}" />
+		<div class="col-xs-4 avatar-big">
+			{{> item_user_avatar}}
 		</div>
 		<div class="col-xs-8">			
 		{{#if username}}

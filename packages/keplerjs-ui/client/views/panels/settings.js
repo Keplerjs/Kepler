@@ -49,7 +49,7 @@ Template.panelSettings.events({
 	'keyup #name': _.debounce(function(e) {
 		var feed$ = $(e.target).next('.form-control-feedback'),
 			val = $(e.currentTarget).val();
-		if(!K.Util.valid.name(e.target.value)) {
+		if(!K.Util.valid.name(val)) {
 			feed$.show();
 		}
 		else {

@@ -4,9 +4,7 @@
 	{{#if currentUser}}
 		{{#with currentUser}}
 			<div class="btn btn-default">
-				<a class="btn user-btn-name" href="{{pathFor route='root'}}">
-					<img class="icon-avatar" src="{{avatar}}" /><u>{{username}}</u>
-				</a>
+				{{> item_user}}
 			</div>
 
 			<br /><br />

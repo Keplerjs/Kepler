@@ -5,7 +5,10 @@
 
 	<div class="panel-heading bg-primary">
 		<h4 class="pull-left">
-			<img class="icon-avatar" src="{{avatar}}" /> {{username}}
+			<a class="back" href="javascript:history.back()">
+				<i class="icon icon-arrow-l"></i>
+			</a> 
+			{{getFullname}}
 		</h4>
 		<a class="close pull-right" href="/">
 			<i class="icon icon-close"></i>

@@ -26,19 +26,6 @@
 .icon.icon-loader {
 	background: url("/packages/keplerjs_theme/assets/images/loader-icon.gif") no-repeat;
 }
-.icon-avatar {
-    background-size: cover;
-	height: 30px;
-	width: 30px;
-}
-.icon-avatar-default {
-	background-image: url("/packages/keplerjs_theme/assets/images/avatar.svg");
-}
-.icon-avatar.icon-avatar-big {
-	height: 90px;
-	width: 90px;
-}
-
 .icon {
 	position: relative;
 	top: 1px;
@@ -49,6 +36,25 @@
 	height: 18px;
 	width: 18px;
 }
+.icon-avatar {
+	display: inline-block;
+    background-size: cover;
+	height: 30px;
+	width: 30px;
+	border-radius: 3px;
+}
+.icon-avatar-default {
+	background-image: url("/packages/keplerjs_theme/assets/images/avatar.svg");
+}
+.avatar-big .icon-avatar {
+	height: 90px;
+	width: 90px;
+}
+
+.icon-avatar:not([src]) {
+    content: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
+}
+
 div.icon-marker,
 div.leaflet-marker-icon {
 	display: inline-block;

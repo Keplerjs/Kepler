@@ -2,10 +2,9 @@
 <template name="navSidebar">
 	<ul class="nav nav-pills" role="tablist">
 		<li class="{{ifRoute 'profile' 'active'}}">
-			<a class="btn btn-sm" href="{{pathFor route='profile'}}" role="tab">
-				<i class="icon icon-profile"></i>
-				<span class="hidden-xs">{{i18n 'btn_profile'}}</span>
-			</a>
+			{{#with currentUser}}
+				{{> item_user_avatar}}
+			{{/with}}
 		</li>
 		<li class="{{ifRoute 'friends' 'active'}}">
 			<a class="btn btn-sm" href="{{pathFor route='friends'}}" role="tab">
