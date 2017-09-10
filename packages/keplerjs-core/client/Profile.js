@@ -51,6 +51,12 @@ Kepler.Profile = {
 				});
 		});
 
+		if(self.data.mob !== K.Util.isMobile()) {
+			Users.update(Meteor.userId(), {
+				$set: {mob: K.Util.isMobile() }
+			});
+		}	
+
 		if(_.isFunction(cb))
 			cb.call(self, self.data);
 
@@ -63,18 +69,11 @@ Kepler.Profile = {
 		return (self.data.status==='online' || self.data.status==='away');
 	},	
 	setOnline: function(online) {
-		/*var self = this;
-		online = online ? 1 : 0;
-		if(online !== this.data.online)
-			Users.update(Meteor.userId(), {
-				$set: {
-					online: parseFloat(online),
-					mob: parseFloat(K.Util.isMobile() ? 1:0)
-				}
-			}, function(err) {
-				self._deps.online.changed();
-			});*/
-		Meteor.call('UserPresence:setDefaultStatus', online?'online':'offline');
+		console.log('setOnline',online)
+		var self = this;
+		Meteor.call('UserPresence:setDefaultStatus', online?'online':'offline', function(err, data) {
+			self._deps.online.changed();
+		});
 		return this;
 	},
 	setLoc: function(loc) {

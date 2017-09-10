@@ -52,15 +52,13 @@
 	margin-left: 4px;
 }
 .sidebar > .nav > li:first-child > a.btn {
-	padding-top:0;
-	padding-left:0;
+	padding: 0;
+	border: none;
+	height: 30px;
+	width: 30px;
 }
 .sidebar > .nav > li:first-child img {
 	vertical-align: middle;
-}
-.sidebar > .nav > li .btn-connect-status,
-.sidebar > .nav > li .btn-connect-connected {
-    display: none;
 }
 
 li#navsearch {
@@ -131,6 +129,10 @@ li#navsearch {
     .sidebar-map {
         margin-left: 0;
     }
+    .sidebar > .nav > li .btn-connect-status {
+    	display: none;
+	}    
+
 }
 /*@media (min-width: 992px) and (max-width: 1199px) {
     .sidebar-map .leaflet-left {
@@ -140,5 +142,5 @@ li#navsearch {
 @media (min-width: 1200px) {
     .sidebar {
         width: 460px;
-    }
+    }  
 }

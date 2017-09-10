@@ -50,12 +50,13 @@
 		<span class="user-status-text">
 		{{#if eq status 'online'}}
 		<b class="text-green">online</b>
-		{{/if}}
-		{{#if eq status 'offline'}}
-		<b class="text-gray">offline</b>
-		{{/if}}
-		{{#if eq status 'away'}}
-		<b class="text-yellow">away</b>
+		
+		{{else}}
+			{{#if eq status 'away'}}
+			<b class="text-yellow">away</b>
+			{{else}}
+			<b class="text-gray">offline</b>
+			{{/if}}
 		{{/if}}
 		</span>
 	</label>

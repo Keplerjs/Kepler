@@ -41,7 +41,10 @@ K.Admin.methods({
 
 		Users.update({}, {
 			$pull: {
-				friends: userId
+				friends: userId,
+				usersPending: userId,
+				usersReceive: userId,
+				usersBlocked: userId,
 			}
 		},{ multi: true });
 		Places.update({}, {

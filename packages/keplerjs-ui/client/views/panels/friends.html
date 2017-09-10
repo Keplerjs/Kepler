@@ -5,6 +5,9 @@
 			<input class="users-search form-control" type="text" placeholder="{{i18n 'label_find'}}" /> 
 		</div>
 		<div class="col-xs-6 text-right">
+		{{#with currentUser}}
+			{{> user_status}}
+		{{/with}}
 			<input id="switch_online" type="checkbox" />
 		</div>
 	</div>

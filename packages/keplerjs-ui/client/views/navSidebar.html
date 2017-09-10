@@ -6,7 +6,7 @@
 				{{#with currentUser}}
 				<img class="icon-avatar {{#unless avatar}}icon-avatar-default{{/unless}}" src="{{#if avatar}}{{avatar}}{{/if}}" />
 				{{/with}}
-				<span> {{i18n 'btn_profile'}}</span>
+				<!-- <span> {{i18n 'btn_profile'}}</span> -->
 			</a>
 		</li>
 		<li class="{{ifRoute 'friends' 'active'}}">
@@ -21,10 +21,13 @@
 				<span> {{i18n 'btn_places'}}</span>
 			</a>
 		</li>
+		
 		{{> pluginPlaceholder name='navSidebar'}}
 
+		{{#unless eq connectionStatus.status 'connected'}}
 		<li class="pull-right">
 			{{> btnConnect}}
 		</li>
+		{{/unless}}
 	</ul>
 </template>
