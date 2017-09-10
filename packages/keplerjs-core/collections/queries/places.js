@@ -63,6 +63,17 @@ K.extend({
 			})
 		);
 	},	
+	findPlacesByNearby: function(loc) {
+		return Places.find({
+			loc: {
+				'$near': loc,
+				'$maxDistance': K.Util.geo.meters2rad(K.settings.public.map.nearbyMaxDist)
+			}
+		}, _.deepExtend({}, K.filters.placeItem, {
+				limit: 30
+			})
+		);
+	},
 	findPlacesByName: function(initial) {
 		initial = K.Util.sanitize.regExp(initial);
 

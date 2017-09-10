@@ -189,13 +189,20 @@ Router.map(function() {
 		template: 'panelList',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
+			if(!K.Map.ready()) return null;
+
 			Session.set('showSidebar', true);
+			var loc = K.Map.getCenter(),
+				places = K.findPlacesByNearby(loc).fetch();
+			return Meteor.subscribe('placesByNearby', loc);
 		},
 		data: function() {
-			if(!this.ready()) return null;
+			if(!this.ready() || !K.Map.ready()) return null;
 
-			var bbox = K.Map.getBBox(),
-				places = K.findPlacesByBBox(bbox).fetch();
+			var loc = K.Map.getCenter(),
+				places = K.findPlacesByNearby(loc).fetch();
+
+			//debugging maxDistance L.circleMarker(loc,{radius:10}).addTo(K.Map.map);
 
 			return {
 				title: i18n('title_placesNearby'),
@@ -203,9 +210,7 @@ Router.map(function() {
 				headerTemplate: 'search_place',
 				itemsTemplate: 'item_place_search',
 				items: _.map(places, function(place) {
-					var p = K.placeById(place._id);
-					if($(p.marker._icon).is(':visible'))
-						return p.rData();
+					return K.placeById(place._id);
 				})
 			};
 		}

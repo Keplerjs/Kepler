@@ -70,3 +70,13 @@ Meteor.publish('placesByDate', function() {
 	else
 		this.ready();
 });
+
+Meteor.publish('placesByNearby', function(loc) {
+	if(this.userId) {
+		console.log('Pub: placesByNearby',loc);
+		if(K.Util.valid.loc(loc))
+			return K.findPlacesByNearby(loc);
+	}
+	else
+		this.ready();
+});
