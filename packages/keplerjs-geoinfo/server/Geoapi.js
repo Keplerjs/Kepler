@@ -27,39 +27,53 @@ var httpGet = function(url) {
 }
 
 Kepler.Geoapi = {	
-
-	aspectLocal: function(ll) {
+	/**
+	 * return the geo aspect the compass direction that a slope faces(free service but only for Italy)
+	 * @param  {Array} loc location [lat,lng]
+	 * @return {Number}    integer number
+	 */
+	aspect: function(ll) {
 
 		var data, ret, src = {
-				par: 'aspect',
-				url: 'http://localhost/maps/dem/aspect.php?lat='+ll[0]+'&lng='+ll[1]
+				par: 'val',
+				url: 'http://labs.easyblog.it/maps/geotiff-picker/aspect?lat='+ll[0]+'&lng='+ll[1]
 			};
 
 		data = httpGet(src.url);
 
 		if(data && data[src.par])
-			ret = K.Util.sanitize.name(data[src.par]);
+			ret = parseInt(data[src.par]);
 		else
 			ret = null;
 
 		return ret;
 	},
-	elevationLocal: function(ll) {
+	/**
+	 * return elevation from SRTM1 30m precision, high precision (free service but only for Italy)
+	 * @param  {Array} loc location [lat,lng]
+	 * @return {Number}    integer number
+	 */	
+	elevationItaly: function(ll) {
 
 		var data, ret, src = {
-				par: 'ele',
-				url: 'http://localhost/maps/dem/elevation.php?lat='+ll[0]+'&lng='+ll[1]
+				par: 'val',
+				url: 'http://labs.easyblog.it/maps/geotiff-picker/dem?lat='+ll[0]+'&lng='+ll[1]
 			};
 
 		data = httpGet(src.url);
 		
 		if(data && data[src.par])
-			ret = K.Util.sanitize.name(data[src.par]);
+			ret = parseInt(data[src.par]);
 		else
 			ret = null;
 
 		return ret;
 	},
+	/**
+	 * return elevation from SRTM1 30m precision
+	 * @param  {Array} loc location [lat,lng]
+	 * @return {Number}    integer number
+	 */	
 	elevation: function(ll) {
 
 		var res, ret, 
@@ -78,6 +92,11 @@ Kepler.Geoapi = {
 
 		return ret;
 	},
+	/**
+	 * return locality nearby from geonames
+	 * @param  {Array} loc [description]
+	 * @return {String}    [description]
+	 */
 	near: function(ll) {
 
 		var data, ret, src = {
@@ -96,6 +115,11 @@ Kepler.Geoapi = {
 
 		return ret;
 	},
+	/**
+	 * return municipality from geonames
+	 * @param  {Array} loc [description]
+	 * @return {String}    [description]
+	 */	
 	municipality: function(ll) {
 
 		var data, ret, src = {
@@ -113,6 +137,11 @@ Kepler.Geoapi = {
 
 		return ret;
 	},
+	/**
+	 * return province from geonames
+	 * @param  {Array} loc [description]
+	 * @return {String}    [description]
+	 */		
 	province: function(ll) {
 
 		var data, ret, src = {
@@ -130,6 +159,11 @@ Kepler.Geoapi = {
 
 		return ret;
 	},
+	/**
+	 * return region from geonames
+	 * @param  {Array} loc [description]
+	 * @return {String}    [description]
+	 */			
 	region: function(ll) {
 
 		var data, ret, src = {
@@ -147,6 +181,11 @@ Kepler.Geoapi = {
 
 		return ret;
 	},
+	/**
+	 * return country from geonames
+	 * @param  {Array} loc [description]
+	 * @return {String}    [description]
+	 */			
 	country: function(ll) {
 
 		var data, ret, src = {
@@ -164,6 +203,11 @@ Kepler.Geoapi = {
 
 		return ret;
 	},
+	/**
+	 * return geocoding from nominatim OSM
+	 * @param  {String} text [description]
+	 * @return {Array}    [description]
+	 */			
 	geocoding: function(text) {
 		
 		/*url: 'http://nominatim.openstreetmap.org/search?format=json&q={s}',
@@ -186,6 +230,11 @@ Kepler.Geoapi = {
 
 		return ret;
 	},
+	/**
+	 * return location from ip address
+	 * @param  {String} ip [description]
+	 * @return {Array}    location
+	 */		
 	geoip: function(ip) {
 		
 		var data, ret, src = {

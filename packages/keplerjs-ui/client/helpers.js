@@ -62,7 +62,8 @@ Template.registerHelper('arrayify',function(obj){
 });
 
 Template.registerHelper('humanAzimut', function(ang,code) {
-	return K.Util.humanize.azimut(ang,code);
+	console.log(code)
+	return K.Util.humanize.azimut(ang, parseInt(code));
 });
 
 Template.registerHelper('humanTime', function(sec, ago) {

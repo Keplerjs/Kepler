@@ -33,7 +33,7 @@ K.Plugin({
 				"fields": {	//active fields
 					"loc": true,
 					"ele": true,
-					"esp": false,
+					"esp": true,
 					"prov": true,
 					"near": true,
 					"com": true,

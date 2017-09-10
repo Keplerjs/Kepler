@@ -16,7 +16,7 @@ Kepler.Geoinfo = {
 			name: 'aspect',
 			caching: true,
 			roundLoc: 8,
-			func: K.Geoapi.aspectLocal
+			func: K.Geoapi.aspect
 		},
 		near: {
 			name: 'near',
@@ -81,6 +81,7 @@ Kepler.Geoinfo = {
 		var future = new Future();
 
 		async.parallel(tasks, function(err, ret) {
+
 			if(err)
 				future.throw(err);
 			else
