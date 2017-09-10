@@ -26,7 +26,7 @@ Template.search_user.onRendered(function() {
 	});
 
 	this.$('#switch_online').bootstrapSwitch({
-		size: 'mini',		
+		size: 'mini',
 		onColor: 'success',		
 		state: K.Profile.getOnline(),
 		onSwitchChange: function (e, stat) {

@@ -56,6 +56,7 @@ i18n.map('it', {
 	label_creator: "Creatore",
 	label_friendscomm: "Amici in comune",
 	label_friendsother: "Altri amici",
+	label_find: "Cerca...",
 	label_findusers: "Cerca persone...",
 	label_findplace: "Cerca un luogo...",
 	label_signupdate: "Registrato",

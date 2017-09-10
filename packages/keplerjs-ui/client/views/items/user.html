@@ -20,7 +20,7 @@
 <template name="item_user_friend">
 	<div class="friend-item {{status}}">
 		<div class="pull-left">
-			<i class="icon icon-{{status}}{{#if mob}}-mob{{/if}} user-device"></i>
+			{{> user_status}}
 			{{> item_user}}
 		</div>
 		<div class="pull-right">
@@ -44,17 +44,21 @@
 	</div>
 </template>
 
-<template name="status_user">
-	<i class="icon icon-{{status}}{{#if mob}}-mob{{/if}} user-device"></i> 
-	{{#if eq status 'online'}}
-	<b class="text-green">online</b>
-	{{/if}}
-	{{#if eq status 'offline'}}
-	<b class="text-gray">offline</b>
-	{{/if}}
-	{{#if eq status 'away'}}
-	<b class="text-yellow">away</b>
-	{{/if}}
+<template name="user_status">
+	<label class="">
+		<i class="icon icon-{{status}}{{#if mob}}-mob{{/if}} user-device"></i> 
+		<span class="user-status-text">
+		{{#if eq status 'online'}}
+		<b class="text-green">online</b>
+		{{/if}}
+		{{#if eq status 'offline'}}
+		<b class="text-gray">offline</b>
+		{{/if}}
+		{{#if eq status 'away'}}
+		<b class="text-yellow">away</b>
+		{{/if}}
+		</span>
+	</label>
 </template>
 
 

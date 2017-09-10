@@ -17,7 +17,6 @@
 
 		{{> tab_bio}}
 
-
 		{{#if or isBlocked isBlockMe}}
 			
 			{{#if isBlocked}}
@@ -33,9 +32,7 @@
 			
 			<div class="row">
 				<div class="col-xs-4">
-					<label class="btn btn-sm">
-					{{> status_user}}
-					</label>
+					{{> user_status}}
 				</div>
 				<div class="col-xs-8 text-right">
 					<div class="user-btns">

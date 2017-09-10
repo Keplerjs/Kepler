@@ -1,28 +1,24 @@
 
 <template name="search_user">
-	<form class="form-horizontal">
-		<div class="form-group has-feedback col-xs-7">
-			<!--div class="input-group"--> 
-				<input class="users-search form-control" type="text" placeholder="{{i18n 'label_findusers'}}" /> 
-				<!--span class="input-group-addon"><i class="icon icon-search"></i></span>
-			</div-->
+	<div class="row form-group">
+		<div class="col-xs-6">
+			<input class="users-search form-control" type="text" placeholder="{{i18n 'label_find'}}" /> 
 		</div>
-		<div class="text-right">
-			{{#with currentUser}}
-				{{> status_user}}
-			{{/with}}
-			<input class="form-control" id="switch_online" type="checkbox" />
+		<div class="col-xs-6 text-right">
+			<input id="switch_online" type="checkbox" />
 		</div>
-		<div class="text-right">
-		{{#if ifRoute 'usersNews'}}
-			<a class="btn btn-default pull-right" href="{{pathFor route='friends'}}">
-				{{i18n 'title_friends'}}<i class="icon icon"></i>
+	</div>
+
+	<ul class="nav nav-tabs text-right">
+		<li class="{{ifRoute 'friends' 'active'}}">
+			<a href="{{pathFor route='friends'}}">
+				<span>{{i18n 'title_friends'}}</span>
 			</a>
-		{{else}}
-			<a class="btn btn-default pull-right" href="{{pathFor route='usersNews'}}">
-				{{i18n 'title_usersNews'}}
+		</li>
+		<li class="{{ifRoute 'usersNews' 'active'}}">
+			<a href="{{pathFor route='usersNews'}}">
+				<span>{{i18n 'title_usersNews'}}</span>
 			</a>
-		{{/if}}
-		</div>
-	</form>
+		</li>
+	</ul>
 </template>

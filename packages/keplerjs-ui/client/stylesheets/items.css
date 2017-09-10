@@ -50,6 +50,9 @@
 .friend-item .btn {
 	border: none;
 }
+.friend-item .user-status-text {
+	display: none;
+}
 
 .friends-search:active + .icon-search {
 	display: none;
