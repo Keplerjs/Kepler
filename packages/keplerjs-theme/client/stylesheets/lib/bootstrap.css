@@ -120,10 +120,7 @@ label {
 .badge.badge-red,
 .list-group-item.active > .badge, .nav-pills > .active > a > .badge.badge-red {
 	background-color: #ef0000;
-	color: #257;
-}
-.badge.badge-red {
-	color: #fff
+	color: #fff;
 }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus  {

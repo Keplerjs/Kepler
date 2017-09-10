@@ -1,6 +1,10 @@
 
+.item-notif.alert {
+	padding: 10px; 
+}
 .btn-notif .badge {
 	position: absolute;
+	color:#fff;
 	top: -5px;
-	right: -5px;
+	left: 12px;
 }

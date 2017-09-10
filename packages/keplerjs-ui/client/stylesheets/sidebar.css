@@ -32,11 +32,14 @@
 	background: #fff;/*rgba(255,255,255,0.6);*/
     border-radius:4px;
 	box-shadow: 0 0 5px rgba(0,0,0,0.3);
-    padding: 0   
+    padding: 0;
 }
 .sidebar > .nav > li {
     height: 34px;
+    min-width: 34px;
     margin: 4px 2px 2px 0;
+    white-space: nowrap;
+    line-height: 34px;
 }
 .sidebar > .nav > li > a.btn {
 	padding: 4px;
@@ -47,14 +50,13 @@
 
 .sidebar > .nav > li:first-child {
 	margin-left: 4px;
-	overflow: hidden;
 }
 .sidebar > .nav > li:first-child > a.btn {
-	padding:0;
-	margin:0;
+	padding-top:0;
+	padding-left:0;
 }
 .sidebar > .nav > li:first-child img {
-	vertical-align: text-bottom;
+	vertical-align: middle;
 }
 .sidebar > .nav > li .btn-connect-status,
 .sidebar > .nav > li .btn-connect-connected {
@@ -115,6 +117,9 @@ li#navsearch {
     .leaflet-right.leaflet-top {
         padding-top: 50px;
     }
+    .sidebar > .nav > li:not(.active) span {
+    	display: none;
+    } 
 }
 @media (min-width: 768px) {
     .sidebar {
