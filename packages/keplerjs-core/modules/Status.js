@@ -3,9 +3,9 @@ if(Meteor.isClient) {
 
 	Meteor.startup(function() {
 		// Time of inactivity to set user as away automaticly. Default 60000
-		UserPresence.awayTime = 10000;
+		UserPresence.awayTime = K.settings.public.profile.awayTime;
 		// Set user as away when window loses focus. Defaults false
-		UserPresence.awayOnWindowBlur = false;
+		UserPresence.awayOnWindowBlur = K.settings.public.profile.awayOnWindowBlur;
 		// Start monitor for user activity
 		UserPresence.start();
 	});

@@ -41,12 +41,17 @@ Kepler.Util.valid = {
 	},
 
 	name: function(name) {
-		//maintain regexp compatible with K.Util.sanitize.name!!!
-		//...replace(/[^a-z0-9\.' ]/g,'');
-		var reg = /^[a-zA-Z0-9\.' ]$/;
+		//maintain regexp compatible with K.Util.sanitize.name!
+		var reg = /^[a-zA-Z0-9\.'\- ]{0,255}$/;
 		return reg.test(name);
 	},
 	
+	username: function(uname) {
+		//maintain regexp compatible with K.Util.sanitize.username!
+		var reg = /^[a-z0-9\.\-]{3,30}$/;
+		return reg.test(uname);
+	},
+
 	email: function(email) {
 		var reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		return reg.test(email);

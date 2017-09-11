@@ -9,6 +9,7 @@ Package.describe({
 });
   
 Npm.depends({
+  "latinize": "0.4.0",
   "bootstrap-switch": "3.3.2",
   "bootstrap-list-filter": "0.3.2",
   "bootstrap-confirm-button": "0.2.2",
@@ -84,6 +85,7 @@ Package.onUse(function(api) {
   api.imply(packages);
 
   api.addFiles([
+  	'.npm/package/node_modules/latinize/latinize.js',
     'lib/deepExtend.js',
     'lib/Class.js',
     'config/Accounts.js',

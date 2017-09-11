@@ -83,6 +83,10 @@ i18n.map('it', {
 	label_notfound: "Nessun risultato trovato",
 	label_version: "Versione",
 
+	error_novalid: "non valido",
+	error_validchars: "lettere, numberi, '-' '.' min 3 max 30 caratteri",
+	error_taken: "gia stato preso",
+
 	map_gps_title: "Tua posizione",
 	map_gps_error: "gps non disponibile",
 	map_layer_road: "Stradale",

@@ -7,7 +7,7 @@ K.Plugin({
 	},
 	settings: {
 		"router": {
-			"public": {
+			"publicRoutes": {
 				"pageAbout": 1
 			}
 		}

@@ -23,6 +23,10 @@ Kepler.settings = {
 			"es": "Español",
 			"fr": "Français",
 		},
+		"profile": {
+			"awayTime": 10000,
+			"awayOnWindowBlur": false
+		},
 		"map": {
 			"zoom": 5,
 			"minZoom": 3,
@@ -76,7 +80,7 @@ Kepler.settings = {
 		}		
 	},
 	"router": {
-		"public": {
+		"publicRoutes": {
 			"about": 1
 		}
 	},

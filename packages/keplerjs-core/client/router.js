@@ -11,7 +11,7 @@ Router.waitOn(function() {
 
 	var routeName = this.route.getName();
 
-	if(!K.settings.router.public[routeName]) {
+	if(!K.settings.router.publicRoutes[routeName]) {
 		
 		if(!Meteor.user()) {
 			if(Meteor.loggingIn())

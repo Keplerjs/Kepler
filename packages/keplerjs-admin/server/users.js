@@ -13,7 +13,8 @@ Users.after.insert(function(userId, doc) {
 
 K.Admin.methods({
 	insertUser: function(usernames) {
-		
+		//TODO https://docs.meteor.com/api/passwords.html#Accounts-createUser
+		//
 		if(!K.Admin.isMe()) return null;
 
 		usernames = _.isArray(usernames) ? usernames : [usernames];

@@ -47,6 +47,10 @@ i18n.map('de', {
 	label_notfound: "Keine Ergebnisse gefunden",
 	label_version: "Version",
 
+	error_novalid: "not valid",
+	error_validchars: "letters, numbers, '-' '.' min 3 max 30 chars",
+	error_taken: "already been taken",
+	
 	btn_ok: "OK",
 	btn_cancel: "Abbrechen",
 	btn_checkin: "Einchecken",

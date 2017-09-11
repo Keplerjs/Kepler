@@ -1,8 +1,4 @@
-/*
 
-	//TODO https://docs.meteor.com/api/passwords.html#Accounts-createUser
-
-*/
 Meteor.startup(function() {	
 	Accounts.config({
 		sendVerificationEmail: K.settings.accounts.verifyEmail,
@@ -30,15 +26,14 @@ Accounts.onLoginFailure(function(e) {
 	console.log('Accounts: onLoginFailure ', e.methodArguments, ip);
 });
 
-/*
-//TODO
-Accounts.validateNewUser(function (user) {
-  if (user.username && user.username.length >= 3)
-    return true;
+/*Accounts.validateNewUser(function (user) {
+  console.log('Accounts.validateNewUser', user)
+  //if (user.username && user.username.length >= 3)
+  //  return true;
 	//TODO blacklist names
   throw new Meteor.Error(403, "Username must have at least 3 characters");
-});
-*/
+});*/
+
 Accounts.onCreateUser(function(options, user) {
 
 	var profile = {},
@@ -104,10 +99,10 @@ Accounts.onCreateUser(function(options, user) {
 	
 	var retuser = _.extend({}, user, K.schemas.user, {
 		createdAt: K.Util.time(),
-		username: K.Util.sanitize.username(username),
-		profile: profile,
 		name: K.Util.sanitize.name(name),
+		username: K.Util.sanitize.username(username),
 		lang: lang.substr(0,2),
+		profile: profile,		
 		avatar: avatar,
 		gender: gender,
 		emails: emails,

@@ -50,6 +50,10 @@ i18n.map('sv', {
 	label_notfound: "Inga resultat",
 	label_version: "Version",
 
+	error_novalid: "not valid",
+	error_validchars: "letters, numbers, '-' '.' min 3 max 30 chars",
+	error_taken: "already been taken",
+	
 	btn_ok: "Ok",
 	btn_cancel: "Avbryt",
 	btn_checkin: "Checkain",

@@ -164,5 +164,22 @@ Meteor.methods({
 		});
 
 		console.log('Profile: userUnblock', this.userId, unblockUserId);
+	},
+	validUsername: function(name) {
+
+		if(!this.userId) return null;
+
+		username = K.Util.sanitize.username(name);
+
+		console.log('Profile: validUsername', this.userId, name, username);
+
+		if(!K.Util.valid.username(username))
+			throw new Meteor.Error(500, i18n('error_novalid'));
+
+		else if(Users.find({username: username}).count() === 0)
+			return username;
+		
+		else
+			throw new Meteor.Error(500, i18n('error_taken'));
 	}
 });
