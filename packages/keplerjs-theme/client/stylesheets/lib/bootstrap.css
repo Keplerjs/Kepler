@@ -118,13 +118,17 @@ label {
 	background-color: #257;
 }
 .badge.badge-red,
-.list-group-item.active > .badge, .nav-pills > .active > a > .badge.badge-red {
+.list-group-item.active > .badge,
+.nav-pills > .active > a > .badge.badge-red {
 	background-color: #ef0000;
 	color: #fff;
 }
 
-.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus  {
+.nav-pills > li.active > a, 
+.nav-pills > li.active > a:hover, 
+.nav-pills > li.active > a:focus  {
 	background-color: #9c0;
+	color: #fff;
 }
 
 header h4,

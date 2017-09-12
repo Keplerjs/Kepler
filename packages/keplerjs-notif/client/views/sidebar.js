@@ -1,22 +1,30 @@
 
-/*
-Template.navSidebar_notif.onCreated(function () {
-  
-});
-*/
 //Template.navSidebar_notif.onRendered(function() {
 Template.navSidebar_notif.onCreated(function () {
 	
 	Tracker.autorun(function(comp) {
 
 		if(Meteor.user()) {
-			//console.log('onRendered', Meteor.user() && Meteor.user().notifs.length)
-			
-			setTimeout(function() {
-				var c = Meteor.user().notifs && Meteor.user().notifs.length
-				if(c)
-					document.title = '('+c+') '+document.title;
-			},100)
+
+			var count = Meteor.user().notifs && Meteor.user().notifs.length;
+
+			if(count) {
+				Meteor.setTimeout(function() {
+				
+				var title = document.getElementsByTagName('title')[0],
+					reg = /^\(\d*\+?\) /;
+
+				if(count>0) {
+					if(reg.exec(title.text))
+						title.text = title.text.replace(reg,'('+count+') ');
+					else
+						title.text = '('+count+') '+title.text;
+				}
+				else
+					title.text = title.text.replace(reg,'');
+
+				},200);	//after Router.onAfterAction
+			}
 		}
 
 	});
