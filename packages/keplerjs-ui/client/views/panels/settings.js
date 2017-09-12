@@ -46,6 +46,31 @@ Template.panelSettings.helpers({
 
 Template.panelSettings.events({
 
+	'keyup #username': _.debounce(function(e, tmpl) {
+		var input$ = $(e.target),
+			feed$ = input$.siblings('.form-control-feedback'),
+			mes$ = input$.siblings('label'),
+			val = input$.val();
+
+		feed$.show().addClass('icon-loader');
+
+		Meteor.call('setUsername', val, function(err, sanitized) {
+
+			feed$.hide().removeClass('icon-loader');
+			
+			if(err) {
+				mes$.html(err.reason)
+				input$.val( tmpl.data.username ).blur();
+			}
+			else {
+				input$.val(sanitized);
+				mes$.html('');
+				feed$.show();
+			}
+		});
+
+	}, 1000),
+
 	'keyup #name': _.debounce(function(e) {
 		var feed$ = $(e.target).next('.form-control-feedback'),
 			val = $(e.currentTarget).val();

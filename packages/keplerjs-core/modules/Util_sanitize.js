@@ -22,20 +22,19 @@ Kepler.Util.sanitize = {
 			.replace(/-+/g,' ')
 			.replace(/’+/g,'\'')
 			.replace(/[^a-z0-9\.'\- ]/g,'');*/
-		
+
 		name = _.str.unescapeHTML(name) || '';
 		name = _.str.stripTags(name) || '';
 		name = _.str.clean(name) || '';
-		//TODO only sanitize by html tags 
-		//
+
 		return name.substr(0,255);
 	},
 
 	username: function(name) {
 		name = name || '';
 
-		if(latinize)//https://www.npmjs.com/package/latinize
-			name = latinize(name);
+		if(Meteor.isServer && Latinize)
+			name = Latinize(name);
 
 		name = name.toLowerCase()
 			.replace(/’+/g,'\'')
@@ -44,7 +43,7 @@ Kepler.Util.sanitize = {
 			.replace(/[\.]{2,}/g,'.')
 			.replace(/[\-]{2,}/g,'-');
 		name = _.str.clean(name) || '';
-		return name.substr(0,31);
+		return name.substr(0,16);
 	},
 
 	filename: function(name) {

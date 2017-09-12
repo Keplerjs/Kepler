@@ -13,7 +13,7 @@ Template.panelSettings_upload.events({
 		input$.parent().addClass('loading-default');
 		
 		K.Upload.uploadFile(fileObj, target, function(err, url) {
-			console.log(err,url)
+
 			input$.parent().removeClass('loading-default');
 
 			if(err)

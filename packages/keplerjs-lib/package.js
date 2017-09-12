@@ -85,7 +85,6 @@ Package.onUse(function(api) {
   api.imply(packages);
 
   api.addFiles([
-  	'.npm/package/node_modules/latinize/latinize.js',
     'lib/deepExtend.js',
     'lib/Class.js',
     'config/Accounts.js',
@@ -93,15 +92,20 @@ Package.onUse(function(api) {
     'config/router.js',
     'config/underscore.js',
   ]);
-  
+
+  api.addFiles([
+    'lib/Latinize.js',
+  ], 'server');
+
   api.addFiles([
     'client/L.NodeIcon.js',
     'client/L.Cursor.js'    
-  ], ['client']);
+  ], 'client');
 
   api.export([
     'Class',
-    'deepExtend'
+    'deepExtend',
+    'Latinize'
   ]);
   
 });

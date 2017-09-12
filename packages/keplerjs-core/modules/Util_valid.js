@@ -48,7 +48,7 @@ Kepler.Util.valid = {
 	
 	username: function(uname) {
 		//maintain regexp compatible with K.Util.sanitize.username!
-		var reg = /^[a-z0-9\.\-]{3,30}$/;
+		var reg = /^[a-z0-9\.\-]{3,16}$/;
 		return reg.test(uname);
 	},
 

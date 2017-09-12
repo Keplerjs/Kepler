@@ -165,21 +165,30 @@ Meteor.methods({
 
 		console.log('Profile: userUnblock', this.userId, unblockUserId);
 	},
-	validUsername: function(name) {
+	setUsername: function(username) {
 
 		if(!this.userId) return null;
 
-		username = K.Util.sanitize.username(name);
-
-		console.log('Profile: validUsername', this.userId, name, username);
+		console.log('Profile: setUsername', this.userId, username);
 
 		if(!K.Util.valid.username(username))
-			throw new Meteor.Error(500, i18n('error_novalid'));
-
-		else if(Users.find({username: username}).count() === 0)
-			return username;
+			throw new Meteor.Error(500, i18n('error_novalid')+' '+i18n('error_validchars'));
 		
-		else
-			throw new Meteor.Error(500, i18n('error_taken'));
+		username = K.Util.sanitize.username(username);
+
+		var user = Users.findOne({username: username}, {fields: {username:1}});
+
+		if(user && user._id !== this.userId)
+			throw new Meteor.Error(500, '<big>'+username+'</big> '+i18n('error_taken'));
+		
+		console.log('Profile: setUsername updated', this.userId, username);
+
+		Users.update(Meteor.userId(), {
+			$set: {
+				'username': username
+			}
+		});
+
+		return username;
 	}
 });
