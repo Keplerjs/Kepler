@@ -27,7 +27,9 @@
 		{{#if isOnline}}
 			
 			{{> btns_location}}
-			
+
+		{{else}}
+			<time>{{#if loginAt}} {{humanTime loginAt 1}} {{else}} {{humanTime createdAt 1}} {{/if}}</time>
 		{{/if}}
 		</div>
 	</div>
@@ -46,11 +48,10 @@
 
 <template name="user_status">
 	<label class="">
-		<i class="icon icon-{{status}}{{#if mob}}-mob{{/if}} user-device"></i> 
+		<i class="icon icon-{{#if status}}{{status}}{{else}}offline{{/if}}{{#if mob}}-mob{{/if}} user-device"></i> 
 		<span class="user-status-text">
 		{{#if eq status 'online'}}
 		<b class="text-green">online</b>
-		
 		{{else}}
 			{{#if eq status 'away'}}
 			<b class="text-yellow">away</b>

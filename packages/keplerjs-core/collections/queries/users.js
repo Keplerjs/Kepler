@@ -22,6 +22,7 @@ K.extend({
 		return Users.find({_id: usersIds }, _.deepExtend({}, K.filters.friendItem, {
 				sort: {
 					status: -1,
+					loginAt: -1,
 					name: 1
 				}
 			})

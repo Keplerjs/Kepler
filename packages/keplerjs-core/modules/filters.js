@@ -18,7 +18,7 @@ Kepler.filters = {
 	},
 	friendItem: {
 		fields: {
-			name:1, username:1, avatar:1, usersBlocked:1, status:1, statusDefault:1, statusConnection:1, checkin:1, loc:1, mob:1, loginAt:1
+			name:1, username:1, avatar:1, usersBlocked:1, status:1, statusDefault:1, statusConnection:1, checkin:1, loc:1, mob:1, loginAt:1, createdAt:1
 		}
 	},
 	userPanel: {
