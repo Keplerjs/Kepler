@@ -18,6 +18,13 @@ Meteor.startup(function() {
 
 Accounts.onLogin(function(e) {
 	var ip = e && (e.connection.httpHeaders['x-real-ip'] || e.connection.clientAddress);
+	
+	Users.update(e.user._id, {
+		$set: {
+			loginAt: K.Util.time()
+		}
+	});
+
 	console.log('Accounts: onLogin ',e.user.username, ip);
 });
 

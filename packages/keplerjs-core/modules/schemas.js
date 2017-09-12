@@ -28,10 +28,12 @@ Kepler.schemas = {
 		emails: [], 
 		profile: {},		//user data
 		avatar: '',		    //user photo
+		mood: '',		    //status mood message, shown in profile
+		loginAt: '',	    //last date of login
+
 		status: '',        
 		statusDefault: '', 
 		statusConnection:'',
-		mood: '',		   //status mood message, shown in profile
 
 		gender: '',
 		city: '',

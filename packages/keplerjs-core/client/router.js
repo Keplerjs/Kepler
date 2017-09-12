@@ -157,7 +157,12 @@ Router.map(function() {
 				className: 'friends',			
 				headerTemplate: 'search_user',
 				itemsTemplate: 'item_user_friend',
-				items: _.map(userIds, K.userById)
+				items: _.map(userIds, K.userById),
+				sortBy: function(user) {
+					var status = user.status || 'offline',
+						ords = ['online','away','offline'];
+					return ords.indexOf(status);
+				}
 			};
 		}	
 	});
