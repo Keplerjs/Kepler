@@ -62,3 +62,32 @@
 		</div>
 	</form>
 </template>
+
+<template name="panelUser_conver">
+{{#if and isFriend}}
+	<ul class="list-group">
+		<li class="list-group-item active">		
+			<span>{{i18n 'title_convers'}}</span>
+		</li>
+
+		{{#if conversList}}
+			{{#if conversList.length}}
+				{{#each getConversList}}
+				<li class="list-group-item">
+					{{> item_conver}}
+				</li>
+				{{/each}}
+			{{else}}
+			<li class="list-group-item">
+				<label class="text-gray"><i>{{i18n 'label_noconvers'}}</i></label>
+			</li>
+			{{/if}}
+		{{else}}
+			<a class="list-group-item panel-btn-conversList" href="#">
+				<i class="icon icon-mes"></i> {{i18n 'title_convers'}}
+			</a>
+		{{/if}}
+	
+	</ul>
+{{/if}}	
+</template>

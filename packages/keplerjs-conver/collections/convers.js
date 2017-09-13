@@ -19,6 +19,7 @@ Convers.before.insert(function(userId, doc) {
 });
 
 Convers.after.insert(function(userId, doc) {
+	
 	if(K.Notif) {
 		if(doc.targetType==='user') {
 			
@@ -52,6 +53,9 @@ K.extend({
 	},
 	findConversByTarget: function(targetId) {
 		return Convers.find({targetId: targetId }, K.filters.converItem);
+	},
+	findConversByUser: function(userId) {
+		return Convers.find({userId: userId, targetType:'place' }, K.filters.converItem);
 	},
 	findConversPlaces: function() {
 	

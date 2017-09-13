@@ -69,6 +69,30 @@ Meteor.publish('conversByTarget', function(targetId) {
 		this.ready();	
 });
 
+Meteor.publish('conversByUser', function(userId) {
+
+	if(this.userId && userId)
+	{
+		var conversCur = K.findConversByUser(userId),
+			conversData = conversCur.fetch(),
+			usersIds = _.uniq(_.flatten( _.pluck(conversData, 'usersIds') ));
+			//TODO estrarre solo gli ultimi 3-4
+		
+		console.log('Pub: conversByUser', userId, conversCur.count());
+
+		return [
+			//TODO add place Cur
+			conversCur,
+			K.findUsersByIds( _.last(usersIds, 3) )
+			//TODO move this '3' in K.settings
+		];
+	}
+	else
+		this.ready();
+
+	
+});
+
 
 Meteor.publish('conversPlaces', function() {
 	if(this.userId) {
