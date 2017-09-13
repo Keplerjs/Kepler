@@ -18,6 +18,7 @@ i18n.map('fr', {
 	label_msgsmore: "commentaires ...",
 	label_convertit: "Titre de la conversation...",
 	label_noconvers: "Pas de post nouveau",
+	label_newmesfrom: "Nouveau message de",
 
-	label_newmesfrom: "Nouveau message de"
+	label_ownconvers: "Created conversations"
 });

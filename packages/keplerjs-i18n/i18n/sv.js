@@ -29,6 +29,7 @@ i18n.map('sv', {
 	label_findusers: "Sök efter folk...",
 	label_findplace: "Sök efter platser...",
 	label_signupdate: "Registrerad",
+	label_logindate: "Senast inloggad",
 	label_name: "Namn",
 	label_username: "Användarnamn",
 	label_email: "Email",

@@ -1,7 +1,7 @@
 
 <template name="tab_bio">
 
-	<div class="row">
+	<div class="row tab-user-bio">
 		<div class="col-xs-4 avatar-big">
 			{{> item_user_avatar}}
 		</div>
@@ -26,13 +26,11 @@
 		{{#if lang}}
 			<label>{{i18n 'label_lang'}}</label>
 			{{lang}}
-			<i class="icon icon-lang-{{lang}}"></i>
 			<br />
 		{{/if}}
 
 			<label>{{i18n 'label_signupdate'}}</label> 
-			<time>{{numericDate createdAt}}</time>
-			<br />			
+			<time>{{numericDate createdAt}}</time>			
 		</div>
 	</div>
 

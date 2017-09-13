@@ -28,6 +28,7 @@ i18n.map('en', {
 	label_findusers: "Search for people...",
 	label_findplace: "Search for a place...",
 	label_signupdate: "Registered",
+	label_logindate: "Last login",
 	label_name: "Name",
 	label_username: "Username",
 	label_email: "Email",

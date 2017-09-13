@@ -60,6 +60,8 @@ i18n.map('it', {
 	label_findusers: "Cerca persone...",
 	label_findplace: "Cerca un luogo...",
 	label_signupdate: "Registrato",
+	label_logindate: "Ultimo accesso",
+
 	label_name: "Nome",
 	label_username: "Username",
 	label_email: "Email",

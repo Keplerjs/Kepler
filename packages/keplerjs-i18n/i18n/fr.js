@@ -26,6 +26,7 @@ i18n.map ('fr', {
 	label_findusers: "Rechercher des personnes...",
 	label_findplace: "Rechercher un lieu...",
 	label_signupdate: "Enregistré",
+	label_logindate: "Dernière connexion",
 	label_name: "Nom",
 	label_username: "Username",
 	label_email: "Email",
