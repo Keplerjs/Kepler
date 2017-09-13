@@ -1,7 +1,6 @@
 
 <template name="panelPlace_admin">
-{{#if isAdmin}}
-
+{{#if adminIsMe}}
 	<div class="list-group">
 		<div class="list-group-item active">
 			{{i18n 'title_admin'}}
@@ -28,7 +27,7 @@
 </template>
 
 <template name="panelUser_admin">
-{{#if isAdmin}}
+{{#if adminIsMe}}
 	<div class="list-group">
 		<div class="list-group-item active">
 			{{i18n 'title_admin'}}
@@ -51,9 +50,8 @@
 </template>
 
 <template name="panelProfile_admin">
-{{#if isAdmin}}
+{{#if adminIsMe}}
 	<br />
 	{{> panelUser_admin}}
-
 {{/if}}
 </template>

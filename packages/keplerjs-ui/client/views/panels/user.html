@@ -95,7 +95,6 @@
 
 <template name="user_btns_panel">
 	<div class="btn-group" data-toggle="buttons">
-
 	{{#if isFriend}}
 		<a class="btn btn-sm btn-default user-btn-del" href="#" data-confirm-msg="{{i18n 'btn_frienddel'}}">
 			<i class="icon icon-userdel"></i>
@@ -117,8 +116,10 @@
 			{{/if}}
 		{{/if}}
 	{{/if}}
+	{{#unless isAdmin}}
 		<a class="btn btn-sm btn-default user-btn-block" href="#" data-confirm-msg="{{i18n 'btn_userBlock'}}">
 			<i class="icon icon-report"></i>
 		</a>
+	{{/unless}}
 	</div>
 </template>

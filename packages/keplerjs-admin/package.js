@@ -31,6 +31,7 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'client/Place_admin.js',
+    'client/User_admin.js',
     'client/helpers.js',
     'client/views/panels.html',
     'client/views/panels.js',
