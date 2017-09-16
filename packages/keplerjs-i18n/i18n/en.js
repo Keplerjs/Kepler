@@ -54,7 +54,7 @@ i18n.map('en', {
 	label_version: "Version",
 
 	error_novalid: "not valid!",
-	error_validchars: "Use letters, numbers, '-' '.' min 3 max 16 chars",
+	error_validchars: "Use letters, numbers, '-' '.' '_' min 3 max 16 chars",
 	error_taken: "already been taken",
 
 	btn_ok: "Ok",

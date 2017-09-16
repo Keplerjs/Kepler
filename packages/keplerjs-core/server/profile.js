@@ -155,6 +155,10 @@ Meteor.methods({
 
 		console.log('Profile: userBlock', this.userId, blockUserId);
 	},
+	/**
+	 * unblock user in blocked list
+	 * @param  {String} unblockUserId [description]
+	 */
 	userUnblock: function(unblockUserId) {
 
 		if(!this.userId) return null;
@@ -165,15 +169,20 @@ Meteor.methods({
 
 		console.log('Profile: userUnblock', this.userId, unblockUserId);
 	},
+	/**
+	 * update username of user 
+	 * @param {String} username [description]
+	 * @return {String} error or sanitized username
+	 */
 	setUsername: function(username) {
 
 		if(!this.userId) return null;
 
 		console.log('Profile: setUsername', this.userId, username);
 
-		if(!K.Util.valid.username(username))
+/*		if(!K.Util.valid.username(username))
 			throw new Meteor.Error(500, i18n('error_novalid')+' '+i18n('error_validchars'));
-		
+		*/
 		username = K.Util.sanitize.username(username);
 
 		var user = Users.findOne({username: username}, {fields: {username:1}});

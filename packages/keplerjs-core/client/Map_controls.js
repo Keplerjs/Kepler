@@ -55,6 +55,15 @@ _.extend(Kepler.Map, {
 			prefix: '<a href="http://osm.org/copyright" target="_blank">&copy; osm.org</a>'
 		});
 
+/*		
+		controls.alert = new L.Control({position:'bottomright'});
+		controls.alert.onAdd = function(map) {
+			var div = L.DomUtil.create('div','');
+			Blaze.render(Template.controlAlert, div);
+			L.DomEvent.disableClickPropagation(div.firstChild);
+			return div.firstChild;
+		};
+*/
 		return controls;
 	}
 });

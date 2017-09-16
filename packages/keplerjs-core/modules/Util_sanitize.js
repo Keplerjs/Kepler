@@ -39,7 +39,7 @@ Kepler.Util.sanitize = {
 		name = name.toLowerCase()
 			.replace(/’+/g,'\'')
 			.replace(/[ ]/g,'.')
-			.replace(/[^a-z0-9\.\-]/g,'')
+			.replace(/[^a-z0-9\.\-_]/g,'')
 			.replace(/[\.]{2,}/g,'.')
 			.replace(/[\-]{2,}/g,'-');
 		name = _.str.clean(name) || '';

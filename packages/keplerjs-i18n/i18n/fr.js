@@ -49,7 +49,7 @@ i18n.map ('fr', {
 	label_version: "Version",
 
 	error_novalid: "not valid",
-	error_validchars: "letters, numbers, '-' '.' min 3 max 30 chars",
+	error_validchars: "letters, numbers, '-' '.' '_' min 3 max 30 chars",
 	error_taken: "already been taken",
 	
 	btn_ok: "Ok",

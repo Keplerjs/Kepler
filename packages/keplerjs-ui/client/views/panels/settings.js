@@ -51,6 +51,12 @@ Template.panelSettings.events({
 			feed$ = input$.siblings('.form-control-feedback'),
 			mes$ = input$.siblings('label'),
 			val = input$.val();
+		
+		if(val.length < 3) {
+			input$.val( tmpl.data.username );
+			mes$.html(i18n('error_validchars'));
+			return null;
+		}
 
 		feed$.show().addClass('icon-loader');
 
@@ -60,7 +66,7 @@ Template.panelSettings.events({
 			
 			if(err) {
 				mes$.html(err.reason)
-				input$.val( tmpl.data.username ).blur();
+				input$.val( tmpl.data.username );
 			}
 			else {
 				input$.val(sanitized);
@@ -69,7 +75,11 @@ Template.panelSettings.events({
 			}
 		});
 
-	}, 1000),
+	}, 2000),
+
+	'blur #username': function(e, tmpl) {
+		$(e.target).val( tmpl.data.username );
+	},
 
 	'keyup #name': _.debounce(function(e) {
 		var feed$ = $(e.target).next('.form-control-feedback'),
@@ -83,10 +93,10 @@ Template.panelSettings.events({
 		}
 	}, 300),
 
-	'keyup #city': _.debounce(function(e) {
+/*	'keyup #city': _.debounce(function(e) {
 		var val = $(e.currentTarget).val();
 		Users.update(Meteor.userId(), { $set: {'city': val } });
-	}, 300),
+	}, 300),*/
 	
 	'change #maplayer input': _.debounce(function(e) {
 		e.preventDefault();

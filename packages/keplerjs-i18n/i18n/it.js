@@ -86,7 +86,7 @@ i18n.map('it', {
 	label_version: "Versione",
 
 	error_novalid: "non valido",
-	error_validchars: "lettere, numberi, '-' '.' min 3 max 30 caratteri",
+	error_validchars: "lettere, numberi, '-' '.' '_' min 3 max 30 caratteri",
 	error_taken: "gia stato preso",
 
 	map_gps_title: "Tua posizione",
