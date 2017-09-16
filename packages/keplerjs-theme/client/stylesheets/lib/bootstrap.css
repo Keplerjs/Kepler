@@ -172,10 +172,14 @@ header h4,
 
 .alert {
 	margin: 0;
+	padding: 0 25px 0 5px;
 	background: #fff;
 }
 .alert .close {
-	opacity: 0.8
+	position: absolute;
+	top: -2px;
+	right: -2px;
+	opacity: 0.8;
 }
 
 .alert.alert-success { border: 2px solid #3286c2 }

@@ -26,7 +26,10 @@ _.extend(Kepler.Map, {
 			style: {opacity:0,fillOpacity:0},
 			position: 'bottomright',			
 			title: i18n('map_gps_title'),
-			textErr: '<i class="icon icon-warning"></i> '+i18n('map_gps_error')
+			textErr: '<i class="icon icon-warning"></i> '+i18n('map_gps_error'),
+			callErr: function(err) {
+				sAlert.error(err)
+			}
 		})
 		.on({
 			'gps:located': function(e) {
@@ -54,16 +57,7 @@ _.extend(Kepler.Map, {
 			position:'bottomleft',
 			prefix: '<a href="http://osm.org/copyright" target="_blank">&copy; osm.org</a>'
 		});
-
-/*		
-		controls.alert = new L.Control({position:'bottomright'});
-		controls.alert.onAdd = function(map) {
-			var div = L.DomUtil.create('div','');
-			Blaze.render(Template.controlAlert, div);
-			L.DomEvent.disableClickPropagation(div.firstChild);
-			return div.firstChild;
-		};
-*/
+		
 		return controls;
 	}
 });

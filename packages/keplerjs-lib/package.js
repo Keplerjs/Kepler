@@ -65,6 +65,7 @@ Package.onUse(function(api) {
     'accounts-facebook',
     'accounts-google',
     //'accounts-twitter',
+    
 
 	'blaze-html-templates@1.1.2',
     'matb33:collection-hooks@0.8.4',
@@ -78,7 +79,8 @@ Package.onUse(function(api) {
     'mstn:accounts-openstreetmap@0.2.0',
 
 	'nooitaf:colors@1.1.2_1',	//https://www.npmjs.com/package/colors
-    'konecty:user-presence@1.2.9'
+    'konecty:user-presence@1.2.9',
+    'juliancwirko:s-alert@3.2.0',
   ];
 
   api.use(packages);
@@ -91,6 +93,7 @@ Package.onUse(function(api) {
     'config/leaflet.js',
     'config/router.js',
     'config/underscore.js',
+    'config/sAlert.js'
   ]);
 
   api.addFiles([
@@ -105,7 +108,8 @@ Package.onUse(function(api) {
   api.export([
     'Class',
     'deepExtend',
-    'Latinize'
+    'Latinize',
+    'sAlert'
   ]);
   
 });

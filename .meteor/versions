@@ -50,6 +50,7 @@ iron:middleware-stack@1.1.0
 iron:router@1.1.2
 iron:url@1.1.0
 jquery@1.11.10
+juliancwirko:s-alert@3.2.0
 keplerjs:admin@1.2.1
 keplerjs:api@1.2.1
 keplerjs:conver@1.2.1
