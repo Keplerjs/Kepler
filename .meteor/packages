@@ -3,11 +3,9 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-keplerjs:core
-keplerjs:ui
-keplerjs:theme
+keplerjs:base
+
 keplerjs:api
-keplerjs:edit
 keplerjs:admin
 
 keplerjs:upload

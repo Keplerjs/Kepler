@@ -1,7 +1,7 @@
 /*
-	list of core placeholders and loaded temaplates for each
+	list of core plugins templates
 */
-Kepler.placeholders = {
+Kepler.templates = {
 	navSidebar: [],
 	tabLocation: [],
 	pageHome: [],

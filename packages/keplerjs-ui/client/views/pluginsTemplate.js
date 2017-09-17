@@ -2,10 +2,10 @@
 
 	example of usage inside a template
 
-	{{> pluginPlaceholder name='panelPlace'}}
+	{{> pluginsTemplate name='panelPlace'}}
 
 */
-Template.pluginPlaceholder.helpers({
+Template.pluginsTemplate.helpers({
 	templates: function() {
 
 		var self = this,
@@ -13,15 +13,15 @@ Template.pluginPlaceholder.helpers({
 
 		if(!self.name) return ret;
 
-		_.each(K.placeholders, function(templates, placeholder) {
+		_.each(K.templates, function(pluginTemplates, parentName) {
 
-			if(placeholder === self.name) {
+			if(parentName === self.name) {
 
 				var pluginData = Template.parentData();
 
 				//console.log('pluginData', self.name, pluginData)
 			
-				_.each(templates, function(pluginTemplate) {
+				_.each(pluginTemplates, function(pluginTemplate) {
 					if(Template[pluginTemplate]) {
 						ret.push({
 							pluginTemplate: pluginTemplate,

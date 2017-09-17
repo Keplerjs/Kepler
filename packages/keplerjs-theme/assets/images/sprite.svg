@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2"
-     inkscape:cx="257.08321"
-     inkscape:cy="406.06956"
+     inkscape:zoom="5.6568542"
+     inkscape:cx="179.39746"
+     inkscape:cy="557.66543"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -37,7 +37,7 @@
      inkscape:window-x="511"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:snap-global="true"
+     inkscape:snap-global="false"
      showguides="false"
      inkscape:guide-bbox="true"
      height="1000px"
@@ -22778,6 +22778,14 @@
          id="path6936"
          inkscape:connector-curvature="0" />
     </g>
+    <path
+       inkscape:export-ydpi="26.398663"
+       inkscape:export-xdpi="26.398663"
+       inkscape:export-filename="/public/images/online-mob.png"
+       style="color:#000000;fill:#ffd635;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.20000005;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 125.05444,423.7656 c -1.24394,0.50037 -2.47193,1.13313 -3.64046,1.9286 -0.77132,0.5251 -1.25241,1.35953 -0.88427,2.24827 l 4.6381,11.19742 c 1.4588,3.52183 11.90032,-0.96336 10.49815,-4.34849 l -4.63811,-11.1974 c -0.36813,-0.88876 -1.30225,-1.15815 -2.21507,-0.96448 -1.2472,0.26462 -2.51444,0.6357 -3.75834,1.13608 z m -2.13803,3.95213 6.27433,-2.5989 3.26037,7.87125 -6.27433,2.59892 -3.26037,-7.87127 z m 6.77168,7.50175 c 0.86594,-0.35869 1.8596,0.0529 2.21828,0.91886 0.35871,0.86597 -0.0529,1.85961 -0.91884,2.21831 -0.86598,0.3587 -1.85017,-0.0569 -2.20885,-0.92277 -0.35871,-0.86596 0.0434,-1.8557 0.90941,-2.2144 z"
+       id="path6159"
+       inkscape:connector-curvature="0" />
   </g>
   <style
      id="style6085"

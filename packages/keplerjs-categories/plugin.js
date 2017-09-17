@@ -1,7 +1,7 @@
 
 K.Plugin({
 	name: 'cats',
-	placeholders: {
+	templates: {
 		panelSettings: 'panelSettings_cats',
 		panelPlace: 'panelPlace_cats',
 		panelUser: 'panelUser_cats'

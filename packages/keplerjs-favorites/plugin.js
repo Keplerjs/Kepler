@@ -1,7 +1,7 @@
 
 K.Plugin({
 	name: 'favorites',
-	placeholders: {
+	templates: {
 		panelProfile: 'panelProfile_favorites',
 		panelUser: 'panelUser_favorites',
 		itemPlace: 'itemPlace_favorites'

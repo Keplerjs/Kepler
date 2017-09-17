@@ -1,7 +1,7 @@
 
 K.Plugin({
 	name: 'notif',
-	placeholders: {
+	templates: {
 		navSidebar: 'navSidebar_notif',
 		panelProfile: 'panelProfile_notif'
 	},

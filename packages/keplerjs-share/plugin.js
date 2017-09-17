@@ -1,7 +1,7 @@
 
 K.Plugin({
 	name: 'share',
-	placeholders: {
+	templates: {
 		panelPlace: ['panelPlace_share'],
 		popupCursor: 'popupCursor_share',
 		//popupUser: 'popupCursor_share'

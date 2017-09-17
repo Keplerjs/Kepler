@@ -1,7 +1,7 @@
 
 Package.describe({
-  name: 'keplerjs:i18n',
-  summary: 'keplerjs Internationalization package',
+  name: 'keplerjs:base',
+  summary: 'keplerjs meta package to include base components',
   version: "1.2.2",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
@@ -11,24 +11,18 @@ Package.onUse(function(api) {
   api.versionsFrom("1.5.1");
 
   var packages = [
-    'anti:i18n@0.4.3'
+	'keplerjs:core@1.2.2',
+	'keplerjs:ui@1.2.2',
+	'keplerjs:theme@1.2.2',
+	'keplerjs:edit@1.2.2',
   ];
 
   api.use(packages);
   api.imply(packages);
 
-  api.addFiles([
-	'i18n/it.js',
-    'i18n/en.js',
-	'i18n/de.js',
-	'i18n/sv.js',
-	'i18n/es.js',
-	'i18n/fr.js',
-    'config.js'
-  ]);
-
   api.export([
-    'i18n'
+    'Kepler', 'K',
+    'Places', 'Users'
   ]);
-
+  
 });

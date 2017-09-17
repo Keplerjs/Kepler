@@ -1,7 +1,7 @@
 
 K.Plugin({
 	name: 'edit',
-	placeholders: {
+	templates: {
 		panelProfile: 'panelProfile_edit',
 		panelPlace: 'panelPlace_edit',
 		panelUser: 'panelUser_edit',

@@ -1,7 +1,7 @@
 
 K.Plugin({
 	name: 'events',
-/*	placeholders: {
+/*	templates: {
 		panelPlace: 'panelPlace_events'
 	},*/
 	schemas: { 

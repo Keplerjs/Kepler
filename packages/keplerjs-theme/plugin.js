@@ -1,7 +1,7 @@
 
 K.Plugin({
 	name: 'theme',
-	placeholders: {
+	templates: {
 		pageHome: 'pageHome_theme',
 		footer: 'footer_theme'
 	},

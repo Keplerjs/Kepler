@@ -1,7 +1,7 @@
 
 K.Plugin({
 	name: 'pois',
-	placeholders: {
+	templates: {
 		panelPlace: 'panelPlace_pois',
 		popupPlace: 'popupPlace_pois',
 		popupGeojson: 'popupGeojson_pois',

@@ -1,7 +1,7 @@
 
 K.Plugin({
 	name: 'conver',
-	placeholders: {
+	templates: {
 		navSidebar: 'navSidebar_conver',
 		panelProfile: 'panelProfile_conver',
 		panelUser: 'panelUser_conver',
