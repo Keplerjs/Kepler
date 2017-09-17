@@ -8,6 +8,7 @@ i18n.map('de', {
 	title_histplaces: "Letzte Orte",
 	title_friends: "Deine Freunde",
 	title_places: "Orte",
+	title_search: "Search",	
 	title_placesNearby: "Orte in der Nähe",
 	title_placesNews: "Letzte Orte",
 	title_checkins: "Leute bei {$1}",
@@ -40,6 +41,7 @@ i18n.map('de', {
 	label_userblocked: "Geblockter Nutzer",
 	label_histuser: "Letzte Besuche",
 	label_histplace: "Letzte Besuche",
+	
 	label_nearplaces: "Orte in der Nähe",
 	label_nolistitems: "Liste leer",
 	label_nofriendscomm: "Keine gemeinsamen Freunde",
@@ -59,6 +61,7 @@ i18n.map('de', {
 	btn_info: "Info",
 	btn_hist: "Besuchshistorie",
 	btn_friends: "Freunde",
+	btn_search: "Search",
 	btn_places: "Orte",
 	btn_profile: "Profil",
 	btn_friends: "Freunde",

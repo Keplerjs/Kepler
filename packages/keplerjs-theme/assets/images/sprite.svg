@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.50000001"
-     inkscape:cx="163.62252"
-     inkscape:cy="259.71056"
+     inkscape:zoom="2"
+     inkscape:cx="257.08321"
+     inkscape:cy="406.06956"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -37,7 +37,7 @@
      inkscape:window-x="511"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:snap-global="false"
+     inkscape:snap-global="true"
      showguides="false"
      inkscape:guide-bbox="true"
      height="1000px"
@@ -20408,22 +20408,11 @@
          id="path5335"
          inkscape:connector-curvature="0" />
     </g>
-    <g
-       id="g5796">
-      <path
-         inkscape:export-ydpi="18.113207"
-         inkscape:export-xdpi="18.113207"
-         inkscape:export-filename="/Desktop/gps.png"
-         d="m 103.19477,459.5845 c 0,3.30192 -2.67673,5.97865 -5.978651,5.97865 -3.301919,0 -5.978654,-2.67673 -5.978654,-5.97865 0,-3.30192 2.676735,-5.97866 5.978654,-5.97865 3.301921,-10e-6 5.978651,2.67673 5.978651,5.97865 z"
-         style="fill:none;stroke:#999999;stroke-width:1.75842725999999994;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-         id="path5310"
-         sodipodi:nodetypes="ccsss" />
-      <path
-         style="fill:#999999;fill-opacity:1;stroke:none"
-         d="m 100.28144,464.52945 1.92335,-1.92335 5.6108,4.78027 -2.7976,2.79759 -4.73655,-5.65451 z"
-         id="path5312"
-         sodipodi:nodetypes="ccccc" />
-    </g>
+    <path
+       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#0078cd;fill-opacity:1;stroke:none;stroke-width:1.75842725999999994;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+       d="M 97.21875 0.34375 C 93.441666 0.34374 90.34375 3.44167 90.34375 7.21875 C 90.34375 10.99583 93.441669 14.0625 97.21875 14.0625 C 98.594838 14.0625 99.863947 13.668904 100.9375 12.96875 L 105.03125 17.8125 L 107.8125 15.03125 L 103 10.90625 C 103.677 9.8447756 104.0625 8.5699049 104.0625 7.21875 C 104.0625 3.44167 100.99584 0.34374 97.21875 0.34375 z M 97.21875 2.125 C 100.04551 2.12499 102.3125 4.39199 102.3125 7.21875 C 102.3125 10.04551 100.04551 12.3125 97.21875 12.3125 C 94.391993 12.3125 92.125 10.04551 92.125 7.21875 C 92.125 4.39199 94.391996 2.12499 97.21875 2.125 z "
+       transform="translate(0,452.36197)"
+       id="path5310" />
     <g
        id="g6398"
        transform="matrix(0.31646666,0,0,0.3286326,45.567093,448.17478)">
@@ -22771,6 +22760,24 @@
        id="path6219"
        style="color:#000000;fill:url(#linearGradient6221);fill-opacity:1;fill-rule:evenodd;stroke:#eca800;stroke-width:1.20000005000000010;stroke-opacity:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
        sodipodi:type="arc" />
+    <g
+       id="g6960">
+      <path
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#cccccc;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none"
+         d="m 210.00009,638.36203 0,-6.00006 18,0 0,6.00006 z m 0,0"
+         id="path6932"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:#ff0000;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         d="m 210,650.36206 0,-6.00005 18,0 0,6.00005 z m 0,0"
+         id="path6934"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:#0000ff;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         d="m 210,644.36206 0,-6.00006 18,0 0,6.00006 z m 0,0"
+         id="path6936"
+         inkscape:connector-curvature="0" />
+    </g>
   </g>
   <style
      id="style6085"

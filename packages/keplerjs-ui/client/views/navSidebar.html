@@ -24,6 +24,12 @@
 		
 		{{> pluginPlaceholder name='navSidebar'}}
 
+		<!-- TODO <li class="{{ifRoute 'search' 'active'}} pull-right">
+			<a class="btn btn-sm" href="{{pathFor route='search'}}" role="tab">
+				<i class="icon icon-search"></i>
+				<span> {{i18n 'btn_search'}}</span>
+			</a>
+		</li> -->
 		{{#unless eq connectionStatus.status 'connected'}}
 		<li class="pull-right">
 			{{> btnConnect}}

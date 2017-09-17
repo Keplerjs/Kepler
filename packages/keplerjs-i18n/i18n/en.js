@@ -8,6 +8,7 @@ i18n.map('en', {
 	title_histplaces: "Recent Places",
 	title_friends: "Your Friends",
 	title_places: "Places",
+	title_search: "Search",
 	title_placesNearby: "Nearby Places",
 	title_placesNews: "Recent Places",
 	title_usersNews: "Recent Users",
@@ -45,6 +46,7 @@ i18n.map('en', {
 
 	label_histuser: "Recent visits",
 	label_histplace: "Recent visits",
+	label_histsearch: "Recent searches",
 	label_nearplaces: "Nearby Places",
 	label_nolistitems: "List empty",
 	label_nofriendscomm: "No friend in common",
@@ -67,6 +69,7 @@ i18n.map('en', {
 	btn_places: "Places",
 	btn_profile: "Profile",
 	btn_friends: "Friends",
+	btn_search: "Search",
 	btn_users: "People",
 	btn_settings: "Settings",
 	btn_avatar: "Photo profile",

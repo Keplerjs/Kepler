@@ -127,8 +127,10 @@ label {
 .nav-pills > li.active > a, 
 .nav-pills > li.active > a:hover, 
 .nav-pills > li.active > a:focus  {
-	background-color: #9c0;
-	color: #fff;
+	background-color: #eee;
+	color: inherit;
+/*	border-radius: 0;
+	border-bottom: 2px solid #9c0	*/
 }
 
 header h4,

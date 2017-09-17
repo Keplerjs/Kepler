@@ -3,9 +3,6 @@
 .marker-cursor,
 .marker-handledrag,
 .leaflet-marker-icon,
-.leaflet-control-search .search-cancel,
-.leaflet-control-search .search-button,
-.leaflet-control-search .search-button:hover,
 .leaflet-bar a.leaflet-control-zoom-in,
 .leaflet-touch .leaflet-bar a.leaflet-control-zoom-in,
 .leaflet-bar a.leaflet-control-zoom-out,
@@ -83,13 +80,6 @@ div.leaflet-marker-icon {
 	background-position: -233px 0;
 }
 /* CONTROLS */
-.leaflet-control-search .search-button:hover,
-.leaflet-control-search .search-button {
-	background-position: 0 -30px;
-}
-.leaflet-control-search .search-cancel {
-	background-position: -90px -90px;
-}
 .leaflet-control-gps .gps-button.loading,
 .leaflet-control-gps .gps-button.loading:hover {
 	background: url("/packages/keplerjs_theme/assets/images/loader-default.gif") center center no-repeat;
@@ -242,6 +232,7 @@ div.leaflet-marker-icon {
 .icon-lang-en{ background-position: -210px -90px;  } 
 .icon-lang-es{ background-position: -210px -120px; } 
 .icon-lang-sv{ background-position: -210px -150px; } 
+.icon-lang-ru{ background-position: -210px -180px; } 
 
 .icon-social.icon-social-tw {       background-position:0 0;     }
 .icon-social.icon-social-tw:hover { background-position:0 -31px; }

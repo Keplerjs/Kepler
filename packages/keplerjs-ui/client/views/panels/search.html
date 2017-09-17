@@ -1,0 +1,42 @@
+
+<template name="panelSearch">
+	<div id="panelSearch" class="panel {{className}}">
+		<div class="panel-heading bg-primary">
+			<h4 class="pull-left">
+				<a class="back" href="javascript:history.back()">
+					<i class="icon icon-arrow-l"></i>
+				</a> 
+				{{i18n 'title_search'}}
+			</h4>
+			<a class="close pull-right" href="/">
+				<i class="icon icon-close"></i>
+			</a>
+		</div>
+		<div class="panel-body">
+
+			<div class="list-header">
+				<div class="row">
+					<div class="col-xs-8">
+						<input class="input-search" type="text" placeholder="{{i18n 'label_find'}}" /> 
+					</div>
+					<div class="col-xs-3">
+					</div>
+				</div>
+			</div>
+			
+			<div class="list-group list-items">
+				{{#if list.length}}	
+					{{#each list}}
+						<div class="list-group-item">
+						{{> Template.dynamic template=this.template}}
+						</div>
+					{{/each}}
+				{{else}}
+					<div class="list-group-item text-gray text-center">
+						{{i18n 'label_nolistitems'}}
+					</div>
+				{{/if}}
+			</div>
+		</div>
+	</div>
+</template>

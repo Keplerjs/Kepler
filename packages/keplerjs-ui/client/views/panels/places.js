@@ -5,6 +5,7 @@ Template.search_place.onRendered(function() {
 		itemChild: '.place-btn-name',
 		loadingClass: 'loading-lg',
 		sourceData: function(val, cb) {
+			
 			Meteor.subscribe('placesByName', val, function() {
 			
 				var places = _.map( K.findPlacesByName(val).fetch(), function(place) {

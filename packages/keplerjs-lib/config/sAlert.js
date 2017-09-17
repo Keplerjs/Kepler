@@ -5,7 +5,7 @@ if(Meteor.isClient) {
 		sAlert.config({
 			effect: '',
 			position: 'bottom',
-			timeout: 100000,
+			timeout: 5000,
 			onRouteClose: true,
 			html: true,
 			stack: true,

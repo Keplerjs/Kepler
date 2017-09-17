@@ -121,7 +121,13 @@ li#navsearch {
 		max-width: 80px;
 		overflow:hidden;
 		text-overflow: ellipsis;
-    } 
+    }
+    .sidebar > .nav > li:last-child {
+		margin-right: 4px;
+	}
+    .sidebar > .nav > li .btn-connect-status {
+    	display: none;
+	}    
 }
 @media (min-width: 768px) {
     .sidebar {
@@ -133,9 +139,7 @@ li#navsearch {
     .sidebar-map {
         margin-left: 0;
     }
-    .sidebar > .nav > li .btn-connect-status {
-    	display: none;
-	}    
+
 
 }
 /*@media (min-width: 992px) and (max-width: 1199px) {

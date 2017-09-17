@@ -371,4 +371,27 @@ Router.map(function() {
 		}
 	});	
 
+
+	this.route('search', {
+		path: '/search',
+		template: 'panelSearch',
+		layoutTemplate: 'layoutMap',
+		waitOn: function() {
+			Session.set('showSidebar', true);
+		},
+/*		data: function() {
+			if(!this.ready()) return null;
+
+			return {
+				title: i18n('title_search'),
+				className: 'search',
+				headerTemplate: 'search_items',
+				itemsTemplate: 'item_place_search',
+				items: _.map(places, function(place) {
+					return K.placeById(place._id);
+				})
+			};
+		}*/
+	});
+
 });
