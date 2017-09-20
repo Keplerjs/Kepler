@@ -101,7 +101,8 @@ Kepler.Geoapi = {
 
 		var data, ret, src = {
 				par: 'name',
-				url: 'http://api.geonames.org/findNearbyJSON?lang=IT&'+
+				url: 'http://api.geonames.org/findNearbyJSON?'+
+					 'lang=EN&'+
 					 'style=SHORT&'+
 					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+K.settings.geoinfo.geonamesUser
 			};
@@ -124,7 +125,8 @@ Kepler.Geoapi = {
 
 		var data, ret, src = {
 				par: 'adminName3',
-				url: 'http://api.geonames.org/countrySubdivisionJSON?lang=IT&level=3&'+
+				url: 'http://api.geonames.org/countrySubdivisionJSON?level=3&'+
+					 'lang=EN&'+
 					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+K.settings.geoinfo.geonamesUser
 			};
 
@@ -146,7 +148,8 @@ Kepler.Geoapi = {
 
 		var data, ret, src = {
 				par: 'adminName2',
-				url: 'http://api.geonames.org/countrySubdivisionJSON?lang=IT&level=3&'+
+				url: 'http://api.geonames.org/countrySubdivisionJSON?level=3&'+
+					 'lang=EN&'+
 					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+K.settings.geoinfo.geonamesUser
 			};
 
@@ -168,7 +171,8 @@ Kepler.Geoapi = {
 
 		var data, ret, src = {
 				par: 'adminName1',
-				url: 'http://api.geonames.org/countrySubdivisionJSON?lang=IT&level=3&'+
+				url: 'http://api.geonames.org/countrySubdivisionJSON?level=3&'+
+					 'lang=EN&'+
 					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+K.settings.geoinfo.geonamesUser
 			};
 
@@ -190,7 +194,8 @@ Kepler.Geoapi = {
 
 		var data, ret, src = {
 				par: 'countryName',
-				url: 'http://api.geonames.org/countrySubdivisionJSON?lang=IT&'+
+				url: 'http://api.geonames.org/countrySubdivisionJSON?'+
+					 'lang=EN&'+
 					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+K.settings.geoinfo.geonamesUser
 			};
 			

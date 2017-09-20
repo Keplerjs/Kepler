@@ -1,26 +1,26 @@
 
 <template name="pageAbout">
 	<section id="about">
-		<div class="text-center">
+		<div class="row">
+			<div class="col-sm-4 col-sm-offset-4 text-center">
 			
 			<img id="logo" src="/packages/keplerjs_theme/assets/images/logo-home.png" />
-			
 			<h2><b>{{i18n 'website_name'}}</b></h2>
-
 			<p id="slogan">{{i18n 'website_slogan'}}</p>
-			<br />
-
-			<p>
-				built with <br />
-				<a class="btn btn-xs btn-link" href="https://www.meteor.com/">Meteor</a> 
-				<a class="btn btn-xs btn-link" href="https://www.mongodb.com/">MongoDB</a> 
-				<a class="btn btn-xs btn-link" href="http://leafletjs.com/">Leaflet</a>
-				<br />
-				over 
-				<br />
-				<a class="btn btn-link" href="http://www.osm.org/">OpenStreetMap</a>
+			<p id="">
+				Kepler is a open source geosocial solution that lets users share favorite places and join discussions in real-time.
 			</p>
-
+			</div>
 		</div>
+		<div class="row">
+			<div class="col-sm-4 col-sm-offset-4 text-center">
+				<a class="btn btn-xs btn-link" target="_blank" href="https://github.com/keplerjs">Website</a>
+				&bull;
+				<a class="btn btn-xs btn-link" target="_blank" href="http://docs.keplerjs.io">Documentation</a>
+				&bull;
+				<a class="btn btn-xs btn-link" target="_blank" href="https://medium.com/keplerjs">Blog</a>				
+			</div>
+		</div>
+
 	</section>
 </template>

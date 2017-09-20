@@ -5,15 +5,17 @@ Meteor.startup(function() {
 		forbidClientAccountCreation: !K.settings.accounts.creation
 	});
 
+	var services = [];
 	_.each(K.settings.accounts, function(conf, key) {
 		if(conf.service) {
-			console.log('Accounts: config ', key)
-			//Accounts.loginServiceConfiguration.remove(_.pick(conf,'service'));
-			//Accounts.loginServiceConfiguration.insert(conf);
-			ServiceConfiguration.configurations.remove(_.pick(conf,'service'));
+			var service = _.pick(conf,'service');
+			ServiceConfiguration.configurations.remove(service);
 			ServiceConfiguration.configurations.insert(conf);
+			services.push(service.service)
 		}
 	});
+
+	console.log('Accounts: config ', services.join(','));
 });
 
 Accounts.onLogin(function(e) {
@@ -30,7 +32,7 @@ Accounts.onLogin(function(e) {
 
 Accounts.onLoginFailure(function(e) {
 	var ip = e.connection.httpHeaders['x-real-ip'] || e.connection.clientAddress;
-	console.log('Accounts: onLoginFailure ', e.methodArguments, ip);
+	console.log('Accounts: onLoginFailure ', e.methodArguments.user, ip);
 });
 
 /*Accounts.validateNewUser(function (user) {

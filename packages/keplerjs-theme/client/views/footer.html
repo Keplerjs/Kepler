@@ -1,17 +1,26 @@
 
 <template name="footer_theme">
-	<span class="">		
-		<a class="btn btn-xs btn-link" href="https://github.com/keplerjs">
+	<div class="text-center clearfix">
+
+		<a class="btn btn-xs btn-link" target="_blank" href="https://github.com/keplerjs">
 			<i class="icon icon-git"></i>
 		</a>				
-		<a class="btn btn-xs btn-link" href="https://medium.com/keplerjs">
+		<a class="btn btn-xs btn-link" target="_blank" href="https://medium.com/keplerjs">
 			<i class="icon icon-medi"></i>
 		</a>
-		<a class="btn btn-xs btn-link" href="https://www.facebook.com/KeplerJs/">
+		<a class="btn btn-xs btn-link" target="_blank" href="https://www.facebook.com/KeplerJs">
 			<i class="icon icon-face"></i>
 		</a>		
-		<a class="btn btn-xs btn-link" href="https://twitter.com/kepler_js">
+		<a class="btn btn-xs btn-link" target="_blank" href="https://twitter.com/kepler_js">
 			<i class="icon icon-twit"></i>
-		</a>				
-	</span>
+		</a>
+		
+		<br />
+
+		<a class="btn btn-xs btn-link" href="{{pathFor route='pageAbout'}}">about</a>
+		&bull;
+		<a class="btn btn-xs btn-link" target="_blank" href="https://github.com/Keplerjs/Kepler/issues">feedback</a>
+		&bull;
+		<a class="btn btn-xs btn-link" href="{{pathFor route='pageCredits'}}">credits</a>
+	</div>
 </template>
