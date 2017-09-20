@@ -7,18 +7,19 @@ keplerjs:base
 
 keplerjs:api
 keplerjs:admin
+keplerjs:stats
 
 keplerjs:upload
 keplerjs:share
 keplerjs:geoinfo
 keplerjs:osm
-#keplerjs:categories
 keplerjs:favorites
 keplerjs:conver
 keplerjs:notif
-#keplerjs:events
 keplerjs:pois
 keplerjs:tracks
 keplerjs:wunderground
 keplerjs:googlemaps
-keplerjs:stats
+
+#keplerjs:categories
+#keplerjs:events

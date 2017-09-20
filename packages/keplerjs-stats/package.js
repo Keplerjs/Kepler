@@ -20,10 +20,13 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'plugin.js',
+    'i18n/en.js'
   ]);
 
   api.addFiles([
-  	'client/Map_stats.js'
+  	'client/Map_stats.js',
+  	'client/views/home.html',
+  	'client/views/home.js'
   ],'client');
 
   api.addFiles([

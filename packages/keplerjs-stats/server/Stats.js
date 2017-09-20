@@ -3,7 +3,7 @@ var geostats = Npm.require('geostats');
 
 Kepler.Stats = {
 
-	findPlaces: function(noClassify) {
+	findPlaces: function(noClassify, noGeojson) {
 		
 		noClassify = _.isUndefined(noClassify) ? K.settings.public.stats.noClassify : noClassify;
 
@@ -31,37 +31,42 @@ Kepler.Stats = {
 			count: data.length
 		}
 
-		//raw cluster
-		data = _.map(_.groupBy(data,'loc'), function(d) {
-			var f = _.pluck(d,'factor').reduce(function(a,b){return a+b;}, 0);
-			return {
-				loc: d[0].loc,
-				factor: f
-			}
-		});
-
-
-		if(!noClassify) {
-			var factors = _.pluck(data, 'factor');
-			var series = new geostats(factors);
-			var classy = series.getClassQuantile(10);
-			//var classy = series.getClassEqInterval(10);
-			//var classy = series.getClassJenks(10);
-		}
-
-		var geojson = K.Util.geo.createFeatureColl(_.map(data, function(d) {
-			return K.Util.geo.createFeature('Point', d.loc.reverse(), {
-				rank: noClassify ? d.factor : series.getClass(d.factor)
+		var ret = {
+			stats: stats
+		};
+	
+		if(!noGeojson) {
+			//raw cluster
+			data = _.map(_.groupBy(data,'loc'), function(d) {
+				var f = _.pluck(d,'factor').reduce(function(a,b){return a+b;}, 0);
+				return {
+					loc: d[0].loc,
+					factor: f
+				}
 			});
-		}));
 
-		return {
-			stats: stats,
-			geojson: geojson
+
+			if(!noClassify) {
+				var factors = _.pluck(data, 'factor');
+				var series = new geostats(factors);
+				var classy = series.getClassQuantile(10);
+				//var classy = series.getClassEqInterval(10);
+				//var classy = series.getClassJenks(10);
+			}
+
+			var geojson = K.Util.geo.createFeatureColl(_.map(data, function(d) {
+				return K.Util.geo.createFeature('Point', d.loc.reverse(), {
+					rank: noClassify ? d.factor : series.getClass(d.factor)
+				});
+			}));
+
+			ret.geojson = geojson;
 		}
+
+		return ret;
 	},
 
-	findUsers: function(noClassify) {
+	findUsers: function(noClassify, noGeojson) {
 
 		noClassify = _.isUndefined(noClassify) ? K.settings.public.stats.noClassify : noClassify;
 
@@ -83,43 +88,59 @@ Kepler.Stats = {
 			return {
 				loc: K.Util.geo.roundLoc(d.loc || d.loclast, 1) || [],
 				factor: f
-			}
+			};
 		});
 
 		var stats = {
 			count: data.length
-		}
+		};
+
+		var ret = {
+			stats: stats
+		};
 	
-		data = data.filter(function(d) {
-			return d.loc.length;
-		});
+		if(!noGeojson) {
 
-		//raw cluster
-		data = _.map(_.groupBy(data,'loc'), function(d) {
-			var f = _.pluck(d,'factor').reduce(function(a,b){return a+b;}, 0);
-			return {
-				loc: d[0].loc,
-				factor: f
-			}
-		});
-
-		if(!noClassify) {
-			var factors = _.pluck(data, 'factor');
-			var series = new geostats(factors);
-			var classy = series.getClassQuantile(10);
-			//var classy = series.getClassEqInterval(10);
-			//var classy = series.getClassJenks(10);
-		}
-
-		var geojson = K.Util.geo.createFeatureColl(_.map(data, function(d) {
-			return K.Util.geo.createFeature('Point', d.loc.reverse(), {
-				rank: noClassify ? d.factor : series.getClass(d.factor)
+			data = data.filter(function(d) {
+				return d.loc.length;
 			});
-		}));
+
+			//raw cluster
+			data = _.map(_.groupBy(data,'loc'), function(d) {
+				var f = _.pluck(d,'factor').reduce(function(a,b){return a+b;}, 0);
+				return {
+					loc: d[0].loc,
+					factor: f
+				}
+			});
+
+			if(!noClassify) {
+				var factors = _.pluck(data, 'factor');
+				var series = new geostats(factors);
+				var classy = series.getClassQuantile(10);
+				//var classy = series.getClassEqInterval(10);
+				//var classy = series.getClassJenks(10);
+			}
 		
-		return {
-			stats: stats,
-			geojson: geojson
+			var geojson = K.Util.geo.createFeatureColl(_.map(data, function(d) {
+				return K.Util.geo.createFeature('Point', d.loc.reverse(), {
+					rank: noClassify ? d.factor : series.getClass(d.factor)
+				});
+			}));
+
+			
+			ret.geojson = geojson;
 		}
+		
+		return ret;
 	}
 };
+
+Meteor.methods({
+	findStats: function() {
+		return {
+			users: K.Stats.findUsers(true, true),
+			places: K.Stats.findPlaces(true, true)
+		}
+	}
+});

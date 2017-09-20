@@ -1,0 +1,14 @@
+
+<template name="pageHome_stats">
+	{{#if currentUser}}
+		<div class="row">
+			<div class="col-sm-4 col-sm-offset-4">
+			{{#with stats}}
+				{{#if users}}<label class="label label-warning">{{users}} {{i18n 'label_statsusers'}}</label>{{/if}}
+				{{#if places}}<label class="label label-primary">{{places}} {{i18n 'label_statsplaces'}}</label>{{/if}}
+			{{/with}}
+			<br /><br />
+			</div>
+		</div>
+	{{/if}}
+</template>

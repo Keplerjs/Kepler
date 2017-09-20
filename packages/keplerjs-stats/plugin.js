@@ -1,6 +1,9 @@
 
 K.Plugin({
 	name: 'stats',
+	templates: {
+		pageHome: 'pageHome_stats'
+	},	
 	settings: {
 		"public": {
 			"stats": {
