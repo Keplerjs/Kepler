@@ -13,3 +13,7 @@ settings.json
 pkgs.list
 versions.list
 
+packages/keplerjs-googlemaps
+packages/keplerjs-mapillary
+packages/keplerjs-wunderground
+

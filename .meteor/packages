@@ -18,8 +18,10 @@ keplerjs:conver
 keplerjs:notif
 keplerjs:pois
 keplerjs:tracks
+
 keplerjs:wunderground
 keplerjs:googlemaps
+#keplerjs:mapillary
 
 #keplerjs:categories
 #keplerjs:events
