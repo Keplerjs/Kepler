@@ -157,7 +157,7 @@ div.leaflet-marker-icon {
 .icon-success { background-position: -90px -450px; }
 .icon-warning { background-position: -90px -480px; } 
 
-.icon-arrow-r-blue{ background-position: -90px -510px; } 
+.icon-arrow-r-blue { background-position: -90px -510px; } 
 .icon-arrow-l-blue { background-position: -90px -540px; }
 .icon-close-blue { background-position: -90px -570px; } 
 
@@ -165,20 +165,21 @@ div.leaflet-marker-icon {
 .icon-arrow-l { background-position: -60px -540px; } 
 .icon-close { background-position: -60px -570px; } 
 
+/* user status */
+.icon-online { background-position: -120px 0;  } 
+.icon-offline { background-position: -150px 0;  }
+.icon-away { background-position: -120px -30px; }
+.icon-mob,
+.icon-mob-online { background-position: -120px -60px;  } 
+.icon-mob-offline { background-position: -150px -60px;  }
+.icon-mob-away { background-position: -150px -30px; }
 
-/* ICON SOCIAL */
-.icon-online-mob{ background-position: -120px 0;  } 
-.icon-offline-mob{ background-position: -150px 0;  }
-.icon-online{ background-position: -120px -30px;  }  
-.icon-offline{ background-position: -150px -30px;  } 
-.icon-away{ background-position: -150px -240px;  } 
-
-.icon-notif{ background-position: -120px -60px;  }
-.icon-unnotif{ background-position: -150px -60px;  }  
-.icon-star{ background-position: -120px -90px;  } 
-.icon-unstar{ background-position: -150px -90px;  } 
-.icon-mes{ background-position: -120px -120px;  } 
-.icon-unmes{ background-position: -150px -120px;  } 
+.icon-notif{ background-position: -120px -90px;  }
+.icon-unnotif{ background-position: -150px -90px;  }  
+.icon-star{ background-position: -120px -120px;  } 
+.icon-unstar{ background-position: -150px -120px;  } 
+.icon-mes{ background-position: -120px -150px;  } 
+.icon-unmes{ background-position: -150px -150px;  } 
 .icon-like{ background-position: -120px -150px;  } 
 .icon-unlike{ background-position: -150px -150px;  } 
 .icon-users{ background-position: -120px -180px;  } 

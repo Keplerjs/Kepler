@@ -32,16 +32,6 @@ Template.registerHelper('connectionStatus', function() {
 	return Meteor.status();
 });
 
-Template.registerHelper('stringify', function(prop) {
-	return '<pre>'+JSON.stringify(prop,null,4)+'</pre>';
-});
-
-Template.registerHelper('htmlComment', function() {
-	var args = _.toArray(arguments);
-	args.pop();
-	return '<!-- '+args.join(' ')+' -->';
-});
-
 Template.registerHelper('or', function() {
 	return _.some(_.initial(arguments));
 });
@@ -85,4 +75,25 @@ Template.registerHelper('humanDistance', function(dis, sign) {
 
 Template.registerHelper('humanLoc', function(loc, pre) {
 	return K.Util.humanize.loc(loc, parseInt(pre));
+});
+
+
+/* 
+	debugging helpers
+*/
+Template.registerHelper('stringify', function(prop) {
+	return '<pre>'+JSON.stringify(prop,null,4)+'</pre>';
+});
+
+Template.registerHelper('htmlComment', function() {
+	var args = _.toArray(arguments);
+	args.pop();
+	return '<!-- '+args.join(' ')+' -->';
+});
+
+Template.registerHelper('randStatus', function(url) {
+	var s = ['online','offline','away',
+			'mob-online','mob-offline','mob-away'],
+		k = _.random(0,s.length-1);
+	return s[k];
 });

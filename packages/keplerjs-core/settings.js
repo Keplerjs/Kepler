@@ -25,7 +25,7 @@ Kepler.settings = {
 		},
 		"profile": {
 			"awayTime": 10000,
-			"awayOnWindowBlur": false
+			"awayOnWindowBlur": true
 		},
 		"map": {
 			"zoom": 5,

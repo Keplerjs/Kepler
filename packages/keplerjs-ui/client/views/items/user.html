@@ -48,7 +48,7 @@
 
 <template name="user_status">
 	<label class="">
-		<i class="icon icon-{{#if status}}{{status}}{{else}}offline{{/if}}{{#if mob}}-mob{{/if}} user-device"></i> 
+		<i class="icon icon-{{#if mob}}mob-{{/if}}{{#if status}}{{status}}{{else}}offline{{/if}}"></i>
 		<span class="user-status-text">
 		{{#if eq status 'online'}}
 		<b class="text-green">online</b>
