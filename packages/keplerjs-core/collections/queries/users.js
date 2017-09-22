@@ -25,7 +25,7 @@ K.extend({
 					loginAt: -1,
 					name: 1
 				},
-				limit: 10
+				limit: 50
 			})
 		);
 	},

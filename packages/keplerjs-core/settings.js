@@ -64,6 +64,11 @@ Kepler.settings = {
 				"default": { "color": "#b6f", "weight": 5, "opacity": 0.7 }
 			}
 		},
+		"router": {
+			"publicRoutes": {
+				"about": 1
+			}
+		},
 		"ga": {
 			//https://github.com/reywood/meteor-iron-router-ga
 			"id": "UA-XXXX-Y",
@@ -77,11 +82,6 @@ Kepler.settings = {
                 "anonymizeIp": true
             },*/
             "trackUserId": false
-		}		
-	},
-	"router": {
-		"publicRoutes": {
-			"about": 1
 		}
 	},
 	"accounts": {

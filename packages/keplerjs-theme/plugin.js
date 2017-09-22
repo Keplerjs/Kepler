@@ -6,9 +6,11 @@ K.Plugin({
 		footer: 'footer_theme'
 	},
 	settings: {
-		"router": {
-			"publicRoutes": {
-				"pageAbout": 1
+		"public": {
+			"router": {
+				"publicRoutes": {
+					"pageAbout": 1
+				}
 			}
 		}
 	}
