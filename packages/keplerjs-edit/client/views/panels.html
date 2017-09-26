@@ -12,7 +12,7 @@
 {{#if or createdAt userId}}
 
 	<div class="row">
-		<div class="col-xs-6">
+		<div class="col-xs-7">
 		{{#if userId}}
 			<label>{{i18n 'label_creator'}}</label>
 			{{#with userById userId}}
@@ -24,7 +24,7 @@
 			<time>{{numericDate createdAt}}</time>
 		{{/if}}
 		</div>		
-		<div class="col-xs-6 text-right">
+		<div class="col-xs-5 text-right">
 		{{#if isEditable}}
 		<div class="btn-group" role="group">
 			<a class="btn btn btn-default" href="/place/{{id}}/edit">

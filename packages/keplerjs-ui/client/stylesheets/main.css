@@ -22,13 +22,7 @@ footer {
 }
 
 .built {
-	padding: 2px;
-	cursor: pointer;
-	display: inline-block;
-	background: rgba(255,255,255,0.6);
-	border-radius: 5px;
-	font-size: 13px;
-	font-weight: bold;
+	background: rgba(255,255,255,0.6);	
 	font-style: italic;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 	color: #9c0;

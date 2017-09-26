@@ -10,9 +10,8 @@
 }
 
 #conver .list-group-item.msg-item {
-	padding: 2px 2px 0 2px;
+	padding: 2px;
 	overflow: hidden;
-	margin: 0;
 }
 #conver .conver-btn-more {
 	text-align: left;
