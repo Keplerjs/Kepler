@@ -9,7 +9,8 @@ K.Plugin({
 		"public": {
 			"router": {
 				"publicRoutes": {
-					"pageAbout": 1
+					"pageAbout": 1,
+					"pageCredits": 1
 				}
 			}
 		}
