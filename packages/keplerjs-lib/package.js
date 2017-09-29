@@ -66,7 +66,6 @@ Package.onUse(function(api) {
     'accounts-google',
     //'accounts-twitter',
     
-
 	'blaze-html-templates@1.1.2',
     'matb33:collection-hooks@0.8.4',
     'underscorestring:underscore.string@3.3.4',

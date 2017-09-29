@@ -31,7 +31,7 @@ Template.panelSettings.helpers({
 				val: k,
 				name: i18n('map_layer_'+k),
 				active: k===layer,
-				url: _.template(val,{s:'a',z:'15',x:'17374',y:'11667'})
+				url: K.Util.tmpl(val,{s:'a',z:'15',x:'17374',y:'11667'})
 			};
 		});
 	},

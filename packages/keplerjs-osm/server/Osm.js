@@ -50,7 +50,7 @@ Kepler.Osm = {
 			
 			queryTmpl = queryTmplId;
 			
-			tags = _.template(queryTmpl, {
+			tags = K.Util.tmpl(queryTmpl, {
 				id: opts.id,
 				type: opts.type
 			});
@@ -76,7 +76,7 @@ Kepler.Osm = {
 
 				tags += '(';
 				for(var f in opts.filter) {
-					tags += _.template(queryTmpl, {
+					tags += K.Util.tmpl(queryTmpl, {
 
 						bbox: bbox,
 						
@@ -92,7 +92,7 @@ Kepler.Osm = {
 
 			}else{
 
-				tags = _.template(queryTmpl, {
+				tags = K.Util.tmpl(queryTmpl, {
 					
 					bbox: bbox,
 					
@@ -106,7 +106,7 @@ Kepler.Osm = {
 			}		
 		}	
 
-		foot = _.template('out{meta} {limit};', {
+		foot = K.Util.tmpl('out{meta} {limit};', {
 			meta: opts.meta ? ' meta' : '',
 			limit: opts.limit
 		});

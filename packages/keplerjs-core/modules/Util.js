@@ -17,6 +17,31 @@ Kepler.Util = {
 			return obj[last];
 	},
 
+	/**
+	 * [tmpl description]
+	 * @param  {String} str  [description]
+	 * @param  {Object} data [description]
+	 * @return {String}      [description]
+	 */
+	tmpl: function(str, data) {
+		/*
+		origin Leflet.js
+		 */
+		var templateRe = /\{ *([\w_\-]+) *\}/g;
+
+		return str.replace(templateRe, function (str, key) {
+			var value = data[key];
+
+			if (value === undefined) {
+				throw new Error('No value provided for variable ' + str);
+
+			} else if (typeof value === 'function') {
+				value = value(data);
+			}
+			return value;
+		});	
+	},
+
 	dateUtcToLocal: function(date) {
 		var newDate = new Date(date.getTime()+date.getTimezoneOffset()*60*1000),
 			offset = date.getTimezoneOffset() / 60,
