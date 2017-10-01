@@ -8,3 +8,10 @@ Template.popupCursor_share.onRendered(function() {
 		self.$('.btn-share').tooltip({title: i18n('btn_copied') }).tooltip('show');
 	})
 });
+
+
+Template.popupCursor_share.events({
+	'click .btn-share': function(e,tmpl) {
+		e.preventDefault();
+	}
+});
