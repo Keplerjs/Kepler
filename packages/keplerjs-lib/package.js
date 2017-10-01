@@ -4,7 +4,7 @@
 Package.describe({
 	name: 'keplerjs:lib',
 	summary: 'keplerjs 3rd party packages and libraries',
-  version: "1.2.2",
+  version: "1.2.3",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
   

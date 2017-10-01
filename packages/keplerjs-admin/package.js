@@ -2,7 +2,7 @@
 Package.describe({
   name: 'keplerjs:admin',
   summary: 'keplerjs plugin for administration of platform',
-  version: "1.2.2",
+  version: "1.2.3",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
@@ -11,8 +11,8 @@ Package.onUse(function(api) {
   api.versionsFrom('1.5.1');
 
   api.use([
-    'keplerjs:core@1.2.2',
-    'keplerjs:edit@1.2.2'
+    'keplerjs:core@1.2.3',
+    'keplerjs:edit@1.2.3'
   ]);
 
   api.addFiles([

@@ -2,7 +2,7 @@
 	global container
 */
 Kepler = K = {
-	version: '1.2.2',
+	version: '1.2.3',
 
 	//core models
 	Place: {},       //class for places                  (client)
