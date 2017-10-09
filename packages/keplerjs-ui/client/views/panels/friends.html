@@ -1,8 +1,9 @@
 
 <template name="search_user">
-	<div class="row form-group">
+	<div class="row form-group has-feedback">
 		<div class="col-xs-6">
 			<input class="users-search form-control" type="text" placeholder="{{i18n 'label_find'}}" /> 
+			<span class="search-canc form-control-feedback" aria-hidden="true"><i class="icon icon-canc"></i></span>
 		</div>
 		<div class="col-xs-6 text-right">
 		{{#with currentUser}}
