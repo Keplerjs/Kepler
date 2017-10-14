@@ -49,36 +49,36 @@ Meteor.publish('usersByName', function(initial) {
 });
 
 Meteor.publish('usersByIds', function(usersIds) {
+	if(this.userId) {
 
-	console.log('Pub: usersByIds', usersIds);
+		console.log('Pub: usersByIds', usersIds);
 
-	if(this.userId)
 		return K.findUsersByIds(usersIds);
+	}
 	else
 		this.ready();
 });
 
 Meteor.publish('friendsByIds', function(usersIds) {
+	if(this.userId) {
+		
+		console.log('Pub: friendsByIds', this.userId);
 
-	console.log('Pub: friendsByIds', this.userId);
-
-	//TODO check friends in profile.friends
-
-	if(this.userId)
 		return [
 			K.findFriendsByIds(usersIds),
 			K.findPlacesByCheckins(usersIds)
 		];
-	else
+	} else
 		this.ready();
 });
 
 Meteor.publish('usersByDate', function() {
+	if(this.userId) {
+		
+		console.log('Pub: usersByDate');
 
-	console.log('Pub: usersByDate');
-
-	if(this.userId)
 		return K.findUsersByDate();
+	}
 	else
 		this.ready();	
 });

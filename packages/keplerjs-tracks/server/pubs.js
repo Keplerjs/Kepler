@@ -1,6 +1,5 @@
 
 Meteor.publish('tracksByIds', function(trackIds) {
-
 	if(this.userId) {
 
 		console.log('Pub: tracksByIds', trackIds);
@@ -14,7 +13,6 @@ Meteor.publish('tracksByIds', function(trackIds) {
 });
 
 Meteor.publish('tracksByPlace', function(placeId) {
-
 	if(this.userId) {
 
 		var placeCur = K.findPlaceById(placeId),

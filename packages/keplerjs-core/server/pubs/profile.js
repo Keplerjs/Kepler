@@ -1,6 +1,5 @@
 
 Meteor.publish('currentUser', function() {
-
 	if(this.userId) {
 		
 		var userCur = K.findCurrentUser(this.userId),

@@ -1,10 +1,9 @@
 
 Meteor.publish('conversByIds', function(convIds) {
-
-	console.log('Pub: conversByIds');
-
 	if(this.userId && convIds)
 	{
+		console.log('Pub: conversByIds');
+
 		var conversCur = K.findConversByIds(convIds),
 			conversData = conversCur.fetch(),
 			usersIds = _.uniq(_.flatten(_.pluck(conversData, 'usersIds'))),
@@ -28,7 +27,6 @@ Meteor.publish('conversByIds', function(convIds) {
 });
 
 Meteor.publish('converById', function(convId) {
-
 	if(this.userId && convId)
 	{
 		console.log('Pub: converById', convId);	
@@ -47,13 +45,11 @@ Meteor.publish('converById', function(convId) {
 		this.ready();	
 });
 
-
 Meteor.publish('conversByTarget', function(targetId) {
-
-	console.log('Pub: conversByTarget', targetId);
-
 	if(this.userId && targetId)
 	{
+		console.log('Pub: conversByTarget', targetId);
+
 		var conversCur = K.findConversByTarget(targetId),
 			conversData = conversCur.fetch(),
 			usersIds = _.uniq(_.flatten( _.pluck(conversData, 'usersIds') ));
@@ -70,7 +66,6 @@ Meteor.publish('conversByTarget', function(targetId) {
 });
 
 Meteor.publish('conversByUser', function(userId) {
-
 	if(this.userId && userId)
 	{
 		var conversCur = K.findConversByUser(userId),
@@ -89,13 +84,11 @@ Meteor.publish('conversByUser', function(userId) {
 	}
 	else
 		this.ready();
-
-	
 });
-
 
 Meteor.publish('conversPlaces', function() {
 	if(this.userId) {
+
 		console.log('Pub: conversPlaces');
 
 		var conversCur = K.findConversPlaces(),

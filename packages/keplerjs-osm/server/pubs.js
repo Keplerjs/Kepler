@@ -1,6 +1,5 @@
 
 Meteor.publish('osmByPlace', function(placeId) {
-
 	if(this.userId) {
 
 		var placeCur = K.findPlacesByIds([placeId]),

@@ -1,7 +1,6 @@
 
 Meteor.publish('placesByBBox', function(bbox) {
 	if(this.userId) {
-
 		var diag = K.Util.geo.distance(bbox[0],bbox[1]);
 
 		//console.log('Pub: placesByBBox ', diag);
@@ -27,7 +26,6 @@ Meteor.publish('placesByName', function(initial) {
 	else
 		this.ready();	
 });
-
 
 Meteor.publish('placeById', function(placeId) {
 	if(this.userId) {
