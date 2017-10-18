@@ -16,8 +16,29 @@ Kepler.Util.geo = {
 		prec = prec || 6;
 		return [ K.Util.geo.roundLoc(bb[0], prec),
 				 K.Util.geo.roundLoc(bb[1], prec) ];
-	},	
+	},
 
+	plainBbox: function(bb) {
+		return [ bb[0][0], bb[0][1], bb[1][0], bb[1][1] ];
+	},
+
+	reverseBbox: function(bb) {
+		return [ [bb[0][1], bb[0][0]], [bb[1][1], bb[1][0]] ];
+	},
+
+	bufferLoc: function(loc, dist, corners) {
+		
+		corners = corners || false;
+
+		var b = K.Util.geo.meters2rad(dist),
+			lat1 = parseFloat((loc[0]-b).toFixed(4)),
+			lon1 = parseFloat((loc[1]-b).toFixed(4)),
+			lat2 = parseFloat((loc[0]+b).toFixed(4)),
+			lon2 = parseFloat((loc[1]+b).toFixed(4));
+
+		return corners ? [[lat1, lon1], [lat2, lon2]] : [lat1, lon1, lat2, lon2];
+	},
+	
 	deg2rad: function(deg) {
 		return deg * (Math.PI/180);
 	},
@@ -119,19 +140,6 @@ Kepler.Util.geo = {
 			p = ll[i];
 		}
 		return d;
-	},
-
-	bufferLoc: function(loc, dist, corners) {
-		
-		corners = corners || false;
-
-		var b = K.Util.geo.meters2rad(dist),
-			lat1 = parseFloat((loc[0]-b).toFixed(4)),
-			lon1 = parseFloat((loc[1]-b).toFixed(4)),
-			lat2 = parseFloat((loc[0]+b).toFixed(4)),
-			lon2 = parseFloat((loc[1]+b).toFixed(4));
-
-		return corners ? [[lat1, lon1], [lat2, lon2]] : [lat1, lon1, lat2, lon2];
 	},
 
 	angleLocs: function(startLoc, endLoc) {
