@@ -75,7 +75,7 @@ Accounts.onCreateUser(function(options, user) {
 	else if(user.services.google)
 	{
 		source.service = 'google';
-		source.url = '';//user.services.google;
+		source.url = 'https://plus.google.com/'+user.services.google.id;
 		name = user.services.google.name;
 		username = name;
 		avatar = user.services.google.picture;
