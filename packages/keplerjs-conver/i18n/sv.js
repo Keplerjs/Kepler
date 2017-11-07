@@ -18,4 +18,7 @@ i18n.map('sv', {
 	label_msgsmore: "kommentarer ...",
 	label_convertit: "Ny kommentar titel ...",
 	label_noconvers: "Inga nya konversationer",
+	label_newmesfrom: "Nytt meddelande från",
+
+	label_ownconvers: "Skapade konversationer"
 });

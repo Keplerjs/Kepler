@@ -14,4 +14,6 @@ i18n.map('sv', {
 	label_ele: "Höjd",
 	label_sunrise: "Soluppgång",
 	label_sunset: "Solnedgång",
+
+	btn_geosearch: "Geografisk Info",
 });
