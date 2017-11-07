@@ -1,0 +1,11 @@
+
+i18n.map('sv', {
+	btn_share: "Skicka",
+	btn_copied: "Kopierat!",
+	btn_nav: "Navigera",
+	btn_navapp: "Standard-app",
+	btn_google: "Google Maps",
+	btn_bing: "Bing Maps",
+	btn_osm: "OpenStreetMap",
+	label_share: "Dela"
+});
