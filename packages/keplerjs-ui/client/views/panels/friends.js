@@ -1,7 +1,8 @@
 
 Template.search_user.onRendered(function() {
-	
-	$(this.firstNode).parent().siblings('.list-items').btsListFilter('.users-search', {
+	var self = this;
+
+	$(self.firstNode).parent().siblings('.list-items').btsListFilter('.users-search', {
 		itemChild: '.user-btn-name',
 		loadingClass: 'loading-lg',
 		sourceData: function(val, callback) {
@@ -21,12 +22,12 @@ Template.search_user.onRendered(function() {
 			return item$;
 		},
 		cancelNode: function() {
-			return '<span class="btn form-control-feedback" aria-hidden="true"><i class="icon icon-canc"></i></span>';
+			return self.$('.search-canc');
 		}
 	});
 
-	this.$('#switch_online').bootstrapSwitch({
-		size: 'mini',		
+	self.$('#switch_online').bootstrapSwitch({
+		size: 'mini',
 		onColor: 'success',		
 		state: K.Profile.getOnline(),
 		onSwitchChange: function (e, stat) {

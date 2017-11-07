@@ -34,6 +34,11 @@
 			"service": "twitter",
 			"consumerKey": "F3a4HAHSHSOkf7S4J1k9SBsB",
 			"secret": "iwwjgho1wahgdKdpRea5qVDmYnj46Zd2iX3XHRFsoIK6dryy9g"			
-		}		
+		},
+		"openstreetmap": {
+			"service": "openstreetmap",
+			"consumerKey": "HM5U4uhf8t4acUA0l6deeJ34yZUeyPbPSWV1W3KL",
+			"secret": "J2HlRXpXXEKIFEKrrKtnxmnwsj8Yy45kV7rCeJ6U"
+		}
 	}	
 }

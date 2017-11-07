@@ -60,3 +60,17 @@ Template.conver_place_new.events({
 		}
 	}
 });
+
+Template.panelUser_conver.events({
+	'click .panel-btn-conversList': function(e, tmpl) {
+
+		var icon$ = $(e.target).find('.icon');
+		$(e.target).addClass('disabled');
+		icon$.addClass('icon-loader');
+		
+		this.loadConvers(function() {
+			$(e.target).removeClass('disabled');
+			icon$.removeClass('icon-loader');
+		});
+	}
+});

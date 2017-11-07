@@ -2,10 +2,18 @@
 	Module for main map
 
 	//TODO include Leaflet.GeometryUtil
+
+	//jsdoc: https://github.com/spadgos/sublime-jsdocs
 */
-
+/**
+ * [Map description]
+ * @type {Object}
+ */
 Kepler.Map = {
-
+	/**
+	 * [map description]
+	 * @type {[type]}
+	 */
 	map: null,
 	options: {},
 	layers: {},
@@ -16,13 +24,23 @@ Kepler.Map = {
 		ready: new ReactiveVar(false),
 		bbox: new Tracker.Dependency()
 	},
-
+	/**
+	 * [ready description]
+	 * @param  {[type]} val [description]
+	 * @return {[type]}     [description]
+	 */
 	ready: function(val) {
 		if(!_.isUndefined(val))
 			this._deps.ready.set(val);
 		return this._deps.ready.get();
 	},
-	
+	/**
+	 * [init description]
+	 * @param  {[type]}   div  [description]
+	 * @param  {[type]}   opts [description]
+	 * @param  {Function} cb   [description]
+	 * @return {[type]}        [description]
+	 */
 	init: function(div, opts, cb) {
 
 		var self = this;
@@ -75,13 +93,15 @@ Kepler.Map = {
 
 	setOpts: function(options) {
 		if(this.ready()) {
-			var opts = _.extend({}, K.settings.public.map, options);
+			var opts = _.deepExtend({}, K.settings.public.map, options);
 
 			opts.popup.autoPanPaddingTopLeft = L.point(opts.popup.autoPanPaddingTopLeft);
 			opts.popup.autoPanPaddingBottomRight = L.point(opts.popup.autoPanPaddingTopLeft);
 
-			if(!K.Util.valid.loc(opts.center))
+			if(!K.Util.valid.loc(options.center)){
 				opts.center = K.settings.public.map.center;
+				opts.zoom = K.settings.public.map.zoom;
+			}
 			
 			if(!opts.layers[opts.layer])
 				opts.layer = K.settings.public.map.layer;
@@ -136,7 +156,7 @@ Kepler.Map = {
 			var sidebarW = (this.sidebar.hasClass('expanded') && this.sidebar.width()) || 0;
 			
 			this.map.setView(loc, zoom);/*, {
-				//TODO Leaflet 1.1.0 not yet implement paddingTopLeft
+				//TODO Leaflet 1.2.0 not yet implement paddingTopLeft
 				//only documented
 				paddingTopLeft: L.point(sidebarW,0)
 			});*/
@@ -153,7 +173,10 @@ Kepler.Map = {
 		}
 		return this;
 	},
-
+	/**
+	 * get current bounding box of map
+	 * @return {[Array,Array]} "[[sw.lat, sw.lng], [ne.lat, ne.lng]]"
+	 */
 	getBBox: function() {
 		if(this.ready()) {
 			this._deps.bbox.depend();
@@ -171,14 +194,20 @@ Kepler.Map = {
 			return K.Util.geo.roundBbox([[sw.lat, sw.lng], [ne.lat, ne.lng]]);
 		}
 	},
-	
+	/**
+	 * getCenter of the map
+	 * @return {Array} location
+	 */
 	getCenter: function() {
 		if(this.ready()){
 			var ll = L.latLngBounds(this.getBBox()).getCenter();
 			return [ll.lat, ll.lng];
 		}
 	},
-
+	/**
+	 * add instance of Place or User to map
+	 * @param {Place|User} item [description]
+	 */
 	addItem: function(item) {
 		if(this.ready() && item && item.marker) {
 			if(item.type==='place')
@@ -199,7 +228,12 @@ Kepler.Map = {
 		}
 		return this;
 	},
-
+	/**
+	 * show location on map
+	 * @param  {Array}    loc location to show
+	 * @param  {Function} cb  callback on location shown
+	 * @return {K.Map}       [description]
+	 */
 	showLoc: function(loc, cb) {
 		if(this.ready()) {
 
@@ -216,7 +250,8 @@ Kepler.Map = {
 	},
 
 	addGeojson: function(geoData, opts, cb) {
-
+		opts = opts || {};
+		cb = cb || $.noop;
 		//TODO implement opts.bbox to fitbounds of contents
 		var self = this;
 		if(this.ready()) {
@@ -235,25 +270,52 @@ Kepler.Map = {
 					this.layers.geojson.addData(geoData[i]);
 			}
 
-			if(opts && opts.style)
+			if(opts.style)
 				this.layers.geojson.setStyle(opts.style);
 			
-			if(_.isFunction(cb))
-				this.map.once("moveend zoomend", cb);
-			
-			if(opts && opts.bbox)
-				self.fitBounds(bbox);
+			if(opts.noFitBounds) {
+				cb();
+			}
 			else
-				setTimeout(function() {
-					self.fitBounds(self.layers.geojson.getBounds());
-				},100);//geojson.addData() is slowly!
+			{
+				this.map.once("moveend zoomend", cb);
+
+				if(opts.bbox)
+					self.fitBounds(bbox);
+				else
+					setTimeout(function() {
+						self.fitBounds(self.layers.geojson.getBounds());
+					},100);//geojson.addData() is slowly!
+			}
+			
 		}
 		return this;
 	},
+	/**
+	 * hide cursor from map
+	 * @return {[type]} [description]
+	 */
 	hideCursor: function() {
 		this.layers.cursor.hide();
 	},
+	/**
+	 * show cursor on map
+	 * @param  {[type]} loc [description]
+	 * @return {[type]}     [description]
+	 */
 	showCursor: function(loc) {
 		this.layers.cursor.setLoc(loc)
+	},
+	/**
+	 * return current location of map cursor or null if it's hidden
+	 * @return {[Array]} location as array [lat,lng]
+	 */
+	getCursorLoc: function() {
+		var loc;
+		if(this.map.hasLayer(this.layers.cursor.marker)) {
+			var ll = this.layers.cursor.marker.getLatLng();	
+			loc = [ll.lat, ll.lng];
+		}
+		return loc;
 	}
 };

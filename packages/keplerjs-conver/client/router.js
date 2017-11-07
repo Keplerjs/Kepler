@@ -14,8 +14,7 @@ Router.map(function() {
 				title: i18n('title_convers'),
 				className: 'convers',
 				itemsTemplate: 'item_conver',
-				items: K.findConversPlaces().fetch(),
-				sortDesc: true
+				items: K.findConversPlaces().fetch()
 			};
 		}
 	});
@@ -34,6 +33,7 @@ Router.map(function() {
 				className: 'messages',
 				itemsTemplate: 'item_conver',
 				items: K.findConversByIds(K.Profile.data.convers).fetch(),
+				sortBy: 'lastMsg.updatedAt',
 				sortDesc: true
 			};
 		}
@@ -56,7 +56,9 @@ Router.map(function() {
 				headerTemplate: 'conver_place_new',
 				headerData: place,		
 				itemsTemplate: 'item_conver',
-				items: K.findConversByTarget(this.params.placeId).fetch()
+				items: K.findConversByTarget(this.params.placeId).fetch(),
+				sortBy: 'lastMsg.updatedAt',
+				sortDesc: true				
 			};
 		}
 	});
@@ -76,6 +78,7 @@ Router.map(function() {
 
 	this.route('panelConver', {
 		path: '/conver/:convId',
+		template: 'panelConver',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			Session.set('showSidebar', true);			

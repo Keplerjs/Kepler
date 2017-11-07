@@ -2,19 +2,20 @@
 
 **The open source full-stack geosocial network platform**
 
-* [Official DEMO](https://keplerjs.herokuapp.com/)
-* [Current Version 1.1.0](https://github.com/Keplerjs/Kepler/releases)
+* [Official DEMO](https://demo.keplerjs.io/)
+* [Current Version](https://github.com/Keplerjs/Kepler/releases)
 
 # Links
 
 [Website](http://keplerjs.io/) | 
 [Documentation](http://docs.keplerjs.io/) | 
-[Source code](https://github.com/Keplerjs) | 
-[Issues](https://waffle.io/Keplerjs/Kepler) | 
-[Roadmap](https://trello.com/b/FBK72QEJ/keplerjs-roadmap) | 
-[Blog](https://medium.com/keplerjs) | 
 [News](https://twitter.com/Kepler_JS) | 
-[Plugins](https://atmospherejs.com/keplerjs)
+[Blog](https://medium.com/keplerjs) | 
+[Source code](https://github.com/Keplerjs) | 
+[Plugins](https://atmospherejs.com/keplerjs) | 
+[Roadmap](https://trello.com/b/FBK72QEJ/keplerjs-roadmap) | 
+[Issues](https://waffle.io/Keplerjs/Kepler)
+
 
 ## Introduction
 Kepler is a open source [geosocial](https://en.wikipedia.org/wiki/Geosocial_networking) solution that lets users share favorite places and join discussions in real-time. It can be seen as a platform where users can interact with other open data platforms searching across [OpenStreetMap](http://www.openstreetmap.org/about), [Geonames](http://www.geonames.org/) among other sources.

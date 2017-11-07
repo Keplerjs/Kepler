@@ -1,8 +1,15 @@
 
-.list-group > .list-group-item > div {
-	height: auto;
-	overflow: hidden;
+.item-place,
+.friend-item {
+	white-space: nowrap;
+	width: 100%;
+	display: inline-block;
 }
+
+.item-place a:hover {
+	text-decoration: none;
+}
+
 .user-btn-name,
 .place-btn-name {
 	text-transform:capitalize;	
@@ -11,17 +18,15 @@
 	margin: 0;
 	font-size: 14px;	
 	line-height: 30px;
-	/*TODO
-		width: 100px;
-  	text-overflow: ellipsis;
-  	*/
+	text-align: left;
+	/*display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;*/
 }
-
 .user-btn-name u {
 	text-decoration: none;
 	margin-left: 2px;
 }
-
 /* item place */
 .place-btn-mes .badge:not(.bg-gray) {
 	color:#fff;
@@ -42,6 +47,12 @@
 .friend-item .place-btn-name {
 	font-size: 12px;
 }
+.friend-item .btn {
+	border: none;
+}
+.friend-item .user-status-text {
+	display: none;
+}
 
 .friends-search:active + .icon-search {
 	display: none;
@@ -51,4 +62,13 @@
 .place-btn-checkin.btn-default.active {
 	background-color: none;
 	box-shadow: none;
+}
+
+.list-group > .list-group-item {
+	overflow: hidden;
+}
+
+time {
+	color:#aaa;
+	font-size: 12px;
 }

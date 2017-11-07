@@ -1,7 +1,7 @@
 
 K.Plugin({
 	name: 'upload',
-	placeholders: {
+	templates: {
 		panelSettings: 'panelSettings_upload'
 	},
 	settings: {

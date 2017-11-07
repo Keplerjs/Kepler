@@ -1,0 +1,39 @@
+
+<template name="navSidebar">
+	<ul class="nav nav-pills" role="tablist">
+		<li class="{{ifRoute 'profile' 'active'}}">
+			<a class="btn btn-sm" href="{{pathFor route='profile'}}" role="tab">
+				{{#with currentUser}}
+				<img class="icon-avatar {{#unless avatar}}icon-avatar-default{{/unless}}" src="{{#if avatar}}{{avatar}}{{/if}}" />
+				{{/with}}
+				<!-- <span> {{i18n 'btn_profile'}}</span> -->
+			</a>
+		</li>
+		<li class="{{ifRoute 'friends' 'active'}}">
+			<a class="btn btn-sm" href="{{pathFor route='friends'}}" role="tab">
+				<i class="icon icon-friends"></i>
+				<span> {{i18n 'btn_users'}}</span>
+			</a>
+		</li>
+		<li class="{{ifRoute 'placesNews' 'active'}}">
+			<a class="btn btn-sm" href="{{pathFor route='placesNews'}}" role="tab">
+				<i class="icon icon-map"></i>
+				<span> {{i18n 'btn_places'}}</span>
+			</a>
+		</li>
+		
+		{{> pluginsTemplate name='navSidebar'}}
+
+		<!-- TODO <li class="{{ifRoute 'search' 'active'}} pull-right">
+			<a class="btn btn-sm" href="{{pathFor route='search'}}" role="tab">
+				<i class="icon icon-search"></i>
+				<span> {{i18n 'btn_search'}}</span>
+			</a>
+		</li> -->
+		{{#unless eq connectionStatus.status 'connected'}}
+		<li class="pull-right">
+			{{> btnConnect}}
+		</li>
+		{{/unless}}
+	</ul>
+</template>

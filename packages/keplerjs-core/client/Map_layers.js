@@ -5,7 +5,9 @@ _.extend(Kepler.Map, {
 
 		var layers = {};
 
-		layers.baselayer = new L.TileLayer(opts.layers[opts.layer]);
+		layers.baselayer = new L.TileLayer(opts.layers[opts.layer], {
+			noWrap:true
+		});
 
 		layers.users = new L.LayerGroup();
 
@@ -53,6 +55,13 @@ _.extend(Kepler.Map, {
 			layerTarget: layers.cluster,
 			minShift: opts.bboxMinShift,
 			callData: function(bbox, callback) {
+				
+				//TODO update underscore!
+				//TODO refact using _.after()
+				if(!this._loaded) {
+					this._loaded = 1;
+					return;
+				}
 
 				var sub = Meteor.subscribe('placesByBBox', bbox, function() {
 					callback( K.findPlacesByBBox(bbox).fetch() );
@@ -100,12 +109,24 @@ _.extend(Kepler.Map, {
 			}
 		});
 
-		//autoclean geojson layer
 		map.on('zoomend', function(e) {
+			var z = map.getZoom();
+
 			if(layers.geojson.getLayers().length) {
 				if(e.target.getBoundsZoom(layers.geojson.getBounds()) - e.target.getZoom() > 2)
 					layers.geojson.clearLayers();
 			}
+
+		    if(z < K.settings.public.map.dataMinZoom){
+				map.removeLayer(layers.users);
+				map.removeLayer(layers.cursor);
+				map.removeLayer(layers.cluster);
+		    }
+		    else {
+				map.addLayer(layers.users);
+				map.addLayer(layers.cursor);
+				map.addLayer(layers.cluster);
+		    }
 		});
 
 		return layers;

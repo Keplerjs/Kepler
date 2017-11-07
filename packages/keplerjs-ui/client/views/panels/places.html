@@ -1,21 +1,24 @@
 
 <template name="search_place">
-	<form class="form-horizontal">
-		<div class="form-group has-feedback col-xs-9">
-			<!-- <div class="input-group">  -->
-				<input class="places-search form-control" type="text" placeholder="{{i18n 'label_findplace'}}" /> 
-			<!-- </div>	 -->
+	<div class="row form-group">
+		<div class="col-xs-7">
+			<input class="places-search form-control" type="text" placeholder="{{i18n 'label_find'}}" /> 
+			<span class="search-canc form-control-feedback" aria-hidden="true"><i class="icon icon-canc"></i></span>
 		</div>
-		<div class="text-right">
-		{{#if ifRoute 'placesNews'}}
-			<a class="btn btn-link pull-right" href="{{pathFor route='placesNearby'}}">
-				{{i18n 'title_placesNearby'}}<i class="icon icon"></i>
-			</a>
-		{{else}}
-			<a class="btn btn-link pull-right" href="{{pathFor route='placesNews'}}">
-				{{i18n 'title_placesNews'}}
-			</a>
-		{{/if}}
+		<div class="col-xs-5 text-right">
 		</div>
-	</form>
+	</div>
+
+	<ul class="nav nav-tabs text-right">
+		<li class="{{ifRoute 'placesNearby' 'active'}}">
+			<a href="{{pathFor route='placesNearby'}}">
+				<span>{{i18n 'title_placesNearby'}}</span>
+			</a>
+		</li>
+		<li class="{{ifRoute 'placesNews' 'active'}}">
+			<a href="{{pathFor route='placesNews'}}">
+				<span>{{i18n 'title_placesNews'}}</span>
+			</a>
+		</li>
+	</ul>
 </template>

@@ -6,6 +6,13 @@ Router.map(function() {
 		template: 'pageAbout',
 		layoutTemplate: 'layoutPage',
 		loadingTemplate: 'pageLoading',
-	});	
+	});
+
+	this.route('pageCredits', {
+		path: '/credits',
+		template: 'pageCredits',
+		layoutTemplate: 'layoutPage',
+		loadingTemplate: 'pageLoading',
+	});
 
 });

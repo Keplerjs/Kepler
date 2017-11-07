@@ -17,12 +17,14 @@
 		
 		<form class="form-horizontal" role="form">
 
-			{{> pluginPlaceholder name='panelSettings'}}
+			{{> pluginsTemplate name='panelSettings'}}
 
 			<div class="form-group">
-				<label class="col-xs-3 control-label">{{i18n 'label_username'}}</label>
-				<div class="col-xs-9">
-					<label class="text-primary control-label">{{username}}</label>
+				<label for="username" class="col-xs-3 control-label">{{i18n 'label_username'}}</label>
+				<div class="col-xs-9 has-feedback">
+					<input id="username" class="form-control" autocomplete="off" maxlength="16" type="text" value="{{username}}" />
+					<span style="display:none" class="form-control-feedback icon icon-success"></span>
+					<label class="text-danger"></label>
 				</div>
 			</div>
 
@@ -34,16 +36,72 @@
 				</div>
 			</div>
 
-			<div class="form-group">
+<!-- 			<div class="form-group">
 				<label for="city" class="col-xs-3 control-label">{{i18n 'label_city'}}</label>
 				<div class="col-xs-9">
 					<input id="city" class="form-control" type="text" value="{{city}}" />
 				</div>
+			</div> -->
+
+			<div class="form-group">
+				<label for="mapcenter" class="col-xs-3 control-label">{{i18n 'label_mapcenter'}}</label>
+				<div class="col-xs-9">
+					<div id="mapcenter" class="input-group">
+						<input class="form-control" readonly=readonly type="text" value="{{mapcenter}}" />
+						<div class="input-group-btn">
+							{{#if mapcenter}}
+							<a class="btn btn-default btn-mapcancel" href="#">
+								<i class="icon icon-canc"></i>
+							</a>
+							{{/if}}
+							<a class="btn btn-default btn-mapcenter" href="#">
+								<i class="icon icon-map"></i> {{i18n 'btn_mapcenter'}}
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-xs-3 control-label">{{i18n 'label_layer'}}</label>
+				<div class="col-xs-9">
+					<div id="maplayer" class="btn-group" data-toggle="buttons">
+					{{#each layers}}
+						<label class="btn btn-default {{#if active}} active {{/if}}" style="background-image:url('{{url}}')">
+						<input type="radio" name="maplayer" checked="{{active}}" value="{{val}}" />
+						{{name}}
+						</label>
+					{{/each}}
+					</div>
+				</div>
 			</div>
 
 			<div class="form-group">
-				<label class="col-xs-3 control-label">{{i18n 'label_lang'}}</label>
-				<div class="col-xs-9 col-xs-offset-3">
+				<label for="email" class="col-xs-3 control-label">{{i18n 'label_email'}}</label>
+				{{#each emails}}
+				<div class="col-xs-9">
+					<div class="input-group">
+						<input disabled="disabled" id="email" class="form-control" type="email" data-value="{{address}}" value="{{address}}" />
+						<div class="input-group-addon">
+						{{#if verified}}
+							<span class="text-green">
+							<i class="icon icon-success"></i> 
+							{{i18n 'btn_verified'}}
+							</span>
+						{{else}}
+							<span class="text-danger">
+							<i class="icon icon-warning"></i> 
+							{{i18n 'btn_notverified'}}
+							</span>
+						{{/if}}						
+						</div>
+					</div>
+				</div>
+				{{/each}}
+			</div>
+
+			<div class="form-group">
+				<label for="lang" class="col-xs-3 control-label">{{i18n 'label_lang'}}</label>
+				<div class="col-xs-9">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="icon icon-lang-{{lang}}"></i></span>
 						<select id="lang" class="form-control">
@@ -53,8 +111,8 @@
 						</select>
 					</div>
 				</div>
-			</div>
-
+			</div>			
+			
 			<div class="form-group">
 				<label for="gender" class="col-xs-3 control-label">{{i18n 'label_gender'}}</label>
 				<div class="col-xs-9">
@@ -70,46 +128,8 @@
 			</div>
 
 			<div class="form-group">
-				<label class="col-xs-3 control-label">{{i18n 'label_layer'}}</label>
-				<div class="col-xs-9 col-xs-offset-3">
-					<div id="maplayer" class="btn-group" data-toggle="buttons">
-					{{#each layers}}
-						<label class="btn btn-default {{#if active}} active {{/if}}" style="background-image:url('{{url}}')">
-						<input type="radio" name="maplayer" checked="{{active}}" value="{{val}}" />
-						{{name}}
-						</label>
-					{{/each}}
-					</div>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label for="email" class="col-xs-3 control-label">{{i18n 'label_email'}}</label>
-				{{#each emails}}
-				<div class="col-xs-9 col-xs-offset-3">
-					<div class="input-group">
-						<input disabled="disabled" id="email" class="form-control" type="email" data-value="{{address}}" value="{{address}}" />
-						<div class="input-group-addon">
-						{{#if verified}}
-							<span class="text-green">
-							<i class="icon icon-success hidden-xs"></i> 
-							{{i18n 'btn_verified'}}
-							</span>
-						{{else}}
-							<span class="text-danger">
-							<i class="icon icon-warning hidden-xs"></i> 
-							{{i18n 'btn_notverified'}}
-							</span>
-						{{/if}}						
-						</div>
-					</div>
-				</div>
-				{{/each}}
-			</div>
-
-			<div class="form-group">
 				<label class="col-xs-3 control-label">{{i18n 'label_privacy'}}</label>
-				<div class="col-xs-9 col-xs-offset-3">
+				<div class="col-xs-9">
 					<a class="btn btn-default" href="{{pathFor route='panelSettingsBlock'}}">
 						<i class="icon icon-report"></i> {{i18n 'btn_usersblocked'}}
 					</a>
@@ -123,18 +143,48 @@
 				</div>
 			</div>
 
+			{{#if source.service}}
 			<div class="form-group">
-				<div class="col-xs-12">
-				{{> loginButtons}}
+				<label class="col-xs-3 control-label">{{i18n 'label_account'}}</label>
+				<div class="col-xs-9">
+				{{#if eq source.service 'keplerjs'}}
+					<a class="btn btn-default" href="/user/{{_id}}">
+						<i class="icon icon-kepler"></i> {{_id}}
+					</a>
+				{{/if}}
+				{{#if eq source.service 'openstreetmap'}}
+					<a class="btn btn-default" href="{{source.url}}">
+						<i class="icon icon-osm"></i> {{source.url}}
+					</a>
+				{{/if}}
+				{{#if eq source.service 'facebook'}}
+					<a class="btn btn-default" href="{{source.url}}">
+						<i class="icon icon-fb"></i> {{source.url}}
+					</a>
+				{{/if}}	
+				{{#if eq source.service 'google'}}
+					<a class="btn btn-default" href="{{source.url}}">
+						<i class="icon icon-goo"></i> {{source.url}}
+					</a>
+				{{/if}}	
 				</div>
 			</div>
+			{{/if}}
 
 			<div class="form-group">
 				<label class="col-xs-3 control-label">{{i18n 'label_version'}}</label>
 				<div class="col-xs-9">
 					<label class="control-label"><small>{{version}}</small></label>
 				</div>
-			</div>				
+			</div>	
+						
+			<div class="form-group">
+				<div class="col-sm-10 col-xs-offset-2">
+	
+				{{> loginButtons}}
+	
+				</div>
+			</div>			
 		</form>
 
 	</div>

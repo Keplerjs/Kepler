@@ -17,13 +17,33 @@ Kepler.Util.sanitize = {
 
 	name: function(name) {
 		name = name || '';
-		name = name.toLowerCase()
+/*		name = name.toLowerCase()
 			.replace(/_+/g,' ')
 			.replace(/-+/g,' ')
 			.replace(/’+/g,'\'')
-			.replace(/[^a-z0-9\.' ]/g,'')
-			.replace(/\//g,'');
-		return _.str.clean(name);
+			.replace(/[^a-z0-9\.'\- ]/g,'');*/
+
+		name = _.str.unescapeHTML(name) || '';
+		name = _.str.stripTags(name) || '';
+		name = _.str.clean(name) || '';
+
+		return name.substr(0,255);
+	},
+
+	username: function(name) {
+		name = name || '';
+
+		if(Meteor.isServer && Latinize)
+			name = Latinize(name);
+
+		name = name.toLowerCase()
+			.replace(/’+/g,'\'')
+			.replace(/[ ]/g,'.')
+			.replace(/[^a-z0-9\.\-_]/g,'')
+			.replace(/[\.]{2,}/g,'.')
+			.replace(/[\-]{2,}/g,'-');
+		name = _.str.clean(name) || '';
+		return name.substr(0,16);
 	},
 
 	filename: function(name) {

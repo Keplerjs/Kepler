@@ -34,15 +34,24 @@ Kepler.Util.valid = {
 		lat = parseFloat(lat);
 		lng = parseFloat(lng);
 
-		return  (lat != NaN && lat <= 90 && lat >= -90) &&
-				(lng != NaN && lng <= 90 && lng >= -90);
+		/* world bounds [[-90, -180], [90, 180]] */
+		return  (lat != NaN && lng != NaN) && 
+				(lat <= 90 && lat >= -90) &&
+				(lng <= 180 && lng >= -180);
 	},
 
-	nameUser: function(name) {
-		var reg = /^[a-zA-Z ]{3,30}$/;
+	name: function(name) {
+		//maintain regexp compatible with K.Util.sanitize.name!
+		var reg = /^[a-zA-Z0-9\.'\- ]{0,255}$/;
 		return reg.test(name);
 	},
 	
+	username: function(uname) {
+		//maintain regexp compatible with K.Util.sanitize.username!
+		var reg = /^[a-z0-9\.\-_]{3,16}$/;
+		return reg.test(uname);
+	},
+
 	email: function(email) {
 		var reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		return reg.test(email);

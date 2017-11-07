@@ -1,9 +1,10 @@
 
 K.Plugin({
 	name: 'geoinfo',
-	placeholders: {
+	templates: {
 		panelPlace: 'panelPlace_geoinfo',
-		//popupUser: 'popupUser_geoinfo'
+		tabLocation: 'tabLocation_geoinfo',
+		popupCursor: 'popupCursor_geoinfo'
 	},	
 	schemas: {
 		place: {
@@ -32,7 +33,7 @@ K.Plugin({
 				"fields": {	//active fields
 					"loc": true,
 					"ele": true,
-					"esp": false,
+					"esp": true,
 					"prov": true,
 					"near": true,
 					"com": true,

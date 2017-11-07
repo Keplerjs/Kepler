@@ -4,7 +4,7 @@ i18n.map('en', {
 	title_messages: "Your Messages",
 	title_conver: "Conversation",
 	title_userConver: "Conversation with {$1}",
-	title_userConverleave: "<i class=\"text-muted\"><b>{$1}</b>left the conversation.</i>",
+	title_userConverleave: "<i class=\"text-muted\"><b>{$1}</b> left the conversation.</i>",
 	title_placeConvers: "Conversations to {$1}",
 
 	btn_conversend: "Message",
@@ -18,4 +18,7 @@ i18n.map('en', {
 	label_msgsmore: "comments ...",
 	label_convertit: "New conversation title ...",
 	label_noconvers: "No recent posts",
+	label_newmesfrom: "New message from",
+
+	label_ownconvers: "Created conversations"
 });

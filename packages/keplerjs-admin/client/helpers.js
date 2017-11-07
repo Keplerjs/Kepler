@@ -1,4 +1,4 @@
 
-Template.registerHelper('isAdmin', function() {
+Template.registerHelper('adminIsMe', function() {
 	return K.Admin.isMe();
 });

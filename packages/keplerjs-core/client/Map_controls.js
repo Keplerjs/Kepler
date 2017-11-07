@@ -26,7 +26,10 @@ _.extend(Kepler.Map, {
 			style: {opacity:0,fillOpacity:0},
 			position: 'bottomright',			
 			title: i18n('map_gps_title'),
-			textErr: '<i class="icon icon-warning"></i> '+i18n('map_gps_error')
+			textErr: '<i class="icon icon-warning"></i> '+i18n('map_gps_error'),
+			callErr: function(err) {
+				sAlert.error(err)
+			}
 		})
 		.on({
 			'gps:located': function(e) {
@@ -37,15 +40,24 @@ _.extend(Kepler.Map, {
 
 				K.Profile.setLoc(loc);
 
-				K.Map.showLoc(loc);
+				K.Map.setView(loc);
 			},
 			'gps:disabled': function(e) {
 				K.Profile.setLoc(null);
 			}			
 		});
-
-		//controls.scale = L.control.scale({position:'topright'});
-
+		
+		controls.scale = L.control.scale({
+			position:'bottomleft',
+			imperial: false,
+			metric: true
+		});
+		
+		controls.attrib = L.control.attribution({
+			position:'bottomleft',
+			prefix: '<a href="http://osm.org/copyright" target="_blank">&copy; osm.org</a>'
+		});
+		
 		return controls;
 	}
 });

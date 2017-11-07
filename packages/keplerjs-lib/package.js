@@ -4,24 +4,24 @@
 Package.describe({
 	name: 'keplerjs:lib',
 	summary: 'keplerjs 3rd party packages and libraries',
-  version: "1.1.0",
+  version: "1.2.3",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
   
 Npm.depends({
+  "latinize": "0.4.0",
   "bootstrap-switch": "3.3.2",
   "bootstrap-list-filter": "0.3.2",
   "bootstrap-confirm-button": "0.2.2",
   "leaflet": "1.2.0",
   "leaflet-gps": "1.7.0",
   "leaflet-layerjson": "0.2.5",
-  "leaflet.markercluster": "1.0.6",
-  //"leaflet": "0.7.7","leaflet.markercluster": "0.5.0",   
+  "leaflet.markercluster": "1.1.0",
 });
 
 Package.onUse(function(api) {
 
-  api.versionsFrom("METEOR@1.0");
+  api.versionsFrom("1.5.1");
 
   //bootstrap plugins deps
   api.addFiles([
@@ -32,12 +32,9 @@ Package.onUse(function(api) {
     //leaflet plugins deps
     '.npm/package/node_modules/leaflet/dist/leaflet-src.js',
     '.npm/package/node_modules/leaflet/dist/leaflet.css',
-
     '.npm/package/node_modules/leaflet-gps/dist/leaflet-gps.src.css',    
     '.npm/package/node_modules/leaflet-gps/dist/leaflet-gps.src.js',
-
     '.npm/package/node_modules/leaflet-layerjson/dist/leaflet-layerjson.src.js',
-    
     '.npm/package/node_modules/leaflet.markercluster/dist/MarkerCluster.css',
     '.npm/package/node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css',
     '.npm/package/node_modules/leaflet.markercluster/dist/leaflet.markercluster-src.js'
@@ -50,22 +47,39 @@ Package.onUse(function(api) {
   ],'client');
 
   var packages = [
-    'meteor-platform@1.2.4',
-    'reactive-var@1.0.7',
-    'email@1.0.10',
-    'matb33:collection-hooks@0.8.1',
-    'underscorestring:underscore.string@3.2.0',
+    'meteor-base',
+    'mongo',
+    'reactive-var',
+    'session',
+    'tracker',
+    'check',
+	'standard-minifier-css',
+	'standard-minifier-js',
+	'dynamic-import',
+    'email',
+    'http',
+    'service-configuration',
+    'accounts-base',
+    'accounts-password',
+    'accounts-oauth',
+    'accounts-facebook',
+    'accounts-google',
+    //'accounts-twitter',
+    
+	'blaze-html-templates@1.1.2',
+    'matb33:collection-hooks@0.8.4',
+    'underscorestring:underscore.string@3.3.4',
     'kidovate:bootstrap-slider@0.0.5',
-    'iron:router@1.0.9',
+    'iron:router@1.1.2',
+	'reywood:iron-router-ga@2.0.1',
     'mrt:modernizr-meteor@2.6.2',
     'twbs:bootstrap@3.3.6',
-    'accounts-base@1.2.4',
-    'accounts-password@1.1.6',
-    'accounts-oauth@1.1.10',
-    'accounts-facebook@1.0.7',
-    'accounts-google@1.0.7',
-    'accounts-twitter@1.0.7',
-    'ian:accounts-ui-bootstrap-3@1.2.80'
+    'ian:accounts-ui-bootstrap-3@1.2.89',
+    'mstn:accounts-openstreetmap@0.2.0',
+
+	'nooitaf:colors@1.1.2_1',	//https://www.npmjs.com/package/colors
+    'konecty:user-presence@1.2.9',
+    'juliancwirko:s-alert@3.2.0',
   ];
 
   api.use(packages);
@@ -74,18 +88,27 @@ Package.onUse(function(api) {
   api.addFiles([
     'lib/deepExtend.js',
     'lib/Class.js',
-    'config/underscore.js',
+    'config/Accounts.js',
     'config/leaflet.js',
+    'config/router.js',
+    'config/underscore.js',
+    'config/sAlert.js'
   ]);
-  
+
+  api.addFiles([
+    'lib/Latinize.js',
+  ], 'server');
+
   api.addFiles([
     'client/L.NodeIcon.js',
     'client/L.Cursor.js'    
-  ], ['client']);
+  ], 'client');
 
   api.export([
     'Class',
-    'deepExtend'
+    'deepExtend',
+    'Latinize',
+    'sAlert'
   ]);
   
 });

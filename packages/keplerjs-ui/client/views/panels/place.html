@@ -23,6 +23,9 @@
 			</div>
 			<div class="col-xs-9 text-right">
 				{{> place_btns}}
+				&nbsp;<a class="btn btn-sm btn-default place-btn-map pull-right" href="/place/{{id}}/map">
+					<i class="icon icon-map"></i>
+				</a>
 			</div>		
 		</div>
 
@@ -46,7 +49,7 @@
 				
 				{{> tab_info}}
 
-				{{> pluginPlaceholder name='panelPlace'}}
+				{{> pluginsTemplate name='panelPlace'}}
 
 			</div>	
 			<div class="tab-pane" id="tab_histplace">

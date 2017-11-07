@@ -53,20 +53,23 @@ Kepler.Admin = {
 
 		var self = this;
 
-		Meteor.call('adminGetMethods', function(err, names) {
-			if(err)
-				console.warn('adminGetMethods', err);
-			else {
-				//console.log('Admin: methods ', names)
-				_.each(names, function(name) {
-					var localname = name.replace(self.prefix,'');
-					if(!self[localname]){
-						self[localname] = function() {
-							return Meteor.apply(name, arguments);
-						};
-					}
-				});
-			}
-		});
+		if(!self.loaded) {
+			Meteor.call('adminGetMethods', function(err, names) {
+				if(err)
+					console.warn('adminGetMethods', err);
+				else {
+					//console.log('Admin: methods ', names)
+					_.each(names, function(name) {
+						var localname = name.replace(self.prefix,'');
+						if(!self[localname]){
+							self[localname] = function() {
+								return Meteor.apply(name, arguments);
+							};
+						}
+					});
+					self.loaded = true;
+				}
+			});
+		}
 	}
 };

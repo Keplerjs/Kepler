@@ -1,10 +1,12 @@
 
 Template.search_place.onRendered(function() {
+	var self = this;
 
-	$(this.firstNode).parent().siblings('.list-items').btsListFilter('.places-search', {
+	$(self.firstNode).parent().siblings('.list-items').btsListFilter('.places-search', {
 		itemChild: '.place-btn-name',
 		loadingClass: 'loading-lg',
 		sourceData: function(val, cb) {
+			
 			Meteor.subscribe('placesByName', val, function() {
 			
 				var places = _.map( K.findPlacesByName(val).fetch(), function(place) {
@@ -20,7 +22,7 @@ Template.search_place.onRendered(function() {
 			return item$;
 		},
 		cancelNode: function() {
-			return '<span class="btn form-control-feedback" aria-hidden="true"><i class="icon icon-canc"></i></span>';
+			return self.$('.search-canc');
 		}
 	});
 });

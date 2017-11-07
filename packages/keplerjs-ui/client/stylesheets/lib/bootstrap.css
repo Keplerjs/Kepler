@@ -12,6 +12,10 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+.panel-body .list-group {
+	margin-bottom: 16px;
+}
+
 .label-default {
     background-color: #eee;
 }
@@ -29,3 +33,7 @@
 .badge.bg-gray {
 	background-color: #ccc;
 }
+
+/*.btn-group .btn {
+	border: none;
+}*/

@@ -26,10 +26,10 @@ Kepler.Place = Class.extend({
 			return self;
 		};
 
-		Tracker.autorun(function(comp) {	//sincronizza istanza con dati nel db
+		self.update = function(comp) {	//sincronizza istanza con dati nel db
 
 			self.data = K.findPlaceById(self.id).fetch()[0];
-			
+		
 			//TODO rewrite loading data into place instance!
 			_.extend(self, self.data);
 
@@ -43,7 +43,9 @@ Kepler.Place = Class.extend({
 			self._dep.changed();
 
 			return self;
-		});
+		};
+		
+		Tracker.autorun(self.update);
 	},
 
 	buildMarker: function() {
@@ -107,15 +109,21 @@ Kepler.Place = Class.extend({
 		return this.checkins && this.checkins.length;
 	}
 });
-
-Kepler.extend({
-	placesById: {},
-	placeById: function(id) {
-		check(id, String);
-		
-		if(!K.placesById['id_'+id] && K.findPlaceById(id).fetch()[0])
-			K.placesById['id_'+id] = new K.Place(id);
-		
-		return K.placesById['id_'+id] || null;
-	}
-});
+/**
+ * place instances index
+ * @type {Object}
+ */
+Kepler.placesById = {};
+/**
+ * create new Place instance or return it if exists
+ * @param  {String} id Mongo Id
+ * @return {Place}   K.Place instance
+ */	
+Kepler.placeById = function(id) {
+	check(id, String);
+	
+	if(id && !K.placesById['id_'+id] && K.findPlaceById(id).fetch()[0])
+		K.placesById['id_'+id] = new K.Place(id);
+	
+	return K.placesById['id_'+id] || null;
+};

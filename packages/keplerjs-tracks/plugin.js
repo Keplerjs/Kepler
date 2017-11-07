@@ -1,7 +1,7 @@
 
 K.Plugin({
 	name: 'tracks',
-	placeholders: {
+	templates: {
 		panelPlace: 'panelPlace_tracks',
 		popupPlace: 'popupPlace_tracks',
 		popupGeojson: 'popupGeojson_tracks'
@@ -23,7 +23,7 @@ K.Plugin({
 			"tracks": {
 				"limit": 5,
 				"caching": true,	//cache response by OSM overpass		
-				"maxDistance": 1000,
+				"maxDistance": 800,
 				"typesByTags": {
 					"highway=path": "path",
 					"highway=track": "path",

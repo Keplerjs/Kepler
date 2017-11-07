@@ -2,7 +2,7 @@
 Package.describe({
   name: 'keplerjs:conver',
   summary: 'keplerjs plugin conversations and messages',
-  version: "1.1.0",
+  version: "1.2.3",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
@@ -15,21 +15,23 @@ Package.onUse(function(api) {
     return glob.sync(e, {cwd: path.join(process.cwd(),'packages',pkg) });
   };
 
-  api.versionsFrom("METEOR@1.0");
+  api.versionsFrom("1.5.1");
 
   api.use([
     'verron:autosize@3.0.8'
   ],'client');
 
   api.use([
-    'keplerjs:core@1.1.0',
+    'keplerjs:core@1.2.3',
   ]);
 
   api.addFiles([
     'plugin.js',
     'i18n/it.js',
     'i18n/en.js',
-	'i18n/de.js'
+	'i18n/de.js',
+	'i18n/es.js',
+	'i18n/fr.js'
   ]);
 
   api.addFiles(globsync('collections/**/*.js'));

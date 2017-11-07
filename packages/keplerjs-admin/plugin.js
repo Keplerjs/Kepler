@@ -1,7 +1,8 @@
 
 K.Plugin({
 	name: 'admin',
-	placeholders: {
+	templates: {
+		panelProfile: 'panelProfile_admin',
 		panelPlace: 'panelPlace_admin',
 		panelUser: 'panelUser_admin'
 	},
@@ -12,6 +13,16 @@ K.Plugin({
 	},
 	filters: {
 		currentUser: {
+			fields: {
+				isAdmin: 1
+			}
+		},
+		friendPanel: {
+			fields: {
+				isAdmin: 1
+			}
+		},
+		userPanel: {
 			fields: {
 				isAdmin: 1
 			}

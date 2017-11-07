@@ -36,7 +36,8 @@ Meteor.methods({
 					$set: {
 						loc: loc,
 						loclast: loc,
-						'settings.map.center': loc
+						'settings.map.center': loc,
+						'settings.map.zoom': K.settings.public.map.showLocZoom
 					}
 				});
 			}
@@ -78,7 +79,8 @@ Meteor.methods({
 					checkin: placeId,
 					loc: null,
 					loclast: placeData.loc,
-					'settings.map.center': placeData.loc
+					'settings.map.center': placeData.loc,
+					'settings.map.zoom': K.settings.public.map.showLocZoom
 				},
 				$addToSet: {
 					hist: placeId
@@ -107,9 +109,14 @@ Meteor.methods({
 	friendAdd: function(pendUserId) {
 		
 		if(!this.userId || this.userId===pendUserId) return null;
-
-		Users.update(this.userId, {$addToSet: {usersPending: pendUserId} });
-		Users.update(pendUserId, {$addToSet: {usersReceive: this.userId} });
+		
+/*		if(Users.find({}).count()) {
+			K.updateFriendship(this.userId, pendUserId);
+		}
+		else {*/
+			Users.update(this.userId, {$addToSet: {usersPending: pendUserId} });
+			Users.update(pendUserId, {$addToSet: {usersReceive: this.userId} });
+		//}
 
 		console.log('Profile: friendAdd Pending', this.userId, pendUserId);
 	},
@@ -148,6 +155,10 @@ Meteor.methods({
 
 		console.log('Profile: userBlock', this.userId, blockUserId);
 	},
+	/**
+	 * unblock user in blocked list
+	 * @param  {String} unblockUserId [description]
+	 */
 	userUnblock: function(unblockUserId) {
 
 		if(!this.userId) return null;
@@ -157,5 +168,36 @@ Meteor.methods({
 		});
 
 		console.log('Profile: userUnblock', this.userId, unblockUserId);
+	},
+	/**
+	 * update username of user 
+	 * @param {String} username [description]
+	 * @return {String} error or sanitized username
+	 */
+	setUsername: function(username) {
+
+		if(!this.userId) return null;
+
+		console.log('Profile: setUsername', this.userId, username);
+
+/*		if(!K.Util.valid.username(username))
+			throw new Meteor.Error(500, i18n('error_novalid')+' '+i18n('error_validchars'));
+		*/
+		username = K.Util.sanitize.username(username);
+
+		var user = Users.findOne({username: username}, {fields: {username:1}});
+
+		if(user && user._id !== this.userId)
+			throw new Meteor.Error(500, '<big>'+username+'</big> '+i18n('error_taken'));
+		
+		console.log('Profile: setUsername updated', this.userId, username);
+
+		Users.update(Meteor.userId(), {
+			$set: {
+				'username': username
+			}
+		});
+
+		return username;
 	}
 });

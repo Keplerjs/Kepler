@@ -1,7 +1,8 @@
 
 K.Plugin({
 	name: 'edit',
-	placeholders: {
+	templates: {
+		panelProfile: 'panelProfile_edit',
 		panelPlace: 'panelPlace_edit',
 		panelUser: 'panelUser_edit',
 		popupCursor: 'popupCursor_edit'
@@ -25,11 +26,6 @@ K.Plugin({
 				userId:1
 			}
 		},
-/*		placeItem: {
-			fields: {
-				userId:1
-			}
-		},*/
 		friendPanel: {
 			fields: {
 				places:1

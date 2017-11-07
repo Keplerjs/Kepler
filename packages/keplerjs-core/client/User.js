@@ -24,10 +24,9 @@ Kepler.User = Class.extend({
 			return self;
 		};
 
-		self.update = function(){};
-
-		Tracker.autorun(function(comp) {	//sincronizza istanza con dati nel db
-
+		//self.update = function(){};
+		//Tracker.autorun(function() {	//sincronizza istanza con dati nel db
+		self.update = function() {
 			self.id =  self._id;
 
 			if(self.isMe())
@@ -37,7 +36,8 @@ Kepler.User = Class.extend({
 			
 			_.extend(self, self.data);
 
-			if(self.online && self.loc && !self.checkin)
+			if( (self.status==='online' ) && 
+				self.loc && !self.checkin)
 			{
 				self.buildMarker();
 
@@ -51,8 +51,9 @@ Kepler.User = Class.extend({
 			self._dep.changed();
 
 			return self;
-		});
-		//Tracker.autorun( self.update );	//TODO aggiornare solo se amico
+		};
+		
+		Tracker.autorun( self.update );	//TODO aggiornare solo se amico
 	},
 
 	buildMarker: function() {
@@ -116,7 +117,7 @@ Kepler.User = Class.extend({
 	isOnline: function() {
 		this._dep.depend();
 		if(K.Profile.getOnline() && this.isFriend() || this.isMe())
-			return this.online;
+			return this.status==='online';
 	},
 	getLoc: function() {
 		this._dep.depend();	
@@ -127,17 +128,26 @@ Kepler.User = Class.extend({
 		this._dep.depend();	
 		if(K.Profile.getOnline() && this.isFriend() || this.isMe())
 			return this.checkin;
+	},
+	getFullname: function() {
+		return this.username!==this.name ? this.username+' ('+this.name+')': this.username;
 	}
 });
-
-Kepler.extend({
-	usersById: {},
-	userById: function(id) {
-		check(id, String);
-		
-		if(!K.usersById['id_'+id] && K.findUserById(id).fetch()[0])
-			K.usersById['id_'+id] = new K.User(id);
-		
-		return K.usersById['id_'+id] || null;
-	}
-});
+/**
+ * user instances index
+ * @type {Object}
+ */
+Kepler.usersById = {};
+/**
+ * create new User instance or return it if exists
+ * @param  {String} id Mongo Id
+ * @return {User}   K.User instance
+ */
+Kepler.userById = function(id) {
+	check(id, String);
+	
+	if(!K.usersById['id_'+id] && K.findUserById(id).fetch()[0])
+		K.usersById['id_'+id] = new K.User(id);
+	
+	return K.usersById['id_'+id] || null;
+};

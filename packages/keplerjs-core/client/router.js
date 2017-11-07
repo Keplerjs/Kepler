@@ -1,16 +1,17 @@
 
 //TODO use https://github.com/DerMambo/ms-seo
-
 Router.configure({
 	loadingTemplate: 'panelLoading',
-	notFoundTemplate: 'page404'
+	notFoundTemplate: 'page404',
+	//https://github.com/reywood/meteor-iron-router-ga
+	trackPageView: true
 });
 
 Router.waitOn(function() {
 
 	var routeName = this.route.getName();
 
-	if(!K.settings.router.public[routeName]) {
+	if(!K.settings.public.router.publicRoutes[routeName]) {
 		
 		if(!Meteor.user()) {
 			if(Meteor.loggingIn())
@@ -22,12 +23,13 @@ Router.waitOn(function() {
 			return Meteor.subscribe('currentUser', function() {
 
 				K.Profile.init(function(data) {
-
+					
 					i18n.setLanguage(data.lang);
 
 					//TODO move to plugin admin
-					if(K.Admin && K.Admin.isMe())
+					if(K.Admin && K.Admin.isMe()){
 						K.Admin.loadMethods();
+					}
 				});
 			});
 		}
@@ -38,7 +40,7 @@ Router.onAfterAction(function() {
 
 	var routeName = this.route.getName();
 
-	document.title = i18n('title_'+routeName) || _.str.capitalize(routeName);
+	document.title =  i18n('title_'+routeName) || _.str.capitalize(routeName);
 
 	if(this.ready() && K.Profile.ready) {
 
@@ -148,12 +150,41 @@ Router.map(function() {
 		},
 		data: function() {
 			if(!this.ready()) return null;
+			var users = K.findFriendsByIds(K.Profile.data.friends).fetch(),
+				userIds = _.pluck(users,'_id');
 			return {
 				title: i18n('title_friends'),
 				className: 'friends',			
 				headerTemplate: 'search_user',
 				itemsTemplate: 'item_user_friend',
-				items: _.map(K.Profile.data.friends, K.userById)
+				items: _.map(userIds, K.userById),
+				sortBy: function(user) {
+					var status = user.status || 'offline',
+						ords = ['online','away','offline'];
+					return ords.indexOf(status);
+				}
+			};
+		}	
+	});
+
+	this.route('usersNews', {
+		path: '/users/news',
+		template: 'panelList',
+		layoutTemplate: 'layoutMap',
+		waitOn: function() {
+			Session.set('showSidebar', true);
+			return Meteor.subscribe('usersByDate');
+		},
+		data: function() {
+			if(!this.ready()) return null;
+			var users = K.findUsersByDate().fetch(),
+				userIds = _.pluck(users,'_id');
+			return {
+				title: i18n('title_usersNews'),
+				className: 'usersNews',			
+				headerTemplate: 'search_user',
+				itemsTemplate: 'item_user_search',
+				items: _.map(userIds, K.userById)
 			};
 		}	
 	});
@@ -163,13 +194,20 @@ Router.map(function() {
 		template: 'panelList',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
+			if(!K.Map.ready()) return null;
+
 			Session.set('showSidebar', true);
+			var loc = K.Map.getCenter(),
+				places = K.findPlacesByNearby(loc).fetch();
+			return Meteor.subscribe('placesByNearby', loc);
 		},
 		data: function() {
-			if(!this.ready()) return null;
+			if(!this.ready() || !K.Map.ready()) return null;
 
-			var bbox = K.Map.getBBox(),
-				places = K.findPlacesByBBox(bbox).fetch();
+			var loc = K.Map.getCenter(),
+				places = K.findPlacesByNearby(loc).fetch();
+
+			//debugging maxDistance L.circleMarker(loc,{radius:10}).addTo(K.Map.map);
 
 			return {
 				title: i18n('title_placesNearby'),
@@ -177,9 +215,7 @@ Router.map(function() {
 				headerTemplate: 'search_place',
 				itemsTemplate: 'item_place_search',
 				items: _.map(places, function(place) {
-					var p = K.placeById(place._id);
-					if($(p.marker._icon).is(':visible'))
-						return p.rData();
+					return K.placeById(place._id);
 				})
 			};
 		}
@@ -235,7 +271,7 @@ Router.map(function() {
 		waitOn: function() {
 			Session.set('showSidebar', true);
 			return Meteor.subscribe('placeById', this.params.placeId);
-		},	
+		},
 		data: function() {
 			if(!this.ready()) return null;
 			var place = K.placeById( this.params.placeId );
@@ -244,6 +280,8 @@ Router.map(function() {
 				Router.go('root');
 				return null;
 			}
+
+			place.update();	//update instance adding new fields by placeById
 
 			return place.rData();
 		}
@@ -254,7 +292,7 @@ Router.map(function() {
 		template: 'empty',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
-			Session.set('showSidebar', true);
+			Session.set('showSidebar', false);
 			return Meteor.subscribe('placeById', this.params.placeId);
 		},
 		onAfterAction: function() {
@@ -302,9 +340,14 @@ Router.map(function() {
 		data: function() {
 			if(this.ready()) {
 				var user = K.userById(this.params.userId);
+				
+				if(!user){
+					Router.go('root');
+					return null;
+				}
 
-				//TODO don't use update to force reativity
-				//user.update();
+				user.update();	//update instance adding new fields by userById
+				
 				return user.rData();
 			}
 			else
@@ -327,5 +370,28 @@ Router.map(function() {
 				user.showLoc();
 		}
 	});	
+
+
+	this.route('search', {
+		path: '/search',
+		template: 'panelSearch',
+		layoutTemplate: 'layoutMap',
+		waitOn: function() {
+			Session.set('showSidebar', true);
+		},
+/*		data: function() {
+			if(!this.ready()) return null;
+
+			return {
+				title: i18n('title_search'),
+				className: 'search',
+				headerTemplate: 'search_items',
+				itemsTemplate: 'item_place_search',
+				items: _.map(places, function(place) {
+					return K.placeById(place._id);
+				})
+			};
+		}*/
+	});
 
 });

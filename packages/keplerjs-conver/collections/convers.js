@@ -1,35 +1,41 @@
 
 Convers = new Mongo.Collection('convers');
 
-//TODO
-Convers.before.insert(function(userId, doc) {
-	doc.createdAt = K.Util.time();
-	
-	//TODO doc.userId = userId;
-});
-
-
 Convers.allow({
 	insert: function(userId, doc) {
 		return true;
 	},
-	update: function(userId, doc, fieldNames, modifier) {
-
-//TODO move to before.insert
-
-		//if private conver update target user
-		if(doc.targetType==='user')
-			Users.update(doc.targetId, {
-				$addToSet: {
-					convers: doc._id
-				}
-			});
-		//TODO FIXME ottimizzare... non eseguire sempre ad ogni messaggio
-
+	update: function(userId, doc) {
 		return true;
-	},
+	},	
 	remove: function(userId, doc) {
 		return userId && doc.userId === userId;
+	}
+});
+
+//TODO
+Convers.before.insert(function(userId, doc) {
+	doc.createdAt = K.Util.time();
+});
+
+Convers.after.insert(function(userId, doc) {
+	
+	if(K.Notif) {
+		if(doc.targetType==='user') {
+			
+			var userData = Users.findOne(userId);
+
+			Users.update(doc.targetId, {
+				$push: {
+					notifs: {
+						createdAt: K.Util.time(),
+						type: 'mes',
+						url: '/conver/'+doc._id,
+						msg: i18n('label_newmesfrom')+' <a href="/user/'+userId+'"><b>'+userData.username+'</b></a>'
+					}
+				}
+			});
+		}
 	}
 });
 
@@ -48,6 +54,9 @@ K.extend({
 	findConversByTarget: function(targetId) {
 		return Convers.find({targetId: targetId }, K.filters.converItem);
 	},
+	findConversByUser: function(userId) {
+		return Convers.find({userId: userId, targetType:'place' }, K.filters.converItem);
+	},
 	findConversPlaces: function() {
 	
 		var date = new Date();
@@ -60,9 +69,9 @@ K.extend({
 TODO			createdAt: {
 				'$gte': dateFrom
 			}*/
-		}, _.extend({}, K.filters.converItem, {
+		}, _.deepExtend({}, K.filters.converItem, {
 				sort: { 'lastMsg.updatedAt': -1,  targetId: 1},
-				limit: 30
+				limit: 100
 			})
 		);
 	},	

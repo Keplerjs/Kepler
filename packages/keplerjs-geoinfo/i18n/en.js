@@ -14,4 +14,6 @@ i18n.map('en', {
 	label_ele: "Elevation",
 	label_sunrise: "Sunrise",
 	label_sunset: "Sunset",
+
+	btn_geosearch: "Geography Info",
 });

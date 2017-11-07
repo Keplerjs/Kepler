@@ -12,7 +12,7 @@ Users.after.update(function(userId, doc, fieldNames, modifier, options) {
 				notifs: {
 					createdAt: K.Util.time(),					
 					type: 'users',
-					msg: 'Richiesta amicizia da <a href="/user/'+userId+'"><b>'+userData.username+'</b></a>'
+					msg: i18n('btn_friendreceive')+' <a href="/user/'+userId+'"><b>'+userData.username+'</b></a>'
 				}
 			}
 		});
@@ -24,7 +24,7 @@ Users.after.update(function(userId, doc, fieldNames, modifier, options) {
 				notifs: {
 					createdAt: K.Util.time(),
 					type: 'users',
-					msg: 'Amicizia accettata da <a href="/user/'+userId+'"><b>'+userData.username+'</b></a>'
+					msg: i18n('btn_friendaccept')+' <a href="/user/'+userId+'"><b>'+userData.username+'</b></a>'
 				}
 			}
 		});

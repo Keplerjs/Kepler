@@ -129,7 +129,7 @@ deepExtend = function(obj) {
  *   console.log(obj.url);
  *   output: "http://www.example.com/path/to/file.html"
  *
- * - parentRE also acts as a placeholder, which can be useful when you need to change one value in an array, while
+ * - parentRE also acts as a , which can be useful when you need to change one value in an array, while
  *   leaving the others untouched. example:
  *   var arr = _.deepExtend([100,    {id: 1234}, true,  "foo",  [250, 500]],
  *                          ["#{_}", "#{_}",     false, "#{_}", "#{_}"]);

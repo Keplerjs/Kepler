@@ -10,7 +10,7 @@ out body;
 
 K.Plugin({
 	name: 'osm',
-	placeholders: {
+	templates: {
 		panelPlace: ['panelPlace_osm'],
 		popupCursor: 'popupCursor_osm'
 	},

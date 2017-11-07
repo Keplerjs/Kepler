@@ -33,7 +33,7 @@ var osmToPlace = function(osm) {
 
 	var place = {
 		name: name, //K.Util.sanitize.name(name),
-		loc: coords.reverse(),
+		loc: [coords[1], coords[0]],
 		active: 0,
 		osm: feature,
 		source: {

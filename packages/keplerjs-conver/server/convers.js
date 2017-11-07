@@ -5,8 +5,6 @@
 K.extend({
 	insertConver: function(targetId, targetType, title, usersIds) {
 
-	//TODO use check()
-	
 		targetId = targetId || null;
 		targetType = targetType || null;
 		title = title || '';
@@ -31,13 +29,15 @@ K.extend({
 					convers: convId
 				}
 			});
+		else if(targetType==='user')
+			usersIds = _.union(usersIds, targetId);
 
-		Users.update(Meteor.userId(), {
+		Users.update({_id: {$in: usersIds } }, {
 			$addToSet: {
 				convers: convId
 			}
 		});
-		
+
 		console.log('Conver: insertConver', convId, targetId);
 
 		return convId;
@@ -47,7 +47,6 @@ K.extend({
 			convData = Convers.findOne({
 				$and: [
 					{ targetType: 'user' },
-					//{ usersIds: {$size: 2} },
 					{ usersIds: {$all: [Meteor.userId(), userId]} }
 				]
 			});
@@ -71,6 +70,7 @@ K.extend({
 		var convData = Convers.findOne(convId);
 		
 		if( Convers.remove({_id: convId, userId: Meteor.userId() }) )
+		//user is owner
 		{
 			Messages.remove({convId: convId});
 			//TODO rimuove solo proprietario senza far sparire la conver
@@ -87,20 +87,9 @@ K.extend({
 					}
 				});
 		}
-		else	//se non è il creatore della conver la abbandona
-		{
-			K.insertMsgToConver(convId, i18n('userConverleave', Meteor.user().name) );
-			Users.update(Meteor.userId(), {
-				$pull: {
-					convers: convId
-				}
-			});
-			Convers.update(convId, {
-				$pull: {
-					usersIds: Meteor.userId()
-				}
-			});
-		}
+		else	//user isn't owner to leave conver
+			K.insertLeaveToConver(convId);
+			
 		console.log('Conver: removeConver', convId);
 	}
 });

@@ -1,9 +1,10 @@
 
 K.Plugin({
 	name: 'conver',
-	placeholders: {
-		sidebarNav: 'sidebarNav_conver',
+	templates: {
+		navSidebar: 'navSidebar_conver',
 		panelProfile: 'panelProfile_conver',
+		panelUser: 'panelUser_conver',
 		popupPlace: 'popupPlace_conver',
 		itemPlace: 'itemPlace_conver',
 		itemUser: 'itemUser_conver'	
@@ -37,16 +38,6 @@ K.Plugin({
 				convers: 1
 			}
 		},
-		converPanel: {
-			fields: {
-				title:1, targetId:1, targetType:1, userId:1, usersIds:1, lastMsg:1, createdAt:1
-			}
-		},
-		converItem: {
-			fields: {
-				title:1, targetId:1, targetType:1, userId:1, usersIds:1, lastMsg:1, createdAt:1
-			}
-		},
 		placePanel: {
 			fields: {
 				convers: 1
@@ -56,6 +47,16 @@ K.Plugin({
 			fields: {
 				convers: 1
 			}
-		}	
+		},
+		converPanel: {
+			fields: {
+				title:1, targetId:1, targetType:1, userId:1, usersIds:1, lastMsg:1, createdAt:1
+			}
+		},
+		converItem: {
+			fields: {
+				title:1, targetId:1, targetType:1, userId:1, usersIds:1, lastMsg:1, createdAt:1
+			}
+		}		
 	}
 });

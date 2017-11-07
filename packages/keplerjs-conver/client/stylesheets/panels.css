@@ -2,20 +2,16 @@
 #conver .panel-body {
 	margin: 4px;
 	padding: 0;
-    position: absolute;
-    top: 84px;
-    left: 0;
-    right: 0;
-    bottom: 36px;
+
+    bottom: 38px;
 }
 #conver .list-group-item:last-child {
 	padding-bottom: 8px;
 }
 
 #conver .list-group-item.msg-item {
-	padding: 2px 2px 0 2px;
+	padding: 2px;
 	overflow: hidden;
-	margin: 0;
 }
 #conver .conver-btn-more {
 	text-align: left;
@@ -39,8 +35,6 @@
 }
 .msg-item time {
 	float: right;
-	font-size: small;
-	color: #aaa;
 }
 
 #converInput {
@@ -62,9 +56,4 @@
 	border: 1px solid #ccc;
 	background: #fff;
 	border-radius: 4px;
-}
-
-
-.placeConvers .place-btn-name {
-	display: none;
 }

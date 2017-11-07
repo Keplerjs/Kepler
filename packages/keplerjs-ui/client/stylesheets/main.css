@@ -20,3 +20,14 @@
 footer {
 	padding: 20px;
 }
+
+.built {
+	background: rgba(255,255,255,0.6);	
+	font-style: italic;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+	color: #9c0;
+	white-space: nowrap;
+}
+.built:hover {
+	text-decoration: none;
+}

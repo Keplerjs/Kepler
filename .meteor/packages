@@ -3,27 +3,26 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
+keplerjs:base
 
-standard-minifier-css
-standard-minifier-js
-
-keplerjs:core
-keplerjs:ui
-keplerjs:theme
-#keplerjs:api
-keplerjs:edit
+keplerjs:api
 keplerjs:admin
+keplerjs:stats
 
-#keplerjs:upload
+keplerjs:upload
 keplerjs:share
 keplerjs:geoinfo
 keplerjs:osm
-#keplerjs:categories
 keplerjs:favorites
 keplerjs:conver
 keplerjs:notif
-#keplerjs:events
 keplerjs:pois
 keplerjs:tracks
-keplerjs:weather
+
+keplerjs:wunderground
 keplerjs:googlemaps
+#keplerjs:mapillary
+
+#keplerjs:categories
+#keplerjs:events
+keplerjs:robots

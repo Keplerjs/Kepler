@@ -1,31 +1,55 @@
 
-<template name="popupGeoinfo">
+<template name="tabGeoinfo">
 	{{#with fields}}
-	<div class="row">
-		<div class="col-sm-6">
-		{{#if near}}<label>{{i18n 'label_loc'}}</label>  <span class="text-nowrap">{{near}}</span> <br />{{/if}}
-		{{#if com}}<label>{{i18n 'label_com'}}</label>   <span class="text-nowrap">{{com}}</span>  <br />{{/if}}
-		{{#if prov}}<label>{{i18n 'label_prov'}}</label> <span class="text-nowrap">{{prov}}</span> <br />{{/if}}
-		{{#if reg}}<label>{{i18n 'label_reg'}}</label>   <span class="text-nowrap">{{reg}}</span>  <br />{{/if}}
-		{{#if naz}}<label>{{i18n 'label_naz'}}</label>   <span class="text-nowrap">{{naz}}</span>  <br />{{/if}}
+	<div class="tab-geoinfo">
+		<div class="row">
+			<div class="col-sm-12">
+			{{#if near}}<label>{{i18n 'label_loc'}}</label>  <span class="text-nowrap">{{near}}</span> <br />{{/if}}
+			</div>
 		</div>
-		<div class="col-sm-6">
-		{{#if shadow}}<label>{{i18n 'label_shadow'}}</label>&nbsp;{{shadow}}    <br />{{/if}}
-		{{#if esp}}<label>{{i18n 'label_esp'}}</label>&nbsp;{{humanAzimut esp}} <br />{{/if}}
-		{{#if ele}}<label>{{i18n 'label_ele'}}</label>&nbsp;{{ele}}m            <br />{{/if}}
-		{{#if sunrise}}<label>{{i18n 'label_sunrise'}}</label>&nbsp;{{sunrise}} <br />{{/if}}
-		{{#if sunset}}<label>{{i18n 'label_sunset'}}</label>&nbsp;{{sunset}}    <br />{{/if}}
+		<div class="row">
+			<div class="col-sm-6">
+			{{#if com}}<label>{{i18n 'label_com'}}</label>   <span>{{com}}</span>  <br />{{/if}}
+			{{#if prov}}<label>{{i18n 'label_prov'}}</label> <span>{{prov}}</span> <br />{{/if}}
+			{{#if reg}}<label>{{i18n 'label_reg'}}</label>   <span>{{reg}}</span>  <br />{{/if}}
+			{{#if naz}}<label>{{i18n 'label_naz'}}</label>   <span>{{naz}}</span>  <br />{{/if}}
+			</div>
+			<div class="col-sm-6">
+			{{#if shadow}}<label>{{i18n 'label_shadow'}}</label>&nbsp;{{shadow}}    <br />{{/if}}
+			{{#if esp}}<label>{{i18n 'label_esp'}}</label>&nbsp;{{humanAzimut esp}} <br />{{/if}}
+			{{#if ele}}<label>{{i18n 'label_ele'}}</label>&nbsp;{{ele}}m            <br />{{/if}}
+			{{#if sunrise}}<label>{{i18n 'label_sunrise'}}</label>&nbsp;{{sunrise}} <br />{{/if}}
+			{{#if sunset}}<label>{{i18n 'label_sunset'}}</label>&nbsp;{{sunset}}    <br />{{/if}}
+			</div>
 		</div>
 	</div>
 	{{/with}}
 </template>
 
-<template name="popupUser_geoinfo">
+<template name="tabLocation_geoinfo">
 	{{#with fields}}
-		<div class="popup-geoinfo">
-		{{#if near}}<label>{{i18n 'label_loc'}}</label>  <span class="text-nowrap">{{near}}</span> <br />{{/if}}
-		{{#if com}}<label>{{i18n 'label_com'}}</label>   <span class="text-nowrap">{{com}}</span>  <br />{{/if}}
-		{{#if reg}}<label>{{i18n 'label_reg'}}</label>   <span class="text-nowrap">{{reg}}</span>  <br />{{/if}}
+		<div class="geoinfo-admins">
+		{{#if near}}<span>{{near}}</span> {{/if}}
+		{{#if com}}<span>{{com}}</span>  {{/if}}
+		{{#if prov}}<span>{{prov}}</span> {{/if}}
+		{{#if reg}}<span>{{reg}}</span>  {{/if}}
+		{{#if naz}}<span>{{naz}}</span>  {{/if}}
 		</div>
 	{{/with}}
+</template>
+
+<template name="popupCursor_geoinfo">
+	<a class="btn-geoinfo btn btn-sm btn-default btn-block" data-clipboard-text="{{absoluteUrl 'map/'}}{{humanLoc loc}}" href="#">
+		<i class="icon icon-geo"></i> {{i18n 'btn_geosearch'}}
+	</a>
+</template>
+
+<template name="popupGeojson_geoinfo">
+	<div class="popup-geoinfo" style="width: 250px;">
+	{{#with properties}}
+		<li class="list-group-item">
+		{{> tabGeoinfo}}
+		</li>
+	{{/with}}
+	</div>
 </template>

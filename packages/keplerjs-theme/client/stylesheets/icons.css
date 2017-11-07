@@ -1,12 +1,8 @@
 .icon,
-.icon-avatar,
 .marker-anim,
 .marker-cursor,
 .marker-handledrag,
 .leaflet-marker-icon,
-.leaflet-control-search .search-cancel,
-.leaflet-control-search .search-button,
-.leaflet-control-search .search-button:hover,
 .leaflet-bar a.leaflet-control-zoom-in,
 .leaflet-touch .leaflet-bar a.leaflet-control-zoom-in,
 .leaflet-bar a.leaflet-control-zoom-out,
@@ -27,7 +23,6 @@
 .icon.icon-loader {
 	background: url("/packages/keplerjs_theme/assets/images/loader-icon.gif") no-repeat;
 }
-
 .icon {
 	position: relative;
 	top: 1px;
@@ -39,15 +34,24 @@
 	width: 18px;
 }
 .icon-avatar {
+	display: inline-block;
+    background-size: cover;
 	height: 30px;
 	width: 30px;
+	border-radius: 3px;
 }
-.icon-avatar.icon-avatar-big {
+.icon-avatar-default {
+	background-image: url("/packages/keplerjs_theme/assets/images/avatar.svg");
+}
+.avatar-big .icon-avatar {
 	height: 90px;
 	width: 90px;
-	background-position: 0 -990px;
-    background-size: 1000%
 }
+
+.icon-avatar:not([src]) {
+    content: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
+}
+
 div.icon-marker,
 div.leaflet-marker-icon {
 	display: inline-block;
@@ -76,13 +80,6 @@ div.leaflet-marker-icon {
 	background-position: -233px 0;
 }
 /* CONTROLS */
-.leaflet-control-search .search-button:hover,
-.leaflet-control-search .search-button {
-	background-position: 0 -30px;
-}
-.leaflet-control-search .search-cancel {
-	background-position: -90px -90px;
-}
 .leaflet-control-gps .gps-button.loading,
 .leaflet-control-gps .gps-button.loading:hover {
 	background: url("/packages/keplerjs_theme/assets/images/loader-default.gif") center center no-repeat;
@@ -125,8 +122,6 @@ div.leaflet-marker-icon {
 /* ICON UI */
 .icon-profile{ background-position: 0 -270px; } 
 .icon-friends{ background-position: 0 -300px; }
-.icon-avatar { background-position: 0 -330px; }
-
 
 .icon-status-connected{ background-position: 0 -210px;  } 
 .icon-status-failed,
@@ -162,7 +157,7 @@ div.leaflet-marker-icon {
 .icon-success { background-position: -90px -450px; }
 .icon-warning { background-position: -90px -480px; } 
 
-.icon-arrow-r-blue{ background-position: -90px -510px; } 
+.icon-arrow-r-blue { background-position: -90px -510px; } 
 .icon-arrow-l-blue { background-position: -90px -540px; }
 .icon-close-blue { background-position: -90px -570px; } 
 
@@ -170,19 +165,21 @@ div.leaflet-marker-icon {
 .icon-arrow-l { background-position: -60px -540px; } 
 .icon-close { background-position: -60px -570px; } 
 
+/* user status */
+.icon-online { background-position: -120px 0;  } 
+.icon-offline { background-position: -150px 0;  }
+.icon-away { background-position: -120px -30px; }
+.icon-mob,
+.icon-mob-online { background-position: -120px -60px;  } 
+.icon-mob-offline { background-position: -150px -60px;  }
+.icon-mob-away { background-position: -150px -30px; }
 
-/* ICON SOCIAL */
-.icon-online-mob{ background-position: -120px 0;  } 
-.icon-offline-mob{ background-position: -150px 0;  }
-.icon-online{ background-position: -120px -30px;  }  
-.icon-offline{ background-position: -150px -30px;  } 
-
-.icon-notif{ background-position: -120px -60px;  }
-.icon-unnotif{ background-position: -150px -60px;  }  
-.icon-star{ background-position: -120px -90px;  } 
-.icon-unstar{ background-position: -150px -90px;  } 
-.icon-mes{ background-position: -120px -120px;  } 
-.icon-unmes{ background-position: -150px -120px;  } 
+.icon-notif{ background-position: -120px -90px;  }
+.icon-unnotif{ background-position: -150px -90px;  }  
+.icon-star{ background-position: -120px -120px;  } 
+.icon-unstar{ background-position: -150px -120px;  } 
+.icon-mes{ background-position: -120px -150px;  } 
+.icon-unmes{ background-position: -150px -150px;  } 
 .icon-like{ background-position: -120px -150px;  } 
 .icon-unlike{ background-position: -150px -150px;  } 
 .icon-users{ background-position: -120px -180px;  } 
@@ -217,8 +214,13 @@ div.leaflet-marker-icon {
 .icon-sal{ background-position: -180px -180px;  }
 .icon-len{ background-position: -180px -210px;  } 
 .icon-time{ background-position: -180px -240px; } 
+
+.icon-fb{ background-position: -180px -270px; } 
 .icon-osm{ background-position: -180px -300px; } 
-.icon-goo{ background-position: -180px -330px; } 
+.icon-gmap{ background-position: -180px -330px; } 
+
+.icon-kepler{ background-position: -150px -270px; } 
+.icon-goo{ background-position: -150px -300px; } 
 
 .icon-git { background-position: -180px -360px; } 
 .icon-twit{ background-position: -180px -390px; } 
@@ -230,6 +232,8 @@ div.leaflet-marker-icon {
 .icon-lang-de{ background-position: -210px -60px;  } 
 .icon-lang-en{ background-position: -210px -90px;  } 
 .icon-lang-es{ background-position: -210px -120px; } 
+.icon-lang-sv{ background-position: -210px -150px; } 
+.icon-lang-ru{ background-position: -210px -180px; } 
 
 .icon-social.icon-social-tw {       background-position:0 0;     }
 .icon-social.icon-social-tw:hover { background-position:0 -31px; }

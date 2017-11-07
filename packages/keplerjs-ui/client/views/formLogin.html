@@ -4,15 +4,13 @@
 	{{#if currentUser}}
 		{{#with currentUser}}
 			<div class="btn btn-default">
-				<a class="btn user-btn-name" href="{{pathFor route='root'}}">
-					<img class="icon-avatar" src="{{avatar}}" /><u>{{username}}</u>
-				</a>
+				{{> item_user}}
 			</div>
 
 			<br /><br />
 			
 			<div class="btn btn-link">
-				<a href="{{pathFor route='logout'}}">{{i18n 'btn_logout'}}</a>
+				<a class="btn btn-link" href="{{pathFor route='logout'}}">{{i18n 'btn_logout'}}</a>
 			</div>
 		
 		{{/with}}

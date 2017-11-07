@@ -2,16 +2,16 @@
 Package.describe({
   name: 'keplerjs:categories',
   summary: 'keplerjs places and users categorization',
-  version: "1.1.0",
+  version: "1.2.3",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
 Package.onUse(function(api) {
 
-  api.versionsFrom("METEOR@1.0");
+  api.versionsFrom("1.5.1");
 
   var packages = [
-    'keplerjs:core@1.1.0',
+    'keplerjs:core@1.2.3',
   ];
 
   api.use(packages);
@@ -22,6 +22,8 @@ Package.onUse(function(api) {
     'i18n/it.js',
     'i18n/en.js',
 	'i18n/de.js',
+	'i18n/es.js',
+	'i18n/fr.js',
     'modules/Cats.js'
   ]);
 

@@ -13,7 +13,8 @@ Users.after.insert(function(userId, doc) {
 
 K.Admin.methods({
 	insertUser: function(usernames) {
-		
+		//TODO https://docs.meteor.com/api/passwords.html#Accounts-createUser
+		//
 		if(!K.Admin.isMe()) return null;
 
 		usernames = _.isArray(usernames) ? usernames : [usernames];
@@ -41,7 +42,10 @@ K.Admin.methods({
 
 		Users.update({}, {
 			$pull: {
-				friends: userId
+				friends: userId,
+				usersPending: userId,
+				usersReceive: userId,
+				usersBlocked: userId,
 			}
 		},{ multi: true });
 		Places.update({}, {

@@ -82,14 +82,20 @@ a.list-group-item {
 .text-gray {
 	color: #aaa;
 }
+.text-orange {
+	color: #5cb85c;
+}
 .text-green {
-	color: #5cb85c
+	color: #5cb85c;
+}
+.text-yellow {
+	color: #f6c32d;
 }
 .text-primary {
     color: #257;
 }
 .btn-default {
-	color: #257
+	color: #257;
 }
 
 .badge {
@@ -97,8 +103,11 @@ a.list-group-item {
     min-width: 16px;	
 }
 label {
-	color: #888;
+	color: #999;
 	font-size: 12px;
+}
+.text-muted {
+	color: #aaa
 }
 .badge,
 .btn-default .badge {
@@ -112,16 +121,19 @@ label {
 	background-color: #257;
 }
 .badge.badge-red,
-.list-group-item.active > .badge, .nav-pills > .active > a > .badge.badge-red {
+.list-group-item.active > .badge,
+.nav-pills > .active > a > .badge.badge-red {
 	background-color: #ef0000;
-	color: #257;
-}
-.badge.badge-red {
-	color: #fff
+	color: #fff;
 }
 
-.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus  {
-	background-color: #9c0;
+.nav-pills > li.active > a, 
+.nav-pills > li.active > a:hover, 
+.nav-pills > li.active > a:focus  {
+	background-color: #eee;
+	color: inherit;
+/*	border-radius: 0;
+	border-bottom: 2px solid #9c0	*/
 }
 
 header h4,
@@ -165,21 +177,34 @@ header h4,
 
 .alert {
 	margin: 0;
+	padding: 0 25px 0 5px;
 	background: #fff;
 }
 .alert .close {
-	opacity: 0.8
+	position: absolute;
+	top: -2px;
+	right: -2px;
+	opacity: 0.8;
 }
-.alert.alert-checkin { border: 2px solid #398BC6 }
-.alert.alert-success,
+
+.alert.alert-success { border: 2px solid #3286c2 }
 .alert.alert-warning { border: 2px solid #C20A09 }
+.alert.alert-checkin { border: 2px solid #398BC6 }
 .alert.alert-online { border: 2px solid #3eae3e }
 .alert.alert-users { border: 2px solid #f59614 }
 .alert.alert-mes { border: 2px solid #5FB3D8 }
 
-.alert.alert-checkin .close { color: #398BC6 }
-.alert.alert-success .close,
+.alert.alert-success .close { color: #3286c2 }
 .alert.alert-warning .close { color: #C20A09 }
+.alert.alert-checkin .close { color: #398BC6 }
 .alert.alert-online .close { color: #3eae3e }
 .alert.alert-users .close { color: #f59614 }
 .alert.alert-mes .close { color: #5FB3D8 }
+
+
+.tooltip-inner {
+    background-color: #257;
+}
+.tooltip.top .tooltip-arrow {
+    border-top-color: #257;
+}

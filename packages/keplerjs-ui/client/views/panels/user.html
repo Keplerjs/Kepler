@@ -7,7 +7,7 @@
 				<a class="back" href="javascript:history.back()">
 					<i class="icon icon-arrow-l"></i>
 				</a> 
-				{{fullname}}
+				{{getFullname}}
 			</h4>
 			<a class="close pull-right" href="/">
 				<i class="icon icon-close"></i>
@@ -16,7 +16,6 @@
 		<div class="panel-body">
 
 		{{> tab_bio}}
-
 
 		{{#if or isBlocked isBlockMe}}
 			
@@ -33,20 +32,14 @@
 			
 			<div class="row">
 				<div class="col-xs-4">
-					<label class="btn btn-sm">
-					<i class="icon icon-{{#if isOnline}}online{{else}}offline{{/if}}{{#if mob}}-mob{{/if}} user-device"></i> 
-					{{#if isOnline}}
-					<b class="text-green">online</b>
-					{{else}}
-					<b class="text-gray">offline</b>
-					{{/if}}
-					</label>
+					{{> user_status}}
+					<time>{{humanTime loginAt 1}}</time>
 				</div>
 				<div class="col-xs-8 text-right">
 					<div class="user-btns">
 
 						<div class="btn-group" data-toggle="buttons">
-							{{> pluginPlaceholder name='itemUser'}}
+							{{> pluginsTemplate name='itemUser'}}
 						</div>
 
 						{{> user_btns_panel}}
@@ -81,7 +74,7 @@
 			
 					{{> tabLocation}}
 
-					{{> pluginPlaceholder name='panelUser'}}
+					{{> pluginsTemplate name='panelUser'}}
 
 				</div>
 				<div class="tab-pane" id="tab_friends">
@@ -103,7 +96,6 @@
 
 <template name="user_btns_panel">
 	<div class="btn-group" data-toggle="buttons">
-
 	{{#if isFriend}}
 		<a class="btn btn-sm btn-default user-btn-del" href="#" data-confirm-msg="{{i18n 'btn_frienddel'}}">
 			<i class="icon icon-userdel"></i>
@@ -125,8 +117,10 @@
 			{{/if}}
 		{{/if}}
 	{{/if}}
+	{{#unless isAdmin}}
 		<a class="btn btn-sm btn-default user-btn-block" href="#" data-confirm-msg="{{i18n 'btn_userBlock'}}">
 			<i class="icon icon-report"></i>
 		</a>
+	{{/unless}}
 	</div>
 </template>

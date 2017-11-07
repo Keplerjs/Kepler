@@ -21,5 +21,27 @@ Router.map(function() {
 			return place.rData();
 		}
 	});
+
+	this.route('panelEdits', {
+		path: '/places/edits',
+		template: 'panelList',
+		layoutTemplate: 'layoutMap',
+		waitOn: function() {
+			Session.set('showSidebar', true);
+			return Meteor.subscribe('placesByIds', K.Profile.data.places);
+		},
+		data: function() {
+			if(!this.ready()) return null;
+			return {
+				title: i18n('label_editplaces'),
+				className: 'edits',
+				itemsTemplate: 'item_place_favorite',
+				items: _.map(K.Profile.data.places, function(id) {
+					return place = K.placeById(id);
+				}),
+				sortBy: 'cratedAt'
+			};
+		}
+	});	
 	
 });

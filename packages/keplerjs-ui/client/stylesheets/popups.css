@@ -40,11 +40,27 @@
 
 .popup-tit {
 	text-transform: capitalize;
-	margin-bottom: 8px;
 	border: none;
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;	
 }
 
 .btn.disabled.popup-btn-star {/*patch*/
 	overflow: hidden;
 	opacity: 1;
+}
+
+.leaflet-popup-content .btn-block {
+	text-align:left;
+	margin-bottom: 5px;
+}
+.leaflet-popup-content .btn-block:last-child {
+	margin-bottom: 0
+}
+
+.leaflet-popup-content .btn {
+	border-color: #ccc;	
+	border: none;
+	margin-right: 2px
 }

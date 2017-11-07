@@ -5,7 +5,10 @@
 
 	<div class="panel-heading bg-primary">
 		<h4 class="pull-left">
-			<img class="icon-avatar" src="{{avatar}}" /> {{username}}
+			<a class="back" href="javascript:history.back()">
+				<i class="icon icon-arrow-l"></i>
+			</a> 
+			{{getFullname}}
 		</h4>
 		<a class="close pull-right" href="/">
 			<i class="icon icon-close"></i>
@@ -15,17 +18,16 @@
 
 		{{> tabLocation}}
 
+
 		<div class="list-group">
+
+			{{> pluginsTemplate name='panelProfile'}}
+			
 			<a class="list-group-item" href="/history">
 				<i class="icon icon-hist"></i>
 				 {{i18n 'btn_hist'}} 
 				<span class="badge">{{hist.length}}</span>
 			</a>
-		</div>
-
-		<div class="list-group">
-		
-			{{> pluginPlaceholder name='panelProfile'}}
 
 		</div>
 		
@@ -48,7 +50,9 @@
 				<i class="icon icon-logout"></i> 
 				{{i18n 'btn_logout'}}
 			</a>
-		</div>		
+		</div>	
+
+		{{> footer}}
 	</div>
 </div>
 

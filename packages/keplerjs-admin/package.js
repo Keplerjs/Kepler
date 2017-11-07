@@ -2,28 +2,31 @@
 Package.describe({
   name: 'keplerjs:admin',
   summary: 'keplerjs plugin for administration of platform',
-  version: "1.1.0",
+  version: "1.2.3",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
 Package.onUse(function(api) {
 
-  api.versionsFrom("METEOR@1.0");
+  api.versionsFrom('1.5.1');
 
   api.use([
-    'keplerjs:core@1.1.0',
-    'keplerjs:edit@1.1.0'
+    'keplerjs:core@1.2.3',
+    'keplerjs:edit@1.2.3'
   ]);
 
   api.addFiles([
     'plugin.js',
     'i18n/it.js',
     'i18n/en.js',
-	'i18n/de.js'
+	'i18n/de.js',
+	'i18n/es.js',
+	'i18n/fr.js'
   ]);
 
   api.addFiles([
-    'modules/Admin.js'
+    'modules/Admin.js',
+    'modules/users.js'
   ]);
 
   api.addFiles([

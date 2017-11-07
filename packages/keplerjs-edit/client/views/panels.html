@@ -1,22 +1,29 @@
 
+
+<template name="panelProfile_edit">
+	<a class="list-group-item" href="/places/edits">
+		<i class="icon icon-edit"></i>
+		 {{i18n 'label_editplaces'}} 
+		<span class="badge">{{places.length}}</span>
+	</a>
+</template>
+
 <template name="panelPlace_edit">
 {{#if or createdAt userId}}
 
 	<div class="row">
-		<div class="col-xs-3">
-		{{#if createdAt}}
-			<label>{{i18n 'label_createdAt'}}</label>
-			<time>{{humanDate createdAt}}</time>
-		{{/if}}
-		</div>
-		<div class="col-xs-4">
+		<div class="col-xs-7">
 		{{#if userId}}
 			<label>{{i18n 'label_creator'}}</label>
 			{{#with userById userId}}
 				{{> item_user_name}}
 			{{/with}}
 		{{/if}}
-		</div>
+		{{#if createdAt}}
+			<label>{{i18n 'label_createdAt'}}</label>
+			<time>{{numericDate createdAt}}</time>
+		{{/if}}
+		</div>		
 		<div class="col-xs-5 text-right">
 		{{#if isEditable}}
 		<div class="btn-group" role="group">
@@ -27,33 +34,41 @@
 		{{/if}}
 		</div>
 	</div>
-	<hr />
-
 {{/if}}
 </template>
 
 <template name="panelUser_edit">
-{{#if isFriend}}
+{{#if and isFriend places.length}}
 	<ul class="list-group">
 		<li class="list-group-item active">		
 			<span>{{i18n 'label_editplaces'}}</span>
 		</li>
+
 		{{#if places.length}}
-			{{#each places}}
-			<li class="list-group-item">
-				{{#with placeById this}}
-					{{> item_place}}
-				{{/with}}
-			</li>
-			{{/each}}
+
+			{{#if placesList}}
+				{{#each getPlacesList}}
+				<li class="list-group-item">
+					{{#with placeById this}}
+						{{> item_place_search}}
+					{{/with}}
+				</li>
+				{{/each}}
+			{{else}}
+				<a class="list-group-item panel-btn-placesList" href="#">
+					<i class="icon icon-edit"></i> {{i18n 'label_editplaces'}}
+				</a>
+			{{/if}}
+
 		{{else}}
 			<li class="list-group-item">
-				<label class="text-gray"><i>{{i18n 'label_nofavs'}}</i></label>
+				<label class="text-gray"><i>{{i18n 'label_nohist'}}</i></label>
 			</li>
 		{{/if}}
 	</ul>
 {{/if}}	
 </template>
+
 
 
 <template name="panelEdit">
@@ -90,7 +105,7 @@
 				</span>
 			</div>
 
-			{{> pluginPlaceholder name='panelEdit'}}
+			{{> pluginsTemplate name='panelEdit'}}
 
 		</div>	
 	</div>

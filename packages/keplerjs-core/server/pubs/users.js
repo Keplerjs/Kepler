@@ -26,8 +26,6 @@ Meteor.publish('userById', function(userId) {
 			placeIds = _.union(userData.checkin, userData.hist);
 
 			retCurs.push( K.findPlacesByIds(placeIds) );
-
-			//TODO places events ed altre info
 		}
 		
 		this.added('users', userId, userData);	//add full fields for userCur
@@ -51,45 +49,35 @@ Meteor.publish('usersByName', function(initial) {
 });
 
 Meteor.publish('usersByIds', function(usersIds) {
+	if(this.userId) {
 
-	console.log('Pub: usersByIds', usersIds);
+		console.log('Pub: usersByIds', usersIds);
 
-	if(this.userId)
 		return K.findUsersByIds(usersIds);
+	}
 	else
 		this.ready();
 });
 
 Meteor.publish('friendsByIds', function(usersIds) {
+	if(this.userId) {
+		
+		console.log('Pub: friendsByIds', this.userId);
 
-	console.log('Pub: friendsByIds', this.userId);
-
-	//TODO check friends in profile.friends
-
-	if(this.userId)
 		return [
 			K.findFriendsByIds(usersIds),
 			K.findPlacesByCheckins(usersIds)
 		];
-	else
+	} else
 		this.ready();
 });
 
+Meteor.publish('usersByDate', function() {
+	if(this.userId) {
+		
+		console.log('Pub: usersByDate');
 
-Meteor.publish('usersByPlace', function(placeId) {
-
-	console.log('Pub: usersByPlace', placeId);
-
-	if(this.userId && placeId)
-	{
-		var placeCur = K.findPlacesByIds([placeId]),
-			placeData = placeCur.fetch()[0];
-
-		return [
-			//TODO add place Cur
-			placeCur,
-			K.findUsersByIds(placeData.checkins)
-		];
+		return K.findUsersByDate();
 	}
 	else
 		this.ready();	

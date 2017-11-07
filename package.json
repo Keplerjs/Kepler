@@ -1,13 +1,14 @@
 {
   "name": "keplerjs",
-  "version": "1.1.0",
+  "version": "1.2.3",
   "description": "The open source full-stack geosocial network platform",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/Keplerjs/Kepler.git"
   },
   "scripts": {
-    "start": "meteor"
+    "start": "meteor",
+    "docs": "jsdoc2md -t jsdoc2md/API.hbs lib/*.js > API.md; echo"
   },
   "keywords": [
     "social-network",
@@ -29,7 +30,14 @@
     "url": "https://github.com/Keplerjs/Kepler/issues"
   },
   "homepage": "https://github.com/Keplerjs/Kepler#readme",
+  "devDependencies": {
+    "jsdoc-to-markdown": "^3.0.0"
+  },
   "dependencies": {
-    "meteor-node-stubs": "^0.2.11"
+    "babel-runtime": "^6.26.0",
+    "bcrypt": "^1.0.3",
+    "core-js": "^2.5.0",
+    "meteor-node-stubs": "^0.2.11",
+    "simple-statistics": "^4.1.1"
   }
 }

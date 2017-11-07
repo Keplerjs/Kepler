@@ -20,8 +20,11 @@ Kepler.Profile = {
 	init: function(cb) {
 
 		var self = this;
-		
-		self.ready = true;
+
+		if(self.ready)
+			return self;
+		else
+			self.ready = true;
 
 		Tracker.autorun(function() {
 
@@ -36,7 +39,7 @@ Kepler.Profile = {
 			if(self.data.checkin)
 				self.placeCheckin = K.placeById(self.data.checkin);
 
-			if(self.data.online)
+			if(self.data.status==='online' || self.data.status==='away')
 				Meteor.subscribe('friendsByIds', K.Profile.data.friends, function() {
 					_.map(K.Profile.data.friends, function(id) {
 						K.Map.addItem(K.userById(id));
@@ -48,23 +51,29 @@ Kepler.Profile = {
 				});
 		});
 
+		if(self.data.mob !== K.Util.isMobile()) {
+			Users.update(Meteor.userId(), {
+				$set: {mob: K.Util.isMobile() }
+			});
+		}	
+
 		if(_.isFunction(cb))
 			cb.call(self, self.data);
 
 		return this;
 	},
-	setOnline: function(online) {
+	getOnline: function() {
 		var self = this;
-		online = online ? 1 : 0;
-		if(online !== this.data.online)
-			Users.update(Meteor.userId(), {
-				$set: {
-					online: parseFloat(online),
-					mob: parseFloat(K.Util.isMobile() ? 1:0)
-				}
-			}, function(err) {
-				self._deps.online.changed();
-			});
+		this._deps.online.depend();
+		//TODO var mstatus = Meteor.status(); mstatus.connected &&
+		return (self.data.status==='online' || self.data.status==='away');
+	},	
+	setOnline: function(online) {
+		console.log('setOnline',online)
+		var self = this;
+		Meteor.call('UserPresence:setDefaultStatus', online?'online':'offline', function(err, data) {
+			self._deps.online.changed();
+		});
 		return this;
 	},
 	setLoc: function(loc) {
@@ -76,10 +85,6 @@ Kepler.Profile = {
 		});
 		return this;
 	},	
-	getOnline: function() {
-		this._deps.online.depend();
-		return !!this.data.online;
-	},
 	getOpts: function(prop) {
 		return K.Util.getPath(this.data,'settings.'+prop);
 	},

@@ -1,16 +1,36 @@
 
 <template name="tab_bio">
 
-	<div class="row">
-		<div class="col-xs-4">
-			<img class="icon-avatar icon-avatar-big" src="{{avatar}}" />
+	<div class="row tab-user-bio">
+		<div class="col-xs-4 avatar-big">
+			{{> item_user_avatar}}
 		</div>
 		<div class="col-xs-8">			
-			{{#if username}}<label>{{i18n 'label_username'}}</label> <span>{{username}}</span><br />{{/if}}
-			{{#if name}}<label>{{i18n 'label_name'}}</label> <span>{{name}}</span><br />{{/if}}
-			<label>{{i18n 'label_signupdate'}}</label> <time>{{humanDate createdAt}}</time>
+		{{#if username}}
+			<label>{{i18n 'label_username'}}</label>
+			<span>{{username}}</span>
 			<br />
-			{{#if city}}<label>{{i18n 'label_city'}}</label> <span class="text-capitalize">{{city}}</span><br />{{/if}}
+		{{/if}}
+
+		{{#if name}}
+			<label>{{i18n 'label_name'}}</label>
+			<span>{{name}}</span>
+			<br />
+		{{/if}}
+
+		{{#if city}}
+			<label>{{i18n 'label_city'}}</label>
+			<span class="text-capitalize">{{city}}</span><br />
+		{{/if}}
+
+		{{#if lang}}
+			<label>{{i18n 'label_lang'}}</label>
+			{{lang}}
+			<br />
+		{{/if}}
+
+			<label>{{i18n 'label_signupdate'}}</label> 
+			<time>{{numericDate createdAt}}</time>			
 		</div>
 	</div>
 

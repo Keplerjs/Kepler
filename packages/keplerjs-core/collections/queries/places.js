@@ -20,8 +20,6 @@ K.extend({
 	},	
 	findPlacesByBBox: function(bbox) {
 
-		//TODO limit bbox sizes!!! add limit
-
 		//PATCH while minimongo not supporting $within $box queries
 		if(Meteor.isClient) {
 
@@ -42,35 +40,47 @@ K.extend({
 						'$box': bbox
 					}
 				}
-			}, _.extend({}, K.filters.placeItem, {
+			}, _.deepExtend({}, K.filters.placeItem, {
 					limit: 50
 				})
 			);
 		}
 	},
 	findPlacesByDate: function() {
-	
+		/*
+		TODO may be unuseful
 		var date = new Date();
 			date.setDate(date.getDate() - 10),
 			dateFrom = K.Util.time(date);
-
+		*/
 		return Places.find({
-			createdAt: {
+			/*createdAt: {
 				'$gte': dateFrom
-			}
-		}, _.extend({}, K.filters.placeItem, {
+			}*/
+		}, _.deepExtend({}, K.filters.placeItem, {
 				sort: { createdAt: -1 },
 				limit: 30
 			})
 		);
 	},	
+	findPlacesByNearby: function(loc) {
+		return Places.find({
+			loc: {
+				'$near': loc,
+				'$maxDistance': K.Util.geo.meters2rad(K.settings.public.map.nearbyMaxDist)
+			}
+		}, _.deepExtend({}, K.filters.placeItem, {
+				limit: 30
+			})
+		);
+	},
 	findPlacesByName: function(initial) {
 		initial = K.Util.sanitize.regExp(initial);
 
 		if(!initial.length)
 			return null;
 
-		var filters = _.extend({}, K.filters.placeSearch, {
+		var filters = _.deepExtend({}, K.filters.placeSearch, {
 			sort: { name:1 },
 			limit: 30
 		});

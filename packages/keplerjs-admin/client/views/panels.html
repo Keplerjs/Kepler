@@ -1,7 +1,6 @@
 
 <template name="panelPlace_admin">
-{{#if isAdmin}}
-
+{{#if adminIsMe}}
 	<div class="list-group">
 		<div class="list-group-item active">
 			{{i18n 'title_admin'}}
@@ -13,38 +12,51 @@
 			<a class="popup-movecanc btn btn-default" style="display:none" href="#">
 				Cancel
 			</a>  -->
-			<a class="btn-editdel btn btn btn-default" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
-				<i class="icon icon-del"></i> {{i18n 'btn_del'}}
-			</a>
 			<a class="btn btn-default" type="button" data-toggle="collapse" data-target="#rawdata" aria-expanded="false" aria-controls="collapseExample">
 			  {{i18n 'label_rawdata'}}
 			</a>
 			<div id="rawdata" class="collapse collapsed">
 				{{{stringify data}}}
 			</div>
+			<a class="btn-editdel btn btn btn-default pull-right" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
+				<i class="icon icon-del"></i> {{i18n 'btn_del'}}
+			</a>
 		</div>
 	</div>
 {{/if}}
 </template>
 
 <template name="panelUser_admin">
-{{#if isAdmin}}
-
+{{#if adminIsMe}}
 	<div class="list-group">
 		<div class="list-group-item active">
 			{{i18n 'title_admin'}}
 		</div>
 		<div class="list-group-item">
-			<a class="btn-editdel btn btn btn-default" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
-				<i class="icon icon-del"></i> {{i18n 'btn_del'}}
-			</a>
 			<a class="btn btn-default" type="button" data-toggle="collapse" data-target="#rawdata" aria-expanded="false" aria-controls="collapseExample">
 			  {{i18n 'label_rawdata'}}
 			</a>
 			<div id="rawdata" class="collapse collapsed">
 				{{{stringify data}}}
 			</div>
+			{{#if source.url}}
+			<a class="btn btn-link" href="{{source.url}}">
+				{{i18n 'label_account'}}
+			</a>
+			{{/if}}
+			{{#unless isMe}}
+			<a class="btn-editdel btn btn btn-default pull-right" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
+				<i class="icon icon-del"></i> {{i18n 'btn_del'}}
+			</a>
+			{{/unless}}
 		</div>
 	</div>
+{{/if}}
+</template>
+
+<template name="panelProfile_admin">
+{{#if adminIsMe}}
+	<br />
+	{{> panelUser_admin}}
 {{/if}}
 </template>

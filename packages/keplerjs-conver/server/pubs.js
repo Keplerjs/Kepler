@@ -1,10 +1,9 @@
 
 Meteor.publish('conversByIds', function(convIds) {
-
-	console.log('Pub: conversByIds', convIds);
-
 	if(this.userId && convIds)
 	{
+		console.log('Pub: conversByIds');
+
 		var conversCur = K.findConversByIds(convIds),
 			conversData = conversCur.fetch(),
 			usersIds = _.uniq(_.flatten(_.pluck(conversData, 'usersIds'))),
@@ -28,10 +27,9 @@ Meteor.publish('conversByIds', function(convIds) {
 });
 
 Meteor.publish('converById', function(convId) {
-
 	if(this.userId && convId)
 	{
-		console.log('Pub: converById', convData);	
+		console.log('Pub: converById', convId);	
 
 		var convCur = K.findConverById(convId),
 			convData = convCur.fetch()[0],
@@ -47,13 +45,11 @@ Meteor.publish('converById', function(convId) {
 		this.ready();	
 });
 
-
 Meteor.publish('conversByTarget', function(targetId) {
-
-	console.log('Pub: conversByTarget', targetId);
-
 	if(this.userId && targetId)
 	{
+		console.log('Pub: conversByTarget', targetId);
+
 		var conversCur = K.findConversByTarget(targetId),
 			conversData = conversCur.fetch(),
 			usersIds = _.uniq(_.flatten( _.pluck(conversData, 'usersIds') ));
@@ -69,9 +65,30 @@ Meteor.publish('conversByTarget', function(targetId) {
 		this.ready();	
 });
 
+Meteor.publish('conversByUser', function(userId) {
+	if(this.userId && userId)
+	{
+		var conversCur = K.findConversByUser(userId),
+			conversData = conversCur.fetch(),
+			usersIds = _.uniq(_.flatten( _.pluck(conversData, 'usersIds') ));
+			//TODO estrarre solo gli ultimi 3-4
+		
+		console.log('Pub: conversByUser', userId, conversCur.count());
+
+		return [
+			//TODO add place Cur
+			conversCur,
+			K.findUsersByIds( _.last(usersIds, 3) )
+			//TODO move this '3' in K.settings
+		];
+	}
+	else
+		this.ready();
+});
 
 Meteor.publish('conversPlaces', function() {
 	if(this.userId) {
+
 		console.log('Pub: conversPlaces');
 
 		var conversCur = K.findConversPlaces(),

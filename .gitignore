@@ -10,5 +10,11 @@ nohup.out
 .npm
 start.sh
 settings.json
-packages.list
+pkgs.list
+versions.list
+
+packages/keplerjs-googlemaps
+packages/keplerjs-mapillary
+packages/keplerjs-wunderground
+packages/keplerjs-robots
 

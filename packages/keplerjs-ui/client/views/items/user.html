@@ -1,7 +1,7 @@
 
 <template name="item_user">
 	<a class="btn user-btn-name" href="/user/{{_id}}">
-		<img class="icon-avatar" src="{{avatar}}" /><u>{{username}}</u>
+		<img class="icon-avatar {{#unless avatar}}icon-avatar-default{{/unless}}" src="{{#if avatar}}{{avatar}}{{/if}}" /><u>{{username}}</u>
 	</a>
 </template>
 
@@ -11,20 +11,56 @@
 	</a>
 </template>
 
+<template name="item_user_avatar">
+	<a class="btn user-btn-name" href="/user/{{_id}}">
+		<img class="icon-avatar {{#unless avatar}}icon-avatar-default{{/unless}}" src="{{#if avatar}}{{avatar}}{{/if}}" />
+	</a>
+</template>
+
 <template name="item_user_friend">
-	<div class="friend-item {{#unless isOnline}}offline{{/unless}}">
+	<div class="friend-item {{status}}">
 		<div class="pull-left">
-			<i class="icon icon-{{#if isOnline}}online{{else}}offline{{/if}}{{#if mob}}-mob{{/if}} user-device"></i>
+			{{> user_status}}
 			{{> item_user}}
 		</div>
 		<div class="pull-right">
 		{{#if isOnline}}
 			
 			{{> btns_location}}
-			
+
+		{{else}}
+			<time>{{#if loginAt}} {{humanTime loginAt 1}} {{else}} {{humanTime createdAt 1}} {{/if}}</time>
 		{{/if}}
 		</div>
 	</div>
+</template>
+
+<template name="item_user_search">
+	<div class="">
+		<div class="pull-left">
+			{{> item_user}}
+		</div>
+		<div class="pull-right">
+			<time>{{humanTime createdAt 1}}</time>
+		</div>
+	</div>
+</template>
+
+<template name="user_status">
+	<label class="">
+		<i class="icon icon-{{#if mob}}mob-{{/if}}{{#if status}}{{status}}{{else}}offline{{/if}}"></i>
+		<span class="user-status-text">
+		{{#if eq status 'online'}}
+		<b class="text-green">online</b>
+		{{else}}
+			{{#if eq status 'away'}}
+			<b class="text-yellow">away</b>
+			{{else}}
+			<b class="text-gray">offline</b>
+			{{/if}}
+		{{/if}}
+		</span>
+	</label>
 </template>
 
 

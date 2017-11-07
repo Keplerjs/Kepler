@@ -7,20 +7,22 @@
 		</li>	
 		<li class="list-group-item">
 			<div>
-			<div class="pull-left">
-			{{> btns_location}}
-			</div>
-
-			{{#if getCheckin}}
-			{{#with placeById getCheckin}}
-				<div class="pull-right">
-				{{> place_btns}}
+				<div class="pull-left">
+				{{> btns_location}}
 				</div>
-			{{/with}}
-			{{/if}}
+				{{#if getCheckin}}
+					{{#with placeById getCheckin}}
+					<div class="pull-right">
+					{{> place_btns}}
+					</div>
+					{{/with}}
+				{{/if}}
+
+				{{> pluginsTemplate name='tabLocation'}}
+				
 			</div>
 		</li>
-		{{#if isMe}}
+		{{#if and getCheckin isMe}}
 		<li class="list-group-item">
 			{{#with placeById getCheckin}}
 				
@@ -28,7 +30,7 @@
 				
 			{{/with}}
 		</li>				
-		{{/if}}		
+		{{/if}}
 	</ul>
 {{/if}}
 </template>
@@ -43,12 +45,12 @@
 	{{/with}}
 
 {{else}}
-{{#if getLoc}}
+	{{#if getLoc}}
 
-	<a class="btn btn-sm btn-default" href="/user/{{id}}/map">
-		<i class="icon icon-map"></i>
-	</a>
+		<a class="btn btn-sm btn-default" href="/user/{{id}}/map">
+			<i class="icon icon-map"></i>
+		</a>
 
-{{/if}}
+	{{/if}}
 {{/if}}
 </template>

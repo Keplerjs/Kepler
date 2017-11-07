@@ -9,7 +9,7 @@
 			<a class="btn btn-sm btn-default" href="/place/{{id}}/checkins"><i class="icon icon-users"></i></a>
 		{{/if}}
 
-		{{> pluginPlaceholder name='popupPlace'}}
+		{{> pluginsTemplate name='popupPlace'}}
 
 	</div>
 </template>
@@ -17,14 +17,12 @@
 <template name="popupUser">
 	<div class="popup-user">
 	{{> item_user}}
-	
-	{{> pluginPlaceholder name='popupUser'}}
-
+	{{> pluginsTemplate name='popupUser'}}
 	</div>
 </template>
 
 <template name="popupCursor">
 	<div class="popup-cursor">
-		{{> pluginPlaceholder name='popupCursor'}}
+		{{> pluginsTemplate name='popupCursor'}}
 	</div>
 </template>

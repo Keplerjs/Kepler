@@ -24,7 +24,7 @@
 
 .sidebar > .tab-content {
     margin-top: 4px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+/*    box-shadow: 0 0 5px rgba(0,0,0,0.3);*/
     border-radius:4px;
     overflow: hidden;
 }
@@ -32,25 +32,33 @@
 	background: #fff;/*rgba(255,255,255,0.6);*/
     border-radius:4px;
 	box-shadow: 0 0 5px rgba(0,0,0,0.3);
-    padding: 0   
+    padding: 0;
 }
 .sidebar > .nav > li {
-    height: 34px;
-    margin: 4px 2px 2px 0;
-}
-.sidebar > .nav > li:first-child {
-	margin-left: 4px;
+    height: 32px;
+    min-width: 32px;
+    margin: 4px 0 2px 0;
+    white-space: nowrap;
+    line-height: 34px;
 }
 .sidebar > .nav > li > a.btn {
 	padding: 4px;
-    height: 32px;
-    margin: 0;
+    margin-right: 4px;	
+    height: 30px;
     font-size: 14px;
 }
 
-.sidebar > .nav > li .btn-connect-status,
-.sidebar > .nav > li .btn-connect-connected {
-    display: none;
+.sidebar > .nav > li:first-child {
+	margin-left: 4px;
+}
+.sidebar > .nav > li:first-child > a.btn {
+	padding: 0;
+	border: none;
+	height: 30px;
+	width: 30px;
+}
+.sidebar > .nav > li:first-child img {
+	vertical-align: middle;
 }
 
 li#navsearch {
@@ -97,9 +105,9 @@ li#navsearch {
 	right: 0;
 }
 
-.sidebar-map .leaflet-left {
+/*.sidebar-map .leaflet-left {
     left: 400px;
-}
+}*/
 @media (max-width: 400px) {
     .sidebar {
         width: auto;
@@ -107,6 +115,19 @@ li#navsearch {
     .leaflet-right.leaflet-top {
         padding-top: 50px;
     }
+    .sidebar > .nav > li > a.btn {
+		padding: 4px 2px;
+    	margin-right: 0;	    	
+		max-width: 80px;
+		overflow:hidden;
+		text-overflow: ellipsis;
+    }
+    .sidebar > .nav > li:last-child {
+		margin-right: 4px;
+	}
+    .sidebar > .nav > li .btn-connect-status {
+    	display: none;
+	}    
 }
 @media (min-width: 768px) {
     .sidebar {
@@ -118,14 +139,16 @@ li#navsearch {
     .sidebar-map {
         margin-left: 0;
     }
+
+
 }
-@media (min-width: 992px) and (max-width: 1199px) {
+/*@media (min-width: 992px) and (max-width: 1199px) {
     .sidebar-map .leaflet-left {
         left: 400px;
     }
-}
+}*/
 @media (min-width: 1200px) {
     .sidebar {
         width: 460px;
-    }
+    }  
 }

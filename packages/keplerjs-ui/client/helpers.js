@@ -5,8 +5,9 @@ Template.registerHelper('absoluteUrl', function(url) {
 	return Meteor.absoluteUrl(url)
 });
 
-Template.registerHelper('settings', function(prop) {
-	return K.Util.getPath(K.settings.public, prop);
+Template.registerHelper('settings', function(prop, subprop) {
+	var path = _.isString(subprop) ? prop+'.'+subprop : prop;
+	return K.Util.getPath(K.settings.public, path);
 });
 
 Template.registerHelper('userById', function(id) {
@@ -17,9 +18,9 @@ Template.registerHelper('placeById', function(id) {
 	return K.placeById(id);
 });
 
-Template.registerHelper('ifRoute', function(name, classTrue, classFalse) {
+Template.registerHelper('ifRoute', function(name, classTrue) {
 	var cur = Router.current();
-	return cur.route && cur.route.getName()===name ? classTrue : classFalse;
+	return cur.route && cur.route.getName()===name ? classTrue : '';
 });
 
 Template.registerHelper('routeTitle', function() {
@@ -31,18 +32,16 @@ Template.registerHelper('connectionStatus', function() {
 	return Meteor.status();
 });
 
-Template.registerHelper('stringify', function(prop) {
-	return '<pre>'+JSON.stringify(prop,null,4)+'</pre>';
-});
-
-Template.registerHelper('htmlComment', function() {
-	var args = _.toArray(arguments);
-	args.pop();
-	return '<!-- '+args.join(' ')+' -->';
-});
-
 Template.registerHelper('or', function() {
 	return _.some(_.initial(arguments));
+});
+
+Template.registerHelper('and', function() {
+	return _.every(_.initial(arguments));
+});
+
+Template.registerHelper('eq', function (a, b) {
+  return a === b;
 });
 
 Template.registerHelper('arrayify',function(obj){
@@ -53,7 +52,7 @@ Template.registerHelper('arrayify',function(obj){
 });
 
 Template.registerHelper('humanAzimut', function(ang,code) {
-	return K.Util.humanize.azimut(ang,code);
+	return K.Util.humanize.azimut(ang, parseInt(code));
 });
 
 Template.registerHelper('humanTime', function(sec, ago) {
@@ -76,4 +75,25 @@ Template.registerHelper('humanDistance', function(dis, sign) {
 
 Template.registerHelper('humanLoc', function(loc, pre) {
 	return K.Util.humanize.loc(loc, parseInt(pre));
+});
+
+
+/* 
+	debugging helpers
+*/
+Template.registerHelper('stringify', function(prop) {
+	return '<pre>'+JSON.stringify(prop,null,4)+'</pre>';
+});
+
+Template.registerHelper('htmlComment', function() {
+	var args = _.toArray(arguments);
+	args.pop();
+	return '<!-- '+args.join(' ')+' -->';
+});
+
+Template.registerHelper('randStatus', function(url) {
+	var s = ['online','offline','away',
+			'mob-online','mob-offline','mob-away'],
+		k = _.random(0,s.length-1);
+	return s[k];
 });

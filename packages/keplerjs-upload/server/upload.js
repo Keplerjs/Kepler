@@ -45,7 +45,7 @@ Meteor.methods({
 			},
 			fileUid = Meteor.user().username +'_'+ K.Util.time(),
 			fileName = K.Util.sanitize.filename( fileUid ),
-			fileMin = fileName + _.template('_{width}x{height}.min.jpg', imgSize),
+			fileMin = fileName + K.Util.tmpl('_{width}x{height}.min.jpg', imgSize),
 			fileBig = fileName + '.ori.jpg',
 			imgOpts = _.extend(imgSize, {
 				srcPath: filePath + fileBig,

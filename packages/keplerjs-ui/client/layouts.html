@@ -7,7 +7,7 @@
 
 <template name="layoutPage">
 	{{> header}}
-	<div class="container">
+	<div class="container-fluid">
 		{{> yield}}
 	</div>
 	{{> footer}}
@@ -20,7 +20,7 @@
 
 		<div id="sidebar" class="sidebar {{#if showSidebar}} expanded {{/if}}">
 			
-			{{> sidebarNav}}
+			{{> navSidebar}}
 
 			<div class="tab-content">
 				<div class="tab-pane fade in active" role="tabpanel">
@@ -31,6 +31,8 @@
 			</div>
 		</div>
 
+		{{> sAlert}}
+		
 	</div>
 </template>
 

@@ -1,9 +1,17 @@
 
 Meteor.publish('placesByBBox', function(bbox) {
 	if(this.userId) {
-		var cur = K.findPlacesByBBox(bbox);
-		console.log('Pub: placesByBBox ', cur.count() );
-		return cur;
+		var diag = K.Util.geo.distance(bbox[0],bbox[1]);
+
+		//console.log('Pub: placesByBBox ', diag);
+
+		if(diag < K.settings.public.map.bboxMaxDiagonal) {
+			var cur = K.findPlacesByBBox(bbox);
+			console.log('Pub: placesByBBox ', cur.count());
+			return cur;
+		}
+		else
+			this.ready();
 	}
 	else
 		this.ready();
@@ -19,7 +27,6 @@ Meteor.publish('placesByName', function(initial) {
 		this.ready();	
 });
 
-
 Meteor.publish('placeById', function(placeId) {
 	if(this.userId) {
 		var placeCur = K.findPlaceById(placeId),
@@ -31,13 +38,12 @@ Meteor.publish('placeById', function(placeId) {
 		if(!placeData)
 			return retCurs;
 
-		var usersIds = _.union(placeData.hist, placeData.checkins);
-		
+		var usersIds = _.union(placeData.hist, placeData.checkins, placeData.userId);
+		//TODO move publish of userId in plugin edit
+		//		
 		if(usersIds.length > 0)
 			retCurs.push( K.findUsersByIds(usersIds) );
 		//publish one cursor for collection users
-
-		console.log('Pub: placeById', placeData.name);
 
 		return retCurs;
 	}
@@ -54,10 +60,20 @@ Meteor.publish('placesByIds', function(placesIds) {
 		this.ready();	
 });
 
-Meteor.publish('placesByDate', function(daysAgo) {
+Meteor.publish('placesByDate', function() {
 	if(this.userId) {
-		console.log('Pub: placesByDate', daysAgo);
-		return K.findPlacesByDate(daysAgo);
+		console.log('Pub: placesByDate');
+		return K.findPlacesByDate();
+	}
+	else
+		this.ready();
+});
+
+Meteor.publish('placesByNearby', function(loc) {
+	if(this.userId) {
+		console.log('Pub: placesByNearby',loc);
+		if(K.Util.valid.loc(loc))
+			return K.findPlacesByNearby(loc);
 	}
 	else
 		this.ready();
