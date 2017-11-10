@@ -1,6 +1,3 @@
-
-//TODO to complete translations in each i18n plugins
-
 i18n.map('sv', {
 
 	title_root: "Karta",
@@ -17,7 +14,10 @@ i18n.map('sv', {
 	title_checkins: "Personer på {$1}",
 	title_login: "Logga in",
 	title_about: "Om oss",
-	title_page404: "Hittar Inte Sidan!",
+	title_page404: "Hittar inte sidan!",
+
+	title_usersNews: "Senaste användare",
+	label_mapcenter: "Hem",
 
 	label_loading: "Laddar...",
 	label_noname: "namnlös",
@@ -44,6 +44,7 @@ i18n.map('sv', {
 	label_userblocked: "Blockerad Användare",
 	label_histuser: "Senaste besök",
 	label_histplace: "Senaste besök",
+	label_histsearch: "Senaste sökningar",
 	label_nearplaces: "Platser i närheten",
 	label_nolistitems: "Tom lista",
 	label_nofriendscomm: "Inga gemensamma vänner",
