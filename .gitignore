@@ -16,5 +16,5 @@ versions.list
 packages/keplerjs-googlemaps
 packages/keplerjs-mapillary
 packages/keplerjs-wunderground
+packages/keplerjs-foursquare
 packages/keplerjs-robots
-

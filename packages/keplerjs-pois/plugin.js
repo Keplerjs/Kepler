@@ -21,22 +21,24 @@ K.Plugin({
 				}
 			},
 			"pois": {
-				"limit": 10,
+				"limit": 30,
 				"caching": true,	//cache response by OSM overpass
-				"maxDistance": 500,
+				"maxDistance": 600,
 				"importPois": true,	//enable importing of pois like place
 				"typesByTags": {
-					"amenity=bar":        "drink",
 					"amenity=drinking_water": "water",
-					"amenity=fountain":  "water",
-					"amenity=restaurant": "eat",
-					"amenity=hospital":   "bed",
-					"amenity=parking":    "parking",
+					"amenity=fountain":       "water",
+					"amenity=bar":        "drink",
 					"amenity=cafe":       "drink",
-					"highway=bus_stop":   "bus",
-					"tourism=picnic_site":"camp", 
+					"amenity=restaurant": "eat",
+					"shop=supermarket":   "eat",
+					"amenity=marketplace":"eat",
+					"amenity=hospital":   "bed",
+					"tourism=hotel":      "bed",
+					"amenity=parking":    "parking",
+					"tourism=picnic_site":"camp",
 					"tourism=camp_site":  "camp",
-					"tourism=hotel":      "bed"
+					"highway=bus_stop":   "bus",
 				}
 			}
 		}
