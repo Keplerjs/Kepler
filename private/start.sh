@@ -10,7 +10,7 @@ DOMAINDEV="app_meteor.local"
 DOMAINPRO="app_meteor.net"
 DBNAME="kepler"
 SETS="settings.json"
-PORT="3000"
+PORT="127.0.0.1:3000"
 
 MYIP=$( hostname -i | cut -f1 -d' ')
 export MONGO_URL="mongodb://localhost:27017/$DBNAME"
