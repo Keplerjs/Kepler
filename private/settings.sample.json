@@ -20,6 +20,10 @@
 		"wundergroundKey": "6a7ab32334343dca163782"
 	},
 	"accounts": {
+		"verifyEmail": false,
+		"emailTemplates": {
+			"from": "Admin <no-reply@example.com>"
+		},
 		"facebook": {
 			"service": "facebook",
 			"appId": "527324563928101",

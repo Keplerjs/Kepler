@@ -116,5 +116,8 @@ i18n.map('en', {
 	day: "day,days",
 	hour: "hour,hours",
 	minute: "min,min",
-	second: "sec,sec"
+	second: "sec,sec",
+
+	email_verifyEmail_subject: "Verify your email address",
+	email_verifyEmail_text: "Hi ${user}! Verify your email by following this link: ${url}",
 });

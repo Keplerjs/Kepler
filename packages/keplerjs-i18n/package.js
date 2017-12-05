@@ -19,12 +19,12 @@ Package.onUse(function(api) {
 
   api.addFiles([
 	'i18n/it.js',
-    'i18n/en.js',
+  'i18n/en.js',
 	'i18n/de.js',
 	'i18n/sv.js',
 	'i18n/es.js',
 	'i18n/fr.js',
-    'config.js'
+  'config.js'
   ]);
 
   api.export([

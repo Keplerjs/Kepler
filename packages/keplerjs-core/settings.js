@@ -87,6 +87,9 @@ Kepler.settings = {
 	"accounts": {
 		"creation": true,
 		"verifyEmail": false,	
+		"emailTemplates": {
+			"from": "Admin <no-reply@example.com>"
+		}
 		/*
 		"openstreetmap": {
 			"service": "openstreetmap",

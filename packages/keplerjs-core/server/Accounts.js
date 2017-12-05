@@ -1,4 +1,6 @@
-
+/*
+	https://docs.meteor.com/api/accounts-multi.html#AccountsCommon-config
+*/
 Meteor.startup(function() {	
 	Accounts.config({
 		sendVerificationEmail: K.settings.accounts.verifyEmail,
@@ -15,7 +17,17 @@ Meteor.startup(function() {
 		}
 	});
 
-	console.log('Accounts: config ', services.join(','));
+	console.log('Accounts: services ', services.join(','));
+
+	Accounts.emailTemplates.from = K.settings.accounts.emailTemplates.from;
+	Accounts.emailTemplates.verifyEmail = {
+	   subject() {
+	      return i18n('email_verifyEmail_subject');
+	   },
+	   text(user, url) {
+	      return i18n('email_verifyEmail_text');
+	   }
+	};
 });
 
 Accounts.onLogin(function(e) {
