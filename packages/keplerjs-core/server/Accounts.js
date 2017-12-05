@@ -25,7 +25,7 @@ Meteor.startup(function() {
 	      return i18n('email_verifyEmail_subject');
 	   },
 	   text(user, url) {
-	      return i18n('email_verifyEmail_text',user,url);
+	      return i18n('email_verifyEmail_text',user.username, url);
 	   }
 	};
 });
