@@ -119,5 +119,5 @@ i18n.map('en', {
 	second: "sec,sec",
 
 	email_verifyEmail_subject: "Verify your email address",
-	email_verifyEmail_text: "Hi ${user}! Verify your email by following this link: ${url}",
+	email_verifyEmail_text: "Hi {$1}! Verify your email by following this link: {$2}",
 });
