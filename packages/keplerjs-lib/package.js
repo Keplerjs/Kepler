@@ -53,9 +53,9 @@ Package.onUse(function(api) {
     'session',
     'tracker',
     'check',
-	'standard-minifier-css',
-	'standard-minifier-js',
-	'dynamic-import',
+    'standard-minifier-css',
+    'standard-minifier-js',
+    'dynamic-import',
     'email',
     'http',
     'service-configuration',
@@ -66,18 +66,18 @@ Package.onUse(function(api) {
     'accounts-google',
     //'accounts-twitter',
     
-	'blaze-html-templates@1.1.2',
+    'blaze-html-templates@1.1.2',
     'matb33:collection-hooks@0.8.4',
     'underscorestring:underscore.string@3.3.4',
     'kidovate:bootstrap-slider@0.0.5',
     'iron:router@1.1.2',
-	'reywood:iron-router-ga@2.0.1',
+    'reywood:iron-router-ga@2.0.1',
     'mrt:modernizr-meteor@2.6.2',
     'twbs:bootstrap@3.3.6',
     'ian:accounts-ui-bootstrap-3@1.2.89',
     'mstn:accounts-openstreetmap@0.2.0',
 
-	'nooitaf:colors@1.1.2_1',	//https://www.npmjs.com/package/colors
+    'nooitaf:colors@1.1.2_1',	//https://www.npmjs.com/package/colors
     'konecty:user-presence@1.2.9',
     'juliancwirko:s-alert@3.2.0',
   ];

@@ -1,12 +1,26 @@
 
 //TODO Optional behaviour by settings
-Users.after.insert(function(userId, doc) {
-	
+//Users.after.insert(function(userId, user) {
+
+Meteor.startup(function() {
+	user = Users.findOne({},{sort: {createdAt:-1}});
+
 	if(K.settings.admin.adminUsers) {
 		Users.find({
 			username: {$in: K.settings.admin.adminUsers}
-		}).forEach(function (user) {
-			K.updateFriendship(doc._id, user._id);
+		}).forEach(function (userAdmin) {
+			
+			K.updateFriendship(user._id, userAdmin._id);
+
+			if(userAdmin.emails[0] && userAdmin.emails[0].address) {
+				Email.send({
+					from: K.settings.accounts.emailTemplates.from,
+					to: userAdmin.emails[0].address,
+					subject: "New Registered User",
+					html: Meteor.absoluteUrl("/user/"+user._id)+"<br /><br />"+
+						"<pre>"+JSON.stringify(user)+"</pre>"
+				});	
+			}
 		});
 	}
 });
