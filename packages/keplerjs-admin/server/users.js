@@ -1,9 +1,10 @@
 
 //TODO Optional behaviour by settings
-//Users.after.insert(function(userId, user) {
+Users.after.insert(function(userId, user) {
 
-Meteor.startup(function() {
-	user = Users.findOne({},{sort: {createdAt:-1}});
+	//DEBUG
+	////Meteor.startup(function() {
+	//user = Users.findOne({},{sort: {createdAt:-1}});
 
 	if(K.settings.admin.adminUsers) {
 		Users.find({
