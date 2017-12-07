@@ -29,8 +29,9 @@ Kepler.Admin = {
 			return false
 	},
 
-	call: function(method) {
-		return Meteor.apply(this.prefix+method);
+	call: function(method, arg, cb) {
+		//TODO support multiple args
+		return Meteor.call(this.prefix+method, arg, cb);
 	},
 
 	methods: function(defs) {	//server
