@@ -1,10 +1,5 @@
 
-//TODO Optional behaviour by settings
 Users.after.insert(function(userId, user) {
-
-	//DEBUG
-	////Meteor.startup(function() {
-	//user = Users.findOne({},{sort: {createdAt:-1}});
 
 	if(K.settings.admin.adminUsers) {
 		Users.find({
@@ -17,10 +12,16 @@ Users.after.insert(function(userId, user) {
 				Email.send({
 					from: K.settings.accounts.emailTemplates.from,
 					to: userAdmin.emails[0].address,
-					subject: "New Registered User",
-					html: Meteor.absoluteUrl("/user/"+user._id)+"<br />"+
-						"<br />"+
-						"<pre>"+JSON.stringify(user,null,'  ')+"</pre>"
+					subject: "New User: "+ user.username,
+					html:
+						"<h4>"+user.username+"</h4>"+
+						Meteor.absoluteUrl("/user/"+user._id)+"<br />"+
+						user.name+"<br />"+
+						'<img src="'+user.avatar+'" /><br />'+
+						user.source.url+"<br />"+
+						user.emails[0].address+"<br />"+
+						user.lang+"<br />"
+						//"<pre>"+JSON.stringify(user,null,'  ')+"</pre>"
 				});	
 			}
 		});

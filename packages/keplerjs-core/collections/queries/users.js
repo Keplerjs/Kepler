@@ -14,11 +14,11 @@ K.extend({
 		return Users.find(userId, K.filters.userPanel);
 	},	
 	findFriendsByIds: function(usersIds) {
+		
+		//TODO show friend location only if me is online
+		//TODO optimize query using my uid
 
 		usersIds = _.isArray(usersIds) ? {$in: usersIds} : usersIds;
-
-		//TODO show friend location only if me is online
-
 		return Users.find({_id: usersIds }, _.deepExtend({}, K.filters.friendItem, {
 				sort: {
 					status: -1,
