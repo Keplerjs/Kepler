@@ -18,8 +18,9 @@ Users.after.insert(function(userId, user) {
 					from: K.settings.accounts.emailTemplates.from,
 					to: userAdmin.emails[0].address,
 					subject: "New Registered User",
-					html: Meteor.absoluteUrl("/user/"+user._id)+"<br /><br />"+
-						"<pre>"+JSON.stringify(user)+"</pre>"
+					html: Meteor.absoluteUrl("/user/"+user._id)+"<br />"+
+						"<br />"+
+						"<pre>"+JSON.stringify(user,null,'  ')+"</pre>"
 				});	
 			}
 		});
