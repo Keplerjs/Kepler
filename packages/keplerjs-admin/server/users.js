@@ -19,7 +19,6 @@ Users.after.insert(function(userId, user) {
 						user.name+"<br />"+
 						'<img height="80px" widht="80px" src="'+user.avatar+'" /><br />'+
 						user.source.url+"<br />"+
-						user.emails[0].address+"<br />"+
 						user.lang+"<br />"
 						//"<pre>"+JSON.stringify(user,null,'  ')+"</pre>"
 				});	
@@ -40,10 +39,10 @@ K.Admin.methods({
 			var username = usernames[i];
 			
 			var userId = Accounts.createUser({
-				name: username,
 				username: username,
 				password: username+username,
-				email: username+'@gmail.com'
+				email: username+'@gmail.com',
+				name: _.str.capitalize(username)
 			});
 
 			if(userId)

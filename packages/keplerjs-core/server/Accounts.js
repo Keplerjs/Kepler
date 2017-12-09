@@ -65,12 +65,20 @@ Accounts.onCreateUser(function(options, user) {
 		gender = null,
 		emails = user.emails,
 		source = {
-			service: 'keplerjs',
+			service: '',
 			url: '',
 			options: options	
 		};
 
-	if(user.services.facebook)
+ 	if(user.services.password) {
+		source.service = 'password';
+		name = user.username;
+		username = user.username;
+		
+		delete options.password;
+		user = _.extend({}, user, options);
+	}
+	else if(user.services.facebook)
 	{
 		source.service = 'facebook';
 		source.url = user.services.facebook.link;
@@ -117,8 +125,9 @@ Accounts.onCreateUser(function(options, user) {
 	// 	username = user.services.twitter.screenName;
 	// 	avatar = 'http://twitter.com/api/users/profile_image/'+username;
 	// }
+	// 
 	
-	var retuser = _.extend({}, user, K.schemas.user, {
+	var retuser = _.extend({}, K.schemas.user, user, {
 		createdAt: K.Util.time(),
 		name: K.Util.sanitize.name(name),
 		username: K.Util.sanitize.username(username),
@@ -131,6 +140,8 @@ Accounts.onCreateUser(function(options, user) {
 	});
 
 	console.log('Accounts: onCreateUser ', source.service, retuser.username);
+	console.log(options);
+	console.log(user);
 
 	return retuser;
 });
