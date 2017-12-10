@@ -12,7 +12,6 @@ i18n.map('en', {
 	title_placesNearby: "Nearby Places",
 	title_placesNews: "Recent Places",
 	title_usersNews: "Recent Users",
-
 	title_checkins: "People at {$1}",
 	title_login: "Log in",
 	title_about: "About Us",

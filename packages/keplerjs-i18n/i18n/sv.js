@@ -11,14 +11,13 @@ i18n.map('sv', {
 	title_search: "Sök",	
 	title_placesNearby: "Platser i närheten",
 	title_placesNews: "Senaste platser",
+	title_usersNews: "Senaste användare",
 	title_checkins: "Personer på {$1}",
 	title_login: "Logga in",
 	title_about: "Om oss",
 	title_page404: "Hittar inte sidan!",
 
-	title_usersNews: "Senaste användare",
 	label_mapcenter: "Hem",
-
 	label_loading: "Laddar...",
 	label_noname: "namnlös",
 	label_desc: "Beskrivning",

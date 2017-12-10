@@ -1,4 +1,4 @@
-i18n.map ('es', {
+i18n.map('es', {
 
 	title_root: "Map",
 	title_home: "Bienvenidos",
@@ -11,6 +11,7 @@ i18n.map ('es', {
 	title_search: "Buscar",	
 	title_placesnearby: "Lugares cercanos",
 	title_placesnews: "Lugares recientes",
+	title_usersNews: "Personas recientes",
 	title_checkins: "Personas en {1 $}",
 	title_login: "Inicio de sesión",
 	title_about: "Acerca de nosotros",

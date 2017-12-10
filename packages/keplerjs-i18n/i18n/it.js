@@ -11,6 +11,7 @@ i18n.map('it', {
 	title_search: "Cerca",	
 	title_placesNearby: "Luoghi Vicini",
 	title_placesNews: "Luoghi recenti",
+	title_usersNews: "Utenti recenti",
 	title_checkins: "Persone a {$1}",
 	title_login: "Accedi",
 	title_about: "About Us",

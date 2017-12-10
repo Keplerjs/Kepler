@@ -11,6 +11,7 @@ i18n.map('de', {
 	title_search: "Search",	
 	title_placesNearby: "Orte in der Nähe",
 	title_placesNews: "Letzte Orte",
+	title_usersNews: "Letzte Leuten",
 	title_checkins: "Leute bei {$1}",
 	title_login: "Anmeldgen",
 	title_about: "Über uns",
