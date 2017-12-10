@@ -15,7 +15,7 @@ Users.after.insert(function(userId, user) {
 					subject: "New User: "+ user.username,
 					html:
 						"<h4>"+user.username+"</h4>"+
-						Meteor.absoluteUrl("/user/"+user._id)+"<br />"+
+						Meteor.absoluteUrl("user/"+user._id)+"<br />"+
 						user.name+"<br />"+
 						'<img height="80px" widht="80px" src="'+user.avatar+'" /><br />'+
 						user.source.url+"<br />"+
