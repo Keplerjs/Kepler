@@ -13,7 +13,7 @@ http://ipinfodb.com/ip_location_api.php
 
 *Settings.json*
 ```
-"weather": {
+"geoinfo": {
     "geonamesUser": "<USER>",
     "ipinfodbKey": "<KEY>"
 }
