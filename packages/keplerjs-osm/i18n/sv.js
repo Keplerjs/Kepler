@@ -7,6 +7,6 @@ i18n.map('sv', {
 	label_osmuser: "Användare",
 	label_osmdate: "Datum",
 
-	btn_osmsearch: "Sök OSM-plats!",
-	btn_osmimport: "Importera OSM-plats!"
+	btn_osmsearch: "Sök OpenStreetMap!",
+	btn_osmimport: "Importera OpenStreetMap!"
 });

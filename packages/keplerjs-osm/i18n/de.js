@@ -7,6 +7,6 @@ i18n.map('de', {
 	label_osmuser: "Nutzer",
 	label_osmdate: "Datum",
 
-	btn_osmsearch: "Suche OSM-Ort!",
-	btn_osmimport: "Importiere OSM-Ort!"
+	btn_osmsearch: "Suche OpenStreetMap!",
+	btn_osmimport: "Importiere OpenStreetMap!"
 });
