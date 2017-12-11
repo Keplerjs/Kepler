@@ -139,9 +139,7 @@ Accounts.onCreateUser(function(options, user) {
 		source: source
 	});
 
-	console.log('Accounts: onCreateUser ', source.service, retuser.username);
-	console.log(options);
-	console.log(user);
+	console.log('Accounts: onCreateUser ', retuser.username);
 
 	return retuser;
 });
