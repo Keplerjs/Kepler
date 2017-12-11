@@ -17,6 +17,8 @@ Meteor.methods({
 
 			if(userData.loclast===null || shift >= K.settings.public.map.gpsMinShift)
 			{
+
+	//TODO TO MOVE in Users.after.update()
 				var nearPlace = Places.findOne({
 						loc: {
 							'$near': loc,

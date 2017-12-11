@@ -59,11 +59,19 @@ Kepler.User = Class.extend({
 			_.extend(self, self.data);
 
 			if( (self.status==='online' ) && 
-				self.loc && !self.checkin)
+				 self.loc && !self.checkin)
 			{
 				self.buildMarker();
 
 				K.Map.addItem(self);
+
+				//TODO REFACT draw user track
+				//build self.polyline... and udate it each time
+				if(K.Map.ready()) {
+					L.polyline([self.marker.getLatLng(), self.loc], {
+						opacity:0.8, weight:3, dashArray: "1,6", color: self.color
+					}).addTo(K.Map.layers.users);
+				}
 
 				self.marker.setLatLng(self.loc);
 			}
@@ -104,6 +112,8 @@ Kepler.User = Class.extend({
 				if(Template[self.templateMarker])
 					Blaze.renderWithData(Template[self.templateMarker], self.rData, self.icon.nodeHtml);
 			});
+
+			self.color = K.Util.textToColor(self.id);
 		}
 		return self.marker;
 	},

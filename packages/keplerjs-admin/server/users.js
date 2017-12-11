@@ -1,6 +1,8 @@
 
 Users.after.insert(function(userId, user) {
 
+	if(user.isRobot) return false;
+
 	if(K.settings.admin.adminUsers) {
 		Users.find({
 			username: {$in: K.settings.admin.adminUsers}
