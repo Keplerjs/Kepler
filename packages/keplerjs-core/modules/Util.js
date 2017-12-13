@@ -89,6 +89,11 @@ Kepler.Util = {
 		this.color_codes = {};
 	    return (str in this.color_codes) ? this.color_codes[str] : (this.color_codes[str] = '#'+ ('000000' + (Math.random()*0xFFFFFF<<0).toString(16)).slice(-6));
 	},
+
+	randomString(len) {
+		len = len || 6;
+		return Math.random().toString(36).substr(2, len);
+	}
 	/**
 	 * BKDR Hash (modified version)
 	 *

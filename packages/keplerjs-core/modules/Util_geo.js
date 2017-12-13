@@ -160,13 +160,16 @@ Kepler.Util.geo = {
 		return ang;
 	},
 
-	randomLatLng: function(bb) {
-		var sw = bb.getSouthWest(),
-			ne = bb.getNorthEast(),
-			lngs = ne.lng - sw.lng,
-			lats = ne.lat - sw.lat;
-		return new L.LatLng(
-				sw.lat + lats * Math.random(),
-				sw.lng + lngs * Math.random());
+	randomLoc: function(bbox) {
+		var world = [[-90, -180], [90, 180]];
+		bbox = bbox || world;
+		var sw = bbox[0],
+			ne = bbox[1],
+			lngs = ne[1] - sw[1],
+			lats = ne[0] - sw[0];
+		return [
+			sw[0] + lats * Math.random(),
+			sw[1] + lngs * Math.random()
+		];
 	}
 };
