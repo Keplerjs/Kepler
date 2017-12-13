@@ -30,9 +30,20 @@ Meteor.publish('userById', function(userId) {
 		
 		this.added('users', userId, userData);	//add full fields for userCur
 
-		console.log('Pub: userById', userData.username);
+		console.log('Pub: userById', userId);
 
 		return retCurs;
+	}
+	else
+		this.ready();
+});
+
+Meteor.publish('usersByIds', function(usersIds) {
+	if(this.userId) {
+
+		console.log('Pub: usersByIds', usersIds);
+
+		return K.findUsersByIds(usersIds);
 	}
 	else
 		this.ready();
@@ -48,16 +59,16 @@ Meteor.publish('usersByName', function(initial) {
 		this.ready();	
 });
 
-Meteor.publish('usersByIds', function(usersIds) {
+Meteor.publish('usersByCheckin', function(placeId) {
 	if(this.userId) {
-
-		console.log('Pub: usersByIds', usersIds);
-
-		return K.findUsersByIds(usersIds);
+		var cur = K.findUserByCheckin(placeId);
+		console.log('Pub: usersByCheckin', placeId );
+		return cur;
 	}
 	else
-		this.ready();
+		this.ready();	
 });
+
 
 Meteor.publish('friendsByIds', function(usersIds) {
 	if(this.userId) {

@@ -4,6 +4,30 @@ Places = new Mongo.Collection('places');
 if(Meteor.isServer)
 	Places._ensureIndex({"loc": "2d"});
 
+//https://github.com/matb33/meteor-collection-hooks
+Places.before.insert(function(userId, doc) {
+	doc.createdAt = K.Util.time();
+	doc.userId = userId;
+});
+
+Places.after.remove(function(userId, doc) {
+	if(doc.checkins.length) {
+		Users.update({
+			$or: [
+				{checkin: doc._id },
+				{hist: doc._id }
+			]
+		}, {
+			$set: {
+				checkin: null
+			},
+			$pull: {
+				hist: doc._id
+			}
+		});
+	}
+});
+
 //TODO limt hist size
 //http://stackoverflow.com/questions/21466297/slice-array-in-mongodb-after-addtoset-update
 // $addToSet: {
@@ -14,12 +38,6 @@ if(Meteor.isServer)
 // $addToSet: {
 // 	hist: { $each: [placeId], $slice: 5 }
 // }
-
-//https://github.com/matb33/meteor-collection-hooks
-Places.before.insert(function(userId, doc) {
-	doc.createdAt = K.Util.time();
-	doc.userId = userId;
-});
 
 /*
 //TODO

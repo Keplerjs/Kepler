@@ -12,34 +12,33 @@ Users.allow({
 });
 
 /**
- * Automatic check-in
+ * Automatic Check-in/Check-out in places
  * @param  {[type]} userId     [description]
  * @param  {[type]} doc        [description]
  * @param  {[type]} fieldNames [description]
  * @param  {[type]} modifier   [description]
- * @param  {[type]} options)   {	if(_.contains(fieldNames,'loc')) {		console.log('USERS.AFTER.UPDATE location ', userId, doc.username, fieldNames);				var nearPlace [description]
  * @return {[type]}            [description]
  */
-/*Users.after.update(function(userId, doc, fieldNames, modifier, options) {
+Users.after.update(function(userId, user, fieldNames, modifier, options) {
 
-	if(_.contains(fieldNames,'loc')) {
+	if(_.contains(fieldNames,'loc') && user.loc) {
 
-		console.log('USERS.AFTER.UPDATE location ', userId, doc.username, fieldNames);
+		//console.log('users.after.update loc ', user.username, K.Util.geo.roundLoc(user.loc).join());
 
 		var nearPlace = Places.findOne({
 				loc: {
-					'$near': doc.loc,
+					'$near': user.loc,
 					'$maxDistance': K.Util.geo.meters2rad(K.settings.public.map.checkinMaxDist)
 				}
 			});
 
-		if(nearPlace)
-		{
-			if(nearPlace._id != doc.checkin)
-				Meteor.call('addCheckin', nearPlace._id);
+		if(nearPlace && nearPlace._id != user.checkin) {
+			K.insertCheckin(nearPlace._id, user._id);
+			//console.log('Autocheck-in: ', user.username, nearPlace.name)
 		}
-		else		//automatic check-out
-			Meteor.call('removeCheckin', doc.checkin);
+		else {
+			K.removeCheckin(user.checkin, user._id);
+			//console.log('Autocheck-out: ', user.username)
+		}
    	}
 });
-*/

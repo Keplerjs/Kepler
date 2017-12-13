@@ -13,6 +13,10 @@ K.extend({
 
 		return Users.find(userId, K.filters.userPanel);
 	},	
+	findUserByCheckin: function(placeId) {
+
+		return Users.find({checkin: placeId}, K.filters.userPanel);
+	},		
 	findFriendsByIds: function(usersIds) {
 		
 		//TODO show friend location only if me is online

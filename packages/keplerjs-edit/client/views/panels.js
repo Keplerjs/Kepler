@@ -22,7 +22,6 @@ Template.panelEdit.events({
 	}
 });
 
-
 Template.panelUser_edit.events({
 	'click .panel-btn-placesList': function(e, tmpl) {
 

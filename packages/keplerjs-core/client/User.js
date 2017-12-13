@@ -58,8 +58,7 @@ Kepler.User = Class.extend({
 			
 			_.extend(self, self.data);
 
-			if( (self.status==='online' ) && 
-				 self.loc && !self.checkin)
+			if(self.status==='online' && self.loc && !self.checkin)
 			{
 				self.buildMarker();
 
@@ -70,7 +69,8 @@ Kepler.User = Class.extend({
 				if(K.Map.ready()) {
 					L.polyline([self.marker.getLatLng(), self.loc], {
 						opacity:0.8, weight:3, dashArray: "1,6", color: self.color
-					}).addTo(K.Map.layers.users);
+					})
+					.addTo(K.Map.layers.geojson);
 				}
 
 				self.marker.setLatLng(self.loc);

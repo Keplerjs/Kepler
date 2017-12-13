@@ -17,23 +17,6 @@ Meteor.methods({
 
 			if(userData.loclast===null || shift >= K.settings.public.map.gpsMinShift)
 			{
-
-	//TODO TO MOVE in Users.after.update()
-				var nearPlace = Places.findOne({
-						loc: {
-							'$near': loc,
-							'$maxDistance': K.Util.geo.meters2rad(K.settings.public.map.checkinMaxDist)
-						}
-					});
-
-				if(nearPlace)//automatic check-in
-				{
-					if(nearPlace._id != userData.checkin)
-						Meteor.call('addCheckin', nearPlace._id);
-				}
-				else		//automatic check-out
-					Meteor.call('removeCheckin', userData.checkin);
-				
 				Users.update(this.userId, {
 					$set: {
 						loc: loc,
@@ -59,52 +42,17 @@ Meteor.methods({
 	},
 	addCheckin: function(placeId) {
 
-		//TODO spostare in /server/profile.js
-
 		if(!this.userId || !placeId) return null;
 
-		var placeData = Places.findOne(placeId),
-			userData = Meteor.user();
-
- 		if(userData.checkin)
- 			Places.update(userData.checkin, {
- 					$pull: {checkins: this.userId}
- 				});
-
-		Places.update(placeId, {
-				$addToSet: {
-					checkins: this.userId, hist: this.userId
-				}
-			});
-		Users.update(this.userId, {
-				$set: {
-					checkin: placeId,
-					loc: null,
-					loclast: placeData.loc,
-					'settings.map.center': placeData.loc,
-					'settings.map.zoom': K.settings.public.map.showLocZoom
-				},
-				$addToSet: {
-					hist: placeId
-				}
-			});
+		K.insertCheckin(placeId, this.userId);
 		
-		console.log('Profile: addCheckin', userData.username, placeData.name);
+		console.log('Profile: addCheckin', placeId, this.userId);
 	},
 	removeCheckin: function(placeId) {
 
 		if(!this.userId || !placeId) return null;
 
-		Places.update(placeId, {
-				$pull: {
-					checkins: this.userId
-				}
-			});
-		Users.update(this.userId, {
-				$set: {
-					checkin: null
-				}
-			});
+		K.removeCheckin(placeId, this.userId);
 		
 		console.log('Profile: removeCheckin', this.userId, placeId);
 	},	

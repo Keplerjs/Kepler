@@ -8,8 +8,7 @@ Kepler.Place.include({
 	}
 });
 
-/*
-Kepler.extend({
+/*Kepler.extend({
 	placesById: {},
 	placeById: function(id) {
 		check(id, String);
@@ -26,7 +25,9 @@ Kepler.extend({
 		
 		return K.placesById[id] || null;
 	}
-});
+});*/
+
+//TODO refact!  extend userById 
 Kepler.extend({
 	usersById: {},
 	userById: function(id) {
@@ -45,4 +46,4 @@ Kepler.extend({
 		
 		return K.usersById[id] || null;
 	}
-});*/
+});

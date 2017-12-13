@@ -100,5 +100,53 @@ K.extend({
 			curPlace = Places.find({reg: ex }, filters);
 
 		return curPlace;
+	},
+	insertCheckin: function(placeId, userId) {
+
+		if(!userId || !placeId) return null;
+
+		var placeData = Places.findOne(placeId),
+			userData = Users.findOne(userId);
+
+ 		if(userData.checkin)
+ 			Places.update(userData.checkin, {
+ 					$pull: {
+ 						checkins: userId
+ 					}
+ 				});
+
+		Places.update(placeId, {
+				$addToSet: {
+					checkins: userId,
+					hist: userId
+				}
+			});
+		Users.update(userId, {
+				$set: {
+					checkin: placeId,
+					loc: null,
+					loclast: placeData.loc,
+					'settings.map.center': placeData.loc,
+					'settings.map.zoom': K.settings.public.map.showLocZoom
+				},
+				$addToSet: {
+					hist: placeId
+				}
+			});
+	},
+	removeCheckin: function(placeId, userId) {
+
+		if(!userId || !placeId) return null;
+
+		Places.update(placeId, {
+				$pull: {
+					checkins: userId
+				}
+			});
+		Users.update(userId, {
+				$set: {
+					checkin: null
+				}
+			});
 	}
 });

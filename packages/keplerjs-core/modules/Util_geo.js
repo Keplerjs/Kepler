@@ -7,8 +7,10 @@ Kepler.Util.geo = {
 			(typeof loc[0] === 'undefined' || loc[0] === null) ||
 			(typeof loc[1] === 'undefined' || loc[1] === null) )
 			return null;
+		
 		var lat = parseFloat(loc[0]).toFixed(prec),
 			lng = parseFloat(loc[1]).toFixed(prec)
+
 		return [ parseFloat(lat), parseFloat(lng) ];
 	},
 

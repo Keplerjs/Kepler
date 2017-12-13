@@ -36,7 +36,7 @@ Kepler.settings = {
 
 			"dataMinZoom": 10,	//zoom limit to hide places and user
 
-			"checkinMaxDist": 100,
+			"checkinMaxDist": 150,
 			"bboxMinShift": 200,
 			"bboxMaxDiagonal": 200000,	//max bounding box diangonal size for pub findPlacesByBBox in meters
 			"nearbyMaxDist": 20000,

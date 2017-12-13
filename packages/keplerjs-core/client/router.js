@@ -311,7 +311,7 @@ Router.map(function() {
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			Session.set('showSidebar', true);
-			return Meteor.subscribe('usersByPlace', this.params.placeId);
+			return Meteor.subscribe('usersByCheckin', this.params.placeId);
 		},
 		data: function() {
 			if(!this.ready()) return null;

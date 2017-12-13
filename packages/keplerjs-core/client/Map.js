@@ -249,6 +249,11 @@ Kepler.Map = {
 		return this;
 	},
 
+	cleanGeojson: function() {
+		this.layers.geojson.clearLayers();
+		return this;
+	},
+
 	addGeojson: function(geoData, opts, cb) {
 		opts = opts || {};
 		cb = cb || $.noop;
