@@ -80,9 +80,14 @@
 	</div>
 	<div class="panel-body">
 		
-		Work in progress!
-		<!-- <form class="form-horizontal" role="form">
-		</form> -->
+		<label>Admin methods registered in the browser console</label><br />
+		<ul class="list-group">
+		{{#each methods}}
+			<li class="list-group-item" data-name="{{this}}">
+				<em>K.Admin.{{this}}()</em><br />
+			</li>
+		{{/each}}
+		</ul>
 	</div>
 </div>
 

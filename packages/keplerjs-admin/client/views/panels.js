@@ -24,6 +24,30 @@ Template.panelUser_admin.onRendered(function() {
 	});
 });
 
+
+Template.panelAdmin.onCreated(function() {
+
+    this.methods = new ReactiveVar();
+
+});
+
+Template.panelAdmin.onRendered(function() {
+	console.log('panelAdmin.onRendered', K.Admin.method)
+	this.methods.set(_.keys(K.Admin.method))
+});
+
+Template.panelAdmin.helpers({
+	methods: function() {
+		return Template.instance().methods.get();
+	}
+});
+
+/*
+Template.panelAdmin.helpers({
+	methods: function() {
+		return _.keys(K.Admin.method)
+	}
+});*/
 /*
 //	debug actions
 	'click .popup-move': function(e,tmpl) {

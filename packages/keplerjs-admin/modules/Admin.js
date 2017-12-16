@@ -81,6 +81,8 @@ Kepler.Admin = {
 							self[localname] = function() {
 								return Meteor.apply(name, arguments);
 							};
+							//index methods also in client
+							self.method[localname] = self[localname];
 						}
 					});
 					self.loaded = true;
