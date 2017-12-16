@@ -36,7 +36,7 @@ K.extend({
 			$addToSet: {
 				convers: convId
 			}
-		});
+		},{ multi: true });
 
 		console.log('Conver: insertConver', convId, targetId);
 

@@ -56,7 +56,34 @@
 
 <template name="panelProfile_admin">
 {{#if adminIsMe}}
-	<br />
-	{{> panelUser_admin}}
+	<a class="list-group-item" href="/admin">
+		<i class="icon icon-admin"></i>
+		 {{i18n 'title_admin'}}
+	</a>
 {{/if}}
+</template>
+
+<template name="panelAdmin">
+
+<div id="admin" class="panel">
+
+	<div class="panel-heading bg-primary">
+		<h4 class="pull-left">
+			<a class="back" href="javascript:history.back()">
+				<i class="icon icon-arrow-l"></i>
+			</a> 
+			{{i18n 'title_admin'}}
+		</h4>
+		<a class="close pull-right" href="/">
+			<i class="icon icon-close"></i>
+		</a>
+	</div>
+	<div class="panel-body">
+		
+		Work in progress!
+		<!-- <form class="form-horizontal" role="form">
+		</form> -->
+	</div>
+</div>
+
 </template>

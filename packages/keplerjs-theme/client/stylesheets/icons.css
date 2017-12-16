@@ -193,6 +193,8 @@ div.leaflet-marker-icon {
 .icon-userdel{ background-position: -120px -300px;  }
 .icon-userpend{ background-position: -120px -330px;  }
 
+.icon-admin{ background-position: -150px -330px;  }
+
 .icon-userbid{ background-position: -120px -330px;  } 
 .icon-info{ background-position: -120px -360px;  } 
 .icon-hist{ background-position: -120px -390px;  } 

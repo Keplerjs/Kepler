@@ -45,7 +45,9 @@ K.Admin.methods({
 			placeId = placeData._id;
 
 		if(placeData.hist)
-			Users.update({_id: {$in: placeData.hist }}, {$pull: {hist: placeId} });
+			Users.update({_id: {$in: placeData.hist }}, {
+				$pull: {hist: placeId}
+			},{ multi: true });
 		
 		Places.update(placeId, {
 			$set: {

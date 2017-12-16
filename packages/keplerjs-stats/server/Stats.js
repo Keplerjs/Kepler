@@ -70,7 +70,7 @@ Kepler.Stats = {
 
 		noClassify = _.isUndefined(noClassify) ? K.settings.public.stats.noClassify : noClassify;
 
-		var data = Users.find({isAdmin: false}, {
+		var data = Users.find({isAdmin: 0}, {
 			fields: { createdAt:1, loc:1, loclast:1, places:1, friends:1, convers:1, hist:1, favorites:1 },
 			sort: { createdAt: -1},
 			//TODO limit

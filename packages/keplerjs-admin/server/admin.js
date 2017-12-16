@@ -16,7 +16,7 @@ Accounts.onLogin(function(login) {
 	if(login.user && login.user._id)
 		Users.update(login.user._id, {
 			$set: {
-				isAdmin: K.Admin.isMe(login.user)
+				isAdmin: K.Admin.isMe(login.user) ? 1 : 0
 			}
 		});
 });

@@ -5,14 +5,29 @@
 */
 
 Kepler.Admin = {
-	
+	/**
+	 * index of methods registered
+	 * @type {Object}
+	 */
 	method: {},	//list of server methods
-
+	/**
+	 * admin methods prefix name
+	 * @type {String}
+	 */
 	prefix: 'admin_',
 
+	/**
+	 * index of users by name, for debugging
+	 * @type {Object}
+	 */
 	usersByName: {},
 	placesByName: {},
 
+	/**
+	 * check if the current user is an admin
+	 * @param  {Object}  user specify user if not current user
+	 * @return {Boolean}      [description]
+	 */
 	isMe: function(user) {	//check if user is an admin
 		
 		user = user || Meteor.user();

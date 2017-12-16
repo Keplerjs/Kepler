@@ -26,15 +26,16 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'modules/Admin.js',
-    'modules/users.js'
+    'collections/queries.js'
   ]);
 
   api.addFiles([
+    'client/Profile_admin.js',
     'client/Place_admin.js',
     'client/helpers.js',
     'client/views/panels.html',
     'client/views/panels.js',
-    //'client/router.js'
+    'client/router.js'
   ],'client');
 
   api.addFiles([

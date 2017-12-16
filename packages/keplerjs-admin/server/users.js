@@ -1,16 +1,38 @@
 
+/**
+ * add all admins in the user friends list without add user in the admin friend list
+ * @param  {[type]} userId [description]
+ * @return {[type]}        [description]
+ */
+K.updateFriendshipAdmins = function(userId) {
+	
+	var admins = Users.find({isAdmin: 1}).fetch(),
+		ids = _.pluck(admins,'_id');
+
+	ids = _.without(ids, userId);
+
+	Users.update(userId, {
+		$addToSet: {
+			friends: {
+				$each: ids
+			}
+		}
+	});
+};
+
+
 Users.after.insert(function(userId, user) {
 
 	if(user.isRobot) return false;
 
 	if(K.settings.admin.adminUsers) {
-		Users.find({
-			username: {$in: K.settings.admin.adminUsers}
-		}).forEach(function (userAdmin) {
-			
-			K.updateFriendship(user._id, userAdmin._id);
 
-			if(userAdmin.emails[0] && userAdmin.emails[0].address) {
+		//add all admins in the user friends list
+		K.updateFriendshipAdmins(user._id);
+
+		Users.find({isAdmin: 1}).forEach(function (userAdmin) {
+
+			if(userAdmin.emails && userAdmin.emails[0] && userAdmin.emails[0].address) {
 				Email.send({
 					from: K.settings.accounts.emailTemplates.from,
 					to: userAdmin.emails[0].address,
@@ -46,9 +68,6 @@ K.Admin.methods({
 				email: username+'@gmail.com',
 				name: _.str.capitalize(username)
 			});
-
-			if(userId)
-				K.updateFriendship(this.userId, userId);
 		}
 	},
 	removeUser: function(username) {
