@@ -69,7 +69,6 @@ Kepler.Profile = {
 		return (self.data.status==='online' || self.data.status==='away');
 	},	
 	setOnline: function(online) {
-		console.log('setOnline',online)
 		var self = this;
 		Meteor.call('UserPresence:setDefaultStatus', online?'online':'offline', function(err, data) {
 			self._deps.online.changed();

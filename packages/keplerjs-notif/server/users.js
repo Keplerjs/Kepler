@@ -4,9 +4,9 @@ Users.after.update(function(userId, doc, fieldNames, modifier, options) {
 
 	//TODO refact in some case userId is not defined
 
-	if(userId!==doc._id && _.contains(fieldNames,'usersReceive')) {
+	if(userId!==doc._id  && modifier['$addToSet'] && _.contains(fieldNames,'usersReceive')) {
 
-		//userId = modifier['$addToSet'].friends;
+		//userId = modifier['$addToSet'].usersReceive;
 		var userData = Users.findOne(userId,{fields:{username:1}});
 
 		Users.update(doc._id, {
