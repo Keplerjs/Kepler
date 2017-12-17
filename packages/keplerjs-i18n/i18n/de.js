@@ -84,7 +84,11 @@ i18n.map('de', {
 	btn_frienddel: "Freundschaft beenden",
 	btn_friendpending: "Warte...",
 	btn_friendconfirm: "Freundschaft bestätigen!",
-	btn_friendreceive: "Freundschaftsanfrage",
+//TODO	
+	btn_friendreceive: "Request for Friendship",
+	btn_friendaccept: "Friendship accepted",
+	btn_friendnew: "New Friend",
+
 	btn_userBlock: "Nutzer blockieren!",
 	btn_usersblocked: "Blockierte Nutzer",
 	btn_userUnblock: "Freischalten",

@@ -45,10 +45,12 @@ K.extend({
 	findConverWithUser: function(userId) {
 		var convId,
 			convData = Convers.findOne({
-				$and: [
+					targetType: 'user',
+					usersIds: {$all: [Meteor.userId(), userId]}
+				/*$and: [
 					{ targetType: 'user' },
 					{ usersIds: {$all: [Meteor.userId(), userId]} }
-				]
+				]*/
 			});
 
 		if(convData)

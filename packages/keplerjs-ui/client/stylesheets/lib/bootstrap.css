@@ -11,6 +11,7 @@
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	text-transform: none !important;
 }
 .panel-body .list-group {
 	margin-bottom: 16px;

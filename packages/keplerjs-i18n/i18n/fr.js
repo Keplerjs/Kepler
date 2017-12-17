@@ -84,6 +84,8 @@ i18n.map('fr', {
 	btn_friendconfirm: "Confirmez cette amitié",
 	btn_friendreceive: "Amitié d'amitié",
 	btn_friendaccept: "Friendship approuvé",
+	btn_friendnew: "Amitié récent",
+
 	btn_userblock: "Bloquer l'utilisateur!",
 	btn_usersblocked: "Utilisateurs bloqués",
 	btn_userunblock: "Débloquer",

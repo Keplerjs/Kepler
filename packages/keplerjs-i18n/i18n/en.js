@@ -90,6 +90,7 @@ i18n.map('en', {
 	btn_friendconfirm: "Confirm Friend!",
 	btn_friendreceive: "Request for Friendship",
 	btn_friendaccept: "Friendship accepted",
+	btn_friendnew: "New Friend",
 	btn_userBlock: "Block user!",
 	btn_usersblocked: "Blocked Users",
 	btn_userUnblock: "Unlock",

@@ -1,7 +1,7 @@
 
 //TODO may be refact
 
-Kepler.Profile.hasFriend = function(userId) {
+/*Kepler.Profile.hasFriend = function(userId) {
 	//
 	//Profile.hasFriend is used by User.isFriend()
 	//
@@ -10,3 +10,4 @@ Kepler.Profile.hasFriend = function(userId) {
 	else
 		return _.contains(this.data.friends, userId);
 };
+*/
