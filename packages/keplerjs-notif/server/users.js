@@ -6,8 +6,6 @@ Users.after.update(function(userId, doc, fieldNames, modifier, options) {
 
 	if(userId!==doc._id && _.contains(fieldNames,'usersReceive')) {
 
-		console.log('Notif: ',modifier )
-
 		//userId = modifier['$addToSet'].friends;
 		var userData = Users.findOne(userId,{fields:{username:1}});
 
@@ -22,8 +20,6 @@ Users.after.update(function(userId, doc, fieldNames, modifier, options) {
 		});
    	}
    	else if(userId!==doc._id && modifier['$addToSet'] && _.contains(fieldNames,'friends')) {
-
-		console.log('Notif: ',userId, modifier )
 		
 		userId = modifier['$addToSet'].friends;
 
