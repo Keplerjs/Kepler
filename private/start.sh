@@ -11,6 +11,7 @@ DOMAINPRO="app_meteor.net"
 DBNAME="kepler"
 SETS="settings.json"
 PORT="127.0.0.1:3000"
+#TODO UNIX_SOCKET_PATH
 
 MYIP=$( hostname -i | cut -f1 -d' ')
 export MONGO_URL="mongodb://localhost:27017/$DBNAME"
