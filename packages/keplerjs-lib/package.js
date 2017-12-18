@@ -88,7 +88,6 @@ Package.onUse(function(api) {
   api.addFiles([
     'lib/deepExtend.js',
     'lib/Class.js',
-    'config/Accounts.js',
     'config/leaflet.js',
     'config/router.js',
     'config/underscore.js',

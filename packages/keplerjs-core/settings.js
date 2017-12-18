@@ -69,6 +69,12 @@ Kepler.settings = {
 				"about": 1
 			}
 		},
+		"accounts": {
+			"ui": {
+				"passwordSignupFields": "USERNAME_AND_OPTIONAL_EMAIL"
+				//https://docs.meteor.com/api/accounts.html#Accounts-ui-config
+			}
+		},
 		"ga": {
 			//https://github.com/reywood/meteor-iron-router-ga
 			"id": "UA-XXXX-Y",
