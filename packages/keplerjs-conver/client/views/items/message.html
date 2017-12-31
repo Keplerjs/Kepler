@@ -4,9 +4,11 @@
 	<div class="list-group-item msg-item">
 		<div>
 			{{#with userById userId}}
-				{{> item_user}}
+				{{> item_user_avatar}}
+				{{> item_user_name}}
 			{{/with}}
-			<div class="msg-body">{{{body}}}</div>
+			<br />
+			<span class="msg-body">{{{body}}}</span>
 		</div>
 		<time>{{humanTime updatedAt 1}}</time>
     </div>

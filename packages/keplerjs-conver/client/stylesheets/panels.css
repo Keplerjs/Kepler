@@ -17,25 +17,6 @@
 	text-align: left;
 	color:#428bca;
 }
-.msg-item .user-btn-name {
-	float: left;
-}
-.msg-item .user-btn-name u {
-	font-size: 12px;
-	line-height: 12px;
-	vertical-align: top;
-}
-.msg-item .msg-body {
-	font-size: 14px;
-	line-height: 14px;	
-	float: left;
-	max-width: 86%;
-	vertical-align: top;
-	margin: 0 5px;
-}
-.msg-item time {
-	float: right;
-}
 
 #converInput {
 	margin: 0;

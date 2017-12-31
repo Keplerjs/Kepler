@@ -50,3 +50,24 @@
 .messages .conver-btn-del {
 	display: inline-block;
 }
+
+.msg-item .user-btn-name {
+	line-height: 12px;
+	height: 12px;
+	vertical-align: top;
+	font-size: 14px;
+	font-weight: bold;
+}
+.msg-item .user-btn-avatar {
+	float: left;
+}
+.msg-item .msg-body {
+	vertical-align: top;
+	font-size: 12px;
+	line-height: 12px;
+	padding-left: 4px;
+	max-width: 80%;
+}
+.msg-item time {
+	float: right;
+}

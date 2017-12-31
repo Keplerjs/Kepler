@@ -6,6 +6,12 @@
 //TODO expirable prefix: parseInt(K.Util.time()/(60*60*24*1))
 //TODO store collection in localstorage
 
+//TODO
+
+/**
+ * Kepler key/value Caching module
+ * @type {Object}
+ */
 Kepler.Cache = {
 
 	sep: '_',

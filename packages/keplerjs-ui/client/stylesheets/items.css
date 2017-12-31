@@ -9,7 +9,7 @@
 .item-place a:hover {
 	text-decoration: none;
 }
-
+.user-btn-avatar,
 .user-btn-name,
 .place-btn-name {
 	font-weight: bold;
