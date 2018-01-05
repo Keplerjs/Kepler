@@ -38,6 +38,8 @@ i18n.map('en', {
 	label_layer: "Map",
 	label_mapcenter: "Home",
 
+	label_userid: "User ID",
+
 	label_account: "Account",
 	label_privacy: "Privacy",
 	label_location: "Location",

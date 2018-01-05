@@ -2,14 +2,12 @@
 <!-- TODO move to /client/views/items/ -->
 <template name="itemMsg">	
 	<div class="list-group-item msg-item">
-		<div>
-			{{#with userById userId}}
-				{{> item_user_avatar}}
-				{{> item_user_name}}
-			{{/with}}
-			<br />
-			<span class="msg-body">{{{body}}}</span>
-		</div>
+		{{#with userById userId}}
+			{{> item_user_avatar}}
+			{{> item_user_name}}
+		{{/with}}
+		<br />
+		<span class="msg-body">{{{body}}}</span>
 		<time>{{humanTime updatedAt 1}}</time>
     </div>
 </template>
