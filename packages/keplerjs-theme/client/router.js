@@ -8,11 +8,4 @@ Router.map(function() {
 		loadingTemplate: 'pageLoading',
 	});
 
-	this.route('pageCredits', {
-		path: '/credits',
-		template: 'pageCredits',
-		layoutTemplate: 'layoutPage',
-		loadingTemplate: 'pageLoading',
-	});
-
 });
