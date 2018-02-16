@@ -1,5 +1,5 @@
 ## keplerjs:events
 
-keplerjs plugin events
+keplerjs plugin events for places
 
-*it's work in progress*
+*WORK IN PROGRESS*
