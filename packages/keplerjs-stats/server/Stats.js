@@ -133,7 +133,79 @@ Kepler.Stats = {
 		}
 		
 		return ret;
-	}
+	},
+
+	findUsersCountByDate: function(limit) {
+
+		limit = limit || 90;
+
+		var data = Users.find({}, {
+			fields: { createdAt: 1 },
+			sort: { createdAt: 1}
+		}).fetch();
+		
+		data = _.countBy(data, function(u) {
+			var date = new Date(parseInt(u.createdAt)),
+				y = date.getFullYear(),
+				m = date.getMonth(),
+				d = date.getDate();
+			return (new Date(y,m,d)).getTime();
+		});
+
+		var count = 0;
+		data = _.map(data, function(num, key) {
+			count+=num;
+			return [parseInt(key), count];//, num];
+		});
+
+		//data = _.last(data, limit)
+
+		var stats = {
+			rows: data
+		};
+
+		var ret = {
+			stats: stats
+		};
+
+		return ret;
+	},
+
+	findPlacesCountByDate: function(limit) {
+
+		limit = limit || 90;
+
+		var data = Places.find({}, {
+			fields: { createdAt: 1 },
+			sort: { createdAt: 1}
+		}).fetch();
+		
+		data = _.countBy(data, function(u) {
+			var date = new Date(parseInt(u.createdAt)),
+				y = date.getFullYear(),
+				m = date.getMonth(),
+				d = date.getDate();
+			return (new Date(y,m,d)).getTime();
+		});
+
+		var count = 0;
+		data = _.map(data, function(num, key) {
+			count+=num;
+			return [parseInt(key), count];//, num];
+		});
+
+		//data = _.last(data, limit)
+
+		var stats = {
+			rows: data
+		};
+
+		var ret = {
+			stats: stats
+		};
+
+		return ret;
+	}		
 };
 
 Meteor.methods({
