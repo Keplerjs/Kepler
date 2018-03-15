@@ -1,12 +1,14 @@
 /*
 	simple and smart caching system key/value for client and server
 */
-
-//TODO expirable keys: parseInt(K.Util.time()/(60*60*24*1))
-//TODO expirable prefix: parseInt(K.Util.time()/(60*60*24*1))
+//TODO loop to clean expired caches or via api rest
 //TODO store collection in localstorage
-
 //TODO
+//if(Meteor.isServer)
+//	this._collections[namespace]._ensureIndex({ loc : "2dsphere" });
+//	
+//TODO
+//this._collections[namespace]._createCappedCollection(numBytes);
 
 /**
  * Kepler key/value Caching module
@@ -15,34 +17,28 @@
 Kepler.Cache = {
 
 	sep: '_',
+
 	prefix: 'cache',
 	
 	_collections: {},
 
-	_getCollection: function(name) {
+	_getCollection: function(namespace) {
 
-		name = _.isString(name) ? this.prefix + this.sep + name : this.prefix;
+		namespace = _.isString(namespace) ? this.prefix + this.sep + namespace : this.prefix;
 
 		var opts = {idGeneration: 'STRING'};
 
 		if(Meteor.isClient)
 			opts.connection = null;
 		
-		if(!this._collections[name]) {
+		if(!this._collections[namespace]) {
 
-			this._collections[name] = new Mongo.Collection(name, opts);
+			this._collections[namespace] = new Mongo.Collection(namespace, opts);
 			
-			console.log('Cache: new ', name);
-			
-			//TODO
-			//this._collections[name]._createCappedCollection(numBytes);
-
-			//TODO
-			//if(Meteor.isServer)
-			//	this._collections[name]._ensureIndex({ loc : "2dsphere" });
+			console.log('Cache: new namespace ', namespace);
 		}
 
-		return this._collections[name];
+		return this._collections[namespace];
 	},
 
 	_keygen: function(key) {
@@ -51,42 +47,62 @@ Kepler.Cache = {
 		return key;
 	},
 
-	//TODO
-	_expireGen: function(expire) {
-		
+	/**
+	 * generate future date of expiration
+	 * @param  {String} expire 'minutely'|'hourly'|'daily'|'weekly'|'monthly' or seconds number
+	 * @return {[type]}        date timestamp
+	 */
+	_expiregen: function(expire) {
+
 		expire = expire || 'daily';
 
 		var expires = {
+			'minutely':60,
 			'hourly':  60*60,
 			'daily':   60*60*24*1,
 			'weekly':  60*60*24*7,
-			'monthly': 60*60*24*30
-		};
-		return parseInt( Math.round(new Date().getTime()/1000) / expires[expire] );
+			'monthly': 60*60*24*30,
+			'yearly':  60*60*24*30*12
+		},
+		exp = _.isNumber(expire) ? expire : expires[expire];
+
+		return parseInt( K.Util.time() + exp*1000 );
 	},
 
-	set: function(valKey, val, name) {
+	set: function(key, val, namespace, expire) {
 
-		var idKey = this._keygen(valKey);
-			
-		this._getCollection(name).upsert(idKey, {$set: {val: val} });
+		var idKey = this._keygen(key);
+		
+		var set = {val: val};
+		
+		if(expire)
+			set.expire = this._expiregen(expire);
+
+		this._getCollection(namespace).upsert(idKey, {$set: set });
 		
 		return val;
 	},
-	get: function(valKey, name, valFunc) {	//if value is not setted it's updated from valFunc
+	get: function(key, namespace, valFunc) {	//if value is not setted it's updated from valFunc
 
-		var idKey = this._keygen(valKey);
+		var idKey = this._keygen(key);
 
-		valFunc = _.isFunction(name) ? name : valFunc;
+		valFunc = _.isFunction(namespace) ? namespace : valFunc;
 
-		var doc = this._getCollection(name).findOne(idKey) || {val: undefined};
+		var doc = this._getCollection(namespace).findOne(idKey);
+
+		if(doc && doc.expire && K.Util.time() > doc.expire) {
+			this._getCollection(namespace).remove(idKey);
+			doc = {val: undefined};
+		}
+
+		doc = doc || {val: undefined};
 		
 		if(_.isFunction(valFunc) && doc.val===undefined)
-			doc.val = this.set(idKey, valFunc(valKey), name);
+			doc.val = this.set(idKey, valFunc(key), namespace);
 
 		return doc.val;
 	},
-	clean: function(name) {
-		this._getCollection(name).remove({});
+	clean: function(namespace) {
+		this._getCollection(namespace).remove({});
 	}
 };

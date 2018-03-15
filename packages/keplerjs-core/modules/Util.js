@@ -62,6 +62,7 @@ Kepler.Util = {
 		expire = expire || 'daily';
 
 		var expires = {
+			'minutely':60,
 			'hourly':  60*60,
 			'daily':   60*60*24*1,
 			'weekly':  60*60*24*7,
