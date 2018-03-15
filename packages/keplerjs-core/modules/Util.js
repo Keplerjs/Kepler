@@ -57,20 +57,6 @@ Kepler.Util = {
 		return date.getTime();
 	},
 
-	timeHash: function(expire) {
-		
-		expire = expire || 'daily';
-
-		var expires = {
-			'minutely':60,
-			'hourly':  60*60,
-			'daily':   60*60*24*1,
-			'weekly':  60*60*24*7,
-			'monthly': 60*60*24*30
-		};
-		return parseInt( K.Util.time() / expires[expire] );
-	},
-
 	timeName: function(prefix) {
 		prefix = prefix || '';
 		var D = new Date(),
