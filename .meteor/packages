@@ -5,6 +5,8 @@
 
 keplerjs:base
 
+keplerjs:theme
+
 keplerjs:api
 keplerjs:admin
 keplerjs:stats

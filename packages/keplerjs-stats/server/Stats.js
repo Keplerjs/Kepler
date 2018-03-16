@@ -214,5 +214,11 @@ Meteor.methods({
 			users: K.Stats.findUsers(true, true),
 			places: K.Stats.findPlaces(true, true)
 		}
+	},
+	findPlacesStats: function(noClassify) {
+		return K.Stats.findPlaces(noClassify);
+	},
+	findUsersStats: function(noClassify) {
+		return K.Stats.findUsers(noClassify);
 	}
 });

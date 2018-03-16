@@ -1,7 +1,7 @@
 /*
 	simple and smart caching system key/value for client and server
 */
-//TODO loop to clean expired caches or via api rest
+//TODO loop to clean expired caches or via api
 //TODO store collection in localstorage
 //TODO
 //if(Meteor.isServer)

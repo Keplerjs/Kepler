@@ -13,8 +13,6 @@ Package.onUse(function(api) {
   var packages = [
 	'keplerjs:core@1.2.3',
 	'keplerjs:ui@1.2.3',
-	'keplerjs:theme@1.2.3',
-	'keplerjs:edit@1.2.3',
   ];
 
   api.use(packages);
