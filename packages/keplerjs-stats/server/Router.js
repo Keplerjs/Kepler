@@ -34,13 +34,7 @@ function writeOut(req, res, out) {
 Router.route(urls.places, opts)
 .get(function (req, res) {
 
-	var noClassify = req.query['noClassify'];
-
-	var out = K.Stats.findPlaces(noClassify);
-
-	//ll = K.Util.geo.roundLoc(ll, 2);
-	//var val = K.Cache.get(ll, 'weather');
-	//return val || K.Cache.set(ll, weatherAPI(ll), 'weather', 'daily');
+	var out = K.Cache.get('places','stats', K.Stats.findPlaces, 'hourly');
 
 	writeOut(req, res, out);
 });
@@ -48,28 +42,15 @@ Router.route(urls.places, opts)
 Router.route(urls.placesCount, opts)
 .get(function (req, res) {
 
-	var noClassify = req.query['noClassify'];
-
-	var out = K.Stats.findPlacesCountByDate();
-	
-	//ll = K.Util.geo.roundLoc(ll, 2);
-	//var val = K.Cache.get(ll, 'weather');
-	//return val || K.Cache.set(ll, weatherAPI(ll), 'weather', 'daily');
+	var out = K.Cache.get('placesCount','stats', K.Stats.findPlacesCountByDate, 'hourly');
 
 	writeOut(req, res, out);
 });
 
-
 Router.route(urls.users, opts)
 .get(function (req, res) {
 
-	var noClassify = req.query['noClassify'];
-
-	var out = K.Stats.findUsers(noClassify);
-
-	//ll = K.Util.geo.roundLoc(ll, 2);
-	//var val = K.Cache.get(ll, 'weather');
-	//return val || K.Cache.set(ll, weatherAPI(ll), 'weather', 'daily');
+	var out = K.Cache.get('users','stats', K.Stats.findUsers, 'hourly');
 
 	writeOut(req, res, out);
 });
@@ -77,13 +58,7 @@ Router.route(urls.users, opts)
 Router.route(urls.usersCount, opts)
 .get(function (req, res) {
 
-	var noClassify = req.query['noClassify'];
-
-	var out = K.Stats.findUsersCountByDate();
-	
-	//ll = K.Util.geo.roundLoc(ll, 2);
-	//var val = K.Cache.get(ll, 'weather');
-	//return val || K.Cache.set(ll, weatherAPI(ll), 'weather', 'daily');
+	var out = K.Cache.get('usersCount','stats', K.Stats.findUsersCountByDate, 'hourly');
 
 	writeOut(req, res, out);
 });

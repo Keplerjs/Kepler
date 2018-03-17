@@ -1,6 +1,7 @@
 /*
 	simple and smart caching system key/value for client and server
 */
+//TODO memory cache level.. without use db
 //TODO loop to clean expired caches or via api
 //TODO store collection in localstorage
 //TODO
@@ -82,7 +83,7 @@ Kepler.Cache = {
 		
 		return val;
 	},
-	get: function(key, namespace, valFunc) {	//if value is not setted it's updated from valFunc
+	get: function(key, namespace, valFunc, expire) {	//if value is not setted it's updated from valFunc
 
 		var idKey = this._keygen(key);
 
@@ -98,7 +99,7 @@ Kepler.Cache = {
 		doc = doc || {val: undefined};
 		
 		if(_.isFunction(valFunc) && doc.val===undefined)
-			doc.val = this.set(idKey, valFunc(key), namespace);
+			doc.val = this.set(idKey, valFunc(key), namespace, expire);
 
 		return doc.val;
 	},
