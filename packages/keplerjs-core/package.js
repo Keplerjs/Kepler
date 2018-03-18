@@ -1,7 +1,7 @@
 Package.describe({
 	name: 'keplerjs:core',
 	summary: "keplerjs Meteor and 3rd party libraries",
-	version: "1.2.3",  
+	version: "1.2.4",  
 	git: "https://github.com/Keplerjs/Kepler.git"
 });
 
@@ -17,40 +17,40 @@ Package.onUse(function(api) {
   api.versionsFrom("1.5.1");
   
   var packages = [
-    'keplerjs:lib@1.2.3',
-    'keplerjs:i18n@1.2.3'
+    'keplerjs:lib@1.2.4',
+    'keplerjs:i18n@1.2.4'
   ];
 
   api.use(packages);
   api.imply(packages);
 
   api.addFiles([
-  'Kepler.js',
-  'settings.js',
-  'modules/Util.js',
-  'modules/Util_geo.js',
-  'modules/Util_humanize.js',
-  'modules/Util_sanitize.js',
-  'modules/Util_valid.js',  	
-  'modules/Cache.js',
-  'modules/Plugin.js',
-  'modules/Status.js',
-  'modules/schemas.js',
-  'modules/filters.js',
-  'modules/templates.js',
+    'Kepler.js',
+    'settings.js',
+    'modules/Util.js',
+    'modules/Util_geo.js',
+    'modules/Util_humanize.js',
+    'modules/Util_sanitize.js',
+    'modules/Util_valid.js',  	
+    'modules/Cache.js',
+    'modules/Plugin.js',
+    'modules/Status.js',
+    'modules/schemas.js',
+    'modules/filters.js',
+    'modules/templates.js',
   ]);
   
   api.addFiles(globsync('collections/**/*.js'));
 
   api.addFiles([
-  'client/Accounts.js',
-  'client/Map.js',
-  'client/Map_controls.js',
-  'client/Map_layers.js',
-  'client/Profile.js',	
-  'client/Place.js',
-  'client/User.js',
-  'client/Router.js',
+    'client/Accounts.js',
+    'client/Map.js',
+    'client/Map_controls.js',
+    'client/Map_layers.js',
+    'client/Profile.js',	
+    'client/Place.js',
+    'client/User.js',
+    'client/Router.js',
   ], 'client');
 
   api.addFiles(globsync('server/**/*.js'), 'server');

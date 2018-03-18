@@ -1,6 +1,6 @@
 
 K.Plugin({
-	name: 'conver',
+	name: 'convers',
 	templates: {
 		navSidebar: 'navSidebar_conver',
 		panelProfile: 'panelProfile_conver',

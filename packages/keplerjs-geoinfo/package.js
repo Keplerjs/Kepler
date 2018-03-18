@@ -2,7 +2,7 @@
 Package.describe({
   name: 'keplerjs:geoinfo',
   summary: 'keplerjs plugin geoinfo',
-  version: "1.2.3",
+  version: "1.2.4",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
@@ -19,7 +19,7 @@ Package.onUse(function(api) {
   ],'client');
 
   api.use([
-    'keplerjs:core@1.2.3',
+    'keplerjs:core@1.2.4',
   ]);
 
   api.use([
@@ -30,9 +30,9 @@ Package.onUse(function(api) {
     'plugin.js',
     'i18n/it.js',
     'i18n/en.js',
-	'i18n/de.js',
-	'i18n/es.js',
-	'i18n/fr.js',
+    'i18n/de.js',
+    'i18n/es.js',
+    'i18n/fr.js',
   ]);
 
   api.addFiles([

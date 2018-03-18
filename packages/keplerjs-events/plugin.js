@@ -6,10 +6,10 @@ K.Plugin({
 	},*/
 	schemas: { 
 		place: {
-			events: [],	 //conversations in place
+			events: [],	 //events in place
 		},
 		user: {
-			events: [], 	   //ids conversations publics and privates
+			events: [], 	   //ids events publics and privates
 		}
 	},
 	filters: {
