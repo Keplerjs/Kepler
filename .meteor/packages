@@ -8,6 +8,7 @@ keplerjs:base
 keplerjs:theme
 
 keplerjs:api
+keplerjs:edit
 keplerjs:admin
 keplerjs:stats
 
@@ -17,15 +18,12 @@ keplerjs:geoinfo
 keplerjs:osm
 keplerjs:favorites
 keplerjs:convers
-keplerjs:notif
+keplerjs:notifs
 keplerjs:pois
 keplerjs:tracks
 
-keplerjs:wunderground
-keplerjs:googlemaps
-#keplerjs:mapillary
-
-#keplerjs:categories
-#keplerjs:events
 keplerjs:robots
 keplerjs:routing
+
+keplerjs:wunderground
+keplerjs:googlemaps

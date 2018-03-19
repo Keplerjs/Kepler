@@ -2,7 +2,7 @@
 
 # example of script launcher for bash
 
-#move it on root and run ./start.sh
+#move it in application root and run ./start.sh
 
 OPTS="--raw-logs"
 #OPTS="$OPTS --release blaze-rc1"

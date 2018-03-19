@@ -1,6 +1,6 @@
 {
   "name": "keplerjs",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "The open source full-stack geosocial network platform",
   "repository": {
     "type": "git",
@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "meteor",
+    "publish_packages": "cd private && ./publish_packages.sh",
     "docs": "jsdoc2md -t jsdoc2md/API.hbs lib/*.js > API.md; echo"
   },
   "keywords": [

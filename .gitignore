@@ -13,8 +13,8 @@ settings.json
 pkgs.list
 versions.list
 
+packages/keplerjs-foursquare
 packages/keplerjs-googlemaps
 packages/keplerjs-mapillary
-packages/keplerjs-wunderground
-packages/keplerjs-foursquare
 packages/keplerjs-robots
+packages/keplerjs-wunderground

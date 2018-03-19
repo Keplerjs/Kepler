@@ -1,5 +1,8 @@
 
 ## v1.2.5
+- plugins renamed dirs in plain name
+- remove semver in deps plugins
+- rename plugins: notifs,convers
 
 ## v1.2.4
 
