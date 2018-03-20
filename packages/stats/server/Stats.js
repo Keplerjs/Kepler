@@ -155,10 +155,8 @@ Kepler.Stats = {
 		var count = 0;
 		data = _.map(data, function(num, key) {
 			count+=num;
-			return [parseInt(key), count];//, num];
+			return [parseInt(key), count];
 		});
-
-		//data = _.last(data, limit)
 
 		var stats = {
 			rows: data

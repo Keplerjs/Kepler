@@ -20,8 +20,6 @@ K.updateFriendshipAdmins = function(userId) {
 	});
 };
 
-console.log('AAADDDMMIIINN', Users)
-
 Users.after.insert(function(userId, user) {
 
 	if(user.isRobot) return false;

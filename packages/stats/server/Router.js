@@ -59,6 +59,6 @@ Router.route(urls.usersCount, opts)
 .get(function (req, res) {
 
 	var out = K.Cache.get('usersCount','stats', K.Stats.findUsersCountByDate, 'hourly');
-
+	//var out = K.Stats.findUsersCountByDate()
 	writeOut(req, res, out);
 });
