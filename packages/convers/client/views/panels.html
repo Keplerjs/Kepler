@@ -63,6 +63,21 @@
 	</form>
 </template>
 
+
+<template name="panelPlace_conver">
+	<div class="row">
+		<div class="col-xs-6">
+		</div>
+		<div class="col-xs-6 text-right">	
+			<div class="btn-group" role="group">		
+				<a class="btn btn-default place-btn-mes" href="/place/{{id}}/convers">
+					<i class="icon icon-mes"></i> {{i18n 'title_convers'}}
+				</a>
+			</div>
+		</div>	
+	</div>
+</template>
+
 <template name="panelUser_conver">
 {{#if and isFriend}}
 	<ul class="list-group">

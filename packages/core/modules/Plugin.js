@@ -12,8 +12,10 @@ Kepler.Plugin = function(plugin) {
 		
 			if(_.isObject(plugin.templates))
 				_.each(K.templates, function(tmpls, name) {
-					if(plugin.templates[name])
+					console.log(tmpls)
+					if(plugin.templates[name]) {
 						K.templates[name] = _.union(tmpls, plugin.templates[name]);
+					}
 				});
 			
 			if(_.isObject(plugin.filters))

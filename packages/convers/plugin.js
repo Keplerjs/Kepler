@@ -4,6 +4,7 @@ K.Plugin({
 	templates: {
 		navSidebar: 'navSidebar_conver',
 		panelProfile: 'panelProfile_conver',
+		panelPlace: 'panelPlace_conver',
 		panelUser: 'panelUser_conver',
 		popupPlace: 'popupPlace_conver',
 		itemPlace: 'itemPlace_conver',
