@@ -13,15 +13,16 @@ Template.pluginsTemplate.helpers({
 
 		if(!self.name) return ret;
 
-		_.each(K.templates, function(pluginTemplates, parentName) {
+		_.each(K.templates, function(pluginTmpls, parentName) {
 
 			if(parentName === self.name) {
 
 				var pluginData = Template.parentData();
 
-				//console.log('pluginData', self.name, pluginData)
+				pluginTmpls = _.sortBy(pluginTmpls,'order');
+				pluginTmpls = _.pluck(pluginTmpls,'name');
 			
-				_.each(pluginTemplates, function(pluginTemplate) {
+				_.each(pluginTmpls, function(pluginTemplate) {
 					if(Template[pluginTemplate]) {
 						ret.push({
 							pluginTemplate: pluginTemplate,

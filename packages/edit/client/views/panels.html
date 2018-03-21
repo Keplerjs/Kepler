@@ -10,28 +10,32 @@
 
 <template name="panelPlace_edit">
 {{#if or createdAt userId}}
-
-	<div class="row">
-		<div class="col-xs-7">
-		{{#if userId}}
-			<label>{{i18n 'label_creator'}}</label>
-			{{#with userById userId}}
-				{{> item_user_name}}
-			{{/with}}
-		{{/if}}
-		{{#if createdAt}}
-			<label>{{i18n 'label_createdAt'}}</label>
-			<time>{{numericDate createdAt}}</time>
-		{{/if}}
-		</div>		
-		<div class="col-xs-5 text-right">
-		{{#if isEditable}}
-		<div class="btn-group" role="group">
-			<a class="btn btn btn-default" href="/place/{{id}}/edit">
-				<i class="icon icon-edit"></i> {{i18n 'btn_edit'}}
-			</a>
+	<div class="list-group">
+		<div class="list-group-item active">
+			{{i18n 'btn_edit'}}
 		</div>
-		{{/if}}
+		<div class="list-group-item">
+
+			{{#if userId}}
+				<label>{{i18n 'label_creator'}}</label>
+				{{#with userById userId}}
+					{{> item_user_name}}
+				{{/with}}
+			{{/if}}
+			{{#if createdAt}}
+				<label>{{i18n 'label_createdAt'}}</label>
+				<time>{{numericDate createdAt}}</time>
+			{{/if}}
+			
+			
+			{{#if isEditable}}
+			<div class="btn-group pull-right" role="group">
+				<a class="btn btn btn-default" href="/place/{{id}}/edit">
+					<i class="icon icon-edit"></i> {{i18n 'btn_edit'}}
+				</a>
+			</div>
+			{{/if}}
+			
 		</div>
 	</div>
 {{/if}}

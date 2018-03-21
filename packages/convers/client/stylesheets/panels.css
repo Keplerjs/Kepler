@@ -38,3 +38,7 @@
 	background: #fff;
 	border-radius: 4px;
 }
+
+.placeConvers .conver-target {
+	display: none;
+}

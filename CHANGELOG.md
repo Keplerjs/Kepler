@@ -1,4 +1,9 @@
 
+To see all releases [here](https://github.com/Keplerjs/Kepler/releases)
+
+## next version
+- support templates custom ordering
+
 ## v1.2.5
 - plugins renamed dirs in plain name
 - remove semver in deps plugins
