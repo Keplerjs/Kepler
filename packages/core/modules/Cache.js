@@ -22,7 +22,7 @@ Kepler.Cache = {
 	prefix: 'cache',
 	
 	_collections: {},
-
+	
 	_getCollection: function(namespace) {
 
 		namespace = _.isString(namespace) ? this.prefix + this.sep + namespace : this.prefix;
@@ -41,13 +41,16 @@ Kepler.Cache = {
 
 		return this._collections[namespace];
 	},
-
+	/**
+	 * generate key by any objects
+	 * @param  {[type]} key [description]
+	 * @return {[type]}     [description]
+	 */
 	_keygen: function(key) {
 		key = _.isArray(key) ? key.join(this.sep) : key;
 		key = _.isObject(key) ? JSON.stringify(key) : key;
 		return key;
 	},
-
 	/**
 	 * generate future date of expiration
 	 * @param  {String} expire 'minutely'|'hourly'|'daily'|'weekly'|'monthly' or seconds number
@@ -69,7 +72,13 @@ Kepler.Cache = {
 
 		return parseInt( K.Util.time() + exp*1000 );
 	},
-
+	/**
+	 * create or update cache record
+	 * @param {String|Array|Object}
+	 * @param {Any}
+	 * @param {String} namespace fir organize same cache values
+	 * @param {String} cache value duration, possible values is: minutely|hourly|daily|weekly|monthly|yearly
+	 */
 	set: function(key, val, namespace, expire) {
 
 		var idKey = this._keygen(key);
@@ -83,6 +92,14 @@ Kepler.Cache = {
 		
 		return val;
 	},
+	/**
+	 * get value from cache, if not exists set new by valFunc and return it
+	 * @param  {[type]}
+	 * @param  {[type]}
+	 * @param  {[type]}
+	 * @param  {[type]}
+	 * @return {[type]}
+	 */
 	get: function(key, namespace, valFunc, expire) {	//if value is not setted it's updated from valFunc
 
 		var idKey = this._keygen(key);
@@ -103,6 +120,11 @@ Kepler.Cache = {
 
 		return doc.val;
 	},
+	/**
+	 * remove all cache value having same namespace
+	 * @param  {String}
+	 * @return {[type]}
+	 */
 	clean: function(namespace) {
 		this._getCollection(namespace).remove({});
 	}
