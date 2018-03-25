@@ -2,7 +2,7 @@
 Package.describe({
   name: 'keplerjs:categories',
   summary: 'keplerjs places and users categorization',
-  version: "1.2.4",
+  version: "1.2.5",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
@@ -11,7 +11,7 @@ Package.onUse(function(api) {
   api.versionsFrom("1.5.1");
 
   var packages = [
-    'keplerjs:core@1.2.4',
+    'keplerjs:core',
   ];
 
   api.use(packages);

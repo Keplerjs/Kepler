@@ -1,10 +1,11 @@
 
 K.Plugin({
-	name: 'cats',
+	name: 'categories',
 	templates: {
 		panelSettings: 'panelSettings_cats',
 		panelPlace: 'panelPlace_cats',
-		panelUser: 'panelUser_cats'
+		panelUser: 'panelUser_cats',
+		markerPlace: 'markerPlace_cats',
 	},
 	filters: {
 		currentUser: {

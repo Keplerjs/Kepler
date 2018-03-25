@@ -23,6 +23,32 @@
 .icon.icon-loader {
 	background: url("/packages/keplerjs_theme/assets/images/loader-icon.gif") no-repeat;
 }
+/* CONTROLS */
+.leaflet-control-gps .gps-button.loading,
+.leaflet-control-gps .gps-button.loading:hover {
+	background: url("/packages/keplerjs_theme/assets/images/loader-default.gif") center center no-repeat;
+}
+.leaflet-control-gps .gps-button,
+.leaflet-control-gps .gps-button:hover {
+	background-position: 0 -90px;
+}
+.leaflet-control-gps .gps-button.disabled,
+.leaflet-control-gps .gps-button.disabled:hover {
+	background-position: 0 -60px;
+}
+.leaflet-control-gps .gps-button.active,
+.leaflet-control-gps .gps-button.active:hover {
+	background-position: 0 -120px;
+}
+.leaflet-bar a.leaflet-control-zoom-in,
+.leaflet-touch .leaflet-bar a.leaflet-control-zoom-in {
+	background-position: 0 -150px;
+}
+.leaflet-bar a.leaflet-control-zoom-out,
+.leaflet-touch .leaflet-bar a.leaflet-control-zoom-out {
+	background-position: 0 -180px;
+}
+
 .icon {
 	position: relative;
 	top: 1px;
@@ -78,31 +104,6 @@ div.leaflet-marker-icon {
 /* MARKER ARROWS */
 .marker-anim {
 	background-position: -233px 0;
-}
-/* CONTROLS */
-.leaflet-control-gps .gps-button.loading,
-.leaflet-control-gps .gps-button.loading:hover {
-	background: url("/packages/keplerjs_theme/assets/images/loader-default.gif") center center no-repeat;
-}
-.leaflet-control-gps .gps-button,
-.leaflet-control-gps .gps-button:hover {
-	background-position: 0 -90px;
-}
-.leaflet-control-gps .gps-button.disabled,
-.leaflet-control-gps .gps-button.disabled:hover {
-	background-position: 0 -60px;
-}
-.leaflet-control-gps .gps-button.active,
-.leaflet-control-gps .gps-button.active:hover {
-	background-position: 0 -120px;
-}
-.leaflet-bar a.leaflet-control-zoom-in,
-.leaflet-touch .leaflet-bar a.leaflet-control-zoom-in {
-	background-position: 0 -150px;
-}
-.leaflet-bar a.leaflet-control-zoom-out,
-.leaflet-touch .leaflet-bar a.leaflet-control-zoom-out {
-	background-position: 0 -180px;
 }
 
 /* MARKER */

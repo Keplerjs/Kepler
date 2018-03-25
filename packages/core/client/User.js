@@ -31,6 +31,7 @@ Kepler.User = Class.extend({
 	templatePanel: 'panelPlace',	
 	templatePopup: 'popupUser',
 	templateMarker: 'markerUser',
+	iconClassName: 'marker-profile',
 	data: {},
 	
 	init: function(userId) {
@@ -45,7 +46,10 @@ Kepler.User = Class.extend({
 			self._dep.depend();
 			return self;
 		};
-
+		
+		if(!self.isMe())
+			self.iconClassName = 'marker-friend';
+		
 		//self.update = function(){};
 		//Tracker.autorun(function() {	//sincronizza istanza con dati nel db
 		self.update = function() {
@@ -97,7 +101,7 @@ Kepler.User = Class.extend({
 				iconAnchor: new L.Point(iconOpts.iconAnchor),
 				popupAnchor: new L.Point(iconOpts.popupAnchor),*/
 				nodeHtml: L.DomUtil.create('div'),
-				className: self.isMe() ? 'marker-profile' : 'marker-friend'
+				className: self.iconClassName
 			});
 			self.marker = new L.Marker(self.loc, {icon: self.icon});
 			self.marker.item = self;

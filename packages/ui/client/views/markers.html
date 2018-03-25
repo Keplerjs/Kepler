@@ -1,8 +1,13 @@
 
 <template name="markerPlace">
+	<div class="marker-anim" style="display: none;"></div>
 	{{#if checkinsCount}}
-		<b class="badge-checkins badge">{{checkinsCount}}</b>
+	<b class="badge-checkins badge">{{checkinsCount}}</b>
 	{{/if}}
+</template>
+
+<template name="markerUser">
+	<div class="marker-anim" style="display: none;"></div>
 </template>
 
 <template name="markerCluster">

@@ -17,24 +17,21 @@ L.NodeIcon = L.Icon.extend({
 	createIcon: function(oldIcon) {
 		this.nodeHtml = oldIcon ? oldIcon : (this.options.nodeHtml || L.DomUtil.create('div',this.options.className));
 		this._setIconStyles(this.nodeHtml, 'icon');
-		if(!this.anim)
-			this.anim = L.DomUtil.create('div','marker-anim', this.nodeHtml);
-		this.anim.style.display = 'none';
 		return this.nodeHtml;
 	},
 
 	animate: function() {
 		var self = this;
-		if(!self.anim) return false;
-		self.anim.style.display = 'block';
+		this.$anim = $(this.nodeHtml).find('.marker-anim');
+		self.$anim.show();
 		setTimeout(function() {
-			L.DomUtil.addClass(self.anim,'animated');
+			self.$anim.addClass('animated');
 		});
 		setTimeout(function() {
-			L.DomUtil.removeClass(self.anim,'animated');
+			self.$anim.removeClass('animated');
 		}, 500);
 		setTimeout(function() {
-			self.anim.style.display = 'none';		
+			self.$anim.hide();
 		}, 900);		
 	},
 

@@ -53,7 +53,7 @@ Meteor.publish('placeById', function(placeId) {
 
 Meteor.publish('placesByIds', function(placesIds) {
 	if(this.userId) {
-		console.log('Pub: placesByIds', placesIds);
+		console.log('Pub: placesByIds');
 		return K.findPlacesByIds(placesIds);	
 	}
 	else

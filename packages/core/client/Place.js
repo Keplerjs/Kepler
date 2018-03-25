@@ -31,6 +31,7 @@ Kepler.Place = Class.extend({
 	templatePanel: 'panelPlace',	
 	templatePopup: 'popupPlace',
 	templateMarker: 'markerPlace',
+	iconClassName: 'marker-place',
 	data: {},
 	
 	init: function(placeId) {
@@ -76,13 +77,15 @@ Kepler.Place = Class.extend({
 
 		if(!self.marker) {
 			var iconOpts = K.settings.public.map.icon;
+			
 			self.icon = new L.NodeIcon({
 				/*iconSize: new L.Point(iconOpts.iconSize),
 				iconAnchor: new L.Point(iconOpts.iconAnchor),
 				popupAnchor: new L.Point(iconOpts.popupAnchor),*/
 				nodeHtml: L.DomUtil.create('div'),
-				className: self.name ? 'marker-place' : 'marker-gray',
+				className: self.iconClassName
 			});
+
 			self.marker = new L.Marker(self.loc, {icon: self.icon});
 			self.marker.item = self;
 			self.marker.once('add', function(e) {
@@ -96,7 +99,6 @@ Kepler.Place = Class.extend({
 				
 				self.marker.bindPopup(div.firstChild, K.Map.options.popup);
 			});
-			
 		}
 		return self.marker;
 	},
