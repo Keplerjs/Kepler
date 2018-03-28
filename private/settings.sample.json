@@ -1,7 +1,12 @@
 {
 	"public": {
 		"map": {
-			"center": [41.047801, 12.0885]
+			"center": [41.047801, 12.0885],
+			"layers": {
+                "road": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                "landscape": "https://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey=<YOUR API KEY>",
+                "transport": "https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey=<YOUR API KEY>"
+            }
 		}		
 	},
 	"upload": {
@@ -13,11 +18,11 @@
 		}
 	},
 	"geoinfo": {
-		"geonamesUser": "demo",
-		"ipinfodbKey": "4343335b1e635d44444c5b0ba271b287eb42c216344253894cb6ea642c210befd"
+		"geonamesUser": "<YOUR USER NAME>",
+		"ipinfodbKey": "<YOUR API KEY>"
 	},
 	"weather": {
-		"wundergroundKey": "6a7ab32334343dca163782"
+		"wundergroundKey": "<YOUR API KEY>"
 	},
 	"accounts": {
 		"verifyEmail": false,
@@ -26,23 +31,23 @@
 		},
 		"facebook": {
 			"service": "facebook",
-			"appId": "527324563928101",
-			"secret": "ae38887d16342200a380dbfd56c4f908"
+			"appId": "<YOUR APP ID>",
+			"secret": "<YOUR API KEY>"
 		},
 		"google": {
 			"service": "google",
-			"clientId": "19287333365-674tq3dcnbstgai085g76ua67uioo70c.apps.googleusercontent.com",
-			"secret": "XsU2MUv2SWKIkwkw4pNAoWaP"
+			"clientId": "<YOUR CLIENT ID>",
+			"secret": "<YOUR SECRET>"
 		},
 		"twitter": {
 			"service": "twitter",
-			"consumerKey": "F3a4HAHSHSOkf7S4J1k9SBsB",
-			"secret": "iwwjgho1wahgdKdpRea5qVDmYnj46Zd2iX3XHRFsoIK6dryy9g"			
+			"consumerKey": "<YOUR CONSUMER KEY>",
+			"secret": "<YOUR SECRET>"
 		},
 		"openstreetmap": {
 			"service": "openstreetmap",
-			"consumerKey": "HM5U4uhf8t4acUA0l6deeJ34yZUeyPbPSWV1W3KL",
-			"secret": "J2HlRXpXXEKIFEKrrKtnxmnwsj8Yy45kV7rCeJ6U"
+			"consumerKey": "<YOUR CONSUMER KEY>",
+			"secret": "<YOUR SECRET>"
 		}
 	}	
 }

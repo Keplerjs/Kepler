@@ -45,9 +45,7 @@ Kepler.settings = {
 
 			"layer": "road",
 			"layers": {
-				"road": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-				"landscape": "https://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png",
-				"transport": "https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png"
+				"road": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 			},
 			"popup": {
 				"autoPanPaddingTopLeft": [50, 50],
