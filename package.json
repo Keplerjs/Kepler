@@ -32,13 +32,13 @@
   },
   "homepage": "https://github.com/Keplerjs/Kepler#readme",
   "devDependencies": {
-    "jsdoc-to-markdown": "^3.0.0"
+    "jsdoc-to-markdown": "^4.0.1"
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "bcrypt": "^1.0.3",
-    "core-js": "^2.5.2",
-    "meteor-node-stubs": "^0.2.11",
-    "simple-statistics": "^4.1.1"
+    "core-js": "^2.5.4",
+    "meteor-node-stubs": "^0.3.3",
+    "simple-statistics": "^5.3.1"
   }
 }
