@@ -9,22 +9,24 @@ Template.pluginsTemplate.helpers({
 	templates: function() {
 
 		var self = this,
-			ret = [];
+			tmpls = [];
 
-		if(!self.name) return ret;
+		if(!self.name) return tmpls;
 
 		_.each(K.templates, function(pluginTmpls, parentName) {
 
 			if(parentName === self.name) {
 
 				var pluginData = Template.parentData();
+						
+				//TODO replace field						
 
 				pluginTmpls = _.sortBy(pluginTmpls,'order');
 				pluginTmpls = _.pluck(pluginTmpls,'name');
 			
 				_.each(pluginTmpls, function(pluginTemplate) {
 					if(Template[pluginTemplate]) {
-						ret.push({
+						tmpls.push({
 							pluginTemplate: pluginTemplate,
 							pluginData: pluginData
 						});
@@ -32,6 +34,6 @@ Template.pluginsTemplate.helpers({
 				});
 			}
 		});
-		return ret;
+		return tmpls;
 	}
 });

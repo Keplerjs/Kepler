@@ -4,6 +4,8 @@ To see all releases [here](https://github.com/Keplerjs/Kepler/releases)
 ## Next version
 - support templates custom ordering
 - moved Status.js from core to lib
+- rewrite Place model icon building using templates
+- defined new templates placeholders: markerPlace, markerUser, markerCursor
 
 ## v1.2.5
 - plugins renamed dirs in plain name

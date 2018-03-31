@@ -10,11 +10,11 @@ L.Cursor = L.Layer.extend({
 
 	initialize: function(options) {
 		L.Util.setOptions(this, options || {});
+		this.icon = new L.NodeIcon({
+			nodeHtml: L.DomUtil.create('div')
+		});
 		this.marker = L.marker([0,0], {
-			icon: new L.NodeIcon({
-				nodeHtml: L.DomUtil.create('div'),
-				className: this.options.className
-			})
+			icon: this.icon
 		});
 	},
 	onAdd: function(map) {

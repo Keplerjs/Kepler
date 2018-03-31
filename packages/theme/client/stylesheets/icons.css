@@ -94,6 +94,9 @@ div.leaflet-marker-icon,
 	width:27px;
 	height:30px;
 }
+.marker-cluster {
+	width:30px;
+}
 .marker-cursor {
 	background-position: -30px -180px;
 	height: 30px;
@@ -143,13 +146,13 @@ div.leaflet-marker-icon,
 
 /* ICON POIS */
 .icon-parking{ background-position: -60px 0; } 
-.icon-water{ background-position: -60px -30px; } 
-.icon-drink{ background-position: -60px -60px; } 
-.icon-eat{ background-position: -60px -90px; } 
-.icon-bed{ background-position: -60px -120px; } 
-.icon-camp{ background-position: -60px -150px; } 
-.icon-bus{ background-position: -60px -180px; } 
-.icon-market{ background-position: -60px -210px; } 
+.icon-water  { background-position: -60px -30px; }
+.icon-drink  { background-position: -60px -60px; }
+.icon-eat    { background-position: -60px -90px; }
+.icon-bed    { background-position: -60px -120px; }
+.icon-camp   { background-position: -60px -150px; }
+.icon-bus    { background-position: -60px -180px; }
+.icon-market { background-position: -60px -210px; }
 
 /* ICON */
 .icon-search{ background-position: -90px 0;  } 

@@ -10,17 +10,24 @@
 	</div>
 </template>
 
+<template name="markerCluster">
+	<div class="marker-cluster">
+		{{#if getCheckinsCount}}
+			<b class="badge-checkins badge">{{getCheckinsCount}}</b>
+		{{/if}}
+		<b class="badge-cluster badge">{{getChildCount}}</b>
+	</div>
+</template>
+
 <template name="markerUser">
 	<div class="marker-user">
 		<div class="marker-anim" style="display: none;"></div>
-		
 		{{> pluginsTemplate name='markerUser'}}
 	</div>
 </template>
 
-<template name="markerCluster">
-	{{#if getCheckinsCount}}
-		<b class="badge-checkins badge">{{getCheckinsCount}}</b>
-	{{/if}}
-	<b class="badge-cluster badge">{{getChildCount}}</b>	
+<template name="markerCursor">
+	<div class="marker-cursor">
+		{{> pluginsTemplate name='markerCursor'}}
+	</div>
 </template>

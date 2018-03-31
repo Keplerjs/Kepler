@@ -11,44 +11,52 @@ _.extend(Kepler.Map, {
 
 		layers.users = new L.LayerGroup();
 
-		layers.cursor = new L.Cursor({
-			className: 'marker-cursor'
-		})
-		layers.cursor.marker.on('add', function(e) {
-			var div = L.DomUtil.create('div'),
-				ll = this.getLatLng(),
-				cursorData = {
-					loc: [ll.lat, ll.lng]
-				};
-			Blaze.renderWithData(Template.popupCursor, cursorData, div);
+		if(L.Cursor) {
 			
-			this.bindPopup(div.firstChild, opts.popup);
-		});
+			layers.cursor = new L.Cursor();
 
-		if(L.MarkerClusterGroup)
-		layers.cluster = new L.MarkerClusterGroup({
-			spiderfyDistanceMultiplier: 1.4,
-			showCoverageOnHover: false,
-			maxClusterRadius: 40,
-			iconCreateFunction: function(clust) {
+			layers.cursor.marker.on('add', function(e) {
 
-				clust.getCheckinsCount = function() {
-					var placeIds = _.map(clust.getAllChildMarkers(), function(marker) {
-						return marker.item.id;
+				var div = L.DomUtil.create('div'),
+					ll = this.getLatLng(),
+					cursorData = {
+						loc: [ll.lat, ll.lng]
+					};
+				//TODO rewrite use cursorData as reactive var!
+				$(layers.cursor.icon.nodeHtml).empty();
+				Blaze.renderWithData(Template.markerCursor, cursorData, layers.cursor.icon.nodeHtml);
+
+				Blaze.renderWithData(Template.popupCursor, cursorData, div);
+				this.bindPopup(div.firstChild, opts.popup);
+			});
+		}
+
+		if(L.MarkerClusterGroup) {
+			layers.cluster = new L.MarkerClusterGroup({
+				spiderfyDistanceMultiplier: 1.4,
+				showCoverageOnHover: false,
+				maxClusterRadius: 40,
+				iconCreateFunction: function(clust) {
+
+					clust.getCheckinsCount = function() {
+						var placeIds = _.map(clust.getAllChildMarkers(), function(marker) {
+							return marker.item.id;
+						});
+						return K.findCheckinsCountByPlaces(placeIds);
+					};
+
+					var div = L.DomUtil.create('div');
+
+					Blaze.renderWithData(Template.markerCluster, clust, div);
+
+					var icon = new L.NodeIcon({
+						nodeHtml: div
 					});
-					return K.findCheckinsCountByPlaces(placeIds);
-				};
-				
-				var div = L.DomUtil.create('div');
-				
-				Blaze.renderWithData(Template.markerCluster, clust, div);
-				
-				return new L.NodeIcon({
-					className: 'marker-cluster',
-					nodeHtml: div
-				});
-			}
-		});
+
+					return icon;
+				}
+			});
+		}
 
 		layers.places = new L.LayerJSON({
 			caching: false,

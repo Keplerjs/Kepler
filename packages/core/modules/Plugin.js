@@ -14,7 +14,7 @@ Kepler.Plugin = function(plugin) {
 				_.each(K.templates, function(tmpls, name) {
 					if(plugin.templates[name]) {
 						var tt = _.union(tmpls, plugin.templates[name]);
-						
+
 						K.templates[name] = _.map(tt, function(v) {
 							return _.isObject(v) ? v : {name: v, order: 0};
 						});
