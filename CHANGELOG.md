@@ -3,9 +3,9 @@ To see all releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
 - Meteor 1.6.1 compatibility
+- update npm deps
 - support templates custom ordering
-- moved Status.js from core to lib
-- rewrite Place model icon building using templates
+- rewrite Place icon building using templates
 - defined new templates placeholders: markerPlace, markerUser, markerCursor
 
 ## v1.2.5
