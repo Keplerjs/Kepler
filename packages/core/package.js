@@ -34,7 +34,6 @@ Package.onUse(function(api) {
     'modules/Util_valid.js',  	
     'modules/Cache.js',
     'modules/Plugin.js',
-    'modules/Status.js',
     'modules/schemas.js',
     'modules/filters.js',
     'modules/templates.js',

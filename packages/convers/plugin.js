@@ -8,6 +8,7 @@ K.Plugin({
 		panelUser: 'panelUser_conver',
 		popupPlace: 'popupPlace_conver',
 		//itemPlace: 'itemPlace_conver',
+		markerPlace: 'markerPlace_conver',
 		itemUser: 'itemUser_conver'	
 	},
 	schemas: {
@@ -37,6 +38,7 @@ K.Plugin({
 		currentUser: {
 			fields: {
 				convers: 1
+				//TODO create field coverCount that contains only count of convers no ids list
 			}
 		},
 		placePanel: {

@@ -25,6 +25,15 @@
 	font-weight: normal;
 }
 
+.marker-place .badge-convers,
+.marker-cluster .badge-convers {
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	z-index: 1000;
+	background-color: #8BCEDF;
+	text-shadow: 0 0 1px #003a4a;
+}
 
 .conver-item .icon-avatar {
 	height: 18px;

@@ -1,16 +1,13 @@
 
-<template name="markerPlace">
-	<div class="marker-place">
-		<div class="marker-anim" style="display: none;"></div>
-		{{#if checkinsCount}}
-			<b class="badge-checkins badge">{{checkinsCount}}</b>
-		{{/if}}
-		
-		{{> pluginsTemplate name='markerPlace'}}
-	</div>
+<template name="markerPlace_conver">
+	
+	{{#if conversCount}}
+		<b class="badge-convers badge">{{conversCount}}</b>
+	{{/if}}
+	
 </template>
 
-<template name="markerUser">
+<!-- <template name="markerUser">
 	<div class="marker-user">
 		<div class="marker-anim" style="display: none;"></div>
 		
@@ -24,3 +21,4 @@
 	{{/if}}
 	<b class="badge-cluster badge">{{getChildCount}}</b>	
 </template>
+ -->

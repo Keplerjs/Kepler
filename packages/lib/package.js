@@ -91,7 +91,8 @@ Package.onUse(function(api) {
     'config/leaflet.js',
     'config/router.js',
     'config/underscore.js',
-    'config/sAlert.js'
+    'config/sAlert.js',
+    'config/UserPresence.js'
   ]);
 
   api.addFiles([

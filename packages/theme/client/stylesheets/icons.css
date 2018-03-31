@@ -1,4 +1,9 @@
 .icon,
+.marker-cluster,
+.marker-active,
+.marker-place,
+.marker-user,
+.marker-gray,
 .marker-anim,
 .marker-cursor,
 .marker-handledrag,
@@ -79,7 +84,12 @@
 }
 
 div.icon-marker,
-div.leaflet-marker-icon {
+div.leaflet-marker-icon,
+.marker-cluster,
+.marker-active,
+.marker-place,
+.marker-user,
+.marker-gray {
 	display: inline-block;
 	width:27px;
 	height:30px;

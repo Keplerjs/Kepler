@@ -116,6 +116,7 @@ label {
 
 .badge.badge-checkins {
 	background-color: #f80;
+	text-shadow: 0 0 1px #311b00
 }
 .badge.badge-cluster {
 	background-color: #257;
