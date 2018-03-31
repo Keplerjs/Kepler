@@ -33,6 +33,7 @@
 	z-index: 1000;
 	background-color: #8BCEDF;
 	text-shadow: 0 0 1px #003a4a;
+	border: 1px solid #5d8b96;
 }
 
 .conver-item .icon-avatar {
