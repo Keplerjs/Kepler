@@ -113,11 +113,13 @@ label {
 .btn-default .badge {
 	background-color: #bbb;
 }
+.leaflet-marker-icon .badge {
+	box-shadow: 0 0 1px #333;
+	text-shadow: 0 0 1px #333;
+}
 
 .badge.badge-checkins {
 	background-color: #f80;
-	border: 1px solid #b15f02;
-	text-shadow: 0 0 1px #311b00
 }
 .badge.badge-cluster {
 	background-color: #257;
