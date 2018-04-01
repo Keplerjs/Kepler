@@ -2,6 +2,8 @@
 	core module for define and manage Kepler plugins
 */
 
+//TODO add new field 'replace'
+
 Kepler.plugins = {};
 
 Kepler.Plugin = function(plugin) {
@@ -38,6 +40,34 @@ Kepler.Plugin = function(plugin) {
 	else
 		console.warn("Plugin: require name", plugin)
 };
+
+Kepler.Plugin.templatesByPlaceholder = function(placeholderName, placeholderData) {
+	var tmpls = [];
+	
+	if(!placeholderName) return tmpls;
+
+	for(var parentName in K.templates) {
+
+		if(parentName === placeholderName) {
+
+			K.templates[parentName] = _.sortBy(K.templates[parentName],'order');
+			
+			_.chain(K.templates[parentName])
+			.pluck('name')
+			.each(function(name) {
+				if(Template[name]) {
+					tmpls.push({
+						pluginTemplate: name,
+						pluginData: placeholderData
+					});
+				}
+			});
+		}
+	}
+
+	return tmpls;	
+};
+
 
 if(Meteor.isServer) {
 	Meteor.startup(function() {
