@@ -43,16 +43,15 @@ Kepler.Plugin = function(plugin) {
 
 Kepler.Plugin.templatesByPlaceholder = function(placeholderName, placeholderData) {
 	var tmpls = [];
-	
+
 	if(!placeholderName) return tmpls;
 
 	for(var parentName in K.templates) {
 
 		if(parentName === placeholderName) {
 
-			K.templates[parentName] = _.sortBy(K.templates[parentName],'order');
-			
 			_.chain(K.templates[parentName])
+			.sortBy('order')
 			.pluck('name')
 			.each(function(name) {
 				if(Template[name]) {
