@@ -31,9 +31,6 @@
     "url": "https://github.com/Keplerjs/Kepler/issues"
   },
   "homepage": "https://github.com/Keplerjs/Kepler#readme",
-  "devDependencies": {
-    "jsdoc-to-markdown": "^4.0.1"
-  },
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "bcrypt": "^1.0.3",
