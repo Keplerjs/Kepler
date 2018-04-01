@@ -8,8 +8,7 @@
   },
   "scripts": {
     "start": "meteor",
-    "publish_packages": "cd private && ./publish_packages.sh",
-    "docs": "jsdoc2md -t jsdoc2md/API.hbs lib/*.js > API.md; echo"
+    "publish_packages": "cd private && ./publish_packages.sh"
   },
   "keywords": [
     "social-network",
@@ -30,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/Keplerjs/Kepler/issues"
   },
-  "homepage": "https://github.com/Keplerjs/Kepler#readme",
+  "homepage": "http://keplerjs.io",
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "bcrypt": "^1.0.3",
