@@ -9,6 +9,9 @@
 		{{#with osm}}
 			{{> popupOsm}}
 		{{/with}}
+			<a class="btn btn-default clearfix pull-right" target="_blank" href="https://www.openstreetmap.org/edit?{{osm.properties.type}}={{osm.properties.id}}&amp;editor=id">
+				<i class="icon icon-osm"></i> {{i18n 'btn_osmedit'}}
+			</a>
 		</div>
 		<div style="font-size:10px" class="text-muted text-right">
 			provided by <a href="http://www.osm.org/" target="_blank">openstreetmap.org</a>
