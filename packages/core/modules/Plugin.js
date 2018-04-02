@@ -2,7 +2,7 @@
 	core module for define and manage Kepler plugins
 */
 
-//TODO add new field 'replace'
+//TODO execute code inside Plugin() at Meteor.startup(), not immediately. for using K.settings
 
 Kepler.plugins = {};
 
@@ -12,16 +12,19 @@ Kepler.Plugin = function(plugin) {
 	{
 		if(!this.plugins[plugin.name]) {
 		
-			if(_.isObject(plugin.templates))
-				_.each(K.templates, function(tmpls, name) {
-					if(plugin.templates[name]) {
-						var tt = _.union(tmpls, plugin.templates[name]);
+			if(_.isObject(plugin.templates)) {
+				//TODO loop in plugin.templates
+				for(var placeholder in K.templates) {
+					if(plugin.templates[placeholder]) {
+						
+						//TODO if(!K.templates[placeholder]) continue;
 
-						K.templates[name] = _.map(tt, function(v) {
-							return _.isObject(v) ? v : {name: v, order: 0};
-						});
+						var tt = K.Plugin.normalizePlacehoders(plugin.templates[placeholder]);
+
+						_.extend(K.templates[placeholder], tt);
 					}
-				});
+				}
+			}
 			
 			if(_.isObject(plugin.filters))
 				_.deepExtend(K.filters, plugin.filters);
@@ -40,33 +43,77 @@ Kepler.Plugin = function(plugin) {
 	else
 		console.warn("Plugin: require name", plugin)
 };
+/**
+ * fill not defined fields with defaults values in plugin config teomplates
+ * @param  {[type]} tt [description]
+ * @return {[type]}    [description]
+ */
+Kepler.Plugin.normalizePlacehoders = function(tt) {
+	
+	//TODO add new field 'replace'
+	
+	if(_.isString(tt))
+		tt = _.object([tt],[true]);
+	
+	for(var t in tt) {
+		if(tt[t]===true)
+			tt[t]= {};
 
-Kepler.Plugin.templatesByPlaceholder = function(placeholderName, placeholderData) {
-	var tmpls = [];
+			if(_.isObject(tt[t])) {
+			tt[t]= _.defaults(tt[t], {
+				show: true,
+				order: 0
+			});
+		}
+		else if(tt[t]===false)
+			tt[t]= {show: false};
+	}
+	return tt;
+};
 
-	if(!placeholderName) return tmpls;
+Kepler.Plugin.templatesByPlaceholder = function(placeholder, data) {
+	var tmpls = [], sorts = [];
+
+	if(!placeholder) return tmpls;
 
 	for(var parentName in K.templates) {
 
-		if(parentName === placeholderName) {
-
-			_.chain(K.templates[parentName])
-			.sortBy('order')
-			.pluck('name')
-			.each(function(name) {
-				if(Template[name]) {
-					tmpls.push({
-						pluginTemplate: name,
-						pluginData: placeholderData
-					});
-				}
+		if(parentName === placeholder) {
+			//convert in array of objects
+			//TODO https://stackoverflow.com/questions/49611332/underscorejs-object-to-collection
+			var arr = _.map(K.templates[parentName], function(v,k) {
+				v.name = k;
+				return v;
 			});
+
+			sorts = _.sortBy(arr, 'order');
+
+			for(var s in sorts) {
+				if(sorts[s].show)
+				tmpls.push({
+					pluginTemplate: sorts[s].name,
+					pluginData: data
+				});
+			}
 		}
 	}
 
 	return tmpls;	
 };
 
+if(Meteor.isClient) {
+	Meteor.startup(function() {
+		var sets = K.settings.public.templates;
+		for(var placeholder in sets) {
+
+			if(!K.templates[placeholder]) continue;
+
+			var tt = K.Plugin.normalizePlacehoders(sets[placeholder]);
+
+			_.extend(K.templates[placeholder], tt);
+		}
+	});
+}
 
 if(Meteor.isServer) {
 	Meteor.startup(function() {

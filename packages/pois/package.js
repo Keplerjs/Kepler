@@ -2,7 +2,7 @@
 Package.describe({
   name: 'keplerjs:pois',
   summary: 'keplerjs plugin pois',
-  version: "1.2.5",
+  version: "1.3.0",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 

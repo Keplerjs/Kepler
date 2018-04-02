@@ -7,7 +7,17 @@
                 "landscape": "https://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey=<YOUR API KEY>",
                 "transport": "https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey=<YOUR API KEY>"
             }
-		}		
+		},
+		"<REMOVE IT FOR WORK>templates": {
+			"panelPlace": {
+				"panelPlace_edit": false,
+				"popupCursor_share": false,
+				"panelPlace_share": {"order": -10}
+			},
+			"popupCursor": {
+				"popupCursor_share":false
+			}
+		}
 	},
 	"upload": {
 		"targets": {

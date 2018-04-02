@@ -23,6 +23,9 @@ Kepler.settings = {
 			"es": "Español",
 			"fr": "Français",
 		},
+		"templates": {
+			//centralized templaes configurations
+		},
 		"profile": {
 			"awayTime": 10000,
 			"awayOnWindowBlur": true

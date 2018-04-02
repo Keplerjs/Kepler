@@ -1,7 +1,7 @@
 Package.describe({
   name: "keplerjs:api",
   summary: "Keplerjs API Rest",
-  version: "1.2.5",
+  version: "1.3.0",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 

@@ -2,7 +2,7 @@
 Package.describe({
   name: 'keplerjs:base',
   summary: 'keplerjs meta package to include base components',
-  version: "1.2.5",
+  version: "1.3.0",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 

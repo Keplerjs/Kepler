@@ -2,7 +2,7 @@
 Package.describe({
   name: 'keplerjs:categories',
   summary: 'keplerjs places and users categorization',
-  version: "1.2.5",
+  version: "1.3.0",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 

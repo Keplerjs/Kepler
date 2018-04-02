@@ -2,7 +2,7 @@
 Package.describe({
   name: 'keplerjs:events',
   summary: 'keplerjs plugin events',
-  version: "1.2.4",
+  version: "1.3.0",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
@@ -11,7 +11,7 @@ Package.onUse(function(api) {
   api.versionsFrom("1.5.1");
   
   api.use([
-    'keplerjs:core@1.2.4',
+    'keplerjs:core',
   ]);
 
   api.addFiles([
