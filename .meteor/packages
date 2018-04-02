@@ -21,9 +21,8 @@ keplerjs:convers
 keplerjs:notifs
 keplerjs:pois
 keplerjs:tracks
-
-keplerjs:robots
 keplerjs:routing
 
+keplerjs:robots
 keplerjs:wunderground
 keplerjs:googlemaps
