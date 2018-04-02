@@ -11,6 +11,7 @@ To see all releases [here](https://github.com/Keplerjs/Kepler/releases)
 - override templates config by *settings.json*
 - rewrite Place icon building using Meteor templates
 - defined new templates placeholders: *markerPlace*, *markerUser*, *markerCursor*
+- show conversations count in markers
 
 ## v1.2.5
 - plugins renamed dirs in plain name
