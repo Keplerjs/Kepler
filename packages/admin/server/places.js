@@ -5,7 +5,12 @@ K.Admin.methods({
 		if(!K.Admin.isMe()) return null;
 
 		Places.remove(placeId);
-
+		//TODO run plugin edit removePlace()
+/*		Users.update(Meteor.userId(), {
+			$pull: {
+				places: placeId
+			}
+		});*/
 		//TODO remove ref
 
 		console.log('Admin: removePlace', placeId);		
