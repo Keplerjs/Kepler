@@ -92,6 +92,19 @@ Accounts.onCreateUser(function(options, user) {
 			verified: true
 		}]; 
 	}
+	else if(user.services.github)
+	{
+		source.service = 'github';
+		source.url = 'https://github.com/'+user.services.github.username;
+		name = user.services.github.username;
+		username = user.services.github.username;
+		avatar = 'https://avatars.githubusercontent.com/u/'+user.services.github.id+'?s=300&v=4';
+		//lang = user.services.github.locale;
+		emails = [{
+			address: user.services.github.email,
+			verified: true
+		}];
+	}
 	else if(user.services.google)
 	{
 		source.service = 'google';
