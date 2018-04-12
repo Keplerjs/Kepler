@@ -9,14 +9,14 @@ Kepler.schemas = {
 		name: '',	       //place title
 		createdAt: '',	   //new Date() of place insert
 		userId: '',	   	   //user to created it
-		active:0,	       //place visible in map
+		active:0,	       //visible in map
 		indoor:0,		   //is an indoor place
 		loc: [],		   //coordinates lat,lng
 		checkins: [],	   //users inside place	
 		hist: [],		   //recents checkins
-		desc: '',		   //place description
-		warn: '',          //place warnings and dangers
-		websites: [],	   //website url of place
+		desc: '',		   //description
+		warn: '',          //warnings and dangers
+		urls: [],	   		//websites url of place
 		emails: [],		   //contanct emails for place
 		source: {},		   //describe source of data
 	},
