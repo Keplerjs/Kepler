@@ -39,6 +39,11 @@
 		"emailTemplates": {
 			"from": "Admin <no-reply@example.com>"
 		},
+		"github": {
+			"service": "github",
+			"clientId": "<YOUR APP ID>",
+			"secret": "<YOUR API KEY>"
+		},
 		"facebook": {
 			"service": "facebook",
 			"appId": "<YOUR APP ID>",

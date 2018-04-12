@@ -64,6 +64,7 @@ Package.onUse(function(api) {
     'accounts-oauth',
     'accounts-facebook',
     'accounts-google',
+    'accounts-github',
     //'accounts-twitter',
     
     'blaze-html-templates@1.1.2',

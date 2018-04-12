@@ -55,3 +55,8 @@
 /*button.configure-button {
 	display: none;
 }*/
+
+.login-button.btn.btn-block.btn-GitHub {
+	background-color: #444;
+	color: #fff;
+}
