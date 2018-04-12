@@ -41,7 +41,7 @@
 		},
 		"github": {
 			"service": "github",
-			"clientId": "<YOUR APP ID>",
+			"clientId": "<YOUR CLIENT ID>",
 			"secret": "<YOUR API KEY>"
 		},
 		"facebook": {

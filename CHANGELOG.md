@@ -4,6 +4,7 @@ To see all releases [here](https://github.com/Keplerjs/Kepler/releases)
 ## Next version
 - Meteor 1.6.1 compatibility
 - update npm deps
+- support Github OAuth
 
 ## 1.3.0
 - changes *K.templates* definition format
