@@ -169,6 +169,11 @@
 						<i class="icon icon-fb"></i> {{source.url}}
 					</a>
 				{{/if}}	
+				{{#if eq source.service 'github'}}
+					<a class="btn btn-default" href="{{source.url}}">
+						<i class="icon icon-git"></i> {{source.url}}
+					</a>
+				{{/if}}					
 				{{#if eq source.service 'google'}}
 					<a class="btn btn-default" href="{{source.url}}">
 						<i class="icon icon-goo"></i> {{source.url}}
