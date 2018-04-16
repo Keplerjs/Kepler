@@ -5,6 +5,8 @@ To see all releases [here](https://github.com/Keplerjs/Kepler/releases)
 - Meteor 1.6.1 compatibility
 - update npm deps
 - support Github OAuth
+- update Leaflet 1.3.0
+- tooltip marker over marker
 
 ## 1.3.0
 - changes *K.templates* definition format
