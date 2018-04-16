@@ -13,7 +13,7 @@ Npm.depends({
   "bootstrap-switch": "3.3.2",
   "bootstrap-list-filter": "0.3.3",
   "bootstrap-confirm-button": "0.3.2",
-  "leaflet": "1.2.0",
+  "leaflet": "1.3.0",
   "leaflet-gps": "1.7.0",
   "leaflet-layerjson": "0.2.8",
   "leaflet.markercluster": "1.3.0",

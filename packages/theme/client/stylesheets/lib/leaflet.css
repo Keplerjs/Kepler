@@ -109,9 +109,29 @@
 }
 .leaflet-popup-tip {
 	background: rgba(153, 204, 0,.85);
-	border: none;	
+	border: none;
 	margin: -9px auto 0;
 }
+.leaflet-tooltip {
+    padding: 0;
+    /*background: rgba(153, 204, 0,.85);*/
+    background: #fff;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    text-transform: capitalize;
+    text-overflow: ellipsis;
+    box-shadow:none;
+}
+/*.leaflet-tooltip-left:before {
+	border-left-color: rgba(153, 204, 0,.85);
+}
+.leaflet-tooltip-right:before {
+	border-right-color: rgba(153, 204, 0,.85);
+}*/
 
 .leaflet-left.leaflet-bottom .leaflet-control.leaflet-control-scale,
 .leaflet-left.leaflet-bottom .leaflet-control.leaflet-control-attribution {

@@ -56,6 +56,10 @@ Kepler.settings = {
 				"closeButton": false,
 				"minWidth": 120
 			},
+			"tooltip": {
+				direction:'auto',
+				sticky:true
+			},
 			"icon": {
 				"iconSize": [30, 30],
 				"iconAnchor": [15, 30],

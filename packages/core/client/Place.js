@@ -30,6 +30,7 @@ Kepler.Place = Class.extend({
 	template: 'item_place',
 	templatePanel: 'panelPlace',	
 	templatePopup: 'popupPlace',
+	templateTooltip: 'tooltipPlace',
 	templateMarker: 'markerPlace',
 	data: {},
 	
@@ -91,11 +92,19 @@ Kepler.Place = Class.extend({
 				if(Template[self.templateMarker])
 					Blaze.renderWithData(Template[self.templateMarker], self, self.icon.nodeHtml);
 
-				var div = L.DomUtil.create('div');
-				if(Template[self.templatePopup])
-					Blaze.renderWithData(Template[self.templatePopup], self.rData, div);
+				var divp = L.DomUtil.create('div');
 				
-				self.marker.bindPopup(div.firstChild, K.Map.options.popup);
+				if(Template[self.templatePopup])
+					Blaze.renderWithData(Template[self.templatePopup], self.rData, divp);
+				
+				self.marker.bindPopup(divp.firstChild, K.Map.options.popup);
+
+				var divt = L.DomUtil.create('div');
+
+				if(Template[self.templateTooltip])
+					Blaze.renderWithData(Template[self.templateTooltip], self.rData, divt);
+
+				self.marker.bindTooltip(divt.firstChild, K.Map.options.tooltip);
 			});
 		}
 		return self.marker;

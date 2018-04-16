@@ -14,6 +14,14 @@
 	</div>
 </template>
 
+<template name="tooltipPlace">
+	<div class="tooltip-place">
+		<a class="btn btn-block btn-default popup-tit">
+			{{#if name}}<b>{{name}}</b>{{else}}<i>{{i18n 'label_noname'}}</i>{{/if}}
+		</a>
+	</div>
+</template>
+
 <template name="popupUser">
 	<div class="popup-user">
 	{{> item_user}}
