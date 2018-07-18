@@ -89,11 +89,12 @@ Kepler.Plugin.templatesByPlaceholder = function(placeholder, data) {
 			sorts = _.sortBy(arr, 'order');
 
 			for(var s in sorts) {
-				if(sorts[s].show)
-				tmpls.push({
-					pluginTemplate: sorts[s].name,
-					pluginData: data
-				});
+				if(sorts[s].show) {
+					tmpls.push({
+						pluginTemplate: sorts[s].name,
+						pluginData: data
+					});
+				}
 			}
 		}
 	}
