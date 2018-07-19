@@ -32,14 +32,12 @@ In the near future Kepler as any open source projects will follow a community-dr
 Eric S. Raymond
 
 ## Install
+1. Install the latest version of [NodeJs](https://nodejs.org).
+2. Install [Meteor](https://www.meteor.com/install), which is used as the KeplerJs build tool.
+3. [Download](https://github.com/Keplerjs/Kepler/releases) or clone the latest version of [Kepler](https://github.com/Keplerjs/Kepler) locally.
+4. ```npm install && npm start ```
+5. Open *http://localhost:3000/* in your browser.
 
-Install the latest version of [Node](https://nodejs.org).
-Clone or download the [Kepler repo](https://github.com/Keplerjs/Kepler) locally, then:
-```sh
-npm install
-npm start
-```
-And open ```http://localhost:3000/``` in your browser.
 
 ## Author
 Created by [Stefano Cudini](https://github.com/stefanocudini) [@zakis](http://twitter.com/zakis) and other [contributors](https://github.com/Keplerjs/Kepler/graphs/contributors) under the [MIT](http://opensource.org/licenses/MIT) license.
