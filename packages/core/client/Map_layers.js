@@ -64,12 +64,14 @@ _.extend(Kepler.Map, {
 			minShift: opts.bboxMinShift,
 			callData: function(bbox, callback) {
 				
+				//console.log('layer.places.callData',bbox)
+
 				//TODO update underscore!
 				//TODO refact using _.after()
-				if(!this._loaded) {
+	/*			if(!this._loaded) {
 					this._loaded = 1;
 					return;
-				}
+				}*/
 
 				var sub = Meteor.subscribe('placesByBBox', bbox, function() {
 					callback( K.findPlacesByBBox(bbox).fetch() );

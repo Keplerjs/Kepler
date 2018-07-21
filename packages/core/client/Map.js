@@ -90,7 +90,10 @@ Kepler.Map = {
 
 		return this;
 	},
-
+	/**
+	 * [setOpts description]
+	 * @param {[type]} options [description]
+	 */
 	setOpts: function(options) {
 		if(this.ready()) {
 			var opts = _.deepExtend({}, K.settings.public.map, options);
@@ -111,7 +114,10 @@ Kepler.Map = {
 		}
 		return opts;
 	},
-
+	/**
+	 * [destroy description]
+	 * @return {[type]} [description]
+	 */
 	destroy: function() {
 
 		var l = this.layers,
@@ -140,7 +146,10 @@ Kepler.Map = {
 		for(var c in this.controls)
 			this.map.addControl(this.controls[c]);
 	},
-
+	/**
+	 * [isVisible description]
+	 * @return {Boolean} [description]
+	 */
 	isVisible: function() {
 		if(!this.ready()) return false;
 
@@ -150,7 +159,11 @@ Kepler.Map = {
 
 		return viewportW > 40;
 	},
-	
+	/**
+	 * [setView description]
+	 * @param {[type]} loc  [description]
+	 * @param {[type]} zoom [description]
+	 */
 	setView: function(loc, zoom) {
 		if(this.ready()) {
 			var sidebarW = (this.sidebar.hasClass('expanded') && this.sidebar.width()) || 0;
@@ -163,7 +176,11 @@ Kepler.Map = {
 		}
 		return this;
 	},
-
+	/**
+	 * [fitBounds description]
+	 * @param  {[type]} bbox [description]
+	 * @return {[type]}      [description]
+	 */
 	fitBounds: function(bbox) {
 		if(this.ready() && bbox.isValid()) {
 			var sidebarW = (this.sidebar.hasClass('expanded') && this.sidebar.width()) || 0;
@@ -220,7 +237,11 @@ Kepler.Map = {
 			this.items.push(item);
 		return this;
 	},
-
+	/**
+	 * [removeItem description]
+	 * @param  {[type]} item [description]
+	 * @return {[type]}      [description]
+	 */
 	removeItem: function(item) {
 		if(this.ready()) {
 			if(item && item.marker)
@@ -248,12 +269,20 @@ Kepler.Map = {
 		}
 		return this;
 	},
-
+	/**
+	 * [cleanGeojson description]
+	 * @return {[type]} [description]
+	 */
 	cleanGeojson: function() {
 		this.layers.geojson.clearLayers();
 		return this;
 	},
-
+	/**
+	 * [addGeojson description]
+	 * @param {[type]}   geoData [description]
+	 * @param {[type]}   opts    [description]
+	 * @param {Function} cb      [description]
+	 */
 	addGeojson: function(geoData, opts, cb) {
 		opts = opts || {};
 		cb = cb || $.noop;
