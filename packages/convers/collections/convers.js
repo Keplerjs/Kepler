@@ -1,5 +1,6 @@
 
 Convers = new Mongo.Collection('convers');
+K.Convers = Convers;
 
 Convers.allow({
 	insert: function(userId, doc) {

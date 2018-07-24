@@ -32,6 +32,7 @@ function writeOut(req, res, out) {
 	res.end( ret );
 }
 
+///////////DEBUG
 K.Cache.clean('stats');
 
 Router.route(urls.places, opts)
@@ -69,7 +70,7 @@ Router.route(urls.usersByDate, opts)
 Router.route(urls.placesActivities, opts)
 .get(function (req, res) {
 
-	//var out = K.Cache.get('placesActivities','stats', K.Stats.findUsersByDate, K.settings.stats.cacheTime);
+	var out = K.Cache.get('placesActivitiesByDate','stats', K.Stats.findPlacesActivitiesByDate, K.settings.stats.cacheTime);
 
-	writeOut(req, res, []);
+	writeOut(req, res, out);
 });

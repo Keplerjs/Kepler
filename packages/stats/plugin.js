@@ -1,9 +1,6 @@
 
 K.Plugin({
 	name: 'stats',
-	templates: {
-		pageHome: 'pageHome_stats'
-	},	
 	settings: {
 		"public": {
 			"stats": {
@@ -11,7 +8,11 @@ K.Plugin({
 			}
 		},
 		"stats": {
-			"cacheTime": "hourly"
+			"cacheTime": "hourly",
+			"apiHeaders": {
+				//custom http headers for API response
+				//"Access-Control-Allow-Origin": "*"
+			}
 		}
 	}
 });

@@ -8,7 +8,7 @@ Kepler.Stats = {
 		noClassify = _.isUndefined(noClassify) ? K.settings.public.stats.noClassify : noClassify;
 
 		var data = Places.find({}, {
-			fields: { createdAt:1, loc:1, rank:1, checkins:1, hist:1, convers:1, name:1 },
+			fields: { createdAt:1, loc:1, rank:1, checkins:1, hist:1, convers:1 },
 			sort: { createdAt: -1},
 			//TODO limit
 		}).fetch();
@@ -173,25 +173,49 @@ Kepler.Stats = {
 			return [parseInt(key), count];//, num];
 		});
 
-		//data = _.last(data, limit)
+		//TODO data = _.last(data, limit)
 
 		return {
 			count: count,
 			rows: data
 		};
-	}		
+	},
+
+	findPlacesActivitiesByDate: function(limit) {
+
+		limit = limit || 90;
+
+		//var Convers = new Mongo.Collection('convers');
+
+		var data = K.Convers.find({}, {
+			fields: { createdAt: 1 },
+			sort: { createdAt: 1}
+		}).fetch();
+		
+		data = _.countBy(data, function(u) {
+			var date = new Date(parseInt(u.createdAt)),
+				y = date.getFullYear(),
+				m = date.getMonth(),
+				d = date.getDate();
+			return (new Date(y,m,d)).getTime();
+		});
+
+		var count = 0;
+		data = _.map(data, function(num, key) {
+			count += num;
+			return [parseInt(key), count];
+		});
+
+		//TODO data = _.last(data, limit)
+
+		return {
+			count: count,
+			rows: data
+		};
+	}	
 };
 
 Meteor.methods({
-
-	//TODO use cache
-
-	findStats: function() {
-		return {
-			users: K.Stats.findUsers(true),
-			places: K.Stats.findPlaces(true)
-		}
-	},
 	findPlacesStats: function(noClassify) {
 		return K.Stats.findPlaces(noClassify);
 	},
