@@ -32,9 +32,9 @@ Tracker.autorun(function(comp) {
 			
 				if(!placesLayer.getLayers().length)
 				{
-					Meteor.call('findPlacesStats', function(err, data) {
+					Meteor.call('findPlacesStats', function(err, geojson) {
 
-						placesLayer.addData(data.geojson);
+						placesLayer.addData(geojson);
 					});				
 				}
 

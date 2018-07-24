@@ -58,15 +58,16 @@ Kepler.Cache = {
 	 */
 	_expiregen: function(expire) {
 
-		expire = expire || 'daily';
+		expire = _.isUndefined(expire) ? 'daily' : expire;
 
 		var expires = {
-			'minutely':60,
-			'hourly':  60*60,
-			'daily':   60*60*24*1,
-			'weekly':  60*60*24*7,
-			'monthly': 60*60*24*30,
-			'yearly':  60*60*24*30*12
+			'none':     0,
+			'minutely': 60,
+			'hourly':   60*60,
+			'daily':    60*60*24*1,
+			'weekly':   60*60*24*7,
+			'monthly':  60*60*24*30,
+			'yearly':   60*60*24*30*12
 		},
 		exp = _.isNumber(expire) ? expire : expires[expire];
 

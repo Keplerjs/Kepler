@@ -9,6 +9,9 @@ K.Plugin({
 			"stats": {
 				"noClassify": true	//disable geostatistics classification
 			}
+		},
+		"stats": {
+			"cacheTime": "hourly"
 		}
 	}
 });

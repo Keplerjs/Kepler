@@ -3,7 +3,7 @@ var geostats = Npm.require('geostats');
 
 Kepler.Stats = {
 
-	findPlaces: function(noClassify, noGeojson) {
+	findPlaces: function(noClassify) {
 		
 		noClassify = _.isUndefined(noClassify) ? K.settings.public.stats.noClassify : noClassify;
 
@@ -27,46 +27,40 @@ Kepler.Stats = {
 			}
 		});
 
-		var stats = {
-			count: data.length
-		}
+		var count = data.length;
 
-		var ret = {
-			stats: stats
-		};
-	
-		if(!noGeojson) {
-			//raw cluster
-			data = _.map(_.groupBy(data,'loc'), function(d) {
-				var f = _.pluck(d,'factor').reduce(function(a,b){return a+b;}, 0);
-				return {
-					loc: d[0].loc,
-					factor: f
-				}
-			});
-
-
-			if(!noClassify) {
-				var factors = _.pluck(data, 'factor');
-				var series = new geostats(factors);
-				var classy = series.getClassQuantile(10);
-				//var classy = series.getClassEqInterval(10);
-				//var classy = series.getClassJenks(10);
+		//raw cluster
+		data = _.map(_.groupBy(data,'loc'), function(d) {
+			var f = _.pluck(d,'factor').reduce(function(a,b){return a+b;}, 0);
+			return {
+				loc: d[0].loc,
+				factor: f
 			}
+		});
 
-			var geojson = K.Util.geo.createFeatureColl(_.map(data, function(d) {
-				return K.Util.geo.createFeature('Point', d.loc.reverse(), {
-					rank: noClassify ? d.factor : series.getClass(d.factor)
-				});
-			}));
 
-			ret.geojson = geojson;
+		if(!noClassify) {
+			var factors = _.pluck(data, 'factor');
+			var series = new geostats(factors);
+			var classy = series.getClassQuantile(10);
+			//var classy = series.getClassEqInterval(10);
+			//var classy = series.getClassJenks(10);
 		}
 
-		return ret;
+		var geojson = K.Util.geo.createFeatureColl(_.map(data, function(d) {
+			return K.Util.geo.createFeature('Point', d.loc.reverse(), {
+				rank: noClassify ? d.factor : series.getClass(d.factor)
+			});
+		}));
+
+		geojson.properties = {
+			count: count
+		};
+
+		return geojson;
 	},
 
-	findUsers: function(noClassify, noGeojson) {
+	findUsers: function(noClassify) {
 
 		noClassify = _.isUndefined(noClassify) ? K.settings.public.stats.noClassify : noClassify;
 
@@ -91,51 +85,43 @@ Kepler.Stats = {
 			};
 		});
 
-		var stats = {
-			count: data.length
-		};
+		data = data.filter(function(d) {
+			return d.loc.length;
+		});
 
-		var ret = {
-			stats: stats
-		};
-	
-		if(!noGeojson) {
+		var count = data.length;
 
-			data = data.filter(function(d) {
-				return d.loc.length;
-			});
-
-			//raw cluster
-			data = _.map(_.groupBy(data,'loc'), function(d) {
-				var f = _.pluck(d,'factor').reduce(function(a,b){return a+b;}, 0);
-				return {
-					loc: d[0].loc,
-					factor: f
-				}
-			});
-
-			if(!noClassify) {
-				var factors = _.pluck(data, 'factor');
-				var series = new geostats(factors);
-				var classy = series.getClassQuantile(10);
-				//var classy = series.getClassEqInterval(10);
-				//var classy = series.getClassJenks(10);
+		//raw clusterret
+		data = _.map(_.groupBy(data,'loc'), function(d) {
+			var f = _.pluck(d,'factor').reduce(function(a,b){return a+b;}, 0);
+			return {
+				loc: d[0].loc,
+				factor: f
 			}
-		
-			var geojson = K.Util.geo.createFeatureColl(_.map(data, function(d) {
-				return K.Util.geo.createFeature('Point', d.loc.reverse(), {
-					rank: noClassify ? d.factor : series.getClass(d.factor)
-				});
-			}));
+		});
 
-			
-			ret.geojson = geojson;
+		if(!noClassify) {
+			var factors = _.pluck(data, 'factor');
+			var series = new geostats(factors);
+			var classy = series.getClassQuantile(10);
+			//var classy = series.getClassEqInterval(10);
+			//var classy = series.getClassJenks(10);
 		}
-		
-		return ret;
+	
+		var geojson = K.Util.geo.createFeatureColl(_.map(data, function(d) {
+			return K.Util.geo.createFeature('Point', d.loc.reverse(), {
+				rank: noClassify ? d.factor : series.getClass(d.factor)
+			});
+		}));
+
+		geojson.properties = {
+			count: count
+		};
+
+		return geojson;
 	},
 
-	findUsersCountByDate: function(limit) {
+	findUsersByDate: function(limit) {
 
 		limit = limit || 90;
 
@@ -154,22 +140,17 @@ Kepler.Stats = {
 
 		var count = 0;
 		data = _.map(data, function(num, key) {
-			count+=num;
+			count += num;
 			return [parseInt(key), count];
 		});
 
-		var stats = {
+		return {
+			count: count,
 			rows: data
 		};
-
-		var ret = {
-			stats: stats
-		};
-
-		return ret;
 	},
 
-	findPlacesCountByDate: function(limit) {
+	findPlacesByDate: function(limit) {
 
 		limit = limit || 90;
 
@@ -188,29 +169,27 @@ Kepler.Stats = {
 
 		var count = 0;
 		data = _.map(data, function(num, key) {
-			count+=num;
+			count += num;
 			return [parseInt(key), count];//, num];
 		});
 
 		//data = _.last(data, limit)
 
-		var stats = {
+		return {
+			count: count,
 			rows: data
 		};
-
-		var ret = {
-			stats: stats
-		};
-
-		return ret;
 	}		
 };
 
 Meteor.methods({
+
+	//TODO use cache
+
 	findStats: function() {
 		return {
-			users: K.Stats.findUsers(true, true),
-			places: K.Stats.findPlaces(true, true)
+			users: K.Stats.findUsers(true),
+			places: K.Stats.findPlaces(true)
 		}
 	},
 	findPlacesStats: function(noClassify) {

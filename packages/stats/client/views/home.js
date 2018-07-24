@@ -4,18 +4,22 @@ Template.pageHome_stats.onCreated(function() {
 	var self = this;
 
     self.stats = new ReactiveVar({
-    	users:0,
-    	places:0
+    	users: {properties: {count:0}},
+    	places: {properties: {count:0}},
     });
 
-    Meteor.call('findStats', true, true, function(err, data) {
+console.log('onCreated', self.stats);
+
+    Meteor.call('findStats', function(err, data) {
+
+console.log('findStats', data);
 
 		if(err)
             console.log(err);
         else
             self.stats.set({
-            	users: data.users.stats.count,
-            	places: data.places.stats.count
+            	users: data.users.properties.count,
+            	places: data.places.properties.count
             });
 	});
 });

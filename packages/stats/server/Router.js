@@ -1,9 +1,10 @@
 
 var urls = {
 		places: '/stats/places',
-		placesCount: '/stats/places/count',
+		placesByDate: '/stats/places/bydate',
+		placesActivities: '/stats/places/activities/bydate',
 		users: '/stats/users',
-		usersCount: '/stats/users/count'		
+		usersByDate: '/stats/users/bydate',
 	},
 	opts = { 
 		where: 'server',
@@ -12,14 +13,14 @@ var urls = {
 
 function writeOut(req, res, out) {
 	
+	var headers = _.defaults(K.settings.stats.apiHeaders, {
+		'Content-type': 'application/json'
+	});
+
 	if(out) {
-		res.writeHead(200, {
-			'Content-type': 'application/json'
-		});
+		res.writeHead(200, headers);
 	} else {
-		res.writeHead(400, {
-			'Content-type': 'application/json'
-		});
+		res.writeHead(400, headers);
 		out = {'error': 'Bad Request'};
 	}
 
@@ -31,18 +32,20 @@ function writeOut(req, res, out) {
 	res.end( ret );
 }
 
+K.Cache.clean('stats');
+
 Router.route(urls.places, opts)
 .get(function (req, res) {
 
-	var out = K.Cache.get('places','stats', K.Stats.findPlaces, 'hourly');
+	var out = K.Cache.get('places','stats', K.Stats.findPlaces, K.settings.stats.cacheTime);
 
 	writeOut(req, res, out);
 });
 
-Router.route(urls.placesCount, opts)
+Router.route(urls.placesByDate, opts)
 .get(function (req, res) {
 
-	var out = K.Cache.get('placesCount','stats', K.Stats.findPlacesCountByDate, 'hourly');
+	var out = K.Cache.get('placesByDate','stats', K.Stats.findPlacesByDate, K.settings.stats.cacheTime);
 
 	writeOut(req, res, out);
 });
@@ -50,15 +53,23 @@ Router.route(urls.placesCount, opts)
 Router.route(urls.users, opts)
 .get(function (req, res) {
 
-	var out = K.Cache.get('users','stats', K.Stats.findUsers, 'hourly');
+	var out = K.Cache.get('users','stats', K.Stats.findUsers, K.settings.stats.cacheTime);
 
 	writeOut(req, res, out);
 });
 
-Router.route(urls.usersCount, opts)
+Router.route(urls.usersByDate, opts)
 .get(function (req, res) {
 
-	var out = K.Cache.get('usersCount','stats', K.Stats.findUsersCountByDate, 'hourly');
-	//var out = K.Stats.findUsersCountByDate()
+	var out = K.Cache.get('usersByDate','stats', K.Stats.findUsersByDate, K.settings.stats.cacheTime);
+	
 	writeOut(req, res, out);
+});
+
+Router.route(urls.placesActivities, opts)
+.get(function (req, res) {
+
+	//var out = K.Cache.get('placesActivities','stats', K.Stats.findUsersByDate, K.settings.stats.cacheTime);
+
+	writeOut(req, res, []);
 });
