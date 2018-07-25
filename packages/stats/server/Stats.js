@@ -181,19 +181,17 @@ Kepler.Stats = {
 		};
 	},
 
-	findPlacesActivitiesByDate: function(limit) {
+	findConversByDate: function(limit) {
 
 		limit = limit || 90;
 
-		//var Convers = new Mongo.Collection('convers');
-
-		var data = K.Convers.find({}, {
-			fields: { createdAt: 1 },
-			sort: { createdAt: 1}
+		var data = K.Messages.find({}, {
+			fields: { updatedAt: 1 },
+			sort: { updatedAt: 1}
 		}).fetch();
 		
 		data = _.countBy(data, function(u) {
-			var date = new Date(parseInt(u.createdAt)),
+			var date = new Date(parseInt(u.updatedAt)),
 				y = date.getFullYear(),
 				m = date.getMonth(),
 				d = date.getDate();

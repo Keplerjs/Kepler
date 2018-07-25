@@ -1,10 +1,10 @@
 
 var urls = {
-		places: '/stats/places',
+		placesByGeo: '/stats/places/bygeo',
 		placesByDate: '/stats/places/bydate',
-		placesActivities: '/stats/places/activities/bydate',
-		users: '/stats/users',
+		usersByGeo: '/stats/users/bygeo',
 		usersByDate: '/stats/users/bydate',
+		conversByDate: '/stats/convers/bydate',
 	},
 	opts = { 
 		where: 'server',
@@ -33,12 +33,12 @@ function writeOut(req, res, out) {
 }
 
 ///////////DEBUG
-K.Cache.clean('stats');
+//K.Cache.clean('stats');
 
-Router.route(urls.places, opts)
+Router.route(urls.placesByGeo, opts)
 .get(function (req, res) {
 
-	var out = K.Cache.get('places','stats', K.Stats.findPlaces, K.settings.stats.cacheTime);
+	var out = K.Cache.get('placesByGeo','stats', K.Stats.findPlaces, K.settings.stats.cacheTime);
 
 	writeOut(req, res, out);
 });
@@ -51,10 +51,10 @@ Router.route(urls.placesByDate, opts)
 	writeOut(req, res, out);
 });
 
-Router.route(urls.users, opts)
+Router.route(urls.usersByGeo, opts)
 .get(function (req, res) {
 
-	var out = K.Cache.get('users','stats', K.Stats.findUsers, K.settings.stats.cacheTime);
+	var out = K.Cache.get('usersByGeo','stats', K.Stats.findUsers, K.settings.stats.cacheTime);
 
 	writeOut(req, res, out);
 });
@@ -67,10 +67,10 @@ Router.route(urls.usersByDate, opts)
 	writeOut(req, res, out);
 });
 
-Router.route(urls.placesActivities, opts)
+Router.route(urls.conversByDate, opts)
 .get(function (req, res) {
 
-	var out = K.Cache.get('placesActivitiesByDate','stats', K.Stats.findPlacesActivitiesByDate, K.settings.stats.cacheTime);
+	var out = K.Cache.get('conversByDate','stats', K.Stats.findConversByDate, K.settings.stats.cacheTime);
 
 	writeOut(req, res, out);
 });

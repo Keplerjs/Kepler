@@ -27,6 +27,11 @@
 			}
 		}
 	},
+	"stats": {
+		"apiHeaders": {
+			 "Access-Control-Allow-Origin": "*"
+		}
+	},
 	"geoinfo": {
 		"geonamesUser": "<YOUR USER NAME>",
 		"ipinfodbKey": "<YOUR API KEY>"

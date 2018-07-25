@@ -2,6 +2,8 @@
 Messages = new Mongo.Collection('messages');
 //TODO rinomina in ConversMsgs
 
+K.Messages = Messages;
+
 Messages.allow({
 	insert: function(userId, doc) {
 
