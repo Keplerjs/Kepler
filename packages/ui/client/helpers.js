@@ -1,6 +1,10 @@
 
 //TODO use namespace K for all global helpers!
 
+Template.registerHelper('version', function(url) {
+	return 'KEPLERJS@'+ K.version +' - '+ Meteor.release;
+});
+
 Template.registerHelper('absoluteUrl', function(url) {
 	return Meteor.absoluteUrl(url)
 });

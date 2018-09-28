@@ -38,9 +38,6 @@ Template.panelSettings.helpers({
 	mapcenter: function() {
 		var z = K.Profile.getOpts('map.zoom');
 		return K.Util.humanize.loc(K.Profile.getOpts('map.center'))+(z?','+z:'');
-	},
-	version: function() {
-		return K.version;
 	}
 });
 
