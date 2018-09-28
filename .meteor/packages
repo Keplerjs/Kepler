@@ -23,7 +23,6 @@ keplerjs:pois
 keplerjs:tracks
 keplerjs:routing
 
-keplerjs:robots
+#keplerjs:robots
 keplerjs:wunderground
 keplerjs:googlemaps
-accounts-github

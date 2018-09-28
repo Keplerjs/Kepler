@@ -1,5 +1,6 @@
 
 var urls = {
+		root: '/stats',
 		placesByGeo: '/stats/places/bygeo',
 		placesByDate: '/stats/places/bydate',
 		usersByGeo: '/stats/users/bygeo',
@@ -11,7 +12,9 @@ var urls = {
 		notFoundTemplate: 'empty'
 	};
 
-function writeOut(req, res, out) {
+function writeOut(req, res, out, jsonOpts) {
+
+	//jsonOpts = jsonOpts || [];
 	
 	var headers = _.defaults(K.settings.stats.apiHeaders, {
 		'Content-type': 'application/json'
@@ -24,7 +27,7 @@ function writeOut(req, res, out) {
 		out = {'error': 'Bad Request'};
 	}
 
-	var ret = JSON.stringify(out);
+	var ret = JSON.stringify.apply(this, _.union(out, jsonOpts));
 
 	if(req.query && req.query['jsonp'])
 		ret = req.query['jsonp']+'('+ret+');';
@@ -34,6 +37,13 @@ function writeOut(req, res, out) {
 
 ///////////DEBUG
 //K.Cache.clean('stats');
+Router.route(urls.root, opts)
+.get(function (req, res) {
+
+	var out = urls;
+
+	writeOut(req, res, out, [null, 4, ' ']);
+});
 
 Router.route(urls.placesByGeo, opts)
 .get(function (req, res) {
