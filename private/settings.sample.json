@@ -39,6 +39,10 @@
 	"weather": {
 		"wundergroundKey": "<YOUR API KEY>"
 	},
+    "openrouteservice": {
+		"name": "<YOUR NAME>",
+		"key": "<YOUR API KEY>"
+	},
 	"accounts": {
 		"verifyEmail": false,
 		"emailTemplates": {

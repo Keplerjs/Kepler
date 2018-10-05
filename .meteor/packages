@@ -26,3 +26,4 @@ keplerjs:routing
 #keplerjs:robots
 keplerjs:wunderground
 keplerjs:googlemaps
+#keplerjs:openrouteservice
