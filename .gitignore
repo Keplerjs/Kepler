@@ -12,12 +12,4 @@ start.sh
 settings.json
 pkgs.list
 versions.list
-
-packages/keplerjs-foursquare
-packages/keplerjs-googlemaps
-packages/keplerjs-mapillary
-packages/keplerjs-robots
-packages/keplerjs-wunderground
-packages/keplerjs-theme-climb
-packages/keplerjs-openrouteservice
-
+packages/keplerjs-*

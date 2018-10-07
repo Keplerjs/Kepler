@@ -1,14 +1,19 @@
 
-To see all releases [here](https://github.com/Keplerjs/Kepler/releases)
+Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
-- Meteor 1.6.1 compatibility
-- update npm deps
-- support Github OAuth
+...
+
+## v1.3.7
+- Meteor 1.7.0.5 compatibility
+- update @babel/runtime 7.0.0-beta.55
+- added support to Github OAuth
 - update Leaflet 1.3.0
 - tooltip marker over marker
+- plugin stats simplify rest api
+- create new plugin Openrouteservice
 
-## 1.3.0
+## v1.3.0
 - changes *K.templates* definition format
 - support templates plugin custom ordering
 - override templates config by *settings.json*
