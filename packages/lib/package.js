@@ -74,7 +74,7 @@ Package.onUse(function(api) {
     'iron:router@1.1.2',
     'reywood:iron-router-ga@2.0.1',
     //'mrt:modernizr-meteor@2.6.2',
-    'twbs:bootstrap@3.3.7',
+    'twbs:bootstrap@3.3.6',
     'ian:accounts-ui-bootstrap-3@1.2.89',
     'mstn:accounts-openstreetmap@0.2.0',
 
