@@ -1,8 +1,7 @@
-
 Package.describe({
+  version: "1.3.7",
   name: 'keplerjs:base',
   summary: 'keplerjs meta package to include base components',
-  version: "1.3.0",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 

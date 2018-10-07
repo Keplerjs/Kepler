@@ -1,12 +1,11 @@
-
-//TODO https://github.com/jeromeetienne/microevent.js/blob/master/package.json
-
 Package.describe({
+  version: "1.3.7",
 	name: 'keplerjs:lib',
 	summary: 'keplerjs 3rd party packages and libraries',
-  version: "1.3.0",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
+
+//TODO https://github.com/jeromeetienne/microevent.js/blob/master/package.json
   
 Npm.depends({
   "latinize": "0.4.0",
@@ -75,7 +74,7 @@ Package.onUse(function(api) {
     'iron:router@1.1.2',
     'reywood:iron-router-ga@2.0.1',
     //'mrt:modernizr-meteor@2.6.2',
-    'twbs:bootstrap@3.3.6',
+    'twbs:bootstrap@3.3.7',
     'ian:accounts-ui-bootstrap-3@1.2.89',
     'mstn:accounts-openstreetmap@0.2.0',
 

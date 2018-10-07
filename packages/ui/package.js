@@ -1,8 +1,7 @@
-
 Package.describe({
+  version: "1.3.7",
   name: 'keplerjs:ui',
   summary: 'keplerjs plugin base User Interface',
-  version: "1.3.0",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 

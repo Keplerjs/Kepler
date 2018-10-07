@@ -1,7 +1,7 @@
 Package.describe({
+  version: "1.3.7",
   name: "keplerjs:osm",
   summary: "Keplerjs Openstreetmap and Overpass API",
-  version: "1.3.0",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 

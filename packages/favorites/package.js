@@ -1,8 +1,7 @@
-
 Package.describe({
+  version: "1.3.7",
   name: 'keplerjs:favorites',
   summary: 'keplerjs plugin favorites places',
-  version: "1.3.0",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 

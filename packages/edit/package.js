@@ -1,8 +1,7 @@
-
 Package.describe({
+  version: "1.3.7",
   name: 'keplerjs:edit',
   summary: 'keplerjs plugin for edit place informations',
-  version: "1.3.0",
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 

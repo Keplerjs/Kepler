@@ -1,7 +1,7 @@
 Package.describe({
-	name: 'keplerjs:core',
+  version: "1.3.7",
+  name: 'keplerjs:core',
 	summary: "keplerjs Meteor and 3rd party libraries",
-	version: "1.3.0",  
 	git: "https://github.com/Keplerjs/Kepler.git"
 });
 
