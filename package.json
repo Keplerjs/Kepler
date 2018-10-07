@@ -31,10 +31,10 @@
   },
   "homepage": "http://keplerjs.io",
   "dependencies": {
-    "babel-runtime": "^6.26.0",
+    "@babel/runtime": "7.0.0-beta.55",
     "bcrypt": "^2.0.1",
     "core-js": "^2.5.4",
-    "meteor-node-stubs": "^0.3.3",
+    "meteor-node-stubs": "^0.4.1",
     "simple-statistics": "^5.3.1"
   }
 }

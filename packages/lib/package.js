@@ -48,6 +48,7 @@ Package.onUse(function(api) {
 
   var packages = [
     'meteor-base',
+    'underscore',
     'mongo',
     'reactive-var',
     'session',
