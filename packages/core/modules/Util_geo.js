@@ -104,7 +104,7 @@ Kepler.Util.geo = {
 	createFeatureColl: function(ff) {
 		return {
 			"type": "FeatureCollection",
-			"features": ff
+			"features": ff || []
 		};
 	},
 

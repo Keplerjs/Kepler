@@ -66,9 +66,9 @@ keplerjs:googlemaps@1.3.7
 keplerjs:i18n@1.3.7
 keplerjs:lib@1.3.7
 keplerjs:notifs@1.3.7
+keplerjs:openrouteservice@1.3.7
 keplerjs:osm@1.3.7
 keplerjs:pois@1.3.7
-keplerjs:routing@1.3.7
 keplerjs:share@1.3.7
 keplerjs:stats@1.3.7
 keplerjs:theme@1.3.7
