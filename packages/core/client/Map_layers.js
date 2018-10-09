@@ -92,7 +92,7 @@ _.extend(Kepler.Map, {
 
 		layers.geojson = new L.GeoJSON(null, {
 			style: function (feature) {
-				return opts.styles.default;
+				return feature.style || opts.styles.default;
 			},
 			pointToLayer: function(feature, latlng) {	//costruisce marker POI
 
