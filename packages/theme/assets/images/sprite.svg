@@ -14,7 +14,7 @@
    inkscape:export-xdpi="90"
    inkscape:export-filename="/home/z4k/www//images/sprite.png"
    sodipodi:docname="sprite.svg"
-   inkscape:version="0.92.1 r15371"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
    version="1.1"
    id="svg2"
    height="600"
@@ -26,11 +26,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="32.000002"
-     inkscape:cx="102.85174"
-     inkscape:cy="352.70426"
+     inkscape:zoom="2.0000001"
+     inkscape:cx="98.449738"
+     inkscape:cy="392.88393"
      inkscape:document-units="px"
-     inkscape:current-layer="g7744"
+     inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:window-width="1365"
      inkscape:window-height="1010"
@@ -101,6 +101,17 @@
   </sodipodi:namedview>
   <defs
      id="defs4">
+    <linearGradient
+       id="linearGradient4108">
+      <stop
+         style="stop-color:#0078cd;stop-opacity:1"
+         offset="0"
+         id="stop4104" />
+      <stop
+         style="stop-color:#b1deff;stop-opacity:1"
+         offset="1"
+         id="stop4106" />
+    </linearGradient>
     <linearGradient
        id="linearGradient6246"
        inkscape:collect="always">
@@ -19284,6 +19295,26 @@
        y1="912.27008"
        x2="377.1705"
        y2="947.67786" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6839"
+       id="linearGradient4096"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.5137165,0,0,1.5595091,-21.866162,-619.97122)"
+       x1="43.182446"
+       y1="857.24731"
+       x2="51.999405"
+       y2="851.36688" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4108"
+       id="linearGradient4100"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-0.07408595,0,0,0.07237308,120.2574,671.8762)"
+       x1="1025.4833"
+       y1="615.19525"
+       x2="1025.4833"
+       y2="314.16556" />
   </defs>
   <metadata
      id="metadata7">
@@ -23599,6 +23630,22 @@
          id="g7774"
          style="fill:#0078cd;fill-opacity:1" />
     </g>
+    <path
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccssc"
+       id="path4090"
+       d="m 59.043083,714.67763 c -1.804329,2.22748 -7.763531,4.53972 -14.002644,7.62517 -0.101023,-4.58193 -1.067295,-8.34359 0.737052,-10.57106 1.80434,-2.22748 6.236667,-3.37372 9.899841,-2.56024 3.663198,0.81348 5.170098,3.27865 3.365751,5.50613 z"
+       style="fill:url(#linearGradient4096);fill-opacity:1;stroke:none"
+       inkscape:export-filename="/public/images/map-user.png"
+       inkscape:export-xdpi="30.897661"
+       inkscape:export-ydpi="30.897661"
+       inkscape:transform-center-y="-6.9790492"
+       inkscape:transform-center-x="-7.4318972" />
+    <path
+       style="fill:url(#linearGradient4100);fill-opacity:1;stroke:#0078cd;stroke-width:1.4304831;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 45.03125,693.2056 c -6.283606,0 -11.34375,4.98665 -11.34375,11.125 0,6.13832 4.012153,8.50607 11.34375,16.90625 7.331597,-8.40018 11.375,-10.76793 11.375,-16.90625 0,-6.13835 -5.091395,-11.125 -11.375,-11.125 z m 0,6.46875 c 2.416327,0 4.375,1.95867 4.375,4.375 0,2.41632 -1.958673,4.375 -4.375,4.375 -2.416328,0 -4.375,-1.95868 -4.375,-4.375 0,-2.41633 1.958672,-4.375 4.375,-4.375 z"
+       id="path4092"
+       inkscape:connector-curvature="0" />
   </g>
   <style
      id="style6085"

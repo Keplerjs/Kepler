@@ -124,11 +124,13 @@ div.leaflet-marker-icon,
 .marker-active { background-position: -30px -30px;  } 
 .marker-place  { background-position: -30px -60px;  } 
 .marker-gray   { background-position: -30px -90px;  } 
+.marker-red    { background-position: -30px -210px; }
+.marker-blue   { background-position: -30px -240px; }
 
 /* MARKER USERS */
 .marker-profile{ background-position: -30px -300px; } 
-.marker-friend{ background-position: -30px -330px; } 
-.marker-user{ background-position: -30px -330px; } 
+.marker-friend { background-position: -30px -330px; } 
+.marker-user   { background-position: -30px -330px; } 
 
 /* MARKER POIS */
 .marker-geojson{ background-position: -30px -150px; }
