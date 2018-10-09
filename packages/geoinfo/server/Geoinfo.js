@@ -135,8 +135,10 @@ Kepler.Geoinfo = {
 	
 	//TODO add sub property 'geoinfo'
 			prop.dis  = parseInt( dis );
-			prop.len  = parseInt( Math.round( K.Util.geo.linestringLen(geom) ) );
-			prop.time = parseInt( K.Util.geo.timeTrack(prop.len, prop.dis) );
+			
+			prop.len  = prop.len || parseInt( Math.round( K.Util.geo.linestringLen(geom) ) );
+			prop.time = prop.time || parseInt( K.Util.geo.timeTrack(prop.len, prop.dis) );
+
 			prop.start= K.Util.geo.createPoint(p1);
 			prop.end  = K.Util.geo.createPoint(p2);
 		
