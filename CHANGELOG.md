@@ -2,7 +2,8 @@
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
-...
+- support custom style for each feature in K.Map.addGeojson()
+
 
 ## v1.3.7
 - Meteor 1.7.0.5 compatibility
