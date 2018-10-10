@@ -284,9 +284,15 @@ Kepler.Map = {
 	 * @param {Function} cb      [description]
 	 */
 	addGeojson: function(geoData, opts, cb) {
-		opts = opts || {};
+		
 		cb = cb || $.noop;
-		//TODO implement opts.bbox to fitbounds of contents
+		opts = _.defaults(opts || {}, {
+			clear: true,
+			bbox: null,
+			style: null,
+			noFitBounds:false
+		});
+
 		var self = this;
 		if(this.ready()) {
 
@@ -297,7 +303,8 @@ Kepler.Map = {
 
 			this.map.closePopup();
 
-			this.layers.geojson.clearLayers();
+			if(opts.clear)
+				this.layers.geojson.clearLayers();
 
 			for(var i in geoData) {
 				if(geoData[i] && (geoData[i].features || geoData[i].feature))

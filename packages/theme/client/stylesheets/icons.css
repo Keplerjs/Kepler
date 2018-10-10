@@ -126,6 +126,7 @@ div.leaflet-marker-icon,
 .marker-gray   { background-position: -30px -90px;  } 
 .marker-red    { background-position: -30px -210px; }
 .marker-blue   { background-position: -30px -240px; }
+.marker-green  { background-position: -30px -270px; }
 
 /* MARKER USERS */
 .marker-profile{ background-position: -30px -300px; } 
@@ -178,6 +179,10 @@ div.leaflet-marker-icon,
 .icon-arrow-r-blue { background-position: -90px -510px; } 
 .icon-arrow-l-blue { background-position: -90px -540px; }
 .icon-close-blue { background-position: -90px -570px; } 
+
+.icon-play { background-position: -90px -600px; } 
+.icon-stop { background-position: -90px -630px; } 
+
 
 .icon-arrow-r { background-position: -60px -510px; } 
 .icon-arrow-l { background-position: -60px -540px; } 
@@ -240,7 +245,7 @@ div.leaflet-marker-icon,
 .icon-gmap{ background-position: -180px -330px; } 
 
 .icon-kepler{ background-position: -150px -270px; } 
-.icon-goo{ background-position: -150px -300px; } 
+.icon-goo { background-position: -150px -300px; } 
 
 .icon-git { background-position: -180px -360px; } 
 .icon-twit{ background-position: -180px -390px; } 
