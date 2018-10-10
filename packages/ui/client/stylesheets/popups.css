@@ -17,7 +17,7 @@
 }
 .leaflet-popup-content {
 	margin:4px;
-	overflow-x: hidden;
+/*	overflow-x: hidden;*/
 }
 
 .leaflet-popup-content > div {
