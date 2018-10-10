@@ -111,9 +111,12 @@ _.extend(Kepler.Map, {
 
 			},
 			onEachFeature: function (feature, layer) {
+				
 				if(feature && feature.templatePopup && Template[feature.templatePopup]) {
-					var div = L.DomUtil.create('div','popup-geojson');
-					Blaze.renderWithData(Template[feature.templatePopup], feature, div);
+					var div = L.DomUtil.create('div','popup-geojson'),
+						tmpl = Template[feature.templatePopup];
+					
+					Blaze.renderWithData(tmpl, feature, div);
 					layer.bindPopup(div, opts.popup);	
 				}
 			}

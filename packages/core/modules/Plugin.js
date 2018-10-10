@@ -17,10 +17,8 @@ Kepler.Plugin = function(plugin) {
 				for(var placeholder in K.templates) {
 					if(plugin.templates[placeholder]) {
 						
-						//TODO if(!K.templates[placeholder]) continue;
-
-						var tt = K.Plugin.normalizePlacehoders(plugin.templates[placeholder]);
-
+						var tt = K.Plugin.normalizePlacehoders(plugin.templates[placeholder], plugin.name);
+						
 						_.extend(K.templates[placeholder], tt);
 					}
 				}
@@ -48,7 +46,7 @@ Kepler.Plugin = function(plugin) {
  * @param  {[type]} tt [description]
  * @return {[type]}    [description]
  */
-Kepler.Plugin.normalizePlacehoders = function(tt) {
+Kepler.Plugin.normalizePlacehoders = function(tt, plugin) {
 	
 	//TODO add new field 'replace'
 	
@@ -61,6 +59,7 @@ Kepler.Plugin.normalizePlacehoders = function(tt) {
 
 			if(_.isObject(tt[t])) {
 			tt[t]= _.defaults(tt[t], {
+				plugin: plugin,
 				show: true,
 				order: 0
 			});
@@ -105,14 +104,26 @@ Kepler.Plugin.templatesByPlaceholder = function(placeholder, data) {
 if(Meteor.isClient) {
 	Meteor.startup(function() {
 		var sets = K.settings.public.templates;
+
+		for(var placeholder in K.templates) {
+			
+			var tt = K.templates[placeholder];
+
+			for(var t in tt) {
+				if(!Template[t]) {
+					console.warn('Template not exists: "'+t+'", defined in plugin: '+tt[t].plugin)
+					delete tt[t];
+				}
+			}	
+		}
+
 		for(var placeholder in sets) {
 
 			if(!K.templates[placeholder]) continue;
 
-			var tt = K.Plugin.normalizePlacehoders(sets[placeholder]);
-
-			_.extend(K.templates[placeholder], tt);
+			_.extend(K.templates[placeholder], K.Plugin.normalizePlacehoders(sets[placeholder]) );
 		}
+
 	});
 }
 

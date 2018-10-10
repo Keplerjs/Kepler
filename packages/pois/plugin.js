@@ -3,8 +3,7 @@ K.Plugin({
 	name: 'pois',
 	templates: {
 		panelPlace: 'panelPlace_pois',
-		popupPlace: 'popupPlace_pois',
-		popupGeojson: 'popupGeojson_pois',
+		popupPlace: 'popupPlace_pois'
 	},
 	filters: {
 		placePanel: {

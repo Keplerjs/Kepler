@@ -2,9 +2,11 @@
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+- verify existence in plugin templates definition
 - support custom style for each geojson features in K.Map.addGeojson()
 - move features from plugin tracks to geoinfo under new method K.Geoinfo.getTrackInfo()
 - K.Map.addGeojson new option clear
+- remove placeholder popupGeojson
 
 ## v1.3.7
 - Meteor 1.7.0.5 compatibility
@@ -29,12 +31,11 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 - rename plugins: notifs,convers
 
 ## v1.2.4
-
-- Ranamed plugin Conver in Convers
+- renamed plugin Conver in Convers
 - K.Cache support auto expiration cache
 
 ## v1.2.3
-- Verification new user account by email link
+- verification new user account by email link
 
 ## v1.2.2
 - refactoring convers plugin

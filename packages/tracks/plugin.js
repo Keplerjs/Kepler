@@ -3,8 +3,7 @@ K.Plugin({
 	name: 'tracks',
 	templates: {
 		panelPlace: 'panelPlace_tracks',
-		popupPlace: 'popupPlace_tracks',
-		popupGeojson: 'popupGeojson_tracks'
+		popupPlace: 'popupPlace_tracks'
 	},
 	filters: {
 		placePanel: {

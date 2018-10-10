@@ -12,7 +12,6 @@ Kepler.templates = {
 	popupPlace: {},
 	popupUser: {},
 	popupCursor: {},
-	popupGeojson: {},
 	markerCursor: {},
 	markerPlace: {},	
 	markerUser: {},
