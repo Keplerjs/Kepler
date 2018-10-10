@@ -1,18 +1,11 @@
-/*
-	Module for main map
-
-	//TODO include Leaflet.GeometryUtil
-
-	//jsdoc: https://github.com/spadgos/sublime-jsdocs
-*/
 /**
- * [Map description]
+ * Kepler.Map module
  * @type {Object}
  */
 Kepler.Map = {
 	/**
-	 * [map description]
-	 * @type {[type]}
+	 * Leflet map instance
+	 * @type {L.Map}
 	 */
 	map: null,
 	options: {},
@@ -25,9 +18,9 @@ Kepler.Map = {
 		bbox: new Tracker.Dependency()
 	},
 	/**
-	 * [ready description]
-	 * @param  {[type]} val [description]
-	 * @return {[type]}     [description]
+	 * return map rendering status
+	 * @param  {Boolean} val [description]
+	 * @return {Boolean}     [description]
 	 */
 	ready: function(val) {
 		if(!_.isUndefined(val))
@@ -35,11 +28,11 @@ Kepler.Map = {
 		return this._deps.ready.get();
 	},
 	/**
-	 * [init description]
-	 * @param  {[type]}   div  [description]
-	 * @param  {[type]}   opts [description]
+	 * initialization method
+	 * @param  {String}   div  [description]
+	 * @param  {Object}   opts [description]
 	 * @param  {Function} cb   [description]
-	 * @return {[type]}        [description]
+	 * @return {K.Map}        [description]
 	 */
 	init: function(div, opts, cb) {
 
@@ -91,8 +84,8 @@ Kepler.Map = {
 		return this;
 	},
 	/**
-	 * [setOpts description]
-	 * @param {[type]} options [description]
+	 * set map options ad runtime
+	 * @param {Object} options [description]
 	 */
 	setOpts: function(options) {
 		if(this.ready()) {
@@ -115,8 +108,8 @@ Kepler.Map = {
 		return opts;
 	},
 	/**
-	 * [destroy description]
-	 * @return {[type]} [description]
+	 * destroy K.Map instance
+	 * @return {K.Map} [description]
 	 */
 	destroy: function() {
 
@@ -138,7 +131,6 @@ Kepler.Map = {
 		}
 		return this;
 	},
-
 	_addComponents: function() {
 		for(var l in this.layers)
 			this.map.addLayer(this.layers[l]);
@@ -147,7 +139,7 @@ Kepler.Map = {
 			this.map.addControl(this.controls[c]);
 	},
 	/**
-	 * [isVisible description]
+	 * visible status of map under sidebar
 	 * @return {Boolean} [description]
 	 */
 	isVisible: function() {
@@ -160,9 +152,9 @@ Kepler.Map = {
 		return viewportW > 40;
 	},
 	/**
-	 * [setView description]
-	 * @param {[type]} loc  [description]
-	 * @param {[type]} zoom [description]
+	 * setView of map considering the sidebar
+	 * @param {Array} loc  [description]
+	 * @param {K.Map} zoom [description]
 	 */
 	setView: function(loc, zoom) {
 		if(this.ready()) {
@@ -177,9 +169,9 @@ Kepler.Map = {
 		return this;
 	},
 	/**
-	 * [fitBounds description]
-	 * @param  {[type]} bbox [description]
-	 * @return {[type]}      [description]
+	 * fitBounds considering the sidebar
+	 * @param  {Array} bbox [description]
+	 * @return {K.Map}      [description]
 	 */
 	fitBounds: function(bbox) {
 		if(this.ready() && bbox.isValid()) {
@@ -192,7 +184,7 @@ Kepler.Map = {
 	},
 	/**
 	 * get current bounding box of map
-	 * @return {[Array,Array]} "[[sw.lat, sw.lng], [ne.lat, ne.lng]]"
+	 * @return {Array} "[[sw.lat, sw.lng], [ne.lat, ne.lng]]"
 	 */
 	getBBox: function() {
 		if(this.ready()) {
@@ -238,9 +230,9 @@ Kepler.Map = {
 		return this;
 	},
 	/**
-	 * [removeItem description]
-	 * @param  {[type]} item [description]
-	 * @return {[type]}      [description]
+	 * remove Kepler Users/Places from map
+	 * @param  {K.User|K.Place} item [description]
+	 * @return {K.Map}      [description]
 	 */
 	removeItem: function(item) {
 		if(this.ready()) {
@@ -270,17 +262,17 @@ Kepler.Map = {
 		return this;
 	},
 	/**
-	 * [cleanGeojson description]
-	 * @return {[type]} [description]
+	 * clean Geojson layer
+	 * @return {K.Map} [description]
 	 */
 	cleanGeojson: function() {
 		this.layers.geojson.clearLayers();
 		return this;
 	},
 	/**
-	 * [addGeojson description]
-	 * @param {[type]}   geoData [description]
-	 * @param {[type]}   opts    [description]
+	 * add data to Geojson layer
+	 * @param {Object}   geoData [description]
+	 * @param {Object}   opts    [description]
 	 * @param {Function} cb      [description]
 	 */
 	addGeojson: function(geoData, opts, cb) {
@@ -334,22 +326,24 @@ Kepler.Map = {
 	},
 	/**
 	 * hide cursor from map
-	 * @return {[type]} [description]
+	 * @return {K.Map} [description]
 	 */
 	hideCursor: function() {
 		this.layers.cursor.hide();
+		return this;
 	},
 	/**
 	 * show cursor on map
-	 * @param  {[type]} loc [description]
-	 * @return {[type]}     [description]
+	 * @param  {Array} loc [description]
+	 * @return {K.Map} [description]
 	 */
 	showCursor: function(loc) {
-		this.layers.cursor.setLoc(loc)
+		this.layers.cursor.setLoc(loc);
+		return this;
 	},
 	/**
 	 * return current location of map cursor or null if it's hidden
-	 * @return {[Array]} location as array [lat,lng]
+	 * @return {Array} location as array [lat,lng]
 	 */
 	getCursorLoc: function() {
 		var loc;
