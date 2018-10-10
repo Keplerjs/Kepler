@@ -141,9 +141,6 @@ Kepler.Geoinfo = {
 
 			prop.start= K.Util.geo.createPoint(p1);
 			prop.end  = K.Util.geo.createPoint(p2);
-		
-			delete prop.relations;
-			delete prop.meta;
 		}
 
 		return prop;

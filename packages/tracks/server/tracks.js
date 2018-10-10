@@ -11,6 +11,10 @@ Tracks.before.upsert(function(trackId, selector, modifier) {
 
 	track.properties.createdAt = K.Util.time();
 	
+	//clean osm tags
+	delete track.properties.relations;
+	delete track.properties.meta;
+	
 	//Tracks.update(doc._id, track);
 	console.log('Tracks: update properties', track.id);
 
