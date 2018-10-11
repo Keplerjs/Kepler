@@ -22,6 +22,8 @@ keplerjs:notifs
 keplerjs:pois
 keplerjs:tracks
 
+keplerjs:categories
+
 #keplerjs:robots
 keplerjs:wunderground
 keplerjs:googlemaps

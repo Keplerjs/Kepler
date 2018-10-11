@@ -2,10 +2,44 @@
 K.Plugin({
 	name: 'categories',
 	templates: {
-		panelSettings: 'panelSettings_cats',
-		panelPlace: 'panelPlace_cats',
-		panelUser: 'panelUser_cats',
-		markerPlace: 'markerPlace_cats',
+		//TODO panelSettings: 'panelSettings_cats',
+		//TODO panelUser: 'panelUser_cats',
+		//markerPlace: 'markerPlace_cats',
+		//markerUser: 'markerUser_cats',
+		panelPlace: {
+			'panelPlace_cats': {order: -5 } //after share plugin
+		}
+	},
+	settings: {
+		"public": {
+			"categories": {
+				//examples of cats
+				"editable": false,
+				"cats": {
+					"place": [
+						"bus",
+						"car",
+						"house",
+						"office",
+						"market",
+						"parking",
+					],
+					"user": [
+						"person",
+						"animal",
+						"robot",
+					]
+				}
+			}
+		}
+	},
+	schemas: {
+		place: {
+			cats: []
+		},
+		user: {
+			cats: []
+		}		
 	},
 	filters: {
 		currentUser: {
@@ -38,13 +72,5 @@ K.Plugin({
 				cats: 1
 			}
 		}
-	},
-	schemas: {
-		place: {
-			cats: []
-		},
-		user: {
-			cats: []
-		}		
 	}
 });

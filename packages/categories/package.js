@@ -23,10 +23,11 @@ Package.onUse(function(api) {
     'i18n/de.js',
     'i18n/es.js',
     'i18n/fr.js',
-    'modules/Cats.js'
+    'i18n/sv.js',
   ]);
 
   api.addFiles([
+    'client/Place_cats.js',
     'client/views/panels/place.html',
     'client/views/panels/place.js',
     'client/views/panels/user.html',
@@ -34,5 +35,9 @@ Package.onUse(function(api) {
     'client/views/panels/settings.html',
     'client/views/panels/settings.js'
   ],'client');
+
+  api.addFiles([
+    'server/places.js',
+  ],'server');
 
 });
