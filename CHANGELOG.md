@@ -2,11 +2,14 @@
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+- new plugin categories work
 - verify existence in plugin templates definition
 - support custom style for each geojson features in K.Map.addGeojson()
 - move features from plugin tracks to geoinfo under new method K.Geoinfo.getTrackInfo()
 - K.Map.addGeojson new option clear
 - remove placeholder popupGeojson
+- added K.Place attribute classMarker
+
 
 ## v1.3.7
 - Meteor 1.7.0.5 compatibility
