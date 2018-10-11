@@ -32,6 +32,7 @@ Kepler.Place = Class.extend({
 	templatePopup: 'popupPlace',
 	templateTooltip: 'tooltipPlace',
 	templateMarker: 'markerPlace',
+	classMarker: '',
 	data: {},
 	
 	init: function(placeId) {
