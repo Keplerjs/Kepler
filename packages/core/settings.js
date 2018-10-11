@@ -57,8 +57,8 @@ Kepler.settings = {
 				"minWidth": 120
 			},
 			"tooltip": {
-				direction:'auto',
-				sticky:true
+				"direction": "auto",
+				"sticky": true
 			},
 			"icon": {
 				"iconSize": [30, 30],
@@ -97,7 +97,7 @@ Kepler.settings = {
 	},
 	"accounts": {
 		"creation": true,
-		"verifyEmail": false,	
+		"verifyEmail": false,
 		"emailTemplates": {
 			"from": "Admin <no-reply@example.com>"
 		}
