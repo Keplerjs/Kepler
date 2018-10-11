@@ -13,8 +13,8 @@ Kepler.Place.include({
 	},
 	
 	removeCats: function(cats) {
-		Meteor.call('addCatsToPlace', this.id, cats, function(err, cats) {
-			console.log('addCatsToPlace',err,cats);
+		Meteor.call('removeCatsFromPlace', this.id, cats, function(err, cats) {
+			console.log('removeCatsFromPlace',err,cats);
 		});
 	}
 });
