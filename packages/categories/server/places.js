@@ -7,13 +7,19 @@ Meteor.methods({
 		
 		cats = _.isArray(cats) ? cats : [cats];
 
-		Places.update(placeId, { $addToSet: {'cats': {$each: cats} } });
+		var placeData = Places.findOne(placeId),
+			placeCats = placeData.cats;
 
-		var placeCats = Places.findOne(placeId, {
-			fields: {_id:0, cats:1}
-		});
+		if(placeData.userId === this.userId) {
 
-		console.log('Cats: addCatsToPlace', placeId);
+			Places.update(placeId, { $addToSet: {'cats': {$each: cats} } });
+
+			placeCats = Places.findOne(placeId, {
+				fields: {_id:0, cats:1}
+			}).cats;
+
+			console.log('Cats: addCatsToPlace', placeId);
+		}
 
 		return placeCats;
 	},
@@ -24,9 +30,21 @@ Meteor.methods({
 		//
 		cats = _.isArray(cats) ? cats : [cats];
 
-		Places.update(placeId, { $pull: {'cats':  {$in: cats} } });
+		var placeData = Places.findOne(placeId),
+			placeCats = placeData.cats;
 
-		console.log('Cats: removeCatsFromPlace', placeId);
+		if(placeData.userId === this.userId) {
+
+			Places.update(placeId, { $pull: {'cats':  {$in: cats} } });
+			
+			placeCats = Places.findOne(placeId, {
+				fields: {_id:0, cats:1}
+			}).cats;
+
+			console.log('Cats: removeCatsFromPlace', placeId);
+		}
+
+		return placeCats;
 	},
 	cleanCatsFromPlace: function(placeId, cats) {
 		if(!this.userId) return null;
