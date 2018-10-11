@@ -9,7 +9,7 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 - K.Map.addGeojson new option clear
 - remove placeholder popupGeojson
 - added K.Place attribute classMarker
-
+- marker cursor is draggable
 
 ## v1.3.7
 - Meteor 1.7.0.5 compatibility

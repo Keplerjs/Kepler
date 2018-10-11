@@ -5,7 +5,6 @@ L.Cursor = L.Layer.extend({
 	
 	options: {
 		className: 'leaflet-div-icon',
-
 	},	
 
 	initialize: function(options) {
@@ -14,8 +13,11 @@ L.Cursor = L.Layer.extend({
 			nodeHtml: L.DomUtil.create('div')
 		});
 		this.marker = L.marker([0,0], {
+			draggable: true,
 			icon: this.icon
-		});
+		}).on('moveend', function(e) {
+			this.openPopup();
+		})
 	},
 	onAdd: function(map) {
 		this._map = map;		

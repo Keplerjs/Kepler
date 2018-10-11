@@ -9,7 +9,6 @@ Template.popupCursor_share.onRendered(function() {
 	})
 });
 
-
 Template.popupCursor_share.events({
 	'click .btn-share': function(e,tmpl) {
 		e.preventDefault();
