@@ -6,6 +6,14 @@ Kepler.Place.include({
 		return this.cats || [];
 	},
 
+	classMarker: function() {
+		this._dep.depend();
+
+		return _.map(this.cats, function(c) {
+			return 'cats-place-'+c;
+		}).join(' ');
+	},
+
 	addCats: function(cats) {
 		Meteor.call('addCatsToPlace', this.id, cats, function(err, cats) {
 			console.log('addCatsToPlace',err,cats);

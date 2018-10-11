@@ -4,10 +4,8 @@ K.Plugin({
 	templates: {
 		//TODO panelSettings: 'panelSettings_cats',
 		//TODO panelUser: 'panelUser_cats',
-		//markerPlace: 'markerPlace_cats',
-		//markerUser: 'markerUser_cats',
 		panelPlace: {
-			'panelPlace_cats': {order: -5 } //after share plugin
+			'panelPlace_cats': {order: -5 } //render after share plugin
 		}
 	},
 	settings: {
