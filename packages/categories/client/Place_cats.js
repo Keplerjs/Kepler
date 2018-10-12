@@ -7,10 +7,10 @@ Kepler.Place.include({
 	},
 
 	classMarker: function() {
-		this._dep.depend();
+		//this._dep.depend();
 
-		return _.map(this.cats, function(c) {
-			return 'cats-place-'+c;
+		return _.map(this.getCats(), function(c) {
+			return 'cat-place-'+c;
 		}).join(' ');
 	},
 
