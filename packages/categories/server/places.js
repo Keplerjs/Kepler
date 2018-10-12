@@ -1,11 +1,12 @@
 
+
 Meteor.methods({
 	addCatsToPlace: function(placeId, cats) {
 		if(!this.userId) return null;
 		
 		//TODO check user is owner
 		
-		cats = _.isArray(cats) ? cats : [cats];
+		cats = K.Cats.sanitize(cats);
 
 		var placeData = Places.findOne(placeId),
 			placeCats = placeData.cats;

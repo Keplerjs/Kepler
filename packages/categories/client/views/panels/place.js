@@ -13,9 +13,17 @@ Template.panelPlace_cats.helpers({
 Template.panelEdit_cats.helpers({
 	allCats: function() {
 		
-		var placeCats = this.getCats();
+		var placeCats = this.getCats(),
+			activeCats = [];
 
-		return _.map(K.settings.public.categories.cats.place, function(c) {
+		_.each(K.settings.public.categories.cats.place, function(v,k) {
+			if(v){
+				activeCats.push(k);
+			}
+		});
+
+		return _.map(activeCats, function(c) {
+			//console.log(c)
 			return {
 				val: c,
 				name: c,//i18n('label_ors_'+p),

@@ -12,22 +12,19 @@ K.Plugin({
 	settings: {
 		"public": {
 			"categories": {
-				//examples of cats
-				"editable": false,
+				//TODO "editable": false,
 				"cats": {
-					"place": [
-						"bus",
-						"car",
-						"house",
-						"office",
-						"market",
-						"parking",
-					],
-					"user": [
-						"person",
-						"animal",
-						"robot",
-					]
+					"place": {
+						"bus": true,
+						"car": true,
+						"house": true,
+						"parking": true,
+					},
+					"user": {
+						"person": true,
+						"animal": true,
+						"robot": true,
+					}
 				}
 			}
 		}

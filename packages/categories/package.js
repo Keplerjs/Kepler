@@ -25,6 +25,7 @@ Package.onUse(function(api) {
     'i18n/es.js',
     'i18n/fr.js',
     'i18n/sv.js',
+    'modules/Cats.js'
   ]);
 
   api.addFiles([

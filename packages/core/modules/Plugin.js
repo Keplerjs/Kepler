@@ -35,8 +35,9 @@ Kepler.Plugin = function(plugin) {
 			if(_.isObject(plugin.schemas))
 				_.deepExtend(K.schemas, plugin.schemas);
 
-			if(_.isObject(plugin.settings))
+			if(_.isObject(plugin.settings)){
 				_.deepExtend(K.settings, plugin.settings);
+			}
 
 			this.plugins[plugin.name] = plugin;
 		}
