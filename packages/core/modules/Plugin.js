@@ -11,9 +11,14 @@ Kepler.Plugin = function(plugin) {
 	if(plugin && _.isString(plugin.name) && plugin.name!=='')
 	{
 		if(!this.plugins[plugin.name]) {
-		
+
 			if(_.isObject(plugin.templates)) {
-				//TODO loop in plugin.templates
+
+				for(var placeholder in plugin.placeholders) {
+					if(plugin.placeholders[placeholder] && !K.templates[placeholder])
+						K.templates[placeholder]= {};
+				}
+		
 				for(var placeholder in K.templates) {
 					if(plugin.templates[placeholder]) {
 						

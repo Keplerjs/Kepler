@@ -1,6 +1,9 @@
 
 K.Plugin({
 	name: 'edit',
+	placeholders: {
+		panelEdit: true
+	},
 	templates: {
 		panelProfile: 'panelProfile_edit',
 		panelPlace: 'panelPlace_edit',

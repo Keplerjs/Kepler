@@ -6,7 +6,8 @@ K.Plugin({
 		//TODO panelUser: 'panelUser_cats',
 		panelPlace: {
 			'panelPlace_cats': {order: -5 } //render after share plugin
-		}
+		},
+		panelEdit: 'panelEdit_cats'
 	},
 	settings: {
 		"public": {

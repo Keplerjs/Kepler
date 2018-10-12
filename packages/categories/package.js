@@ -11,6 +11,7 @@ Package.onUse(function(api) {
 
   var packages = [
     'keplerjs:core',
+    'keplerjs:edit',
   ];
 
   api.use(packages);

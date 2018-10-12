@@ -9,3 +9,19 @@
 		</div>
 	</div>
 </template>
+
+<template name="panelEdit_cats">	
+	<div class="form-group">
+		<label>{{i18n 'label_cats_place'}}</label>
+		<div class="clearfix">
+			<div id="cats_edit" class="btn-group" data-toggle="buttons">
+			{{#each allCats}}
+				<label class="btn btn-xs btn-default {{#if active}} active {{/if}}">
+				<input name="cats" type="checkbox" checked="{{active}}" value="{{val}}" class="form-control" />
+				{{name}}
+				</label>
+			{{/each}}
+			</div>
+		</div>
+	</div>
+</template>

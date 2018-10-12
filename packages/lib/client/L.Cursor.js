@@ -13,11 +13,11 @@ L.Cursor = L.Layer.extend({
 			nodeHtml: L.DomUtil.create('div')
 		});
 		this.marker = L.marker([0,0], {
-			draggable: true,
+			//TODO draggable: true,
 			icon: this.icon
-		}).on('moveend', function(e) {
+		});/*.on('dragend', function(e) {
 			this.openPopup();
-		})
+		})*/
 	},
 	onAdd: function(map) {
 		this._map = map;		

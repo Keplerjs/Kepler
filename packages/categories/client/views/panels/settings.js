@@ -12,7 +12,7 @@ Template.panelSettings_cats.helpers({
 });
 
 Template.panelSettings_cats.events({
-	'change #cats input': function(e) {
+	'change #cats input': _.debounce(function(e) {
 		var val = $(e.currentTarget).val(),
 			liked = $(e.currentTarget).is(':checked');
 
@@ -20,5 +20,5 @@ Template.panelSettings_cats.events({
 			Users.update(Meteor.userId(), { $pull: {'cats': val } });
 		else
 			Users.update(Meteor.userId(), { $addToSet: {'cats': val } });
-	},
+	}, 300)
 });
