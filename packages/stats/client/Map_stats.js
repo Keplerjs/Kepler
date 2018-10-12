@@ -16,13 +16,7 @@ Tracker.autorun(function(comp) {
 					})
 				});
 			},
-			style: {
-				weight:2,
-				opacity:0.8,
-				fillOpacity:0.8,
-				fillColor:'#9c0',
-				color:'#7a0'
-			}
+			style: K.settings.public.stats.mapStyle
 		});
 
 		K.Map.map.on('zoomend', function(e) {
