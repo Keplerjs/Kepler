@@ -250,7 +250,8 @@ div.leaflet-marker-icon,
 .icon-twit{ background-position: -180px -390px; } 
 .icon-face{ background-position: -180px -420px; } 
 .icon-medi{ background-position: -180px -450px; } 
-.icon-thum{ background-position: -180px -480px; } 
+.icon-gplus{ background-position:-180px -480px; } 
+.icon-mail{ background-position: -180px -510px; } 
 
 .icon-lang-it{ background-position: -210px 0;      } 
 .icon-lang-fr{ background-position: -210px -30px;  }
