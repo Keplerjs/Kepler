@@ -1,6 +1,8 @@
 
 <template name="popupPlace_conver">
 	{{#if conversCount}}
-		<a class="btn btn-sm btn-default" href="/place/{{id}}/convers"><i class="icon icon-mes"></i></a>
+		<a class="btn btn-sm btn-default" href="/place/{{id}}/convers" title="{{i18n 'btn_convers'}}">
+			<i class="icon icon-mes"></i>
+		</a>
 	{{/if}}
 </template>
