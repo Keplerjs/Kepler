@@ -61,7 +61,7 @@ Package.onUse(function(api) {
     'service-configuration',
     'accounts-base',
     'accounts-password',
-    'accounts-ui-unstyled',
+    'accounts-ui',
     
     'accounts-oauth',
     'accounts-facebook',
