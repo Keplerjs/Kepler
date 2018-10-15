@@ -31,6 +31,7 @@ Kepler.User = Class.extend({
 	templatePanel: 'panelPlace',	
 	templatePopup: 'popupUser',
 	templateMarker: 'markerUser',
+	classMarker: '',
 	data: {},
 	
 	init: function(userId) {
