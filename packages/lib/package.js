@@ -1,5 +1,5 @@
 Package.describe({
-  version: "1.3.7",
+  version: "1.4.0",
 	name: 'keplerjs:lib',
 	summary: 'keplerjs 3rd party packages and libraries',
   git: "https://github.com/Keplerjs/Kepler.git"
@@ -61,6 +61,8 @@ Package.onUse(function(api) {
     'service-configuration',
     'accounts-base',
     'accounts-password',
+    'accounts-ui-unstyled',
+    
     'accounts-oauth',
     'accounts-facebook',
     'accounts-google',
@@ -75,7 +77,8 @@ Package.onUse(function(api) {
     'reywood:iron-router-ga@2.0.1',
     //'mrt:modernizr-meteor@2.6.2',
     'twbs:bootstrap@3.3.6',
-    'ian:accounts-ui-bootstrap-3@1.2.89',
+    //'ian:accounts-ui-bootstrap-3@1.2.89',
+    //TODO https://github.com/bogdanlungu/meteor-accounts-ui-bootstrap-4
     'mstn:accounts-openstreetmap@0.2.0',
 
     'nooitaf:colors@1.1.2_1',	//https://www.npmjs.com/package/colors

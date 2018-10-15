@@ -75,6 +75,7 @@ Kepler.settings = {
 			}
 		},
 		"accounts": {
+			"creation": true,
 			"ui": {
 				"passwordSignupFields": "USERNAME_AND_OPTIONAL_EMAIL"
 				//https://docs.meteor.com/api/accounts.html#Accounts-ui-config
@@ -96,7 +97,6 @@ Kepler.settings = {
 		}
 	},
 	"accounts": {
-		"creation": true,
 		"verifyEmail": false,
 		"emailTemplates": {
 			"from": "Admin <no-reply@example.com>"

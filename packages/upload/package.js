@@ -1,5 +1,5 @@
 Package.describe({
-  version: "1.3.7",
+  version: "1.4.0",
   name: 'keplerjs:upload',
   summary: 'keplerjs plugin for files upload',
   git: "https://github.com/Keplerjs/Kepler.git"

@@ -1,4 +1,5 @@
 
+#login-link-and-dropdown-list,
 #login-dropdown-list {
 	position: static;
 	background: none;
@@ -12,6 +13,17 @@
 	text-align: center;
 	list-style: none;
 }
+#login-link-and-dropdown-list > a.login-link-text:first-child,
+.login-link-and-dropdown-list > a.login-link-text:first-child,
+#login-dropdown-list .login-close-text {
+	display: none;
+}
+
+.no-accounts-creation .or,
+.no-accounts-creation .login-text-and-button {
+	display: none;
+}
+/*
 #login-dropdown-list .dropdown-menu {
 	margin: 0 10px;
 	border-radius: 8px;	
@@ -37,26 +49,11 @@
 	overflow: hidden;
 }
 
-/*.login-buttons-dropdown-align-right#login-buttons + li .dropdown-menu {
-	float: none;
-	right: auto;
-	margin: 10px auto;
-	overflow: hidden;
-	height: auto;
-	box-shadow: none;
-	border-radius: 8px;
-}
-*/
-
 #login-dropdown-list .dropdown-toggle {
 	display: none;
 }
-
-/*button.configure-button {
-	display: none;
-}*/
-
 .login-button.btn.btn-block.btn-GitHub {
 	background-color: #444;
 	color: #fff;
 }
+*/

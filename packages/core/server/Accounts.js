@@ -1,10 +1,11 @@
 /*
 	https://docs.meteor.com/api/accounts-multi.html#AccountsCommon-config
 */
+
 Meteor.startup(function() {	
+
 	Accounts.config({
-		sendVerificationEmail: K.settings.accounts.verifyEmail,
-		forbidClientAccountCreation: !K.settings.accounts.creation
+		sendVerificationEmail: K.settings.accounts.verifyEmail
 	});
 
 	var services = [];

@@ -8,7 +8,20 @@
                 "transport": "https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey=<YOUR API KEY>"
             }
 		},
-		"<REMOVE IT FOR WORK>templates": {
+		"accounts": {
+	        "creation":true
+        },
+		"categories": {
+			"cats": {
+				"place": {
+					"car": true,
+					"house": true,
+					"bus": false,
+					"parking": false
+				}
+			}
+		},
+		"templates": {
 			"panelPlace": {
 				"panelPlace_edit": false,
 				"popupCursor_share": false,

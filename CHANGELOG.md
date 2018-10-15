@@ -1,8 +1,14 @@
 
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
+
 ## Next version
+...
+
+## v1.4.0
 - new plugin categories work
+- new option settings.public.accounts.creation to disable all signup ways
+- use accounts-ui-unstyled instead ian:accounts-ui-bootstrap-3
 - verify existence in plugin templates definition
 - support custom style for each geojson features in K.Map.addGeojson()
 - move features from plugin tracks to geoinfo under new method K.Geoinfo.getTrackInfo()

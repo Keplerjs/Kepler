@@ -1,5 +1,5 @@
 Package.describe({
-  version: "1.3.7",
+  version: "1.4.0",
   name: 'keplerjs:i18n',
   summary: 'keplerjs Internationalization package',
   git: "https://github.com/Keplerjs/Kepler.git"
