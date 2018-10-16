@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "meteor",
+    "check_versions": "packagecheck",
     "publish_packages": "cd private && ./publish_packages.sh"
   },
   "keywords": [
@@ -34,7 +35,11 @@
     "@babel/runtime": "7.0.0-beta.55",
     "bcrypt": "^2.0.1",
     "core-js": "^2.5.4",
+    "fibers": "^3.0.0",
     "meteor-node-stubs": "^0.4.1",
     "simple-statistics": "^5.3.1"
+  },
+  "devDependencies": {
+    "packagecheck": "^0.2.1"
   }
 }
