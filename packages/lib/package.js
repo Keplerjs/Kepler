@@ -1,5 +1,5 @@
 Package.describe({
-  version: "1.4.0",
+  version: "1.4.1",
 	name: 'keplerjs:lib',
 	summary: 'keplerjs 3rd party packages and libraries',
   git: "https://github.com/Keplerjs/Kepler.git"

@@ -1,5 +1,5 @@
 Package.describe({
-  version: "1.4.0",
+  version: "1.4.1",
   name: 'keplerjs:ui',
   summary: 'keplerjs plugin base User Interface',
   git: "https://github.com/Keplerjs/Kepler.git"
@@ -17,7 +17,7 @@ Package.onUse(function(api) {
   api.versionsFrom("1.5.1");
   
   api.use([
-    'keplerjs:core',
+    'keplerjs:core@1.4.1',
   ]);
 
   api.addFiles(globsync('client/**/*.*'), 'client');

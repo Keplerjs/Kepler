@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for d in ../packages/keplerjs* ; do
+for d in ../packages/* ; do
   
   #name=$(echo "$d"|tr '-' ':'|cut -d'/' -f3)
   
