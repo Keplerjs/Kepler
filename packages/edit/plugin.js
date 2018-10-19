@@ -1,10 +1,10 @@
 
 K.Plugin({
 	name: 'edit',
-	placeholders: {
-		panelEdit: true
-	},
 	templates: {
+		panelEdit: {},
+		//create new placeholder used from other plugins
+		//
 		panelProfile: 'panelProfile_edit',
 		panelPlace: 'panelPlace_edit',
 		panelUser: 'panelUser_edit',
@@ -23,7 +23,7 @@ K.Plugin({
 			fields: {
 				places:1
 			}
-		},		
+		},
 		placePanel: {
 			fields: {
 				userId:1

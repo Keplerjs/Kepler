@@ -3,7 +3,6 @@
 
 	use settings.json in root application having the same structure to overwrite the following values
 */
-
 Meteor.startup(function() {
 	_.deepExtend(K.settings, Meteor.settings);
 	//TODO uncomment when exists a 'debug mode'

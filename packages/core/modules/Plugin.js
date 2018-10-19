@@ -14,8 +14,8 @@ Kepler.Plugin = function(plugin) {
 
 			if(_.isObject(plugin.templates)) {
 
-				for(var placeholder in plugin.placeholders) {
-					if(plugin.placeholders[placeholder] && !K.templates[placeholder])
+				for(var placeholder in plugin.templates) {
+					if(plugin.templates[placeholder] && !K.templates[placeholder])
 						K.templates[placeholder]= {};
 				}
 		
@@ -79,7 +79,7 @@ Kepler.Plugin.normalizePlacehoders = function(tt, plugin) {
 Kepler.Plugin.templatesByPlaceholder = function(placeholder, data) {
 	var tmpls = [], sorts = [];
 
-	if(!placeholder) return tmpls;
+	if(!placeholder || !Template[placeholder]) return tmpls;
 
 	for(var parentName in K.templates) {
 
