@@ -3,7 +3,8 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 
 ## Next version
-...
+- public plugins in atmospherejs.com
+- simplify K.Plugin config for define new custom template placeholders
 
 ## v1.4.0
 - new plugin categories work
