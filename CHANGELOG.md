@@ -4,6 +4,10 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 ## Next version
 - ...
 
+## v1.4.7
+- remove globsync from all plugins
+- fix all addAssets adn addFiles in plugins
+
 ## v1.4.1
 - published all plugins in atmospherejs.com
 - simplified version management in plugins
