@@ -16,7 +16,7 @@ var urls = {
 
 function writeOut(req, res, out) {
 	
-	console.log('Api:', req.url);
+	console.log('Api:', req.url, out);
 	
 	if(out) {
 		res.writeHead(200, {
@@ -26,7 +26,7 @@ function writeOut(req, res, out) {
 		res.writeHead(400, {
 			'Content-type': 'application/json'
 		});
-		out = {'error': 'Bad Request'};
+		out = {'error': 'Not Found'};
 	}
 
 	res.end( JSON.stringify(out) );
@@ -49,9 +49,7 @@ Router.route(urls.root, opts)
 Router.route(urls.place, opts)
 .get(function (req, res) {
 
-	var out = Places.findOne({name: this.params.name }, K.filters.placeItem);
-
-	delete out.loc;
+	var out = Places.findOne({name: this.params.name }, K.filters.placeItemApi);
 
 	writeOut(req, res, out);
 });

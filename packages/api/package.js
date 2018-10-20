@@ -13,6 +13,10 @@ Package.onUse(function (api) {
     'keplerjs:core',
     //TODO use https://github.com/kahmali/meteor-restivus
   ]);
+  
+  api.addFiles([
+    'plugin.js',
+  ]);
 
   api.addFiles([
     'server/router.js',
