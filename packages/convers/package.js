@@ -1,11 +1,16 @@
+var version = '1.4.1';
+
 Package.describe({
-  version: "1.4.0",
+  version: version,
   name: 'keplerjs:convers',
   summary: 'keplerjs plugin conversations and messages',
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
 Package.onUse(function(api) {
+  api.use([
+    'keplerjs:core@'+version,
+  ]);
 
   var globsync = function(e){
     var pkg = 'convers',
@@ -19,10 +24,6 @@ Package.onUse(function(api) {
   api.use([
     'verron:autosize@3.0.8'
   ],'client');
-
-  api.use([
-    'keplerjs:core',
-  ]);
 
   api.addFiles([
     'plugin.js',

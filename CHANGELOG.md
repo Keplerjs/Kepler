@@ -1,10 +1,15 @@
 
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
-
 ## Next version
-- public plugins in atmospherejs.com
+- ...
+
+## v1.4.1
+- published all plugins in atmospherejs.com
+- simplified version management in plugins
 - simplify K.Plugin config for define new custom template placeholders
+- fix api plugin routes
+- fix robots plugin avatars
 
 ## v1.4.0
 - new plugin categories work

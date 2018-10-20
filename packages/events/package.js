@@ -1,17 +1,18 @@
+var version = '1.4.1';
+
 Package.describe({
-  version: "1.4.0",
+  version: version,
   name: 'keplerjs:events',
   summary: 'keplerjs plugin events',
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
 Package.onUse(function(api) {
-
-  api.versionsFrom("1.5.1");
-  
   api.use([
-    'keplerjs:core',
+    'keplerjs:core@'+version,
   ]);
+  
+  api.versionsFrom("1.5.1");
 
   api.addFiles([
     'plugin.js',

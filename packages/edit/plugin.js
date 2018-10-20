@@ -12,6 +12,7 @@ K.Plugin({
 	},
 	schemas: {
 		place: {
+			//TODO editedAt: '',//last edit date
 			userId: null   //user creator of place
 		},
 		user: {

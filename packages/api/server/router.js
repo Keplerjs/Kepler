@@ -1,5 +1,6 @@
 //https://github.com/mondora/mondora-iron-router-rest-auth/
-
+//TODO use https://github.com/kahmali/meteor-restivus
+//
 var urls = {
 		root: '/api',
 		place: '/api/place/:name',

@@ -1,5 +1,7 @@
+var version = '1.4.1';
+
 Package.describe({
-  version: "1.4.0",
+  version: version,
   name: 'keplerjs:stats',
 	summary: 'keplerjs plugin statistics data',
 	git: "https://github.com/Keplerjs/Kepler.git"
@@ -10,12 +12,11 @@ Npm.depends({
 });
 
 Package.onUse(function(api) {
+  api.use([
+    'keplerjs:core@'+version
+  ]);
 
   api.versionsFrom("1.5.1");
-
-  api.use([
-    'keplerjs:core'
-  ]);
 
   api.addFiles([
     'plugin.js',

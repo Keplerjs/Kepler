@@ -1,12 +1,12 @@
+var version = '1.4.1';
+
 Package.describe({
-  version: "1.4.1",
+  version: version,
 	name: 'keplerjs:lib',
 	summary: 'keplerjs 3rd party packages and libraries',
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
-//TODO https://github.com/jeromeetienne/microevent.js/blob/master/package.json
-  
 Npm.depends({
   "latinize": "0.4.0",
   "bootstrap-switch": "3.3.2",

@@ -1,18 +1,19 @@
+var version = '1.4.1';
+
 Package.describe({
-  version: "1.4.0",
+  version: version,
   name: 'keplerjs:pois',
   summary: 'keplerjs plugin pois',
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
 Package.onUse(function(api) {
+  api.use([
+    'keplerjs:core@'+version,
+    'keplerjs:osm@'+version,
+  ]);
 
   api.versionsFrom("1.5.1");
-
-  api.use([
-    'keplerjs:core',
-    'keplerjs:osm',
-  ]);
 
   api.addFiles([
     'plugin.js',

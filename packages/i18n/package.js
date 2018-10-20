@@ -1,17 +1,18 @@
+var version = '1.4.1';
+
 Package.describe({
-  version: "1.4.1",
+  version: version,
   name: 'keplerjs:i18n',
   summary: 'keplerjs Internationalization package',
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
 Package.onUse(function(api) {
-
-  api.versionsFrom("1.5.1");
-
   var packages = [
     'anti:i18n@0.4.3'
   ];
+  
+  api.versionsFrom("1.5.1");
 
   api.use(packages);
   api.imply(packages);

@@ -1,8 +1,9 @@
+var version = '1.4.1';
 /*
 	global container
 */
 Kepler = K = {
-	version: "1.4.0",
+	version: version,
 
 	//core models
 	Place: {},       //class for places                  (client)

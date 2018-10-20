@@ -1,11 +1,16 @@
+var version = '1.4.1';
+
 Package.describe({
-  version: "1.4.0",
+  version: version,
   name: 'keplerjs:theme',
   summary: 'keplerjs plugin base Theme for UI',
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
 Package.onUse(function(api) {
+  api.use([
+    'keplerjs:core@'+version,
+  ]);
 
   var globsync = function(e){
     var pkg = 'theme',
@@ -15,10 +20,6 @@ Package.onUse(function(api) {
   };
 
   api.versionsFrom("1.5.1");
-
-  api.use([
-    'keplerjs:core',
-  ]);
 
   api.addFiles([
     'plugin.js',

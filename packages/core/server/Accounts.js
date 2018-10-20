@@ -75,9 +75,10 @@ Accounts.onCreateUser(function(options, user) {
 		source.service = 'password';
 		name = user.username;
 		username = user.username;
-		
+
 		delete options.password;
 		user = _.extend({}, user, options);
+		avatar = options.avatar || avatar;
 	}
 	else if(user.services.facebook)
 	{

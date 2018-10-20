@@ -1,6 +1,8 @@
 /*
  * Class powers the OOP facilities of the library.
  * Thanks to John Resig and Dean Edwards for inspiration!
+ * 
+ * //TODO https://github.com/jeromeetienne/microevent.js/blob/master/package.json
  */
 Class = function(){};
 Class.extend = function (props) {

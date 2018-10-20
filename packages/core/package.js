@@ -1,12 +1,18 @@
+var version = '1.4.1';
+
 Package.describe({
-  version: "1.4.1",
+  version: version,
   name: 'keplerjs:core',
 	summary: "keplerjs Meteor and 3rd party libraries",
 	git: "https://github.com/Keplerjs/Kepler.git"
 });
 
 Package.onUse(function(api) {
-
+  var packages = [
+    'keplerjs:lib@'+version,
+    'keplerjs:i18n@'+version
+  ];
+  
   var globsync = function(e){
     var pkg = 'core',
         path = Npm.require('path'),
@@ -15,11 +21,6 @@ Package.onUse(function(api) {
   };
 
   api.versionsFrom("1.5.1");
-  
-  var packages = [
-    'keplerjs:lib@1.4.1',
-    'keplerjs:i18n@1.4.1'
-  ];
 
   api.use(packages);
   api.imply(packages);

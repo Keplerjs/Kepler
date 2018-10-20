@@ -10,6 +10,4 @@ nohup.out
 .npm
 start.sh
 settings.json
-pkgs.list
-versions.list
 packages/keplerjs-*
