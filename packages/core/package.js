@@ -1,4 +1,4 @@
-var version = '1.4.1';
+var version = '1.4.7';
 
 Package.describe({
   version: version,
@@ -12,13 +12,6 @@ Package.onUse(function(api) {
     'keplerjs:lib@'+version,
     'keplerjs:i18n@'+version
   ];
-  
-  var globsync = function(e){
-    var pkg = 'core',
-        path = Npm.require('path'),
-        glob = Npm.require('glob');
-    return glob.sync(e, {cwd: path.join(process.cwd(),'packages',pkg) });
-  };
 
   api.versionsFrom("1.5.1");
 
@@ -40,7 +33,12 @@ Package.onUse(function(api) {
     'modules/templates.js',
   ]);
   
-  api.addFiles(globsync('collections/**/*.js'));
+  api.addFiles([
+    'collections/places.js',
+    'collections/queries/places.js',
+    'collections/queries/users.js',
+    'collections/users.js'
+  ]);
 
   api.addFiles([
     'client/Accounts.js',
@@ -53,7 +51,13 @@ Package.onUse(function(api) {
     'client/Router.js',
   ], 'client');
 
-  api.addFiles(globsync('server/**/*.js'), 'server');
+  api.addFiles([
+    'server/Accounts.js',
+    'server/profile.js',
+    'server/pubs/places.js',
+    'server/pubs/profile.js',
+    'server/pubs/users.js'
+  ], 'server');
 
   api.export([
     'Kepler', 'K',

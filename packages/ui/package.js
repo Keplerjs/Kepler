@@ -1,4 +1,4 @@
-var version = '1.4.1';
+var version = '1.4.7';
 
 Package.describe({
   version: version,
@@ -12,15 +12,69 @@ Package.onUse(function(api) {
     'keplerjs:core@'+version,
   ]);
 
-  var globsync = function(e){
-    var pkg = 'ui',
-        path = Npm.require('path'),
-        glob = Npm.require('glob');
-    return glob.sync(e, {cwd: path.join(process.cwd(),'packages',pkg) });
-  };
-
   api.versionsFrom("1.5.1");
   
-  api.addFiles(globsync('client/**/*.*'), 'client');
+  //array generated with:
+  //  node -e "console.log(require('glob').sync('client/**/*.*'))"
+  api.addFiles([
+    'client/helpers.js',
+    'client/home.html',
+    'client/layouts.html',
+    'client/layouts.js',
+    'client/main.html',
+    'client/stylesheets/header.css',
+    'client/stylesheets/icons.css',
+    'client/stylesheets/items.css',
+    'client/stylesheets/lib/bootstrap.css',
+    'client/stylesheets/lib/leaflet.css',
+    'client/stylesheets/lib/sAlert.css',
+    'client/stylesheets/login.css',
+    'client/stylesheets/main.css',
+    'client/stylesheets/markers.css',
+    'client/stylesheets/panels/list.css',
+    'client/stylesheets/panels/place.css',
+    'client/stylesheets/panels/settings.css',
+    'client/stylesheets/panels/user.css',
+    'client/stylesheets/popups.css',
+    'client/stylesheets/scrollbars.css',
+    'client/stylesheets/sidebar.css',
+    'client/views/btnConnect.html',
+    'client/views/btnConnect.js',
+    'client/views/errors.html',
+    'client/views/footer.html',
+    'client/views/formLogin.html',
+    'client/views/header.html',
+    'client/views/items/place.html',
+    'client/views/items/place.js',
+    'client/views/items/user.html',
+    'client/views/loaders.html',
+    'client/views/markers.html',
+    'client/views/markers.js',
+    'client/views/navSidebar.html',
+    'client/views/panels/friends.html',
+    'client/views/panels/friends.js',
+    'client/views/panels/panelList.html',
+    'client/views/panels/panelList.js',
+    'client/views/panels/place.html',
+    'client/views/panels/place/histplace.html',
+    'client/views/panels/place/info.html',
+    'client/views/panels/places.html',
+    'client/views/panels/places.js',
+    'client/views/panels/profile.html',
+    'client/views/panels/search.html',
+    'client/views/panels/search.js',
+    'client/views/panels/settings.html',
+    'client/views/panels/settings.js',
+    'client/views/panels/user.html',
+    'client/views/panels/user.js',
+    'client/views/panels/user/bio.html',
+    'client/views/panels/user/friends.html',
+    'client/views/panels/user/friends.js',
+    'client/views/panels/user/histuser.html',
+    'client/views/pluginsTemplate.html',
+    'client/views/pluginsTemplate.js',
+    'client/views/popups.html',
+    'client/views/tabLocation.html'
+  ], 'client');
 
 });

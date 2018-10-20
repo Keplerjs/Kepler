@@ -1,4 +1,4 @@
-var version = '1.4.1';
+var version = '1.4.7';
 
 Package.describe({
   version: version,
@@ -12,13 +12,6 @@ Package.onUse(function(api) {
     'keplerjs:core@'+version,
   ]);
 
-  var globsync = function(e){
-    var pkg = 'theme',
-        path = Npm.require('path'),
-        glob = Npm.require('glob');
-    return glob.sync(e, {cwd: path.join(process.cwd(),'packages',pkg) });
-  };
-
   api.versionsFrom("1.5.1");
 
   api.addFiles([
@@ -30,8 +23,36 @@ Package.onUse(function(api) {
     'i18n/fr.js',	
   ]);
 
-  api.addFiles(globsync('client/**/*.*'), 'client');
+  api.addFiles([
+    'client/router.js',
+    'client/stylesheets/icons.css',
+    'client/stylesheets/lib/bootstrap.css',
+    'client/stylesheets/lib/leaflet.css',
+    'client/stylesheets/lib/switch.css',
+    'client/stylesheets/main.css',
+    'client/views/about.html',
+    'client/views/footer.html',
+    'client/views/home.html'
+  ], 'client');
 
-  api.addAssets(globsync('assets/images/**/*.*'), 'client');
+  api.addAssets([
+    'assets/images/avatar.svg',
+    'assets/images/back-hex.png',
+    'assets/images/back-hex.svg',
+    'assets/images/favicon.ico',
+    'assets/images/favicon.png',
+    'assets/images/loader-bar.gif',
+    'assets/images/loader-default.gif',
+    'assets/images/loader-icon.gif',
+    'assets/images/loader-lg.gif',
+    'assets/images/logo-100.png',
+    'assets/images/logo-200.png',
+    'assets/images/logo-300.png',
+    'assets/images/logo-32.png',
+    'assets/images/logo-50.png',
+    'assets/images/logo-home.png',
+    'assets/images/logo.svg',
+    'assets/images/sprite.svg'
+  ], 'client');
 
 });

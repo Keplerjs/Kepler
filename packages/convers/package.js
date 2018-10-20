@@ -1,4 +1,4 @@
-var version = '1.4.1';
+var version = '1.4.7';
 
 Package.describe({
   version: version,
@@ -11,13 +11,6 @@ Package.onUse(function(api) {
   api.use([
     'keplerjs:core@'+version,
   ]);
-
-  var globsync = function(e){
-    var pkg = 'convers',
-        path = Npm.require('path'),
-        glob = Npm.require('glob');
-    return glob.sync(e, {cwd: path.join(process.cwd(),'packages',pkg) });
-  };
 
   api.versionsFrom("1.5.1");
 
@@ -34,9 +27,36 @@ Package.onUse(function(api) {
     'i18n/fr.js'
   ]);
 
-  api.addFiles(globsync('collections/**/*.js'));
+  api.addFiles([
+    'collections/convers.js',
+    'collections/messages.js',
+    'collections/places.js'
+  ]);
 
-  api.addFiles(globsync('client/**/*.*'), 'client');
-  api.addFiles(globsync('server/**/*.js'),'server');
+  api.addFiles([
+    'client/Conver.js',
+    'client/Place_conver.js',
+    'client/router.js',
+    'client/stylesheets/items.css',
+    'client/stylesheets/panels.css',
+    'client/User_conver.js',
+    'client/views/items/conver.html',
+    'client/views/items/conver.js',
+    'client/views/items/message.html',
+    'client/views/items/message.js',
+    'client/views/items/place.html',
+    'client/views/items/user.html',
+    'client/views/markers.html',
+    'client/views/panels.html',
+    'client/views/panels.js',
+    'client/views/popups.html',
+    'client/views/sidebar.html'
+  ], 'client');
+
+  api.addFiles([
+    'server/admin.js',
+    'server/convers.js',
+    'server/pubs.js'
+  ], 'server');
 
 });
