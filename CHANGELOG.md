@@ -4,18 +4,16 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 ## Next version
 ...
 
-## v1.4.7
+## v1.4.7 - Modularity and Extensibility is ready
 - published all plugins in atmospherejs.com
-- remove globsync from all plugins
-- fix all addAssets adn addFiles in plugins
-
-## v1.4.1
+- remove workarounnd globsync from all plugins
+- fix all addAssets and addFiles in plugins
 - simplified version management in plugins
 - simplify K.Plugin config for define new custom template placeholders
 - fix api plugin routes
 - fix robots plugin avatars
 
-## v1.4.0
+## v1.4.0 - Categories and Custom Placeholders
 - new plugin categories work
 - new option settings.public.accounts.creation to disable all signup ways
 - use accounts-ui-unstyled instead ian:accounts-ui-bootstrap-3
@@ -28,7 +26,7 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 - new option placehodelrs in K.Plugin definition
 - plugin categories support edits
 
-## v1.3.7
+## v1.3.7 - Support Meteor 1.7 and Leaflet 1.3
 - Meteor 1.7.0.5 compatibility
 - update @babel/runtime 7.0.0-beta.55
 - added support to Github OAuth
@@ -37,7 +35,7 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 - plugin stats simplify rest api
 - create new plugin Openrouteservice
 
-## v1.3.0
+## v1.3.0 - Compositional User Interface
 - changes *K.templates* definition format
 - support templates plugin custom ordering
 - override templates config by *settings.json*
