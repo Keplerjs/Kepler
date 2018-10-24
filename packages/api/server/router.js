@@ -30,7 +30,7 @@ function writeOut(req, res, out) {
 		out = {'error': 'Not Found'};
 	}
 
-	res.end( JSON.stringify(out) );
+	res.end( JSON.stringify(out,null,4) );
 }
 
 Router.route(urls.root, opts)
