@@ -2,13 +2,15 @@
 K.Plugin({
 	name: 'import',
 	templates: {
-		panelProfile: {
-			'panelProfile_import':{order: 10 }
-		}
+		panelAdmin: 'panelAdmin_import'
 	},
 	settings: {
 		"public": {
 			"import": {
+				"fileFormats": {
+					"application/json": true,
+					"application/geo+json": true
+				},
 				"maxFileSize": 2e+7 //20MB
 			}
 		},

@@ -5,6 +5,13 @@ Meteor.methods({
 
 		if(!this.userId) return null;
 
+		var geo = JSON.parse(fileObj.blob)
+		
+		console.log('Import: ', fileObj.name, K.Util.humanize.filesize(fileObj.size))
+
+		return geo;
+
+
 		//TODO import geojson in a cache collection 
 
 /*

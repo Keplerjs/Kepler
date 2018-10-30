@@ -1,6 +1,8 @@
 
 Router.map(function() {
 
+	//TODO check isAdmin
+	//
 	this.route('panelImport', {
 		path: '/import',
 		template: 'panelImport',

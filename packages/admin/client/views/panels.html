@@ -79,15 +79,24 @@
 		</a>
 	</div>
 	<div class="panel-body">
-		
-		<label>Admin methods registered in the browser console</label><br />
-		<ul class="list-group">
-		{{#each methods}}
-			<li class="list-group-item" data-name="{{this}}">
-				<em>K.Admin.{{this}}()</em><br />
-			</li>
-		{{/each}}
-		</ul>
+
+		<div class="list-group">
+
+			<div class="list-group-item active">
+				Admin methods registered in the browser console
+			</div>
+			<div class="list-group-item" style="max-height:150px;overflow-y:auto">
+			{{#each methods}}
+				<a href="#" data-name="{{this}}">K.Admin.{{this}}()</a><br />
+			{{/each}}
+			</div>
+		</div>
+		<div class="list-group">
+
+			{{> pluginsTemplate name='panelAdmin'}}
+			
+		</div>
+
 	</div>
 </div>
 

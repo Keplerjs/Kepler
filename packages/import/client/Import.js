@@ -8,9 +8,14 @@ Kepler.Import = {
 		}
 	}),
 
-	importFile: function(fileObj, target, callback) {
-	
-		var maxFileSize = K.settings.public.upload.maxFileSize;
+	importFile: function(fileObj, callback) {
+
+		var maxFileSize = K.settings.public.import.maxFileSize,
+			formats = [];
+
+		_.each(K.settings.public.import.fileFormats, function(v,k) {
+			if(v) formats.push(k);
+		});
 
 		if(!fileObj) return false;
 
@@ -18,10 +23,9 @@ Kepler.Import = {
 			this.fileReader.abort();
 		else
 			this.fileReader = new FileReader();
-
 		
 		if( fileObj.size <= maxFileSize && 
-			_.contains(['image/png','image/jpeg'], fileObj.type)) {
+			_.contains(formats, fileObj.type)) {
 
 			this.fileReader.onloadend = function(e) {
 				Meteor.call('importFile', {
@@ -29,12 +33,12 @@ Kepler.Import = {
 					type: fileObj.type,
 					size: fileObj.size,
 					blob: e.target.result
-				}, target, callback);
+				}, callback);
 			}
-			this.fileReader.readAsBinaryString(fileObj);
+			this.fileReader.readAsText(fileObj);
 		}
 		else
-			callback( i18n('error_imageNotValid') );
+			callback( i18n('error_import_formatNotValid') );
 		
 
 		return this;

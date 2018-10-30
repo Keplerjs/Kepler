@@ -10,6 +10,8 @@ Package.describe({
 Package.onUse(function(api) {
   api.use([
     'keplerjs:core@'+version,
+    'keplerjs:edit@'+version,
+    'keplerjs:admin@'+version,
   ]);
 
   api.versionsFrom("1.5.1");
@@ -25,8 +27,6 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'client/Import.js',
-    'client/views/inputFileImport.html',
-    'client/views/inputFileImport.js',
     'client/views/panels.html',
     'client/views/panels.js',
     'client/router.js',   
