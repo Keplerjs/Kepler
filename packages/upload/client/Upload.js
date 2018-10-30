@@ -1,5 +1,6 @@
 
 Kepler.Upload = {
+	
 	uploadFile: function(fileObj, target, callback) {
 	
 		var maxFileSize = K.settings.public.upload.maxFileSize;
