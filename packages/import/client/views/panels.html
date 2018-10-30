@@ -1,0 +1,50 @@
+
+<template name="panelProfile_import">
+	<a class="list-group-item" href="/import">
+		<i class="icon icon-add"></i>
+		{{i18n 'label_import'}}
+		<span class="badge badge-grey">{{imports.length}}</span>
+	</a>
+</template>
+
+<template name="panelImport">
+
+<div id="admin" class="panel">
+
+	<div class="panel-heading bg-primary">
+		<h4 class="pull-left">
+			<a class="back" href="javascript:history.back()">
+				<i class="icon icon-arrow-l"></i>
+			</a> 
+			{{i18n 'label_import'}}
+		</h4>
+		<a class="close pull-right" href="/">
+			<i class="icon icon-close"></i>
+		</a>
+	</div>
+	<div class="panel-body">
+		
+		<div class="form-group">
+			<div class="col-sm-3 col-xs-4 text-right avatar-big">
+				<label for="fileimport">{{i18n 'label_import'}}</label>
+			</div>
+			<div class="col-sm-9 col-xs-8">
+				<input id="fileimport" class="form-control" type="file" />
+				<label class="text-danger"></label>
+			</div>
+		</div>
+		<div class="list-group">
+			<div class="list-group-item active">{{i18n 'label_imported'}} <span class="badge">{{imports.length}}</span></div>
+			{{#each imports}}
+			<li class="list-group-item">
+				{{#with this}}
+					{{> item_place_search}}
+				{{/with}}
+			</li>
+			{{/each}}
+		</div>
+
+	</div>
+</div>
+
+</template>

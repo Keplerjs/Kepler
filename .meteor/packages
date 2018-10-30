@@ -23,6 +23,8 @@ keplerjs:pois
 keplerjs:tracks
 keplerjs:categories
 
+keplerjs:import
+
 keplerjs:robots
 keplerjs:wunderground
 keplerjs:googlemaps

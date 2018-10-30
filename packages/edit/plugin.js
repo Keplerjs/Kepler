@@ -5,7 +5,9 @@ K.Plugin({
 		panelEdit: {},
 		//create new placeholder used from other plugins
 		//
-		panelProfile: 'panelProfile_edit',
+		panelProfile: {
+			'panelProfile_edit': {order: 10 }
+		},
 		panelPlace: 'panelPlace_edit',
 		panelUser: 'panelUser_edit',
 		popupCursor: 'popupCursor_edit'

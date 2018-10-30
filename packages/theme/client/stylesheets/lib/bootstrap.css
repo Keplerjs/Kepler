@@ -125,9 +125,15 @@ label {
 	background-color: #257;
 }
 .badge.badge-red,
-.list-group-item.active > .badge,
+.list-group-item.active > .badge-red,
 .nav-pills > .active > a > .badge.badge-red {
 	background-color: #ef0000;
+	color: #fff;
+}
+.badge.badge-grey,
+.list-group-item.active > .badge-grey,
+.nav-pills > .active > a > .badge.badge-grey {
+	background-color: #ccc;
 	color: #fff;
 }
 
