@@ -1,4 +1,5 @@
 
+var CHMOD = 0755;
 
 Meteor.startup(function() {
 
@@ -9,7 +10,7 @@ Meteor.startup(function() {
 			if(conf && !_.isEmpty(conf.path)) {
 				if(!fs.existsSync(conf.path)) {
 					console.log("Upload: create target path ", conf.path);
-					fs.mkdirSync(conf.path, 0755);
+					fs.mkdirSync(conf.path, CHMOD);
 				}
 			}
 			else
@@ -64,7 +65,7 @@ Meteor.methods({
 
 		console.log('Upload: wrinting...', fileBig);
 		fs.writeFileSync(filePath + fileBig, fileObj.blob, 'binary');
-		fs.chmodSync(filePath + fileBig, 0755);
+		fs.chmodSync(filePath + fileBig, CHMOD);
 
 		if(!Imagemagick)
 			fileMin = fileBig;
@@ -75,7 +76,7 @@ Meteor.methods({
 
 				Imagemagick.crop(imgOpts);
 
-				fs.chmodSync(filePath + fileMin, 0755);
+				fs.chmodSync(filePath + fileMin, CHMOD);
 			}
 			catch(e) {
 				console.log('Upload: error ', e);
