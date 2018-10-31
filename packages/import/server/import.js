@@ -42,6 +42,9 @@ Meteor.methods({
 			
 			console.log('Import: insertPlaceByImport ', placeId);
 		}
+		else
+			console.log('Import: error format ', placeData);
+
 
 		return placeId;
 	},
@@ -65,18 +68,20 @@ Meteor.methods({
 
 		//TODO import geojson in a cache collection 
 		
-		if(geo.features && geo.features.length>0) {
+		if(geo && geo.features && geo.features.length>0) {
 
 			_.each(geo.features, function(f) {
-				
+
 				var placeId = Meteor.call('insertPlaceByImport', f);
 
 				if(placeId)
 					placeIds.push(placeId);
 			});
-		}
 
-		console.log('Import: places imported ', placeIds.length);
+			console.log('Import: places imported ', placeIds.length);
+		}
+		else
+			console.log('Import: error json parse');
 
 		return placeIds;
 	}

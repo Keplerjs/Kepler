@@ -46,6 +46,7 @@ K.Plugin({
 		},
 		"geoinfo": {
 			"caching": true,
+			"autoupdate": true,
 			"geonamesUser": "",
 			"ipinfodbKey": ""
 		}
