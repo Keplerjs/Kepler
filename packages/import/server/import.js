@@ -1,76 +1,83 @@
 
-Meteor.methods({
+var importToPlace = function(f) {
+
+	var prop = f.properties,
+		coords = f.geometry.coordinates;
+
+	var name = prop.name || '';//K.Util.timeName('obj '+prop.id)
 	
+	if(f.geometry.type==='Point') {
+		return {
+			name: name, //K.Util.sanitize.name(name),
+			loc: [coords[1], coords[0]],
+			active: 0,
+			import: f,
+			source: {
+				type: 'import'
+			}
+		};
+	}
+	else
+		return null;
+};
+
+
+Meteor.methods({
+
+	insertPlaceByImport: function(obj) {
+
+		if(!this.userId) return null;
+		
+		if(!obj) return null;
+
+		//TODO check md5 of obj or loc if just imported
+
+		var placeData = importToPlace(obj),
+			placeId = null;
+		
+		if(placeData) {
+			
+			//insertPlace() from edit plugin
+			placeId = Meteor.call('insertPlace', placeData);
+			
+			console.log('Import: insertPlaceByImport ', placeId);
+		}
+
+		return placeId;
+	},
+
 	importFile: function(fileObj, target) {
 
 		if(!this.userId) return null;
 
-		var geo = JSON.parse(fileObj.blob)
-		
+		var geo = JSON.parse(fileObj.blob),
+			placeIds = [];
+
+		if(fileObj.size > K.settings.public.import.maxFileSize) {
+			
+			console.log('Import: error ', _.omit(fileObj,'blob') );
+
+			throw new Meteor.Error(500, i18n('upload_error_imageNotValid') + K.Util.humanize.filesize(K.settings.public.import.maxFileSize) );
+			i18n('error_import_formatNotValid')
+		}
+
 		console.log('Import: ', fileObj.name, K.Util.humanize.filesize(fileObj.size))
 
-		return geo;
-
-
 		//TODO import geojson in a cache collection 
+		
+		if(geo.features && geo.features.length>0) {
 
-/*
-		if(!K.settings.upload.targets[target]) {
-			throw new Meteor.Error(500, i18n('upload_error_targetNotValid')+' '+target);
-			return null;
-		}
+			_.each(geo.features, function(f) {
+				
+				var placeId = Meteor.call('insertPlaceByImport', f);
 
-		var upSets = K.settings.upload.targets[target];
-
-		var	filePath = upSets.path,
-			fileUrl = upSets.url,
-			imgSize = {
-				width: 140,
-				height: 140,
-				quality: 0.8
-			},
-			fileUid = Meteor.user().username +'_'+ K.Util.time(),
-			fileName = K.Util.sanitize.filename( fileUid ),
-			fileMin = fileName + K.Util.tmpl('_{width}x{height}.min.jpg', imgSize),
-			fileBig = fileName + '.ori.jpg',
-			imgOpts = _.extend(imgSize, {
-				srcPath: filePath + fileBig,
-				dstPath: filePath + fileMin,
-				customArgs: ['-auto-orient']
+				if(placeId)
+					placeIds.push(placeId);
 			});
-
-		fileObj.size = Buffer.byteLength(fileObj.blob, 'binary');
-
-		if(fileObj.size > K.settings.public.upload.maxFileSize) {
-			
-			console.log('Upload: error ', _.omit(fileObj,'blob') );
-
-			throw new Meteor.Error(500, i18n('upload_error_imageNotValid') + K.Util.humanize.filesize(K.settings.public.maxFileSize) );
 		}
 
-		console.log('Upload: wrinting...', fileBig);
-		fs.writeFileSync(filePath + fileBig, fileObj.blob, 'binary');
-		fs.chmodSync(filePath + fileBig, CHMOD);
+		console.log('Import: places imported ', placeIds.length);
 
-		if(!Imagemagick)
-			fileMin = fileBig;
-		else
-		{
-			console.log('Upload: resizing...');
-			try {
-
-				Imagemagick.crop(imgOpts);
-
-				fs.chmodSync(filePath + fileMin, CHMOD);
-			}
-			catch(e) {
-				console.log('Upload: error ', e);
-				return i18n('upload_error_imageNotValid');
-			}
-			console.log('Upload: resized', fileMin);
-		}
-		console.log('Upload: url ', fileMin );
-
-		return fileUrl + fileMin;*/
+		return placeIds;
 	}
 });

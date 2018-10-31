@@ -60,7 +60,7 @@ Meteor.methods({
 			
 			console.log('Upload: error ', _.omit(fileObj,'blob') );
 
-			throw new Meteor.Error(500, i18n('upload_error_imageNotValid') + K.Util.humanize.filesize(K.settings.public.maxFileSize) );
+			throw new Meteor.Error(500, i18n('upload_error_imageNotValid') + K.Util.humanize.filesize(K.settings.public.upload.maxFileSize) );
 		}
 
 		console.log('Upload: wrinting...', fileBig);

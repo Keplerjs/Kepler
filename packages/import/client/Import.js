@@ -14,7 +14,9 @@ Kepler.Import = {
 			formats = [];
 
 		_.each(K.settings.public.import.fileFormats, function(v,k) {
-			if(v) formats.push(k);
+			if(v) {
+				formats.push(k);
+			}
 		});
 
 		if(!fileObj) return false;

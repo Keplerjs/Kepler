@@ -4,6 +4,18 @@ K.Plugin({
 	templates: {
 		panelAdmin: 'panelAdmin_import'
 	},
+	filters: {
+		placePanel: {
+			fields: {
+				import: 1
+			}
+		}
+	},
+	schemas: {
+		place: {
+			import: {}
+		}
+	},	
 	settings: {
 		"public": {
 			"import": {

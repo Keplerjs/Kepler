@@ -5,7 +5,6 @@ Template.panelImport.helpers({
 	}
 });
 
-
 Template.panelImport.events({
 	
 	'change #fileimport': function(e) {
@@ -23,8 +22,8 @@ Template.panelImport.events({
 			if(err)
 				input$.next().text(err)
 			else {
-				console.log(ret);
 				//DEBUG K.Map.addGeojson(ret)
+				input$.next().text( ret.length+' '+i18n('label_imported') )
 			}
 		});
 	}
