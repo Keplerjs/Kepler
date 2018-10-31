@@ -1,11 +1,5 @@
 
-Template.panelImport.helpers({
-	imports: function() {
-		return K.Import.imports;
-	}
-});
-
-Template.panelImport.events({
+Template.inputFileImport.events({
 	
 	'change #fileimport': function(e) {
 		e.preventDefault();
