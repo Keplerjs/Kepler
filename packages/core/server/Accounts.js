@@ -45,8 +45,8 @@ Accounts.onLogin(function(e) {
 
 Accounts.onLoginFailure(function(e) {
 	var ip = e.connection.httpHeaders['x-real-ip'] || e.connection.clientAddress,
-		user = e.methodArguments[0].user.username
-	console.log('Accounts: onLoginFailure ', user, ip);
+		user = e.methodArguments[0].user
+	console.log('Accounts: onLoginFailure ', user.username, ip);
 });
 
 /*Accounts.validateNewUser(function (user) {
