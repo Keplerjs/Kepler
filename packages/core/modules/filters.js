@@ -1,5 +1,7 @@
 /*
 	Permissions definitions of fields in the queries for pubblications and methods
+
+	TODO rename to K.privacy
 */
 Kepler.filters = {
 //Profile

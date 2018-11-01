@@ -3,6 +3,7 @@ Kepler.Util.valid = {
 
 	//TODO name place
 	//TODO valid bbox
+	//TODO valid GeoJSON
 
 	loc: function(loc) {
 		var lat, lng;

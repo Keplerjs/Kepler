@@ -1,8 +1,10 @@
 
 //TODO using before instead after!!!
 Places.before.insert(function(userId, doc) {
-	console.log('Geoinfo: updatePlaceGeoinfo ', doc.name);
-	doc.geoinfo = K.Geoinfo.getFieldsByLoc(doc.loc)
+	if(K.settings.geoinfo && K.settings.geoinfo.autoupdate) {
+		console.log('Geoinfo: updatePlaceGeoinfo ', doc.name);
+		doc.geoinfo = K.Geoinfo.getFieldsByLoc(doc.loc)
+	}
 });
 /*
 

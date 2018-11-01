@@ -32,7 +32,7 @@ Template.panelAdmin.onCreated(function() {
 });
 
 Template.panelAdmin.onRendered(function() {
-	console.log('panelAdmin.onRendered', K.Admin.method)
+
 	this.methods.set(_.keys(K.Admin.method))
 });
 

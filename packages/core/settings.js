@@ -2,6 +2,8 @@
 	Default KeplerJs settings
 
 	use settings.json in root application having the same structure to overwrite the following values
+
+	//TODO remove properties outside public in client K.settings
 */
 Meteor.startup(function() {
 	_.deepExtend(K.settings, Meteor.settings);

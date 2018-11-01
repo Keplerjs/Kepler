@@ -6,6 +6,7 @@ K.Plugin({
 		popupPlace: 'popupPlace_tracks'
 	},
 	filters: {
+		//TODO may be remove
 		placePanel: {
 			fields: {
 				tracks: 1
