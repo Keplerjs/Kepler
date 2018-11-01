@@ -2,13 +2,19 @@
 K.Plugin({
 	name: 'import',
 	templates: {
-		panelAdmin: 'panelAdmin_import'
+		panelAdmin: 'panelAdmin_import',
+		panelPlace: {'panelPlace_import': {order: -5}}
 	},
 	filters: {
 		placePanel: {
 			fields: {
 				import: 1
 			}
+		},
+		placeItem: {
+			fields: {
+				import: 1
+			}	
 		}
 	},
 	schemas: {

@@ -7,8 +7,17 @@
 </template>
 
 <template name="inputFileImport">
+<!-- TODO	<div class="form-group">
+		<div class="col-sm-3 col-xs-4">
+			<label for="fileimport">{{i18n 'label_importname'}}</label>
+		</div>
+		<div class="col-sm-9 col-xs-8">
+			<input id="nameimport" class="form-control" type="text" value="" />
+		</div>
+	</div>
+	<br /> -->
 	<div class="form-group">
-		<div class="col-sm-3 col-xs-4 text-right avatar-big">
+		<div class="col-sm-3 col-xs-4">
 			<label for="fileimport">{{i18n 'label_importfile'}}</label>
 		</div>
 		<div class="col-sm-9 col-xs-8">
@@ -18,3 +27,15 @@
 	</div>
 </template>
 
+<template name="panelPlace_import">
+{{#if import}}
+{{#with import}}
+	<div class="list-group">
+		<div class="list-group-item">
+			<label>{{i18n 'label_importname'}}</label> 
+			{{name}}
+		</div>
+	</div>
+{{/with}}
+{{/if}}
+</template>

@@ -2,11 +2,11 @@
 K.extend({
 	findPlacesImportByUserId: function(userId) {
 		return Places.find({
-			//'source.type': 'import',
+			'import': {$exists:true},
 			'userId': userId
 		}, _.deepExtend({}, K.filters.placeItem, {
 				sort: { createdAt: -1 },
-				limit: 10
+				limit: 20
 			})
 		);
 	}
