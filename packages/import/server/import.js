@@ -1,27 +1,35 @@
 
-var importToPlace = function(feature, importName) {
+var geojsonToPlace = function(feature, importName) {
 
 	var prop = feature.properties,
 		coords = feature.geometry.coordinates;
 
 	var name = prop.name || '';//K.Util.timeName('obj '+prop.id)
-	
+
+	_.each(prop, function(v, k) {
+		if(!v) {
+			delete prop[k];
+		}
+	});
+
 	if(feature.geometry.type==='Point') {
 		return {
 			name: name, //K.Util.sanitize.name(name),
 			loc: [coords[1], coords[0]],
 			active: 0,
 			import: {
-				name: importName
+				name: importName,
+				data: feature
 			},
 			source: {
-				type: 'import',
-				data: feature
+				type: 'import'
 			}
 		};
 	}
-	else
+	else {
+		console.log('Import: error geometry not a Point', feature.geometry.type );
 		return null;
+	}
 };
 
 
@@ -54,7 +62,7 @@ Meteor.methods({
 
 				//TODO check md5 of feature or loc if just imported
 
-				var placeData = importToPlace(feature, importName),
+				var placeData = geojsonToPlace(feature, importName),
 					placeId = null;
 				
 				if(placeData) {
@@ -64,8 +72,6 @@ Meteor.methods({
 					
 					//console.log('Import: insertPlaceByImport ', placeId);
 				}
-				else
-					console.log('Import: error format ', importName);
 
 				if(placeId) {
 					placeIds.push(placeId);

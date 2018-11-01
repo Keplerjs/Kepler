@@ -19,11 +19,10 @@ keplerjs:osm
 keplerjs:favorites
 keplerjs:convers
 keplerjs:notifs
+keplerjs:categories
+keplerjs:import
 keplerjs:pois
 keplerjs:tracks
-keplerjs:categories
-
-keplerjs:import
 
 keplerjs:robots
 keplerjs:wunderground

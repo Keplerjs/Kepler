@@ -46,6 +46,7 @@
 		}
 	},
 	"geoinfo": {
+		"autoupdate": true,		
 		"geonamesUser": "<YOUR USER NAME>",
 		"ipinfodbKey": "<YOUR API KEY>"
 	},

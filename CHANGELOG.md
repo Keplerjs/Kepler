@@ -2,6 +2,9 @@
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+...
+
+## v1.4.8 - Modularity and Extensibility is ready
 - new plugin Import
 - new template placeholder panelAdmin
 - geoinfo plugin new settings autoupdate
