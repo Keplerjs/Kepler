@@ -35,6 +35,19 @@ var geojsonToPlace = function(feature, importName) {
 
 Meteor.methods({
 
+	importPlace: function(obj) {
+
+		if(!this.userId) return null;
+
+		var place = _.deepExtend({}, K.schemas.place, obj);
+
+		var placeId = Places.insert(place);
+
+		console.log('Import: importPlace ', place.name || placeId);
+
+		return placeId;
+	},
+
 	importFile: function(fileObj, target) {
 
 		if(!this.userId) return null;
@@ -68,7 +81,7 @@ Meteor.methods({
 				if(placeData) {
 					
 					//insertPlace() from edit plugin
-					placeId = Meteor.call('insertPlace', placeData);
+					placeId = Meteor.call('importPlace', placeData);
 					
 					//console.log('Import: insertPlaceByImport ', placeId);
 				}

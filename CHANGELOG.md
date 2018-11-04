@@ -4,7 +4,7 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 ## Next version
 ...
 
-## v1.4.8 - Import Bulk Data in platform
+## v1.4.8 - Import Bulk Data
 - new plugin Import, support import from geojson file
 - new template placeholder panelAdmin
 - geoinfo plugin new settings autoupdate

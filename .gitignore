@@ -8,6 +8,6 @@ public/users
 public/node_modules
 nohup.out
 .npm
-start.sh
-settings.json
+start*.sh
+settings*.json
 packages/keplerjs-*

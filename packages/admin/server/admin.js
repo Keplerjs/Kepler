@@ -20,3 +20,13 @@ Accounts.onLogin(function(login) {
 			}
 		});
 });
+
+
+Meteor.startup(function() {	
+
+	if(!Users.findOne({username: 'admin'})) {
+		console.log('Admin: autocreate admin account user: admin pass: adminadmin ');
+		
+	}
+
+});
