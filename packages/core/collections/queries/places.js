@@ -41,7 +41,7 @@ K.extend({
 					}
 				}
 			}, _.deepExtend({}, K.filters.placeItem, {
-					limit: 50
+					limit: K.settings.public.map.bboxMaxResults
 				})
 			);
 		}
