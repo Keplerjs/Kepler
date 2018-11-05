@@ -22,7 +22,7 @@ Template.panelEdit.events({
 	}
 });
 
-Template.panelUser_edit.events({
+Template.tabUser_edit.events({
 	'click .panel-btn-placesList': function(e, tmpl) {
 
 		var icon$ = $(e.target).find('.icon');

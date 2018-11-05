@@ -2,7 +2,7 @@
 K.Plugin({
 	name: 'geoinfo',
 	templates: {
-		panelPlace: 'panelPlace_geoinfo',
+		tabPlace: 'tabPlace_geoinfo',
 		tabLocation: 'tabLocation_geoinfo',
 		popupCursor: 'popupCursor_geoinfo'
 	},	

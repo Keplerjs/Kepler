@@ -36,6 +36,7 @@ Package.onUse(function(api) {
   api.addFiles([
     'client/Conver.js',
     'client/Place_conver.js',
+    
     'client/router.js',
     'client/stylesheets/items.css',
     'client/stylesheets/panels.css',
@@ -44,7 +45,6 @@ Package.onUse(function(api) {
     'client/views/items/conver.js',
     'client/views/items/message.html',
     'client/views/items/message.js',
-    'client/views/items/place.html',
     'client/views/markers.html',
     'client/views/panels.html',
     'client/views/panels.js',

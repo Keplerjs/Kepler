@@ -64,21 +64,12 @@
 </template>
 
 <template name="panelPlace_conver">
-	<div class="row">
-		<div class="col-xs-6">
-		</div>
-		<div class="col-xs-6 text-right">	
-			<div class="btn-group" role="group">		
-				<a class="btn btn-default place-btn-mes" href="/place/{{id}}/convers">
-					<i class="icon {{#if conversCount}} icon-mes {{else}} icon-unmes {{/if}}"></i>
-					<span class="badge {{#unless conversCount}} bg-gray {{/unless}}">{{conversCount}}</span>
-					 {{i18n 'title_convers'}}
-				</a>
-			</div>
-		</div>	
-	</div>
+	<a class="btn btn-sm btn-default place-btn-mes" href="/place/{{id}}/convers">
+		<i class="icon {{#if conversCount}} icon-mes {{else}} icon-unmes {{/if}}"></i>
+		{{i18n 'title_convers'}} 
+		<span class="badge {{#unless conversCount}} bg-gray {{/unless}}">{{conversCount}}</span>
+	</a>
 </template>
-
 
 <template name="panelUser_conver">
 	<a class="btn btn-sm btn-default" href="/user/{{id}}/conver">
@@ -87,10 +78,9 @@
 </template>
 
 <template name="tabUser_conver">
-{{#if isFriend}}
 	<ul class="list-group">
 		<li class="list-group-item active">		
-			<span>{{i18n 'label_ownconvers'}}</span>
+			<span>{{i18n 'title_convers'}}</span>
 		</li>
 
 		{{#if conversList}}
@@ -112,5 +102,4 @@
 		{{/if}}
 	
 	</ul>
-{{/if}}	
 </template>

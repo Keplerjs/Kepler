@@ -9,7 +9,7 @@ K.Plugin({
 			'panelProfile_edit': {order: 10 }
 		},
 		panelPlace: 'panelPlace_edit',
-		tabUser: 'panelUser_edit',
+		tabUser: 'tabUser_edit',
 		popupCursor: 'popupCursor_edit'
 	},
 	schemas: {

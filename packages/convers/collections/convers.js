@@ -57,7 +57,9 @@ K.extend({
 		return Convers.find({targetId: targetId }, K.filters.converItem);
 	},
 	findConversByUser: function(userId) {
-		return Convers.find({userId: userId, targetType:'place' }, K.filters.converItem);
+		//TODO maybe return convers to partecipate to
+		//return Convers.find({userId: userId, targetType:'place' }, K.filters.converItem);
+		return Convers.find({usersIds: userId, targetType:'place' }, K.filters.converItem);
 	},
 	findConversPlaces: function() {
 	
@@ -67,8 +69,8 @@ K.extend({
 
 		return Convers.find({
 			targetType: 'place'
-/*
-TODO			createdAt: {
+			/*
+			TODO createdAt: {
 				'$gte': dateFrom
 			}*/
 		}, _.deepExtend({}, K.filters.converItem, {

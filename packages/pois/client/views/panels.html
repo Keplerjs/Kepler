@@ -1,5 +1,5 @@
 
-<template name="panelPlace_pois">
+<template name="tabPlace_pois">
 
 	<div class="list-group">
 		<div class="list-group-item active">
@@ -8,7 +8,9 @@
 
 		{{#if poisList}}
 			<div class="list-group-item">
-			{{> panelPlace_pois_list}}
+			
+			{{> tabPlace_pois_list}}
+
 			</div>
 		{{else}}
 			<a class="list-group-item panel-btn-poisList" href="#">
@@ -19,7 +21,7 @@
 
 </template>
 
-<template name="panelPlace_pois_list">
+<template name="tabPlace_pois_list">
 	{{#each getPoisList}}
 	<a class="list-group-item panel-btn-poi" href="#">
 		<i class="icon icon-{{type}}"></i>

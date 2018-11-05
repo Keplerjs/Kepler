@@ -1,5 +1,5 @@
 
-Template.panelPlace_pois.events({
+Template.tabPlace_pois.events({
 	'click .panel-btn-poisList': function(e, tmpl) {
 
 		var icon$ = $(e.target).find('.icon');

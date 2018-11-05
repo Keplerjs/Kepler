@@ -10,11 +10,9 @@
 
 <template name="panelPlace_edit">
 {{#if or createdAt userId}}
-	<div class="list-group">
-		<div class="list-group-item active">
-			{{i18n 'btn_edit'}}
-		</div>
-		<div class="list-group-item">
+	<br />
+	<div class="row">
+		<div class="col-sm-12">
 
 			{{#if userId}}
 				<label>{{i18n 'label_creator'}}</label>
@@ -41,7 +39,7 @@
 {{/if}}
 </template>
 
-<template name="panelUser_edit">
+<template name="tabUser_edit">
 {{#if places.length}}
 	<ul class="list-group">
 		<li class="list-group-item active">		

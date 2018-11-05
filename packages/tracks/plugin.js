@@ -2,7 +2,7 @@
 K.Plugin({
 	name: 'tracks',
 	templates: {
-		panelPlace: 'panelPlace_tracks',
+		tabPlace: 'tabPlace_tracks',
 		popupPlace: 'popupPlace_tracks'
 	},
 	filters: {
