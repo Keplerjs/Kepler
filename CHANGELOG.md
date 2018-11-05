@@ -4,6 +4,8 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 ## Next version
 - new settings bboxMaxResults
 - plugin import remove edit dependecies
+- show public conversations in user panel 
+- redefine placeholders panelUser, panelPlace, tabUser, tabPlace
 
 ## v1.4.8 - Import Bulk Data
 - new plugin Import, support import from geojson file
