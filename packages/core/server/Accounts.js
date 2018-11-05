@@ -18,7 +18,7 @@ Meteor.startup(function() {
 		}
 	});
 
-	console.log('Accounts: services ', services.join(','));
+	console.log('Accounts: services', services.join(','));
 
 	Accounts.emailTemplates.from = K.settings.accounts.emailTemplates.from;
 	Accounts.emailTemplates.verifyEmail = {
@@ -32,7 +32,8 @@ Meteor.startup(function() {
 });
 
 Accounts.onLogin(function(e) {
-	var ip = e && (e.connection.httpHeaders['x-real-ip'] || e.connection.clientAddress);
+	var ip = e && (e.connection.httpHeaders['x-real-ip'] || e.connection.clientAddress),
+		user = e.user ? K.Util.getPath(e.user,'username') : '';
 	
 	Users.update(e.user._id, {
 		$set: {
@@ -40,14 +41,14 @@ Accounts.onLogin(function(e) {
 		}
 	});
 
-	console.log('Accounts: onLogin ',e.user.username, ip);
+	console.log('Accounts: onLogin ', ip, user);
 });
 
 Accounts.onLoginFailure(function(e) {
 	var ip = e.connection.httpHeaders['x-real-ip'] || e.connection.clientAddress,
-		user = e.methodArguments[0].user;
-	user = user.username || user;
-	console.log('Accounts: onLoginFailure ', user, ip);
+		user = e.methodArguments ? K.Util.getPath(e.methodArguments[0],'user.username') : '';
+
+	console.log('Accounts: onLoginFailure ', ip, user );
 });
 
 /*Accounts.validateNewUser(function (user) {
