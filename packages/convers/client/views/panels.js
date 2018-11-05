@@ -61,7 +61,7 @@ Template.conver_place_new.events({
 	}
 });
 
-Template.panelUser_conver.events({
+Template.tabUser_conver.events({
 	'click .panel-btn-conversList': function(e, tmpl) {
 
 		var icon$ = $(e.target).find('.icon');

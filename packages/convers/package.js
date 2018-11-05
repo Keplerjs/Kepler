@@ -45,7 +45,6 @@ Package.onUse(function(api) {
     'client/views/items/message.html',
     'client/views/items/message.js',
     'client/views/items/place.html',
-    'client/views/items/user.html',
     'client/views/markers.html',
     'client/views/panels.html',
     'client/views/panels.js',

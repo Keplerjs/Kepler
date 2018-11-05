@@ -5,12 +5,11 @@ K.Plugin({
 		navSidebar: 'navSidebar_conver',
 		panelProfile: 'panelProfile_conver',
 		panelPlace: {'panelPlace_conver': {order: -10}},
-		panelUser: {'itemUser_conver': {order: -10}},
-		//panelUser: 'panelUser_conver',
 		popupPlace: 'popupPlace_conver',
 		//itemPlace: 'itemPlace_conver',
 		markerPlace: 'markerPlace_conver',
-		//itemUser: 'itemUser_conver'
+		panelUser: 'panelUser_conver',
+		tabUser: 'tabUser_conver'
 	},
 	schemas: {
 		place: {

@@ -3,7 +3,7 @@ K.Plugin({
 	name: 'categories',
 	templates: {
 		//TODO panelSettings: 'panelSettings_cats',
-		//TODO panelUser: 'panelUser_cats',
+		//TODO tabUser: 'tabUser_cats',
 		panelPlace: {
 			'panelPlace_cats': {order: -5 } //render after share plugin
 		},

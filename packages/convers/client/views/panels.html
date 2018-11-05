@@ -79,7 +79,14 @@
 	</div>
 </template>
 
+
 <template name="panelUser_conver">
+	<a class="btn btn-sm btn-default" href="/user/{{id}}/conver">
+		<i class="icon icon-mes"></i> <span>{{i18n 'btn_conversend'}}</span>
+	</a><br /><br />
+</template>
+
+<template name="tabUser_conver">
 {{#if isFriend}}
 	<ul class="list-group">
 		<li class="list-group-item active">		

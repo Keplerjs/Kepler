@@ -79,9 +79,12 @@ Kepler.Plugin.normalizePlacehoders = function(tt, plugin) {
 Kepler.Plugin.templatesByPlaceholder = function(placeholder, data) {
 	var tmpls = [], sorts = [];
 
-	if(!placeholder || !Template[placeholder]) return tmpls;
+	if(!placeholder 
+		//TODO uncomment and decide if check also it.. || !Template[placeholder]
+		) return tmpls;
 
 	for(var parentName in K.templates) {
+
 
 		if(parentName === placeholder) {
 			//convert in array of objects
@@ -104,6 +107,7 @@ Kepler.Plugin.templatesByPlaceholder = function(placeholder, data) {
 		}
 	}
 
+	
 	return tmpls;	
 };
 

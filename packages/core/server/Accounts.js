@@ -1,8 +1,12 @@
 /*
 	https://docs.meteor.com/api/accounts-multi.html#AccountsCommon-config
+
+	//TODO 	Accounts.oauth.unregisterService('facebook');
+	//https://forums.meteor.com/t/disable-accounts-ui-social-logins-at-runtime/46479
 */
 
 Meteor.startup(function() {	
+
 
 	Accounts.config({
 		sendVerificationEmail: K.settings.accounts.verifyEmail
