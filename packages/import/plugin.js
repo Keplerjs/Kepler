@@ -3,7 +3,7 @@ K.Plugin({
 	name: 'import',
 	templates: {
 		panelAdmin: 'panelAdmin_import',
-		panelPlace: 'panelPlace_import'
+		tabPlace: 'tabPlace_import'
 	},
 	filters: {
 		placePanel: {
