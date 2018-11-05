@@ -2,7 +2,7 @@
 K.Plugin({
 	name: 'osm',
 	templates: {
-		panelPlace: 'panelPlace_osm',
+		tabPlace: 'tabPlace_osm',
 		popupCursor: 'popupCursor_osm'
 	},
 	filters: {
