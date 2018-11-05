@@ -63,18 +63,17 @@
 	</form>
 </template>
 
-<template name="panelPlace_conver">
+<template name="itemPlace_conver">
 	<a class="btn btn-sm btn-default place-btn-mes" href="/place/{{id}}/convers">
 		<i class="icon {{#if conversCount}} icon-mes {{else}} icon-unmes {{/if}}"></i>
-		{{i18n 'title_convers'}} 
 		<span class="badge {{#unless conversCount}} bg-gray {{/unless}}">{{conversCount}}</span>
 	</a>
 </template>
 
-<template name="panelUser_conver">
+<template name="itemUser_conver">
 	<a class="btn btn-sm btn-default" href="/user/{{id}}/conver">
 		<i class="icon icon-mes"></i> <span>{{i18n 'btn_conversend'}}</span>
-	</a><br /><br />
+	</a>
 </template>
 
 <template name="tabUser_conver">

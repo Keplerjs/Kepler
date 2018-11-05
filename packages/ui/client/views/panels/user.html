@@ -97,6 +97,9 @@
 
 <template name="user_btns_panel">
 	<div class="btn-group" data-toggle="buttons">
+
+	{{> pluginsTemplate name='itemUser'}}
+
 	{{#if isFriend}}
 		<a class="btn btn-sm btn-default user-btn-del" href="#" data-confirm-msg="{{i18n 'btn_frienddel'}}">
 			<i class="icon icon-userdel"></i>
