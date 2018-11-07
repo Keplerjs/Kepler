@@ -78,6 +78,13 @@ Kepler.settings = {
 		},
 		"accounts": {
 			"creation": true,
+			"services": {
+				"google": true,
+				"github": true,
+				"twitter": false,
+				"facebook": true,
+				"openstreetmap": true
+			},
 			"ui": {
 				"passwordSignupFields": "USERNAME_AND_OPTIONAL_EMAIL"
 				//https://docs.meteor.com/api/accounts.html#Accounts-ui-config

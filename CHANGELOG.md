@@ -2,7 +2,7 @@
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
-...
+- new settings K.settings.public.accounts.services to disable each oauth service
 
 ## v1.4.9
 - new settings bboxMaxResults

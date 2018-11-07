@@ -43,6 +43,7 @@ Package.onUse(function(api) {
     'client/views/errors.html',
     'client/views/footer.html',
     'client/views/formLogin.html',
+    'client/views/formLogin.js',
     'client/views/header.html',
     'client/views/items/place.html',
     'client/views/items/place.js',
