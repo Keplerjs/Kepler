@@ -26,6 +26,11 @@ Kepler.settings = {
 		},
 		"templates": {
 			//centralized templaes configurations
+			"navSidebar": {
+				"navSidebar_ui_profile": { order:0 },
+				"navSidebar_ui_friends": { order:0 },
+				"navSidebar_ui_places": { order:0 }
+			}
 		},
 		"profile": {
 			"awayTime": 10000,

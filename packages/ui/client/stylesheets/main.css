@@ -10,24 +10,22 @@
 	text-align: center;
 	color: #f80;	
 }
-/* PAGES*/
-
+/* PAGES */
 .container section,
 .container-fluid section {
 	margin-top: 40px;
 }
-
 footer {
 	padding: 20px;
 }
 
-.built {
-	background: rgba(255,255,255,0.6);	
+.builtwith {
 	font-style: italic;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 	color: #9c0;
 	white-space: nowrap;
 }
-.built:hover {
+.builtwith:hover {
+	color:#9c0;
 	text-decoration: none;
 }

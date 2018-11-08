@@ -1,26 +1,6 @@
 
 <template name="navSidebar">
 	<ul class="nav nav-pills" role="tablist">
-		<li class="{{ifRoute 'profile' 'active'}}">
-			{{#with currentUser}}
-			<a class="btn btn-sm" href="{{pathFor route='profile'}}" title="{{i18n 'btn_profile'}} {{username}}" role="tab">
-				<img class="icon-avatar {{#unless avatar}}icon-avatar-default{{/unless}}" src="{{#if avatar}}{{avatar}}{{/if}}" />
-				<span class="visible-md-inline-block visible-lg-inline-block">{{username}}</span>
-			</a>
-			{{/with}}
-		</li>
-		<li class="{{ifRoute 'friends' 'active'}}">
-			<a class="btn btn-sm" href="{{pathFor route='friends'}}" role="tab">
-				<i class="icon icon-friends"></i>
-				<span> {{i18n 'btn_users'}}</span>
-			</a>
-		</li>
-		<li class="{{ifRoute 'placesNews' 'active'}}">
-			<a class="btn btn-sm" href="{{pathFor route='placesNews'}}" role="tab">
-				<i class="icon icon-map"></i>
-				<span> {{i18n 'btn_places'}}</span>
-			</a>
-		</li>
 		
 		{{> pluginsTemplate name='navSidebar'}}
 
@@ -36,4 +16,31 @@
 		</li>
 		{{/unless}}
 	</ul>
+</template>
+
+<template name="navSidebar_ui_profile">
+	<li class="{{ifRoute 'profile' 'active'}}">
+		{{#with currentUser}}
+		<a class="btn btn-sm" href="{{pathFor route='profile'}}" title="{{i18n 'btn_profile'}} {{username}}" role="tab">
+			<img class="icon-avatar {{#unless avatar}}icon-avatar-default{{/unless}}" src="{{#if avatar}}{{avatar}}{{/if}}" />
+			<span class="visible-md-inline-block visible-lg-inline-block">{{username}}</span>
+		</a>
+		{{/with}}
+	</li>
+</template>
+<template name="navSidebar_ui_friends">
+	<li class="{{ifRoute 'friends' 'active'}}">
+		<a class="btn btn-sm" href="{{pathFor route='friends'}}" role="tab">
+			<i class="icon icon-friends"></i>
+			<span> {{i18n 'btn_users'}}</span>
+		</a>
+	</li>
+</template>
+<template name="navSidebar_ui_places">
+	<li class="{{ifRoute 'placesNews' 'active'}}">
+		<a class="btn btn-sm" href="{{pathFor route='placesNews'}}" role="tab">
+			<i class="icon icon-map"></i>
+			<span> {{i18n 'btn_places'}}</span>
+		</a>
+	</li>
 </template>

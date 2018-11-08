@@ -1,0 +1,114 @@
+{
+	"public": {
+		"map": {
+			"layers": {
+				"road": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+				"landscape": "https://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey=5a5f1f587e9e49e2953dfb6b92f69d5e",
+				"transport": "https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey=5a5f1f587e9e49e2953dfb6b92f69d5e"
+			}
+		},
+		"templates": {
+			"footer": {
+				"footer_theme": { "show": false }
+			},
+			"navSidebar": {
+				"navSidebar_ui_places": { "show": false },
+				"navSidebar_ui_friends": { "show": false }
+			}
+		},
+		"accounts": {
+			"creation": true,
+			"services": {
+				"google":false,
+				"facebook":false,
+				"github":false,
+				"twitter":false,
+				"openstreetmap":false
+			},
+            "ui": {
+                "passwordSignupFields": "USERNAME_AND_EMAIL"
+            }
+        },
+        "ga": {
+			"id": "UA-104501199-4"
+		},
+        "categories": {
+			"cats": {
+				"place": {
+					"car": true,
+					"house": true,
+					"bus": false,
+					"parking": false
+				}
+			}
+		}
+	},
+	"admin": {
+		"adminUsers": ["admin"]
+	},
+	"upload": {
+		"targets": {
+			"avatars": {
+				"url": "/static/avatars/",
+				"path": "/var/www/k/static/avatars/"
+			}
+		}
+	},
+	"geoinfo": {
+		"autoupdate": false,
+		"geonamesUser": "keplerjs",
+		"ipinfodbKey": "ac735b1e635d4ec5b0ba271b287eb42c2161eabfbbc53894cb6ea642c210befd"
+	},
+	"wunderground": {
+		"key": "6a7ab4b56e163782"
+	},
+	"robots": {
+        "startUpdate": true,
+        "delayUpdate": 2000
+    },
+    "openrouteservice": {
+		"name": "keplerjs",
+		"key": "5b3ce3597851110001cf62483cfbd53fe8494505a71003e56fbbd9b9"
+	},
+	"accounts": {
+		"verifyEmail": true,
+		"emailTemplates": {
+			"from": "KeplerJs <no-reply@keplerjs.io>"
+		},
+		"demo.keplerjs.io_openstreetmap": {
+			"service": "openstreetmap",
+			"consumerKey": "KS5U3uhf8t4acUA0l6c8eJCxyZUeyPbPQbV1W3VS",
+			"secret": "J2HlRXpXXTNIFYrKFKtnxmnbUj8YyxhkV7rCeJ6U"
+		},
+        "demo.keplerjs.io_google": {
+            "service": "google",
+            "clientId": "734574874628-1tmo43jtnc4ae4dh1cd4dejd3f208612.apps.googleusercontent.com",
+            "secret": "7WvE6LdGeve2tSAq7CNGTuVM"
+        },
+		"demo.keplerjs.io_github": {
+			"service": "github",
+			"clientId": "700c9c0c06741b851f9f",
+			"secret": "ca5fdbd15a011848b0d74b38c9302d13b312fb03"
+		},        
+        "demo.keplerjs.io_facebook": {
+            "service": "facebook",
+            "appId": "133848430551055",
+            "secret": "34a2142fdb9d1605091f950cfea1d5fd"
+        },
+        "climbo.net": {
+            "DISABLED_service": "facebook",
+            "appId": "527957493928101",
+            "secret": "be38887d1683e000a380dbfd56c4f908"
+        },
+	    "keplerjs.herokuapp.com_facebook": {
+            "DISABLED_service": "facebook",
+            "appId": "133848430551055",
+            "secret": "34a2142fdb9d1605091f950cfea1d5fd"
+        },        
+        "keplerjs.herokuapp.com_google": {
+            "DISABLED_service": "google",
+            "clientId": "877109441005-m2q5llup8unhjlk1qmlh0t00ovkttgqa.apps.googleusercontent.com",
+            "secret": "jodvfCvcBvGrcndyu1Dv0ZVC"
+        }       
+	}	
+}

@@ -14,7 +14,9 @@
 	list-style: none;
 }
 #login-link-and-dropdown-list > a.login-link-text:first-child,
-.login-link-and-dropdown-list > a.login-link-text:first-child,
+.login-link-and-dropdown-list > a.login-link-text:first-child {
+	display: none;
+}
 #login-dropdown-list .login-close-text {
 	display: none;
 }
@@ -38,6 +40,10 @@
 #formlogin.no-accounts-openstreetmap #login-buttons-openstreetmap {
 	display: none;
 }
+#login-dropdown-list .or {
+	display: none;
+}
+
 /*
 #login-dropdown-list .dropdown-menu {
 	margin: 0 10px;
@@ -48,9 +54,6 @@
 	background: rgba(255, 255, 255, 0.6);	
 }
 
-#login-dropdown-list .or-text {
-	display: none;
-}
 
 #login-dropdown-list .dropdown-toggle,
 #login-dropdown-list .dropdown-menu {
