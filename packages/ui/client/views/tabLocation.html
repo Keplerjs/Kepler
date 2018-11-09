@@ -1,49 +1,43 @@
 
 <template name="tabLocation">
-{{#if or getLoc getCheckin}}
-	<ul class="list-group">
+	
 		<li class="list-group-item active">
 			<i class="icon icon-map"></i> {{i18n 'label_location'}}
 		</li>	
 		<li class="list-group-item">
-			<div>
-				<div class="pull-left">
-				{{> btns_location}}
-				</div>
-				{{#if getCheckin}}
-					{{#with placeById getCheckin}}
-					<div class="pull-right">
-					{{> place_btns}}
-					</div>
-					{{/with}}
-				{{/if}}
 
-				{{> pluginsTemplate name='tabLocation'}}
-				
-			</div>
+			{{> btns_location}}
+
+			{{> pluginsTemplate name='tabLocation'}}
+
+			{{#if getCheckin}}
+				{{#with placeById getCheckin}}
+				<div class="text-right">
+					{{> place_btns}}
+				</div>
+				{{/with}}
+			{{/if}}
 		</li>
-		{{#if and getCheckin isMe}}
-		<li class="list-group-item">
-			{{#with placeById getCheckin}}
-				
-				{{> place_btn_checkin}}
-				
-			{{/with}}
-		</li>				
-		{{/if}}
-	</ul>
-{{/if}}
 </template>
 
 <template name="btns_location">
 {{#if getCheckin}}
 
 	{{#with placeById getCheckin}}
-		
+	
 		{{> item_place}} 
-		
+	
 	{{/with}}
 
+	{{#if isMe}}
+	
+		{{#with placeById getCheckin}}
+	
+			{{> place_btn_checkin}}
+	
+		{{/with}}
+
+	{{/if}}
 {{else}}
 	{{#if getLoc}}
 

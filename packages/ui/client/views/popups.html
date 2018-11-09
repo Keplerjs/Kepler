@@ -5,10 +5,6 @@
 			{{#if name}}<b>{{name}}</b>{{else}}<i>{{i18n 'label_noname'}}</i>{{/if}}
 		</a>
 
-		{{#if checkinsCount}}
-			<a class="btn btn-sm btn-default" href="/place/{{id}}/checkins"><i class="icon icon-users"></i></a>
-		{{/if}}
-
 		{{> pluginsTemplate name='popupPlace'}}
 
 	</div>
@@ -33,4 +29,10 @@
 	<div class="popup-cursor">
 		{{> pluginsTemplate name='popupCursor'}}
 	</div>
+</template>
+
+<template name="popupPlace_ui_checkins">
+	{{#if checkinsCount}}
+		<a class="btn btn-sm btn-default" href="/place/{{id}}/checkins"><i class="icon icon-users"></i></a>
+	{{/if}}
 </template>

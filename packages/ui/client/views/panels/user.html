@@ -29,24 +29,8 @@
 			{{/if}}
 
 		{{else}}
-			
-			<div class="row">
-				<div class="col-xs-4">
-					{{> user_status}}
-					<time>{{humanTime loginAt 1}}</time>
-				</div>
-				<div class="col-xs-8 text-right">
-					<div class="user-btns">
-
-						{{> user_btns_panel}}
-
-					</div>
-				</div>
-			</div>
-
 
 			{{> pluginsTemplate name='panelUser'}}
-
 
 			<ul class="nav nav-tabs">
 				<li class="active">
@@ -72,9 +56,6 @@
 				<br />
 				<div class="tab-pane active" id="tab_info">
 			
-					{{> tabLocation}}
-					<!-- TODO move tabLocation in TabUser placeholder -->
-
 					{{> pluginsTemplate name='tabUser'}}
 
 				</div>
@@ -94,6 +75,35 @@
 
 </template>
 
+<template name="panelUser_ui_btns">
+	<div class="row">
+		<div class="col-xs-4">
+			
+			{{> user_status}}
+
+			<time>{{humanTime loginAt 1}}</time>
+		</div>
+		<div class="col-xs-8 text-right">
+			<div class="user-btns">
+
+				{{> user_btns_panel}}
+
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="panelUser_ui_tabloc">
+	{{#if or getLoc getCheckin}}
+
+	<div class="list-group">
+		
+		{{> tabLocation}}
+		
+	</div>
+
+	{{/if}}
+</template>
 
 <template name="user_btns_panel">
 	<div class="btn-group" data-toggle="buttons">

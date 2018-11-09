@@ -13,16 +13,35 @@
 				"footer_ui_builtwith": { "show": false }
 			},
 			"navSidebar": {
-				"navSidebar_ui_places": { "show": false },
-				"navSidebar_ui_friends": { "show": false }
+				"navSidebar_ui_friends": { "show": false },
+				"navSidebar_ui_places": { "show": false }
 			},
 			"pageHome": {
 				"pageHome_theme": { "show": false }
 			},
 			"panelProfile": {
+				"panelProfile_ui_tabloc": { "show": false },
 				"panelProfile_ui_hist": { "show": false },
-				"panelProfile_edit": { "show": false },
-				"panelProfile_admin": { "show": false }
+				"panelProfile_ui_sets": { "show": false },
+				"panelProfile_admin": { "show": false },
+				"panelProfile_edit": { "show": false }				
+			},
+			"panelPlace": {
+				"panelPlace_admin": { "show": false },
+				"panelPlace_edit": { "show": false }
+			},
+			"panelUser": {
+				"panelUser_admin": { "show": false },
+				"panelUser_ui_tabloc": { "show": false }
+			},
+			"tabUser": {
+				"tabUser_edit": { "show": false }
+			},
+			"popupPlace": {
+				"popupPlace_ui_checkins": { "show": false }
+			},
+			"popupCursor": {
+				"popupCursor_edit": { "show": false }
 			}
 		},
 		"accounts": {

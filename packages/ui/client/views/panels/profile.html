@@ -16,31 +16,26 @@
 	</div>
 	<div class="panel-body">
 
-		{{> tabLocation}}
-
 		<div class="list-group">
 
 			{{> pluginsTemplate name='panelProfile'}}
 			
 		</div>
-		
+	
 		<div class="list-group">
-			<a class="list-group-item" href="/settings">
-				<i class="icon icon-sets"></i> 
-				{{i18n 'btn_settings'}}
-			</a>		
-			<a class="list-group-item" href="{{pathFor route='home'}}" role="tab">
-				<i class="icon icon-home"></i>
-				{{i18n 'btn_home'}}
-			</a>
-		</div>
 
-		<div class="list-group">
-			<a class="btn btn-default" href="/logout">
-				<i class="icon icon-logout"></i> 
-				{{i18n 'btn_logout'}}
-			</a>
-			
+			<div class="btn-group">
+
+				<a class="btn btn-default" href="/logout">
+					<i class="icon icon-logout"></i> 
+					{{i18n 'btn_logout'}}
+				</a>
+				<a class="btn btn-default" href="{{pathFor route='home'}}">
+					<i class="icon icon-home"></i>
+					{{i18n 'btn_home'}}
+				</a>
+			</div>
+
 			{{> btnConnect}}
 
 		</div>	
@@ -50,6 +45,21 @@
 	</div>
 </div>
 
+</template>
+
+<template name="panelProfile_ui_tabloc">
+	{{#if or getLoc getCheckin}}
+		
+		{{> tabLocation}}
+
+	{{/if}}
+</template>
+
+<template name="panelProfile_ui_sets">
+	<a class="list-group-item" href="/settings">
+		<i class="icon icon-sets"></i> 
+		{{i18n 'btn_settings'}}
+	</a>
 </template>
 
 <template name="panelProfile_ui_hist">
