@@ -88,7 +88,7 @@
 		"ipinfodbKey": ""
 	},
 	"wunderground": {
-		"key": "6a7ab4b56e163782"
+		"key": "<YOUR CLIENT ID>"
 	},
 	"robots": {
         "startUpdate": true,
@@ -96,7 +96,7 @@
     },
     "openrouteservice": {
 		"name": "keplerjs",
-		"key": "5b3ce3597851110001cf62483cfbd53fe8494505a71003e56fbbd9b9"
+		"key": "<YOUR CLIENT ID>"
 	},
 	"accounts": {
 		"verifyEmail": false,
