@@ -9,11 +9,20 @@
 		},
 		"templates": {
 			"footer": {
-				"footer_theme": { "show": false }
+				"footer_theme": { "show": false },
+				"footer_ui_builtwith": { "show": false }
 			},
 			"navSidebar": {
 				"navSidebar_ui_places": { "show": false },
 				"navSidebar_ui_friends": { "show": false }
+			},
+			"pageHome": {
+				"pageHome_theme": { "show": false }
+			},
+			"panelProfile": {
+				"panelProfile_ui_hist": { "show": false },
+				"panelProfile_edit": { "show": false },
+				"panelProfile_admin": { "show": false }
 			}
 		},
 		"accounts": {

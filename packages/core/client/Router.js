@@ -113,7 +113,7 @@ Router.map(function() {
 		loadingTemplate: 'pageLoading',
 		waitOn: function() {
 			Session.set('showSidebar', true);
-		},		
+		},
 		data: function() {
 			return Meteor.user();
 		}
@@ -333,7 +333,7 @@ Router.map(function() {
 		waitOn: function() {
 			Session.set('showSidebar', true);
 			if(this.params.userId===Meteor.userId())
-				Router.go('profile');
+				Router.go('root');
 			else
 				return Meteor.subscribe('userById', this.params.userId);
 		},

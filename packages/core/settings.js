@@ -25,11 +25,18 @@ Kepler.settings = {
 			"fr": "Français",
 		},
 		"templates": {
-			//centralized templaes configurations
+			//core/ui templates configurations
 			"navSidebar": {
 				"navSidebar_ui_profile": { order:0 },
 				"navSidebar_ui_friends": { order:0 },
-				"navSidebar_ui_places": { order:0 }
+				"navSidebar_ui_places":  { order:0 },
+				"navSidebar_ui_connection": { order:10 }
+			},
+			"panelProfile": {
+				"panelProfile_ui_hist": { order:-10 }
+			},
+			"footer": {
+				"footer_ui_builtwith": { order:10 }
 			}
 		},
 		"profile": {

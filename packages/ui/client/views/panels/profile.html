@@ -18,14 +18,7 @@
 
 		{{> tabLocation}}
 
-
 		<div class="list-group">
-
-			<a class="list-group-item" href="/history">
-				<i class="icon icon-hist"></i>
-				 {{i18n 'btn_hist'}} 
-				<span class="badge">{{hist.length}}</span>
-			</a>
 
 			{{> pluginsTemplate name='panelProfile'}}
 			
@@ -43,20 +36,26 @@
 		</div>
 
 		<div class="list-group">
-			
-			{{> btnConnect}}
-
-			<a class="btn btn-default pull-right" href="/logout">
+			<a class="btn btn-default" href="/logout">
 				<i class="icon icon-logout"></i> 
 				{{i18n 'btn_logout'}}
 			</a>
+			
+			{{> btnConnect}}
+
 		</div>	
 
 		{{> footer}}
+
 	</div>
 </div>
 
 </template>
 
-
-
+<template name="panelProfile_ui_hist">
+	<a class="list-group-item" href="/history">
+		<i class="icon icon-hist"></i>
+		 {{i18n 'btn_hist'}} 
+		<span class="badge">{{hist.length}}</span>
+	</a>
+</template>

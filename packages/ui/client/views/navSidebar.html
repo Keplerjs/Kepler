@@ -1,20 +1,7 @@
 
 <template name="navSidebar">
 	<ul class="nav nav-pills" role="tablist">
-		
 		{{> pluginsTemplate name='navSidebar'}}
-
-		<!-- TODO <li class="{{ifRoute 'search' 'active'}} pull-right">
-			<a class="btn btn-sm" href="{{pathFor route='search'}}" role="tab">
-				<i class="icon icon-search"></i>
-				<span> {{i18n 'btn_search'}}</span>
-			</a>
-		</li> -->
-		{{#unless eq connectionStatus.status 'connected'}}
-		<li class="pull-right">
-			{{> btnConnect}}
-		</li>
-		{{/unless}}
 	</ul>
 </template>
 
@@ -28,6 +15,7 @@
 		{{/with}}
 	</li>
 </template>
+
 <template name="navSidebar_ui_friends">
 	<li class="{{ifRoute 'friends' 'active'}}">
 		<a class="btn btn-sm" href="{{pathFor route='friends'}}" role="tab">
@@ -36,6 +24,7 @@
 		</a>
 	</li>
 </template>
+
 <template name="navSidebar_ui_places">
 	<li class="{{ifRoute 'placesNews' 'active'}}">
 		<a class="btn btn-sm" href="{{pathFor route='placesNews'}}" role="tab">
@@ -44,3 +33,19 @@
 		</a>
 	</li>
 </template>
+
+<template name="navSidebar_ui_connection">
+	{{#unless eq connectionStatus.status 'connected'}}
+	
+		{{> btnConnect}}
+	
+	{{/unless}}
+</template>
+<!-- TODO template name="navSidebar_ui_search">
+	<li class="{{ifRoute 'search' 'active'}} pull-right">
+		<a class="btn btn-sm" href="{{pathFor route='search'}}" role="tab">
+			<i class="icon icon-search"></i>
+			<span> {{i18n 'btn_search'}}</span>
+		</a>
+	</li>
+</template -->
