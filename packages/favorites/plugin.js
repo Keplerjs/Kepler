@@ -3,7 +3,7 @@ K.Plugin({
 	name: 'favorites',
 	templates: {
 		panelProfile: 'panelProfile_favorites',
-		panelUser: 'panelUser_favorites',
+		tabUser: 'tabUser_favorites',
 		itemPlace: 'itemPlace_favorites'
 	},
 	schemas: {

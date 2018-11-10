@@ -1,5 +1,5 @@
 
-Template.panelUser_favorites.events({
+Template.tabUser_favorites.events({
 	'click .panel-btn-favsList': function(e, tmpl) {
 
 		var icon$ = $(e.target).find('.icon');

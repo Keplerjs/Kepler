@@ -2,7 +2,9 @@
 K.Plugin({
 	name: 'convers',
 	templates: {
-		navSidebar: 'navSidebar_conver',
+		navSidebar: {
+			'navSidebar_conver':{order:5}
+		},
 		panelProfile: 'panelProfile_conver',
 		itemPlace: 'itemPlace_conver',
 		popupPlace: 'popupPlace_conver',

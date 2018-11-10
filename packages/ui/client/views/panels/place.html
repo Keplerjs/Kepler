@@ -15,22 +15,6 @@
 	</div>
 	<div class="panel-body">
 
-		<div class="row">
-			<div class="col-xs-3">
-			
-				{{> place_btn_checkin}}
-			
-			</div>
-			<div class="col-xs-9 text-right">
-				{{> place_btns}}
-				&nbsp;<a class="btn btn-sm btn-default place-btn-map pull-right" href="/place/{{id}}/map">
-					<i class="icon icon-map"></i>
-				</a>
-			</div>		
-		</div>
-
-		<br />
-
 		{{> pluginsTemplate name='panelPlace'}}
 
 		<ul class="nav nav-tabs">
@@ -48,8 +32,6 @@
 
 		<div class="tab-content">
 			<div class="tab-pane active" id="tab_info">
-				
-				{{> tab_info}}
 
 				{{> pluginsTemplate name='tabPlace'}}
 
@@ -60,5 +42,42 @@
 		</div>
 	</div>	
 </div>
+
+</template>
+
+<template name="panelPlace_ui_btns">
+	<div class="row">
+		<div class="col-xs-3">
+		
+			{{> place_btn_checkin}}
+		
+		</div>
+		<div class="col-xs-9 text-right">
+			
+			{{> place_btns}}
+
+			&nbsp;<a class="btn btn-sm btn-default place-btn-map pull-right" href="/place/{{id}}/map">
+				<i class="icon icon-map"></i>
+			</a>
+		</div>		
+	</div>
+</template>
+
+<template name="panelPlace_ui_info">
+
+	<ul class="list-group">
+		{{#if desc}}
+		<li class="list-group-item">
+			<label>{{i18n 'label_desc'}}</label><br />
+			<p class="place-desc">{{desc}}</p>
+		</li>
+		{{/if}}
+		{{#if warn}}
+		<li class="list-group-item alert alert-warning alert-dismissable place-warn">
+			<i class="icon icon-danger"></i>
+			<span>{{warn}}</span>
+		</li>
+		{{/if}}
+	</ul>
 
 </template>

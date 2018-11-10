@@ -7,10 +7,11 @@ Meteor.publish('userById', function(userId) {
 			userData = userCur.fetch()[0],
 			retCurs = [],
 			placeIds = [];
-
+		
 		retCurs.push(userCur);
 
 		if(userData && _.contains(userData.usersBlocked, this.userId)) {
+
 			//user block me
 			console.log('Pub: userById from Blocked user', userData.username)
 			return K.findUsersByIds([userId]);
@@ -28,7 +29,9 @@ Meteor.publish('userById', function(userId) {
 			retCurs.push( K.findPlacesByIds(placeIds) );
 		}
 		
-		this.added('users', userId, userData);	//add full fields for userCur
+		if(userData) {
+			this.added('users', userId, userData);	//add full fields for userCur
+		}
 
 		console.log('Pub: userById', userId);
 

@@ -339,6 +339,12 @@ Router.map(function() {
 		},
 		data: function() {
 			if(this.ready()) {
+
+				if(!K.findUserById(this.params.userId).count()){
+					Router.go('root');
+					return null
+				}
+
 				var user = K.userById(this.params.userId);
 				
 				if(!user){

@@ -16,7 +16,20 @@
 		<div class="panel-body">
 
 		{{#if or isBlocked isBlockMe}}
-			
+		
+			<div class="row tab-user-bio">
+				<div class="col-xs-4 avatar-big">
+					{{> item_user_avatar}}
+				</div>
+				<div class="col-xs-8">			
+					{{#if username}}
+						<label>{{i18n 'label_username'}}</label>
+						<span>{{username}}</span>
+						<br />
+					{{/if}}
+				</div>
+			</div>
+
 			{{#if isBlocked}}
 			<ul class="list-group">		
 				<li class="list-group-item">

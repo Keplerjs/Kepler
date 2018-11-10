@@ -27,7 +27,7 @@ Kepler.settings = {
 		"templates": {
 			//core/ui templates configurations
 			"navSidebar": {
-				"navSidebar_ui_profile": { order:0 },
+				"navSidebar_ui_profile": { order:-10 },
 				"navSidebar_ui_friends": { order:0 },
 				"navSidebar_ui_places":  { order:0 },
 				"navSidebar_ui_connection": { order:10 }
@@ -39,7 +39,11 @@ Kepler.settings = {
 			},
 			"itemPlace": {
 				"itemPlace_ui_checkins": { order:-10 }
-			},			
+			},
+			"panelPlace": {
+				"panelPlace_ui_btns": { order:-10 },
+				"panelPlace_ui_info": { order:-10 }
+			},	
 			"panelUser": {
 				"panelUser_ui_bio": { order:-10 },
 				"panelUser_ui_btns": { order:-10 },

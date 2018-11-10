@@ -35,8 +35,9 @@ Meteor.publish('placeById', function(placeId) {
 
 		retCurs.push(placeCur);
 		
-		if(!placeData)
+		if(!placeData) {
 			return retCurs;
+		}
 
 		var usersIds = _.union(placeData.hist, placeData.checkins, placeData.userId);
 		//TODO move publish of userId in plugin edit

@@ -4,7 +4,7 @@
 }
 #place .place-warn {
 	/*padding:4px 14px 4px 4px;*/
-	padding-right: 22px;
+	padding: 10px 22px 10px 10px;
 	position:relative;
 	border-color:#caa;
 	border-width:1px;

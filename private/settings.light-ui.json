@@ -16,7 +16,8 @@
 				"navSidebar_ui_connection": { "show": false },
 				"navSidebar_ui_friends": { "show": false },
 				"navSidebar_ui_places": { "show": false },
-				"navSidebar_conver": { "show": false }
+				"navSidebar_conver": { "show": false },
+				"navSidebar_notif": { "show": false }
 			},
 			"pageHome": {
 				"pageHome_theme": { "show": false }
@@ -32,6 +33,8 @@
 				"panelProfile_notif": { "show": false }
 			},
 			"panelPlace": {
+				"panelPlace_ui_btns": { "show": false },
+				"panelPlace_ui_info": { "show": false },
 				"panelPlace_admin": { "show": false },
 				"panelPlace_edit": { "show": false },
 				"panelPlace_share": { "show": false },
@@ -53,12 +56,14 @@
 			"panelUser": {
 				"panelUser_ui_bio": { "show": false },
 				"panelUser_ui_btns": { "show": false },
+				"panelUser_ui_tablocation": { "show": false },
 				"panelUser_admin": { "show": false },
 				"panelUser_robots": { "show": false }
 			},
 			"tabUser": {
 				"tabUser_edit": { "show": false },
-				"tabUser_conver": { "show": false }
+				"tabUser_conver": { "show": false },
+				"tabUser_favorites": { "show": false }
 			},
 			"itemUser": {
 				"itemUser_conver": { "show": false }
@@ -67,10 +72,12 @@
 				"popupPlace_ui_checkins": { "show": false },
 				"popupPlace_tracks": { "show": false },
 				"popupPlace_pois": { "show": false },
-				"popupCursor_ors": { "show": false }
+				"popupCursor_ors": { "show": false },
+				"popupPlace_conver": { "show": false }
 			},
 			"markerPlace": {
-				"markerPlace_ui_checkins": { "show": false }
+				"markerPlace_ui_checkins": { "show": false },
+				"markerPlace_conver": { "show": false }
 			},
 			"markerClusterPlace": {
 				"markerClusterPlace_ui_checkins": { "show": false }
@@ -123,7 +130,7 @@
 	},
 	"geoinfo": {
 		"autoupdate": false,
-		"geonamesUser": "keplerjs",
+		"geonamesUser": "<YOUR USERNAME>",
 		"ipinfodbKey": ""
 	},
 	"wunderground": {
@@ -134,7 +141,7 @@
         "delayUpdate": 2000
     },
     "openrouteservice": {
-		"name": "keplerjs",
+		"name": "<YOUR USERNAME>",
 		"key": "<YOUR CLIENT ID>"
 	},
 	"accounts": {
