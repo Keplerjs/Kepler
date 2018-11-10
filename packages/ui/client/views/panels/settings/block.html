@@ -1,0 +1,24 @@
+
+<template name="panelSettings_ui_block">
+	<div class="form-group">
+		<label class="col-xs-3 control-label">{{i18n 'label_privacy'}}</label>
+		<div class="col-xs-9">
+			<a class="btn btn-default" href="{{pathFor route='panelSettingsBlock'}}">
+				<i class="icon icon-report"></i> {{i18n 'btn_usersblocked'}}
+			</a>
+		</div>
+	</div>
+</template>
+
+<template name="item_user_blocked">
+	<div class="block-item">
+		<div class="pull-left">
+			{{> item_user}}
+		</div>
+		<div class="btn-group pull-right" data-toggle="buttons">
+			<a class="btn btn-sm btn-default user-btn-unblock" href="#">
+				<i class="icon icon-report"></i> <span>{{i18n 'btn_userUnblock'}}</span>
+			</a>
+		</div>
+	</div>
+</template>

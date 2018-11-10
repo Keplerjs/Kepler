@@ -2,7 +2,9 @@
 K.Plugin({
 	name: 'upload',
 	templates: {
-		panelSettings: 'panelSettings_upload'
+		panelSettings: {
+			'panelSettings_upload': { order:-10}
+		}
 	},
 	settings: {
 		"public": {

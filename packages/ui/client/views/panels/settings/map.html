@@ -1,0 +1,34 @@
+
+<template name="panelSettings_ui_map">
+	<div class="form-group">
+		<label for="mapcenter" class="col-xs-3 control-label">{{i18n 'label_mapcenter'}}</label>
+		<div class="col-xs-9">
+			<div id="mapcenter" class="input-group">
+				<input class="form-control" readonly=readonly type="text" value="{{mapcenter}}" />
+				<div class="input-group-btn">
+					{{#if mapcenter}}
+					<a class="btn btn-default btn-mapcancel" href="#">
+						<i class="icon icon-canc"></i>
+					</a>
+					{{/if}}
+					<a class="btn btn-default btn-mapcenter" href="#">
+						<i class="icon icon-map"></i> {{i18n 'btn_mapcenter'}}
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-xs-3 control-label">{{i18n 'label_layer'}}</label>
+		<div class="col-xs-9">
+			<div id="maplayer" class="btn-group" data-toggle="buttons">
+			{{#each layers}}
+				<label class="btn btn-default {{#if active}} active {{/if}}" style="background-image:url('{{url}}')">
+				<input type="radio" name="maplayer" checked="{{active}}" value="{{val}}" />
+				{{name}}
+				</label>
+			{{/each}}
+			</div>
+		</div>
+	</div>
+</template>

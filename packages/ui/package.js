@@ -69,6 +69,14 @@ Package.onUse(function(api) {
     'client/views/panels/user/friends.html',
     'client/views/panels/user/friends.js',
     'client/views/panels/user/histuser.html',
+    
+    'client/views/panels/settings/block.html',
+    'client/views/panels/settings/block.js',
+    'client/views/panels/settings/lang.html',
+    'client/views/panels/settings/lang.js',
+    'client/views/panels/settings/map.html',
+    'client/views/panels/settings/map.js',
+
     'client/views/pluginsTemplate.html',
     'client/views/pluginsTemplate.js',
     'client/views/popups.html',

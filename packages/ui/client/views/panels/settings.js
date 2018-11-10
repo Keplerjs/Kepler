@@ -10,34 +10,6 @@ Template.panelSettings.helpers({
 				active: gender===val
 			};
 		});
-	},
-	lang: function() {
-		return K.settings.public.langs[K.Profile.data.lang] ? K.Profile.data.lang : K.settings.public.lang;
-	},
-	langs: function() {
-		return _.map(K.settings.public.langs, function(v,k) {
-			return {
-				key: k,
-				val: v,
-				active: k===K.Profile.data.lang
-			};
-		});
-	},
-	layers: function() {
-		var layer = K.Profile.getOpts('map.layer') || K.settings.public.map.layer;
-		return _.map(K.settings.public.map.layers, function(val, k) {
-			return {
-				key: k,
-				val: k,
-				name: i18n('map_layer_'+k),
-				active: k===layer,
-				url: K.Util.tmpl(val,{s:'a',z:'15',x:'17374',y:'11667'})
-			};
-		});
-	},
-	mapcenter: function() {
-		var z = K.Profile.getOpts('map.zoom');
-		return K.Util.humanize.loc(K.Profile.getOpts('map.center'))+(z?','+z:'');
 	}
 });
 
@@ -95,67 +67,13 @@ Template.panelSettings.events({
 		Users.update(Meteor.userId(), { $set: {'city': val } });
 	}, 300),*/
 	
-	'change #maplayer input': _.debounce(function(e) {
-		e.preventDefault();
-
-		var val = $(e.currentTarget).val();
-		
-		Users.update(Meteor.userId(), { $set: {'settings.map.layer': val } });
-
-		K.Map.setOpts({layer: val });
-
-	}, 300),
-
-	'click #mapcenter .btn-mapcenter': _.debounce(function(e) {
-		e.preventDefault();
-
-		var input$ = $(e.currentTarget).parents('#mapcenter').find('input'),
-			cen = K.Map.getCursorLoc() || K.Map.getCenter(),
-			zom = K.Map.map.getZoom(),
-			val = K.Util.geo.roundLoc(cen);
-		
-		input$.val(K.Util.humanize.loc(val)+','+zom);
-		
-		Users.update(Meteor.userId(), {
-			$set: {
-				'settings.map.center': val,
-				'settings.map.zoom': zom
-			}
-		});
-	}, 300),
-
-	'click #mapcenter .btn-mapcancel': _.debounce(function(e) {
-		e.preventDefault();
-
-		var input$ = $(e.currentTarget).parents('#mapcenter').find('input');
-		
-		input$.val('');
-		
-		Users.update(Meteor.userId(), {
-			$set: {
-				'settings.map.center': null,
-				'settings.map.zoom': null
-			}
-		});
-	}, 300),
-
 	'change #gender input': _.debounce(function(e) {
 		e.preventDefault();
 
 		var val = $(e.currentTarget).val();
 		Users.update(Meteor.userId(), { $set: {'gender': val } });
 
-	}, 300),
-
-	'change #lang': function(e) {
-		e.preventDefault();
-
-		var lang = $(e.currentTarget).val();
-
-		Users.update(Meteor.userId(), { $set: {'lang': lang} });
-
-		i18n.setLanguage(lang);
-	},
+	}, 300)
 	/*
 	//TODO
 	'keyup #email': _.debounce(function(e) {
@@ -179,10 +97,4 @@ Template.panelSettings.events({
 		}
 	}, 300),
 	*/	
-});
-
-Template.item_user_blocked.events({
-	'click .user-btn-unblock': function(e, tmpl) {
-		K.Profile.userUnblock(this.id);
-	}
 });

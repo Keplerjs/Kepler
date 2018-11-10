@@ -32,6 +32,10 @@
 				"panelProfile_conver": { "show": false },
 				"panelProfile_notif": { "show": false }
 			},
+			"panelSettings": {
+				"panelSettings_upload": { "show": false },
+				"panelSettings_ors": { "show": false }
+			},
 			"panelPlace": {
 				"panelPlace_ui_btns": { "show": false },
 				"panelPlace_ui_info": { "show": false },
@@ -81,6 +85,9 @@
 			},
 			"markerClusterPlace": {
 				"markerClusterPlace_ui_checkins": { "show": false }
+			},
+			"popupUser": {
+				"popupCursor_ors": { "show": false }
 			},
 			"popupCursor": {
 				"popupCursor_edit": { "show": false },

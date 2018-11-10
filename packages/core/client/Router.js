@@ -167,6 +167,14 @@ Router.map(function() {
 		}	
 	});
 
+	this.route('users', {
+		path: '/users',
+		onBeforeAction: function () {
+			Router.go('usersNews');
+			//this.redirect('/users/news');
+		}
+	});
+
 	this.route('usersNews', {
 		path: '/users/news',
 		template: 'panelList',
@@ -187,6 +195,14 @@ Router.map(function() {
 				items: _.map(userIds, K.userById)
 			};
 		}	
+	});
+
+	this.route('places', {
+		path: '/places',
+		onBeforeAction: function () {
+			Router.go('placesNews');
+			//this.redirect('/users/news');
+		}
 	});
 
 	this.route('placesNearby', {

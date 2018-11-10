@@ -1,0 +1,16 @@
+
+<template name="panelSettings_ui_lang">
+	<div class="form-group">
+		<label for="lang" class="col-xs-3 control-label">{{i18n 'label_lang'}}</label>
+		<div class="col-xs-9">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="icon icon-lang-{{lang}}"></i></span>
+				<select id="lang" class="form-control">
+				{{#each langs}}
+					<option value="{{key}}" selected={{active}}>{{val}}</option>
+				{{/each}}
+				</select>
+			</div>
+		</div>
+	</div>
+</template>

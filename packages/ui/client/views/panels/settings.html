@@ -1,218 +1,152 @@
 <template name="panelSettings">
+	<div id="settings" class="panel">
 
-<div id="settings" class="panel">
-
-	<div class="panel-heading bg-primary">
-		<h4 class="pull-left">
-			<a class="back" href="javascript:history.back()">
-				<i class="icon icon-arrow-l"></i>
-			</a> 
-			{{i18n 'title_settings'}}
-		</h4>
-		<a class="close pull-right" href="/">
-			<i class="icon icon-close"></i>
-		</a>
-	</div>
-	<div class="panel-body">
-		
-		<form class="form-horizontal" role="form">
-
-			{{> pluginsTemplate name='panelSettings'}}
-
-			<div class="form-group">
-				<label for="username" class="col-xs-3 control-label">{{i18n 'label_username'}}</label>
-				<div class="col-xs-9 has-feedback">
-					<input id="username" class="form-control" autocomplete="off" maxlength="16" type="text" value="{{username}}" />
-					<span style="display:none" class="form-control-feedback icon icon-success"></span>
-					<label class="text-danger"></label>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label for="name" class="col-xs-3 control-label">{{i18n 'label_name'}}</label>
-				<div class="col-xs-9 has-feedback">
-					<input id="name" class="form-control" type="text" value="{{name}}">
-					<span style="display:none" class="form-control-feedback icon icon-del"></span>
-				</div>
-			</div>
-
-<!-- 			<div class="form-group">
-				<label for="city" class="col-xs-3 control-label">{{i18n 'label_city'}}</label>
-				<div class="col-xs-9">
-					<input id="city" class="form-control" type="text" value="{{city}}" />
-				</div>
-			</div> -->
-
-			<div class="form-group">
-				<label for="mapcenter" class="col-xs-3 control-label">{{i18n 'label_mapcenter'}}</label>
-				<div class="col-xs-9">
-					<div id="mapcenter" class="input-group">
-						<input class="form-control" readonly=readonly type="text" value="{{mapcenter}}" />
-						<div class="input-group-btn">
-							{{#if mapcenter}}
-							<a class="btn btn-default btn-mapcancel" href="#">
-								<i class="icon icon-canc"></i>
-							</a>
-							{{/if}}
-							<a class="btn btn-default btn-mapcenter" href="#">
-								<i class="icon icon-map"></i> {{i18n 'btn_mapcenter'}}
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-xs-3 control-label">{{i18n 'label_layer'}}</label>
-				<div class="col-xs-9">
-					<div id="maplayer" class="btn-group" data-toggle="buttons">
-					{{#each layers}}
-						<label class="btn btn-default {{#if active}} active {{/if}}" style="background-image:url('{{url}}')">
-						<input type="radio" name="maplayer" checked="{{active}}" value="{{val}}" />
-						{{name}}
-						</label>
-					{{/each}}
-					</div>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label for="email" class="col-xs-3 control-label">{{i18n 'label_email'}}</label>
-				{{#each emails}}
-				<div class="col-xs-9">
-					<div class="input-group">
-						<input disabled="disabled" id="email" class="form-control" type="email" data-value="{{address}}" value="{{address}}" />
-						<div class="input-group-addon">
-						{{#if verified}}
-							<span class="text-green">
-							<i class="icon icon-success"></i> 
-							{{i18n 'btn_verified'}}
-							</span>
-						{{else}}
-							<span class="text-danger">
-							<i class="icon icon-warning"></i> 
-							{{i18n 'btn_notverified'}}
-							</span>
-						{{/if}}						
-						</div>
-					</div>
-				</div>
-				{{/each}}
-			</div>
-
-			<div class="form-group">
-				<label for="lang" class="col-xs-3 control-label">{{i18n 'label_lang'}}</label>
-				<div class="col-xs-9">
-					<div class="input-group">
-						<span class="input-group-addon"><i class="icon icon-lang-{{lang}}"></i></span>
-						<select id="lang" class="form-control">
-						{{#each langs}}
-							<option value="{{key}}" selected={{active}}>{{val}}</option>
-						{{/each}}
-						</select>
-					</div>
-				</div>
-			</div>			
+		<div class="panel-heading bg-primary">
+			<h4 class="pull-left">
+				<a class="back" href="javascript:history.back()">
+					<i class="icon icon-arrow-l"></i>
+				</a> 
+				{{i18n 'title_settings'}}
+			</h4>
+			<a class="close pull-right" href="/">
+				<i class="icon icon-close"></i>
+			</a>
+		</div>
+		<div class="panel-body">
 			
-			<div class="form-group">
-				<label for="gender" class="col-xs-3 control-label">{{i18n 'label_gender'}}</label>
-				<div class="col-xs-9">
-					<div id="gender" class="btn-group" data-toggle="buttons">
-					{{#each genders}}
-						<label class="btn btn-xs btn-default {{#if active}} active {{/if}}">
-						<input name="gender" type="radio" checked="{{active}}" value="{{val}}" class="form-control" />
-						{{name}}
-						</label>
-					{{/each}}
-					</div>
-				</div>
-			</div>
+			<form class="form-horizontal" role="form">
 
-			<div class="form-group">
-				<label class="col-xs-3 control-label">{{i18n 'label_privacy'}}</label>
-				<div class="col-xs-9">
-					<a class="btn btn-default" href="{{pathFor route='panelSettingsBlock'}}">
-						<i class="icon icon-report"></i> {{i18n 'btn_usersblocked'}}
-					</a>
-				</div>
-			</div>
+				{{> pluginsTemplate name='panelSettings'}}
 
-			<div class="form-group">
-				<label class="col-xs-3 control-label">{{i18n 'label_signupdate'}}</label>
-				<div class="col-xs-9">
-					<label class="control-label"><time>{{humanDate createdAt}}</time></label>
-				</div>
-			</div>
+			</form>
 
-			<div class="form-group">
-				<label class="col-xs-3 control-label">{{i18n 'label_userid'}}</label>
-				<div class="col-xs-9">
-					<label class="control-label"><em>{{_id}}</em></label>
-				</div>
-			</div>
-
-			{{#if source.service}}
-			<div class="form-group">
-				<label class="col-xs-3 control-label">{{i18n 'label_account'}}</label>
-				<div class="col-xs-9">
-				{{#if eq source.service 'keplerjs'}}
-					<a class="btn btn-default" href="/user/{{_id}}">
-						<i class="icon icon-kepler"></i> {{_id}}
-					</a>
-				{{/if}}
-				{{#if eq source.service 'openstreetmap'}}
-					<a class="btn btn-default" href="{{source.url}}">
-						<i class="icon icon-osm"></i> {{source.url}}
-					</a>
-				{{/if}}
-				{{#if eq source.service 'facebook'}}
-					<a class="btn btn-default" href="{{source.url}}">
-						<i class="icon icon-fb"></i> {{source.url}}
-					</a>
-				{{/if}}	
-				{{#if eq source.service 'github'}}
-					<a class="btn btn-default" href="{{source.url}}">
-						<i class="icon icon-git"></i> {{source.url}}
-					</a>
-				{{/if}}					
-				{{#if eq source.service 'google'}}
-					<a class="btn btn-default" href="{{source.url}}">
-						<i class="icon icon-goo"></i> {{source.url}}
-					</a>
-				{{/if}}	
-				</div>
-			</div>
-			{{/if}}
-
-			<div class="form-group">
-				<label class="col-xs-3 control-label">{{i18n 'label_version'}}</label>
-				<div class="col-xs-9">
-					<label class="control-label"><em>{{version}}</em></label>
-				</div>
-			</div>	
-						
-			<div class="form-group">
-				<div class="col-sm-10 col-xs-offset-2">
-	
-				{{> loginButtons}}
-	
-				</div>
-			</div>			
-		</form>
-
+		</div>
 	</div>
-</div>
-
 </template>
 
-<template name="item_user_blocked">
-	<div class="block-item">
-		<div class="pull-left">
-			{{> item_user}}
+<template name="panelSettings_ui_info">
+
+	<div class="form-group">
+		<label for="username" class="col-xs-3 control-label">{{i18n 'label_username'}}</label>
+		<div class="col-xs-9 has-feedback">
+			<input id="username" class="form-control" autocomplete="off" maxlength="16" type="text" value="{{username}}" />
+			<span style="display:none" class="form-control-feedback icon icon-success"></span>
+			<label class="text-danger"></label>
 		</div>
-		<div class="btn-group pull-right" data-toggle="buttons">
-			<a class="btn btn-sm btn-default user-btn-unblock" href="#">
-				<i class="icon icon-report"></i> <span>{{i18n 'btn_userUnblock'}}</span>
+	</div>
+
+	<div class="form-group">
+		<label for="name" class="col-xs-3 control-label">{{i18n 'label_name'}}</label>
+		<div class="col-xs-9 has-feedback">
+			<input id="name" class="form-control" type="text" value="{{name}}">
+			<span style="display:none" class="form-control-feedback icon icon-del"></span>
+		</div>
+	</div>
+
+<!-- 			<div class="form-group">
+		<label for="city" class="col-xs-3 control-label">{{i18n 'label_city'}}</label>
+		<div class="col-xs-9">
+			<input id="city" class="form-control" type="text" value="{{city}}" />
+		</div>
+	</div> -->
+
+	<div class="form-group">
+		<label for="email" class="col-xs-3 control-label">{{i18n 'label_email'}}</label>
+		{{#each emails}}
+		<div class="col-xs-9">
+			<div class="input-group">
+				<input disabled="disabled" id="email" class="form-control" type="email" data-value="{{address}}" value="{{address}}" />
+				<div class="input-group-addon">
+				{{#if verified}}
+					<span class="text-green">
+					<i class="icon icon-success"></i> 
+					{{i18n 'btn_verified'}}
+					</span>
+				{{else}}
+					<span class="text-danger">
+					<i class="icon icon-warning"></i> 
+					{{i18n 'btn_notverified'}}
+					</span>
+				{{/if}}						
+				</div>
+			</div>
+		</div>
+		{{/each}}
+	</div>			
+	
+	<div class="form-group">
+		<label for="gender" class="col-xs-3 control-label">{{i18n 'label_gender'}}</label>
+		<div class="col-xs-9">
+			<div id="gender" class="btn-group" data-toggle="buttons">
+			{{#each genders}}
+				<label class="btn btn-xs btn-default {{#if active}} active {{/if}}">
+				<input name="gender" type="radio" checked="{{active}}" value="{{val}}" class="form-control" />
+				{{name}}
+				</label>
+			{{/each}}
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-xs-3 control-label">{{i18n 'label_signupdate'}}</label>
+		<div class="col-xs-9">
+			<label class="control-label"><time>{{humanDate createdAt}}</time></label>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-xs-3 control-label">{{i18n 'label_userid'}}</label>
+		<div class="col-xs-9">
+			<label class="control-label"><em>{{_id}}</em></label>
+		</div>
+	</div>
+
+	{{#if source.service}}
+	<div class="form-group">
+		<label class="col-xs-3 control-label">{{i18n 'label_account'}}</label>
+		<div class="col-xs-9">
+		{{#if eq source.service 'keplerjs'}}
+			<a class="btn btn-default" href="/user/{{_id}}">
+				<i class="icon icon-kepler"></i> {{_id}}
 			</a>
+		{{/if}}
+		{{#if eq source.service 'openstreetmap'}}
+			<a class="btn btn-default" href="{{source.url}}">
+				<i class="icon icon-osm"></i> {{source.url}}
+			</a>
+		{{/if}}
+		{{#if eq source.service 'facebook'}}
+			<a class="btn btn-default" href="{{source.url}}">
+				<i class="icon icon-fb"></i> {{source.url}}
+			</a>
+		{{/if}}	
+		{{#if eq source.service 'github'}}
+			<a class="btn btn-default" href="{{source.url}}">
+				<i class="icon icon-git"></i> {{source.url}}
+			</a>
+		{{/if}}					
+		{{#if eq source.service 'google'}}
+			<a class="btn btn-default" href="{{source.url}}">
+				<i class="icon icon-goo"></i> {{source.url}}
+			</a>
+		{{/if}}	
+		</div>
+	</div>
+	{{/if}}
+
+	<div class="form-group">
+		<label class="col-xs-3 control-label">{{i18n 'label_version'}}</label>
+		<div class="col-xs-9">
+			<label class="control-label"><em>{{version}}</em></label>
+		</div>
+	</div>	
+				
+	<div class="form-group">
+		<div class="col-sm-10 col-xs-offset-2">
+
+		{{> loginButtons}}
+
 		</div>
 	</div>
 </template>
