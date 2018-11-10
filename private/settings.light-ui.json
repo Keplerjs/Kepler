@@ -13,35 +13,74 @@
 				"footer_ui_builtwith": { "show": false }
 			},
 			"navSidebar": {
+				"navSidebar_ui_connection": { "show": false },
 				"navSidebar_ui_friends": { "show": false },
-				"navSidebar_ui_places": { "show": false }
+				"navSidebar_ui_places": { "show": false },
+				"navSidebar_conver": { "show": false }
 			},
 			"pageHome": {
 				"pageHome_theme": { "show": false }
 			},
 			"panelProfile": {
-				"panelProfile_ui_tabloc": { "show": false },
+				"panelProfile_ui_tablocation": { "show": false },
 				"panelProfile_ui_hist": { "show": false },
 				"panelProfile_ui_sets": { "show": false },
 				"panelProfile_admin": { "show": false },
-				"panelProfile_edit": { "show": false }				
+				"panelProfile_edit": { "show": false },
+				"panelProfile_favorites": { "show": false },
+				"panelProfile_conver": { "show": false },
+				"panelProfile_notif": { "show": false }
 			},
 			"panelPlace": {
 				"panelPlace_admin": { "show": false },
-				"panelPlace_edit": { "show": false }
+				"panelPlace_edit": { "show": false },
+				"panelPlace_share": { "show": false },
+				"panelPlace_cats": { "show": false }
+			},
+			"tabPlace": {
+				"tabPlace_geoinfo": { "show": false },
+				"tabPlace_weather": { "show": false },
+				"tabPlace_googlemaps": { "show": false },
+				"tabPlace_tracks": { "show": false },
+				"tabPlace_pois": { "show": false },
+				"tabPlace_osm": { "show": false }
+			},
+			"itemPlace": {
+				"itemPlace_ui_checkins": { "show": false },
+				"itemPlace_conver": { "show": false },
+				"itemPlace_favorites": { "show": false }
 			},
 			"panelUser": {
+				"panelUser_ui_bio": { "show": false },
+				"panelUser_ui_btns": { "show": false },
 				"panelUser_admin": { "show": false },
-				"panelUser_ui_tabloc": { "show": false }
+				"panelUser_robots": { "show": false }
 			},
 			"tabUser": {
-				"tabUser_edit": { "show": false }
+				"tabUser_edit": { "show": false },
+				"tabUser_conver": { "show": false }
+			},
+			"itemUser": {
+				"itemUser_conver": { "show": false }
 			},
 			"popupPlace": {
-				"popupPlace_ui_checkins": { "show": false }
+				"popupPlace_ui_checkins": { "show": false },
+				"popupPlace_tracks": { "show": false },
+				"popupPlace_pois": { "show": false },
+				"popupCursor_ors": { "show": false }
+			},
+			"markerPlace": {
+				"markerPlace_ui_checkins": { "show": false }
+			},
+			"markerClusterPlace": {
+				"markerClusterPlace_ui_checkins": { "show": false }
 			},
 			"popupCursor": {
-				"popupCursor_edit": { "show": false }
+				"popupCursor_edit": { "show": false },
+				"popupCursor_geoinfo": { "show": false },
+				"popupCursor_share": { "show": false },
+				"popupCursor_osm": { "show": false },
+				"popupCursor_ors": { "show": false }
 			}
 		},
 		"accounts": {
@@ -78,7 +117,7 @@
 		"targets": {
 			"avatars": {
 				"url": "/static/avatars/",
-				"path": "/var/www/k/static/avatars/"
+				"path": "/var/www/static.app_meteor.net/avatars/"
 			}
 		}
 	},

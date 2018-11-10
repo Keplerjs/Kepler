@@ -33,17 +33,27 @@ Kepler.settings = {
 				"navSidebar_ui_connection": { order:10 }
 			},
 			"panelProfile": {
-				//"panelProfile_ui_tabloc": { order:-10 },
+				"panelProfile_ui_tablocation": { order:-10 },
 				"panelProfile_ui_hist": { order:-10 },
 				"panelProfile_ui_sets": { order:10 }
 			},
+			"itemPlace": {
+				"itemPlace_ui_checkins": { order:-10 }
+			},			
 			"panelUser": {
+				"panelUser_ui_bio": { order:-10 },
 				"panelUser_ui_btns": { order:-10 },
-				"panelUser_ui_tabloc": { order:-10 }
+				"panelUser_ui_tablocation": { order:-10 }
 			},
 			"popupPlace": {
 				"popupPlace_ui_checkins": {order:-10}
 			},
+			"markerPlace": {
+				"markerPlace_ui_checkins": {order:-10}
+			},
+			"markerClusterPlace": {
+				"markerClusterPlace_ui_checkins": {order:-10}
+			},	
 			"footer": {
 				"footer_ui_builtwith": { order:10 }
 			}

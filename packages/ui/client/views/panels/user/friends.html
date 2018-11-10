@@ -4,11 +4,13 @@
 		<label>{{i18n 'label_friendscomm'}}</label>
 		<ul class="list-group list-items">
 			{{#each friendsCommon}}
+			{{#if userById this}}
 			<li class="list-group-item">
 				{{#with userById this}}
 					{{> item_user}}
 				{{/with}}
 			</li>
+			{{/if}}
 			{{/each}}
 		</ul>
 	{{else}}
@@ -21,11 +23,13 @@
 		<label>{{i18n 'label_friendsother'}}</label>
 		<ul class="list-group list-items">
 			{{#each friendsOther}}
+			{{#if userById this}}
 			<li class="list-group-item">
 				{{#with userById this}}
 					{{> item_user}}
 				{{/with}}
 			</li>
+			{{/if}}
 			{{/each}}
 		</ul>
 		{{/if}}

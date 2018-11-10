@@ -2,20 +2,14 @@
 <template name="markerPlace">
 	<div class="marker-place {{classMarker}}">
 		<div class="marker-anim" style="display: none;"></div>
-		{{#if checkinsCount}}
-			<b class="badge-checkins badge">{{checkinsCount}}</b>
-		{{/if}}
-		
 		{{> pluginsTemplate name='markerPlace'}}
 	</div>
 </template>
 
 <template name="markerCluster">
 	<div class="marker-cluster">
-		{{#if getCheckinsCount}}
-			<b class="badge-checkins badge">{{getCheckinsCount}}</b>
-		{{/if}}
 		<b class="badge-cluster badge">{{getChildCount}}</b>
+		{{> pluginsTemplate name='markerClusterPlace'}}
 	</div>
 </template>
 
@@ -30,4 +24,16 @@
 	<div class="marker-cursor">
 		{{> pluginsTemplate name='markerCursor'}}
 	</div>
+</template>
+
+<template name="markerPlace_ui_checkins">
+	{{#if checkinsCount}}
+		<b class="badge-checkins badge">{{checkinsCount}}</b>
+	{{/if}}
+</template>
+
+<template name="markerClusterPlace_ui_checkins">
+	{{#if getCheckinsCount}}
+		<b class="badge-checkins badge">{{getCheckinsCount}}</b>
+	{{/if}}
 </template>

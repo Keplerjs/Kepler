@@ -15,12 +15,9 @@
 		</div>
 		<div class="panel-body">
 
-		{{> tab_bio}}
-
 		{{#if or isBlocked isBlockMe}}
 			
 			{{#if isBlocked}}
-			<br>
 			<ul class="list-group">		
 				<li class="list-group-item">
 					<i class="icon icon-report"></i> {{i18n 'label_userblocked'}}
@@ -75,6 +72,41 @@
 
 </template>
 
+<template name="panelUser_ui_bio">
+	<div class="row tab-user-bio">
+		<div class="col-xs-4 avatar-big">
+			{{> item_user_avatar}}
+		</div>
+		<div class="col-xs-8">			
+		{{#if username}}
+			<label>{{i18n 'label_username'}}</label>
+			<span>{{username}}</span>
+			<br />
+		{{/if}}
+
+		{{#if name}}
+			<label>{{i18n 'label_name'}}</label>
+			<span>{{name}}</span>
+			<br />
+		{{/if}}
+
+		{{#if city}}
+			<label>{{i18n 'label_city'}}</label>
+			<span class="text-capitalize">{{city}}</span><br />
+		{{/if}}
+
+		{{#if lang}}
+			<label>{{i18n 'label_lang'}}</label>
+			{{lang}}
+			<br />
+		{{/if}}
+
+			<label>{{i18n 'label_signupdate'}}</label> 
+			<time>{{numericDate createdAt}}</time>			
+		</div>
+	</div>
+</template>
+
 <template name="panelUser_ui_btns">
 	<div class="row">
 		<div class="col-xs-4">
@@ -93,7 +125,7 @@
 	</div>
 </template>
 
-<template name="panelUser_ui_tabloc">
+<template name="panelUser_ui_tablocation">
 	{{#if or getLoc getCheckin}}
 
 	<div class="list-group">

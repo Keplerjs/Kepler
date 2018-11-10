@@ -17,7 +17,9 @@
 		</div>
 		<div class="pull-right">
 			<!-- TODO geoinfo -->
-			{{#if createdAt}}<time class="text-muted">{{humanTime createdAt 1}}</time>{{/if}}
+			{{#if createdAt}}
+				<time class="text-muted">{{humanTime createdAt 1}}</time>
+			{{/if}}
 		</div>
 	</div>
 </template>
@@ -27,10 +29,6 @@
 
 		{{> pluginsTemplate name='itemPlace'}}
 
-		<a class="btn btn-sm btn-default place-btn-checkins" href="/place/{{id}}/checkins">
-			<i class="icon {{#if checkinsCount}} icon-users {{else}} icon-unusers {{/if}}"></i>
-			<span class="badge badge-checkins {{#unless checkinsCount}} bg-gray {{/unless}}">{{checkinsCount}}</span>
-		</a>
 	</div>
 </template>
 
@@ -44,5 +42,12 @@
 			{{i18n 'btn_checkin'}}
 		{{/if}}
 		</span>
+	</a>
+</template>
+
+<template name="itemPlace_ui_checkins">
+	<a class="btn btn-sm btn-default place-btn-checkins" href="/place/{{id}}/checkins">
+		<i class="icon {{#if checkinsCount}} icon-users {{else}} icon-unusers {{/if}}"></i>
+		<span class="badge badge-checkins {{#unless checkinsCount}} bg-gray {{/unless}}">{{checkinsCount}}</span>
 	</a>
 </template>

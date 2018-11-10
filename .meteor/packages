@@ -7,25 +7,25 @@ keplerjs:base
 
 keplerjs:theme
 
-#keplerjs:api
+keplerjs:api
 keplerjs:edit
 keplerjs:admin
-#keplerjs:stats
+keplerjs:stats
 
 keplerjs:upload
-#keplerjs:share
-#keplerjs:geoinfo
-#keplerjs:osm
-#keplerjs:favorites
-#keplerjs:convers
-#keplerjs:notifs
-#keplerjs:categories
-#keplerjs:import
-#keplerjs:pois
-#keplerjs:tracks
+keplerjs:share
+keplerjs:geoinfo
+keplerjs:osm
+keplerjs:favorites
+keplerjs:convers
+keplerjs:notifs
+keplerjs:categories
+keplerjs:import
+keplerjs:pois
+keplerjs:tracks
 
-#keplerjs:robots
-#keplerjs:wunderground
-#keplerjs:googlemaps
-#keplerjs:openrouteservice
+keplerjs:robots
+keplerjs:wunderground
+keplerjs:googlemaps
+keplerjs:openrouteservice
 
