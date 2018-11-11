@@ -21,24 +21,6 @@
 			{{> pluginsTemplate name='panelProfile'}}
 			
 		</div>
-	
-		<div class="list-group">
-
-			<div class="btn-group">
-
-				<a class="btn btn-default" href="/logout">
-					<i class="icon icon-logout"></i> 
-					{{i18n 'btn_logout'}}
-				</a>
-				<a class="btn btn-default" href="{{pathFor route='home'}}">
-					<i class="icon icon-home"></i>
-					{{i18n 'btn_home'}}
-				</a>
-			</div>
-
-			{{> btnConnect}}
-
-		</div>	
 
 		{{> footer}}
 
@@ -68,4 +50,27 @@
 		 {{i18n 'btn_hist'}} 
 		<span class="badge">{{hist.length}}</span>
 	</a>
+</template>
+
+<template name="panelProfile_ui_logout">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="btn-group">
+
+				<a class="btn btn-default" href="/logout">
+					<i class="icon icon-logout"></i> 
+					{{i18n 'btn_logout'}}
+				</a>
+				<a class="btn btn-default" href="{{pathFor route='home'}}">
+					<i class="icon icon-home"></i>
+					{{i18n 'btn_home'}}
+				</a>
+			</div>
+			
+			<div class="pull-right">
+				{{> btnConnect}}
+			</div>
+
+		</div>
+	</div>
 </template>

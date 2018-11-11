@@ -43,6 +43,9 @@
 			}
 		},
 		"templates": {
+			"pageHome": {
+				"pageHome_theme": { "show": false }
+			},			
 			"footer": {
 				"footer_theme": { "show": false },
 				"footer_ui_builtwith": { "show": false }
@@ -54,13 +57,11 @@
 				"navSidebar_conver": { "show": false },
 				"navSidebar_notif": { "show": false }
 			},
-			"pageHome": {
-				"pageHome_theme": { "show": false }
-			},
 			"panelProfile": {
 				"panelProfile_ui_tablocation": { "show": false },
 				"panelProfile_ui_hist": { "show": false },
 				"panelProfile_ui_sets": { "show": false },
+				"panelProfile_ui_logout": { "show": true },
 				"panelProfile_admin": { "show": false },
 				"panelProfile_edit": { "show": false },
 				"panelProfile_favorites": { "show": false },
@@ -94,6 +95,20 @@
 				"tabPlace_pois": { "show": false },
 				"tabPlace_osm": { "show": false }
 			},
+			"popupPlace": {
+				"popupPlace_ui_checkins": { "show": false },
+				"popupPlace_tracks": { "show": false },
+				"popupPlace_pois": { "show": false },
+				"popupCursor_ors": { "show": false },
+				"popupPlace_conver": { "show": false }
+			},
+			"markerPlace": {
+				"markerPlace_ui_checkins": { "show": false },
+				"markerPlace_conver": { "show": false }
+			},
+			"markerClusterPlace": {
+				"markerClusterPlace_ui_checkins": { "show": false }
+			},			
 			"itemPlace": {
 				"itemPlace_ui_checkins": { "show": false },
 				"itemPlace_conver": { "show": false },
@@ -111,25 +126,11 @@
 				"tabUser_conver": { "show": false },
 				"tabUser_favorites": { "show": false }
 			},
-			"itemUser": {
-				"itemUser_conver": { "show": false }
-			},
-			"popupPlace": {
-				"popupPlace_ui_checkins": { "show": false },
-				"popupPlace_tracks": { "show": false },
-				"popupPlace_pois": { "show": false },
-				"popupCursor_ors": { "show": false },
-				"popupPlace_conver": { "show": false }
-			},
-			"markerPlace": {
-				"markerPlace_ui_checkins": { "show": false },
-				"markerPlace_conver": { "show": false }
-			},
-			"markerClusterPlace": {
-				"markerClusterPlace_ui_checkins": { "show": false }
-			},
 			"popupUser": {
 				"popupCursor_ors": { "show": false }
+			},			
+			"itemUser": {
+				"itemUser_conver": { "show": false }
 			},
 			"popupCursor": {
 				"popupCursor_edit": { "show": false },

@@ -1,4 +1,6 @@
-
+/*
+	THIS TEMPLATE IS WORK IN PROGRESS
+*/
 Template.panelSearch.onRendered(function() {
 	
 	this.$('.list-items').btsListFilter('.input-search', {

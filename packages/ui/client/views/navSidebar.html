@@ -36,9 +36,9 @@
 
 <template name="navSidebar_ui_connection">
 	{{#unless eq connectionStatus.status 'connected'}}
-	
+	<li class="pull-right">
 		{{> btnConnect}}
-	
+	</li>	
 	{{/unless}}
 </template>
 <!-- TODO template name="navSidebar_ui_search">
