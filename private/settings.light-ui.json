@@ -43,6 +43,11 @@
 			}
 		},
 		"templates": {
+			"tabPlace_ui_hist": { "show": false},
+			"tabUser_ui_friends": { "show": false},
+			"tabUser_ui_hist": { "show": false},
+			
+
 			"pageHome": {
 				"pageHome_theme": { "show": false }
 			},			
@@ -108,7 +113,7 @@
 			},
 			"markerClusterPlace": {
 				"markerClusterPlace_ui_checkins": { "show": false }
-			},			
+			},
 			"itemPlace": {
 				"itemPlace_ui_checkins": { "show": false },
 				"itemPlace_conver": { "show": false },

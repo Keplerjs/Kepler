@@ -23,11 +23,13 @@
 					<i class="icon icon-info"></i> <span>{{i18n 'btn_info'}}</span>
 				</a>
 			</li>
+			{{#if settings 'templates.tabPlace_ui_hist.show'}}
 			<li>
 				<a href="#tab_histplace" data-toggle="tab">
 					<i class="icon icon-hist"></i> <span>{{i18n 'btn_hist'}}</span>
 				</a>
-			</li>			
+			</li>
+			{{/if}}
 		</ul>
 
 		<div class="tab-content">
@@ -36,9 +38,13 @@
 				{{> pluginsTemplate name='tabPlace'}}
 
 			</div>	
+			{{#if settings 'templates.tabPlace_ui_hist.show'}}
 			<div class="tab-pane" id="tab_histplace">
-				{{> tab_histplace}}
+			
+				{{> tabPlace_ui_hist}}
+
 			</div>	
+			{{/if}}
 		</div>
 	</div>	
 </div>
@@ -64,7 +70,6 @@
 </template>
 
 <template name="panelPlace_ui_info">
-
 	<ul class="list-group">
 		{{#if desc}}
 		<li class="list-group-item">
@@ -79,5 +84,21 @@
 		</li>
 		{{/if}}
 	</ul>
+</template>
 
+<template name="tabPlace_ui_hist">
+	{{#if hist.length}}		
+		<label>{{i18n 'label_histplace'}}</label>
+		<ul class="list-group list-items">		
+			{{#each hist}}
+			<li class="list-group-item">
+				{{#with userById this}}
+					{{> item_user}}
+				{{/with}}
+			</li>
+			{{/each}}
+		</ul>		
+	{{else}}
+		<label class="text-gray">{{i18n 'label.nohistplace'}}</label>
+	{{/if}}
 </template>

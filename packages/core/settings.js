@@ -29,6 +29,11 @@ Kepler.settings = {
 			"awayOnWindowBlur": true
 		},		
 		"templates": {
+			//TODO refact.. templates without placeholder
+			"tabPlace_ui_hist": { "show": true},
+			"tabUser_ui_hist": { "show": true},
+			"tabUser_ui_friends": { "show": true},
+
 			//core/ui templates configurations
 			"navSidebar": {
 				"navSidebar_ui_profile": { order:-10 },

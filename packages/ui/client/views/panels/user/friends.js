@@ -1,5 +1,5 @@
 
-Template.tab_friends.helpers({
+Template.tabUser_ui_friends.helpers({
 	friendsCommon: function() {
 		if(this.friends)
 			return _.intersection(this.friends, K.Profile.data.friends);

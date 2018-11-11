@@ -56,7 +56,6 @@ Package.onUse(function(api) {
     'client/views/panels/panelList.html',
     'client/views/panels/panelList.js',
     'client/views/panels/place.html',
-    'client/views/panels/place/histplace.html',
     'client/views/panels/places.html',
     'client/views/panels/places.js',
     'client/views/panels/profile.html',

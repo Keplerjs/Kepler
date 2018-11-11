@@ -113,7 +113,7 @@ Kepler.User = Class.extend({
 						var div = L.DomUtil.create('div','');
 						if(Template[self.templatePopup])
 							Blaze.renderWithData(Template[self.templatePopup], self, div);
-						this.bindPopup(div.firstChild, K.Map.options.popup);
+						this.bindPopup(div.firstChild, opts.popups);
 					}
 				}
 				else

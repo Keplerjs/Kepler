@@ -101,7 +101,7 @@ Kepler.Place = Class.extend({
 						Blaze.renderWithData(Template[self.templatePopup], self.rData, divp);
 					
 				
-					self.marker.bindPopup(divp.firstChild, K.Map.options.popup);
+					self.marker.bindPopup(divp.firstChild, opts.popups);
 				}
 				else {
 					e.target.on('click', function(ee) {
