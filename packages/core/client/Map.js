@@ -102,8 +102,12 @@ Kepler.Map = {
 			if(!opts.layers[opts.layer])
 				opts.layer = K.settings.public.map.layer;
 
-			if(opts.layer && this.layers && this.layers.baselayer)
-				this.layers.baselayer.setUrl( K.settings.public.map.layers[opts.layer] );
+			if(opts.layer && this.layers && this.layers.baselayer){
+				var u = K.settings.public.map.layers[opts.layer];
+				if(u) {
+					this.layers.baselayer.setUrl( u );
+				}
+			}
 		}
 		return opts;
 	},

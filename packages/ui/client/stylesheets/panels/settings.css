@@ -36,3 +36,9 @@
 	border-color: #337ab7;
 	box-shadow: none;
 }
+
+#login-dropdown-list label {
+	color: #999;
+    font-size: 12px;
+    font-weight: bold;
+}

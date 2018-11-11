@@ -1,16 +1,21 @@
 
 Template.panelSettings_ui_map.helpers({
 	layers: function() {
-		var layer = K.Profile.getOpts('map.layer') || K.settings.public.map.layer;
-		return _.map(K.settings.public.map.layers, function(val, k) {
-			return {
-				key: k,
-				val: k,
-				name: i18n('map_layer_'+k),
-				active: k===layer,
-				url: K.Util.tmpl(val,{s:'a',z:'15',x:'17374',y:'11667'})
-			};
-		});
+		var layer = K.Profile.getOpts('map.layer') || K.settings.public.map.layer,
+			layers = [];
+
+			_.each(K.settings.public.map.layers, function(v,k) {
+				if(!!v && _.isString(v)) {
+					layers.push({
+						key: k,
+						val: k,
+						name: i18n('map_layer_'+k),
+						active: k===layer,
+						url: K.Util.tmpl(v,{s:'a',z:'15',x:'17374',y:'11667'})
+					});
+				}
+			});
+			return layers;
 	},
 	mapcenter: function() {
 		var z = K.Profile.getOpts('map.zoom');

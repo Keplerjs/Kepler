@@ -21,7 +21,6 @@
 	display: none;
 }
 
-#formlogin.no-accounts-creation .or,
 #formlogin.no-accounts-creation .login-text-and-button {
 	display: none;
 }

@@ -103,6 +103,7 @@ Kepler.settings = {
 				"minWidth": 120
 			},
 			"tooltip": {
+				"enabled": true,
 				"direction": "auto",
 				"sticky": true
 			},

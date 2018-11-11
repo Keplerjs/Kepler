@@ -9,10 +9,9 @@
 			"fr": false
 		},
 		"map": {
+			"layer": "road",
 			"layers": {
-				"road": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-				"landscape": "https://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey=5a5f1f587e9e49e2953dfb6b92f69d5e",
-				"transport": "https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey=5a5f1f587e9e49e2953dfb6b92f69d5e"
+				"road": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 			}
 		},
 		"templates": {
