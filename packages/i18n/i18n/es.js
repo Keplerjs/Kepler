@@ -37,6 +37,7 @@ i18n.map('es', {
 	label_lang: "Idioma",
 	label_layer: "Mapa",
 	label_account: "Cuenta",
+	label_password: "Password",
 	label_privacy: "Privacidad",
 	label_location: "Posición",
 	label_userblocked: "Usuario bloqueado",

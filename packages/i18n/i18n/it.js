@@ -76,6 +76,7 @@ i18n.map('it', {
 	label_mapcenter: "Casa",
 	
 	label_account: "Account",
+	label_password: "Password",
 	label_privacy: "Privacy",
 	label_location: "Posizione",
 	label_userblocked: "Utente bloccato",

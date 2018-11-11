@@ -84,7 +84,8 @@ K.extend({
 			/*createdAt: {
 				'$gte': dateFrom
 			}*/
-		}, _.deepExtend({}, K.filters.userPanel, {
+		//TODO user K.filters.userItem
+		}, _.extend({}, K.filters.userPanel, {
 				sort: { 
 					createdAt: -1
 				},

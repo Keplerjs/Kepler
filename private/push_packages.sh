@@ -6,9 +6,9 @@
 for d in ../packages/keplerjs* ; do
 
   echo "$d"
-  
   cd $d
 
+  git status
   git commit -a -m "$1"
   git push
 

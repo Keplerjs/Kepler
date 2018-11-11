@@ -38,6 +38,7 @@ i18n.map('sv', {
 	label_lang: "Språk",
 	label_layer: "Karta",
 	label_account: "Konto",
+	label_password: "Password",
 	label_privacy: "Synlighet",
 	label_location: "Plats",
 	label_userblocked: "Blockerad Användare",

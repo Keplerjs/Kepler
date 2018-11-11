@@ -3,7 +3,7 @@
 
 	//TODO load in json
 */
-i18n.map('en',{
+i18n._langs = {
 "ab":"abkhaz,аҧсуа",
 "aa":"afar,Afaraf",
 "af":"afrikaans,Afrikaans",
@@ -186,4 +186,4 @@ i18n.map('en',{
 "yi":"yiddish,ייִדיש",
 "yo":"yoruba,Yorùbá",
 "za":"zhuang,Saɯ cueŋƅ"
-});
+};

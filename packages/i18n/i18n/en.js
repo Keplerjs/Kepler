@@ -41,6 +41,7 @@ i18n.map('en', {
 	label_userid: "User ID",
 
 	label_account: "Account",
+	label_password: "Password",
 	label_privacy: "Privacy",
 	label_location: "Location",
 	label_userblocked: "Blocked User",

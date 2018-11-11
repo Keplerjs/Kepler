@@ -1,6 +1,7 @@
 
 Pois = new Mongo.Collection('pois');
 
+//TODO include in K.extend(...)
 findPoisByLoc = function(ll) {
 
 	return Pois.find({

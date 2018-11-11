@@ -27,6 +27,11 @@ Package.onUse(function(api) {
     'config.js'
   ]);
 
+  api.addFiles([
+    'server/langs.js',
+    'server/users.js',
+  ],'server');
+
   api.export([
     'i18n'
   ]);
