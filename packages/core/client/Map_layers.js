@@ -3,7 +3,9 @@ _.extend(Kepler.Map, {
 
 	_initLayers: function(map, opts) {
 
-		var layers = {};
+		var self = this,
+			optsDef = K.settings.public.map,
+			layers = {};
 
 		layers.baselayer = new L.TileLayer(opts.layers[opts.layer], {
 			noWrap:true
@@ -11,7 +13,7 @@ _.extend(Kepler.Map, {
 
 		layers.users = new L.LayerGroup();
 
-		if(K.settings.public.map.cursor.enabled && L.Cursor) {
+		if(opts.cursor.enabled && L.Cursor) {
 			
 			layers.cursor = new L.Cursor();
 
@@ -26,9 +28,9 @@ _.extend(Kepler.Map, {
 				$(layers.cursor.icon.nodeHtml).empty();
 				Blaze.renderWithData(Template.markerCursor, cursorData, layers.cursor.icon.nodeHtml);
 
-				if(K.settings.public.map.popup.enabled) {
+				if(opts.popups.enabled) {
 					Blaze.renderWithData(Template.popupCursor, cursorData, div);
-					this.bindPopup(div.firstChild, opts.popup);
+					this.bindPopup(div.firstChild, opts.popups);
 				}
 			});
 		}
@@ -119,7 +121,7 @@ _.extend(Kepler.Map, {
 						tmpl = Template[feature.templatePopup];
 					
 					Blaze.renderWithData(tmpl, feature, div);
-					layer.bindPopup(div, opts.popup);	
+					layer.bindPopup(div, opts.popups);	
 				}
 			}
 		});
@@ -132,7 +134,7 @@ _.extend(Kepler.Map, {
 					layers.geojson.clearLayers();
 			}
 
-		    if(z < K.settings.public.map.dataMinZoom){
+		    if(z < opts.dataMinZoom){
 				map.removeLayer(layers.users);
 				if(layers.cursor)
 					map.removeLayer(layers.cursor);

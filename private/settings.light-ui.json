@@ -13,10 +13,29 @@
 			"layers": {
 				"road": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 			},
-			"popup": {
+			"controls": {
+				"gps": {
+					"enabled": false,
+					"position": "topright"
+				},
+				"zoom": {
+					"enabled": true,
+					"position": "topright"
+				},
+				"scale": {
+					"enabled": false,
+					"position": "bottomleft"
+				},
+				"attrib": {
+					"enabled": false,
+					"position": "bottomleft",
+					"prefix": ""
+				}			
+			},
+			"popups": {
 				"enabled": false
 			},		
-			"tooltip": {
+			"tooltips": {
 				"enabled": false
 			},
 			"cursor": {

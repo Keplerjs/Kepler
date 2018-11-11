@@ -77,12 +77,12 @@ Kepler.Place = Class.extend({
 		var self = this;
 
 		if(!self.marker) {
-			var mapOpts = K.settings.public.map;
+			var opts = K.settings.public.map;
 			
 			self.icon = new L.NodeIcon({
-				/*conSize: new L.Point(mapOpts.icon.iconSize),
-				iconAnchor: new L.Point(mapOpts.icon.iconAnchor),
-				popupAnchor: new L.Point(mapOpts.icon.popupAnchor),*/				
+				/*conSize: new L.Point(opts.icon.iconSize),
+				iconAnchor: new L.Point(opts.icon.iconAnchor),
+				popupAnchor: new L.Point(opts.icon.popupAnchor),*/				
 				nodeHtml: L.DomUtil.create('div')
 			});
 
@@ -93,7 +93,7 @@ Kepler.Place = Class.extend({
 				if(Template[self.templateMarker])
 					Blaze.renderWithData(Template[self.templateMarker], self, self.icon.nodeHtml);
 
-				if(K.settings.public.map.popup.enabled) {
+				if(opts.popups.enabled) {
 
 					var divp = L.DomUtil.create('div');
 				
@@ -109,7 +109,7 @@ Kepler.Place = Class.extend({
 					});
 				}
 				
-				if(mapOpts.tooltip.enabled) {
+				if(opts.tooltips.enabled) {
 
 					var divt = L.DomUtil.create('div');
 

@@ -2,61 +2,56 @@ _.extend(Kepler.Map, {
 
 	_initControls: function(map, opts) {
 
-		var self = this;
-
-		var controls = {};
-
-		var zOpts = {
-			position: 'bottomright'
-		};
+		var self = this,
+			optsDef = K.settings.public.map,
+			controls = {};
 
 		if(i18n('map_zoomout'))
-			zOpts.zoomOutText = i18n('map_zoomout');
+			opts.controls.zoom.zoomOutText = i18n('map_zoomout');
 		
 		if(i18n('map_zoomin'))
-			zOpts.zoomInText = i18n('map_zoomin');
+			opts.controls.zoom.zoomInText = i18n('map_zoomin');
 
-		controls.zoom = new L.Control.Zoom(zOpts);
+		controls.zoom = new L.Control.Zoom(opts.controls.zoom);
 
-		if(L.Control.Gps)
-		controls.gps = new L.Control.Gps({
-			autoActive: false,
-			autoCenter: false,
-			marker: K.Profile.user.marker,
-			style: {opacity:0,fillOpacity:0},
-			position: 'bottomright',			
-			title: i18n('map_gps_title'),
-			textErr: '<i class="icon icon-warning"></i> '+i18n('map_gps_error'),
-			callErr: function(err) {
-				sAlert.error(err)
-			}
-		})
-		.on({
-			'gps:located': function(e) {
+		if(opts.controls.gps.enabled && L.Control.Gps) {
 
-				var loc = [e.latlng.lat, e.latlng.lng];
-				
-				//TODO minShift
+			controls.gps = new L.Control.Gps({
+				autoActive: false,
+				autoCenter: false,
+				marker: K.Profile.user.marker,
+				style: {opacity:0,fillOpacity:0},
+				position: opts.controls.gps.position,
+				title: i18n('map_gps_title'),
+				textErr: '<i class="icon icon-warning"></i> '+i18n('map_gps_error'),
+				callErr: function(err) {
+					sAlert.error(err)
+				}
+			})
+			.on({
+				'gps:located': function(e) {
 
-				K.Profile.setLoc(loc);
+					var loc = [e.latlng.lat, e.latlng.lng];
+					
+					//TODO minShift
 
-				K.Map.setView(loc);
-			},
-			'gps:disabled': function(e) {
-				K.Profile.setLoc(null);
-			}			
-		});
+					K.Profile.setLoc(loc);
+
+					K.Map.setView(loc);
+				},
+				'gps:disabled': function(e) {
+					K.Profile.setLoc(null);
+				}			
+			});
+		}
 		
-		controls.scale = L.control.scale({
-			position:'bottomleft',
-			imperial: false,
-			metric: true
-		});
-		
-		controls.attrib = L.control.attribution({
-			position:'bottomleft',
-			prefix: '<a href="http://osm.org/copyright" target="_blank">&copy; osm.org</a>'
-		});
+		if(opts.controls.scale.enabled) {
+			controls.scale = L.control.scale(opts.controls.scale);
+		}
+
+		if(opts.controls.attrib.enabled) {
+			controls.attrib = L.control.attribution(opts.controls.attrib);
+		}
 		
 		return controls;
 	}

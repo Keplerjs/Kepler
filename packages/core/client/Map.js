@@ -89,21 +89,22 @@ Kepler.Map = {
 	 */
 	setOpts: function(options) {
 		if(this.ready()) {
-			var opts = _.deepExtend({}, K.settings.public.map, options);
+			var optsDef = K.settings.public.map,
+				opts = _.deepExtend({}, optsDef, options);
 
-			opts.popup.autoPanPaddingTopLeft = L.point(opts.popup.autoPanPaddingTopLeft);
-			opts.popup.autoPanPaddingBottomRight = L.point(opts.popup.autoPanPaddingTopLeft);
+			opts.popups.autoPanPaddingTopLeft = L.point(opts.popups.autoPanPaddingTopLeft);
+			opts.popups.autoPanPaddingBottomRight = L.point(opts.popups.autoPanPaddingTopLeft);
 
 			if(!K.Util.valid.loc(options.center)){
-				opts.center = K.settings.public.map.center;
-				opts.zoom = K.settings.public.map.zoom;
+				opts.center = optsDef.center;
+				opts.zoom = optsDef.zoom;
 			}
 			
 			if(!opts.layers[opts.layer])
-				opts.layer = K.settings.public.map.layer;
+				opts.layer = optsDef.layer;
 
 			if(opts.layer && this.layers && this.layers.baselayer){
-				var u = K.settings.public.map.layers[opts.layer];
+				var u = optsDef.layers[opts.layer];
 				if(u) {
 					this.layers.baselayer.setUrl( u );
 				}

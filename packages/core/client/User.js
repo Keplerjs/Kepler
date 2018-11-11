@@ -95,18 +95,20 @@ Kepler.User = Class.extend({
 		var self = this;
 		
 		if(!self.marker) {
-			var iconOpts = K.settings.public.map.icon;
+			
+			var opts = K.settings.public.map;
+
 			self.icon = new L.NodeIcon({
-				/*conSize: new L.Point(iconOpts.iconSize),
-				iconAnchor: new L.Point(iconOpts.iconAnchor),
-				popupAnchor: new L.Point(iconOpts.popupAnchor),*/
+				/*conSize: new L.Point(opts.icon.iconSize),
+				iconAnchor: new L.Point(opts.icon.iconAnchor),
+				popupAnchor: new L.Point(opts.icon.popupAnchor),*/
 				nodeHtml: L.DomUtil.create('div')
 			});
 			self.marker = new L.Marker(self.loc, {icon: self.icon});
 			self.marker.item = self;
 			self.marker.on('click', function(e) {
 
-				if(K.settings.public.map.popup.enabled) {
+				if(opts.popups.enabled) {
 					if(!this._popup) {
 						var div = L.DomUtil.create('div','');
 						if(Template[self.templatePopup])

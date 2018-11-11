@@ -24,6 +24,10 @@ Kepler.settings = {
 			"es": "Español",
 			"fr": "Français"
 		},
+		"profile": {
+			"awayTime": 10000,
+			"awayOnWindowBlur": true
+		},		
 		"templates": {
 			//core/ui templates configurations
 			"navSidebar": {
@@ -71,10 +75,6 @@ Kepler.settings = {
 				"footer_ui_builtwith": { order:10 }
 			}
 		},
-		"profile": {
-			"awayTime": 10000,
-			"awayOnWindowBlur": true
-		},
 		"map": {
 			"zoom": 5,
 			"minZoom": 3,
@@ -94,25 +94,47 @@ Kepler.settings = {
 
 			"layer": "road",
 			"layers": {
+				//TODO define "baseLayers":{...}..
 				"road": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+			},
+			"controls": {
+				"gps": {
+					"enabled": true,
+					"position": "bottomright"
+				},
+				"zoom": {
+					"enabled": true,
+					"position": "bottomright"
+				},
+				"scale": {
+					"enabled": true,
+					"position": "bottomleft",
+					"imperial": false,
+					"metric": true
+				},
+				"attrib": {
+					"enabled": true,
+					"position": "bottomleft",
+					"prefix": "<a href=\"http://osm.org/copyright\" target=\"_blank\">&copy; osm.org</a>"
+				}
 			},
 			"cursor": {
 				"enabled": true
 			},
 			//TODO split options for places and users
-			"popup": {
+			"popups": {
 				"enabled": true,
 				"autoPanPaddingTopLeft": [50, 50],
 				"autoPanPaddingBottomRight": [50, 50],
 				"closeButton": false,
 				"minWidth": 120
 			},
-			"tooltip": {
+			"tooltips": {
 				"enabled": true,
 				"direction": "auto",
 				"sticky": true
 			},
-			"icon": {
+			"icons": {
 				"iconSize": [30, 30],
 				"iconAnchor": [15, 30],
 				"popupAnchor": [0, -30]
