@@ -1,0 +1,35 @@
+
+<template name="panelSettings_ui_contact">
+	
+	<div class="form-group">
+		<label for="city" class="col-xs-3 control-label">{{i18n 'label_city'}}</label>
+		<div class="col-xs-9">
+			<input id="city" disabled="disabled" class="form-control" type="text" value="{{city}}" />
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="email" class="col-xs-3 control-label">{{i18n 'label_email'}}</label>
+		{{#each emails}}
+		<div class="col-xs-9">
+			<div class="input-group">
+				<input disabled="disabled" id="email" class="form-control" type="email" data-value="{{address}}" value="{{address}}" />
+				<div class="input-group-addon">
+				{{#if verified}}
+					<span class="text-green">
+					<i class="icon icon-success"></i> 
+					{{i18n 'btn_verified'}}
+					</span>
+				{{else}}
+					<span class="text-danger">
+					<i class="icon icon-warning"></i> 
+					{{i18n 'btn_notverified'}}
+					</span>
+				{{/if}}						
+				</div>
+			</div>
+		</div>
+		{{/each}}
+	</div>			
+
+</template>

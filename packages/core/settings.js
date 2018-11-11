@@ -38,10 +38,13 @@ Kepler.settings = {
 				"panelProfile_ui_sets": { order:10 }
 			},
 			"panelSettings": {
-				"panelSettings_ui_info": { order:-10 },
+				"panelSettings_ui_bio": { order:-10 },
+				"panelSettings_ui_contact": { order:-10, show:false },
 				"panelSettings_ui_lang": { order:-10 },
 				"panelSettings_ui_map": { order:-10 },
-				"panelSettings_ui_block": { order:-10 },
+				"panelSettings_ui_block": { order:10 },
+				"panelSettings_ui_account": { order:10 },
+				"panelSettings_ui_version": { order:10 },
 			},
 			"itemPlace": {
 				"itemPlace_ui_checkins": { order:-10 }

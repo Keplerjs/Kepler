@@ -134,7 +134,7 @@ Router.map(function() {
 			return {
 				title: i18n('title_settingsBlocked'),
 				className: 'settingsBlocked',
-				itemsTemplate: 'item_user_blocked',
+				itemsTemplate: 'item_user_block',
 				items: _.map(K.Profile.data.usersBlocked, K.userById)
 			};
 		}

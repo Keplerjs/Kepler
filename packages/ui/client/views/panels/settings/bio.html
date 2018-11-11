@@ -1,0 +1,33 @@
+
+<template name="panelSettings_ui_bio">
+	<div class="form-group">
+		<label for="username" class="col-xs-3 control-label">{{i18n 'label_username'}}</label>
+		<div class="col-xs-9 has-feedback">
+			<input id="username" class="form-control" autocomplete="off" maxlength="16" type="text" value="{{username}}" />
+			<span style="display:none" class="form-control-feedback icon icon-success"></span>
+			<label class="text-danger"></label>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="name" class="col-xs-3 control-label">{{i18n 'label_name'}}</label>
+		<div class="col-xs-9 has-feedback">
+			<input id="name" class="form-control" type="text" value="{{name}}">
+			<span style="display:none" class="form-control-feedback icon icon-del"></span>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="gender" class="col-xs-3 control-label">{{i18n 'label_gender'}}</label>
+		<div class="col-xs-9">
+			<div id="gender" class="btn-group" data-toggle="buttons">
+			{{#each genders}}
+				<label class="btn btn-xs btn-default {{#if active}} active {{/if}}">
+				<input name="gender" type="radio" checked="{{active}}" value="{{val}}" class="form-control" />
+				{{name}}
+				</label>
+			{{/each}}
+			</div>
+		</div>
+	</div>
+</template>

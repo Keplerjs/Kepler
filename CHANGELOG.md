@@ -2,8 +2,11 @@
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
-- render ui/core templates by settings.templates option
+- new param html separator in pluginsTemplate
+- render defaults ui templates defined by settings
 - new settings K.settings.public.accounts.services to disable each oauth service
+- redirections base paths /users, /places
+- split panel settings templates in more configurable templates
 
 ## v1.4.9
 - new settings bboxMaxResults

@@ -1,0 +1,59 @@
+
+<template name="panelSettings_ui_account">
+
+	<div class="form-group">
+		<label class="col-xs-3 control-label">{{i18n 'label_signupdate'}}</label>
+		<div class="col-xs-9">
+			<label class="control-label"><time>{{humanDate createdAt}}</time></label>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-xs-3 control-label">{{i18n 'label_userid'}}</label>
+		<div class="col-xs-9">
+			<code>{{_id}}</code>
+		</div>
+	</div>
+
+	{{#if source.service}}
+	<div class="form-group">
+		<label class="col-xs-3 control-label">{{i18n 'label_account'}}</label>
+		<div class="col-xs-9">
+		{{#if eq source.service 'keplerjs'}}
+			<a class="btn btn-default" href="/user/{{_id}}">
+				<i class="icon icon-kepler"></i> {{_id}}
+			</a>
+		{{/if}}
+		{{#if eq source.service 'openstreetmap'}}
+			<a class="btn btn-default" href="{{source.url}}">
+				<i class="icon icon-osm"></i> {{source.url}}
+			</a>
+		{{/if}}
+		{{#if eq source.service 'facebook'}}
+			<a class="btn btn-default" href="{{source.url}}">
+				<i class="icon icon-fb"></i> {{source.url}}
+			</a>
+		{{/if}}	
+		{{#if eq source.service 'github'}}
+			<a class="btn btn-default" href="{{source.url}}">
+				<i class="icon icon-git"></i> {{source.url}}
+			</a>
+		{{/if}}					
+		{{#if eq source.service 'google'}}
+			<a class="btn btn-default" href="{{source.url}}">
+				<i class="icon icon-goo"></i> {{source.url}}
+			</a>
+		{{/if}}	
+		</div>
+	</div>
+	{{/if}}
+				
+	<div class="form-group">
+		<div class="col-xs-8 col-xs-offset-3">
+
+		{{> loginButtons}}
+
+		</div>
+	</div>
+
+</template>

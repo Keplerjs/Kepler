@@ -76,7 +76,10 @@ Kepler.Plugin.normalizePlacehoders = function(tt, plugin) {
 	return tt;
 };
 
-Kepler.Plugin.templatesByPlaceholder = function(placeholder, data) {
+Kepler.Plugin.templatesByPlaceholder = function(placeholder, data, sep) {
+	
+	sep = sep || "\n";
+
 	var tmpls = [], sorts = [];
 
 	if(!placeholder 
@@ -96,11 +99,13 @@ Kepler.Plugin.templatesByPlaceholder = function(placeholder, data) {
 
 			sorts = _.sortBy(arr, 'order');
 
+			var len = sorts.length-3;
 			for(var s in sorts) {
 				if(sorts[s].show) {
 					tmpls.push({
 						pluginTemplate: sorts[s].name,
-						pluginData: data
+						pluginData: data,
+						pluginSep: s<len ? sep : ''
 					});
 				}
 			}

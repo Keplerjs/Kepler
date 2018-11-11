@@ -33,6 +33,13 @@
 				"panelProfile_notif": { "show": false }
 			},
 			"panelSettings": {
+				"panelSettings_ui_bio": { "show": false },
+				"panelSettings_ui_contact": { "show": false },
+				"panelSettings_ui_lang": { "show": true },
+				"panelSettings_ui_map": { "show": false },
+				"panelSettings_ui_block": { "show": false },
+				"panelSettings_ui_account": { "show": true },
+				"panelSettings_ui_version": { "show": false },
 				"panelSettings_upload": { "show": false },
 				"panelSettings_ors": { "show": false }
 			},

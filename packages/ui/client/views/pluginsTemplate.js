@@ -8,6 +8,6 @@
 
 Template.pluginsTemplate.helpers({
 	templates: function() {
-		return K.Plugin.templatesByPlaceholder(this.name, Template.parentData());
+		return K.Plugin.templatesByPlaceholder(this.name, Template.parentData(), this.sep);
 	}
 });
