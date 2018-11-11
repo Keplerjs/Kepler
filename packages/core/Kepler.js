@@ -1,7 +1,8 @@
-var version = '1.4.9';
-/*
-	global container
-*/
+var version = '1.5.0';
+/**
+ * Kepler global container
+ * @type {[type]}
+ */
 Kepler = K = {
 	version: version,
 

@@ -2,6 +2,9 @@
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+...
+
+## v1.5.0 - Compositional UI by settings
 - new param html separator in pluginsTemplate
 - render defaults ui templates defined by settings
 - new settings K.settings.public.accounts.services to disable each oauth service
@@ -9,6 +12,8 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 - split panel settings templates in more configurable templates
 - convert user lang code in lang name
 - enable/disable cursor, popups and tooltips by settings
+- new templates tabPlace_ui_hist, tabUser_ui_hist, tabUser_ui_friends
+- fix popups opts
 
 ## v1.4.9
 - new settings bboxMaxResults
