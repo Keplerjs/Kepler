@@ -33,6 +33,11 @@
 .leaflet-popup-content .popup-place {
 	background: none
 }
+.leaflet-popup-content .btn-block:first-child  {
+	font-weight: bold;
+	font-size: 14px;
+	text-align: center;
+}
 
 .popup-user {
 	background: #fff

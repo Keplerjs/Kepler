@@ -1,43 +1,41 @@
 
 <template name="panelPlace_share">
-
-<div class="row">
-	<div class="col-xs-4">	
-		<div class="btn-group" role="group">
-			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			  {{i18n 'btn_nav'}}
-			  <span class="caret"></span>
-			</button>
-			<div class="dropdown-menu">
-			{{#with urls}}
-			  	<a href="{{apple}}" class="btn btn-sm pull-left" target="_blank">
-					<i class="icon icon-nav"></i>&nbsp;<span>{{i18n 'btn_navapp'}}</span>
-				</a>
-				<a href="{{google}}" class="btn btn-sm pull-left" target="_blank">
-					<i class="icon icon-gmap"></i>&nbsp;<span>{{i18n 'btn_google'}}</span>
-				</a>
-			  	<a href="{{osm}}" class="btn btn-sm pull-left" target="_blank">
-					<i class="icon icon-osm"></i>&nbsp;<span>{{i18n 'btn_osm'}}</span>
-				</a>
-				<!--<a href="{{bing}}" class="btn btn-sm pull-left" target="_blank">
-					<i class="icon icon-bing"></i>&nbsp;<span>{{i18n 'btn_bing'}}</span>
-				</a>-->				
-			{{/with}}
-			</div>
-		</div>
-	</div>
-	<div class="col-xs-8">
-		<div class="btn-group" role="group" aria-label="...">
-			<div class="input-group">
-				<input class="form-control input-share" type="text" value="{{absoluteUrl 'place/'}}{{id}}" />
-				<span class="input-group-btn">
-					<a class="btn btn-default btn-share" href="#">
-						<i class="icon icon-share"></i>
+	<div class="row">
+		<div class="col-xs-4">	
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				  {{i18n 'btn_nav'}}
+				  <span class="caret"></span>
+				</button>
+				<div class="dropdown-menu">
+				{{#with urls}}
+				  	<a href="{{apple}}" class="btn btn-sm pull-left" target="_blank">
+						<i class="icon icon-nav"></i>&nbsp;<span>{{i18n 'btn_navapp'}}</span>
 					</a>
-				</span>
+					<a href="{{google}}" class="btn btn-sm pull-left" target="_blank">
+						<i class="icon icon-gmap"></i>&nbsp;<span>{{i18n 'btn_google'}}</span>
+					</a>
+				  	<a href="{{osm}}" class="btn btn-sm pull-left" target="_blank">
+						<i class="icon icon-osm"></i>&nbsp;<span>{{i18n 'btn_osm'}}</span>
+					</a>
+					<!--<a href="{{bing}}" class="btn btn-sm pull-left" target="_blank">
+						<i class="icon icon-bing"></i>&nbsp;<span>{{i18n 'btn_bing'}}</span>
+					</a>-->				
+				{{/with}}
+				</div>
 			</div>
 		</div>
-	</div>	
-</div>
-
+		<div class="col-xs-8">
+			<div class="btn-group" role="group" aria-label="...">
+				<div class="input-group">
+					<input class="form-control input-share" type="text" value="{{absoluteUrl 'place/'}}{{id}}" />
+					<span class="input-group-btn">
+						<a class="btn btn-default btn-share" href="#">
+							<i class="icon icon-share"></i>
+						</a>
+					</span>
+				</div>
+			</div>
+		</div>	
+	</div>
 </template>

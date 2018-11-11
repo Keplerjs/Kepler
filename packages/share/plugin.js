@@ -7,6 +7,6 @@ K.Plugin({
 			//'popupCursor_share': {order: -6 }
 		},
 		popupCursor: 'popupCursor_share',
-		//popupUser: 'popupCursor_share'
+		//popupPlace: 'popupCursor_share'
 	}
 });

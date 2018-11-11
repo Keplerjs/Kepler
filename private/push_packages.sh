@@ -8,8 +8,8 @@ for d in ../packages/keplerjs* ; do
   echo "$d"
   
   cd $d
-  
-  git commit -a -m "update version"
+
+  git commit -a -m "$1"
   git push
 
   cd ../../private
