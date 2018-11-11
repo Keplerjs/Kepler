@@ -4,13 +4,17 @@ Template.panelSettings_ui_lang.helpers({
 		return K.settings.public.langs[K.Profile.data.lang] ? K.Profile.data.lang : K.settings.public.lang;
 	},
 	langs: function() {
-		return _.map(K.settings.public.langs, function(v,k) {
-			return {
-				key: k,
-				val: v,
-				active: k===K.Profile.data.lang
-			};
+		var langs = [];
+		_.each(K.settings.public.langs, function(v,k) {
+			if(!!v && _.isString(v)) {
+				langs.push({
+					key: k,
+					val: v,
+					active: k===K.Profile.data.lang
+				});
+			}
 		});
+		return langs;
 	}
 });
 

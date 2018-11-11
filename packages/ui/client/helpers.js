@@ -48,7 +48,11 @@ Template.registerHelper('eq', function (a, b) {
   return a === b;
 });
 
-Template.registerHelper('arrayify',function(obj){
+Template.registerHelper('gt', function (a, b) {
+  return a > b;
+});
+
+Template.registerHelper('arrayify',function(obj) {
     var result = [];
     for(var k in obj)
     	result.push({key: k, val: obj[k] });

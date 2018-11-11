@@ -1,5 +1,13 @@
 {
 	"public": {
+		"langs": {
+			"en": "English",
+			"it": false,
+			"de": false,
+			"sv": false,
+			"es": false,
+			"fr": false
+		},
 		"map": {
 			"layers": {
 				"road": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
