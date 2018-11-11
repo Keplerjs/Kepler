@@ -79,6 +79,7 @@ Package.onUse(function(api) {
     'client/views/panels/settings/lang.js',
     'client/views/panels/settings/map.html',
     'client/views/panels/settings/map.js',
+    'client/views/panels/settings/version.html',
 
     'client/views/pluginsTemplate.html',
     'client/views/pluginsTemplate.js',
