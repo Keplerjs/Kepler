@@ -77,12 +77,12 @@ Kepler.Place = Class.extend({
 		var self = this;
 
 		if(!self.marker) {
-			var iconOpts = K.settings.public.map.icon;
+			var mapOpts = K.settings.public.map;
 			
 			self.icon = new L.NodeIcon({
-				/*conSize: new L.Point(iconOpts.iconSize),
-				iconAnchor: new L.Point(iconOpts.iconAnchor),
-				popupAnchor: new L.Point(iconOpts.popupAnchor),*/				
+				/*conSize: new L.Point(mapOpts.icon.iconSize),
+				iconAnchor: new L.Point(mapOpts.icon.iconAnchor),
+				popupAnchor: new L.Point(mapOpts.icon.popupAnchor),*/				
 				nodeHtml: L.DomUtil.create('div')
 			});
 
@@ -93,19 +93,32 @@ Kepler.Place = Class.extend({
 				if(Template[self.templateMarker])
 					Blaze.renderWithData(Template[self.templateMarker], self, self.icon.nodeHtml);
 
-				var divp = L.DomUtil.create('div');
+				if(K.settings.public.map.popup.enabled) {
+
+					var divp = L.DomUtil.create('div');
 				
-				if(Template[self.templatePopup])
-					Blaze.renderWithData(Template[self.templatePopup], self.rData, divp);
+					if(Template[self.templatePopup])
+						Blaze.renderWithData(Template[self.templatePopup], self.rData, divp);
+					
 				
-				self.marker.bindPopup(divp.firstChild, K.Map.options.popup);
+					self.marker.bindPopup(divp.firstChild, K.Map.options.popup);
+				}
+				else {
+					e.target.on('click', function(ee) {
+						Router.go('panelPlace',{placeId: self.id});
+					});
+				}
+				
+				if(mapOpts.tooltip.enabled) {
 
-				var divt = L.DomUtil.create('div');
+					var divt = L.DomUtil.create('div');
 
-				if(Template[self.templateTooltip])
-					Blaze.renderWithData(Template[self.templateTooltip], self.rData, divt);
+					if(Template[self.templateTooltip])
+						Blaze.renderWithData(Template[self.templateTooltip], self.rData, divt);
 
-				self.marker.bindTooltip(divt.firstChild, K.Map.options.tooltip);
+				
+					self.marker.bindTooltip(divt.firstChild, K.Map.options.tooltip);
+				}
 			});
 		}
 		return self.marker;

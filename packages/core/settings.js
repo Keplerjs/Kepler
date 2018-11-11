@@ -80,10 +80,10 @@ Kepler.settings = {
 			"minZoom": 3,
 			"maxZoom": 19,
 			"center": [46.067246, 11.121511],
-			//ITALY "maxBounds": [[36.282794, 5.361328], [47.542735, 21.071777]],
-
+			"maxBounds": [[-90, -180], [90, 180]],	//WORLD
+			//"maxBounds": [[36.282794, 5.361328], [47.542735, 21.071777]],//ITALY 
 			"dataMinZoom": 10,	//zoom limit to hide places and user
-
+			
 			"checkinMaxDist": 150,
 			"bboxMinShift": 200,
 			"bboxMaxDiagonal": 200000,	//max bounding box diangonal size for pub findPlacesByBBox in meters
@@ -96,7 +96,12 @@ Kepler.settings = {
 			"layers": {
 				"road": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 			},
+			"cursor": {
+				"enabled": true
+			},
+			//TODO split options for places and users
 			"popup": {
+				"enabled": true,
 				"autoPanPaddingTopLeft": [50, 50],
 				"autoPanPaddingBottomRight": [50, 50],
 				"closeButton": false,
@@ -118,7 +123,7 @@ Kepler.settings = {
 		},
 		"router": {
 			"publicRoutes": {
-				"about": 1
+				"about": true
 			}
 		},
 		"accounts": {

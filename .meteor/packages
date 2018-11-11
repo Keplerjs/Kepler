@@ -24,7 +24,7 @@ keplerjs:import
 keplerjs:pois
 keplerjs:tracks
 
-#keplerjs:robots
+keplerjs:robots
 keplerjs:wunderground
 keplerjs:googlemaps
 keplerjs:openrouteservice

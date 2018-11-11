@@ -333,7 +333,8 @@ Kepler.Map = {
 	 * @return {K.Map} [description]
 	 */
 	hideCursor: function() {
-		this.layers.cursor.hide();
+		if(this.layers.cursor)
+			this.layers.cursor.hide();
 		return this;
 	},
 	/**
@@ -342,7 +343,8 @@ Kepler.Map = {
 	 * @return {K.Map} [description]
 	 */
 	showCursor: function(loc) {
-		this.layers.cursor.setLoc(loc);
+		if(this.layers.cursor)
+			this.layers.cursor.setLoc(loc);
 		return this;
 	},
 	/**
@@ -351,7 +353,7 @@ Kepler.Map = {
 	 */
 	getCursorLoc: function() {
 		var loc;
-		if(this.map.hasLayer(this.layers.cursor.marker)) {
+		if(this.layers.cursor && this.map.hasLayer(this.layers.cursor.marker)) {
 			var ll = this.layers.cursor.marker.getLatLng();	
 			loc = [ll.lat, ll.lng];
 		}

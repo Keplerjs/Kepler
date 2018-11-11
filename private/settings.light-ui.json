@@ -12,6 +12,15 @@
 			"layer": "road",
 			"layers": {
 				"road": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+			},
+			"popup": {
+				"enabled": false
+			},		
+			"tooltip": {
+				"enabled": false
+			},
+			"cursor": {
+				"enabled": false
 			}
 		},
 		"templates": {

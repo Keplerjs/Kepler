@@ -11,7 +11,7 @@ _.extend(Kepler.Map, {
 
 		layers.users = new L.LayerGroup();
 
-		if(L.Cursor) {
+		if(K.settings.public.map.cursor.enabled && L.Cursor) {
 			
 			layers.cursor = new L.Cursor();
 
@@ -26,8 +26,10 @@ _.extend(Kepler.Map, {
 				$(layers.cursor.icon.nodeHtml).empty();
 				Blaze.renderWithData(Template.markerCursor, cursorData, layers.cursor.icon.nodeHtml);
 
-				Blaze.renderWithData(Template.popupCursor, cursorData, div);
-				this.bindPopup(div.firstChild, opts.popup);
+				if(K.settings.public.map.popup.enabled) {
+					Blaze.renderWithData(Template.popupCursor, cursorData, div);
+					this.bindPopup(div.firstChild, opts.popup);
+				}
 			});
 		}
 
@@ -132,12 +134,14 @@ _.extend(Kepler.Map, {
 
 		    if(z < K.settings.public.map.dataMinZoom){
 				map.removeLayer(layers.users);
-				map.removeLayer(layers.cursor);
+				if(layers.cursor)
+					map.removeLayer(layers.cursor);
 				map.removeLayer(layers.cluster);
 		    }
 		    else {
 				map.addLayer(layers.users);
-				map.addLayer(layers.cursor);
+				if(layers.cursor)
+					map.addLayer(layers.cursor);
 				map.addLayer(layers.cluster);
 		    }
 		});

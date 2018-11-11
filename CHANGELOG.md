@@ -8,6 +8,7 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 - redirections base paths /users, /places
 - split panel settings templates in more configurable templates
 - convert user lang code in lang name
+- enable/disable cursor, popups and tooltips by settings
 
 ## v1.4.9
 - new settings bboxMaxResults

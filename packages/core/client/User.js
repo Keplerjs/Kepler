@@ -105,12 +105,18 @@ Kepler.User = Class.extend({
 			self.marker = new L.Marker(self.loc, {icon: self.icon});
 			self.marker.item = self;
 			self.marker.on('click', function(e) {
-				if(!this._popup) {
-					var div = L.DomUtil.create('div','');
-					if(Template[self.templatePopup])
-						Blaze.renderWithData(Template[self.templatePopup], self, div);
-					this.bindPopup(div.firstChild, K.Map.options.popup);
+
+				if(K.settings.public.map.popup.enabled) {
+					if(!this._popup) {
+						var div = L.DomUtil.create('div','');
+						if(Template[self.templatePopup])
+							Blaze.renderWithData(Template[self.templatePopup], self, div);
+						this.bindPopup(div.firstChild, K.Map.options.popup);
+					}
 				}
+				else
+					Router.go('panelUser',{userId: self.id});
+
 			}).once('add', function() {
 				if(Template[self.templateMarker])
 					Blaze.renderWithData(Template[self.templateMarker], self.rData, self.icon.nodeHtml);
