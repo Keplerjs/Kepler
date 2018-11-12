@@ -12,7 +12,7 @@
 			"enterRoute": "root"
 		},
 		"map": {
-			"checkinAutomatic": true,
+			"checkinAutomatic": false,
 			"layer": "road",
 			"layers": {
 				"road": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
