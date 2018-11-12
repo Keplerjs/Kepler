@@ -60,11 +60,13 @@ Kepler.settings = {
 				"itemPlace_ui_checkins": { order:-10 }
 			},
 			"panelPlace": {
+				"panelPlace_ui_btn_checkin": { order:-10 },
 				"panelPlace_ui_btns": { order:-10 },
 				"panelPlace_ui_info": { order:-10 }
 			},	
 			"panelUser": {
 				"panelUser_ui_bio": { order:-10 },
+				"panelUser_ui_status": { order:-10 },
 				"panelUser_ui_btns": { order:-10 },
 				"panelUser_ui_tablocation": { order:-10 }
 			},
@@ -92,7 +94,7 @@ Kepler.settings = {
 			
 			"checkinAutomatic": true,
 			"checkinMaxDist": 150,
-			
+
 			"bboxMinShift": 200,
 			"bboxMaxDiagonal": 200000,	//max bounding box diangonal size for pub findPlacesByBBox in meters
 			"bboxMaxResults": 50,

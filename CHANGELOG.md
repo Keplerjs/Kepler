@@ -2,7 +2,7 @@
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
-...
+- new settings public.map.checkinAutomatic
 
 ## v1.5.0 - Compositional UI by settings
 - new param html separator in pluginsTemplate

@@ -14,7 +14,7 @@
 		</a>
 	</div>
 	<div class="panel-body">
-
+			 
 		{{> pluginsTemplate name='panelPlace'}}
 
 		<ul class="nav nav-tabs">
@@ -51,7 +51,24 @@
 
 </template>
 
+<template name="panelPlace_ui_btn_checkin">
+	<div class="pull-left">
+		{{> place_btn_checkin}}
+	</div>
+</template>
+
 <template name="panelPlace_ui_btns">
+	<div class="pull-right">
+		
+		{{> place_btns}}
+
+		&nbsp;<a class="btn btn-sm btn-default place-btn-map pull-right" href="/place/{{id}}/map">
+			<i class="icon icon-map"></i>
+		</a>
+	</div>
+</template>
+
+<template name="panelPlace_ui_btns_bak">
 	<div class="row">
 		<div class="col-xs-3">
 		

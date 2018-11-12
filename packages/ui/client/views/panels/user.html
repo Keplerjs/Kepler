@@ -131,20 +131,16 @@
 	</div>
 </template>
 
+<template name="panelUser_ui_status">
+	<div class="pull-left">
+		{{> user_status}} <time>{{humanTime loginAt 1}}</time>
+	</div>
+</template>
+
 <template name="panelUser_ui_btns">
-	<div class="row">
-		<div class="col-xs-4">
-			
-			{{> user_status}}
-
-			<time>{{humanTime loginAt 1}}</time>
-		</div>
-		<div class="col-xs-8 text-right">
-			<div class="user-btns">
-
-				{{> user_btns_panel}}
-
-			</div>
+	<div class="pull-right">
+		<div class="user-btns">
+			{{> user_btns_panel}}
 		</div>
 	</div>
 </template>
