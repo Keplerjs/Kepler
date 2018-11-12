@@ -1,4 +1,4 @@
-var version = '1.5.0';
+var version = '1.5.2';
 
 Package.describe({
   version: version,
