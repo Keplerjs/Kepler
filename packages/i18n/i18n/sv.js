@@ -76,7 +76,7 @@ i18n.map('sv', {
 	btn_notverified: "Verifiera",
 	btn_logout: "Logga ut",
 	btn_home: "Hemsida",
-	btn_enter: "Logga in",
+	btn_enter: "Skriv",
 	btn_signup: "Registrera",
 	btn_signin: "Logga in",
 	btn_signinfb: "Registrera med Facebook",

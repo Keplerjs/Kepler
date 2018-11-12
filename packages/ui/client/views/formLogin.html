@@ -3,11 +3,15 @@
 
 	{{#if currentUser}}
 		{{#with currentUser}}
-			<div class="btn btn-default">
-				{{> item_user}}
-			</div>
 
-			<br /><br />
+			<a class="btn btn-default" href="{{pathFor route=enterRoute}}">
+				<span class=" user-btn-name">
+					<img class="icon-avatar {{#unless avatar}}icon-avatar-default{{/unless}}" src="{{#if avatar}}{{avatar}}{{/if}}" />
+					<u>{{i18n 'btn_enter'}}</u>
+				</span>
+			</a>
+
+			<br />
 			
 			<div class="btn btn-link">
 				<a class="btn btn-link" href="{{pathFor route='logout'}}">{{i18n 'btn_logout'}}</a>

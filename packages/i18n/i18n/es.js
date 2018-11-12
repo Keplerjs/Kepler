@@ -73,7 +73,7 @@ i18n.map('es', {
 	btn_notverified: "No verificado",
 	btn_logout: "Cerrar sesión",
 	btn_home: "Pagina de inicio",
-	btn_enter: "Inicio de sesión",
+	btn_enter: "Entra",
 	btn_signup: "Registrarse",
 	btn_signin: "Iniciar la sesión",
 	btn_signinfb: "Inicia sesión con Facebook",

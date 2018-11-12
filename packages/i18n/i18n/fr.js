@@ -73,7 +73,7 @@ i18n.map('fr', {
 	btn_notverified: "Non verifié",
 	btn_logout: "Déconnexion",
 	btn_home: "Page d'accueil",
-	btn_enter: "Connectez-vous",
+	btn_enter: "Entrer",
 	btn_signup: "S'inscrire",
 	btn_signin: "Login",
 	btn_signinfb: "Connectez-vous avec Facebook",

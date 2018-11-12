@@ -8,6 +8,9 @@
 			"es": false,
 			"fr": false
 		},
+		"router": {
+			"enterRoute": "root"
+		},
 		"map": {
 			"checkinAutomatic": true,
 			"layer": "road",

@@ -81,7 +81,7 @@ i18n.map('en', {
 	btn_notverified: "Verify",
 	btn_logout: "Logout",
 	btn_home: "Homepage",
-	btn_enter: "Log in",
+	btn_enter: "Enter",
 	btn_signup: "Register",
 	btn_signin: "Login",
 	btn_signinfb: "Register with Facebook",

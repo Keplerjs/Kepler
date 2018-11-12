@@ -24,10 +24,16 @@ Kepler.settings = {
 			"es": "Español",
 			"fr": "Français"
 		},
+		"router": {
+			"enterRoute": "root",
+			"publicRoutes": {
+				"about": true
+			}
+		},
 		"profile": {
 			"awayTime": 10000,
 			"awayOnWindowBlur": true
-		},		
+		},	
 		"templates": {
 			//TODO refact.. templates without placeholder
 			"tabPlace_ui_hist": { "show": true},
@@ -151,11 +157,6 @@ Kepler.settings = {
 			},
 			"styles": {
 				"default": { "color": "#b6f", "weight": 5, "opacity": 0.7 }
-			}
-		},
-		"router": {
-			"publicRoutes": {
-				"about": true
 			}
 		},
 		"accounts": {
