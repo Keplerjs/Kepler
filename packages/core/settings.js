@@ -90,7 +90,9 @@ Kepler.settings = {
 			//"maxBounds": [[36.282794, 5.361328], [47.542735, 21.071777]],//ITALY 
 			"dataMinZoom": 10,	//zoom limit to hide places and user
 			
+			"checkinAutomatic": true,
 			"checkinMaxDist": 150,
+			
 			"bboxMinShift": 200,
 			"bboxMaxDiagonal": 200000,	//max bounding box diangonal size for pub findPlacesByBBox in meters
 			"bboxMaxResults": 50,

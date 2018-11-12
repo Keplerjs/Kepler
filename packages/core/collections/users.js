@@ -21,7 +21,7 @@ Users.allow({
  */
 Users.after.update(function(userId, user, fieldNames, modifier, options) {
 
-	if(_.contains(fieldNames,'loc') && user.loc) {
+	if(K.settings.public.map.checkinAutomatic && _.contains(fieldNames,'loc') && user.loc) {
 
 		//console.log('users.after.update loc ', user.username, K.Util.geo.roundLoc(user.loc).join());
 

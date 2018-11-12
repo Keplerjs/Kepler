@@ -50,7 +50,7 @@ Accounts.onLogin(function(e) {
 
 Accounts.onLoginFailure(function(e) {
 	var ip = e.connection.httpHeaders['x-real-ip'] || e.connection.clientAddress,
-		user = e.methodArguments ? K.Util.getPath(e.methodArguments[0],'user.username') : '';
+		user = e.methodArguments ? K.Util.getPath(e.methodArguments[0],'user') : '';
 
 	console.log('Accounts: onLoginFailure ', ip, user );
 });

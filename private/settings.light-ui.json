@@ -9,13 +9,14 @@
 			"fr": false
 		},
 		"map": {
+			"checkinAutomatic": true,
 			"layer": "road",
 			"layers": {
 				"road": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 			},
 			"controls": {
 				"gps": {
-					"enabled": false,
+					"enabled": true,
 					"position": "topright"
 				},
 				"zoom": {

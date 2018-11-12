@@ -7,13 +7,12 @@ Meteor.methods({
 
 		if(!this.userId) return null;
 
-		var userData = Meteor.user()
+		var userData = Meteor.user();
 		
-		console.log('Profile: setLoc', userData.username, loc);
-
 		if(K.Util.valid.loc(loc))
 		{
 			var shift = K.Util.geo.distance(userData.loclast, loc);
+			//implicit if(loc === userData.loc)
 
 			if(userData.loclast===null || shift >= K.settings.public.map.gpsMinShift)
 			{
@@ -25,20 +24,26 @@ Meteor.methods({
 						'settings.map.zoom': K.settings.public.map.showLocZoom
 					}
 				});
+				console.log('Profile: setLoc', userData.username, loc);
 			}
-			else
+			else {
 				Users.update(this.userId, {
 					$set: {
 						loc: userData.loclast
 					}
 				});
+				console.log('Profile: setLoc', userData.username, loc);
+			}
 		}
-		else
-			Users.update(this.userId, {
-				$set: {
-					loc: null
-				}
-			});
+		else {
+			if(userData.loc !== null) {
+				Users.update(this.userId, {
+					$set: {
+						loc: null
+					}
+				});
+			}
+		}
 	},
 	addCheckin: function(placeId) {
 
