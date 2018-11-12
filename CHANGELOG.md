@@ -3,6 +3,7 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
 - new settings public.map.checkinAutomatic
+- new settings public.router.enterRoute link to enter button
 
 ## v1.5.0 - Compositional UI by settings
 - new param html separator in pluginsTemplate
