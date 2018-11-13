@@ -33,14 +33,10 @@
 .leaflet-popup-content .popup-place {
 	background: none
 }
-.leaflet-popup-content .btn-block:first-child  {
+.leaflet-popup-content .btn-block:first-child {
 	font-weight: bold;
 	font-size: 14px;
 	text-align: center;
-}
-
-.popup-user {
-	background: #fff
 }
 
 .popup-tit {
@@ -56,10 +52,16 @@
 	opacity: 1;
 }
 
-.leaflet-popup-content .btn-block {
+.leaflet-popup-content .btn-block,
+.popup-user .btn-block:first-child {
 	text-align:left;
 	margin-bottom: 5px;
 }
+.popup-user .btn-block:first-child {
+	padding: 0;
+	margin-bottom: 0;	
+}
+
 .leaflet-popup-content .btn-block:last-child {
 	margin-bottom: 0
 }
