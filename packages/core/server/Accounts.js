@@ -7,7 +7,6 @@
 
 Meteor.startup(function() {	
 
-
 	Accounts.config({
 		sendVerificationEmail: K.settings.accounts.verifyEmail
 	});

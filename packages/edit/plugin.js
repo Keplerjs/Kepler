@@ -8,7 +8,9 @@ K.Plugin({
 		panelProfile: {
 			'panelProfile_edit': {order: 10 }
 		},
-		panelPlace: 'panelPlace_edit',
+		panelPlace: {
+			'panelPlace_edit': {order:0}
+		},
 		tabUser: 'tabUser_edit',
 		popupCursor: 'popupCursor_edit'
 	},

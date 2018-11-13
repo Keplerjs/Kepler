@@ -14,39 +14,40 @@
 			<code>{{_id}}</code>
 		</div>
 	</div>
-
-	{{#if source.service}}
+	{{#with source}}
+	{{#if service}}
 	<div class="form-group">
 		<label class="col-xs-3 control-label">{{i18n 'label_account'}}</label>
 		<div class="col-xs-9">
-		{{#if eq source.service 'keplerjs'}}
+		{{#if eq service 'keplerjs'}}
 			<a class="btn btn-default" href="/user/{{_id}}">
 				<i class="icon icon-kepler"></i> {{_id}}
 			</a>
 		{{/if}}
-		{{#if eq source.service 'openstreetmap'}}
-			<a class="btn btn-default" href="{{source.url}}">
-				<i class="icon icon-osm"></i> {{source.url}}
+		{{#if eq service 'openstreetmap'}}
+			<a class="btn btn-default" href="{{url}}">
+				<i class="icon icon-osm"></i> {{url}}
 			</a>
 		{{/if}}
-		{{#if eq source.service 'facebook'}}
-			<a class="btn btn-default" href="{{source.url}}">
-				<i class="icon icon-fb"></i> {{source.url}}
+		{{#if eq service 'facebook'}}
+			<a class="btn btn-default" href="{{url}}">
+				<i class="icon icon-fb"></i> {{url}}
 			</a>
 		{{/if}}	
-		{{#if eq source.service 'github'}}
-			<a class="btn btn-default" href="{{source.url}}">
-				<i class="icon icon-git"></i> {{source.url}}
+		{{#if eq service 'github'}}
+			<a class="btn btn-default" href="{{url}}">
+				<i class="icon icon-git"></i> {{url}}
 			</a>
 		{{/if}}					
-		{{#if eq source.service 'google'}}
-			<a class="btn btn-default" href="{{source.url}}">
-				<i class="icon icon-goo"></i> {{source.url}}
+		{{#if eq service 'google'}}
+			<a class="btn btn-default" href="{{url}}">
+				<i class="icon icon-goo"></i> {{url}}
 			</a>
 		{{/if}}	
 		</div>
 	</div>
 	{{/if}}
+	{{/with}}
 				
 	<div class="form-group">
 		<label class="col-xs-3 control-label">{{i18n 'label_password'}}</label>
