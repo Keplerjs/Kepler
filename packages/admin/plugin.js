@@ -7,7 +7,9 @@ K.Plugin({
 			'panelProfile_admin': {order:10}
 		},
 		panelPlace: 'panelPlace_admin',
-		panelUser: {'panelUser_admin': {order:10}}
+		panelUser: {
+			'panelUser_admin': {order:0}
+		}
 		//TODO move it in a special admin page
 	},
 	schemas: {

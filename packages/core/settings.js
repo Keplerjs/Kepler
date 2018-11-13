@@ -71,9 +71,9 @@ Kepler.settings = {
 				"panelPlace_ui_info": { order:-10 }
 			},	
 			"panelUser": {
-				"panelUser_ui_bio": { order:-10 },
-				"panelUser_ui_status": { order:-10 },
-				"panelUser_ui_btns": { order:-10 },
+				"panelUser_ui_bio": { order:-20 },
+				"panelUser_ui_status": { order:-20 },
+				"panelUser_ui_btns": { order:-20 },
 				"panelUser_ui_tablocation": { order:-10 }
 			},
 			"popupPlace": {
