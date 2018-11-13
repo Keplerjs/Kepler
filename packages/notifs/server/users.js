@@ -9,6 +9,7 @@ Users.after.update(function(userId, doc, fieldNames, modifier, options) {
 		//userId = modifier['$addToSet'].usersReceive;
 		var userData = Users.findOne(userId,{fields:{username:1}});
 
+		//Replace with K.insertNotif
 		Users.update(doc._id, {
 			$push: {
 				notifs: {

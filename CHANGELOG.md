@@ -2,7 +2,6 @@
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
-- panelList support array in field sortBy
 - fix panelUser template
 - block email send if user created by admin
 - fix profile messages sort

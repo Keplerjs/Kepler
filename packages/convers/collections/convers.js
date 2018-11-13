@@ -26,7 +26,9 @@ Convers.after.insert(function(userId, doc) {
 		if(doc.targetType==='user') {
 			
 			var userData = Users.findOne(userId);
-
+			//
+			//TODO user K.insertNotif
+			//
 			Users.update(doc.targetId, {
 				$push: {
 					notifs: {

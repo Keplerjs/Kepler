@@ -14,15 +14,16 @@ Notifs.allow({
 });
 
 K.extend({
-	insertNotif: function(text, type) {
+	insertNotif: function(text, type, url) {
 
 		type = type || K.Notif._types[0];
 		
 		Users.update(Meteor.userId(), {
 			$push: {
 				notifs: {
-					//TODO createdAt
+					createdAt: K.Util.time(),
 					type: type,
+					url: url,
 					msg: text
 				}
 			}
