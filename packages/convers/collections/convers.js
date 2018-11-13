@@ -74,7 +74,7 @@ K.extend({
 				'$gte': dateFrom
 			}*/
 		}, _.deepExtend({}, K.filters.converItem, {
-				sort: { 'lastMsg.updatedAt': -1,  targetId: 1},
+				sort: { 'createdAt': -1, 'lastMsg.updatedAt': -1,  'targetId': 1},
 				limit: 100
 			})
 		);

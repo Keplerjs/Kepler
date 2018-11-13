@@ -33,7 +33,9 @@ Router.map(function() {
 				className: 'messages',
 				itemsTemplate: 'item_conver',
 				items: K.findConversByIds(K.Profile.data.convers).fetch(),
-				sortBy: 'lastMsg.updatedAt',
+				sortBy: function(conv) {
+					return (conv.lastMsg && conv.lastMsg.updatedAt) || conv.createdAt;
+				},
 				sortDesc: true
 			};
 		}
