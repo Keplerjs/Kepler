@@ -1,6 +1,7 @@
-/*
-	list of core plugins templates
-*/
+/**
+ * list of default  placeholder used to render templates in the UI
+ * @type {Object}
+ */
 Kepler.templates = {
 	navSidebar: {},
 	tabLocation: {},

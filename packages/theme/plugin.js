@@ -4,6 +4,7 @@ K.Plugin({
 	templates: {
 		pageHome: 'pageHome_theme',
 		footer: {
+			'show': false,
 			'footer_theme':{ order: 10 }
 		}
 	},
