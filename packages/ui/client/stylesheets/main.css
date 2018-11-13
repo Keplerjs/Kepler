@@ -21,7 +21,8 @@ footer {
 
 .builtwith {
 	font-style: italic;
-	text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+	font-size: 11px;
+	letter-spacing: 1px;
 	color: #9c0;
 	white-space: nowrap;
 }

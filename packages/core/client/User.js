@@ -68,16 +68,17 @@ Kepler.User = Class.extend({
 
 				K.Map.addItem(self);
 
-				//TODO REFACT draw user track
-				//build self.polyline... and udate it each time
-				if(K.Map.ready()) {
-					L.polyline([self.marker.getLatLng(), self.loc], {
-						opacity:0.8, weight:3, dashArray: "1,6", color: self.color
-					})
-					.addTo(K.Map.layers.geojson);
+				if(self.marker) {
+					//TODO REFACT draw user track
+					//build self.polyline... and udate it each time
+					if(K.Map.ready()) {
+						L.polyline([self.marker.getLatLng(), self.loc], {
+							opacity:0.8, weight:3, dashArray: "1,6", color: self.color
+						})
+						.addTo(K.Map.layers.geojson);
+					}
+					self.marker.setLatLng(self.loc);
 				}
-
-				self.marker.setLatLng(self.loc);
 			}
 			else
 				K.Map.removeItem(self);
@@ -94,10 +95,13 @@ Kepler.User = Class.extend({
 
 		var self = this;
 		
+		var opts = K.settings.public.map;
+
+		if(!opts.layerUsers.enabled)
+			return null;
+
 		if(!self.marker) {
 			
-			var opts = K.settings.public.map;
-
 			self.icon = new L.NodeIcon({
 				/*conSize: new L.Point(opts.icon.iconSize),
 				iconAnchor: new L.Point(opts.icon.iconAnchor),
@@ -126,6 +130,7 @@ Kepler.User = Class.extend({
 
 			self.color = K.Util.textToColor(self.id);
 		}
+
 		return self.marker;
 	},
 
@@ -135,7 +140,8 @@ Kepler.User = Class.extend({
 		self.buildMarker();
 
 		K.Map.showLoc(self.loc, function() {
-			self.icon.animate();
+			if(self.icon)
+				self.icon.animate();
 		});
 	},
 

@@ -17,6 +17,9 @@
 			"layers": {
 				"road": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 			},
+			"layerUsers": {
+				"enabled": false
+			},			
 			"controls": {
 				"zoom": {
 					"enabled": true,

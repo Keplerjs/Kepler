@@ -111,8 +111,11 @@ Kepler.settings = {
 
 			"layer": "road",
 			"layers": {
-				//TODO define "baseLayers":{...}..
+				//TODO rename in  "baseLayer":{...}..
 				"road": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+			},
+			"layerUsers": {
+				"enabled": true
 			},
 			"controls": {
 				"gps": {
