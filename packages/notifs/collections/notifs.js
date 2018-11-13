@@ -22,6 +22,7 @@ K.extend({
 			$push: {
 				notifs: {
 					createdAt: K.Util.time(),
+					seen: false,
 					type: type,
 					url: url,
 					msg: text

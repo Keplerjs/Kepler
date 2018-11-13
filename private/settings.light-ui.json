@@ -59,7 +59,7 @@
 				"footer_ui_builtwith": { "show": false }
 			},
 			"navSidebar": {
-				"navSidebar_ui_connection": { "show": false },
+				"navSidebar_ui_connect": { "show": false },
 				"navSidebar_ui_friends": { "show": false },
 				"navSidebar_ui_places": { "show": false },
 				"navSidebar_conver": { "show": false },
@@ -70,6 +70,7 @@
 				"panelProfile_ui_hist": { "show": false },
 				"panelProfile_ui_sets": { "show": false },
 				"panelProfile_ui_logout": { "show": true },
+				"panelProfile_ui_connect": { "show": false },
 				"panelProfile_admin": { "show": false },
 				"panelProfile_edit": { "show": false },
 				"panelProfile_favorites": { "show": false },

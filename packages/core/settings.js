@@ -45,17 +45,18 @@ Kepler.settings = {
 				"navSidebar_ui_profile": { order:-10 },
 				"navSidebar_ui_friends": { order:0 },
 				"navSidebar_ui_places":  { order:0 },
-				"navSidebar_ui_connection": { order:10 }
+				"navSidebar_ui_connect": { order:10 }
 			},
 			"panelProfile": {
 				"panelProfile_ui_tablocation": { order:-10 },
 				"panelProfile_ui_hist": { order:-10 },
 				"panelProfile_ui_sets": { order:10 },
 				"panelProfile_ui_logout": { order:10 },
+				"panelProfile_ui_connect": { order:10 },
 			},
 			"panelSettings": {
 				"panelSettings_ui_bio": { order:-10 },
-				"panelSettings_ui_contact": { order:-10, show:false },
+				"panelSettings_ui_contact": { order:-10, show:false /*work in progress*/ },
 				"panelSettings_ui_lang": { order:-10 },
 				"panelSettings_ui_map": { order:-10 },
 				"panelSettings_ui_block": { order:10 },
