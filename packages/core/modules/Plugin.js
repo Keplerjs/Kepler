@@ -17,6 +17,7 @@ Kepler.Plugin = function(plugin) {
 			if(_.isObject(ptmpls)) {
 
 				for(var placeholder in ptmpls) {
+
 					if(ptmpls[placeholder] && !_.has(K.templates,placeholder) )
 						K.templates[placeholder]= {};
 				}
@@ -127,10 +128,10 @@ if(Meteor.isClient) {
 
 			for(var t in tmpls) {
 				if(!Template[t]) {
-					console.warn('Template not exists: "'+t+'", defined in plugin: '+tmpls[t].plugin)
+					console.warn('Template not exists: "'+t+'", defined in plugin: '+(tmpls[t] && tmpls[t].plugin))
 					delete tmpls[t];
 				}
-			}	
+			}
 		}
 
 		for(var placeholder in sets) {

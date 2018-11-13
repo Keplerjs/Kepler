@@ -38,7 +38,7 @@ Kepler.Profile = {
 
 			if(self.data.checkin)
 				self.placeCheckin = K.placeById(self.data.checkin);
-
+		
 			if(self.data.status==='online' || self.data.status==='away')
 				Meteor.subscribe('friendsByIds', K.Profile.data.friends, function() {
 					_.map(K.Profile.data.friends, function(id) {
@@ -49,6 +49,7 @@ Kepler.Profile = {
 				_.map(K.Profile.data.friends, function(id) {
 					K.Map.removeItem(K.userById(id));
 				});
+		
 		});
 
 		if(self.data.mob !== K.Util.isMobile()) {

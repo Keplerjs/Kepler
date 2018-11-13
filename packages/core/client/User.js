@@ -97,6 +97,7 @@ Kepler.User = Class.extend({
 		
 		var opts = K.settings.public.map;
 
+		//TODO move this in self.update
 		if(!opts.layerUsers.enabled)
 			return null;
 
