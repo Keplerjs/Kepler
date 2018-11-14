@@ -9,7 +9,7 @@ for d in ../packages/keplerjs* ; do
   cd $d
 
 #  git status
-  git commit -a -m "$1"
+  git commit -a -m "update version"
   git push
 
   cd ../../private

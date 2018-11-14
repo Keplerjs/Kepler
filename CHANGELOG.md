@@ -2,6 +2,9 @@
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+...
+
+## v1.5.3
 - new settings to disable user markers settings.public.map.layerUsers.enabled
 - disable placeholders by settings.json
 - fix panelUser template
