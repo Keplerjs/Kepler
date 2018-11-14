@@ -3,7 +3,8 @@ Meteor.publish('poisByPlace', function(placeId) {
 
 	if(this.userId) {
 
-		var placeCur = K.findPlaceById(placeId),
+		var sets = K.settings.public.pois,
+			placeCur = K.findPlaceById(placeId),
 			placeData = placeCur.fetch()[0];
 
 		//var poisCur = findPoisByLoc(placeData.loc);
@@ -12,9 +13,10 @@ Meteor.publish('poisByPlace', function(placeId) {
 
 			var findOsm = function(loc) {
 				return K.Osm.findOsmByLoc(loc, {
-					filter: _.keys(K.settings.public.pois.typesByTags),
-					dist: K.settings.public.pois.maxDistance,
-					limit: K.settings.public.pois.limit
+					filter: _.keys(sets.typesByTags),
+					dist: sets.maxDistance,
+					limit: sets.limit,
+					meta: false
 				});
 			}
 
@@ -22,7 +24,7 @@ Meteor.publish('poisByPlace', function(placeId) {
 				cacheLoc = K.Util.geo.roundLoc(placeData.loc, cachePrec),
 				geojson = null;
 
-			if(K.settings.public.pois.caching)
+			if(sets.caching)
 				geojson = K.Cache.get(cacheLoc, 'pois', findOsm);
 			else
 				geojson = findOsm(placeData.loc);

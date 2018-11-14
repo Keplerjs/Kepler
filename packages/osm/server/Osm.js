@@ -122,9 +122,20 @@ Kepler.Osm = {
 		
 		var query = this.queryBuilder(opts, loc);
 
-		var geojson = this.overpassSync(query);
+		var geojson = this.overpassSync(query),
+			features = geojson.features;
+		
+		for(var f in features) {
+			if( features[f] && features[f].properties) {
+				if(opts.meta!==true && features[f].properties.meta)
+					delete features[f].properties.meta;
+				
+				if(opts.type!=='rel' && features[f].properties.relations)
+					delete features[f].properties.relations;
+			}
+		}
 
-		return  geojson;
+		return geojson;
 	},
 
 	findOsmById: function(osmId) {

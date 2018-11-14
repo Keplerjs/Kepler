@@ -15,7 +15,8 @@ Meteor.publish('tracksByIds', function(trackIds) {
 Meteor.publish('tracksByPlace', function(placeId) {
 	if(this.userId) {
 
-		var placeCur = K.findPlaceById(placeId),
+		var sets = K.settings.public.tracks,
+			placeCur = K.findPlaceById(placeId),
 			placeData = placeCur.fetch()[0],
 			loc = placeData.loc,
 			imported = 0;
@@ -26,9 +27,10 @@ Meteor.publish('tracksByPlace', function(placeId) {
 			var findOsm = function(loc) {
 				return K.Osm.findOsmByLoc(loc, {
 					type: 'way',
-					filter: _.keys(K.settings.public.tracks.typesByTags),
-					dist: K.settings.public.tracks.maxDistance,
-					limit: ' '//unlimit find way! cause nodes splitting
+					filter: _.keys(sets.typesByTags),
+					dist: sets.maxDistance,
+					limit: sets.limit*2,//unlimit find way! cause nodes splitting,
+					meta: false
 				});
 			}
 
@@ -36,7 +38,7 @@ Meteor.publish('tracksByPlace', function(placeId) {
 				cacheLoc = K.Util.geo.roundLoc(placeData.loc, cachePrec),
 				geojson = null;
 
-			if(K.settings.public.pois.caching)
+			if(sets.caching)
 				geojson = K.Cache.get(cacheLoc, 'tracks', findOsm);
 			else
 				geojson = findOsm(placeData.loc); 
