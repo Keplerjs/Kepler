@@ -1,3 +1,5 @@
+## CONTRIBUTING
+
 Most of the base code is contained in the plugins.
 Each plugin can be disabled or taken and modified or created by new ones.
 
