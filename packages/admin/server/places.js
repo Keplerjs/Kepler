@@ -4,17 +4,28 @@ K.Admin.methods({
 
 		if(!K.Admin.isMe()) return null;
 
-		Places.remove(placeId);
-		//TODO run plugin edit removePlace()
-/*		Users.update(Meteor.userId(), {
-			$pull: {
-				places: placeId
-			}
-		});*/
-		//TODO remove ref
+		if(_.isString(placeId)) {
 
-		console.log('Admin: removePlace', placeId);		
+			Places.remove(placeId);
+			//TODO run plugin edit removePlace()
+	/*		Users.update(Meteor.userId(), {
+				$pull: {
+					places: placeId
+				}
+			});*/
+			//TODO remove ref
+
+			console.log('Admin: removePlace', placeId);
+		}
 	},
+	removeAllPlaces: function() {
+
+		if(!K.Admin.isMe()) return null;
+		
+		Places.remove({});
+		
+		console.log('Admin: removeAllPlaces');
+	},	
 	updatePlace: function(placeId, data) {
 		
 		if(!K.Admin.isMe()) return null;

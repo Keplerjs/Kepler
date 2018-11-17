@@ -6,7 +6,7 @@ Meteor.startup(function() {
 	var fs = Npm.require('fs');
 
 	if(K.settings.upload && K.settings.upload.targets) {
-		_.each(K.settings.upload.targets, function(conf) {
+		_.each(K.settings.upload.targets, function(conf, name) {
 			if(conf && !_.isEmpty(conf.path)) {
 				if(!fs.existsSync(conf.path)) {
 					console.log("Upload: create target path ", conf.path);
@@ -14,7 +14,7 @@ Meteor.startup(function() {
 				}
 			}
 			else
-				console.warn("Upload: need to define path in upload.targets on your settings.json");
+				console.warn("Upload: need to define 'path' or 'method' in upload.targets."+name+" on your settings.json");
 		});
 	}
 	else

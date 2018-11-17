@@ -32,6 +32,14 @@ K.Plugin({
 				"maxFileSize": 2e+7 //20MB
 			}
 		},
+		"upload": {
+			"targets": {
+				"import": {
+					"url": "",
+					"method": "importFile"
+				}
+			}
+		}
 		/*//TODO "import": {
 			
 		}*/

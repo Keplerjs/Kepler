@@ -1,24 +1,26 @@
 
 K.Plugin({
-	name: 'upload',
+	name: 'photos',
 	templates: {
 		panelSettings: {
-			'panelSettings_upload': { order:-10}
+			'panelSettings_photos': { order:-10}
 		}
 	},
 	settings: {
 		"public": {
-			"upload": {
+			"photos": {
 				"maxFileSize": 5800000
 			}
 		},
+		//define a targets used by plugin upload
 		"upload": {
 			"targets": {
-				"avatars": {
+				"photos_avatars": {
 					//TODO rename in base path and baseurl
 					"url": "",
 					"path": "",
-					"method": ""
+					"method": "",
+					"maxFileSize": 5800000
 				}
 			}
 		}

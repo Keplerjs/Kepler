@@ -4,8 +4,6 @@ Template.panelSettings_upload.events({
 	'change #fileavatar': function(e) {
 		e.preventDefault();
 
-		if(!K.Upload) return false;
-
 		var input$ = $(e.target),
 			fileObj = e.originalEvent.target.files[0],
 			target = 'avatars';
@@ -26,5 +24,11 @@ Template.panelSettings_upload.events({
 				});
 			}
 		});
+	}
+});
+
+Template.panelSettings_upload.helpers({
+	updateAvatar: function() {
+		return K.Upload.updateAvatar;
 	}
 });
