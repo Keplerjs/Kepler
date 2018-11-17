@@ -48,7 +48,7 @@ Meteor.methods({
 		return placeId;
 	},
 
-	importFile: function(fileObj, target) {
+	importFile: function(fileObj) {
 
 		if(!this.userId) return null;
 

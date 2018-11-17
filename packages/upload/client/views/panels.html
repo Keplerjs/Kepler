@@ -8,6 +8,10 @@
 			<label for="fileavatar">{{i18n 'btn_avatar'}}</label>
 			<input id="fileavatar" class="form-control" type="file" />
 			<label class="text-danger"></label>
+
+			<div>
+				{{> inputFileUpload target='avatars' callback=updateAvatar}}
+			</div>
 		</div>
 	</div>	
 </template>

@@ -2,19 +2,21 @@ var version = '1.5.3';
 
 Package.describe({
   version: version,
-  name: 'keplerjs:import',
-  summary: 'keplerjs plugin for import data',
+  name: 'keplerjs:photos',
+  summary: 'keplerjs plugin for manage photos',
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
 Package.onUse(function(api) {
   api.use([
     'keplerjs:core@'+version,
-    'keplerjs:admin@'+version,
-    'keplerjs:upload@'+version,
   ]);
 
   api.versionsFrom("1.5.1");
+
+  api.use([
+    'mrt:imagemagick@0.1.2',
+  ], 'server');
 
   api.addFiles([
     'plugin.js',
@@ -26,19 +28,12 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-    'collections/places.js'
-  ]);
-
-  api.addFiles([
-    'client/Import.js',
     'client/views/panels.html',
     'client/views/panels.js',
-    'client/router.js',   
   ],'client');
 
   api.addFiles([
-    'server/import.js',
-    'server/pubs.js',
+    'server/photos.js',
   ],'server');
 
 });
