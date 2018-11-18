@@ -1,6 +1,5 @@
 
 i18n.map('en', {
-	label_uploadfile: "Upload File",
-	upload_error_targetNotValid: "Target not Valid",
+	btn_avatar: "Photo profile",
 	upload_error_imageNotValid: "Only images JPG/PNG, max ",
 });

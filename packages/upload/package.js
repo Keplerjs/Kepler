@@ -14,10 +14,6 @@ Package.onUse(function(api) {
 
   api.versionsFrom("1.5.1");
 
-  api.use([
-    'mrt:imagemagick@0.1.2',
-  ], 'server');
-
   api.addFiles([
     'plugin.js',
     'i18n/it.js',
@@ -30,9 +26,7 @@ Package.onUse(function(api) {
   api.addFiles([
     'client/Upload.js',
     'client/views/inputFileUpload.html',
-    'client/views/inputFileUpload.js',
-    'client/views/panels.html',
-    'client/views/panels.js',
+    'client/views/inputFileUpload.js'
   ],'client');
 
   api.addFiles([

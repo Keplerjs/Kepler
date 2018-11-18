@@ -70,7 +70,6 @@ i18n.map('sv', {
 	btn_friends: "Vänner",
 	btn_users: "Personer",
 	btn_settings: "Inställningar",
-	btn_avatar: "Profilbild",
 	btn_verify: "Verifiera",
 	btn_verified: "Verifierad",
 	btn_notverified: "Verifiera",

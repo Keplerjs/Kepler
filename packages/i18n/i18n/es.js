@@ -67,7 +67,6 @@ i18n.map('es', {
 	btn_profile: "Perfil",
 	btn_users: "Personas",
 	btn_settings: "Configuracion",
-	btn_avatar: "Foto del Perfil",
 	btn_verify: "Verificar",
 	btn_verified: "Verificado",
 	btn_notverified: "No verificado",

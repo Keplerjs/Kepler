@@ -1,9 +1,9 @@
 
+var fs = Npm.require('fs');
+
 var CHMOD = 0755;
 
 Meteor.startup(function() {
-
-	var fs = Npm.require('fs');
 
 	if(K.settings.upload && K.settings.upload.targets) {
 		_.each(K.settings.upload.targets, function(conf, name) {
@@ -28,64 +28,46 @@ Meteor.methods({
 
 		if(!this.userId) return null;
 
-		var fs = Npm.require('fs');
+		var sets = K.settings.upload.targets[target];
 
-		if(!K.settings.upload.targets[target]) {
+		if(!sets) {
 			throw new Meteor.Error(500, i18n('upload_error_targetNotValid')+' '+target);
 			return null;
 		}
 
-		var upSets = K.settings.upload.targets[target];
-
-		var	filePath = upSets.path,
-			fileUrl = upSets.url,
-			imgSize = {
-				width: 140,
-				height: 140,
-				quality: 0.8
-			},
-			fileUid = Meteor.user().username +'_'+ K.Util.time(),
-			fileName = K.Util.sanitize.filename( fileUid ),
-			fileMin = fileName + K.Util.tmpl('_{width}x{height}.min.jpg', imgSize),
-			fileBig = fileName + '.ori.jpg',
-			imgOpts = _.extend(imgSize, {
-				srcPath: filePath + fileBig,
-				dstPath: filePath + fileMin,
-				customArgs: ['-auto-orient']
-			});
-
 		fileObj.size = Buffer.byteLength(fileObj.blob, 'binary');
 
 		if(fileObj.size > K.settings.public.upload.maxFileSize) {
-			
 			console.log('Upload: error ', _.omit(fileObj,'blob') );
-
-			throw new Meteor.Error(500, i18n('upload_error_imageNotValid') + K.Util.humanize.filesize(K.settings.public.upload.maxFileSize) );
+			throw new Meteor.Error(500, i18n('upload_error_filesizeNotValid') + K.Util.humanize.filesize(K.settings.public.upload.maxFileSize) );
+			return null;
 		}
+		
+		if(sets.path && sets.url) {
+			
+			var fileName = K.Util.sanitize.filename(fileObj.name+'_'+ K.Util.time()),
+				fileOut = fileName + '.ori.jpg';
 
-		console.log('Upload: wrinting...', fileBig);
-		fs.writeFileSync(filePath + fileBig, fileObj.blob, 'binary');
-		fs.chmodSync(filePath + fileBig, CHMOD);
+			console.log('Upload: file created ', fileOut);
 
-		if(!Imagemagick)
-			fileMin = fileBig;
-		else
-		{
-			console.log('Upload: resizing...');
-			try {
+			fs.writeFileSync(sets.path + fileOut, fileObj.blob, 'binary');
+			fs.chmodSync(sets.path + fileOut, CHMOD);
 
-				Imagemagick.crop(imgOpts);
+			console.log('Upload: url ', fileOut );
 
-				fs.chmodSync(filePath + fileMin, CHMOD);
+			if(sets.method) {
+				//TODO check emthod exits
+
+				if(sets.maxFileSize && fileObj.size > sets.maxFileSize) {
+					console.log('Upload: error ', _.omit(fileObj,'blob') );
+					throw new Meteor.Error(500, i18n('upload_error_filesizeNotValid') + K.Util.humanize.filesize(K.settings.public.upload.maxFileSize) );
+					return null;
+				}
+				return Meteor.call(sets.method, fileObj, sets);
 			}
-			catch(e) {
-				console.log('Upload: error ', e);
-				return i18n('upload_error_imageNotValid');
-			}
-			console.log('Upload: resized', fileMin);
+			
+			return sets.url + fileOut;
+
 		}
-		console.log('Upload: url ', fileMin );
-
-		return fileUrl + fileMin;
 	}
 });

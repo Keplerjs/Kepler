@@ -69,7 +69,6 @@ i18n.map('de', {
 	btn_friends: "Freunde",
 	btn_users: "Leute",
 	btn_settings: "Einstellungen",
-	btn_avatar: "Profilfoto",
 	btn_verify: "Überprüfen",
 	btn_verified: "Überprüft",
 	btn_notverified: "Überprüfen",

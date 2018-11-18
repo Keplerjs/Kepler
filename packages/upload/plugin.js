@@ -1,11 +1,6 @@
 
 K.Plugin({
 	name: 'upload',
-	templates: {
-		panelSettings: {
-			'panelSettings_upload': { order:-10}
-		}
-	},
 	settings: {
 		"public": {
 			"upload": {
@@ -14,7 +9,7 @@ K.Plugin({
 		},
 		"upload": {
 			"targets": {
-				"avatars": {
+				"example": {
 					//TODO rename in base path and baseurl
 					"url": "",
 					"path": "",

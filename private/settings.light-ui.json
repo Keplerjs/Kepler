@@ -187,7 +187,7 @@
 	},
 	"upload": {
 		"targets": {
-			"avatars": {
+			"photos_avatars": {
 				"url": "/static/avatars/",
 				"path": "/var/www/static.app_meteor.net/avatars/"
 			}

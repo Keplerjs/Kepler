@@ -7,7 +7,7 @@ Need writable path to photos file from browser and serve it by url
 ```
 "upload": {
     "targets": {
-        "avatars": {
+        "photos_avatars": {
             "url": "/static/avatars/",
             "path": "/var/www/static.app_meteor.net/avatars/"
         }

@@ -10,11 +10,13 @@ Package.describe({
 Package.onUse(function(api) {
   api.use([
     'keplerjs:core@'+version,
+    'keplerjs:upload@'+version,
   ]);
 
   api.versionsFrom("1.5.1");
 
   api.use([
+    //TODO use only npm 
     'mrt:imagemagick@0.1.2',
   ], 'server');
 
@@ -28,6 +30,7 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
+    'client/Profile_photos.js',    
     'client/views/panels.html',
     'client/views/panels.js',
   ],'client');

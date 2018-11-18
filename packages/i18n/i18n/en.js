@@ -74,7 +74,6 @@ i18n.map('en', {
 	btn_search: "Search",
 	btn_users: "People",
 	btn_settings: "Settings",
-	btn_avatar: "Photo profile",
 
 	btn_verify: "Verify",
 	btn_verified: "Verified",

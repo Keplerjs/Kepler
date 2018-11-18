@@ -18,6 +18,7 @@ Kepler.Upload = {
 
 			this.fileReader.onloadend = function(e) {
 				Meteor.call('uploadFile', {
+					//TODO extend fileObj
 					name: fileObj.name,
 					type: fileObj.type,
 					size: fileObj.size,
