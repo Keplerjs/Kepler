@@ -17,6 +17,7 @@ Template.inputFile_upload.events({
 
 			if(err) {
 				input$.next('.upload-err').text(err);
+				input$.val('');
 			}
 			else if(_.isFunction(callback)) {
 

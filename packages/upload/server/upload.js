@@ -31,7 +31,7 @@ Meteor.methods({
 		var sets = K.settings.upload.targets[target];
 
 		if(!sets) {
-			throw new Meteor.Error(500, i18n('upload_error_targetNotValid')+' '+target);
+			throw new Meteor.Error(500, i18n('upload_error_targetNotValid'));
 			return null;
 		}
 

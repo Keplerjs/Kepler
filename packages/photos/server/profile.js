@@ -13,9 +13,7 @@ Meteor.methods({
 			if(v===true)
 				mimes.push(k);
 		});
-
-		console.log('CHECK MIME TYPE', sets.mimeFileType, mimes)
-
+		
 		if(!_.contains(mimes, fileObj.type)) {
 			console.log('Upload: error ', _.omit(fileObj,'blob') );
 			throw new Meteor.Error(500, i18n('upload_error_imageNotValid') );

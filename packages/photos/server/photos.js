@@ -42,13 +42,12 @@ Meteor.methods({
 		console.log('Photos: resizing...');
 
 		try {
-
 			Imagemagick.crop(imgOpts);
-
 			fs.chmodSync(basePath + fileMin, CHMOD);
 		}
 		catch(e) {
 			console.log('Photos: error ', e);
+			throw new Meteor.Error(500, i18n('upload_error_imageNotValid') );
 			return i18n('upload_error_imageNotValid');
 		}
 

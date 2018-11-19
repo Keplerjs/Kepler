@@ -7,28 +7,22 @@ K.Plugin({
 		}
 	},
 	settings: {
-		"public": {
-			"photos": {
-				"maxFileSize": 5800000
-			}
-		},
-		//define a targets used by plugin upload
-		"photos": {
-
-		},
+		/**
+		 * define a targets used by plugin upload
+		 */
 		"upload": {
 			"targets": {
 				"photos_avatars": {
 					//pass uploaded object to this method
 					"method": "updateAvatar",
+					"maxFileSize": 5800000,
 					"mimeFileType": {
 						"image/png": true,
 						"image/jpeg": true
 					},
 					//TODO rename in 'basepath' and 'baseurl'
 					"url": "",
-					"path": "",
-					"maxFileSize": 5800000
+					"path": ""
 				}
 			}
 		}
