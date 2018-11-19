@@ -9,12 +9,12 @@ K.Plugin({
 		},
 		"upload": {
 			"targets": {
-				"example": {
+				/*"example": {
 					//TODO rename in base path and baseurl
 					"url": "",
 					"path": "",
 					"method": ""
-				}
+				}*/
 			}
 		}
 	}

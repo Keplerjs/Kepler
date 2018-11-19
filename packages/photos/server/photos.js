@@ -52,9 +52,8 @@ Meteor.methods({
 
 		fileOut = fileMin;
 
-		console.log('Photos: resized', fileOut);
+		console.log('Photos: resized', baseUrl + fileOut);
 
 		return baseUrl + fileOut;
-
 	}
 });

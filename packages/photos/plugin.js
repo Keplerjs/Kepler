@@ -19,11 +19,13 @@ K.Plugin({
 		"upload": {
 			"targets": {
 				"photos_avatars": {
+					//pass uploaded object to this method
+					"method": "resizePhoto",
+
 					"mimeFileType": ["image/png","image/jpeg"],
-					//TODO rename in base path and baseurl
+					//TODO rename in 'basepath' and 'baseurl'
 					"url": "",
 					"path": "",
-					"method": "resizePhoto",
 					"maxFileSize": 5800000
 				}
 			}

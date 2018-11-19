@@ -43,28 +43,26 @@ Meteor.methods({
 			return null;
 		}
 		
-		if(sets.path && sets.url) {
+		if(sets.method) {
+			//TODO check method exits
+			if(sets.maxFileSize && fileObj.size > sets.maxFileSize) {
+				console.log('Upload: error ', _.omit(fileObj,'blob') );
+				throw new Meteor.Error(500, i18n('upload_error_filesizeNotValid') + K.Util.humanize.filesize(K.settings.public.upload.maxFileSize) );
+				return null;
+			}
+			return Meteor.call(sets.method, fileObj, sets);
+		}
+		else if(sets.path && sets.url) {
 			
 			var fileName = K.Util.sanitize.filename(fileObj.name+'_'+ K.Util.time()),
 				fileOut = fileName + '.ori.jpg';
 
-			console.log('Upload: file created ', fileOut);
+			console.log('Upload: file created ', sets.path+fileOut);
 
 			fs.writeFileSync(sets.path + fileOut, fileObj.blob, 'binary');
 			fs.chmodSync(sets.path + fileOut, CHMOD);
 
-			console.log('Upload: url ', fileOut );
-
-			if(sets.method) {
-				//TODO check emthod exits
-
-				if(sets.maxFileSize && fileObj.size > sets.maxFileSize) {
-					console.log('Upload: error ', _.omit(fileObj,'blob') );
-					throw new Meteor.Error(500, i18n('upload_error_filesizeNotValid') + K.Util.humanize.filesize(K.settings.public.upload.maxFileSize) );
-					return null;
-				}
-				return Meteor.call(sets.method, fileObj, sets);
-			}
+			console.log('Upload: url ', sets.url+fileOut );
 			
 			return sets.url + fileOut;
 

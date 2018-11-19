@@ -15,6 +15,9 @@ Package.onUse(function(api) {
 
   api.versionsFrom("1.5.1");
 
+
+  //TODO https://github.com/exif-js/exif-js
+
   api.use([
     //TODO use only npm 
     'mrt:imagemagick@0.1.2',

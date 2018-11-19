@@ -2,6 +2,9 @@
 
 keplerjs plugin for manage photos
 
+**Requirements:**
+- [Imagemagick](http://www.imagemagick.org/)
+
 Need writable path to photos file from browser and serve it by url
 *settings.json*
 ```
