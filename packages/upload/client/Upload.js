@@ -12,9 +12,7 @@ Kepler.Upload = {
 		else
 			this.fileReader = new FileReader();
 
-		
-		if( fileObj.size <= maxFileSize && 
-			_.contains(['image/png','image/jpeg'], fileObj.type)) {
+		if( fileObj.size <= maxFileSize) {
 
 			this.fileReader.onloadend = function(e) {
 				Meteor.call('uploadFile', {
@@ -27,8 +25,9 @@ Kepler.Upload = {
 			}
 			this.fileReader.readAsBinaryString(fileObj);
 		}
-		else
-			callback( i18n('upload_error_imageNotValid') + K.Util.humanize.filesize(maxFileSize) );
+		else if(_.isFunction(callback)) {
+			callback( i18n('upload_error_filesizeNotValid') + K.Util.humanize.filesize(maxFileSize) );
+		}
 		
 
 		return this;

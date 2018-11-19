@@ -4,16 +4,33 @@ keplerjs plugin for files upload
 
 Need writable path to upload file from browser and serve it by url
 *settings.json*
+
 ```
 "upload": {
     "targets": {
-        "avatars": {
+        "photos_avatars": {
             "url": "/static/avatars/",
             "path": "/var/www/static.app_meteor.net/avatars/"
         }
     }
 }
 ```
+
+Usage from other Kepler plugins:
+```
+<template id="panelSettings_photos">
+	{{> inputFile_upload target='photos_avatars' callback=setAvatar}}
+</template>
+```
+expose a method accpet the result of uploading, usually a url of published file.
+```
+Template.panelSettings_photos.helpers({
+	setAvatar: function() {
+		return K.Profile.setAvatar;
+	}
+});
+```
+
 
 *nginx.conf*
 ```

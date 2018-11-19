@@ -8,6 +8,8 @@ Meteor.methods({
 	
 	resizePhoto: function(fileObj, sets) {
 
+		if(!this.userId) return null;
+
 		var basePath = sets.path,
 			baseUrl = sets.url,
 			username = Meteor.user().username,
@@ -51,9 +53,13 @@ Meteor.methods({
 		}
 
 		fileOut = fileMin;
+	
+	//TODO move to profile.js
+	//
+		var url = baseUrl + fileOut;
+		
+		console.log('Photos: resized', url);
 
-		console.log('Photos: resized', baseUrl + fileOut);
-
-		return baseUrl + fileOut;
+		return url;
 	}
 });

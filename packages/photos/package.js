@@ -30,16 +30,16 @@ Package.onUse(function(api) {
     'i18n/de.js',
     'i18n/es.js',
     'i18n/fr.js',	
+    'i18n/sv.js', 
   ]);
 
-  api.addFiles([
-    'client/Profile_photos.js',    
-    'client/views/panels.html',
-    'client/views/panels.js',
+  api.addFiles([    
+    'client/views/panels.html'
   ],'client');
 
   api.addFiles([
     'server/photos.js',
+    'server/profile.js',
   ],'server');
 
 });

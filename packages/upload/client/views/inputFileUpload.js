@@ -15,12 +15,15 @@ Template.inputFile_upload.events({
 
 			input$.parent().removeClass('loading-default');
 
-			if(err)
-				input$.next('label').text(err)
+			if(err) {
+				input$.next('.upload-err').text(err);
+			}
 			else if(_.isFunction(callback)) {
 
 				callback(ret);
 			}
+			else
+				input$.next('.upload-err').text('');
 		});
 	}
 });
