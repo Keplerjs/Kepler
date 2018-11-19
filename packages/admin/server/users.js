@@ -30,7 +30,8 @@ Users.after.insert(function(userId, user) {
 		K.updateFriendshipAdmins(user._id);
 
 		//user created by admin
-		if(K.Util.getPath(user,'source.options.source.service')!=="kepler-admin") {
+		if( K.settings.admin.emailOnNewUser && 
+			K.Util.getPath(user,'source.options.source.service')!=="kepler-admin") {
 
 			Users.find({isAdmin: 1}).forEach(function (userAdmin) {
 
@@ -98,6 +99,16 @@ K.Admin.methods({
 			}
 		},{ multi: true });
 		Users.remove(userId);
+	},
+	updateUserPassword: function(username, passNew) {
+
+		if(!K.Admin.isMe()) return null;
+
+		var userData = Users.findOne({username: username });
+
+		if(userData) {
+			Accounts.setPassword(userData._id, passNew);
+		}
 	},
 	createFriendship: function(username1, username2) {
 		

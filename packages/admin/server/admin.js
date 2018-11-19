@@ -22,11 +22,22 @@ Accounts.onLogin(function(login) {
 });
 
 
+/*
+//TODO
 Meteor.startup(function() {	
-
 	if(!Users.findOne({username: 'admin'})) {
 		console.log('Admin: autocreate admin account user: admin pass: adminadmin ');
-		
+		//TODO	
 	}
+});*/
 
-});
+/*
+RESET admin password, uncomment for use
+
+Meteor.methods({
+	setpass: function(pass) {
+		console.log('setpass',pass)
+		var userData = Users.findOne({username: 'admin' });
+		Accounts.setPassword(userData._id, pass);
+	}
+});*/

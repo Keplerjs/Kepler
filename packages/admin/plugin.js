@@ -36,6 +36,7 @@ K.Plugin({
 	},
 	settings: {
 		"admin": {
+			"emailOnNewUser": true,
 			"adminUsers": ["admin"]
 		}
 	}

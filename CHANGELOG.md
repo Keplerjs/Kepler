@@ -2,7 +2,11 @@
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
-...
+- new plugin photos
+- plugin photos manage users avatars in profile settings
+- generalize plugin upload inputFile_upload template
+- new admin method updateUserPassword
+- new admin settings settings.admin.emailOnNewUser
 
 ## v1.5.3
 - new settings to disable user markers settings.public.map.layerUsers.enabled

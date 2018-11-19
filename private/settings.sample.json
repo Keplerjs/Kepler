@@ -32,6 +32,10 @@
 			}
 		}
 	},
+	"admin": {
+		"emailOnNewUser": false,
+		"adminUsers": ["admin"]
+	},
 	"upload": {
 		"targets": {
 			"photos_avatars": {
