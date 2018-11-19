@@ -23,25 +23,24 @@ K.Plugin({
 		}
 	},	
 	settings: {
-		"public": {
-			"import": {
-				"fileFormats": {
-					"application/json": true,
-					"application/geo+json": true
-				},
-				"maxFileSize": 2e+7 //20MB
-			}
-		},
+		/**
+		 * define a targets used by plugin upload
+		 */
 		"upload": {
 			"targets": {
-				"import": {
+				"import_places": {
+					//pass uploaded object to this method
+					"method": "importFile",
+					"maxFileSize": 2e+7,
+					"mimeFileType": {
+						"application/json": true,
+						"application/geo+json": true
+					},
+					//TODO rename in 'basepath' and 'baseurl'
 					"url": "",
-					"method": "importFile"
+					"path": ""
 				}
 			}
 		}
-		/*//TODO "import": {
-			
-		}*/
 	}
 });

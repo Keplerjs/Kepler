@@ -48,7 +48,7 @@ Meteor.methods({
 		return placeId;
 	},
 
-	importFile: function(fileObj) {
+	importFile: function(fileObj, sets) {
 
 		if(!this.userId) return null;
 
@@ -56,17 +56,10 @@ Meteor.methods({
 			importName = fileObj.name || K.Util.timeName(),
 			placeIds = [];
 
-		if(fileObj.size > K.settings.public.import.maxFileSize) {
-			
-			console.log('Import: error ', _.omit(fileObj,'blob') );
+		console.log('Import: file ', fileObj.name);
 
-			throw new Meteor.Error(500, i18n('error_import_formatNotValid') + K.Util.humanize.filesize(K.settings.public.import.maxFileSize) );
-		}
+	return ['ciao','bau','miao'];
 
-		console.log('Import: ', fileObj.name, K.Util.humanize.filesize(fileObj.size))
-
-		//TODO import geojson in a cache collection 
-		
 		if(geo && geo.features && geo.features.length>0) {
 
 			_.each(geo.features, function(feature) {

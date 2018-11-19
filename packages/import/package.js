@@ -23,6 +23,7 @@ Package.onUse(function(api) {
     'i18n/de.js',
     'i18n/es.js',
     'i18n/fr.js',	
+    'i18n/sv.js', 
   ]);
 
   api.addFiles([
@@ -30,9 +31,10 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-    'client/Import.js',
     'client/views/panels.html',
     'client/views/panels.js',
+    'client/views/tabs.html',
+    'client/views/tabs.js',
     'client/router.js',   
   ],'client');
 

@@ -1,64 +1,18 @@
 
 <template name="panelAdmin_import">
-	<a class="list-group-item" href="/admin/import">
+	<a class="list-group-item" href="/import">
 		<i class="icon icon-add"></i>
 		{{i18n 'label_import'}}
 	</a>
 </template>
 
-<template name="inputFileImport">
-<!-- TODO	<div class="form-group">
-		<div class="col-sm-3 col-xs-4">
-			<label for="fileimport">{{i18n 'label_importname'}}</label>
-		</div>
-		<div class="col-sm-9 col-xs-8">
-			<input id="nameimport" class="form-control" type="text" value="" />
-		</div>
-	</div>
-	<br /> -->
+<template name="formImport">
 	<div class="form-group">
 		<div class="col-sm-3 col-xs-4">
-			<label for="fileimport">{{i18n 'label_importfile'}}</label>
+			<label>{{i18n 'label_importfile'}}</label>
 		</div>
 		<div class="col-sm-9 col-xs-8">
-			<input id="fileimport" class="form-control" type="file" />
-			<label class="text-danger"></label>
+			{{> inputFile_upload target='import_places' callback='importDone'}}
 		</div>
 	</div>
-</template>
-
-<template name="tabPlace_import">
-{{#if import}}
-{{#with import}}
-	<div class="list-group">
-		<div class="list-group-item active">
-			{{i18n 'label_imported'}}
-		</div>	
-		<div class="list-group-item">
-			<label>{{i18n 'label_importname'}}</label> {{name}}
-		</div>
-		{{#if data}}		
-		<div class="list-group-item">
-			{{#with data}}
-			
-				{{> popupImport}}
-
-			{{/with}}
-		</div>
-		{{/if}}
-	</div>
-{{/with}}
-{{/if}}
-</template>
-
-<template name="popupImport"> 
-   <div class="row">
-      <div class="col-sm-12">
-         {{#each keys}}
-            <label>{{key}}</label>
-            <span>{{val}}</span>
-            <br />
-         {{/each}}
-       </div>
-   </div>
 </template>

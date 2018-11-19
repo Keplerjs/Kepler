@@ -9,7 +9,7 @@ Meteor.startup(function() {
 		_.each(K.settings.upload.targets, function(conf, name) {
 			if(conf && !_.isEmpty(conf.path)) {
 				if(!fs.existsSync(conf.path)) {
-					console.log("Upload: create target path ", conf.path);
+					console.log("Upload: create path ", conf.path, " for target ", name);
 					fs.mkdirSync(conf.path, CHMOD);
 				}
 			}
@@ -50,6 +50,7 @@ Meteor.methods({
 				throw new Meteor.Error(500, i18n('upload_error_filesizeNotValid') + K.Util.humanize.filesize(K.settings.public.upload.maxFileSize) );
 				return null;
 			}
+			console.log('Upload: method ', sets.method);
 			return Meteor.call(sets.method, fileObj, sets);
 		}
 		else if(sets.path && sets.url) {

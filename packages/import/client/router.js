@@ -4,7 +4,7 @@ Router.map(function() {
 	//TODO check isAdmin
 	//
 	this.route('panelImport', {
-		path: '/admin/import',
+		path: '/import',
 		template: 'panelList',
 		layoutTemplate: 'layoutMap',
 		loadingTemplate: 'pageLoading',
@@ -17,7 +17,7 @@ Router.map(function() {
 			return {
 				title: i18n('label_imported'),
 				className: 'imports',
-				headerTemplate: 'inputFileImport',
+				headerTemplate: 'formImport',
 				//headerData: place,
 				itemsTemplate: 'item_place_search',
 				//items: K.findPlacesImportByUserId(K.Profile.id).fetch(),
