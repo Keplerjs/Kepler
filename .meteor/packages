@@ -23,10 +23,9 @@ keplerjs:categories
 keplerjs:import
 keplerjs:pois
 keplerjs:tracks
-
 keplerjs:photos
 
-#keplerjs:robots
+keplerjs:robots
 keplerjs:wunderground
 keplerjs:googlemaps
 keplerjs:openrouteservice

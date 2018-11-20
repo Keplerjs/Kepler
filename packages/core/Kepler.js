@@ -1,4 +1,4 @@
-var version = '1.5.3';
+var version = '1.5.4';
 /**
  * Kepler global container
  * @type {[type]}

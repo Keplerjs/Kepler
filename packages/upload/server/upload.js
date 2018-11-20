@@ -13,8 +13,8 @@ Meteor.startup(function() {
 					fs.mkdirSync(conf.path, CHMOD);
 				}
 			}
-			else
-				console.warn("Upload: need to define 'path' or 'method' in upload.targets."+name+" on your settings.json");
+			else if(_.isEmpty(conf.path) && _.isEmpty(conf.method))
+				console.warn("Upload: need to define 'path' or 'method' param in upload.targets."+name+", add to your settings.json");
 		});
 	}
 	else

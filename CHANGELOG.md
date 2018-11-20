@@ -2,6 +2,9 @@
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+...
+
+## v1.5.4
 - new plugin photos
 - plugin photos manage users avatars in profile settings
 - generalize plugin upload inputFile_upload template
