@@ -3,15 +3,23 @@
 #unpublish a package:
 #	meteor admin set-unmigrated  keplerjs:base
 #
-for d in ../packages/* ; do
-  
-  #name=$(echo "$d"|tr '-' ':'|cut -d'/' -f3)
-  
-  echo "$d"
-  
-  cd $d
-  
-  meteor publish
+#
+IGNORE="../packages/keplerjs-*"
+declare -A array
+for i in $IGNORE; do
+    array[$i]=1
+done
 
-  cd ../../private
+for d in ../packages/* ; do
+
+	if [[ ${array[$d]} ]]; then
+		continue
+	fi
+
+	echo "$d"
+	cd $d
+	meteor publish
+	
+	#return back
+	cd ../../private
 done

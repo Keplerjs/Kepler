@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for d in ../packages/keplerjs* ; do
+for d in ../packages/keplerjs-* ; do
   echo "$d"
   cd $d
   git pull
