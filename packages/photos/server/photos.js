@@ -1,5 +1,8 @@
 
 var fs = Npm.require('fs');
+
+var exifreader = Npm.require('exif-reader');
+
 //TODO require  npm Imagemagick
 // 
 var CHMOD = 0755;
@@ -60,5 +63,14 @@ Meteor.methods({
 		console.log('Photos: resized', url);
 
 		return url;
+	},
+
+	exifPhoto: function(fileObj, sets) {
+		
+		var meta = exifreader(fileObj.blob);
+
+		console.log('Photos: exifPhoto meta', meta)
+		
+		return meta;
 	}
 });

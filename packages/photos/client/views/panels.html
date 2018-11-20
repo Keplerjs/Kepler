@@ -10,3 +10,21 @@
 		</div>
 	</div>	
 </template>
+
+<template name="panelPlace_photos">
+	<div class="list-group">
+		<div class="list-group-item">
+			{{> inputFile_upload target='photos_places' callback=uploadDone}}
+		</div>
+		<div class="list-group-item">
+		{{#if photos}}
+			{{#each photos}}
+				<div>
+					<img src="{{url}}" title="{{title}}" />
+					<span>{{title}}</span>
+				</div>
+			{{/each}}
+		{{/if}}
+		</div>
+	</div>	
+</template>

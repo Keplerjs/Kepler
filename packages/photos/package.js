@@ -15,6 +15,9 @@ Package.onUse(function(api) {
 
   api.versionsFrom("1.5.1");
 
+  Npm.depends({
+    "exif-reader": "1.0.2",
+  });
 
   //TODO https://github.com/exif-js/exif-js
 
@@ -34,12 +37,14 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([    
-    'client/views/panels.html'
+    'client/views/panels.html',
+    'client/views/panels.js',
   ],'client');
 
   api.addFiles([
     'server/photos.js',
     'server/profile.js',
+    'server/places.js',
   ],'server');
 
 });

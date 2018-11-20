@@ -2,8 +2,9 @@
 K.Plugin({
 	name: 'photos',
 	templates: {
+		panelPlace: 'panelPlace_photos',
 		panelSettings: {
-			'panelSettings_photos': { order:-10}
+			'panelSettings_photos': { order:-10},
 		}
 	},
 	settings: {
@@ -15,6 +16,18 @@ K.Plugin({
 				"photos_avatars": {
 					//pass uploaded object to this method
 					"method": "updateAvatar",
+					"maxFileSize": 5800000,
+					"mimeFileType": {
+						"image/png": true,
+						"image/jpeg": true
+					},
+					//TODO rename in 'basepath' and 'baseurl'
+					"url": "",
+					"path": ""
+				},
+				"photos_places": {
+					//pass uploaded object to this method
+					"method": "insertPlacePhotos",
 					"maxFileSize": 5800000,
 					"mimeFileType": {
 						"image/png": true,
