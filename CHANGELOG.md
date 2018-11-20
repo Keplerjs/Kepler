@@ -9,6 +9,7 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 - new admin settings settings.admin.emailOnNewUser
 - plugin photos has two new method resizePhoto, updateAvatar
 - plugin photos new settinngs mimeFileType to check image format
+- plugin import use plugin upload
 
 ## v1.5.3
 - new settings to disable user markers settings.public.map.layerUsers.enabled

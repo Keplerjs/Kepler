@@ -1,8 +1,9 @@
 
 Template.formImport.helpers({
-	importDone: function() { 
+	importDone: function() {
+		var tmpl = Template.instance();
 		return function(ret) {
-			console.log('importDone', ret)
+			tmpl.$('.import-text').text(ret)
 		}
 	}
 });

@@ -12,7 +12,6 @@ Template.inputFile_upload.events({
 		input$.parent().addClass('loading-default');
 
 		K.Upload.uploadFile(fileObj, target, function(err, ret) {
-console.log('uploadFile',ret)
 			input$.parent().removeClass('loading-default');
 
 			if(err) {
