@@ -5,13 +5,6 @@ K.Plugin({
 		tabPlace: 'tabPlace_pois',
 		popupPlace: 'popupPlace_pois'
 	},
-	filters: {
-		placePanel: {
-			fields: {
-				pois: 1
-			}
-		}
-	},
 	settings: {
 		"public": {
 			"map": {
