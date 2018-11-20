@@ -38,7 +38,7 @@ K.extend({
 			}
 		},{ multi: true });
 
-		console.log('Conver: insertConver', convId, targetId);
+		console.log('Convers: insertConver', convId, targetId);
 
 		return convId;
 	},
@@ -63,7 +63,7 @@ K.extend({
 			convId = K.insertConver(userId, 'user', title );
 		}
 		
-		console.log('Conver: getConverWithUser', convId);
+		console.log('Convers: getConverWithUser', convId);
 
 		return convId;
 	},
@@ -92,7 +92,7 @@ K.extend({
 		else	//user isn't owner to leave conver
 			K.insertLeaveToConver(convId);
 			
-		console.log('Conver: removeConver', convId);
+		console.log('Convers: removeConver', convId);
 	}
 });
 
@@ -109,7 +109,7 @@ Meteor.methods({
 
 		if(!this.userId || !title || !targetId) return null;
 
-		console.log('Conver: insertConver', targetId, targetType, title);
+		console.log('Convers: insertConver', targetId, targetType, title);
 
 		return K.insertConver(targetId, targetType, title);
 	},
@@ -117,7 +117,7 @@ Meteor.methods({
 		
 		if(!this.userId || !convId) return null;
 
-		console.log('Conver: removeConver',convId);
+		console.log('Convers: removeConver',convId);
 
 		return K.removeConver(convId);
 	}
