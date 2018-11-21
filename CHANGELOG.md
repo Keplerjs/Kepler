@@ -2,6 +2,7 @@
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+- new method K.Util.geo.parseLocString to parse DMS locations
 - plugin import remove button in places list
 - plugin photos use npm imagemagick
 

@@ -118,9 +118,9 @@ Meteor.methods({
 			}),
 			lat = lats[0]+'°'+lats[1]+"'"+(lats[2]/1000)+'"'+exif.gpsLatitudeRef,
 			lng = lngs[0]+'°'+lngs[1]+"'"+(lngs[2]/1000)+'"'+exif.gpsLongitudeRef;			
-//example: parseDMS('59°12\'7.7"N 02°15\'39.6"W')
+		//example: parseLoc('59°12\'7.7"N 02°15\'39.6"W')
 
-		exif.loc = K.Util.geo.parseDMS(lat+' '+lng);
+		exif.loc = K.Util.geo.parseLocString(lat+' '+lng);
 		
 		return exif;
 	}
