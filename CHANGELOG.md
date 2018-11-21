@@ -3,7 +3,7 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
 - plugin import remove button in places list
-
+- plugin photos use npm imagemagick
 
 ## v1.5.4
 - new plugin photos
