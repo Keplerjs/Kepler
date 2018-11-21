@@ -1,12 +1,11 @@
 
 <template name="tabPlace_import">
-{{#if import}}
+{{#if import.data}}
 {{#with import}}
 	<div class="list-group">
 		<div class="list-group-item active">
 			{{i18n 'label_imported'}}
 		</div>	
-		{{#if data}}		
 		<div class="list-group-item">
 			{{#with data}}
 			
@@ -17,7 +16,6 @@
 		<div class="list-group-item">
 			<label>{{i18n 'label_importname'}}</label> {{name}}
 		</div>
-		{{/if}}
 	</div>
 {{/with}}
 {{/if}}

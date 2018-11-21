@@ -14,14 +14,10 @@ Kepler.Place.include({
 	},
 
 	addCats: function(cats) {
-		Meteor.call('addCatsToPlace', this.id, cats, function(err, cats) {
-			console.log('addCatsToPlace',err,cats);
-		});
+		Meteor.call('addCatsToPlace', this.id, cats);
 	},
 	
 	removeCats: function(cats) {
-		Meteor.call('removeCatsFromPlace', this.id, cats, function(err, cats) {
-			console.log('removeCatsFromPlace',err,cats);
-		});
+		Meteor.call('removeCatsFromPlace', this.id, cats);
 	}
 });

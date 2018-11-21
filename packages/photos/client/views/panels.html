@@ -13,6 +13,9 @@
 
 <template name="panelPlace_photos">
 	<div class="list-group">
+		<div class="list-group-item active">
+			{{i18n 'label_addphotos'}}
+		</div>
 		<div class="list-group-item">
 			{{> inputFile_upload target='photos_places' callback=uploadDone}}
 		</div>

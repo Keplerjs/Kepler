@@ -7,6 +7,10 @@ Package.describe({
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
+Npm.depends({
+  'imagemagick': '0.1.3'
+});
+
 Package.onUse(function(api) {
   api.use([
     'keplerjs:core@'+version,
@@ -14,17 +18,6 @@ Package.onUse(function(api) {
   ]);
 
   api.versionsFrom("1.5.1");
-
-  Npm.depends({
-    "exif-reader": "1.0.2",
-  });
-
-  //TODO https://github.com/exif-js/exif-js
-
-  api.use([
-    //TODO use only npm 
-    'mrt:imagemagick@0.1.2',
-  ], 'server');
 
   api.addFiles([
     'plugin.js',
@@ -39,6 +32,7 @@ Package.onUse(function(api) {
   api.addFiles([    
     'client/views/panels.html',
     'client/views/panels.js',
+    'client/stylesheets/main.css'
   ],'client');
 
   api.addFiles([
