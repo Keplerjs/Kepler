@@ -2,7 +2,7 @@
 K.Plugin({
 	name: 'edit',
 	templates: {
-		panelEdit: {},
+		panelPlaceEdit: {},
 		//create new placeholder used from other plugins
 		//
 		panelProfile: {

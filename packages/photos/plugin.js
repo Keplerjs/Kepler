@@ -2,7 +2,10 @@
 K.Plugin({
 	name: 'photos',
 	templates: {
-		panelPlace: 'panelPlace_photos',
+		tabPlace: {
+			'tabPlace_photos': { order:-10 },
+		},
+		panelPlaceEdit: 'panelPlaceEdit_photos',		
 		panelSettings: {
 			'panelSettings_photos': { order:-10},
 		}

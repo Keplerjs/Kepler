@@ -1,6 +1,4 @@
-close
-	Bootstrap CUSTOMIZATIONS
-*/
+
 .btn {
 	text-shadow:none;
 }
@@ -39,6 +37,9 @@ a.list-group-item {
 	color: #fff;
 	text-transform: capitalize;
 	padding: 5px 15px;
+}
+.bg-orange {
+	background: #f80 !important;
 }
 .bg-primary,
 .list-group-item.active,

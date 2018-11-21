@@ -1,9 +1,9 @@
 
 Router.map(function() {
 
-	this.route('panelEdit', {
+	this.route('panelPlaceEdit', {
 		path: '/place/:placeId/edit',
-		template: 'panelEdit',
+		template: 'panelPlaceEdit',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			Session.set('showSidebar', true);
@@ -22,7 +22,7 @@ Router.map(function() {
 		}
 	});
 
-	this.route('panelEdits', {
+	this.route('panelPlacesEdit', {
 		path: '/places/edits',
 		template: 'panelList',
 		layoutTemplate: 'layoutMap',

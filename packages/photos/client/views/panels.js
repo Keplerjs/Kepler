@@ -1,5 +1,5 @@
 
-Template.panelPlace_photos.helpers({
+Template.panelPlaceEdit_photos.helpers({
 	uploadDone: function() {
 		var tmpl = Template.instance();
 		return function(ret) {

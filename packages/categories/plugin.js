@@ -7,7 +7,7 @@ K.Plugin({
 		panelPlace: {
 			'panelPlace_cats': {order: -5 } //render after share plugin
 		},
-		panelEdit: 'panelEdit_cats'
+		panelPlaceEdit: 'panelPlaceEdit_cats'
 	},
 	settings: {
 		"public": {
@@ -15,15 +15,15 @@ K.Plugin({
 				//TODO "editable": false,
 				"cats": {
 					"place": {
-						"bus": true,
-						"car": true,
-						"house": true,
-						"parking": true,
+						"bus": false,
+						"car": false,
+						"house": false,
+						"parking": false,
 					},
 					"user": {
-						"person": true,
-						"animal": true,
-						"robot": true,
+						"person": false,
+						"animal": false,
+						"robot": false,
 					}
 				}
 			}

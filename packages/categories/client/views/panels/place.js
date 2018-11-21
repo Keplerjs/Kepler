@@ -10,7 +10,7 @@ Template.panelPlace_cats.helpers({
 	}
 });*/
 
-Template.panelEdit_cats.helpers({
+Template.panelPlaceEdit_cats.helpers({
 	allCats: function() {
 		
 		var placeCats = this.getCats(),
@@ -22,7 +22,7 @@ Template.panelEdit_cats.helpers({
 			}
 		});
 
-		return _.map(activeCats, function(c) {
+		return _.map(_.union(activeCats, placeCats), function(c) {
 			//console.log(c)
 			return {
 				val: c,
@@ -33,7 +33,7 @@ Template.panelEdit_cats.helpers({
 	}
 });
 
-Template.panelEdit_cats.events({
+Template.panelPlaceEdit_cats.events({
 	
 	'change #cats_edit input': _.debounce(function(e, tmpl) {
 		e.preventDefault();

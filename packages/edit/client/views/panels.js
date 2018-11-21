@@ -1,5 +1,5 @@
 
-Template.panelEdit.onRendered(function() {
+Template.panelPlaceEdit.onRendered(function() {
 	var self = this;
 	self.$('.btn-editdel').btsConfirmButton(function(e) {
 			
@@ -12,7 +12,7 @@ Template.panelEdit.onRendered(function() {
 	});
 });
 
-Template.panelEdit.events({
+Template.panelPlaceEdit.events({
 	'click .btn-editren': function(e,tmpl) {
 		var data = {
 				name: tmpl.$('.input-editren').val()

@@ -11,13 +11,24 @@
 	</div>	
 </template>
 
-<template name="panelPlace_photos">
+<template name="panelPlaceEdit_photos">
 	<div class="list-group">
 		<div class="list-group-item active">
 			{{i18n 'label_addphotos'}}
 		</div>
 		<div class="list-group-item">
 			{{> inputFile_upload target='photos_places' callback=uploadDone}}
+		</div>
+	</div>	
+	
+	{{> tabPlace_photos}}
+
+</template>
+
+<template name="tabPlace_photos">
+	<div class="list-group">
+		<div class="list-group-item active">
+			{{i18n 'title_photos'}}
 		</div>
 		<div class="list-group-item">
 		{{#if photos}}
