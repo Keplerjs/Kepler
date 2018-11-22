@@ -20,8 +20,89 @@ var ImagemagickSync = {};
     };
 });    
 
+K.extend({
+	insertPhoto: function(targetId, targetType, title, path) {
+
+		targetId = targetId || null;
+		targetType = targetType || null;
+		title = title || '';
+		path = path || '';
+
+		if(targetType==='user')
+			targetId = Meteor.userId();
+
+		var photoData = _.extend({}, K.schemas.photo, {
+				title: title,
+				path: path,
+				targetId: targetId,
+				targetType: targetType,
+				userId: Meteor.userId(),
+				loc: null,
+				exif: null
+			}),
+			photoId = Photos.insert(photoData);
+
+		if(targetType==='place')
+			Places.update(targetId, {
+				$addToSet: {
+					photos: photoId
+				}
+			});
+		else if(targetType==='user')
+			userId = targetId;
+
+		Users.update({_id: userId }, {
+			$addToSet: {
+				photos: photoId
+			}
+		});
+
+		console.log('Photos: insertPhoto', photoId, targetId);
+
+		return photoId;
+	},
+	removePhoto: function(photoId) {
+
+		var photoData = Photos.findOne(photoId);
+		
+		if( Photos.remove({_id: photoId, userId: Meteor.userId() }) )
+		//user is owner
+		{
+			Users.update({_id: photoData.userId}, {
+				$pull: {photos: photoId}
+			});
+
+			if(photoData.targetType==='place')
+				Places.update(photoData.targetId, {
+					$pull: {
+						photos: photoId
+					}
+				});
+		}
+			
+		console.log('Photos: removePhoto', photoId);
+	}
+});
+
+
 Meteor.methods({
-	
+	insertPhoto: function(targetId, targetType, title) {
+
+		if(!this.userId || !title || !targetId) return null;
+
+		console.log('Photos: insertPhoto', targetId, targetType, title);
+
+		return K.insertPhoto(targetId, targetType, title);
+	},
+	removePhoto: function(photoId) {
+		
+		if(!this.userId || !photoId) return null;
+
+		console.log('Photos: removePhoto',photoId);
+
+		return K.removePhoto(photoId);
+	},
+
 	resizePhoto: function(fileObj, sets) {
 
 		if(!this.userId) return null;

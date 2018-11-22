@@ -2,7 +2,7 @@
 <template name="panelProfile_photos">
 	<a class="list-group-item" href="/photos/edits">
 		<i class="icon icon-photos"></i>
-		 {{i18n 'label_editphotos'}} 
+		 {{i18n 'title_photos'}} 
 		<span class="badge">{{photos.length}}</span>
 	</a>
 </template>
@@ -30,7 +30,7 @@
 <template name="panelPhotos_new">
 	<form class="form-horizontal item_photo-new" role="form">
 		<div class="col-sm-3 col-xs-4 text-right">
-			{{i18n 'label_addphotos'}}
+			<label>{{i18n 'label_addphotos'}}</label>
 		</div>
 		<div class="col-sm-9 col-xs-8">
 			{{> inputFile_upload target='photos_places' callback=uploadDone}}

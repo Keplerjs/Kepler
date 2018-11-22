@@ -12,7 +12,7 @@ Router.map(function() {
 		data: function() {
 			if(!this.ready()) return null;
 			return {
-				title: i18n('label_editphotos'),
+				title: i18n('title_photos'),
 				className: 'photos',
 				headerTemplate: 'panelPhotos_new',
 				headerData: K.Profile.data,

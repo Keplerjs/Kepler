@@ -22,11 +22,12 @@ K.Plugin({
 		photo: {
 			createdAt: null,
 			title: '',         //Topic for the place wall or subject for the private convers
+			path: '',
 			targetId: '',      //if null is a private users convers		
 			targetType: '',	   //type of target: user, place, event, pois		
 			userId: '',        //owner/sender of conversation		
-			meta: {},			//some data from exif data(location, date)
-			exif: {}			//exif data of photo
+			loc: null,			//location
+			exif: null			//exif data of photo
 		}
 	},
 	filters: {
