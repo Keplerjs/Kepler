@@ -29,16 +29,22 @@ Package.onUse(function(api) {
     'i18n/sv.js', 
   ]);
 
+  api.addFiles([
+    'collections/photos.js'
+  ]);
+
   api.addFiles([    
     'client/views/panels.html',
     'client/views/panels.js',
-    'client/stylesheets/main.css'
+    'client/stylesheets/main.css',
+    'client/router.js'
   ],'client');
 
   api.addFiles([
     'server/photos.js',
     'server/profile.js',
     'server/places.js',
+    'server/pubs.js',
   ],'server');
 
 });

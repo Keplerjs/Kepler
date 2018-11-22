@@ -8,6 +8,47 @@ K.Plugin({
 		panelPlaceEdit: 'panelPlaceEdit_photos',		
 		panelSettings: {
 			'panelSettings_photos': { order:-10},
+		},
+		panelProfile: 'panelProfile_photos'
+	},
+	schemas: {
+		place: {
+			//TODO editedAt: '',//last edit date
+			photos: []   //user creator of place
+		},
+		user: {
+			photos: []	   //places created by user
+		},
+		photo: {
+			createdAt: null,
+			title: '',         //Topic for the place wall or subject for the private convers
+			targetId: '',      //if null is a private users convers		
+			targetType: '',	   //type of target: user, place, event, pois		
+			userId: '',        //owner/sender of conversation		
+			meta: {},			//some data from exif data(location, date)
+			exif: {}			//exif data of photo
+		}
+	},
+	filters: {
+		currentUser: {
+			fields: {
+				photos:1
+			}
+		},
+		placePanel: {
+			fields: {
+				photos:1
+			}
+		},
+		friendPanel: {
+			fields: {
+				photos:1
+			}
+		},
+		photoItem: {
+			fields: {
+				exif: {}
+			}
 		}
 	},
 	settings: {

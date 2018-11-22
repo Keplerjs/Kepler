@@ -4,11 +4,12 @@ K.Plugin({
 	templates: {
 		panelAdmin: {},
 		panelProfile: {
-			'panelProfile_admin': {order:10}
+			'panelProfile_admin': {order:10},
+			'panelUser_admin': {order:50},
 		},
 		panelPlace: 'panelPlace_admin',
 		panelUser: {
-			'panelUser_admin': {order:0}
+			'panelUser_admin': {order:10}
 		}
 		//TODO move it in a special admin page
 	},

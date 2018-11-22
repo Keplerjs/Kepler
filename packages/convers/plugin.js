@@ -67,6 +67,6 @@ K.Plugin({
 			fields: {
 				title:1, targetId:1, targetType:1, userId:1, usersIds:1, lastMsg:1, createdAt:1
 			}
-		}		
+		}
 	}
 });

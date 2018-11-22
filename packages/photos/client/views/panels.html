@@ -1,4 +1,12 @@
 
+<template name="panelProfile_photos">
+	<a class="list-group-item" href="/photos/edits">
+		<i class="icon icon-photos"></i>
+		 {{i18n 'label_editphotos'}} 
+		<span class="badge">{{photos.length}}</span>
+	</a>
+</template>
+
 <template name="panelSettings_photos">
 	<div class="form-group">
 		<div class="col-sm-3 col-xs-4 text-right avatar-big">
@@ -9,6 +17,25 @@
 			{{> inputFile_upload target='photos_avatars'}}
 		</div>
 	</div>	
+</template>
+
+<template name="panelPhotos_photos">
+	<a class="list-group-item" href="/photos/edits">
+		<i class="icon icon-photos"></i>
+		 {{i18n 'title_photos'}} 
+		<span class="badge">{{photos.length}}</span>
+	</a>
+</template>
+
+<template name="panelPhotos_new">
+	<form class="form-horizontal item_photo-new" role="form">
+		<div class="col-sm-3 col-xs-4 text-right">
+			{{i18n 'label_addphotos'}}
+		</div>
+		<div class="col-sm-9 col-xs-8">
+			{{> inputFile_upload target='photos_places' callback=uploadDone}}
+		</div>
+	</form>
 </template>
 
 <template name="panelPlaceEdit_photos">

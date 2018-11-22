@@ -18,3 +18,14 @@ Template.panelPlaceEdit_photos.helpers({
 		}
 	}
 });
+
+
+Template.panelPhotos_new.helpers({
+	uploadDone: function() {
+		var tmpl = Template.instance();
+		return function(ret) {
+			console.log('uploadDone', ret);
+			
+		}
+	}
+});
