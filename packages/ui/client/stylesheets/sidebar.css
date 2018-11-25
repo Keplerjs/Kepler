@@ -23,7 +23,7 @@
 
 
 .sidebar > .tab-content {
-    margin-top: 2px;
+    margin-top: 0;
 /*    box-shadow: 0 0 5px rgba(0,0,0,0.3);*/
     border-radius:4px;
     overflow: hidden;
@@ -81,14 +81,14 @@ li#navsearch {
 }
 .sidebar .panel-body {
 	position: absolute;
-	top: 80px;
+	top: 78px;
 	left: 0;
 	right: 0;
 	bottom: 0;	
     padding: 4px;
     margin: 0 4px 0 4px;
 	background: #fff;
-    max-height: calc(100% - 90px);
+    max-height: calc(100% - 82px);
 	overflow-x: hidden;
 	overflow-y: scroll;
     border-radius: 0;
@@ -121,9 +121,21 @@ li#navsearch {
 @media (max-width: 400px) {
     .sidebar {
         width: auto;
+        padding: 0;
+    }
+    .sidebar .panel-heading {
+        border-radius: 0;
+    }
+    .sidebar .panel-body {
+        top:74px;
+        margin: 0;
+        max-height: calc(100%);
     }
     .leaflet-right.leaflet-top {
         padding-top: 50px;
+    }
+    .sidebar > .nav {
+        border-radius: 0;
     }
     .sidebar > .nav > li > a.btn {
 		padding: 4px 2px;

@@ -24,7 +24,7 @@ Users.after.insert(function(userId, user) {
 
 	if(user.isRobot) return false;
 
-	if(K.settings.admin.adminUsers) {
+	if(K.settings.admin.adminUsers && K.settings.admin.adminUsers.length) {
 
 		//add all admins in the user friends list
 		K.updateFriendshipAdmins(user._id);
