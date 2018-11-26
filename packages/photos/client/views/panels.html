@@ -58,6 +58,14 @@
 			{{i18n 'title_photos'}}
 		</div>
 		<div class="list-group-item">
+		{{#if photo}}
+		{{#with photo}}
+			<div>
+				<img src="{{url}}" title="{{title}}" />
+				<span>{{title}}</span>
+			</div>
+		{{/with}}
+		{{/if}}
 		{{#if photos}}
 			{{#each photos}}
 				<div>

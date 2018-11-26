@@ -21,19 +21,19 @@ var ImagemagickSync = {};
 });    
 
 K.extend({
-	insertPhoto: function(targetId, targetType, title, path) {
+	insertPhoto: function(targetId, targetType, url, title) {
 
 		targetId = targetId || null;
 		targetType = targetType || null;
 		title = title || '';
-		path = path || '';
+		url = url || '';
 
 		if(targetType==='user')
 			targetId = Meteor.userId();
 
 		var photoData = _.extend({}, K.schemas.photo, {
 				title: title,
-				path: path,
+				url: url,
 				targetId: targetId,
 				targetType: targetType,
 				userId: Meteor.userId(),
@@ -103,6 +103,27 @@ Meteor.methods({
 		return K.removePhoto(photoId);
 	},
 
+	uploadPhoto: function(fileObj, sets) {
+
+		if(!this.userId) return null;
+
+		var basePath = sets.path,
+			baseUrl = sets.url,
+			username = Meteor.user().username,
+			fileName = K.Util.sanitize.filename( fileObj.name +'_'+ K.Util.time() ),
+			fileOut = fileName + '.jpg';
+
+		fs.writeFileSync(sets.path + fileOut, fileObj.blob, 'binary');
+		fs.chmodSync(sets.path + fileOut, CHMOD);
+		
+		var url = baseUrl + fileOut;
+		
+		console.log('Photos: uploadPhoto', url);
+
+		return url;
+	},
+
+	//TODO change arguments accept file
 	resizePhoto: function(fileObj, sets) {
 
 		if(!this.userId) return null;
@@ -152,6 +173,7 @@ Meteor.methods({
 		return url;
 	},
 
+	//TODO change arguments accept file
 	exifPhoto: function(fileObj, sets) {
 		
 		if(!this.userId) return null;
@@ -178,6 +200,18 @@ Meteor.methods({
 
 		console.log('Photos: exifPhoto ', exif)
 
+		var lats = exif.gpsLatitude.split(',').map(function(v) {
+				return parseInt(v.split('/')[0]);
+			}),
+			lngs = exif.gpsLongitude.split(',').map(function(v) {
+				return parseInt(v.split('/')[0]);
+			}),
+			lat = lats[0]+'°'+lats[1]+"'"+(lats[2]/1000)+'"'+exif.gpsLatitudeRef,
+			lng = lngs[0]+'°'+lngs[1]+"'"+(lngs[2]/1000)+'"'+exif.gpsLongitudeRef;			
+		//example: parseLoc('59°12\'7.7"N 02°15\'39.6"W')
+
+		exif.loc = K.Util.geo.parseLocString(lat+' '+lng);
+
 		/*gpsAltitude: "447000/1000"
 		gpsAltitudeRef: "0"
 		gpsDateStamp: "2018:11:10"
@@ -191,18 +225,6 @@ Meteor.methods({
 		gpsTimeStamp: "10/1, 42/1, 25000/1000"
 		gpsVersionID: "2, 2, 0, 0"*/
 
-		var lats = exif.gpsLatitude.split(',').map(function(v) {
-				return parseInt(v.split('/')[0]);
-			}),
-			lngs = exif.gpsLongitude.split(',').map(function(v) {
-				return parseInt(v.split('/')[0]);
-			}),
-			lat = lats[0]+'°'+lats[1]+"'"+(lats[2]/1000)+'"'+exif.gpsLatitudeRef,
-			lng = lngs[0]+'°'+lngs[1]+"'"+(lngs[2]/1000)+'"'+exif.gpsLongitudeRef;			
-		//example: parseLoc('59°12\'7.7"N 02°15\'39.6"W')
-
-		exif.loc = K.Util.geo.parseLocString(lat+' '+lng);
-		
 		return exif;
 	}
 });

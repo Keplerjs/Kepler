@@ -7,7 +7,7 @@ K.Plugin({
 			'panelProfile_admin': {order:10},
 			'panelUser_admin': {order:50},
 		},
-		panelPlace: 'panelPlace_admin',
+		panelPlaceEdit: 'panelPlace_admin',
 		panelUser: {
 			'panelUser_admin': {order:10}
 		}

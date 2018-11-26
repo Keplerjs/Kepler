@@ -16,7 +16,7 @@ Router.map(function() {
 				className: 'photos',
 				headerTemplate: 'panelPhotos_new',
 				headerData: K.Profile.data,
-				itemsTemplate: 'item_photo',
+				itemsTemplate: 'item_photo_edit',
 				items: K.Profile.data.photos ? K.findPhotosByIds(K.Profile.data.photos).fetch() : [],
 				sortBy: 'createdAt'
 			};

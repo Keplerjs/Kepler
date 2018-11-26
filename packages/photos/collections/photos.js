@@ -8,8 +8,9 @@ Photos.allow({
 		return true;
 	},
 	update: function(userId, doc) {
+		//TODO maybe return userId && doc.userId === userId;
 		return true;
-	},	
+	},
 	remove: function(userId, doc) {
 		return userId && doc.userId === userId;
 	}

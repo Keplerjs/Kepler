@@ -19,7 +19,6 @@ Template.panelPlaceEdit_photos.helpers({
 	}
 });
 
-
 Template.panelPhotos_new.helpers({
 	uploadDone: function() {
 		var tmpl = Template.instance();
@@ -27,5 +26,14 @@ Template.panelPhotos_new.helpers({
 			console.log('uploadDone', ret);
 			
 		}
+	}
+});
+
+Template.tabPlace_photos.helpers({
+	photos: function() {
+		var data = Template.currentData();
+		//TODO find query 
+		//
+		return []
 	}
 });

@@ -14,15 +14,17 @@ K.Plugin({
 	schemas: {
 		place: {
 			//TODO editedAt: '',//last edit date
+			photo: '',	//photo object for the place
 			photos: []   //user creator of place
 		},
 		user: {
 			photos: []	   //places created by user
 		},
 		photo: {
-			createdAt: null,
 			title: '',         //Topic for the place wall or subject for the private convers
-			path: '',
+			url: '',
+			//TODO thumburl,	//thumbnail image
+			createdAt: null,
 			targetId: '',      //if null is a private users convers		
 			targetType: '',	   //type of target: user, place, event, pois		
 			userId: '',        //owner/sender of conversation		
@@ -33,16 +35,19 @@ K.Plugin({
 	filters: {
 		currentUser: {
 			fields: {
+				avatar:1,
 				photos:1
 			}
 		},
 		placePanel: {
 			fields: {
+				photo:1,
 				photos:1
 			}
 		},
 		friendPanel: {
 			fields: {
+				avatar:1,
 				photos:1
 			}
 		},
@@ -58,6 +63,18 @@ K.Plugin({
 		 */
 		"upload": {
 			"targets": {
+				"photos_places": {
+					//pass uploaded object to this method
+					"method": "uploadPhoto",
+					"maxFileSize": 5800000,
+					"mimeFileType": {
+						"image/png": true,
+						"image/jpeg": true
+					},
+					//TODO rename in 'basepath' and 'baseurl'
+					"url": "/static/photos/",
+					"path": ""
+				},				
 				"photos_avatars": {
 					//pass uploaded object to this method
 					"method": "updateAvatar",
@@ -67,19 +84,7 @@ K.Plugin({
 						"image/jpeg": true
 					},
 					//TODO rename in 'basepath' and 'baseurl'
-					"url": "",
-					"path": ""
-				},
-				"photos_places": {
-					//pass uploaded object to this method
-					"method": "insertPlacePhotos",
-					"maxFileSize": 5800000,
-					"mimeFileType": {
-						"image/png": true,
-						"image/jpeg": true
-					},
-					//TODO rename in 'basepath' and 'baseurl'
-					"url": "",
+					"url": "/static/avatars/",
 					"path": ""
 				}
 			}

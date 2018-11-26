@@ -63,6 +63,10 @@
 	box-shadow: none;
 }
 
+.place-btn-checkin span {
+	/*letter-spacing: -1px;*/
+	font-size: 11px;
+}
 .list-group > .list-group-item {
 	overflow: hidden;
 }
