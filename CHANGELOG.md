@@ -3,6 +3,7 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
 - plugin photos load place photo
+- open photo clicking image avatar
 - plugin upload method K.Upload.uploadFile accepts custom prams
 - new method K.Util.geo.parseLocString to parse DMS locations
 - plugin import remove button in places list
@@ -11,6 +12,7 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 - fix place edit categories
 - plugin edit check if plugin admin exists on delete place
 - double click on marker open panel place
+- new method plugin admin updatePlaceAuthor
 
 ## v1.5.4
 - new plugin photos

@@ -10,6 +10,7 @@ Template.panelPlace_share.helpers({
 		};
 
 		return {
+			default: K.Util.tmpl("geo:{lat},{lon}", loc),
 			google: K.Util.tmpl("http://maps.google.com/maps?ll={lat},{lon}&amp;spn=0.5,0.5&amp;t=h&amp;q={lat},{lon}", loc),
 			apple: K.Util.tmpl("http://maps.apple.com/?ll={lat},{lon}", loc),
 			osm: K.Util.tmpl("http://osm.org/?mlat={lat}&amp;mlon={lon}#map={zoom}/{lat}/{lon}", loc),

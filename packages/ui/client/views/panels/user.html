@@ -96,10 +96,16 @@
 
 </template>
 
+<template name="panelUser_ui_photo">
+	<a class="btn user-btn-avatar" href="{{#if avatar}}{{avatar}}{{else}}/user/{{_id}}{{/if}}">
+		<img class="icon-avatar {{#unless avatar}}icon-avatar-default{{/unless}}" src="{{#if avatar}}{{avatar}}{{/if}}" />
+	</a>
+</template>
+
 <template name="panelUser_ui_bio">
 	<div class="row tab-user-bio">
 		<div class="col-xs-4 avatar-big">
-			{{> item_user_avatar}}
+			{{> panelUser_ui_photo}}
 		</div>
 		<div class="col-xs-8">			
 		{{#if username}}

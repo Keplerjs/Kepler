@@ -10,7 +10,7 @@ K.Plugin({
 		panelPlaceEdit: {
 			'panelPlace_admin': {order:50},
 		},
-		panelUser: {
+		tabUser: {
 			'panelUser_admin': {order:10}
 		}
 		//TODO move it in a special admin page

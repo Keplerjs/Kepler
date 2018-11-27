@@ -30,17 +30,35 @@ K.Admin.methods({
 		if(!K.Admin.isMe()) return null;
 
 		var placeData = Places.findOne(placeId);
-		
-		if(placeData.userId === this.userId) {
 
-			Places.update(placeId, {
+		Places.update(placeId, {
+			$set: {
+				name: K.Util.sanitize.name(data.name)
+			}
+		});
+
+		console.log('Admin: updatePlace', data.name);	
+	},
+	updatePlaceAuthor: function(placeName, userName) {
+		
+		if(!K.Admin.isMe()) return null;
+
+		var placeData = Places.findOne({name: placeName}),
+			userData = Users.findOne({username: userName});
+
+		if(placeData && userData) {
+			Places.update(placeData._id, {
 				$set: {
-					name: K.Util.sanitize.name(data.name)
+					userId: userData._id
 				}
 			});
-
-			console.log('Admin: updatePlace', data.name);			
-		}	
+			Users.update(userData._id, {
+				$addToSet: {
+					places: placeData._id
+				}
+			});			
+			console.log('Admin: updatePlaceAuthor', placeName, userName);
+		}
 	},	
 	movePlace: function(placeId, loc) {
 

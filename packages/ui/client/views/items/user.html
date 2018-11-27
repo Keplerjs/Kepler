@@ -12,7 +12,7 @@
 </template>
 
 <template name="item_user_avatar">
-	<a class="btn user-btn-avatar" href="/user/{{_id}}">
+	<a class="btn user-btn-avatar" href="{{#if avatar}}{{avatar}}{{else}}/user/{{_id}}{{/if}}">
 		<img class="icon-avatar {{#unless avatar}}icon-avatar-default{{/unless}}" src="{{#if avatar}}{{avatar}}{{/if}}" />
 	</a>
 </template>
