@@ -63,6 +63,9 @@
 	box-shadow: none;
 }
 
+.place-btn-checkin {
+	padding: 5px;
+}
 .place-btn-checkin span {
 	/*letter-spacing: -1px;*/
 	font-size: 11px;

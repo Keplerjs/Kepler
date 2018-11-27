@@ -111,6 +111,9 @@ Kepler.User = Class.extend({
 			});
 			self.marker = new L.Marker(self.loc, {icon: self.icon});
 			self.marker.item = self;
+/* TODO NOT WORK			self.marker.on('dblclick', function(e) {
+				Router.go('panelPlace',{placeId: self.id});
+			})			*/
 			self.marker.on('click', function(e) {
 
 				if(opts.popups.enabled) {
@@ -124,7 +127,8 @@ Kepler.User = Class.extend({
 				else
 					Router.go('panelUser',{userId: self.id});
 
-			}).once('add', function() {
+			})
+			.once('add', function() {
 				if(Template[self.templateMarker])
 					Blaze.renderWithData(Template[self.templateMarker], self.rData, self.icon.nodeHtml);
 			});

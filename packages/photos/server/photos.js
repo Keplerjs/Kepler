@@ -19,7 +19,7 @@ var ImagemagickSync = {};
         return future.wait();
     };
 });    
-
+/*
 K.extend({
 	insertPhoto: function(targetId, targetType, url, title) {
 
@@ -82,11 +82,11 @@ K.extend({
 			
 		console.log('Photos: removePhoto', photoId);
 	}
-});
+});*/
 
 
 Meteor.methods({
-	insertPhoto: function(targetId, targetType, title) {
+/*	insertPhoto: function(targetId, targetType, title) {
 
 		if(!this.userId || !title || !targetId) return null;
 
@@ -102,7 +102,7 @@ Meteor.methods({
 
 		return K.removePhoto(photoId);
 	},
-
+*/
 	uploadPhoto: function(fileObj, sets) {
 
 		if(!this.userId) return null;

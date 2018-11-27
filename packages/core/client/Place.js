@@ -108,6 +108,10 @@ Kepler.Place = Class.extend({
 						Router.go('panelPlace',{placeId: self.id});
 					});
 				}
+
+				e.target.on('dblclick', function(ee) {
+					Router.go('panelPlace',{placeId: self.id});
+				});
 				
 				if(opts.tooltips.enabled) {
 

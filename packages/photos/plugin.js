@@ -5,6 +5,7 @@ K.Plugin({
 		panelPlace: {
 			'panelPlace_photos': { order:-8}
 		},
+		//markerPlace: 'markerPlace_photos',
 		panelPlaceEdit: 'panelPlaceEdit_photos',		
 		panelSettings: {
 			'panelSettings_photos': { order:-10},
@@ -43,6 +44,11 @@ K.Plugin({
 			fields: {
 				photo: 1,
 				photos: 1
+			}
+		},
+		placeItem: {
+			fields: {
+				photo: 1
 			}
 		},
 		friendPanel: {

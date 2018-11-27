@@ -1,6 +1,13 @@
 
 .marker-photo {
-	box-shadow: 0 0 10px rgba(0,0,0,1)
+	box-shadow: 0 0 10px rgba(0,0,0,1);
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: -35px;
+	left: -35px;
+	border-radius:3px;
+	border: 2px solid white;  
 }
 
 .place-photo {

@@ -21,8 +21,9 @@ Meteor.methods({
 			throw new Meteor.Error(500, i18n('upload_error_imageNotValid') );
 			return null;
 		}
-
-		var url = Meteor.call('resizePhoto', fileObj, sets);
+		
+		var url = Meteor.call('uploadPhoto', fileObj, sets);
+		//var url = Meteor.call('resizePhoto', fileObj, sets);
 		
 		if(url) {
 			Users.update(this.userId, {

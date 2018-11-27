@@ -10,6 +10,7 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 - plugin photos split templates in edit panel and tab place
 - fix place edit categories
 - plugin edit check if plugin admin exists on delete place
+- double click on marker open panel place
 
 ## v1.5.4
 - new plugin photos
