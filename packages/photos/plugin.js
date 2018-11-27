@@ -2,14 +2,14 @@
 K.Plugin({
 	name: 'photos',
 	templates: {
-		tabPlace: {
-			'tabPlace_photos': { order:-10 },
+		panelPlace: {
+			'panelPlace_photos': { order:-8}
 		},
 		panelPlaceEdit: 'panelPlaceEdit_photos',		
 		panelSettings: {
 			'panelSettings_photos': { order:-10},
 		},
-		panelProfile: 'panelProfile_photos'
+		//panelProfile: 'panelProfile_photos'
 	},
 	schemas: {
 		place: {
@@ -41,19 +41,14 @@ K.Plugin({
 		},
 		placePanel: {
 			fields: {
-				photo:1,
-				photos:1
+				photo: 1,
+				photos: 1
 			}
 		},
 		friendPanel: {
 			fields: {
 				avatar:1,
 				photos:1
-			}
-		},
-		photoItem: {
-			fields: {
-				exif: {}
 			}
 		}
 	},
@@ -65,7 +60,7 @@ K.Plugin({
 			"targets": {
 				"photos_places": {
 					//pass uploaded object to this method
-					"method": "uploadPhoto",
+					"method": "updatePlacePhoto",
 					"maxFileSize": 5800000,
 					"mimeFileType": {
 						"image/png": true,

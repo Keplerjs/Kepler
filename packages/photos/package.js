@@ -33,13 +33,11 @@ Package.onUse(function(api) {
     'collections/photos.js'
   ]);
 
-  api.addFiles([
-    'client/Place_photos.js',    
-    'client/views/items.html',
+  api.addFiles([ 
     'client/views/panels.html',
     'client/views/panels.js',
     'client/stylesheets/main.css',
-    'client/router.js',
+    //'client/router.js',
   ],'client');
 
   api.addFiles([

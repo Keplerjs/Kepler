@@ -27,7 +27,7 @@
 			
 			{{#if isEditable}}
 			<div class="btn-group pull-right" role="group">
-				<a class="btn btn btn-default" href="/place/{{id}}/edit">
+				<a class="btn btn-edit btn-default" href="/place/{{id}}/edit">
 					<i class="icon icon-edit"></i> {{i18n 'btn_edit'}}
 				</a>
 			</div>
@@ -70,8 +70,6 @@
 {{/if}}	
 </template>
 
-
-
 <template name="panelPlaceEdit">
 
 	<div id="place" class="panel">
@@ -87,16 +85,14 @@
 			</a>
 		</div>
 		<div class="panel-body">
-			
-			{{> item_place}}
-
+			<div class="pull-left">
+				{{> item_place}}
+			</div>
 			<div class="text-right">
 				<a class="btn-editdel btn btn btn-default" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
 					<i class="icon icon-del"></i> {{i18n 'btn_del'}}
 				</a>
 			</div>
-
-			<hr />
 
 			<label class="control-label">{{i18n 'label_name'}}</label>
 			<div class="input-group">
@@ -105,6 +101,8 @@
 					<a class="btn-editren btn btn-default" href="#">{{i18n 'btn_ren'}}</a>
 				</span>
 			</div>
+
+			<hr />
 
 			{{> pluginsTemplate name='panelPlaceEdit'}}
 

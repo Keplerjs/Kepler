@@ -22,8 +22,8 @@ Meteor.methods({
 		if(!this.userId) return null;
 
 		var placeData = Places.findOne(placeId);
-		
-		if(placeData.userId === this.userId) {
+
+		if(placeData.userId === this.userId || (K.Admin && K.Admin.isMe())) {
 			
 			Places.remove(placeId);
 			//TODO remove other references
@@ -33,7 +33,10 @@ Meteor.methods({
 				}
 			});
 			console.log('Edit: removePlace', placeId);
-		}		
+		}
+		else
+			throw new Meteor.Error(500, i18n('edit_error_notOwner'));
+
 	},
 	updatePlace: function(placeId, data) {
 		
@@ -41,7 +44,7 @@ Meteor.methods({
 
 		var placeData = Places.findOne(placeId);
 		
-		if(placeData.userId === this.userId) {
+		if(placeData.userId === this.userId || (K.Admin && K.Admin.isMe())) {
 
 			Places.update(placeId, {
 				$set: {

@@ -1,12 +1,14 @@
 
 //TODO
 Meteor.methods({
-	updateAvatar: function(fileObj, sets) {
+	updateAvatar: function(fileObj, opts) {
 
 		//TODO move fs.writeFileSync from photos.js to here
 		//TODO accept two files
 
 		if(!this.userId) return null;
+
+		var sets = K.settings.upload.targets['photos_avatars'];
 
 		var mimes = [];
 		_.each(sets.mimeFileType, function(v,k) {

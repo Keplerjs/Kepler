@@ -24,7 +24,7 @@ Meteor.startup(function() {
 
 Meteor.methods({
 	
-	uploadFile: function(fileObj, target) {
+	uploadFile: function(target, fileObj, params) {
 
 		if(!this.userId) return null;
 
@@ -50,8 +50,10 @@ Meteor.methods({
 				throw new Meteor.Error(500, i18n('upload_error_filesizeNotValid') + K.Util.humanize.filesize(K.settings.public.upload.maxFileSize) );
 				return null;
 			}
+			
 			console.log('Upload: method ', sets.method);
-			return Meteor.call(sets.method, fileObj, sets);
+
+			return Meteor.call(sets.method, fileObj, params, sets);
 		}
 		else if(sets.path && sets.url) {
 			

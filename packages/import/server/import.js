@@ -48,10 +48,12 @@ Meteor.methods({
 		return placeId;
 	},
 
-	importFile: function(fileObj, sets) {
+	importFile: function(fileObj, params) {
 
 		if(!this.userId) return null;
-		
+
+		var sets = K.settings.upload.targets['import_places'];
+
 		var mimes = [];
 		_.each(sets.mimeFileType, function(v,k) {
 			if(v===true)
@@ -68,6 +70,8 @@ Meteor.methods({
 			importName = fileObj.name || K.Util.timeName(),
 			placeIds = [];
 
+		//TODO user params as importName
+		
 		console.log('Import: file ', fileObj.name);
 
 		if(geo && geo.features && geo.features.length>0) {

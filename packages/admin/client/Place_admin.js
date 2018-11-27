@@ -2,9 +2,10 @@
 
 Kepler.Place.include({
 	
+	//override edit plugin
 	isEditable: function() {
 
-		return K.Admin.isMe() || (this.userId ? K.Profile.id === this.userId : false);
+		return K.Admin.isMe() || (this.userId ? (K.Profile.id === this.userId) : false);
 	}
 });
 

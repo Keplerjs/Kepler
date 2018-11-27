@@ -24,7 +24,7 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-    'client/lib/L.Marker.drag.js',
+    //'client/lib/L.Marker.drag.js',
     'client/Place_edit.js',
     'client/User_edit.js',
     'client/views/panels.html',

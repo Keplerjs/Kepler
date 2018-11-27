@@ -122,7 +122,10 @@ Meteor.methods({
 
 		return url;
 	},
-
+	deletePhoto: function(fileObj, sets) {
+		//TODO 
+		//console.log('Photos: uploadPhoto');
+	},
 	//TODO change arguments accept file
 	resizePhoto: function(fileObj, sets) {
 

@@ -7,7 +7,6 @@ K.Admin.methods({
 		if(_.isString(placeId)) {
 
 			Places.remove(placeId);
-			//TODO run plugin edit removePlace()
 	/*		Users.update(Meteor.userId(), {
 				$pull: {
 					places: placeId

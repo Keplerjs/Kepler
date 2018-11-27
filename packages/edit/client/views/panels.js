@@ -1,13 +1,19 @@
 
 Template.panelPlaceEdit.onRendered(function() {
 	var self = this;
+	
 	self.$('.btn-editdel').btsConfirmButton(function(e) {
-			
+
 		Meteor.call('removePlace', self.data.id, function(err) {
 		
-			K.Map.removeItem(self.data);
-		
-			Router.go('root');
+			if(err)
+				console.warn(err.message);
+			else
+			{
+				K.Map.removeItem(self.data);
+			
+				Router.go('root');
+			}
 		});			
 	});
 });

@@ -1,39 +1,29 @@
 
+Template.panelPlaceEdit_photos.onRendered(function() {
+	
+	var self = this,
+		place = self.data;
+	
+	self.$('.btn-photodel').btsConfirmButton(function(e) {
+		
+		console.log(place.id)
+
+		Meteor.call('removePlacePhoto', self.data.id, function(err) {
+		
+			if(err)
+				console.warn(err.message);
+			else
+				place.update();
+		});			
+	});
+});
+
 Template.panelPlaceEdit_photos.helpers({
-	uploadDone: function() {
-		var tmpl = Template.instance();
+	photoUploaded: function() {
+		var place = this;
 		return function(ret) {
-			console.log('uploadDone', ret);
-
-			if(ret.loc) {
-				K.Map.showLoc(ret.loc);
-				L.marker(ret.loc, {
-					icon: L.divIcon({
-						className: 'marker-photo',
-						iconSize: [40,40],
-						html: '<img src="'+ret.url+'" height="40" width="40" />'
-					})
-				}).addTo(K.Map.map);
-			}
+			//TODO or update photo
+			place.update();
 		}
-	}
-});
-
-Template.panelPhotos_new.helpers({
-	uploadDone: function() {
-		var tmpl = Template.instance();
-		return function(ret) {
-			console.log('uploadDone', ret);
-			
-		}
-	}
-});
-
-Template.tabPlace_photos.helpers({
-	photos: function() {
-		var data = Template.currentData();
-		//TODO find query 
-		//
-		return []
 	}
 });

@@ -7,5 +7,7 @@ i18n.map('en', {
 	btn_del: "Remove",
 	btn_ren: "Rename",
 
-	label_editplaces: "Created places"
+	label_editplaces: "Created places",
+
+	edit_error_notOwner: "Not Owner"
 });

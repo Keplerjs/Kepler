@@ -1,17 +1,18 @@
 
 Template.inputFile_upload.events({
 
-	'change :file': function(e, tmpl) {
+	'change .file-upload': function(e, tmpl) {
 		e.preventDefault();
 
 		var input$ = $(e.target),
 			fileObj = e.originalEvent.target.files[0],
-			target = this.target,
-			callback = this.callback;
+			target = tmpl.data.target,
+			params = tmpl.data.params,
+			callback = tmpl.data.callback;
 
 		input$.parent().addClass('loading-default');
 
-		K.Upload.uploadFile(fileObj, target, function(err, ret) {
+		K.Upload.uploadFile(target, fileObj, params, function(err, ret) {
 			input$.parent().removeClass('loading-default');
 
 			if(err) {

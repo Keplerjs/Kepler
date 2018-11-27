@@ -1,7 +1,7 @@
 
 Kepler.Upload = {
 	
-	uploadFile: function(fileObj, target, callback) {
+	uploadFile: function(uploadTarget, fileObj, params, callback) {
 	
 		var sets = K.settings.public.upload;
 
@@ -15,13 +15,13 @@ Kepler.Upload = {
 		if( fileObj.size <= sets.maxFileSize) {
 
 			this.fileReader.onloadend = function(e) {
-				Meteor.call('uploadFile', {
-					//TODO extend fileObj
+				fileObj = {
 					name: fileObj.name,
 					type: fileObj.type,
 					size: fileObj.size,
 					blob: e.target.result
-				}, target, callback);
+				};
+				Meteor.call('uploadFile', uploadTarget, fileObj, params, callback);
 			}
 			this.fileReader.readAsBinaryString(fileObj);
 		}
@@ -29,7 +29,6 @@ Kepler.Upload = {
 			callback( i18n('upload_error_filesizeNotValid') + K.Util.humanize.filesize(sets.maxFileSize) );
 		}
 		
-
 		return this;
 	}
 };

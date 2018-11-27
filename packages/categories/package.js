@@ -33,6 +33,7 @@ Package.onUse(function(api) {
     'client/Place_cats.js',
     'client/views/panels/place.html',
     'client/views/panels/place.js',
+    'client/stylesheets/main.css',    
 /*    'client/views/panels/user.html',
     'client/views/panels/user.js',
     'client/views/panels/settings.html',

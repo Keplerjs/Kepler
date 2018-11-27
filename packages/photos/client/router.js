@@ -1,3 +1,5 @@
+/*
+//TODO
 
 Router.map(function() {
 
@@ -22,8 +24,6 @@ Router.map(function() {
 			};
 		}
 	});	
-/*
-//TODO
 	this.route('placePhotos', {
 		path: '/place/:placeId/photos',
 		template: 'panelList',
@@ -46,6 +46,6 @@ Router.map(function() {
 				sortDesc: true				
 			};
 		}
-	});*/
-	
+	});
 });
+*/
