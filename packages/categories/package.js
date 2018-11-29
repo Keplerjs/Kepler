@@ -26,10 +26,12 @@ Package.onUse(function(api) {
     'i18n/es.js',
     'i18n/fr.js',
     'i18n/sv.js',
-    'modules/Cats.js'
+    'modules/Cats.js',
+    'collections/places.js'
   ]);
 
   api.addFiles([
+    'client/router.js',
     'client/Place_cats.js',
     'client/views/panels/place.html',
     'client/views/panels/place.js',

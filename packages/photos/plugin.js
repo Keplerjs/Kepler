@@ -67,7 +67,7 @@ K.Plugin({
 				"photos_places": {
 					//pass uploaded object to this method
 					"method": "updatePlacePhoto",
-					"maxFileSize": 5800000,
+					"maxFileSize": 8800000,
 					"mimeFileType": {
 						"image/png": true,
 						"image/jpeg": true
@@ -80,7 +80,7 @@ K.Plugin({
 					//TODO rename in 'basepath' and 'baseurl'
 					"url": "/static/photos/",
 					"path": ""
-				},				
+				},
 				"photos_avatars": {
 					//pass uploaded object to this method
 					"method": "updateAvatar",

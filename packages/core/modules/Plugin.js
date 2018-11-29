@@ -65,7 +65,7 @@ Kepler.Plugin.normalizePlaceholders = function(tmpls, plugin) {
 		if(tmpls[t]===true)
 			tmpls[t]= {};
 
-			if(_.isObject(tmpls[t])) {
+		if(_.isObject(tmpls[t])) {
 			tmpls[t]= _.defaults(tmpls[t], {
 				plugin: plugin,
 				show: true,

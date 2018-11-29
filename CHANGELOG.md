@@ -2,6 +2,7 @@
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+- plugin photos resize uploaded photos by settings
 - plugin photos load place photo
 - open photo clicking image avatar
 - plugin upload method K.Upload.uploadFile accepts custom prams
@@ -13,6 +14,7 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 - plugin edit check if plugin admin exists on delete place
 - double click on marker open panel place
 - new method plugin admin updatePlaceAuthor
+- plugin categories, search places by category
 
 ## v1.5.4
 - new plugin photos

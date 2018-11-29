@@ -22,8 +22,8 @@ Meteor.methods({
 			return null;
 		}
 		
-		var url = Meteor.call('uploadPhoto', fileObj, sets);
-		//var url = Meteor.call('resizePhoto', fileObj, sets);
+		//var url = Meteor.call('uploadPhoto', fileObj, sets);
+		var url = Meteor.call('resizePhoto', fileObj, sets);
 		
 		if(url) {
 			Users.update(this.userId, {

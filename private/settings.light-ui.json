@@ -50,6 +50,7 @@
 			}
 		},
 		"templates": {
+			"tabPlace_ui_info": { "show": false },
 			"tabPlace_ui_hist": { "show": false },
 			"tabUser_ui_friends": { "show": false },
 			"tabUser_ui_hist": { "show": false },

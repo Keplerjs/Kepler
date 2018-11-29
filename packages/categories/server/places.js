@@ -1,4 +1,14 @@
 
+Meteor.publish('placesByCategory', function(cat) {
+	if(this.userId) {
+		var cur = K.findPlacesByCategory(cat);
+		console.log('Pub: placesByCategory', cat);
+		return cur;
+	}
+	else
+		this.ready();	
+});
+
 
 Meteor.methods({
 	addCatsToPlace: function(placeId, cats) {

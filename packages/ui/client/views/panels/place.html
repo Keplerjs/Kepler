@@ -18,11 +18,13 @@
 		{{> pluginsTemplate name='panelPlace'}}
 
 		<ul class="nav nav-tabs">
+			{{#if settings 'templates.tabPlace_ui_info.show'}}
 			<li class="active">
 				<a href="#tab_info" data-toggle="tab">
 					<i class="icon icon-info"></i> <span>{{i18n 'btn_info'}}</span>
 				</a>
 			</li>
+			{{/if}}
 			{{#if settings 'templates.tabPlace_ui_hist.show'}}
 			<li>
 				<a href="#tab_histplace" data-toggle="tab">
@@ -33,11 +35,13 @@
 		</ul>
 
 		<div class="tab-content">
+			{{#if settings 'templates.tabPlace_ui_info.show'}}
 			<div class="tab-pane active" id="tab_info">
 
 				{{> pluginsTemplate name='tabPlace'}}
 
-			</div>	
+			</div>
+			{{/if}}
 			{{#if settings 'templates.tabPlace_ui_hist.show'}}
 			<div class="tab-pane" id="tab_histplace">
 			
