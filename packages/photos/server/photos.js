@@ -3,6 +3,9 @@ var fs = Npm.require('fs');
 var Future = Npm.require("fibers/future");
 var Imagemagick = Npm.require("imagemagick");
 
+
+//TODO https://github.com/aheckmann/gm
+
 if(!Imagemagick) {
 	console.warn('Photos: Imagemagick not installed');
 	throw new Meteor.Error(500);
@@ -126,6 +129,7 @@ Meteor.methods({
 		//TODO 
 		//console.log('Photos: uploadPhoto');
 	},
+
 	//TODO change arguments accept file
 	resizePhoto: function(fileObj, sets) {
 
@@ -137,17 +141,19 @@ Meteor.methods({
 			fileName = K.Util.sanitize.filename( username +'_'+ K.Util.time() ),
 			fileOut = fileName + '.ori.jpg';
 
+
+		//gm(fileObj, fileObj.name())
+		//.resize('10', '10')
+		//.stream()
+		//.pipe(writeStream);
+	
 		fs.writeFileSync(sets.path + fileOut, fileObj.blob, 'binary');
 		fs.chmodSync(sets.path + fileOut, CHMOD);
 
 		//TODO move to settings
-		var imgSize = {
-				width: 140,
-				height: 140,
-				quality: 0.8
-			},
-			fileMin = fileName + K.Util.tmpl('_{width}x{height}.min.jpg', imgSize),
-			imgOpts = _.extend(imgSize, {
+		var imgOpts = sets.imageOpts,
+			fileMin = fileName + K.Util.tmpl('_{width}x{height}.min.jpg', imgOpts),
+			imgOpts = _.extend(imgOpts, {
 				srcPath: basePath + fileOut,
 				dstPath: basePath + fileMin,
 				customArgs: ['-auto-orient']

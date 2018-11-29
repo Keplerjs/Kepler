@@ -72,6 +72,11 @@ K.Plugin({
 						"image/png": true,
 						"image/jpeg": true
 					},
+					"imageOpts":{
+						"width": 600,
+						"height": 800,
+						"quality": 0.25
+					},
 					//TODO rename in 'basepath' and 'baseurl'
 					"url": "/static/photos/",
 					"path": ""
@@ -84,6 +89,11 @@ K.Plugin({
 						"image/png": true,
 						"image/jpeg": true
 					},
+					"imageOpts":{
+						"width": 140,
+						"height": 140,
+						"quality": 0.8
+					},					
 					//TODO rename in 'basepath' and 'baseurl'
 					"url": "/static/avatars/",
 					"path": ""

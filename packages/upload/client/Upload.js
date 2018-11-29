@@ -24,6 +24,7 @@ Kepler.Upload = {
 				Meteor.call('uploadFile', uploadTarget, fileObj, params, callback);
 			}
 			this.fileReader.readAsBinaryString(fileObj);
+			//TODO not work.. this.fileReader.readAsDataURL(fileObj);
 		}
 		else if(_.isFunction(callback)) {
 			callback( i18n('upload_error_filesizeNotValid') + K.Util.humanize.filesize(sets.maxFileSize) );

@@ -12,11 +12,11 @@ Meteor.methods({
 
 		if(placeData.userId === this.userId || (K.Admin && K.Admin.isMe())) {
 				
-			//var url = Meteor.call('resizePhoto', fileObj, sets);
 			//var exif = Meteor.call('exifPhoto', fileObj, sets);
 			
-			var url = Meteor.call('uploadPhoto', fileObj, sets);
-
+			//var url = Meteor.call('uploadPhoto', fileObj, sets);
+			var url = Meteor.call('resizePhoto', fileObj, sets);
+			
 			Places.update(placeId, {
 				$set: {
 					photo: url

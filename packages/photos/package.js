@@ -8,7 +8,10 @@ Package.describe({
 });
 
 Npm.depends({
-  'imagemagick': '0.1.3'
+  'imagemagick': '0.1.3',
+  //'gm': '1.23.1'
+  ////https://github.com/CollectionFS/Meteor-cfs-graphicsmagick
+  /////https://www.npmjs.com/package/gm
 });
 
 Package.onUse(function(api) {
@@ -42,6 +45,7 @@ Package.onUse(function(api) {
   ],'client');
 
   api.addFiles([
+    //'server/gm.js',
     'server/photos.js',
     'server/profile.js',
     'server/places.js',

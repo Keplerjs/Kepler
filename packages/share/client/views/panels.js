@@ -9,6 +9,7 @@ Template.panelPlace_share.helpers({
 			lon: this.loc[1]
 		};
 
+		//https://stackoverflow.com/questions/23232273/is-there-a-way-to-invoke-navigation-from-mobile-browser
 		return {
 			default: K.Util.tmpl("geo:{lat},{lon}", loc),
 			google: K.Util.tmpl("http://maps.google.com/maps?ll={lat},{lon}&amp;spn=0.5,0.5&amp;t=h&amp;q={lat},{lon}", loc),
