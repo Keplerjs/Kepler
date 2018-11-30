@@ -3,11 +3,11 @@
 <template name="panelPlace_photos">
 {{#if photo}}
 	<div class="row">
-		<div class="col-xs-12">
-			<a href="{{photo}}">
-				<img src="{{photo}}" class="place-photo img-responsive img-rounded" alt="{{name}}" />
-			</a>
-		</div>
+		<figure class="col-xs-12">
+		<!-- 	<a href="{{photo}}"> -->
+				<img class="place-photo img-responsive img-rounded" src="{{photo}}" height="800" width="600" itemprop="thumbnail" alt="{{name}}" />
+			<!-- </a> -->
+		</figure>
 	</div>
 {{/if}}
 </template>

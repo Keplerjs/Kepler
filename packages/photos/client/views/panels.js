@@ -1,4 +1,26 @@
 
+Template.panelPlace_photos.onRendered(function() {
+
+		var self = this,
+		place = self.data;
+	
+	var img$ = self.$('.place-photo');
+
+	console.log(img$)
+
+	self.vjs = new Viewer(img$[0], {
+		navbar: false,
+		toolbar: false,
+		fullscreen: true,
+		ready: function(e) {
+			console.log('start view photo')
+		},
+		hide: function(e) {
+			console.log('stop view photo')	
+		}
+	});
+});
+
 Template.panelPlaceEdit_photos.onRendered(function() {
 	
 	var self = this,
