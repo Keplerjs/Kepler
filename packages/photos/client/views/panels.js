@@ -6,9 +6,7 @@ Template.panelPlace_photos.onRendered(function() {
 	
 	var img$ = self.$('.place-photo');
 
-	console.log(img$)
-
-	self.vjs = new Viewer(img$[0], {
+	self.photoViewer = new Viewer(img$[0], {
 		navbar: false,
 		toolbar: false,
 		fullscreen: true,

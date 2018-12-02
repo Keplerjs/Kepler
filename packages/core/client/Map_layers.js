@@ -28,7 +28,7 @@ _.extend(Kepler.Map, {
 				$(layers.cursor.icon.nodeHtml).empty();
 				Blaze.renderWithData(Template.markerCursor, cursorData, layers.cursor.icon.nodeHtml);
 
-				if(opts.popups.enabled) {
+				if(opts.popups.enabled || opts.cursor.popup) {
 					Blaze.renderWithData(Template.popupCursor, cursorData, div);
 					this.bindPopup(div.firstChild, opts.popups);
 				}

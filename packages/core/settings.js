@@ -139,7 +139,8 @@ Kepler.settings = {
 				}
 			},
 			"cursor": {
-				"enabled": true
+				"enabled": true,
+				"popup": true
 			},
 			//TODO split options for places and users
 			"popups": {

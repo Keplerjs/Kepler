@@ -15,6 +15,7 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 - double click on marker open panel place
 - new method plugin admin updatePlaceAuthor
 - plugin categories, search places by category
+- plugin photos added photo viewr in fullscreen
 
 ## v1.5.4
 - new plugin photos
