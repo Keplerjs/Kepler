@@ -1,12 +1,12 @@
 
-<template name="tabUser_cats">
-	{{#if userCats.length}}
+<template name="panelUser_cats">
+	{{#if getCats.length}}
 	<div class="row">
-		<div class="col-xs-12">	
-		<label>{{i18n 'label_usercats'}}</label>
-		{{#each userCats}}
-			<small class="">{{this}}</small>
-		{{/each}}
+		<div class="col-sm-12">
+			<label>{{i18n 'label_cats_user'}}</label> 
+			{{#each getCats}}
+				<a href="/users/cat/{{this}}" class="label label-primary">{{this}}</a>
+			{{/each}}
 		</div>
 	</div>
 	{{/if}}

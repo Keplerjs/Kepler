@@ -1,14 +1,3 @@
-/*
-
-//TODO i18n for cats
-
-Template.panelPlace_cats.helpers({
-	placeCats: function() {
-		return _.map(this.data.cats, function(cat) {
-			return i18n('label_cats_place_'+cat) || cat;
-		});
-	}
-});*/
 
 Template.panelPlaceEdit_cats.helpers({
 	allCats: function() {
@@ -38,13 +27,14 @@ Template.panelPlaceEdit_cats.events({
 	'change #cats_edit input': _.debounce(function(e, tmpl) {
 		e.preventDefault();
 
-		var val = $(e.currentTarget).val(),
-			liked = $(e.currentTarget).is(':checked');
+		var place = tmpl.data,
+			input$ = $(e.currentTarget),
+			val = input$.val();
 
-		if(!liked)
-			tmpl.data.removeCats(val);
+		if(!input$.is(':checked'))
+			Meteor.call('removeCatsFromPlace', place.id, val);
 		else
-			tmpl.data.addCats(val);
+			Meteor.call('addCatsToPlace', place.id, val);
 
 	}, 300)
 });

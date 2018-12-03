@@ -16,7 +16,7 @@ Meteor.methods({
 		
 		//TODO check user is owner
 		
-		cats = K.Cats.sanitize(cats);
+		cats = K.Cats.sanitize(cats,'place');
 
 		var placeData = Places.findOne(placeId),
 			placeCats = placeData.cats;
@@ -56,14 +56,5 @@ Meteor.methods({
 		}
 
 		return placeCats;
-	},
-	cleanCatsFromPlace: function(placeId, cats) {
-		if(!this.userId) return null;
-
-		//TODO check user is owner
-
-		Places.update(placeId, { $set: {'cats': [] } });
-
-		console.log('Cats: cleanCatsFromPlace', placeId);
 	}	
 });

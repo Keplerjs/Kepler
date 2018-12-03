@@ -27,23 +27,27 @@ Package.onUse(function(api) {
     'i18n/fr.js',
     'i18n/sv.js',
     'modules/Cats.js',
-    'collections/places.js'
+    'collections/places.js',
+    'collections/users.js',
   ]);
 
   api.addFiles([
     'client/router.js',
     'client/Place_cats.js',
+    'client/User_cats.js',
     'client/views/panels/place.html',
     'client/views/panels/place.js',
     'client/stylesheets/main.css',    
-/*    'client/views/panels/user.html',
-    'client/views/panels/user.js',
+    'client/views/panels/user.html',
+    //'client/views/panels/user.js',
     'client/views/panels/settings.html',
-    'client/views/panels/settings.js'*/
+    'client/views/panels/settings.js'
   ],'client');
 
   api.addFiles([
-    'server/places.js',
+    'server/admin.js',
+    'server/users.js',
+    'server/places.js'
   ],'server');
 
 });

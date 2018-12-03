@@ -2,8 +2,8 @@
 K.Plugin({
 	name: 'categories',
 	templates: {
-		//TODO panelSettings: 'panelSettings_cats',
-		//TODO tabUser: 'tabUser_cats',
+		panelSettings: 'panelSettings_cats',
+		panelUser: 'panelUser_cats',
 		panelPlace: {
 			'panelPlace_cats': {order: -5 } //render after share plugin
 		},
@@ -49,6 +49,16 @@ K.Plugin({
 			}
 		},	
 		userPanel: {
+			fields: {
+				cats: 1
+			}
+		},		
+		userItem: {
+			fields: {
+				cats: 1
+			}
+		},
+		userSearch: {
 			fields: {
 				cats: 1
 			}

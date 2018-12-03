@@ -1,11 +1,22 @@
 
 Template.panelSettings_cats.helpers({
-	placeCats: function() {
-		return _.map(K.Cats.actives, function(k) {
+	allCats: function() {
+		
+		var profileCats = K.Profile.data.cats,
+			activeCats = [];
+
+		_.each(K.settings.public.categories.cats.place, function(v,k) {
+			if(v){
+				activeCats.push(k);
+			}
+		});
+
+		return _.map(_.union(activeCats, profileCats), function(c) {
+			//console.log(c)
 			return {
-				val: k,
-				name: i18n('cats.place.'+k),
-				active: _.contains(K.Profile.data.cats, k)
+				val: c,
+				name: c,//i18n('label_ors_'+p),
+				active: _.contains(profileCats, c)
 			};
 		});
 	}

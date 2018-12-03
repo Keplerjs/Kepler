@@ -1,26 +1,29 @@
 
 Kepler.Cats = {
 
-	allCats: K.settings.public.categories.cats.place,
+	allCats: K.settings.public.categories.cats,
 
-	activeCats: [],
+	activeCats: {
+		place: [],
+		user: []
+	},
 
-	sanitize: function(cats) {
+	sanitize: function(cats, type) {
 		var self = this;
 		
 		cats = _.isArray(cats) ? cats : [cats];
 		
-		if(self.activeCats.length != _.keys(self.allCats).length) {
+		if(self.activeCats[type].length != _.keys(self.allCats[type]).length) {
 			
-			_.each(self.allCats, function(v, k) {
+			_.each(self.allCats[type], function(v, k) {
 				if(v){
-					self.activeCats.push(k);
+					self.activeCats[type].push(k);
 				}
 			});
 		}
 
 		return _.filter(cats, function(v) {
-			return _.contains(self.activeCats, v);
+			return _.contains(self.activeCats[type], v);
 		});
 	}
 }

@@ -1,5 +1,5 @@
 
-Kepler.Place.include({
+Kepler.User.include({
 
 	getCats: function() {
 		this._dep.depend();
@@ -9,7 +9,7 @@ Kepler.Place.include({
 	classMarker: function() {
 		this._dep.depend();
 		return _.map(this.getCats(), function(c) {
-			return 'cat-place-'+c;
+			return 'cat-user-'+c;
 		}).join(' ');
 	}
 });
