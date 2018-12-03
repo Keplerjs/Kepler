@@ -2,6 +2,9 @@
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+...
+
+## v1.5.5
 - plugin photos resize uploaded photos by settings
 - plugin photos load place photo
 - open photo clicking image avatar

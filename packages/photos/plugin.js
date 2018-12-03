@@ -73,7 +73,7 @@ K.Plugin({
 						"image/jpeg": true
 					},
 					"imageOpts":{
-						"width": 600,
+						"width": 800,
 						"height": 800,
 						"quality": 0.25
 					},

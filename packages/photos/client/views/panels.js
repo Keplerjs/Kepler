@@ -1,22 +1,24 @@
 
 Template.panelPlace_photos.onRendered(function() {
 
-		var self = this,
+	var self = this,
 		place = self.data;
 	
 	var img$ = self.$('.place-photo');
 
-	self.photoViewer = new Viewer(img$[0], {
-		navbar: false,
-		toolbar: false,
-		fullscreen: true,
-		ready: function(e) {
-			console.log('start view photo')
-		},
-		hide: function(e) {
-			console.log('stop view photo')	
-		}
-	});
+	if(Viewer) {
+		self.photoViewer = new Viewer(img$[0], {
+			navbar: false,
+			toolbar: false,
+			fullscreen: true,
+			/*ready: function(e) {
+				console.log('start view photo')
+			},
+			hide: function(e) {
+				console.log('stop view photo')	
+			}*/
+		});
+	}	
 });
 
 Template.panelPlaceEdit_photos.onRendered(function() {
@@ -41,6 +43,8 @@ Template.panelPlaceEdit_photos.onRendered(function() {
 Template.panelPlaceEdit_photos.helpers({
 	photoUploaded: function() {
 		var place = this;
+
+		//return a callback
 		return function(ret) {
 			//TODO or update photo
 			place.update();
