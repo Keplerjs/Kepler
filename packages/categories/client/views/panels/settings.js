@@ -12,10 +12,9 @@ Template.panelSettings_cats.helpers({
 		});
 
 		return _.map(_.union(activeCats, profileCats), function(c) {
-			//console.log(c)
 			return {
 				val: c,
-				name: c,//i18n('label_ors_'+p),
+				name: c,
 				active: _.contains(profileCats, c)
 			};
 		});

@@ -12,10 +12,9 @@ Template.panelPlaceEdit_cats.helpers({
 		});
 
 		return _.map(_.union(activeCats, placeCats), function(c) {
-			//console.log(c)
 			return {
 				val: c,
-				name: c,//i18n('label_ors_'+p),
+				name: c,
 				active: _.contains(placeCats, c)
 			};
 		});

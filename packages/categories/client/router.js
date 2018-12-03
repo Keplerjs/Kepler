@@ -14,7 +14,7 @@ Router.map(function() {
 			var places = K.findPlacesByCategory(this.params.cat).fetch();
 
 			return {
-				title: i18n('title_cats_users', this.params.cat),
+				title: i18n('title_cats_places', this.params.cat),
 				className: 'placesCats',
 				//headerTemplate: 'search_cats',
 				itemsTemplate: 'item_place_search',

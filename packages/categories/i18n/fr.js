@@ -1,5 +1,5 @@
 
 i18n.map('fr', {
-	label_cats_place: "Catégories",
-	label_cats_user: "Typologie",	
+	label_cat: "Catégorie",
+	label_cats: "Catégories",	
 });
