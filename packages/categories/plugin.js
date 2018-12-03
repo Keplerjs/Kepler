@@ -7,7 +7,10 @@ K.Plugin({
 		panelPlace: {
 			'panelPlace_cats': {order: -5 } //render after share plugin
 		},
-		panelPlaceEdit: 'panelPlaceEdit_cats'
+		panelPlaceEdit: 'panelPlaceEdit_cats',
+		tabUser: {
+			'panelUserAdmin_cats': {order:10}
+		}
 	},
 	settings: {
 		"public": {

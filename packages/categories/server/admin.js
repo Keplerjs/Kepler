@@ -18,27 +18,15 @@ K.Admin.methods({
 
 		return userCats;
 	},
-	removeCatsByUser: function(userId, cats) {
+	removeCatsFromUser: function(userId, cats) {
 		
 		if(!K.Admin.isMe()) return false;
 		
 		cats = _.isArray(cats) ? cats : [cats];
 
-		var placeData = Users.findOne(userId),
-			placeCats = placeData.cats;
-
-		if(placeData.userId === this.userId) {
-
-			Users.update(userId, { $pull: {'cats':  {$in: cats} } });
-			
-			placeCats = Users.findOne(userId, {
-				fields: {_id:0, cats:1}
-			}).cats;
-
-			console.log('Cats: removeCatsFromPlace', userId);
-		}
-
-		return placeCats;
+		Users.update(userId, { $pull: {'cats':  {$in: cats} } });
+		
+		console.log('Cats: removeCatsFromPlace', userId);
 	},
 	cleanCatsByPlace: function(placeId, cats) {
 

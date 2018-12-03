@@ -5,7 +5,7 @@ Template.panelSettings_cats.helpers({
 		var profileCats = K.Profile.data.cats,
 			activeCats = [];
 
-		_.each(K.settings.public.categories.cats.place, function(v,k) {
+		_.each(K.settings.public.categories.cats.user, function(v,k) {
 			if(v){
 				activeCats.push(k);
 			}

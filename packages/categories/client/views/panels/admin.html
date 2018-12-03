@@ -1,0 +1,21 @@
+
+<template name="panelUserAdmin_cats">
+{{#if adminIsMe}}
+<div class="list-group">
+	<div class="list-group-item active">Admin</div>
+	<div class="list-group-item">
+		<label class="col-xs-3 control-label">{{i18n 'label_cats'}}</label>
+		<div class="col-xs-9 col-xs-offset-3">
+			<div id="cats" class="btn-group" data-toggle="buttons">
+			{{#each allCats}}
+				<label class="btn btn-xs btn-default {{#if active}} active {{/if}}">
+				<input type="checkbox" name="cats" checked="{{active}}" value="{{val}}" />
+				{{name}}
+				</label>
+			{{/each}}
+			</div>
+		</div>
+	</div>		
+</div>	
+{{/if}}
+</template>
