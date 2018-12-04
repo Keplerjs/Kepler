@@ -70,6 +70,7 @@ i18n.map('sv', {
 	btn_friends: "Vänner",
 	btn_users: "Personer",
 	btn_settings: "Inställningar",
+	btn_addnew: "Lägg till ny",
 	btn_verify: "Verifiera",
 	btn_verified: "Verifierad",
 	btn_notverified: "Verifiera",

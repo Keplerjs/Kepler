@@ -4,5 +4,7 @@ i18n.map('en', {
 	
 	title_panelAdminUsers: "Manage Users",
 
-	label_rawdata: "Raw Data"
+	label_rawdata: "Raw Data",
+
+	btn_userdel: "Remove User"
 });

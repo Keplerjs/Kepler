@@ -6,6 +6,12 @@ Router.map(function() {
 		template: 'panelAdmin',
 		layoutTemplate: 'layoutMap',
 		loadingTemplate: 'pageLoading',
+		onBeforeAction: function () {
+			if(!K.Admin.isMe())
+				Router.go('root');
+			else
+				this.next();
+		},
 		waitOn: function() {
 			Session.set('showSidebar', true);
 		}
@@ -16,8 +22,22 @@ Router.map(function() {
 		template: 'pageAdminUsers',
 		layoutTemplate: 'layoutPage',
 		loadingTemplate: 'pageLoading',
+		onBeforeAction: function () {
+			if(!K.Admin.isMe())
+				Router.go('root');
+			else
+				this.next();
+		},
 		waitOn: function() {
-			Session.set('showSidebar', true);
+			return Meteor.subscribe('usersByDate');
+		},
+		data: function() {
+			if(!this.ready()) return null;
+			var users = K.findUsersByDate().fetch(),
+				userIds = _.pluck(users,'_id');
+			return {
+				items: _.map(userIds, K.userById)
+			};
 		}
 	});
 });

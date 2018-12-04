@@ -34,6 +34,7 @@ Package.onUse(function(api) {
     'client/Place_admin.js',
     'client/helpers.js',
     'client/views/pages.html',
+    'client/views/pages.js',
     'client/views/panels.html',
     'client/views/panels.js',
     'client/router.js'

@@ -1,6 +1,56 @@
 
 <template name="pageAdminUsers">
 	<section id="adminUsers">
-		TODO
+		<br />
+		<div class="row">
+			<div class="col-sm-4">
+				<form class="form-horizontal item_user-new" role="form">
+					<div class="input-group">
+						<input class="form-control user-name-new" tyte="text" maxlength="60" placeholder="{{i18n 'label_username'}}" aria-label="{{i18n 'label_username'}}" aria-expanded="true" />
+						<span class="input-group-btn">
+							<a class="btn btn-default user-btn-new">
+								<i class="icon icon-add"></i> {{i18n 'btn_addnew'}}
+							</a>
+						</span>
+					</div>
+					<br />
+				</form>
+			</div>
+			<div class="col-sm-4">
+				<input class="users-search form-control" type="text" placeholder="{{i18n 'label_find'}}" /> 
+				<span class="search-canc form-control-feedback" aria-hidden="true"><i class="icon icon-canc"></i></span>
+			</div>			
+		</div>
+		<div class="row">
+			<div class="col-sm-8">
+				<div class="list-items list-group">
+					{{#if items.length}}	
+						{{#each items}}
+							
+							{{> item_user_admin}}
+
+						{{/each}}
+					{{else}}
+						<!--div class="list-group-item text-gray text-center">
+							{{i18n 'label_nolistitems'}}
+						</div-->
+					{{/if}}
+				</div>
+			</div>
+		</div>
 	</section>
+</template>
+
+<template name="item_user_admin">
+	<div class="list-group-item">
+		<div class="pull-left">
+			{{> item_user}}
+		</div>
+		<div class="pull-right">
+			<time>{{humanTime createdAt 1}}</time>
+			<a class="btn btn-sm btn-default user-btn-del" href="#" data-confirm-msg="{{i18n 'btn_userdel'}}">
+				<i class="icon icon-del"></i>
+			</a>
+		</div>
+	</div>
 </template>
