@@ -33,6 +33,7 @@ Package.onUse(function(api) {
     'client/Profile_admin.js',
     'client/Place_admin.js',
     'client/helpers.js',
+    'client/views/pages.html',
     'client/views/panels.html',
     'client/views/panels.js',
     'client/router.js'

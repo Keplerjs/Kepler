@@ -2,7 +2,7 @@
 K.Plugin({
 	name: 'admin',
 	templates: {
-		panelAdmin: {},
+		panelAdmin: 'panelAdmin_btn_users',
 		panelProfile: {
 			'panelProfile_admin': {order:10},
 			'panelUser_admin': {order:50},

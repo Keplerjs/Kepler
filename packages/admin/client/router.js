@@ -11,4 +11,13 @@ Router.map(function() {
 		}
 	});
 
+	this.route('panelAdminUsers', {
+		path: '/admin/users',
+		template: 'pageAdminUsers',
+		layoutTemplate: 'layoutPage',
+		loadingTemplate: 'pageLoading',
+		waitOn: function() {
+			Session.set('showSidebar', true);
+		}
+	});
 });
