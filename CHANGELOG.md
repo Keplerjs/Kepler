@@ -3,6 +3,8 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
 - plugin admin new page admin users
+- plugin admin new page manager users
+- plugin share fix google link
 
 ## v1.5.6
 - various fixes

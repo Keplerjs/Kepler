@@ -44,10 +44,10 @@
 <template name="item_user_admin">
 	<div class="list-group-item">
 		<div class="pull-left">
-			{{> item_user}}
+			{{> item_user}} 
 		</div>
 		<div class="pull-right">
-			<time>{{humanTime createdAt 1}}</time>
+			<time>{{numericDate createdAt}}</time>
 			<a class="btn btn-sm btn-default user-btn-del" href="#" data-confirm-msg="{{i18n 'btn_userdel'}}">
 				<i class="icon icon-del"></i>
 			</a>
