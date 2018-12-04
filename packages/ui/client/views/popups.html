@@ -30,11 +30,14 @@
 
 <template name="popupCursor">
 	<div class="popup-cursor">
-		<a class="btn btn-sm btn-default btn-block" href="{{absoluteUrl 'map/'}}{{humanLoc loc}}">
-			{{humanLoc loc 5}}
-		</a>
 		{{> pluginsTemplate name='popupCursor'}}
 	</div>
+</template>
+
+<template name="popupCursor_ui_loc">
+	<a class="btn btn-sm btn-default btn-block" href="{{absoluteUrl 'map/'}}{{humanLoc loc}}">
+		{{humanLoc loc 5}}
+	</a>
 </template>
 
 <template name="popupPlace_ui_checkins">

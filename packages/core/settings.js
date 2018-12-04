@@ -81,6 +81,9 @@ Kepler.settings = {
 			"popupPlace": {
 				"popupPlace_ui_checkins": {order:-10}
 			},
+			"popupCursor": {
+				"popupCursor_ui_loc": {order:-10}
+			},
 			"markerPlace": {
 				"markerPlace_ui_checkins": {order:-10}
 			},

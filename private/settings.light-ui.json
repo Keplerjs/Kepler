@@ -149,6 +149,7 @@
 				"itemUser_conver": { "show": false }
 			},
 			"popupCursor": {
+				"popupCursor_ui_loc": { "show": false },
 				"popupCursor_edit": { "show": false },
 				"popupCursor_geoinfo": { "show": false },
 				"popupCursor_share": { "show": false },
