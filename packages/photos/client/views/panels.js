@@ -2,23 +2,33 @@
 Template.panelPlace_photos.onRendered(function() {
 
 	var self = this,
-		place = self.data;
-	
-	var img$ = self.$('.place-photo');
+		place = self.data,
+		img$ = self.$('.place-photo');
 
-	if(Viewer) {
-		self.photoViewer = new Viewer(img$[0], {
-			navbar: false,
-			toolbar: false,
-			fullscreen: true,
-			/*ready: function(e) {
-				console.log('start view photo')
-			},
-			hide: function(e) {
-				console.log('stop view photo')	
-			}*/
-		});
-	}	
+	//https://fengyuanchen.github.io/viewerjs/
+	if(place.photo && Viewer) {
+
+		if(!place.photoViewer) {
+			place.photoViewer = new Viewer(img$[0], {
+				navbar: false,
+				toolbar: false,
+				fullscreen: true,
+				/*ready: function(e) {
+					console.log('start view photo')
+				},
+				hide: function(e) {
+					console.log('stop view photo')	
+				}*/
+			});
+		}
+	}
+});
+
+Template.panelPlace_photos.events({
+	'click .place-photo': function(e, tmpl) {
+		e.preventDefault();
+		tmpl.data.photoViewer.show();
+	}
 });
 
 Template.panelPlaceEdit_photos.onRendered(function() {
