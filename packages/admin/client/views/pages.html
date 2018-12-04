@@ -23,7 +23,7 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-8">
-				<div class="list-items list-group">
+				<div class="list-group">
 					{{#if items.length}}	
 						{{#each items}}
 							
@@ -47,10 +47,15 @@
 			{{> item_user}} 
 		</div>
 		<div class="pull-right">
-			<time>{{numericDate createdAt}}</time>
-			<a class="btn btn-sm btn-default user-btn-del" href="#" data-confirm-msg="{{i18n 'btn_userdel'}}">
-				<i class="icon icon-del"></i>
-			</a>
+
+			{{> pluginsTemplate name='itemUserAdmin'}}
+
 		</div>
 	</div>
+</template>
+
+<template name="itemUserAdmin_admin">
+	<a class="btn btn-sm btn-default user-btn-del" href="#" data-confirm-msg="{{i18n 'btn_userdel'}}">
+		<i class="icon icon-del"></i>
+	</a>
 </template>

@@ -51,7 +51,7 @@ Template.pageAdminUsers.events({
 
 });
 
-Template.item_user_admin.onRendered(function() {
+Template.itemUserAdmin_admin.onRendered(function() {
 	
 	var username = this.data.username;
 	this.$('.user-btn-del').btsConfirmButton(function(e) {

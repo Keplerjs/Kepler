@@ -43,11 +43,13 @@
 			{{> pluginsTemplate name='panelUser'}}
 
 			<ul class="nav nav-tabs">
+				{{#if settings 'templates.tabUser_ui_info.show'}}
 				<li class="active">
 					<a href="#tab_info" data-toggle="tab">
 						<i class="icon icon-info"></i> <span>{{i18n 'btn_info'}}</span>
 					</a>
 				</li>
+				{{/if}}
 				{{#if settings 'templates.tabUser_ui_friends.show'}}
 				<li class="">
 					<a href="#tab_friends" data-toggle="tab">

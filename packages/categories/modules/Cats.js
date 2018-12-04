@@ -1,6 +1,7 @@
 
 Kepler.Cats = {
 
+	//TODO conver in function and sort by name
 	allCats: K.settings.public.categories.cats,
 
 	activeCats: {

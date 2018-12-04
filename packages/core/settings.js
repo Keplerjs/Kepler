@@ -38,6 +38,7 @@ Kepler.settings = {
 			//TODO refact.. templates without placeholder
 			"tabPlace_ui_info": { "show": true},
 			"tabPlace_ui_hist": { "show": true},
+			"tabUser_ui_info": { "show": true},
 			"tabUser_ui_friends": { "show": true},
 			"tabUser_ui_hist": { "show": true},
 

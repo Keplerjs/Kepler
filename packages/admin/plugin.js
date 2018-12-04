@@ -2,7 +2,11 @@
 K.Plugin({
 	name: 'admin',
 	templates: {
-		panelAdmin: 'panelAdmin_btn_users',
+		//new placeholder
+		itemUserAdmin: {
+			'itemUserAdmin_admin':{order:-10},
+		},
+		panelAdmin: 'panelAdmin_btn_users',		
 		panelProfile: {
 			'panelProfile_admin': {order:10},
 			'panelUser_admin': {order:50},
@@ -10,9 +14,7 @@ K.Plugin({
 		panelPlaceEdit: {
 			'panelPlace_admin': {order:50},
 		},
-		tabUser: {
-			'panelUser_admin': {order:10}
-		}
+
 		//TODO move it in a special admin page
 	},
 	schemas: {

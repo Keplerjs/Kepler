@@ -41,9 +41,7 @@ Package.onUse(function(api) {
     'client/views/panels/user.html',
     //'client/views/panels/user.js',
     'client/views/panels/settings.html',
-    'client/views/panels/settings.js',
-    'client/views/panels/admin.html',
-    'client/views/panels/admin.js',    
+    'client/views/panels/settings.js',  
   ],'client');
 
   api.addFiles([
