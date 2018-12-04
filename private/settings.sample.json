@@ -23,12 +23,12 @@
 		},
 		"templates": {
 			"panelPlace": {
-				"panelPlace_edit": false,
-				"popupCursor_share": false,
+				"panelPlace_edit": true,
+				"popupCursor_share": true,
 				"panelPlace_share": {"order": -10}
 			},
 			"popupCursor": {
-				"popupCursor_share":false
+				"popupCursor_share":true
 			}
 		}
 	},

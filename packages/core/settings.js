@@ -33,13 +33,13 @@ Kepler.settings = {
 		"profile": {
 			"awayTime": 10000,
 			"awayOnWindowBlur": true
-		},	
+		},
 		"templates": {
 			//TODO refact.. templates without placeholder
 			"tabPlace_ui_info": { "show": true},
 			"tabPlace_ui_hist": { "show": true},
-			"tabUser_ui_hist": { "show": true},
 			"tabUser_ui_friends": { "show": true},
+			"tabUser_ui_hist": { "show": true},
 
 			//core/ui templates configurations
 			"navSidebar": {
@@ -71,7 +71,7 @@ Kepler.settings = {
 				"panelPlace_ui_btn_checkin": { order:-10 },
 				"panelPlace_ui_btns": { order:-10 },
 				"panelPlace_ui_info": { order:-10 }
-			},	
+			},
 			"panelUser": {
 				"panelUser_ui_bio": { order:-20 },
 				"panelUser_ui_status": { order:-20 },
