@@ -2,7 +2,7 @@
 Template.pageAdminUsers.onRendered(function() {
 	var self = this;
 
-	$(self.firstNode).find('.list-items').btsListFilter('.users-search', {
+	$(self.firstNode).find('.list-group').btsListFilter('.users-search', {
 		itemChild: '.user-btn-name',
 		loadingClass: 'loading-lg',
 		sourceData: function(val, callback) {
