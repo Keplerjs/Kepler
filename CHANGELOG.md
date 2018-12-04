@@ -2,7 +2,7 @@
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
-...
+- plugin admin new page admin users
 
 ## v1.5.5
 - plugin photos resize uploaded photos by settings
