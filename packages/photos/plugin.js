@@ -21,6 +21,7 @@ K.Plugin({
 		user: {
 			photos: []	   //places created by user
 		},
+		//TODO
 		photo: {
 			title: '',         //Topic for the place wall or subject for the private convers
 			url: '',
