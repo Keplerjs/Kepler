@@ -24,6 +24,7 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
+    'client/views/markers.html',
     'client/views/items.html',
     'client/views/items.js',
     'client/views/panels.html',

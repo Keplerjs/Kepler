@@ -4,7 +4,8 @@ K.Plugin({
 	templates: {
 		panelProfile: 'panelProfile_favorites',
 		tabUser: 'tabUser_favorites',
-		itemPlace: 'itemPlace_favorites'
+		itemPlace: 'itemPlace_favorites',
+		markerPlace: 'markerPlace_favorites',
 	},
 	schemas: {
 		place: {

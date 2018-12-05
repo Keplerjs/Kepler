@@ -5,6 +5,7 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 - plugin admin new page admin users
 - plugin admin new page manager users
 - plugin share fix google link
+- plugin favorites ass icon in marker place
 
 ## v1.5.6
 - various fixes

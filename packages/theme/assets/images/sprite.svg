@@ -14,7 +14,7 @@
    inkscape:export-xdpi="90"
    inkscape:export-filename="/home/z4k/www//images/sprite.png"
    sodipodi:docname="sprite.svg"
-   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   inkscape:version="0.92.1 r15371"
    version="1.1"
    id="svg2"
    height="810"
@@ -26,15 +26,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="8.0000004"
-     inkscape:cx="127.97941"
-     inkscape:cy="312.76618"
+     inkscape:zoom="5.6568545"
+     inkscape:cx="110.16494"
+     inkscape:cy="680.62223"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="1413"
+     inkscape:window-width="921"
      inkscape:window-height="933"
-     inkscape:window-x="212"
+     inkscape:window-x="940"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
      inkscape:snap-global="false"
@@ -53,6 +53,18 @@
   </sodipodi:namedview>
   <defs
      id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient7809">
+      <stop
+         style="stop-color:#fffbea;stop-opacity:1"
+         offset="0"
+         id="stop7805" />
+      <stop
+         style="stop-color:#ffd631;stop-opacity:1"
+         offset="1"
+         id="stop7807" />
+    </linearGradient>
     <linearGradient
        id="linearGradient7805">
       <stop
@@ -19307,6 +19319,24 @@
        y1="615.19525"
        x2="1025.4833"
        y2="314.16556" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7809"
+       id="linearGradient7811"
+       x1="298.79593"
+       y1="464.81415"
+       x2="300.63367"
+       y2="399.97333"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7809"
+       id="linearGradient7821"
+       gradientUnits="userSpaceOnUse"
+       x1="298.79593"
+       y1="464.81415"
+       x2="300.63367"
+       y2="399.97333" />
   </defs>
   <metadata
      id="metadata7">
@@ -20884,41 +20914,6 @@
        d="m 124.65291,485.35536 c 0.17902,0 0.49684,-0.0148 0.49684,0.17014 v 2.04167 h 2.13938 c 0.388,0 0.69781,0.22301 0.69781,0.5426 v 2.44633 c 0,0.3196 -0.30981,0.57941 -0.69781,0.57941 h -2.13938 v 2.00489 c 0,0.36994 -0.71374,0.22599 -0.9881,0 l -3.25524,-3.3982 c -0.27436,-0.22599 -0.27436,-0.59252 0,-0.81851 l 3.25524,-3.39819 c 0.13718,-0.11301 0.31223,-0.17014 0.49126,-0.17014 z"
        style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient7112);fill-opacity:1;stroke:#808080;stroke-width:0.90693605;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
     <g
-       id="g6015"
-       inkscape:export-filename="_meteor/public/images/mini-star.png"
-       inkscape:export-xdpi="29.354055"
-       inkscape:export-ydpi="29.354055"
-       transform="matrix(0.45543258,0,0,0.46933054,28.667694,36.405846)">
-      <path
-         sodipodi:type="star"
-         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient7943);fill-opacity:1;fill-rule:nonzero;stroke:#eca800;stroke-width:11.4976759;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;filter:url(#filter4964);enable-background:accumulate"
-         id="path5129"
-         sodipodi:sides="5"
-         sodipodi:cx="297.6326"
-         sodipodi:cy="422.6463"
-         sodipodi:r1="52.199631"
-         sodipodi:r2="26.392508"
-         sodipodi:arg1="1.5707963"
-         sodipodi:arg2="2.1991148"
-         inkscape:flatsided="false"
-         inkscape:rounded="0"
-         inkscape:randomized="0"
-         d="m 297.6326,474.84593 -15.51313,-30.84764 -34.13167,-5.22141 24.54403,-24.28631 -5.58141,-34.07466 30.68218,15.83788 30.68217,-15.83788 -5.58141,34.07466 24.54404,24.2863 -34.13167,5.22142 z"
-         transform="matrix(0.3478964,0,0,-0.3478964,116.83863,862.42043)"
-         inkscape:export-filename="/images/star.png"
-         inkscape:export-xdpi="44.530777"
-         inkscape:export-ydpi="44.530777" />
-      <path
-         inkscape:export-ydpi="44"
-         inkscape:export-xdpi="44"
-         inkscape:export-filename="/images/star.png"
-         transform="matrix(0.28131248,0,0,-0.27847361,136.65617,832.7331)"
-         id="path5635"
-         d="m 297.6326,474.84593 c -5.17104,-10.28255 -10.34208,-20.56509 -15.51313,-30.84764 -11.37722,-1.74047 -22.75445,-3.48094 -34.13167,-5.22141 8.18134,-8.09544 16.36269,-16.19088 24.54403,-24.28631 -1.86047,-11.35822 -3.72094,-22.71644 -5.58141,-34.07466 10.2274,5.2793 20.45479,10.55859 30.68218,15.83788 10.22739,-5.27929 20.45478,-10.55858 30.68217,-15.83788 -1.86047,11.35822 -3.72094,22.71644 -5.58141,34.07466 8.18135,8.09543 16.36269,16.19087 24.54404,24.2863 -11.37723,1.74047 -22.75445,3.48095 -34.13167,5.22142 -5.17105,10.28255 -10.34209,20.56509 -15.51313,30.84764 z"
-         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;stroke:#ffd631;stroke-width:5.35925865;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker:none;filter:url(#filter4964);enable-background:accumulate"
-         inkscape:connector-curvature="0" />
-    </g>
-    <g
        id="g6435"
        transform="translate(0,-210.04991)">
       <g
@@ -21423,7 +21418,7 @@
        inkscape:export-filename="_meteor/public/images/mini-unstar.png"
        inkscape:export-xdpi="29.618324"
        inkscape:export-ydpi="29.618324"
-       transform="matrix(0.47154297,0,0,0.49004079,55.307324,-1.7889367)">
+       transform="matrix(0.47154297,0,0,0.49004079,55.307324,-2.3634609)">
       <path
          inkscape:export-ydpi="42.044464"
          inkscape:export-xdpi="42.044464"
@@ -23620,6 +23615,44 @@
        d="M 188.99023 540.00586 C 184.04045 540.00586 179.99805 544.04827 179.99805 548.99805 C 179.99805 553.93147 184.04045 557.97461 188.99023 557.97461 C 193.92365 557.97461 197.96484 553.93147 197.96484 548.99805 C 197.96484 544.04827 193.92365 540.00586 188.99023 540.00586 z M 184.77734 543.29102 C 190.17418 543.29102 194.59961 547.70059 194.59961 553.09766 L 192.15039 553.09766 C 192.15039 549.0498 188.8252 545.73828 184.77734 545.73828 L 184.77734 543.29102 z M 184.77734 546.72656 C 188.29663 546.72656 191.16211 549.59226 191.16211 553.09766 L 188.70117 553.09766 C 188.70117 550.94171 186.93328 549.17578 184.77734 549.17578 L 184.77734 546.72656 z M 186.11328 550.65039 C 186.79499 550.65039 187.33789 551.19308 187.33789 551.875 C 187.33789 552.55642 186.79495 553.09766 186.11328 553.09766 C 185.43187 553.09766 184.88867 552.55639 184.88867 551.875 C 184.88867 551.19308 185.43187 550.65039 186.11328 550.65039 z "
        transform="translate(0,242.36197)"
        id="path7773" />
+    <path
+       sodipodi:type="star"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:none;stroke:#e38600;stroke-width:10.76152245;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+       id="path7767"
+       sodipodi:sides="5"
+       sodipodi:cx="297.6326"
+       sodipodi:cy="422.6463"
+       sodipodi:r1="52.199631"
+       sodipodi:r2="26.392508"
+       sodipodi:arg1="1.5707963"
+       sodipodi:arg2="2.1991148"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 297.6326,474.84593 -15.51313,-30.84764 -34.13167,-5.22141 24.54403,-24.28631 -5.58141,-34.07466 30.68218,15.83788 30.68217,-15.83788 -5.58141,34.07466 24.54404,24.2863 -34.13167,5.22142 z"
+       transform="matrix(0.15596272,0,0,-0.16208088,82.702768,440.20569)"
+       inkscape:export-filename="/images/unstar.png"
+       inkscape:export-xdpi="42.044464"
+       inkscape:export-ydpi="42.044464" />
+    <path
+       inkscape:export-ydpi="42.044464"
+       inkscape:export-xdpi="42.044464"
+       inkscape:export-filename="/images/unstar.png"
+       d="m 297.6326,474.84593 -15.51313,-30.84764 -34.13167,-5.22141 24.54403,-24.28631 -5.58141,-34.07466 30.68218,15.83788 30.68217,-15.83788 -5.58141,34.07466 24.54404,24.2863 -34.13167,5.22142 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0"
+       inkscape:flatsided="false"
+       sodipodi:arg2="2.1991148"
+       sodipodi:arg1="1.5707963"
+       sodipodi:r2="26.392508"
+       sodipodi:r1="52.199631"
+       sodipodi:cy="422.6463"
+       sodipodi:cx="297.6326"
+       sodipodi:sides="5"
+       id="path7803"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient7821);fill-opacity:1;stroke:#fdbe00;stroke-width:3.58980234;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+       sodipodi:type="star"
+       transform="matrix(0.13717586,0,0,-0.14255704,88.336365,431.89872)" />
   </g>
   <style
      id="style6085"
