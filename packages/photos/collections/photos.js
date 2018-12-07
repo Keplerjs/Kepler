@@ -39,23 +39,24 @@ K.extend({
 	findPhotosByTarget: function(targetId) {
 		return Photos.find({targetId: targetId }, K.filters.photoItem);
 	},
+
+	findPlacesPhotosByDate: function() {
+		return Places.find({
+			photo: {
+				$exists: true,
+				$ne: ''
+			}
+		}, _.deepExtend({}, K.filters.placeItem, {
+				sort: {
+					'createdAt': -1
+				},
+				limit: 50
+			})
+		);
+	},	
 	/* TODO copid by convers plugin findPhotosByUser: function(userId) {
 		//TODO maybe return photos to partecipate to
 		//return Photos.find({userId: userId, targetType:'place' }, K.filters.photoItem);
 		return Photos.find({usersIds: userId, targetType:'place' }, K.filters.photoItem);
-	},
-	findPhotosPlaces: function() {
-	
-		var date = new Date();
-			date.setDate(date.getDate() - 10),
-			dateFrom = K.Util.time(date);
-
-		return Photos.find({
-			targetType: 'place'
-		}, _.deepExtend({}, K.filters.photoItem, {
-				sort: { 'createdAt': -1, 'lastMsg.updatedAt': -1,  'targetId': 1},
-				limit: 100
-			})
-		);
-	},	*/
+	},*/
 });	

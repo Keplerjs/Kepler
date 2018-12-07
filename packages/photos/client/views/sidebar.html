@@ -1,0 +1,9 @@
+
+<template name="navSidebar_photos">
+	<li class="{{ifRoute 'photosNews' 'active'}}">
+		<a class="btn btn-sm" href="{{pathFor route='photosNews'}}" role="tab">
+			<i class="icon icon-photos"></i>
+			<span> {{i18n 'title_photos'}}</span> 
+		</a>
+	</li>
+</template>

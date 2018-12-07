@@ -2,6 +2,9 @@
 K.Plugin({
 	name: 'photos',
 	templates: {
+		navSidebar: {
+			'navSidebar_photos': { order: 10}
+		},
 		panelPlace: {
 			'panelPlace_photos': { order:-8}
 		},

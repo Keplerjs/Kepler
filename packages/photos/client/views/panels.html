@@ -2,11 +2,9 @@
 
 <template name="panelPlace_photos">
 {{#if photo}}
-	<div class="row">
-		<figure class="col-xs-12">
-			<img class="place-photo img-responsive img-rounded" src="{{photourl}}" height="800" width="600" itemprop="thumbnail" alt="{{name}}" />
-		</figure>
-	</div>
+	<figure class="clearfix">
+		<img class="place-photo img-responsive img-rounded" src="{{photourl}}" itemprop="thumbnail" alt="{{name}}" />
+	</figure>
 {{/if}}
 </template>
 

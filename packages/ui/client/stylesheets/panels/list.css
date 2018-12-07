@@ -34,11 +34,21 @@
 	border-top: 1px solid #ddd
 
 }
-/*.list-items-grid .list-group-item {
+.list-items.list-items-grid .list-group-item {
 	float: left;
 	clear: none;
-	border: none;
-}*/
+	max-width: 48%;
+	margin: 1%;
+	border:none;
+	padding: 0;
+}
+.list-items.list-items-grid .item-place {
+	max-width: 48%;
+	text-overflow: ellipsis;
+}
+.list-items.list-items-grid .place-btn-name {
+	max-width: 100px
+}
 .search-canc {
 	cursor: pointer;
 	display: none;

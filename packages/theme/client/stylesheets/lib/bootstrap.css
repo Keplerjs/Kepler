@@ -141,15 +141,12 @@ label {
 .nav-pills > li.active > a, 
 .nav-pills > li.active > a:hover, 
 .nav-pills > li.active > a:focus  {
-	background-color: #eee;
+	background-color: rgba(153, 204, 0,.4);
 	color: inherit;
-/*	border-radius: 0;
+	/*border-radius: 0;
 	border-bottom: 2px solid #9c0	*/
 }
 
-.panel-heading {
-	padding: 10px;
-}
 header h4,
 .panel-heading h4 {
 	text-transform: capitalize;

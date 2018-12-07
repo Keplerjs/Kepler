@@ -73,26 +73,12 @@ Meteor.publish('photosByUser', function(userId) {
 		this.ready();
 });
 
-Meteor.publish('photosPlaces', function() {
+Meteor.publish('photosByDate', function() {
 	if(this.userId) {
 
-		console.log('Pub: photosPlaces');
+		console.log('Pub: photosByDate');
 
-		var photosCur = K.findPhotosPlaces(),
-			photosData = photosCur.fetch(),
-			usersIds = _.uniq(_.pluck(photosData, 'usersId')),
-			retCurs = [photosCur];
-
-		var placesIds = [];
-		_.each(photosData, function(c) {
-			if(c.targetType==='place')
-				placesIds.push(c.targetId)
-		});
-
-		retCurs.push( K.findPlacesByIds(placesIds) );
-		retCurs.push( K.findUsersByIds(usersIds) );
-		
-		return retCurs;
+		return K.findPlacesPhotosByDate();
 	}
 	else
 		this.ready();

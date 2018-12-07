@@ -26,15 +26,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6568545"
-     inkscape:cx="110.16494"
-     inkscape:cy="680.62223"
+     inkscape:zoom="22.627418"
+     inkscape:cx="130.48049"
+     inkscape:cy="328.38757"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g7769"
      showgrid="true"
-     inkscape:window-width="921"
-     inkscape:window-height="933"
-     inkscape:window-x="940"
+     inkscape:window-width="1044"
+     inkscape:window-height="983"
+     inkscape:window-x="817"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
      inkscape:snap-global="false"
@@ -22481,7 +22481,8 @@
        cy="257.28223"
        r="14.05898" />
     <g
-       id="g4157">
+       id="g4157"
+       transform="translate(94.999996)">
       <path
          transform="matrix(0.33147587,-0.13139351,0.14419731,0.30204294,215.33592,567.94083)"
          inkscape:connector-curvature="0"
@@ -23653,6 +23654,16 @@
        style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient7821);fill-opacity:1;stroke:#fdbe00;stroke-width:3.58980234;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
        sodipodi:type="star"
        transform="matrix(0.13717586,0,0,-0.14255704,88.336365,431.89872)" />
+    <g
+       id="g7769"
+       transform="matrix(0.03988422,0,0,0.03988422,118.85896,720.4987)"
+       style="fill:#0069b3;fill-opacity:1">
+      <path
+         style="fill:#ffab1d;fill-opacity:1;stroke-width:0.49999999;stroke-miterlimit:4;stroke-dasharray:none;stroke:#e06800;stroke-opacity:1"
+         d="M 127.42188 481.96484 C 127.03098 481.96484 126.6847 482.13317 126.44141 482.40039 L 126.44141 482.4043 L 124.86523 484 L 122.11328 484 C 121.37143 484 120.77344 484.58237 120.77344 485.32422 L 120.77344 493.38477 C 120.77344 494.12661 121.37143 494.72852 122.11328 494.72852 L 136.02539 494.72852 C 136.76325 494.72852 137.36523 494.12661 137.36523 493.38477 L 137.36523 485.32422 C 137.36523 484.58237 136.76325 484 136.02539 484 L 133.33203 484 L 131.7207 482.37305 C 131.7207 482.37305 131.71268 482.36523 131.70898 482.36523 L 131.70117 482.35742 C 131.46187 482.11812 131.13842 481.96484 130.77148 481.96484 L 127.42188 481.96484 z M 134.99219 484.68359 C 135.87173 484.68359 136.58594 485.39998 136.58594 486.28125 C 136.58594 487.1608 135.87173 487.87891 134.99219 487.87891 C 134.11436 487.87891 133.39844 487.1608 133.39844 486.28125 C 133.39844 485.39998 134.11436 484.68359 134.99219 484.68359 z M 129.06836 485.50977 C 130.99921 485.50977 132.57031 487.0806 132.57031 489.02148 C 132.57031 490.96237 130.99921 492.53125 129.06836 492.53125 C 127.13249 492.53125 125.56836 490.95735 125.56836 489.02148 C 125.56836 487.0806 127.13249 485.50977 129.06836 485.50977 z "
+         transform="matrix(25.072573,0,0,25.072573,-2980.0999,-11988.118)"
+         id="path7808" />
+    </g>
   </g>
   <style
      id="style6085"

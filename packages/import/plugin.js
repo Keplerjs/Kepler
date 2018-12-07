@@ -11,11 +11,11 @@ K.Plugin({
 				import: 1
 			}
 		},
-		placeItem: {
+/*	moved to quert	placeItem: {
 			fields: {
 				import: 1
 			}	
-		}
+		}*/
 	},
 	schemas: {
 		place: {

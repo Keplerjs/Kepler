@@ -1,0 +1,17 @@
+
+<template name="item_place_photo">
+	<div class="clearfix">
+		<div class="pull-left">
+			{{> item_place}}
+		</div>
+		<div class="pull-right">
+			<!-- TODO geoinfo -->
+			{{#if createdAt}}
+				<time class="text-muted">{{humanTime createdAt 1}}</time>
+			{{/if}}
+		</div>
+	</div>
+
+	{{> panelPlace_photos}}
+
+</template>

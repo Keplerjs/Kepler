@@ -81,7 +81,7 @@ K.extend({
 					'lastMsg.updatedAt': -1,
 					'targetId': 1
 				},
-				limit: 100
+				limit: 50
 			})
 		);
 	},	
