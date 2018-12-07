@@ -19,7 +19,7 @@ Package.onUse(function (api) {
   ]);
 
   api.addFiles([
-    'server/router.js',
+    'server/Router.js',
   ],'server');
 
 });

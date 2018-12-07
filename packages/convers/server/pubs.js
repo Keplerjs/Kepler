@@ -86,12 +86,12 @@ Meteor.publish('conversByUser', function(userId) {
 		this.ready();
 });
 
-Meteor.publish('conversPlaces', function() {
+Meteor.publish('conversByDate', function() {
 	if(this.userId) {
 
-		console.log('Pub: conversPlaces');
+		console.log('Pub: conversByDate');
 
-		var conversCur = K.findConversPlaces(),
+		var conversCur = K.findConversByDate(),
 			conversData = conversCur.fetch(),
 			usersIds = _.uniq(_.flatten(_.pluck(conversData, 'usersIds'))),
 			//targetIds = _.uniq(_.flatten(_.pluck(conversData, 'targetId'))),

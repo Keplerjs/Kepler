@@ -32,7 +32,7 @@ Package.onUse(function(api) {
     'client/views/panels.html',
     'client/views/panels.js',
     'client/stylesheets/tracks.css',
-    'client/router.js'
+    'client/Router.js'
   ],'client');
 
   api.addFiles([

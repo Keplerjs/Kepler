@@ -78,7 +78,7 @@ Meteor.publish('photosPlaces', function() {
 
 		console.log('Pub: photosPlaces');
 
-		var photosCur = K.findConversPlaces(),
+		var photosCur = K.findPhotosPlaces(),
 			photosData = photosCur.fetch(),
 			usersIds = _.uniq(_.pluck(photosData, 'usersId')),
 			retCurs = [photosCur];

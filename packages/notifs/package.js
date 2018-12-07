@@ -31,7 +31,7 @@ Package.onUse(function(api) {
     'client/views/panels.js',
     'client/views/sidebar.html',
     'client/views/sidebar.js',
-    'client/router.js',
+    'client/Router.js',
     'client/stylesheets/notif.css',
   ],'client');
 

@@ -32,7 +32,7 @@ Package.onUse(function(api) {
     'client/Profile_favorites.js',
     'client/Place_favorites.js',
     'client/User_favorites.js',
-    'client/router.js',
+    'client/Router.js',
     'client/stylesheets/favorites.css',
   ],'client');
 

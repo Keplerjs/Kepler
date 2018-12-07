@@ -48,7 +48,7 @@ Package.onUse(function(api) {
     'client/views/markers.html',
     'client/stylesheets/lib.css',
     'client/stylesheets/main.css',
-    //'client/router.js',
+    'client/Router.js',
   ],'client');
 
   api.addFiles([

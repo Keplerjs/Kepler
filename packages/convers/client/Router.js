@@ -7,14 +7,14 @@ Router.map(function() {
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			Session.set('showSidebar', true);
-			return Meteor.subscribe('conversPlaces');
+			return Meteor.subscribe('conversByDate');
 		},
 		data: function() {
 			return {
 				title: i18n('title_convers'),
 				className: 'convers',
 				itemsTemplate: 'item_conver',
-				items: K.findConversPlaces().fetch()
+				items: K.findConversByDate().fetch()
 			};
 		}
 	});

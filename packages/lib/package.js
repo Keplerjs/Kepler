@@ -93,7 +93,7 @@ Package.onUse(function(api) {
     'lib/deepExtend.js',
     'lib/Class.js',
     'config/leaflet.js',
-    'config/router.js',
+    'config/Router.js',
     'config/underscore.js',
     'config/sAlert.js',
     'config/UserPresence.js'

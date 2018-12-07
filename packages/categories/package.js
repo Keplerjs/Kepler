@@ -32,7 +32,7 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-    'client/router.js',
+    'client/Router.js',
     'client/Place_cats.js',
     'client/User_cats.js',
     'client/views/panels/place.html',

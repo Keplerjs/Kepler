@@ -37,7 +37,7 @@ Package.onUse(function(api) {
     'client/Conver.js',
     'client/Place_conver.js',
     
-    'client/router.js',
+    'client/Router.js',
     'client/stylesheets/items.css',
     'client/stylesheets/panels.css',
     'client/User_conver.js',

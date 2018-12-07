@@ -24,7 +24,7 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-    'client/router.js',
+    'client/Router.js',
     'client/stylesheets/icons.css',
     'client/stylesheets/lib/bootstrap.css',
     'client/stylesheets/lib/leaflet.css',

@@ -63,7 +63,7 @@ K.extend({
 		//return Convers.find({userId: userId, targetType:'place' }, K.filters.converItem);
 		return Convers.find({usersIds: userId, targetType:'place' }, K.filters.converItem);
 	},
-	findConversPlaces: function() {
+	findConversByDate: function() {
 	
 		var date = new Date();
 			date.setDate(date.getDate() - 10),
@@ -76,7 +76,11 @@ K.extend({
 				'$gte': dateFrom
 			}*/
 		}, _.deepExtend({}, K.filters.converItem, {
-				sort: { 'createdAt': -1, 'lastMsg.updatedAt': -1,  'targetId': 1},
+				sort: { 
+					'createdAt': -1,
+					'lastMsg.updatedAt': -1,
+					'targetId': 1
+				},
 				limit: 100
 			})
 		);
