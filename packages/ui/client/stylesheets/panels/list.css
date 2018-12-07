@@ -47,7 +47,7 @@
 	text-overflow: ellipsis;
 }
 .list-items.list-items-grid .place-btn-name {
-	max-width: 100px
+	max-width: 80px
 }
 .search-canc {
 	cursor: pointer;
