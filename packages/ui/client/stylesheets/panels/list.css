@@ -49,6 +49,10 @@
 .list-items.list-items-grid .place-btn-name {
 	max-width: 80px
 }
+.list-items.list-items-grid time {
+	line-height: 6px;
+	vertical-align: bottom;
+}
 .search-canc {
 	cursor: pointer;
 	display: none;

@@ -67,6 +67,7 @@
 				"navSidebar_ui_friends": { "show": false },
 				"navSidebar_ui_places": { "show": false },
 				"navSidebar_conver": { "show": false },
+				"navSidebar_photos": { "show": false },
 				"navSidebar_notif": { "show": false }
 			},
 			"panelProfile": {
