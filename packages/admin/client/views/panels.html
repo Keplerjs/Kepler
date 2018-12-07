@@ -56,39 +56,38 @@
 
 <template name="panelAdmin">
 
-<div id="admin" class="panel">
+	<div id="admin" class="panel">
 
-	<div class="panel-heading bg-primary">
-		<h4 class="pull-left">
-			<a class="back" href="javascript:history.back()">
-				<i class="icon icon-arrow-l"></i>
-			</a> 
-			{{i18n 'title_admin'}}
-		</h4>
-		<a class="close pull-right" href="/">
-			<i class="icon icon-close"></i>
-		</a>
-	</div>
-	<div class="panel-body">
-
-<!-- 		<div class="list-group">
-			<div class="list-group-item active">
-				Admin methods registered in the browser console
-			</div>
-			<div class="list-group-item" style="max-height:150px;overflow-y:auto">
-			{{#each methods}}
-				<a href="#" data-name="{{this}}">K.Admin.{{this}}()</a><br />
-			{{/each}}
-			</div>
-		</div> -->
-		<div class="list-group">
-
-			{{> pluginsTemplate name='panelAdmin'}}
-			
+		<div class="panel-heading bg-primary">
+			<h4 class="pull-left">
+				<a class="back" href="javascript:history.back()">
+					<i class="icon icon-arrow-l"></i>
+				</a> 
+				{{i18n 'title_admin'}}
+			</h4>
+			<a class="close pull-right" href="/">
+				<i class="icon icon-close"></i>
+			</a>
 		</div>
+		<div class="panel-body">
 
+			<div class="list-group">
+
+				{{> pluginsTemplate name='panelAdmin'}}
+				
+			</div>
+	<!-- 	TODO	<div class="list-group">
+				<div class="list-group-item active">
+					Admin methods registered in the browser console
+				</div>
+				<div class="list-group-item" style="max-height:150px;overflow-y:auto">
+				{{#each methods}}
+					<a href="#" data-name="{{this}}">K.Admin.{{this}}()</a><br />
+				{{/each}}
+				</div>
+			</div> -->
+		</div>
 	</div>
-</div>
 
 </template>
 
@@ -97,4 +96,22 @@
 		<i class="icon icon-users"></i>
 		{{i18n 'title_panelAdminUsers'}}
 	</a>
+</template>
+
+
+<template name="panelUserAdmin">
+
+	<div class="panel">
+		<div class="panel-heading bg-primary">
+			<h4 class="text-left">
+				{{i18n 'title_adminUser' username}}
+			</h4>
+		</div>
+		<div class="panel-body">
+
+			{{> pluginsTemplate name='panelUserAdmin' sep='<hr />'}}
+
+		</div>		
+	</div>
+
 </template>

@@ -1,4 +1,4 @@
-var version = '1.5.6';
+var version = '1.5.7';
 
 Package.describe({
   version: version,
@@ -37,6 +37,7 @@ Package.onUse(function(api) {
     'client/views/pages.js',
     'client/views/panels.html',
     'client/views/panels.js',
+    'client/stylesheets/panels.css',
     'client/router.js'
   ],'client');
 

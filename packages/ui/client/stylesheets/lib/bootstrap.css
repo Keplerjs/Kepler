@@ -16,6 +16,9 @@
 .panel-body .list-group {
 	margin-bottom: 16px;
 }
+.panel-body .tab-content {
+    padding-top: 10px;
+}
 
 .label-default {
     background-color: #ccc;

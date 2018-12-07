@@ -21,7 +21,7 @@ var ImagemagickSync = {};
         Imagemagick[fn](args, cb);
         return future.wait();
     };
-});    
+});
 /*
 K.extend({
 	insertPhoto: function(targetId, targetType, url, title) {
@@ -106,120 +106,94 @@ Meteor.methods({
 		return K.removePhoto(photoId);
 	},
 */
-	uploadPhoto: function(fileObj, sets) {
+
+	storePhoto: function(fileObj, basePath) {
 
 		if(!this.userId) return null;
 
-		var basePath = sets.path,
-			baseUrl = sets.url,
-			username = Meteor.user().username,
-			fileName = K.Util.sanitize.filename( fileObj.name +'_'+ K.Util.time() ),
-			fileOut = fileName + '.jpg';
-
-		fs.writeFileSync(sets.path + fileOut, fileObj.blob, 'binary');
-		fs.chmodSync(sets.path + fileOut, CHMOD);
-		
-		var url = baseUrl + fileOut;
-		
-		console.log('Photos: uploadPhoto', url);
-
-		return url;
-	},
-	deletePhoto: function(fileObj, sets) {
-		//TODO 
-		//console.log('Photos: uploadPhoto');
-	},
-
-	//TODO change arguments accept file
-	resizePhoto: function(fileObj, sets) {
-
-		if(!this.userId) return null;
-
-		var basePath = sets.path,
-			baseUrl = sets.url,
-			username = Meteor.user().username,
+		var username = Meteor.user().username,
 			fileName = K.Util.sanitize.filename( username +'_'+ K.Util.time() ),
-			fileOut = fileName + '.ori.jpg';
+			fileOri = fileName + '.ori.'+fileObj.ext;
+		try {
+			fs.writeFileSync(basePath + fileOri, fileObj.blob, 'binary');
+			fs.chmodSync(basePath + fileOri, CHMOD);
+		}
+		catch(e) {
+			console.warn('Photos: error to create file "'+basePath+fileOri+'"');
+			throw new Meteor.Error(500, i18n('upload_error_imageNotValid') );
+		}
 
+		return fileOri;
+	},
 
-		//gm(fileObj, fileObj.name())
-		//.resize('10', '10')
-		//.stream()
-		//.pipe(writeStream);
-	
-		fs.writeFileSync(sets.path + fileOut, fileObj.blob, 'binary');
-		fs.chmodSync(sets.path + fileOut, CHMOD);
+	resizePhoto: function(fileOri, imgOpts, basePath) {
+
+		if(!this.userId) return null;
 
 		//TODO move to settings
-		var imgOpts = sets.imageOpts,
-			fileMin = fileName + K.Util.tmpl('_{width}x{height}.min.jpg', imgOpts),
-			imgOpts = _.extend(imgOpts, {
-				srcPath: basePath + fileOut,
+		var fileExt = K.Util.sanitize.filenameExt(fileOri),
+			fileMin = fileOri + K.Util.tmpl('_{width}x{height}.min.'+fileExt, imgOpts),
+			opts = _.extend({}, imgOpts, {
+				srcPath: basePath + fileOri,
 				dstPath: basePath + fileMin,
 				customArgs: ['-auto-orient']
 			});
 		
-		console.log('Photos: resizing...');
+		console.log('Photos: resizing...', opts);
 
 		try {
-			ImagemagickSync.crop(imgOpts);
-			fs.chmodSync(imgOpts.dstPath, CHMOD);
+			//TODO use npm gm
+			//gm(fileObj, fileObj.name()).resize('10', '10').stream().pipe(writeStream);
+			ImagemagickSync.crop(opts);
+			fs.chmodSync(opts.dstPath, CHMOD);
 		}
 		catch(e) {
-			console.log('Photos: error ', e);
+			console.warn('Photos: error to resize photo', opts.dstPath);
 			throw new Meteor.Error(500, i18n('upload_error_imageNotValid') );
-			return i18n('upload_error_imageNotValid');
 		}
-
-		fileOut = fileMin;
 	
-	//TODO move to profile.js
-	//
-		var url = baseUrl + fileOut;
-		
-		console.log('Photos: resized', url);
+		console.log('Photos: resized', fileMin);
 
-		return url;
+		return fileMin;
 	},
 
 	//TODO change arguments accept file
-	exifPhoto: function(fileObj, sets) {
+	exifPhoto: function(fileOri, basePath) {
 		
 		if(!this.userId) return null;
 
-		var basePath = sets.path,
-			baseUrl = sets.url,
-			username = Meteor.user().username,
-			fileName = K.Util.sanitize.filename( username +'_'+ K.Util.time() ),
-			fileOut = fileName + '.ori.jpg';
-
-		fs.writeFileSync(sets.path + fileOut, fileObj.blob, 'binary');
-		fs.chmodSync(sets.path + fileOut, CHMOD);
+		var exif;
 
 		try {
-			var meta = ImagemagickSync.readMetadata(basePath + fileOut);
+			var meta = ImagemagickSync.readMetadata(basePath+fileOri);
+
+			if(meta && meta.exif)
+				exif = meta.exif;
+			else {
+				console.log('Photos: error to read exif from file ', basePath+fileOri, meta);
+			}
 		}
 		catch(e) {
-			console.log('Photos: error ', e);
-			throw new Meteor.Error(500, i18n('upload_error_imageNotValid') );
-			return i18n('upload_error_imageNotValid');
+			console.log('Photos: error to read exif from file ', e);
+			throw new Meteor.Error(500, i18n('photos_error_exifNotFound') );
+		}
+		
+		if(exif) {
+			var lats = exif.gpsLatitude.split(',').map(function(v) {
+					return parseInt(v.split('/')[0]);
+				}),
+				lngs = exif.gpsLongitude.split(',').map(function(v) {
+					return parseInt(v.split('/')[0]);
+				}),
+				lat = lats[0]+'°'+lats[1]+"'"+(lats[2]/1000)+'"'+exif.gpsLatitudeRef,
+				lng = lngs[0]+'°'+lngs[1]+"'"+(lngs[2]/1000)+'"'+exif.gpsLongitudeRef;			
+			//example: parseLoc('59°12\'7.7"N 02°15\'39.6"W')
+			delete exif.makerNote;
+			
+			exif.loc = K.Util.geo.parseLocString(lat+' '+lng);
 		}
 
-		var exif = _.omit(meta.exif,'makerNote');
-
-		console.log('Photos: exifPhoto ', exif)
-
-		var lats = exif.gpsLatitude.split(',').map(function(v) {
-				return parseInt(v.split('/')[0]);
-			}),
-			lngs = exif.gpsLongitude.split(',').map(function(v) {
-				return parseInt(v.split('/')[0]);
-			}),
-			lat = lats[0]+'°'+lats[1]+"'"+(lats[2]/1000)+'"'+exif.gpsLatitudeRef,
-			lng = lngs[0]+'°'+lngs[1]+"'"+(lngs[2]/1000)+'"'+exif.gpsLongitudeRef;			
-		//example: parseLoc('59°12\'7.7"N 02°15\'39.6"W')
-
-		exif.loc = K.Util.geo.parseLocString(lat+' '+lng);
+		console.log('Photos: exifPhoto ', basePath+fileOri);//exif);
 
 		/*gpsAltitude: "447000/1000"
 		gpsAltitudeRef: "0"

@@ -147,13 +147,16 @@ label {
 	border-bottom: 2px solid #9c0	*/
 }
 
+.panel-heading {
+	padding: 10px;
+}
 header h4,
 .panel-heading h4 {
 	text-transform: capitalize;
 	font-size: 14px;
+	line-height: 14px;
 	margin: 0;
 	padding: 0;
-	line-height: 32px;
 	font-weight: bold;
 }
 

@@ -2,10 +2,19 @@
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+...
+
+## v1.5.7
 - plugin admin new page admin users
 - plugin admin new page manager users
+- plugin admin new template panelUserAdmin
+- plugin admin method K.Amin.call() support multiple params
+- plugin photos new mwthod storePhoto
+- plugin photos set place photo url without baseurl
 - plugin share fix google link
-- plugin favorites ass icon in marker place
+- plugin favorites show icon in marker place
+- plugin upload fix upload err text
+- new method K.Util.sanitize.filenameExt()
 
 ## v1.5.6
 - various fixes

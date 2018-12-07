@@ -11,6 +11,8 @@ Template.inputFile_upload.events({
 			callback = tmpl.data.callback;
 
 		input$.parent().addClass('loading-default');
+		
+		input$.next('.upload-err').text('');
 
 		K.Upload.uploadFile(target, fileObj, params, function(err, ret) {
 			input$.parent().removeClass('loading-default');

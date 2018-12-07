@@ -44,9 +44,11 @@ Kepler.Admin = {
 			return false
 	},
 
-	call: function(method, arg, cb) {
-		//TODO support multiple args
-		return Meteor.call(this.prefix+method, arg, cb);
+	call: function(method) {
+		args = _.rest(arguments);
+		var l = _.last(args);
+		cb = _.isFunction(l) ? l : null;
+		return Meteor.apply(this.prefix+method, args, cb);
 	},
 
 	methods: function(defs) {	//server

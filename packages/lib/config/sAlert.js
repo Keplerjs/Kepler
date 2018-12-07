@@ -26,7 +26,7 @@ if(Meteor.isClient) {
 			//     success: '/beep-success.mp3',
 			//     warning: '/beep-warning.mp3'
 			// }
-			onClose: _.noop //
+			onClose: $.noop //
 			// examples:
 			// onClose: function() {
 			//     /* Code here will be executed once the alert closes. */

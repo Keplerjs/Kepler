@@ -35,6 +35,7 @@ Router.map(function() {
 			if(!this.ready()) return null;
 			var users = K.findUsersByDate().fetch(),
 				userIds = _.pluck(users,'_id');
+			userIds = _.without(userIds, K.Profile.id);
 			return {
 				items: _.map(userIds, K.userById)
 			};

@@ -3,6 +3,10 @@
 	<section id="adminUsers">
 		<br />
 		<div class="row">
+			<div class="col-sm-3">
+				<input class="users-search form-control" type="text" placeholder="{{i18n 'label_find'}}" /> 
+				<span class="search-canc form-control-feedback" aria-hidden="true"><i class="icon icon-canc"></i></span>
+			</div>			
 			<div class="col-sm-4">
 				<form class="form-horizontal item_user-new" role="form">
 					<div class="input-group">
@@ -17,14 +21,12 @@
 				</form>
 			</div>
 			<div class="col-sm-4">
-				<input class="users-search form-control" type="text" placeholder="{{i18n 'label_find'}}" /> 
-				<span class="search-canc form-control-feedback" aria-hidden="true"><i class="icon icon-canc"></i></span>
-			</div>			
+			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-8">
-				<div class="list-group">
-					{{#if items.length}}	
+			<div class="col-sm-7">
+				<div class="list-group users-list">
+					{{#if items.length}}
 						{{#each items}}
 							
 							{{> item_user_admin}}
@@ -37,6 +39,17 @@
 					{{/if}}
 				</div>
 			</div>
+			<div class="col-sm-5">
+
+				{{#with userSelected}}
+				
+					{{> panelUserAdmin}}
+				
+					{{> panelUser}}
+					
+				{{/with}}
+
+			</div>
 		</div>
 	</section>
 </template>
@@ -44,6 +57,8 @@
 <template name="item_user_admin">
 	<div class="list-group-item">
 		<div class="pull-left">
+			<input class="btn btn-default btn-userselect" name="itemSelect" type="radio" value="{{id}}" />
+			&nbsp;
 			{{> item_user}} 
 		</div>
 		<div class="pull-right">

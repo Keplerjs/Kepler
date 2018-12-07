@@ -8,31 +8,22 @@ Meteor.methods({
 
 		if(!this.userId) return null;
 
-		var sets = K.settings.upload.targets['photos_avatars'];
+		var target = 'photos_avatars',
+			sets = K.settings.public.upload.targets[target],
+			imageOpts = sets.imageOpts,
+			path = K.settings.upload.targets[target].path;
 
-		var mimes = [];
-		_.each(sets.mimeFileType, function(v,k) {
-			if(v===true)
-				mimes.push(k);
-		});
-		
-		if(!_.contains(mimes, fileObj.type)) {
-			console.log('Upload: error ', _.omit(fileObj,'blob') );
-			throw new Meteor.Error(500, i18n('upload_error_imageNotValid') );
-			return null;
-		}
-		
-		//var url = Meteor.call('uploadPhoto', fileObj, sets);
-		var url = Meteor.call('resizePhoto', fileObj, sets);
-		
-		if(url) {
+		var fileOri = Meteor.call('storePhoto', fileObj, path);
+		var fileMin = Meteor.call('resizePhoto', fileOri, imageOpts, path);
+
+		if(fileMin) {
 			Users.update(this.userId, {
 				$set: {
-					avatar: url
+					avatar: sets.url + fileMin
 				}
 			});
 		}
 
-		return url;
+		return sets.url + fileMin;
 	}
 });

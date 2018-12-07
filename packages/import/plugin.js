@@ -26,18 +26,25 @@ K.Plugin({
 		/**
 		 * define a targets used by plugin upload
 		 */
+		"public": {
+			"upload": {
+				"targets": {
+					"import_places": {
+						"url": "",
+						"maxFileSize": 2e+7,
+						"mimeFileType": {
+							"application/json": true,
+							"application/geo+json": true
+						}
+					}
+				}
+			}
+		},
 		"upload": {
 			"targets": {
 				"import_places": {
 					//pass uploaded object to this method
 					"method": "importFile",
-					"maxFileSize": 2e+7,
-					"mimeFileType": {
-						"application/json": true,
-						"application/geo+json": true
-					},
-					//TODO rename in 'basepath' and 'baseurl'
-					"url": "",
 					"path": ""
 				}
 			}

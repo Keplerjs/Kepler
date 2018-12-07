@@ -1,0 +1,13 @@
+
+#adminUsers #user.panel .back,
+#adminUsers #user.panel .close {
+	display: none;
+}
+
+#adminUsers #user.panel h4 {
+	float: none !important;
+}
+
+#adminUsers .panel {
+	border:none;
+}

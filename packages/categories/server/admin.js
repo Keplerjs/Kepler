@@ -14,7 +14,7 @@ K.Admin.methods({
 			fields: {_id:0, cats:1}
 		}).cats;
 
-		console.log('Cats: addCatsToUser', userId);
+		console.log('Cats: addCatsToUser', userId, cats);
 
 		return userCats;
 	},
@@ -26,7 +26,7 @@ K.Admin.methods({
 
 		Users.update(userId, { $pull: {'cats':  {$in: cats} } });
 		
-		console.log('Cats: removeCatsFromPlace', userId);
+		console.log('Cats: removeCatsFromPlace', userId, cats);
 	},
 	cleanCatsByPlace: function(placeId, cats) {
 

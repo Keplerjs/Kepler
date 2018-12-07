@@ -52,20 +52,6 @@ Meteor.methods({
 
 		if(!this.userId) return null;
 
-		var sets = K.settings.upload.targets['import_places'];
-
-		var mimes = [];
-		_.each(sets.mimeFileType, function(v,k) {
-			if(v===true)
-				mimes.push(k);
-		});
-		
-		if(!_.contains(mimes, fileObj.type)) {
-			console.log('Import: error ', _.omit(fileObj,'blob') );
-			throw new Meteor.Error(500, i18n('error_import_formatNotValid') );
-			return null;
-		}
-
 		var geo = JSON.parse(fileObj.blob),
 			importName = fileObj.name || K.Util.timeName(),
 			placeIds = [];

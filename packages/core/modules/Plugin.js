@@ -4,6 +4,8 @@
 
 //TODO execute code inside Plugin() at Meteor.startup(), not immediately. for using K.settings
 
+//TODO create handlebars helper to check is a placeholder have plugins
+//
 Kepler.plugins = {};
 
 Kepler.Plugin = function(plugin) {

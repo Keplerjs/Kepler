@@ -37,7 +37,7 @@ K.Plugin({
 	filters: {
 		currentUser: {
 			fields: {
-				avatar:1,
+				//avatar:1,
 				photos:1
 			}
 		},
@@ -54,7 +54,7 @@ K.Plugin({
 		},
 		friendPanel: {
 			fields: {
-				avatar:1,
+				//avatar:1,
 				photos:1
 			}
 		}
@@ -63,40 +63,48 @@ K.Plugin({
 		/**
 		 * define a targets used by plugin upload
 		 */
+		"public": {
+			"upload": {
+				"targets": {
+					"photos_places": {
+						"url": "/static/photos/",
+						"maxFileSize": 8800000,
+						"mimeFileType": {
+							"image/png": true,
+							"image/jpeg": true
+						},
+						"imageOpts":{
+							"width": 1024,
+							"height": 1024,
+							"quality": 0.8
+						}
+					},
+					"photos_avatars": {
+						"url": "/static/avatars/",
+						"maxFileSize": 5800000,
+						"mimeFileType": {
+							"image/png": true,
+							"image/jpeg": true
+						},
+						"imageOpts":{
+							"width": 140,
+							"height": 140,
+							"quality": 0.8
+						}
+					}
+				}
+			}
+		},
 		"upload": {
 			"targets": {
 				"photos_places": {
 					//pass uploaded object to this method
 					"method": "updatePlacePhoto",
-					"maxFileSize": 8800000,
-					"mimeFileType": {
-						"image/png": true,
-						"image/jpeg": true
-					},
-					"imageOpts":{
-						"width": 800,
-						"height": 800,
-						"quality": 0.25
-					},
-					//TODO rename in 'basepath' and 'baseurl'
-					"url": "/static/photos/",
 					"path": ""
 				},
 				"photos_avatars": {
 					//pass uploaded object to this method
 					"method": "updateAvatar",
-					"maxFileSize": 5800000,
-					"mimeFileType": {
-						"image/png": true,
-						"image/jpeg": true
-					},
-					"imageOpts":{
-						"width": 140,
-						"height": 140,
-						"quality": 0.8
-					},					
-					//TODO rename in 'basepath' and 'baseurl'
-					"url": "/static/avatars/",
 					"path": ""
 				}
 			}
