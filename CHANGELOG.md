@@ -4,6 +4,7 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 ## Next version
 - plugin photos show news photos in sidebar
 - panelList support grid view
+- plugin photos show my photos in profile panel
 
 ## v1.5.7
 - plugin admin new page admin users

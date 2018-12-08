@@ -24,6 +24,11 @@ Meteor.methods({
 					photo: fileMin
 				}
 			});
+			Users.update(this.userId, {
+				$addToSet: {
+					photos: placeId
+				}
+			});			
 
 			console.log('Photos: updatePlacePhoto', placeId)
 

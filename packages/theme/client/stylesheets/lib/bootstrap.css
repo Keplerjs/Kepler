@@ -141,7 +141,7 @@ label {
 .nav-pills > li.active > a, 
 .nav-pills > li.active > a:hover, 
 .nav-pills > li.active > a:focus  {
-	background-color: rgba(153, 204, 0,.4);
+	background-color: rgba(200,200,200,.25);
 	color: inherit;
 	/*border-radius: 0;
 	border-bottom: 2px solid #9c0	*/

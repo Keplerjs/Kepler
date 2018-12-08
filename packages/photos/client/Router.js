@@ -21,6 +21,29 @@ Router.map(function() {
 			};
 		}
 	});
+
+	this.route('photosEdits', {
+		path: '/photos/edits',
+		template: 'panelList',
+		layoutTemplate: 'layoutMap',
+		waitOn: function() {
+			Session.set('showSidebar', true);
+			return Meteor.subscribe('placesByIds', K.Profile.data.photos);
+		},
+		data: function() {
+			if(!this.ready()) return null;
+			return {
+				title: i18n('title_photos'),
+				className: 'photosEdits',
+				itemsTemplate: 'item_place_photo',
+				items: _.map(K.Profile.data.photos, function(id) {
+					return K.placeById(id);
+				}),
+				sortBy: 'createdAt',
+				grid: true
+			};
+		}
+	});
 	/*
 	this.route('panelPhotosEdit', {
 		path: '/photos/edits',

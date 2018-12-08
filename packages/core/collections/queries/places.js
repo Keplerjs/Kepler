@@ -4,7 +4,10 @@ K.extend({
 		return Places.find(placeId, K.filters.placePanel);
 	},
 	findPlacesByIds: function(placesIds) {
-		return Places.find({_id: {$in: placesIds} }, K.filters.placeItem);
+		
+		placesIds = _.isArray(placesIds) ? {$in: placesIds} : placesIds;
+
+		return Places.find({_id: placesIds }, K.filters.placeItem);
 	},
 	findPlacesByCheckins: function(usersIds) {
 		usersIds = _.isArray(usersIds) ? {$in: usersIds} : usersIds;

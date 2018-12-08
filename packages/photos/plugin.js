@@ -13,7 +13,7 @@ K.Plugin({
 		panelSettings: {
 			'panelSettings_photos': { order:-10},
 		},
-		//panelProfile: 'panelProfile_photos'
+		panelProfile: 'panelProfile_photos'
 	},
 	schemas: {
 		place: {
@@ -22,6 +22,7 @@ K.Plugin({
 			photos: []   //user creator of place
 		},
 		user: {
+			//TODO avatar
 			photos: []	   //places created by user
 		},
 		//TODO
