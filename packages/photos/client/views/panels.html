@@ -9,11 +9,11 @@
 
 <template name="photo_place_new">
 	<div class="form-group">
-		<div class="col-xs-3">
+		<div class="col-xs-4">
 			<label>{{i18n 'label_photoplacenew'}}</label>
 			<!-- <input class="input-photoname form-control" type="text" value="" placeholder="{{i18n 'label_name'}}" /> -->
 		</div>
-		<div class="col-xs-9">
+		<div class="col-xs-8">
 			{{> inputFile_upload target='photos_places' callback=uploadDone}}
 		</div>
 	</div>	
@@ -28,41 +28,32 @@
 </template>
 
 <template name="panelPlaceEdit_photos">
-	<div class="list-group edit-photos">
-		<div class="list-group-item active">
-			{{i18n 'label_addphotos'}}
-		</div>
-		<div class="list-group-item">
+	<div class="form-group">
+		<label><i class="icon icon-photos"></i> {{i18n 'label_addphotos'}}</label>
+		<div class="clearfix">
+	
 			{{> inputFile_upload target='photos_places' params=this.id callback=photoUploaded}}
+			
+			{{#if photo}}
+			<div class="clearfix" style="position: relative;">
+				{{> panelPlace_photos}}
+				<a class="btn-photodel btn btn-default" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
+					<i class="icon icon-del"></i>
+				</a>
+			</div>
+			{{/if}}
 		</div>
-		{{#if photo}}
-		<div class="list-group-item">
-			<a class="btn-photodel btn btn-default" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
-				<i class="icon icon-del"></i>
-			</a>
-			{{> panelPlace_photos}}
-		</div>
-		{{/if}}
 	</div>
 </template>
 
 <template name="panelSettings_photos">
 	<div class="form-group">
 		<div class="col-sm-3 col-xs-4 text-right avatar-big">
-			<label for="fileavatar">{{i18n 'btn_avatar'}}</label>
 			{{> item_user_avatar}}
 		</div>
 		<div class="col-sm-9 col-xs-8">
+			<label>{{i18n 'btn_avatar'}}</label>
 			{{> inputFile_upload target='photos_avatars'}}
 		</div>
 	</div>	
 </template>
-
-<!-- 
-<template name="panelProfile_photos">
-	<a class="list-group-item" href="/photos/edits">
-		<i class="icon icon-photos"></i>
-		 {{i18n 'title_photos'}} 
-		<span class="badge">{{photos.length}}</span>
-	</a>
-</template> -->

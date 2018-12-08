@@ -4,7 +4,7 @@ i18n.map('en', {
 	
 	title_placePhotos: "Photos to {$1}",
 
-	label_addphotos: "Add Photos",
+	label_addphotos: "Add Photo",
 	label_editphotos: "Added photos",
 
 	btn_avatar: "Photo profile",

@@ -24,7 +24,6 @@
 				<time>{{numericDate createdAt}}</time>
 			{{/if}}
 			
-			
 			{{#if isEditable}}
 			<div class="btn-group pull-right" role="group">
 				<a class="btn btn-edit btn-default" href="/place/{{id}}/edit">
@@ -32,7 +31,6 @@
 				</a>
 			</div>
 			{{/if}}
-			
 		</div>
 	</div>
 {{/if}}
@@ -104,7 +102,7 @@
 
 			<hr />
 
-			{{> pluginsTemplate name='panelPlaceEdit'}}
+			{{> pluginsTemplate name='panelPlaceEdit' sep='<hr />'}}
 
 		</div>	
 	</div>

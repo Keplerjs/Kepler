@@ -21,7 +21,7 @@ Meteor.methods({
 			if(exifData && exifData.loc) {
 
 				var place = _.deepExtend({}, K.schemas.place, {
-					name: K.Util.sanitize.name(fileObj.name),
+					//name: K.Util.sanitize.name(fileObj.name),
 					loc: exifData.loc,
 					photo: fileMin,
 					source: {
