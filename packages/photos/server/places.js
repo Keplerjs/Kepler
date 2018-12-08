@@ -2,7 +2,7 @@
 var fs = Npm.require('fs');
 
 Meteor.methods({
-	
+
 	updatePlacePhoto: function(fileObj, placeId) {
 
 		if(!this.userId) return null;
@@ -11,28 +11,64 @@ Meteor.methods({
 			imageOpts = K.settings.public.upload.targets[target].imageOpts,
 			path = K.settings.upload.targets[target].path;
 
-		var placeData = Places.findOne(placeId);
+		//create new place by photo exif
+		if(!placeId) {
 
-		if(placeData.userId === this.userId || (K.Admin && K.Admin.isMe())) {
-			
 			var fileOri = Meteor.call('storePhoto', fileObj, path);
 			var fileMin = Meteor.call('resizePhoto', fileOri, imageOpts, path);
-			//TODO var exifData = Meteor.call('exifPhoto', fileOri, path);
+			var exifData = Meteor.call('exifPhoto', fileOri, path);
 
-			Places.update(placeId, {
-				$set: {
-					photo: fileMin
-				}
-			});
-			Users.update(this.userId, {
-				$addToSet: {
-					photos: placeId
-				}
-			});			
+			if(exifData && exifData.loc) {
 
-			console.log('Photos: updatePlacePhoto', placeId)
+				var place = _.deepExtend({}, K.schemas.place, {
+					name: K.Util.sanitize.name(fileObj.name),
+					loc: exifData.loc,
+					photo: fileMin,
+					source: {
+						type: 'photos'
+					}
+				});
 
-			return fileMin;
+				var placeId = Places.insert(place);
+
+				Users.update(this.userId, {
+					$addToSet: {
+						photos: placeId
+					}
+				});	
+
+				console.log('Photos: updatePlacePhoto create new place ', placeId, exifData.loc)
+
+				return placeId;
+			}
+			else {
+				throw new Meteor.Error(500, i18n('photos_error_exifNotFound') );
+			}
+
+		}
+		else {
+	
+			var placeData = Places.findOne(placeId);
+
+			if(placeData.userId === this.userId || (K.Admin && K.Admin.isMe())) {
+				
+				var fileOri = Meteor.call('storePhoto', fileObj, path);
+				var fileMin = Meteor.call('resizePhoto', fileOri, imageOpts, path);
+				//TODO var exifData = Meteor.call('exifPhoto', fileOri, path);
+
+				Places.update(placeId, {
+					$set: {
+						photo: fileMin
+					}
+				});
+				Users.update(this.userId, {
+					$addToSet: {
+						photos: placeId
+					}
+				});			
+
+				console.log('Photos: updatePlacePhoto ', placeId)
+			}
 		}
 	},
 

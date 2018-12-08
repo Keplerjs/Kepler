@@ -18,6 +18,7 @@ Npm.depends({
 Package.onUse(function(api) {
   api.use([
     'keplerjs:core@'+version,
+    'keplerjs:edit@'+version,
     'keplerjs:upload@'+version,
   ]);
 

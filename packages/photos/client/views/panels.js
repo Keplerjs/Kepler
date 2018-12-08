@@ -39,6 +39,18 @@ Template.panelPlace_photos.events({
 	}
 });
 
+Template.photo_place_new.helpers({
+	uploadDone: function() {
+		var tmpl = Template.instance();
+		return function(placeId) {
+			//tmpl.$('.import-text').text(ret)
+			//console.log(placeId)
+			Router.go('panelPlaceEdit', {placeId: placeId});
+		}
+	}
+});
+
+
 Template.panelPlaceEdit_photos.onRendered(function() {
 	
 	var self = this,

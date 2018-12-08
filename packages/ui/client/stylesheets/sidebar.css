@@ -111,6 +111,9 @@ li#navsearch {
     padding-top:10px;
     padding-top: 10px;  
 }
+.sidebar > .nav > li .btn-connect-status {
+    display: none;
+}    
 /*.sidebar-map .leaflet-left {
     left: 400px;
 }*/
@@ -143,9 +146,6 @@ li#navsearch {
     .sidebar > .nav > li:last-child {
 		margin-right: 4px;
 	}
-    .sidebar > .nav > li .btn-connect-status {
-    	display: none;
-	}    
 }
 @media (min-width: 768px) {
     .sidebar {

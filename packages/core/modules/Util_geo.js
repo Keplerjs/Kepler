@@ -353,7 +353,7 @@ Kepler.Util.geo = {
 	    result[decDeg1.latLon] = decDeg1.decDeg;
 	    result[decDeg2.latLon] = decDeg2.decDeg;
 
-	    return result;
+	    return [result.lat, result.lon];
 	}
 /*	deg2dms: function(decDegrees) {
 

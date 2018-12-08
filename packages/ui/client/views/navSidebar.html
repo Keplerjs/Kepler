@@ -35,11 +35,11 @@
 </template>
 
 <template name="navSidebar_ui_connect">
-	{{#unless eq connectionStatus.status 'connected'}}
+	{{! #unless eq connectionStatus.status 'connected'}}
 	<li class="pull-right">
 		{{> btnConnect}}
 	</li>	
-	{{/unless}}
+	{{! /unless}}
 </template>
 <!-- TODO template name="navSidebar_ui_search">
 	<li class="{{ifRoute 'search' 'active'}} pull-right">

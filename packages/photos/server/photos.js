@@ -95,7 +95,7 @@ Meteor.methods({
 			throw new Meteor.Error(500, i18n('photos_error_exifNotFound') );
 		}
 		
-		if(exif) {
+		if(exif && exif.gpsLatitude && exif.gpsLongitude) {
 			var lats = exif.gpsLatitude.split(',').map(function(v) {
 					return parseInt(v.split('/')[0]);
 				}),

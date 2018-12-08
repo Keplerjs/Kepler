@@ -2,6 +2,7 @@
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+- plugin photos support creation new place by exif photo
 - plugin photos show news photos in sidebar
 - panelList support grid view
 - plugin photos show my photos in profile panel

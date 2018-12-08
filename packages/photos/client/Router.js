@@ -35,6 +35,8 @@ Router.map(function() {
 			return {
 				title: i18n('title_photos'),
 				className: 'photosEdits',
+				headerTemplate: 'photo_place_new',
+				//headerData: place,	
 				itemsTemplate: 'item_place_photo',
 				items: _.map(K.Profile.data.photos, function(id) {
 					return K.placeById(id);
