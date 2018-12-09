@@ -100,6 +100,7 @@ i18n.map('en', {
 
 	map_gps_title: "Your location",
 	map_gps_error: "gps disabled",
+
 	map_layer_road: "Roads",
 	map_layer_landscape: "Trekking",
 	map_layer_transport: "Transport",

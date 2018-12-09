@@ -62,7 +62,7 @@ Kepler.User = Class.extend({
 			
 			_.extend(self, self.data);
 
-			if(self.status==='online' && self.loc && !self.checkin)
+			if(self.loc && self.status!=='offline' && !self.checkin)
 			{
 				self.buildMarker();
 
@@ -80,8 +80,9 @@ Kepler.User = Class.extend({
 					self.marker.setLatLng(self.loc);
 				}
 			}
-			else
+			else{
 				K.Map.removeItem(self);
+			}
 
 			self._dep.changed();
 

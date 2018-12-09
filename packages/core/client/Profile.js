@@ -35,6 +35,7 @@ Kepler.Profile = {
 				return self.ready = false;
 
 			self.user = K.userById(self.id);
+			self.user.update()
 
 			if(self.data.checkin)
 				self.placeCheckin = K.placeById(self.data.checkin);
@@ -45,18 +46,17 @@ Kepler.Profile = {
 						K.Map.addItem(K.userById(id));
 					});
 				});
-			else
+			else {
 				_.map(K.Profile.data.friends, function(id) {
 					K.Map.removeItem(K.userById(id));
 				});
+			}
 		
 		});
 
-		if(self.data.mob !== K.Util.isMobile()) {
-			Users.update(Meteor.userId(), {
-				$set: {mob: K.Util.isMobile() }
-			});
-		}	
+		var mob = K.Util.isMobile();
+		if(self.data.mob !== mob)
+			self.setMobile(mob);
 
 		if(_.isFunction(cb))
 			cb.call(self, self.data);
@@ -84,7 +84,13 @@ Kepler.Profile = {
 				self.user.icon.animate();
 		});
 		return this;
-	},	
+	},
+	setMobile: function(val) {
+		Users.update(Meteor.userId(), {
+			$set: {mob: val }
+		});
+		return this;
+	},
 	getOpts: function(prop) {
 		return K.Util.getPath(this.data,'settings.'+prop);
 	},

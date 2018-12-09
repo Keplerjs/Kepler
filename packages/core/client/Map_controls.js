@@ -32,12 +32,14 @@ _.extend(Kepler.Map, {
 				'gps:located': function(e) {
 
 					var loc = [e.latlng.lat, e.latlng.lng];
-					
-					//TODO minShift
 
 					K.Profile.setLoc(loc);
 
-					K.Map.setView(loc);
+					if(!map.getBounds().pad(-0.95).contains(loc))
+						K.Map.setView(loc);
+
+					if(!K.Profile.getOnline())
+						K.Profile.setOnline(true);
 				},
 				'gps:disabled': function(e) {
 					K.Profile.setLoc(null);

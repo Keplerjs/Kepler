@@ -7,6 +7,8 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 - panelList support grid view
 - plugin photos show my photos in profile panel
 - plugin geoinfo suggest name in panel edit
+- new method K.Profile.setMobile()
+- map gps fix gps user
 
 ## v1.5.7
 - plugin admin new page admin users
