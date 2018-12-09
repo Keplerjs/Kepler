@@ -42,6 +42,7 @@ Router.map(function() {
 					return K.placeById(id);
 				}),
 				sortBy: 'createdAt',
+				sortDesc:true,
 				grid: true
 			};
 		}
