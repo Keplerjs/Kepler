@@ -20,11 +20,14 @@ Template.panelPlaceEdit.onRendered(function() {
 
 Template.panelPlaceEdit.events({
 	'click .btn-editren': function(e,tmpl) {
-		var data = {
+		var place = tmpl.data,
+			data = {
 				name: tmpl.$('.input-editren').val()
 			};
 
-		Meteor.call('updatePlace', tmpl.data.id, data);
+		Meteor.call('updatePlace', place.id, data, function(err) {
+			place.update();
+		});
 	}
 });
 
