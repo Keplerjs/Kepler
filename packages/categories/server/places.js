@@ -21,7 +21,7 @@ Meteor.methods({
 		var placeData = Places.findOne(placeId),
 			placeCats = placeData.cats;
 
-		if(placeData.userId === this.userId) {
+		if(placeData.userId === this.userId || (K.Admin && K.Admin.isMe())) {
 
 			Places.update(placeId, { $addToSet: {'cats': {$each: cats} } });
 
@@ -44,7 +44,7 @@ Meteor.methods({
 		var placeData = Places.findOne(placeId),
 			placeCats = placeData.cats;
 
-		if(placeData.userId === this.userId) {
+		if(placeData.userId === this.userId || (K.Admin && K.Admin.isMe())) {
 
 			Places.update(placeId, { $pull: {'cats':  {$in: cats} } });
 			
