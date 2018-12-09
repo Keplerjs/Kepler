@@ -20,7 +20,7 @@
 	<li class="{{ifRoute 'friends' 'active'}}">
 		<a class="btn btn-sm" href="{{pathFor route='friends'}}" role="tab">
 			<i class="icon icon-friends"></i>
-			<span> {{i18n 'btn_users'}}</span>
+			<span>{{i18n 'btn_users'}}</span>
 		</a>
 	</li>
 </template>
@@ -29,17 +29,17 @@
 	<li class="{{ifRoute 'placesNews' 'active'}}">
 		<a class="btn btn-sm" href="{{pathFor route='placesNews'}}" role="tab">
 			<i class="icon icon-map"></i>
-			<span> {{i18n 'btn_places'}}</span>
+			<span>{{i18n 'btn_places'}}</span>
 		</a>
 	</li>
 </template>
 
 <template name="navSidebar_ui_connect">
-	{{! #unless eq connectionStatus.status 'connected'}}
+	{{#unless eq connectionStatus.status 'connected'}}
 	<li class="pull-right">
 		{{> btnConnect}}
 	</li>	
-	{{! /unless}}
+	{{/unless}}
 </template>
 <!-- TODO template name="navSidebar_ui_search">
 	<li class="{{ifRoute 'search' 'active'}} pull-right">
