@@ -31,12 +31,16 @@ _.extend(Kepler.Map, {
 			.on({
 				'gps:located': function(e) {
 
-					var loc = [e.latlng.lat, e.latlng.lng];
+					var loc = [e.latlng.lat, e.latlng.lng],
+						bboxOffset = -0.95,
+						zoomOffset = 2;
 
 					K.Profile.setLoc(loc);
 
-					if(!map.getBounds().pad(-0.95).contains(loc))
-						K.Map.setView(loc);
+					if( !map.getBounds().pad(bboxOffset).contains(loc) ||
+						Math.abs(opts.showLocZoom-map.getZoom())> zoomOffset ) {
+						K.Map.showLoc(loc);
+					}
 
 					if(!K.Profile.getOnline())
 						K.Profile.setOnline(true);
