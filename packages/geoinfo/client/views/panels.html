@@ -18,5 +18,15 @@
 </template>
 
 <template name="panelPlaceEdit_geoinfo">
-	{{! > tabPlace_geoinfo}}
+	{{#if geoinfo}}
+	<div class="form-group">
+	<label class="control-label">{{i18n 'label_nametips'}}</label>
+	{{#with geoinfo}}
+		<div class="geoinfo-nametips">
+		{{#if near}}<a class="btn btn-sm btn-default">{{near}}</a> {{/if}}
+		{{#if com}}<a class="btn btn-sm btn-default">{{com}}</a> {{/if}}
+		</div>
+	{{/with}}
+	</div>
+	{{/if}}
 </template>

@@ -28,6 +28,9 @@ Template.panelPlaceEdit.events({
 		Meteor.call('updatePlace', place.id, data, function(err) {
 			place.update();
 		});
+	},
+	'click .btn-cancelren': function(e,tmpl) {
+		tmpl.$('.input-editren').val('');
 	}
 });
 

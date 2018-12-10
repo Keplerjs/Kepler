@@ -23,7 +23,7 @@
 				<label>{{i18n 'label_createdAt'}}</label>
 				<time>{{numericDate createdAt}}</time>
 			{{/if}}
-			
+
 			{{#if isEditable}}
 			<div class="btn-group pull-right" role="group">
 				<a class="btn btn-edit btn-default" href="/place/{{id}}/edit">
@@ -83,25 +83,44 @@
 			</a>
 		</div>
 		<div class="panel-body">
-			<div class="pull-left">
-				{{> item_place}}
-			</div>
-			<div class="text-right">
-				<a class="btn-editdel btn btn btn-default" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
-					<i class="icon icon-del"></i> {{i18n 'btn_del'}}
-				</a>
-			</div>
+				
+			{{> item_place}}
+				
+			<div class="row">
+				<div class="col-sm-12">
+				{{#if userId}}
+					<label>{{i18n 'label_creator'}}</label>
+					{{#with userById userId}}
+						{{> item_user_name}}
+					{{/with}}
+				{{/if}}
+				{{#if createdAt}}
+					<label>{{i18n 'label_createdAt'}}</label>
+					<time>{{numericDate createdAt}}</time>
+				{{/if}}
+			
+				<div class="pull-right">
+					<a class="btn-editdel btn btn btn-default" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
+						<i class="icon icon-del"></i> {{i18n 'btn_del'}}
+					</a>
+				</div>
 
-			<label class="control-label">{{i18n 'label_name'}}</label>
-			<div class="input-group">
-				<input class="input-editren form-control" type="text" value="{{name}}" placeholder="{{#unless name}}{{i18n 'label_noname'}}{{/unless}}" />
-				<span class="input-group-btn">
-					<a class="btn-editren btn btn-default" href="#">{{i18n 'btn_ren'}}</a>
-				</span>
+				</div>
 			</div>
-
-			<hr />
-
+			<div class="row">
+				<div class="col-sm-12">
+					<label class="control-label">{{i18n 'label_name'}}</label>
+					<div class="input-group">
+						<input class="input-editren form-control" type="text" value="{{name}}" placeholder="{{#unless name}}{{i18n 'label_noname'}}{{/unless}}" />
+						<span class="input-group-btn">
+							<a class="btn btn-default btn-cancelren" href="#">
+								<i class="icon icon-canc"></i>
+							</a>
+							<a class="btn-editren btn btn-default" href="#">{{i18n 'btn_ren'}}</a>
+						</span>
+					</div>
+			</div>
+			</div>
 			{{> pluginsTemplate name='panelPlaceEdit'}}
 
 		</div>	
