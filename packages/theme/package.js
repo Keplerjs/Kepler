@@ -50,7 +50,7 @@ Package.onUse(function(api) {
     'assets/images/logo-300.png',
     'assets/images/logo-32.png',
     'assets/images/logo-50.png',
-    'assets/images/logo-home.png',
+    'assets/images/logo-app.png',
     'assets/images/logo.svg',
     'assets/images/sprite.svg'
   ], 'client');

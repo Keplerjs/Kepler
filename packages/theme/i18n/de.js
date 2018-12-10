@@ -1,5 +1,6 @@
 
 i18n.map('de', {
+	title_root: "KeplerJs",
 	title_home: "Willkommen",
 	title_pageAbout: "Über",
 	title_pageCredits: "Credits",

@@ -1,5 +1,6 @@
 
 i18n.map('sv', {
+	title_root: "KeplerJs",
 	title_home: "Välkommer",
 	title_pageAbout: "Om",
 	title_pageCredits: "Medverkande",
