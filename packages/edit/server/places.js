@@ -21,9 +21,10 @@ Meteor.methods({
 
 		if(!this.userId) return null;
 
-		var placeData = Places.findOne(placeId);
+		var placeData = Places.findOne(placeId),
+			userId = placeData.userId || null;
 
-		if(placeData.userId === this.userId || (K.Admin && K.Admin.isMe())) {
+		if(userId === this.userId || (K.Admin && K.Admin.isMe())) {
 			
 			Places.remove(placeId);
 			//TODO remove other references
@@ -42,9 +43,10 @@ Meteor.methods({
 		
 		if(!this.userId) return null;
 
-		var placeData = Places.findOne(placeId);
+		var placeData = Places.findOne(placeId),
+			userId = placeData.userId || null;
 		
-		if(placeData.userId === this.userId || (K.Admin && K.Admin.isMe())) {
+		if(userId === this.userId || (K.Admin && K.Admin.isMe())) {
 
 			Places.update(placeId, {
 				$set: {
