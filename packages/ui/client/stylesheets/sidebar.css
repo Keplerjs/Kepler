@@ -137,7 +137,7 @@ li#navsearch {
         border-radius: 0;
     }
     .sidebar > .nav > li > a.btn {
-		padding: 4px 2px;
+		/*padding: 4px 2px;*/
     	margin-right: 0;	    	
 		max-width: 80px;
 		overflow:hidden;

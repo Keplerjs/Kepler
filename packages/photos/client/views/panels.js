@@ -35,7 +35,8 @@ Template.panelPlace_photos.helpers({
 Template.panelPlace_photos.events({
 	'click .place-photo': function(e, tmpl) {
 		e.preventDefault();
-		tmpl.data.photoViewer.show();
+		if(tmpl.data.photoViewer)
+			tmpl.data.photoViewer.show();
 	}
 });
 
