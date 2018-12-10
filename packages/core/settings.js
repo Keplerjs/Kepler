@@ -157,6 +157,7 @@ Kepler.settings = {
 			},
 			"tooltips": {
 				"enabled": true,
+				"autoOpen": true,
 				"direction": "auto",
 				"sticky": true
 			},

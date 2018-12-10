@@ -126,8 +126,10 @@ _.extend(Kepler.Map, {
 			}
 		});
 
-		map.on('zoomend', function(e) {
-			var z = map.getZoom();
+		map.on('zoomend moveend', function(e) {
+			var c = map.getCenter(),
+				z = map.getZoom();
+				//autoOpen
 
 			if(layers.geojson.getLayers().length) {
 				if(e.target.getBoundsZoom(layers.geojson.getBounds()) - e.target.getZoom() > 2)
@@ -145,6 +147,19 @@ _.extend(Kepler.Map, {
 				if(layers.cursor)
 					map.addLayer(layers.cursor);
 				map.addLayer(layers.cluster);
+
+				/* TODO FIX if(opts.tooltips.autoOpen) {
+					var bb = map.getBounds().pad(-0.7);
+					L.rectangle(bb).addTo(map);
+					
+					layers.cluster.eachLayer(function(l) {
+						
+						if(bb.contains(l.getLatLng())){
+							console.log(l);
+							l.openTooltip();
+						}
+					});
+				}*/
 		    }
 		});
 

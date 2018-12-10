@@ -3,7 +3,7 @@ K.Plugin({
 	name: 'geoinfo',
 	templates: {
 		panelPlaceEdit: {
-			'panelPlaceEdit_geoinfo':{order:10}
+			'panelPlaceEdit_geoinfo':{order:0}
 		},
 		tabPlace: 'tabPlace_geoinfo',
 		tabLocation: 'tabLocation_geoinfo',
