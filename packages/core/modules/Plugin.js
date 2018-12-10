@@ -87,7 +87,7 @@ Kepler.Plugin.templatesByPlaceholder = function(placeholder, data, sep) {
 	var tmpls = [],
 		sorts = [];
 
-	if(!placeholder 
+	if(!placeholder
 		//TODO uncomment and decide if check also it.. || !Template[placeholder]
 		) return tmpls;
 

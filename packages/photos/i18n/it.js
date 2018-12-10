@@ -1,6 +1,7 @@
 
 i18n.map('it', {
 	title_photos: "Fotografie",
+	title_editphotos: "Foto caricate",
 
 	title_placePhotos: "Foto a {$1}",
 

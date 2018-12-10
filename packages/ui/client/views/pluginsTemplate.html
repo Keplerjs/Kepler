@@ -1,5 +1,6 @@
 
 <template name="pluginsTemplate">
+{{#if templates}}
 	{{#each templates}}
 		{{{htmlComment pluginTemplate}}}
 		
@@ -8,4 +9,5 @@
 		{{{pluginSep}}}
 
 	{{/each}}
+{{/if}}
 </template>

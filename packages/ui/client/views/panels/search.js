@@ -24,7 +24,3 @@ Template.panelSearch.onRendered(function() {
 		}
 	});
 });
-
-Template.panelSearch.helpers({
-
-});
