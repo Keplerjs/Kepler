@@ -33,7 +33,7 @@ Router.map(function() {
 		data: function() {
 			if(!this.ready()) return null;
 			return {
-				title: i18n('title_photos'),
+				title: i18n('title_editphotos'),
 				className: 'photosEdits',
 				headerTemplate: 'photo_place_new',
 				//headerData: place,	

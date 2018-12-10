@@ -2,7 +2,12 @@
 <template name="tabLocation">
 	<ul class="list-group">
 		<li class="list-group-item active">
-			<i class="icon icon-map"></i> {{i18n 'label_location'}}
+			<i class="icon icon-map"></i> 
+		{{#if isMe}}
+			{{i18n 'label_mylocation'}}
+		{{else}}
+			{{i18n 'label_location'}}
+		{{/if}}
 		</li>	
 		<li class="list-group-item">
 

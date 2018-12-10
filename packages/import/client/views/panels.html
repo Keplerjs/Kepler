@@ -17,20 +17,3 @@
 		<div class="clearfix import-text"></div>
 	</div>
 </template>
-
-<template name="item_place_imported">
-	<div class="favorite-item">
-		<div class="pull-left">
-			{{> item_place}}
-		</div>
-		<div class="pull-right">
-			{{#if isEditable}}
-			<div class="text-right">
-				<a class="btn-placedel btn btn btn-default" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
-					<i class="icon icon-del"></i>
-				</a>
-			</div>
-			{{/if}}
-		</div>
-	</div>
-</template>

@@ -4,7 +4,7 @@ i18n.map('en', {
 
 	btn_editinsert: "Add New Place Here!",
 	btn_edit: "Edit",
-	btn_del: "Remove",
+	btn_del: "Delete",
 	btn_ren: "Rename",
 
 	label_editplaces: "Created places",

@@ -36,7 +36,7 @@ Router.map(function() {
 			return {
 				title: i18n('label_editplaces'),
 				className: 'edits',
-				itemsTemplate: 'item_place_favorite',
+				itemsTemplate: 'item_place_edit',
 				items: _.map(K.Profile.data.places, function(id) {
 					return place = K.placeById(id);
 				}),

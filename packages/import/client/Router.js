@@ -19,7 +19,7 @@ Router.map(function() {
 				className: 'imports',
 				headerTemplate: 'formImport',
 				//headerData: place,
-				itemsTemplate: 'item_place_imported',
+				itemsTemplate: 'item_place_edit',
 				//items: K.findPlacesImportByUserId(K.Profile.id).fetch(),
 				items: _.map(K.findPlacesImportByUserId(K.Profile.id).fetch(), function(p) {
 					return K.placeById(p._id);

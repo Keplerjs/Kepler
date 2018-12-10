@@ -1,0 +1,19 @@
+
+
+<template name="item_place_edit">
+	<div class="item-edit">
+		<div class="pull-left">
+			{{> item_place}}
+		</div>
+		<div class="pull-right">
+			<div class="btn-group" data-toggle="buttons">
+				<a class="btn-placedel btn btn-default" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
+					<i class="icon icon-del"></i>  {{i18n 'btn_del'}}
+				</a>					
+				<a class="btn-edit btn btn-default" href="/place/{{id}}/edit">
+					<i class="icon icon-edit"></i> {{i18n 'btn_edit'}}
+				</a>			
+			</div>
+		</div>
+	</div>
+</template>
