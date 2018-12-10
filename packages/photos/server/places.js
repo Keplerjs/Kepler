@@ -33,7 +33,7 @@ Meteor.methods({
 
 				Users.update(this.userId, {
 					$addToSet: {
-						//places: placeId,
+						places: placeId,
 						photos: placeId
 					}
 				});	

@@ -40,7 +40,8 @@ Router.map(function() {
 				items: _.map(K.Profile.data.places, function(id) {
 					return place = K.placeById(id);
 				}),
-				sortBy: 'createdAt'
+				sortBy: 'createdAt',
+				sortDesc: true
 			};
 		}
 	});	

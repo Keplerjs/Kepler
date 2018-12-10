@@ -90,6 +90,8 @@ Kepler.Place = Class.extend({
 			self.marker.item = self;
 			self.marker.once('add', function(e) {
 
+				var marker = e.target;
+
 				if(Template[self.templateMarker])
 					Blaze.renderWithData(Template[self.templateMarker], self, self.icon.nodeHtml);
 
@@ -100,16 +102,21 @@ Kepler.Place = Class.extend({
 					if(Template[self.templatePopup])
 						Blaze.renderWithData(Template[self.templatePopup], self.rData, divp);
 					
-				
-					self.marker.bindPopup(divp.firstChild, opts.popups);
+					marker.bindPopup(divp.firstChild, opts.popups);
+					/* TODO disable tooltip if popup is open
+					 marker.on('popupopen', function(ee) {
+						var t = e.target.getTooltip();
+						ee.target.unbindTooltip()
+						console.log(t)
+					});*/
 				}
 				else {
-					e.target.on('click', function(ee) {
+					marker.on('click', function(ee) {
 						Router.go('panelPlace',{placeId: self.id});
 					});
 				}
 
-				e.target.on('dblclick', function(ee) {
+				marker.on('dblclick', function(ee) {
 					Router.go('panelPlace',{placeId: self.id});
 				});
 				
@@ -119,9 +126,11 @@ Kepler.Place = Class.extend({
 
 					if(Template[self.templateTooltip])
 						Blaze.renderWithData(Template[self.templateTooltip], self.rData, divt);
-
 				
-					self.marker.bindTooltip(divt.firstChild, K.Map.options.tooltip);
+					marker.bindTooltip(divt.firstChild, K.Map.options.tooltip);
+					/*	TODO marker.on('opentooltip', function(e) {
+
+					});*/
 				}
 			});
 		}
