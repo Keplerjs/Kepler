@@ -1,9 +1,9 @@
 
 <template name="btnConnect">
 {{#with connectionStatus}}
-	<a class="btn btn-connect-{{status}}" href="#" title="{{status}}">
+	<a class="btn btn-connect btn-connect-{{status}}" href="#" title="{{status}}">
 		<i class="icon icon-status-{{status}}"></i> 
-		<span class="btn-connect-status text-muted">{{status}}</span>
+		<small class="btn-connect-status text-muted">{{status}}</small>
 	</a>
 {{/with}}
 </template>

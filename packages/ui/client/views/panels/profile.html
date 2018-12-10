@@ -22,7 +22,7 @@
 			
 		</div>
 
-		<br />		
+		<div class="clearfix">&nbsp;</div>
 
 		{{> footer}}
 
@@ -55,23 +55,24 @@
 	</a>
 </template>
 
+<template name="panelProfile_ui_home">
+	
+	<div class="clearfix">&nbsp;</div>
+
+	<a class="btn btn-default" href="{{pathFor route='home'}}">
+		<i class="icon icon-home"></i>
+		{{i18n 'btn_home'}}
+	</a>		
+</template>
+
 <template name="panelProfile_ui_logout">
-	<br />
-	<div class="btn-group pull-left">
+	<div class="pull-right">
+		
+		{{> btnConnect}}
+
 		<a class="btn btn-default" href="/logout">
 			<i class="icon icon-logout"></i> 
 			{{i18n 'btn_logout'}}
 		</a>
-		<a class="btn btn-default" href="{{pathFor route='home'}}">
-			<i class="icon icon-home"></i>
-			{{i18n 'btn_home'}}
-		</a>
 	</div>
-</template>
-
-<template name="panelProfile_ui_connect">
-	<div class="pull-right">
-		{{> btnConnect}}
-	</div>
-	<div class="clearfix"><br /><br /></div>
 </template>

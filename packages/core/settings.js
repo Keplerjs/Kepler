@@ -53,8 +53,8 @@ Kepler.settings = {
 				"panelProfile_ui_tablocation": { order:-10 },
 				"panelProfile_ui_hist": { order:-10 },
 				"panelProfile_ui_sets": { order:10 },
-				"panelProfile_ui_logout": { order:10 },
-				"panelProfile_ui_connect": { order:10 },
+				"panelProfile_ui_home": { order:10 },
+				"panelProfile_ui_logout": { order:10 }
 			},
 			"panelSettings": {
 				"panelSettings_ui_bio": { order:-10 },
