@@ -283,7 +283,8 @@ Kepler.Map = {
 	 */
 	addGeojson: function(geoData, opts, cb) {
 		
-		cb = cb || $.noop;
+		cb = _.isFunction(opts) ? opts : (cb || $.noop);
+
 		opts = _.defaults(opts || {}, {
 			clear: true,
 			bbox: null,

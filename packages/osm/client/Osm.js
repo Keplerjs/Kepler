@@ -41,7 +41,7 @@ Kepler.Osm = {
 					return feature;
 				});
 				K.Map.hideCursor();
-				K.Map.addGeojson(geojson, null, function() {
+				K.Map.addGeojson(geojson, function() {
 					K.Map.layers.geojson.invoke('openPopup');
 				});
 			}
