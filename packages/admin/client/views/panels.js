@@ -20,6 +20,9 @@ Template.panelAdmin.onCreated(function() {
 
 Template.panelAdmin.onRendered(function() {
 
+//PATH
+Session.set('showSidebar', true);
+
 	this.methods.set(_.keys(K.Admin.method))
 });
 

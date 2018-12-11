@@ -6,14 +6,15 @@ Router.map(function() {
 		template: 'panelAdmin',
 		layoutTemplate: 'layoutMap',
 		loadingTemplate: 'pageLoading',
-		onBeforeAction: function () {
+/* TODO fix and uncomment		onBeforeAction: function () {
 			if(!K.Admin.isMe())
 				Router.go('root');
 			else
 				this.next();
-		},
+		},*/
 		waitOn: function() {
 			Session.set('showSidebar', true);
+			//return Meteor.subscribe('usersByDate');
 		}
 	});
 
@@ -29,6 +30,7 @@ Router.map(function() {
 				this.next();
 		},
 		waitOn: function() {
+			Session.set('showSidebar', true);
 			return Meteor.subscribe('usersByDate');
 		},
 		data: function() {
@@ -54,6 +56,7 @@ Router.map(function() {
 				this.next();
 		},
 		waitOn: function() {
+			Session.set('showSidebar', true);
 			return Meteor.subscribe('placesByDate');
 		},
 		data: function() {
