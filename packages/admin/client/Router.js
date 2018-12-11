@@ -41,4 +41,27 @@ Router.map(function() {
 			};
 		}
 	});
+
+	this.route('panelAdminPlaces', {
+		path: '/admin/places',
+		template: 'pageAdminPlaces',
+		layoutTemplate: 'layoutPage',
+		loadingTemplate: 'pageLoading',
+		onBeforeAction: function () {
+			if(!K.Admin.isMe())
+				Router.go('root');
+			else
+				this.next();
+		},
+		waitOn: function() {
+			return Meteor.subscribe('placesByDate');
+		},
+		data: function() {
+			if(!this.ready()) return null;
+			var items = K.findPlacesByDate().fetch();
+			return {
+				items: _.map(_.pluck(items,'_id'), K.placeById)
+			};
+		}
+	});	
 });

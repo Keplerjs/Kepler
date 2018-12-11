@@ -25,16 +25,18 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-    'modules/Admin.js',
-    'collections/queries.js'
+    'modules/Admin.js'
   ]);
 
   api.addFiles([
     'client/Profile_admin.js',
     'client/Place_admin.js',
     'client/helpers.js',
-    'client/views/pages.html',
-    'client/views/pages.js',
+    'client/views/pages/admin.html',
+    'client/views/pages/places.html',
+    'client/views/pages/places.js',    
+    'client/views/pages/users.html',
+    'client/views/pages/users.js',
     'client/views/panels.html',
     'client/views/panels.js',
     'client/stylesheets/panels.css',

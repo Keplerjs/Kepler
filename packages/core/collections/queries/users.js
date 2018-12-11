@@ -29,7 +29,7 @@ K.extend({
 					loginAt: -1,
 					name: 1
 				},
-				limit: 50
+				limit: 30
 			})
 		);
 	},
@@ -89,7 +89,7 @@ K.extend({
 				sort: { 
 					createdAt: -1
 				},
-				limit: 50
+				limit: 30
 			})
 		);
 	}

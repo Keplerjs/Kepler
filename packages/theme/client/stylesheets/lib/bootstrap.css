@@ -29,6 +29,11 @@
 .has-feedback .form-control {
 	padding-right: 18px;
 }
+
+.list-group-item:focus {
+	outline: 0;
+}
+
 .list-group-item,
 a.list-group-item {
 	color: #257;

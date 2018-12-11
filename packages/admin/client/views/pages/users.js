@@ -2,29 +2,29 @@
 
 Template.pageAdminUsers.onCreated(function() {
 
-	Session.set('userSelected', null);
+	Session.set('itemSelected', null);
 });
 
 Template.pageAdminUsers.onRendered(function() {
 	var self = this;
 
-	$(self.firstNode).find('.list-group').btsListFilter('.users-search', {
+	$(self.firstNode).find('.list-group').btsListFilter('.items-search', {
 		itemChild: '.user-btn-name',
 		loadingClass: 'loading-lg',
 		sourceData: function(val, callback) {
 			
 			Meteor.subscribe('usersByName', val, function() {
 				
-				var users = _.map( K.findUsersByName(val).fetch(), function(user) {
-					return K.userById(user._id);
+				var items = _.map( K.findUsersByName(val).fetch(), function(item) {
+					return K.userById(item._id);
 				});
 
-				callback(users);
+				callback(items);
 			});
 		},
 		sourceNode: function(data) {
 			var item$ = $('<div>');
-			Blaze.renderWithData(Template.item_user_admin, data, item$[0]);
+			Blaze.renderWithData(Template.itemUserAdmin, data, item$[0]);
 			return item$[0].firstChild;
 		},
 		cancelNode: function() {
@@ -47,28 +47,29 @@ Template.pageAdminUsers.events({
 		input$.val('');
 	},
 	'keydown .user-name-new': function(e,tmpl) {
-		if(e.keyCode===13)//enter
-		{
+		if(e.keyCode===13) {//enter
 			e.preventDefault();
 			tmpl.$('.user-btn-new').trigger('click');
 		}
 	},
 
-	'click .users-list .list-group-item': function(e,tmpl) {
-
-		var input$ = $(e.currentTarget).find('input.btn-userselect');
+	'click .items-list .list-group-item': function(e,tmpl) {
+		var li$ = $(e.currentTarget),
+			input$ = li$.find('input.btn-itemselect');
 		input$.prop('checked',true);
 		input$.trigger('change');
+		li$.siblings().removeClass('selected')
+		.end().addClass('selected');
 	},
 
-	'change input.btn-userselect': function(e,tmpl) {
+	'change input.btn-itemselect': function(e,tmpl) {
 		//e.preventDefault();
 
-		var userId = $(e.currentTarget).val();
+		var itemId = $(e.currentTarget).val();
 		
-		Meteor.subscribe('userById', userId, function() {
+		Meteor.subscribe('userById', itemId, function() {
 	
-			Session.set('userSelected', userId );
+			Session.set('itemSelected', itemId );
 		});
 
 	}
@@ -76,19 +77,17 @@ Template.pageAdminUsers.events({
 });
 
 Template.pageAdminUsers.helpers({
-	userSelected: function() {
-		var id = Session.get('userSelected');
+	itemSelected: function() {
+		var id = Session.get('itemSelected');
 		return id && K.userById(id);
 	}
 });
 
-Template.itemUserAdmin_admin.onRendered(function() {
-	var self = this,
-		username = this.data.username;
-
-	self.$('.user-btn-del').btsConfirmButton(function(e) {
+Template.itemUserAdmin_admin_btns.onRendered(function() {
+	var self = this;
+	self.$('.item-btn-del').btsConfirmButton(function(e) {
 		e.stopPropagation();
-		K.Admin.removeUser(username);
-		Session.set('userSelected',null);
+		K.Admin.removeUser(self.data.username);
+		Session.set('itemSelected',null);
 	});
 });

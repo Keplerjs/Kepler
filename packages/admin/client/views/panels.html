@@ -1,21 +1,4 @@
 
-<template name="panelPlace_admin">
-{{#if adminIsMe}}
-	<div class="list-group">
-		<div class="list-group-item active">
-			{{i18n 'title_admin'}}
-		</div>
-		<div class="list-group-item">
-			<a class="btn btn-default" type="button" data-toggle="collapse" data-target="#rawdata" aria-expanded="false" aria-controls="collapseExample">
-			  {{i18n 'label_rawdata'}}
-			</a>
-			<div id="rawdata" class="collapse collapsed">
-				{{{stringify data}}}
-			</div>
-		</div>
-	</div>
-{{/if}}
-</template>
 
 <template name="panelUser_admin">
 {{#if adminIsMe}}
@@ -91,25 +74,28 @@
 
 </template>
 
-<template name="panelAdmin_btn_users">
+<template name="panelAdmin_btns">
 	<a class="list-group-item" href="/admin/users">
 		<i class="icon icon-users"></i>
 		{{i18n 'title_panelAdminUsers'}}
 	</a>
+	<a class="list-group-item" href="/admin/places">
+		<i class="icon icon-map"></i>
+		{{i18n 'title_panelAdminPlaces'}}
+	</a>	
 </template>
 
-
-<template name="panelUserAdmin">
+<template name="panelPlaceAdmin">
 
 	<div class="panel">
 		<div class="panel-heading bg-primary">
 			<h4 class="text-left">
-				{{i18n 'title_adminUser' username}}
+				{{i18n 'title_adminPlace' name}}
 			</h4>
 		</div>
 		<div class="panel-body">
 
-			{{> pluginsTemplate name='panelUserAdmin' sep='<hr />'}}
+			{{> pluginsTemplate name='panelPlaceAdmin' sep='<hr />'}}
 
 		</div>		
 	</div>

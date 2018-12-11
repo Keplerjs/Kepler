@@ -1,0 +1,75 @@
+
+<template name="pageAdminPlaces">
+	<section id="adminPlaces" class="adminPage">
+		<br />
+		<div class="row">
+			<div class="col-sm-3">
+				<input class="items-search form-control" type="text" placeholder="{{i18n 'label_find'}}" /> 
+				<span class="search-canc form-control-feedback" aria-hidden="true"><i class="icon icon-canc"></i></span>
+			</div>			
+			<div class="col-sm-4">
+			</div>
+			<div class="col-sm-5">
+			</div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="col-sm-7">
+				<div class="list-group items-list">
+					{{#if items.length}}
+						{{#each items}}
+							
+							{{> itemPlaceAdmin}}
+
+						{{/each}}
+					{{else}}
+						<!--div class="list-group-item text-gray text-center">
+							{{i18n 'label_nolistitems'}}
+						</div-->
+					{{/if}}
+				</div>
+			</div>
+			<div class="col-sm-5">
+
+				{{#with itemSelected}}
+				
+					<div class="panel pageAdmin">
+						<div class="panel-heading bg-primary">
+							<h4 class="text-left">
+								{{i18n 'title_adminPlace' name}}
+							</h4>
+						</div>
+						<div class="panel-body">
+
+							{{> pluginsTemplate name='pageAdminPlace' sep='<hr />'}}
+
+						</div>
+					</div>
+					
+				{{/with}}
+
+			</div>
+		</div>
+	</section>
+</template>
+
+<template name="itemPlaceAdmin">
+	<button class="list-group-item">
+		<div class="pull-left">
+			<input class="btn btn-default btn-itemselect" name="itemSelect" type="radio" value="{{id}}" />
+			&nbsp;
+			{{> item_place}} 
+		</div>
+		<div class="pull-right">
+
+			{{> pluginsTemplate name='itemPlaceAdmin'}}
+
+		</div>
+	</button>
+</template>
+
+<template name="itemPlaceAdmin_admin_btns">
+	<a class="btn btn-sm btn-default item-btn-del" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
+		<i class="icon icon-del"></i>
+	</a>
+</template>

@@ -1,13 +1,13 @@
 
 <template name="pageAdminUsers">
-	<section id="adminUsers">
+	<section id="adminUsers" class="adminPage">
 		<br />
 		<div class="row">
 			<div class="col-sm-3">
-				<input class="users-search form-control" type="text" placeholder="{{i18n 'label_find'}}" /> 
+				<input class="items-search form-control" type="text" placeholder="{{i18n 'label_find'}}" /> 
 				<span class="search-canc form-control-feedback" aria-hidden="true"><i class="icon icon-canc"></i></span>
 			</div>			
-			<div class="col-sm-4">
+			<div class="col-sm-3">
 				<form class="form-horizontal item_user-new" role="form">
 					<div class="input-group">
 						<input class="form-control user-name-new" tyte="text" maxlength="60" placeholder="{{i18n 'label_username'}}" aria-label="{{i18n 'label_username'}}" aria-expanded="true" />
@@ -20,16 +20,17 @@
 					<br />
 				</form>
 			</div>
-			<div class="col-sm-4">
+			<div class="col-sm-6">
 			</div>
 		</div>
+		<br />
 		<div class="row">
-			<div class="col-sm-7">
-				<div class="list-group users-list">
+			<div class="col-sm-6">
+				<div class="list-group items-list">
 					{{#if items.length}}
 						{{#each items}}
 							
-							{{> item_user_admin}}
+							{{> itemUserAdmin}}
 
 						{{/each}}
 					{{else}}
@@ -39,13 +40,22 @@
 					{{/if}}
 				</div>
 			</div>
-			<div class="col-sm-5">
+			<div class="col-sm-6">
 
-				{{#with userSelected}}
+				{{#with itemSelected}}
 				
-					{{> panelUserAdmin}}
-				
-					{{> panelUser}}
+					<div class="panel pageAdmin">
+						<div class="panel-heading bg-primary">
+							<h4 class="text-left">
+								{{i18n 'title_adminUser' name}}
+							</h4>
+						</div>
+						<div class="panel-body">
+
+							{{> pluginsTemplate name='pageAdminUser' sep='<hr />'}}
+
+						</div>
+					</div>
 					
 				{{/with}}
 
@@ -54,10 +64,10 @@
 	</section>
 </template>
 
-<template name="item_user_admin">
+<template name="itemUserAdmin">
 	<div class="list-group-item">
 		<div class="pull-left">
-			<input class="btn btn-default btn-userselect" name="itemSelect" type="radio" value="{{id}}" />
+			<input class="btn btn-default btn-itemselect" name="itemSelect" type="radio" value="{{id}}" />
 			&nbsp;
 			{{> item_user}} 
 		</div>
@@ -69,8 +79,8 @@
 	</div>
 </template>
 
-<template name="itemUserAdmin_admin">
-	<a class="btn btn-sm btn-default user-btn-del" href="#" data-confirm-msg="{{i18n 'btn_userdel'}}">
+<template name="itemUserAdmin_admin_btns">
+	<a class="btn btn-sm btn-default item-btn-del" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
 		<i class="icon icon-del"></i>
 	</a>
 </template>

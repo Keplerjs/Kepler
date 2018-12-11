@@ -1,13 +1,28 @@
 
-#adminUsers #user.panel .back,
-#adminUsers #user.panel .close {
+.adminPage .panel .back,
+.adminPage .panel .close {
 	display: none;
 }
 
-#adminUsers #user.panel h4 {
+.adminPage .panel h4 {
 	float: none !important;
 }
 
-#adminUsers .panel {
+.adminPage .panel {
 	border:none;
+}
+.adminPage .items-list {
+	max-height: 800px;
+	overflow-y: auto;
+}
+.adminPage .items-list .list-group-item {
+	cursor: pointer;
+}
+.adminPage .items-list .list-group-item.selected {
+	background-color: rgba(153,204,0,0.25);
+	box-shadow: none;
+}
+
+.adminPage .items-list .item-place {
+	width: auto;
 }
