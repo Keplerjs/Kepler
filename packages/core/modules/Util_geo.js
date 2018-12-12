@@ -53,7 +53,7 @@ Kepler.Util.geo = {
 	 * @return {[type]}         [description]
 	 */
 	bufferLoc: function(loc, dist, corners) {
-		
+		//TODO check valid loc
 		corners = corners || false;
 
 		var b = K.Util.geo.meters2rad(dist),

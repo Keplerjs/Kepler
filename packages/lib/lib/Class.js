@@ -4,6 +4,18 @@
  * 
  * //TODO https://github.com/jeromeetienne/microevent.js/blob/master/package.json
  */
+function extend(dest) {
+	var i, j, len, src;
+
+	for (j = 1, len = arguments.length; j < len; j++) {
+		src = arguments[j];
+		for (i in src) {
+			dest[i] = src[i];
+		}
+	}
+	return dest;
+}
+
 Class = function(){};
 Class.extend = function (props) {
 
@@ -33,7 +45,7 @@ Class.extend = function (props) {
 	}
 	
 	// mix given properties into the prototype
-	_.extend(proto, props);
+	extend(proto, props);
 
 	var parent = this;
 	// jshint camelcase: false
@@ -43,7 +55,7 @@ Class.extend = function (props) {
 };
 
 Class.include = function (props) {
-	_.extend(this.prototype, props);
+	extend(this.prototype, props);
 };
 
 //TODO https://github.com/scottcorgan/tiny-emitter
