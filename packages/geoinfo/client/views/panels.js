@@ -1,16 +1,5 @@
 
-/*Template.panelPlaceEdit_geoinfo.onRendered(function() {
-	
-	var panel$ = $(this.firstNode).parents('.panel-body'),
-		input$ = panel$.find('.input-editren'),
-		near = K.Util.getPath(this.data,'geoinfo.near');
-
-	if(input$.val()==='' && near!=='')
-		input$.val(near);
-});
-
-*/
-Template.panelPlaceEdit_geoinfo.events({
+Template.panelPlaceEdit_geoinfo_tips.events({
 	'click .geoinfo-nametips .btn': function(e,tmpl) {
 		
 		var panel$ = $(tmpl.firstNode).parents('.panel-body'),
@@ -19,4 +8,14 @@ Template.panelPlaceEdit_geoinfo.events({
 
 		input$.val(name);
 	}
+});
+
+Template.panelPlaceEdit_geoinfo_reload.events({
+	'click .btn-reload': function(e,tmpl) {
+		Meteor.call('updatePlaceGeoinfo', tmpl.data.id);
+	},
+/*	'click .btn-canc': function(e,tmpl) {
+		
+		Meteor.call('', tmpl.data.id);
+	}*/
 });

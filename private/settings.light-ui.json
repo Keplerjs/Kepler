@@ -121,7 +121,7 @@
 			"markerPlace": {
 				"markerPlace_ui_checkins": { "show": false },
 				"markerPlace_favorites": { "show": false },
-				"markerPlace_conver": { "show": false },
+				"markerPlace_conver": { "show": false }
 			},
 			"markerClusterPlace": {
 				"markerClusterPlace_ui_checkins": { "show": false }

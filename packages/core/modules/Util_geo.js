@@ -256,6 +256,26 @@ Kepler.Util.geo = {
 	},
 
 	/**
+	 * coordinates transformation 
+	 * @param  {Array} loc    [description]
+	 * @param  {String} crsSrc [description]
+	 * @param  {String} crsDst [description]
+	 * @return {Array}        [description]
+	 */
+	transformLoc: function(loc, crsSrc, crsDst) {
+		//https://leafletjs.com/reference-1.3.4.html#crs
+		crsSrc = crsSrc || '3857';
+		crsDst = crsDst || '4326';
+		var r = /[0-9]/,
+			p = 'EPSG',
+			cs = r.test(crsSrc[0]) ? p+crsSrc : crsSrc,
+			cd = r.test(crsDst[0]) ? p+crsDst : crsDst,
+			ps = L.CRS[cs].project(L.latLng(loc));
+			ld = L.CRS[cd].unproject(ps);
+		return ld;
+	},
+
+	/**
 	 * parse coordinates location 
 	 * @param  {[type]} dmsString [description]
 	 * @return {[type]}           [description]

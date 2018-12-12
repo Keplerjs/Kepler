@@ -16,7 +16,5 @@ i18n.map('en', {
 	label_sunset: "Sunset",
 
 	label_nametips: "Name tips by locality",
-
-	btn_geosearch: "Geography Info",
-
+	btn_geosearch: "Geography Info"
 });

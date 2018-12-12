@@ -13,4 +13,7 @@ i18n.map('it', {
 	label_ele: "Quota",
 	label_sunrise: "Alba",
 	label_sunset: "Tramonto",
+
+	label_nametips: "Suggerisci nome dalla località",
+	btn_geosearch: "Info Geografiche"
 });

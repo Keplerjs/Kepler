@@ -17,16 +17,36 @@
 	{{/if}}
 </template>
 
-<template name="panelPlaceEdit_geoinfo">
+<template name="panelPlaceEdit_geoinfo_tips">
 	{{#if geoinfo}}
 	<div class="form-group">
-	<label class="control-label">{{i18n 'label_nametips'}}</label>
-	{{#with geoinfo}}
-		<div class="geoinfo-nametips">
-		{{#if near}}<a class="btn btn-sm btn-default">{{near}}</a> {{/if}}
-		{{#if com}}<a class="btn btn-sm btn-default">{{com}}</a> {{/if}}
-		</div>
-	{{/with}}
+		<label class="control-label">{{i18n 'label_nametips'}}</label>
+		{{#with geoinfo}}
+			<div class="geoinfo-nametips">
+			{{#if near}}<a class="btn btn-sm btn-default">{{near}}</a> {{/if}}
+			{{#if com}}<a class="btn btn-sm btn-default">{{com}}</a> {{/if}}
+			</div>
+		{{/with}}
 	</div>
 	{{/if}}
+</template>
+
+<template name="panelPlaceEdit_geoinfo_reload">
+	<div class="form-group edit-geoinfo">
+		<label class="control-label">{{i18n 'title_geoinfo'}}</label>
+		<br />
+		<div class="btn-group">
+			<a class="btn btn-default btn-reload">
+				<i class="icon icon-refresh"></i> {{i18n 'btn_reload'}}
+			</a>
+			{{#if geoinfo}}
+			<!-- <a class="btn btn-default btn-canc">
+				<i class="icon icon-del"></i> {{i18n 'btn_del'}}
+			</a> -->
+			{{/if}}
+		</div>
+		{{#with geoinfo}}
+			{{> tabGeoinfo}}
+		{{/with}}
+	</div>
 </template>

@@ -13,6 +13,9 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 - K.Map.addGeojson fix params
 - K.Util.sanitize rename funcs
 - plugin import manage import name, bulk remove
+- open cursor popup on dblclick
+- new method K.Util.geo.transformLoc()
+- plugin geoinfo new method updatePlaceGeoinfo() and reload btn in panelEdit
 
 ## v1.5.7
 - plugin admin new page admin users

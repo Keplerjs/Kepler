@@ -21,9 +21,11 @@ _.extend(Kepler.Map, {
 
 				var div = L.DomUtil.create('div'),
 					ll = this.getLatLng(),
+					loc = [ll.lat, ll.lng],
 					cursorData = {
-						loc: [ll.lat, ll.lng]
+						loc: loc
 					};
+				
 				//TODO rewrite use cursorData as reactive var!
 				$(layers.cursor.icon.nodeHtml).empty();
 				Blaze.renderWithData(Template.markerCursor, cursorData, layers.cursor.icon.nodeHtml);

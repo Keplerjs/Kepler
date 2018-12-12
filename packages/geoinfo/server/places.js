@@ -14,3 +14,24 @@ Places.before.update(function(userId, doc, fieldNames, modifier, options) {
 		doc.geoinfo = K.Geoinfo.getFieldsByLoc(doc.loc)
 });
 */
+
+Meteor.methods({
+	updatePlaceGeoinfo: function(placeId) {
+		
+		if(!this.userId) return null;
+
+		var placeData = Places.findOne(placeId),
+			userId = placeData.userId || null;
+		
+		if(userId === this.userId || (K.Admin && K.Admin.isMe())) {
+
+			Places.update(placeId, {
+				$set: {
+					geoinfo: K.Geoinfo.getFieldsByLoc(placeData.loc)
+				}
+			});
+
+			console.log('Edit: updatePlaceGeoinfo', placeId);			
+		}	
+	}
+});

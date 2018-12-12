@@ -22,9 +22,11 @@ L.Cursor = L.Layer.extend({
 	onAdd: function(map) {
 		this._map = map;		
 		this._map.on('click', this._onSwitch, this);
+		this._map.on('dblclick', this._onSwitch, this);
 	},
 	onRemove: function(map) {
 		map.off('click', this._onSwitch, this);
+		map.off('dblclick', this._onSwitch, this);
 		map.removeLayer(this.marker);
 	},
 	_onSwitch: function(e) {
@@ -32,6 +34,9 @@ L.Cursor = L.Layer.extend({
 			this.hide();
 		else
 			this.setLoc(e.latlng);
+
+		if(e.type==='dblclick')
+			this.marker.openPopup();
 	},
 
 	hide: function() {

@@ -9,7 +9,7 @@ i18n.map('it', {
 	
 	btn_conversend: "Messaggio",
 	btn_messages: "Messaggi",
-	btn_convers: "Conversazioni",
+	btn_convers: "Commenti",
 	btn_msgsend: "Invia",
 	btn_convernew: "Nuova",
 	btn_converdel: "Cancella!",
