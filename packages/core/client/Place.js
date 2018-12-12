@@ -10,7 +10,8 @@ Kepler.placesById = {};
  * @return {Place}   K.Place instance
  */	
 Kepler.placeById = function(id) {
-	check(id, String);
+	//check(id, String);
+	if(!id) return null;
 	
 	if(id && !K.placesById['id_'+id] && K.findPlaceById(id).fetch()[0])
 		K.placesById['id_'+id] = new K.Place(id);

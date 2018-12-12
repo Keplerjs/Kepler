@@ -10,7 +10,8 @@ Kepler.usersById = {};
  * @return {User}   K.User instance
  */
 Kepler.userById = function(id) {
-	check(id, String);
+	//check(id, String);
+	if(!id) return null;
 	
 	if(!K.usersById['id_'+id] && K.findUserById(id).fetch()[0])
 		K.usersById['id_'+id] = new K.User(id);

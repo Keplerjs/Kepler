@@ -61,9 +61,10 @@ Template.pageAdminPlaces.events({
 Template.pageAdminPlaces.helpers({
 	itemSelected: function() {
 		var id = Session.get('itemSelected'),
-			place = K.placeById(id);
-		place.update()
-		return id && place;
+			place = id && K.placeById(id);
+		if(place)
+			place.update();
+		return place;
 	}
 });
 

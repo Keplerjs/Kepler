@@ -61,9 +61,10 @@ Router.map(function() {
 		},
 		data: function() {
 			if(!this.ready()) return null;
-			var items = K.findPlacesByDate().fetch();
 			return {
-				items: _.map(_.pluck(items,'_id'), K.placeById)
+				items: _.map(K.findPlacesByDate().fetch(), function(item) {
+					return K.placeById(item._id);
+				})
 			};
 		}
 	});	
