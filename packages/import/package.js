@@ -34,6 +34,8 @@ Package.onUse(function(api) {
   api.addFiles([
     'client/views/panels.html',
     'client/views/panels.js',
+    'client/views/items.html',
+    'client/views/items.js',    
     'client/views/tabs.html',
     'client/Router.js',   
   ],'client');

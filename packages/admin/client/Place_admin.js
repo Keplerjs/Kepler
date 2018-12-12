@@ -19,7 +19,7 @@ Kepler.extend({
 			K.placesById[id] = new K.Place(id);
 			
 			if(K.Admin.isMe()) {
-				var iname = K.Util.sanitize.filename(K.placesById[id].name);
+				var iname = K.Util.sanitize.fileName(K.placesById[id].name);
 				K.Admin.placesByName[iname || 'id_'+id] = K.placesById[id];
 			}
 		}
@@ -40,7 +40,7 @@ Kepler.extend({
 			
 			//TODO move to admin moduile
 			if(K.Admin.isMe()) {
-				var iname = K.Util.sanitize.filename(K.usersById[id].name);
+				var iname = K.Util.sanitize.fileName(K.usersById[id].name);
 				K.Admin.usersByName[iname || 'id_'+id] = K.usersById[id];
 			}
 		}

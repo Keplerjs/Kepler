@@ -14,7 +14,7 @@ var geojsonToPlace = function(feature, importName) {
 
 	if(feature.geometry.type==='Point') {
 		return {
-			name: name, //K.Util.sanitize.name(name),
+			name: K.Util.sanitize.name(name),
 			loc: [coords[1], coords[0]],
 			active: 0,
 			import: {
@@ -35,6 +35,23 @@ var geojsonToPlace = function(feature, importName) {
 
 Meteor.methods({
 
+	removeImport: function(name) {
+
+		if(!this.userId) return null;
+
+		var c= Places.remove({
+			'import.name': name,
+			'userId': this.userId
+		});
+		Users.update(this.userId, {
+			$pull: {
+				imports: name
+			}
+		});
+		console.log('Import: removeImport ', name, this.userId);
+		return c;
+	},
+
 	importPlace: function(obj) {
 
 		if(!this.userId) return null;
@@ -53,7 +70,7 @@ Meteor.methods({
 		if(!this.userId) return null;
 
 		var geo = JSON.parse(fileObj.blob),
-			importName = fileObj.name || K.Util.timeName(),
+			importName = K.Util.sanitize.fileName(fileObj.name, true) || K.Util.timeName(),
 			placeIds = [];
 
 		//TODO user params as importName
@@ -88,6 +105,12 @@ Meteor.methods({
 		}
 		else
 			console.log('Import: error json parse');
+
+		Users.update(this.userId, {
+			$addToSet: {
+				imports: importName
+			}
+		});
 
 		return placeIds.length+' '+i18n('label_imported');
 	}

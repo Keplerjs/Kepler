@@ -10,7 +10,7 @@ Router.map(function() {
 		loadingTemplate: 'pageLoading',
 		waitOn: function() {
 			Session.set('showSidebar', true);
-			return Meteor.subscribe('importsByUserId', K.Profile.id);
+			return Meteor.subscribe('importsByUser', K.Profile.id);
 		},
 		data: function() {
 			if(!this.ready()) return null;
@@ -18,16 +18,37 @@ Router.map(function() {
 				title: i18n('label_imported'),
 				className: 'imports',
 				headerTemplate: 'formImport',
-				//headerData: place,
-				itemsTemplate: 'item_place_edit',
-				//items: K.findPlacesImportByUserId(K.Profile.id).fetch(),
-				items: _.map(K.findPlacesImportByUserId(K.Profile.id).fetch(), function(p) {
-					return K.placeById(p._id);
+				itemsTemplate: 'itemImport',
+				items: _.map(K.Profile.data.imports, function(i) {
+					return {
+						name: i
+					}
 				})
-				//sortBy: 'lastMsg.updatedAt',
-				//sortDesc: true
 			};
 		}
 	});
+
+	this.route('panelImportName', {
+		path: '/import/:name',
+		template: 'panelList',
+		layoutTemplate: 'layoutMap',
+		loadingTemplate: 'pageLoading',
+		waitOn: function() {
+			Session.set('showSidebar', true);
+			return Meteor.subscribe('importsByName', this.params.name);
+		},
+		data: function() {
+			if(!this.ready()) return null;
+			return {
+				title: i18n('label_imported')+': '+this.params.name,
+				className: 'imports-name',
+				//headerTemplate: 'formImportList',
+				itemsTemplate: 'itemPlaceImport',
+				items: _.map(K.findPlacesByImportName(K.Profile.id, this.params.name).fetch(), function(p) {
+					return K.placeById(p._id);
+				})
+			};
+		}
+	});	
 
 });

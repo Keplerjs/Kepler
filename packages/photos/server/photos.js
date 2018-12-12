@@ -29,7 +29,7 @@ Meteor.methods({
 		if(!this.userId) return null;
 
 		var username = Meteor.user().username,
-			fileName = K.Util.sanitize.filename( username +'_'+ K.Util.time() ),
+			fileName = K.Util.sanitize.fileName( username +'_'+ K.Util.time() ),
 			fileOri = fileName + '.ori.'+fileObj.ext;
 		try {
 			fs.writeFileSync(basePath + fileOri, fileObj.blob, 'binary');
@@ -48,7 +48,7 @@ Meteor.methods({
 		if(!this.userId) return null;
 
 		//TODO move to settings
-		var fileExt = K.Util.sanitize.filenameExt(fileOri),
+		var fileExt = K.Util.sanitize.fileExt(fileOri),
 			fileMin = fileOri + K.Util.tmpl('_{width}x{height}.min.'+fileExt, imgOpts),
 			opts = _.extend({}, imgOpts, {
 				srcPath: basePath + fileOri,

@@ -11,6 +11,8 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 - map gps fix gps user
 - plugin geoinfo in panelEdit Name tips by locality
 - K.Map.addGeojson fix params
+- K.Util.sanitize rename funcs
+- plugin import manage import name, bulk remove
 
 ## v1.5.7
 - plugin admin new page admin users

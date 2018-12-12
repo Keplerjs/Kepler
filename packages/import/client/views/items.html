@@ -1,0 +1,36 @@
+
+
+<template name="itemImport">
+	<div class="item-import">
+		<div class="pull-left">
+			<i class="icon icon-import"></i> <a href="/import/{{name}}"><b>{{name}}</b></a>
+		</div>
+		<div class="pull-right">
+			<div class="btn-group" data-toggle="buttons">
+				<a class="btn-del btn btn-default" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
+					<i class="icon icon-del"></i>
+				</a>			
+			</div>
+		</div>
+	</div>
+</template>
+
+
+<template name="itemPlaceImport">
+	<div class="item-place-import">
+		<div class="pull-left">
+			{{> item_place}}
+		</div>
+		<div class="pull-right">
+			<!-- <span class="text-muted">{{import.name}}</span> -->
+			<div class="btn-group" data-toggle="buttons">
+				<a class="btn-del btn btn-default" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
+					<i class="icon icon-del"></i>
+				</a>					
+				<a class="btn-edit btn btn-default" href="/place/{{id}}/edit">
+					<i class="icon icon-edit"></i>
+				</a>			
+			</div>
+		</div>
+	</div>
+</template>

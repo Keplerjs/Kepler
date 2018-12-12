@@ -2,12 +2,13 @@
 Template.popupCursor_osm.events({
 	'click .btn-osmsearch': function(e,tmpl) {
 
-		var icon$ = $(e.target).find('.icon');
-		$(e.target).addClass('disabled');
+		var btn$ = $(e.target),
+			icon$ = btn$.find('.icon');
+		btn$.addClass('disabled');
 		icon$.addClass('icon-loader');
 		
 		K.Osm.loadByLoc(tmpl.data.loc, function(data) {
-			$(e.target).removeClass('disabled');
+			btn$.removeClass('disabled');
 			icon$.removeClass('icon-loader');
 		});
 	}

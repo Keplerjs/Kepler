@@ -215,6 +215,8 @@ div.leaflet-marker-icon,
 .icon-userpend{ background-position: -120px -330px;  }
 
 .icon-admin{ background-position: -150px -330px;  }
+.icon-import{ background-position: -150px -360px;  }
+.icon-export{ background-position: -150px -390px;  }
 
 .icon-userbid{ background-position: -120px -330px;  } 
 .icon-info{ background-position: -120px -360px;  } 

@@ -7,13 +7,12 @@
 </template>
 
 <template name="formImport">
-	<div class="form-group">
+	<div class="row">
 		<div class="col-sm-3 col-xs-4">
 			<label>{{i18n 'label_importfile'}}</label>
 		</div>
 		<div class="col-sm-9 col-xs-8">
 			{{> inputFile_upload target='import_places' callback=importDone}}
 		</div>
-		<div class="clearfix import-text"></div>
 	</div>
 </template>

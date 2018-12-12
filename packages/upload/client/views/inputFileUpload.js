@@ -10,6 +10,8 @@ Template.inputFile_upload.events({
 			params = tmpl.data.params,
 			callback = tmpl.data.callback;
 
+//TODO use aAlert!!!
+//
 		input$.parent().addClass('loading-default');
 		
 		input$.next('.upload-err').text('');

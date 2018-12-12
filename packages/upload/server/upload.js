@@ -45,7 +45,7 @@ Meteor.methods({
 			);
 
 		fileObj.size = Buffer.byteLength(fileObj.blob, 'binary');
-		fileObj.ext = K.Util.sanitize.filenameExt(fileObj.name);
+		fileObj.ext = K.Util.sanitize.fileExt(fileObj.name);
 
 		if(fileObj.size > K.settings.public.upload.maxFileSize) {
 			console.log('Upload: error ', target, _.omit(fileObj,'blob') );
@@ -76,7 +76,7 @@ Meteor.methods({
 		}
 		else if(sets.path) {
 			
-			var fileName = K.Util.sanitize.filename(fileObj.name+'_'+ K.Util.time()),
+			var fileName = K.Util.sanitize.fileName(fileObj.name+'_'+ K.Util.time()),
 				fileOut = fileName+'.'+fileObj.ext;
 
 			console.log('Upload: file created ', sets.path+fileOut);

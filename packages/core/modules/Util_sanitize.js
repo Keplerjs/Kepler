@@ -46,8 +46,9 @@ Kepler.Util.sanitize = {
 		return name.substr(0,16);
 	},
 
-	filename: function(name) {
+	fileName: function(name, trimExt) {
 		name = name || '';
+		name = trimExt ? name.split('.').slice(0, -1).join('.') : name;
 		return name.toLowerCase()
 			.replace(/ +/g,'_')
 			.replace(/[^a-z0-9\\\-\._]/g,'')
@@ -55,7 +56,7 @@ Kepler.Util.sanitize = {
 			.replace(/\//g,'');
 	},
 
-	filenameExt(name) {
+	fileExt(name) {
 		return (name.split('.').pop()+"").toLowerCase();
 	}
 };

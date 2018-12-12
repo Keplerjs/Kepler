@@ -6,6 +6,11 @@ K.Plugin({
 		tabPlace: 'tabPlace_import'
 	},
 	filters: {
+		currentUser: {
+			fields: {
+				imports:1
+			}
+		},
 		placePanel: {
 			fields: {
 				import: 1
@@ -20,6 +25,9 @@ K.Plugin({
 	schemas: {
 		place: {
 			import: {}
+		},
+		user: {
+			imports: []
 		}
 	},	
 	settings: {
