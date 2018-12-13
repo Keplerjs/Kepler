@@ -63,6 +63,18 @@ Kepler.Place = Class.extend({
 				self.buildMarker();
 
 				K.Map.addItem(self);
+
+				if(self.marker) {
+					//TODO REFACT draw user track
+					//build self.polyline... and udate it each time
+					if(K.Map.ready()) {
+						L.polyline([self.marker.getLatLng(), self.loc], {
+							opacity:0.8, weight:3, dashArray: "1,6", color: self.color
+						})
+						.addTo(K.Map.layers.geojson);
+					}
+					self.marker.setLatLng(self.loc);
+				}
 			}
 
 			self._dep.changed();

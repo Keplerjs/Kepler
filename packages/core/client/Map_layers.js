@@ -66,7 +66,7 @@ _.extend(Kepler.Map, {
 
 		layers.places = new L.LayerJSON({
 			caching: false,
-			layerTarget: layers.cluster,
+			//layerTarget: layers.cluster,
 			minShift: opts.bboxMinShift,
 			callData: function(bbox, callback) {
 				
