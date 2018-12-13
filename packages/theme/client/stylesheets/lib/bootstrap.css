@@ -103,7 +103,6 @@ a.list-group-item {
 .btn-default {
 	color: #257;
 }
-
 .badge {
 	padding: 2px 4px;
     min-width: 16px;	
@@ -123,7 +122,6 @@ label {
 	box-shadow: 0 0 1px #333;
 	text-shadow: 0 0 1px #333;
 }
-
 .badge.badge-checkins {
 	background-color: #f80;
 }

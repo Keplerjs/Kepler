@@ -22,18 +22,19 @@ Template.panelPlaceEdit_cats.helpers({
 });
 
 Template.panelPlaceEdit_cats.events({
-	
-	'change #cats_edit input': _.debounce(function(e, tmpl) {
-		e.preventDefault();
-
-		var place = tmpl.data,
+	'change #cats-edit input': _.debounce(function(e, tmpl) {
+		var itemId = tmpl.data._id,
 			input$ = $(e.currentTarget),
+			checked = input$.is(':checked'),
 			val = input$.val();
 
-		if(!input$.is(':checked'))
-			Meteor.call('removeCatsFromPlace', place.id, val);
-		else
-			Meteor.call('addCatsToPlace', place.id, val);
+		var cb = function() {
+			K.placeById(itemId).update();
+		};
 
+		if(!checked)
+			Meteor.call('removeCatsFromPlace', itemId, val, cb);
+		else
+			Meteor.call('addCatsToPlace', itemId, val, cb);
 	}, 300)
 });
