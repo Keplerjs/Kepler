@@ -10,6 +10,7 @@ Package.describe({
 Npm.depends({
   'imagemagick': '0.1.3',
   'viewerjs': '1.3.0',
+  'jquery-viewer': '1.0.0',
   //'gm': '1.23.1'
   ////https://github.com/CollectionFS/Meteor-cfs-graphicsmagick
   /////https://www.npmjs.com/package/gm
@@ -27,6 +28,7 @@ Package.onUse(function(api) {
   api.addFiles([ 
     '.npm/package/node_modules/viewerjs/dist/viewer.js',
     '.npm/package/node_modules/viewerjs/dist/viewer.css',
+    '.npm/package/node_modules/jquery-viewer/dist/jquery-viewer.js',
   ],'client');
 
   api.addFiles([

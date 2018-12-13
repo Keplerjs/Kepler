@@ -4,9 +4,33 @@ Template.panelPlace_photos.onRendered(function() {
 	var self = this,
 		place = self.data,
 		img$ = self.$('.place-photo');
+	
+	img$.viewer({
+		navbar: false,
+		toolbar: false,
+		fullscreen: true,
+	});
 
+	place.photo$ = img$;
+
+//TODO https://fengyuanchen.github.io/cropperjs/
+//
 	//	https://fengyuanchen.github.io/viewerjs/
-	if(place.photo && Viewer) {
+	//	hidden.spec.js	test: hide viewer before done	9 months ago
+/* 
+events:
+hide
+ready
+show
+shown
+view
+viewed
+zoom
+zoomed
+
+viewerData
+*/
+	/*if(place.photo && Viewer) {
 
 		if(place.photoViewer)
 			place.photoViewer.destroy();
@@ -15,15 +39,27 @@ Template.panelPlace_photos.onRendered(function() {
 			navbar: false,
 			toolbar: false,
 			fullscreen: true,
-			/*ready: function(e) {
-				console.log('start view photo')
+			ready: function(e) {
+				console.log('ready')
+			},
+			show: function(e) {
+				console.log('show')	
+			},
+			shown: function(e) {
+				console.log('shown')	
+			},
+			view: function(e) {
+				console.log('view')	
+			},
+			viewed: function(e) {
+				console.log('viewed',e)
 			},
 			hide: function(e) {
-				console.log('stop view photo')	
-			}*/
+				console.log('hide',e)
+			}
 		});
 	
-	}
+	}*/
 });
 
 Template.panelPlace_photos.helpers({
