@@ -58,10 +58,8 @@ Template.panelPlaceEdit_photos.onRendered(function() {
 		place = self.data;
 	
 	self.$('.btn-photodel').btsConfirmButton(function(e) {
-		
-		console.log(place.id)
-
-		Meteor.call('removePlacePhoto', self.data.id, function(err) {
+console.log('cose')
+		Meteor.call('removePlacePhoto', place.id, function(err) {
 		
 			if(err)
 				console.warn(err.message);

@@ -34,14 +34,15 @@
 	
 			{{> inputFile_upload target='photos_places' params=this.id callback=photoUploaded}}
 			
-			{{#if photo}}
+			
 			<div class="clearfix" style="position: relative;">
-				{{> panelPlace_photos}}
-				<a class="btn-photodel btn btn-default" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
+				{{#if photo}}
+					{{> panelPlace_photos}}
+				{{/if}}
+				<a class="btn-photodel btn btn-default {{#unless photo}}hidden{{/unless}}" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
 					<i class="icon icon-del"></i>
 				</a>
 			</div>
-			{{/if}}
 		</div>
 	</div>
 </template>
