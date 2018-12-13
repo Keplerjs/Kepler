@@ -74,6 +74,8 @@ Meteor.publish('usersByCheckin', function(placeId) {
 
 
 Meteor.publish('friendsByIds', function(usersIds) {
+
+	//TODO check that user having this friends
 	if(this.userId) {
 		
 		console.log('Pub: friendsByIds', this.userId);

@@ -19,9 +19,12 @@ K.Plugin({
 			'pageAdmin_admin_raw':{order:0},
 			'panelUser':{order:10}
 		},
-		itemUserAdmin: 'itemUserAdmin_admin_btns',
-		itemPlaceAdmin: 'itemPlaceAdmin_admin_btns',
-			
+		itemUserAdmin: {
+			'itemUserAdmin_admin_btns': {order:10}
+		},
+		itemPlaceAdmin: {
+			'itemPlaceAdmin_admin_btns': {order:10}
+		},	
 		panelProfile: {
 			'panelProfile_admin': {order:10},
 			//'panelUser_admin': {order:50},
