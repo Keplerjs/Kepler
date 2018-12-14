@@ -12,7 +12,9 @@ Template.panelPlaceEdit_geoinfo_tips.events({
 
 Template.panelPlaceEdit_geoinfo_reload.events({
 	'click .btn-reload': function(e,tmpl) {
-		Meteor.call('updatePlaceGeoinfo', tmpl.data.id);
+		Meteor.call('updatePlaceGeoinfo', tmpl.data.id, function(err) {
+			tmpl.data.update();
+		});
 	},
 /*	'click .btn-canc': function(e,tmpl) {
 		

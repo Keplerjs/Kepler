@@ -89,7 +89,7 @@ Template.registerHelper('humanLoc', function(loc, pre) {
 /* 
 	debugging helpers
 */
-Template.registerHelper('stringify', function(prop) {
+Template.registerHelper('log', function(prop) {
 	return '<pre>'+JSON.stringify(prop,null,4)+'</pre>';
 });
 

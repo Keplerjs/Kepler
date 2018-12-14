@@ -29,6 +29,12 @@ Template.panelPlaceEdit.events({
 			place.update();
 		});
 	},
+	'keydown .input-editren': function(e,tmpl) {
+		if(e.keyCode===13) {//enter
+			e.preventDefault();
+			tmpl.$('.btn-editren').trigger('click');
+		}
+	},
 	'click .btn-cancelren': function(e,tmpl) {
 		tmpl.$('.input-editren').val('');
 	}
