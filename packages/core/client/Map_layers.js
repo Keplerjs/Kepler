@@ -37,7 +37,7 @@ _.extend(Kepler.Map, {
 			});
 		}
 
-		if(L.MarkerClusterGroup) {
+		if(opts.layerPlaces.cluster && L.MarkerClusterGroup) {
 			layers.cluster = new L.MarkerClusterGroup({
 				spiderfyDistanceMultiplier: 1.4,
 				showCoverageOnHover: false,
@@ -66,7 +66,7 @@ _.extend(Kepler.Map, {
 
 		layers.places = new L.LayerJSON({
 			caching: false,
-			//layerTarget: layers.cluster,
+			layerTarget: opts.layerPlaces.cluster && layers.cluster,
 			minShift: opts.bboxMinShift,
 			callData: function(bbox, callback) {
 				
@@ -138,17 +138,25 @@ _.extend(Kepler.Map, {
 					layers.geojson.clearLayers();
 			}
 
-		    if(z < opts.dataMinZoom){
-				map.removeLayer(layers.users);
+		    if(z < opts.dataMinZoom) {
+		    	if(layers.users)
+					map.removeLayer(layers.users);
+				
 				if(layers.cursor)
 					map.removeLayer(layers.cursor);
-				map.removeLayer(layers.cluster);
+				
+				if(layers.cluster)
+					map.removeLayer(layers.cluster);
 		    }
 		    else {
-				map.addLayer(layers.users);
+		    	if(layers.users)
+					map.addLayer(layers.users);
+				
 				if(layers.cursor)
 					map.addLayer(layers.cursor);
-				map.addLayer(layers.cluster);
+				
+				if(layers.cluster)
+					map.addLayer(layers.cluster);
 
 				/* TODO FIX if(opts.tooltips.autoOpen) {
 					var bb = map.getBounds().pad(-0.7);

@@ -119,6 +119,10 @@ Kepler.settings = {
 				//TODO rename in  "baseLayer":{...}..
 				"road": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 			},
+			"layerPlaces": {
+				"enabled": true,
+				"cluster": true
+			},
 			"layerUsers": {
 				"enabled": true
 			},

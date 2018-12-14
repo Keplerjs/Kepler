@@ -89,6 +89,12 @@ Kepler.Place = Class.extend({
 		
 		var self = this;
 
+		var opts = K.settings.public.map;
+
+		//TODO move this in self.update
+		if(!opts.layerPlaces.enabled)
+			return null;
+
 		if(!self.marker) {
 			var opts = K.settings.public.map;
 			

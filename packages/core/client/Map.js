@@ -137,11 +137,15 @@ Kepler.Map = {
 		return this;
 	},
 	_addComponents: function() {
-		for(var l in this.layers)
-			this.map.addLayer(this.layers[l]);
+		for(var l in this.layers) {
+			if(this.layers[l])
+				this.map.addLayer(this.layers[l]);
+		}
 		
-		for(var c in this.controls)
-			this.map.addControl(this.controls[c]);
+		for(var c in this.controls) {
+			if(this.controls[c])
+				this.map.addControl(this.controls[c]);
+		}
 	},
 	/**
 	 * visible status of map under sidebar

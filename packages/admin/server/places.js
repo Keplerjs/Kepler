@@ -6,7 +6,7 @@ K.Admin.methods({
 
 		if(_.isString(placeId)) {
 
-			Places.remove(placeId);
+			Places.remove({_id: placeId});
 	/*		Users.update(Meteor.userId(), {
 				$pull: {
 					places: placeId
@@ -47,16 +47,19 @@ K.Admin.methods({
 			userData = Users.findOne({username: userName});
 
 		if(placeData && userData) {
+
 			Places.update(placeData._id, {
 				$set: {
 					userId: userData._id
 				}
 			});
+
 			Users.update(userData._id, {
 				$addToSet: {
 					places: placeData._id
 				}
-			});			
+			});
+
 			console.log('Admin: updatePlaceAuthor', placeName, userName);
 		}
 	},	
@@ -79,7 +82,9 @@ K.Admin.methods({
 
 		if(placeData.hist)
 			Users.update({_id: {$in: placeData.hist }}, {
-				$pull: {hist: placeId}
+				$pull: {
+					hist: placeId
+				}
 			},{ multi: true });
 		
 		Places.update(placeId, {
@@ -87,6 +92,8 @@ K.Admin.methods({
 				hist: []
 			}
 		});
+
+		console.log('Admin: cleanPlaceHist', placeName);
 	},
 	cleanPlaceCheckins: function(placeName) {
 		
@@ -95,18 +102,21 @@ K.Admin.methods({
 		var placeData = Places.findOne({name: placeName}),
 			placeId = placeData._id;
 
-		if(placeData.checkins)
+		if(placeData.checkins) {
 			Users.update({_id: {$in: placeData.checkins }}, {
 				$set: {
 					checkin: null
 				}
 			},{ multi: true });
+		}
 
 		Places.update(placeId, {
 			$set: {
 				checkins: []
 			}
 		});
+
+		console.log('Admin: cleanPlaceCheckins', placeName);
 	},
 	cleanAllHist: function() {
 		
@@ -114,6 +124,8 @@ K.Admin.methods({
 
 		Users.update({}, {$set: {hist: []} }, { multi: true });
 		Places.update({}, {$set: {hist: []} }, { multi: true });
+
+		console.log('Admin: cleanAllHist');
 	},	
 	cleanAllCheckins: function() {
 		
@@ -121,5 +133,7 @@ K.Admin.methods({
 
 		Users.update({}, {$set: {checkin: null} }, { multi: true });
 		Places.update({}, {$set: {checkins: []} }, { multi: true });
+
+		console.log('Admin: cleanAllCheckins');
 	}
 });
