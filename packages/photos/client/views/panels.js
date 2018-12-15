@@ -76,7 +76,7 @@ Template.panelPlace_photos.events({
 	}
 });
 
-Template.photo_place_new.helpers({
+Template.formPhotoNew.helpers({
 	uploadDone: function() {
 		var tmpl = Template.instance();
 		return function(placeId) {
@@ -94,7 +94,7 @@ Template.panelPlaceEdit_photos.onRendered(function() {
 		place = self.data;
 	
 	self.$('.btn-photodel').btsConfirmButton(function(e) {
-console.log('cose')
+
 		Meteor.call('removePlacePhoto', place.id, function(err) {
 		
 			if(err)

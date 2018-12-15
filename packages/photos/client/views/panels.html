@@ -7,7 +7,7 @@
 	</a>
 </template>
 
-<template name="photo_place_new">
+<template name="formPhotoNew">
 	<div class="form-group">
 		<div class="col-xs-6">
 			<label class="control-label"><i class="icon icon-photos"></i> {{i18n 'label_photoplacenew'}}</label>
@@ -33,7 +33,6 @@
 		<div class="clearfix">
 	
 			{{> inputFile_upload target='photos_places' params=this.id callback=photoUploaded}}
-			
 			
 			<div class="clearfix" style="position: relative;">
 				{{#if photo}}

@@ -13,7 +13,7 @@ Router.map(function() {
 			return {
 				title: i18n('title_photos'),
 				className: 'photosNews',
-				itemsTemplate: 'item_place_photo',
+				itemsTemplate: 'itemPlacePhoto',
 				items: _.map(places, function(place) {
 					return K.placeById(place._id);
 				}),
@@ -35,9 +35,9 @@ Router.map(function() {
 			return {
 				title: i18n('title_editphotos'),
 				className: 'photosEdits',
-				headerTemplate: 'photo_place_new',
+				headerTemplate: 'formPhotoNew',
 				//headerData: place,	
-				itemsTemplate: 'item_place_photo',
+				itemsTemplate: 'itemPlacePhoto',
 				items: _.map(K.Profile.data.photos, function(id) {
 					return K.placeById(id);
 				}),
@@ -83,7 +83,7 @@ Router.map(function() {
 			return place && {
 				title: i18n('title_placePhotos', place.name),
 				className: 'placePhotos',
-				headerTemplate: 'photo_place_new',
+				headerTemplate: 'formPhotoNew',
 				headerData: place,		
 				itemsTemplate: 'item_conver',
 				items: K.findConversByTarget(this.params.placeId).fetch(),

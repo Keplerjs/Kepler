@@ -41,7 +41,8 @@
     white-space: nowrap;
     line-height: 34px;
 }
-.sidebar > .nav > li > a.btn {
+.sidebar > .nav > li > .btn {
+    display: block;
 	padding: 4px;
     margin-right: 4px;	
     height: 30px;
@@ -52,7 +53,7 @@
 .sidebar > .nav > li:first-child {
 	margin-left: 4px;
 }
-.sidebar > .nav > li:first-child > a.btn {
+.sidebar > .nav > li:first-child > .btn {
 	padding: 0 4px 0 0;
 	border: none;
 	height: 30px;
@@ -143,7 +144,7 @@ li#navsearch {
     .sidebar > .nav {
         border-radius: 0;
     }
-    .sidebar > .nav > li > a.btn {
+    .sidebar > .nav > li > .btn {
 		/*padding: 4px 2px;*/
     	margin-right: 0;	    	
 		max-width: 80px;
