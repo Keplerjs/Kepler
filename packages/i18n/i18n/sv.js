@@ -2,7 +2,7 @@ i18n.map('sv', {
 
 	title_root: "Karta",
 	title_home: "Välkommer",
-	title_profile: "Din profil",
+	title_profile: "Profil",
 	title_settings: "Inställningar",
 	title_settingsBlocked: "Blockerade användare",
 	title_histplaces: "Senaste Platser",

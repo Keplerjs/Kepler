@@ -2,7 +2,7 @@ i18n.map('de', {
 
 	title_root: "Karte",
 	title_home: "Willkommen",
-	title_profile: "Dein Profil",
+	title_profile: "Profil",
 	title_settings: "Einstellungen",
 	title_settingsBlocked: "Blockierte Nutzer",
 	title_histplaces: "Letzte Orte",

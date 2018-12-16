@@ -1,15 +1,9 @@
 
 <template name="itemPlacePhoto">
 	<div class="pull-left">
-		<div class="pull-left">
-			{{> item_place}}
-		</div>
-		<div class="pull-right">
-			<!-- TODO geoinfo -->
-			{{#if createdAt}}
-				<time class="text-muted">{{humanTime createdAt 1}}</time>
-			{{/if}}
-		</div>
+		
+		{{> item_place}}
+
 		<figure class="clearfix">
 			<a href="/place/{{id}}">
 				<img class="place-photo img-responsive img-rounded" src="{{settings 'upload.targets.photos_places.url'}}{{photo}}" itemprop="thumbnail" alt="{{name}}" />

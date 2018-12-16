@@ -51,7 +51,6 @@ Package.onUse(function(api) {
     'client/views/items.html',
     'client/views/markers.html',
     'client/views/sidebar.html',
-    'client/stylesheets/lib.css',
     'client/stylesheets/main.css',
     'client/Router.js',
   ],'client');

@@ -12,7 +12,7 @@ Router.map(function() {
 			var places = K.findPlacesPhotosByDate().fetch();
 			return {
 				title: i18n('title_photos'),
-				className: 'photosNews',
+				className: 'photos',
 				itemsTemplate: 'itemPlacePhoto',
 				items: _.map(places, function(place) {
 					return K.placeById(place._id);
@@ -34,7 +34,7 @@ Router.map(function() {
 			if(!this.ready()) return null;
 			return {
 				title: i18n('title_editphotos'),
-				className: 'photosEdits',
+				className: 'photos',
 				headerTemplate: 'formPhotoNew',
 				//headerData: place,	
 				itemsTemplate: 'itemPlacePhoto',
