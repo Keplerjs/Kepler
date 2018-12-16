@@ -64,23 +64,15 @@ _.extend(Kepler.Map, {
 			});
 		}
 
+		//layers.places = new L.LayerGroup();
 		layers.places = new L.LayerJSON({
 			caching: false,
 			layerTarget: opts.layerPlaces.cluster && layers.cluster,
 			minShift: opts.bboxMinShift,
 			callData: function(bbox, callback) {
-				
-				//console.log('layer.places.callData',bbox)
-
-				//TODO update underscore!
-				//TODO refact using _.after()
-	/*			if(!this._loaded) {
-					this._loaded = 1;
-					return;
-				}*/
 
 				var sub = Meteor.subscribe('placesByBBox', bbox, function() {
-					console.log('sub placesByBBox',bbox)
+					//console.log('sub placesByBBox',bbox)
 					callback( K.findPlacesByBBox(bbox).fetch() );
 				});
 
@@ -88,11 +80,10 @@ _.extend(Kepler.Map, {
 					abort: sub.stop
 				};
 			},
-			propertyId: '_id',			
+			propertyId: '_id',
 			dataToMarker: function(data) {	//eseguito una sola volta per ogni place
-				var place= K.placeById(data._id),
-					mark = place.marker;
-				return mark;
+				var place = K.placeById(data._id);
+				return place.marker;
 			}
 		});
 

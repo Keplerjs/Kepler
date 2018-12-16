@@ -74,7 +74,8 @@ i18n.map('it', {
 	label_lang: "Lingua",
 	label_layer: "Mappa",
 	label_mapcenter: "Casa",
-	
+	label_mapcentermap: "Imposta dalla mappa attuale",
+
 	label_account: "Account",
 	label_password: "Password",
 	label_privacy: "Privacy",

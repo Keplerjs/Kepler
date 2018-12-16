@@ -4,9 +4,11 @@ Template.panelPlaceEdit_geoinfo_tips.events({
 		
 		var panel$ = $(tmpl.firstNode).parents('.panel-body'),
 			input$ = panel$.find('.input-editren'),
+			btn$ = panel$.find('.btn-editren'),
 			name = $(e.target).text();
 
 		input$.val(name);
+		btn$.trigger('click');
 	}
 });
 

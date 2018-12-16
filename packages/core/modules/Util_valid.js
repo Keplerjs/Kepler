@@ -4,6 +4,12 @@ Kepler.Util.valid = {
 	//TODO name place
 	//TODO valid bbox
 	//TODO valid GeoJSON
+	
+	bbox: function(bb) {
+		return _.isArray(bb) && 
+			   _.isArray(bb[0]) && _.isArray(bb[1]) &&
+			   bb[0].length===2 && bb[1].length===2
+	},
 
 	loc: function(loc) {
 		var lat, lng;

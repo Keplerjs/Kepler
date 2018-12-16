@@ -4,3 +4,11 @@
 		<i class="icon icon-add"></i> {{i18n 'btn_editinsert'}}
 	</a>
 </template>
+
+<template name="popupPlace_edit">
+{{#if isEditable}}
+	<a class="btn-edit btn btn-sm btn-default" href="/place/{{id}}/edit" title="{{i18n 'btn_edit'}}">
+		<i class="icon icon-edit"></i>
+	</a>
+{{/if}}
+</template>

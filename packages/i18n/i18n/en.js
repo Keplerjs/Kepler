@@ -37,6 +37,7 @@ i18n.map('en', {
 	label_lang: "Language",
 	label_layer: "Map",
 	label_mapcenter: "Home",
+	label_mapcentermap: "Set from current map",
 
 	label_userid: "User ID",
 

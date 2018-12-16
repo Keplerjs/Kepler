@@ -2,8 +2,11 @@
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+- plugin geoinfo fields calculate asyncronous on new place insert
 - fix all removeItem hide marker
 - disable gps when gone offline
+- new method K.Util.valid.bbox()
+- plugin edit button in place popup
 
 ## v1.5.8
 - movable places

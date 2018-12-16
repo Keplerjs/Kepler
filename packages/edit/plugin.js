@@ -12,6 +12,9 @@ K.Plugin({
 			'panelPlace_edit': {order:0}
 		},
 		tabUser: 'tabUser_edit',
+		popupPlace: {
+			'popupPlace_edit': {order:10}
+		},
 		popupCursor: 'popupCursor_edit'
 	},
 	schemas: {
