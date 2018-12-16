@@ -212,7 +212,7 @@ Kepler.Geoapi = {
 	 * return geocoding from nominatim OSM
 	 * @param  {String} text [description]
 	 * @return {Array}    [description]
-	 */			
+	 */
 	geocoding: function(text) {
 		
 		/*url: 'http://nominatim.openstreetmap.org/search?format=json&q={s}',
