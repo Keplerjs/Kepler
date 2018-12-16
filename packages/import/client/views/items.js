@@ -6,7 +6,7 @@ Template.itemPlaceImport.onRendered(function() {
 	self.$('.btn-del').btsConfirmButton(function(e) {
 		
 		Meteor.call('removePlace', self.data.id, function(err,res) {
-			K.Map.removeItem(self.data);		
+			K.Map.removeItem(K.placeById(self.data.id));
 			//Router.go('root');
 		});			
 	});

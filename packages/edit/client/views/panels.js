@@ -5,16 +5,16 @@ Template.panelPlaceEdit.onRendered(function() {
 	self.$('.btn-editdel').btsConfirmButton(function(e) {
 
 		Meteor.call('removePlace', self.data.id, function(err) {
-		
+
 			if(err)
 				console.warn(err.message);
 			else
 			{
-				K.Map.removeItem(self.data);
+				K.Map.removeItem(K.placeById(self.data.id));
 			
 				Router.go('root');
 			}
-		});			
+		});
 	});
 });
 

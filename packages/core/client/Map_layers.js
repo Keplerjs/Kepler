@@ -80,6 +80,7 @@ _.extend(Kepler.Map, {
 				}*/
 
 				var sub = Meteor.subscribe('placesByBBox', bbox, function() {
+					console.log('sub placesByBBox',bbox)
 					callback( K.findPlacesByBBox(bbox).fetch() );
 				});
 

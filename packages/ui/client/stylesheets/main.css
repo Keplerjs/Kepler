@@ -18,6 +18,9 @@
 footer {
 	padding: 20px;
 }
+hr {
+	clear: both;
+}
 
 .builtwith {
 	font-style: italic;

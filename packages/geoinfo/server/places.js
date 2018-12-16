@@ -1,9 +1,24 @@
 
 //TODO using before instead after!!!
-Places.before.insert(function(userId, doc) {
+/*Places.before.insert(function(userId, doc) {
 	if(K.settings.geoinfo && K.settings.geoinfo.autoupdate) {
 		console.log('Geoinfo: updatePlaceGeoinfo ', doc.name);
 		doc.geoinfo = K.Geoinfo.getFieldsByLoc(doc.loc)
+	}
+});*/
+Places.after.insert(function(userId, doc) {
+	if(K.settings.geoinfo && K.settings.geoinfo.autoupdate) {
+
+		K.Geoinfo.getFieldsByLoc(doc.loc, function(geo) {
+
+			console.log('Geoinfo: getFieldsByLoc ', doc.name);
+
+			Places.update(doc._id, {
+				$set: {
+					geoinfo: geo
+				}
+			});
+		});
 	}
 });
 /*
@@ -25,13 +40,17 @@ Meteor.methods({
 		
 		if(userId === this.userId || (K.Admin && K.Admin.isMe())) {
 
+			var geoinfo = K.Geoinfo.getFieldsByLoc(placeData.loc);
+
 			Places.update(placeId, {
 				$set: {
-					geoinfo: K.Geoinfo.getFieldsByLoc(placeData.loc)
+					geoinfo: geoinfo
 				}
 			});
 
-			console.log('Edit: updatePlaceGeoinfo', placeId);			
+			console.log('Geoinfo: updatePlaceGeoinfo', placeId);
+
+			return geoinfo;
 		}	
 	}
 });

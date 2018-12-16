@@ -16,11 +16,9 @@ Template.popupCursor_edit.events({
 
 				Router.go('panelPlaceEdit', {placeId: placeId});
 
-				var place = K.placeById(placeId);
-				
+				K.Map.addItem(K.placeById(placeId));
+
 				K.Map.hideCursor();
-				
-				K.Map.addItem( place );
 			});
 		});
 	},

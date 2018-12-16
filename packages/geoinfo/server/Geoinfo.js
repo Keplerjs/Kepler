@@ -57,10 +57,13 @@ Kepler.Geoinfo = {
 			}
 		}
 	},	
-	getFieldsByLoc: function(loc, fields) {
+	getFieldsByLoc: function(loc, fields, callback) {
 
-		var fields = fields || K.settings.public.geoinfo.fields,
-			tasks = {};
+		callback = _.isFunction(fields) ? fields : callback;
+
+		fields = !_.isFunction(fields) && fields || K.settings.public.geoinfo.fields;
+
+		var tasks = {};
 
 		_.each(this.fields, function(opt, field) {
 			if(fields[field]) {
@@ -78,17 +81,31 @@ Kepler.Geoinfo = {
 			}
 		});
 
-		var future = new Future();
+		if(_.isFunction(callback)) {
+			async.parallel(tasks, function(err, ret) {
 
-		async.parallel(tasks, function(err, ret) {
+				if(err)
+					console.log('Geoinfo: getFieldsByLoc error ', err);
+				else {
+					callback(ret);
+				}
+			});
+		}
+		else
+		{
 
-			if(err)
-				future.throw(err);
-			else
-				future.return(ret);
-		});
+			var future = new Future();
 
-		return future.wait();
+			async.parallel(tasks, function(err, ret) {
+
+				if(err)
+					future.throw(err);
+				else
+					future.return(ret);
+			});
+
+			return future.wait();
+		}
 	},
 	getGeocoding: function(text) {
 

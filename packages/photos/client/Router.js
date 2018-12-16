@@ -13,6 +13,7 @@ Router.map(function() {
 			return {
 				title: i18n('title_photos'),
 				className: 'photos',
+				headerTemplate: 'formPhotoNew',
 				itemsTemplate: 'itemPlacePhoto',
 				items: _.map(places, function(place) {
 					return K.placeById(place._id);

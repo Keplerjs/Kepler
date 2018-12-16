@@ -228,10 +228,8 @@ Kepler.Map = {
 	 */
 	addItem: function(item) {
 		if(this.ready() && item && item.marker) {
-			
 			if(item.type==='place')
 				item.marker.addTo( this.layers.places );
-
 			else if(item.type==='user')
 				item.marker.addTo( this.layers.users );
 		}
@@ -246,8 +244,12 @@ Kepler.Map = {
 	 */
 	removeItem: function(item) {
 		if(this.ready()) {
-			if(item && item.marker)
-				this.map.removeLayer(item.marker);
+			if(item && item.marker) {
+				//DO NOT REMOVE
+				Meteor.defer(function() {
+					item.marker.remove();
+				});
+			}
 		}
 		return this;
 	},
