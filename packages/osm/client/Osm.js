@@ -57,9 +57,15 @@ Kepler.Osm = {
 			if(err)
 				console.log(err)
 			else {
-				K.Map.hideCursor();
+				
 				K.Map.layers.geojson.clearLayers();
-				Router.go('panelPlace', {placeId: placeId});
+
+				//Router.go('panelPlace', {placeId: placeId});
+				Router.go('panelPlaceEdit', {placeId: placeId});
+
+				K.Map.addItem(K.placeById(placeId));
+
+				K.Map.hideCursor();
 			}
 			if(_.isFunction(cb))
 				cb(placeId);

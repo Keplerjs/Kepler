@@ -11,8 +11,7 @@ Kepler.Osm = {
 		var future = new Future();
 
 		Overpass(query, function(err, resp) {
-
-			console.log('OVERPASS',resp)
+			
 			if(err) {
 				console.log('Osm: overpass error', err)
 				future.throw(err);

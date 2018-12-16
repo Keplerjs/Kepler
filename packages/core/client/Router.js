@@ -89,13 +89,13 @@ Router.map(function() {
 		path: '/',
 		template: 'empty',
 		layoutTemplate: 'layoutMap',
-/*		waitOn: function() {
+		waitOn: function() {
 			Session.set('showSidebar', false);
-			var bb = K.Map.getBBox();
+			/*var bb = K.Map.getBBox();
 			if(K.Util.valid.bbox(bb))
-				return Meteor.subscribe('placesByBBox', bb);
+				return Meteor.subscribe('placesByBBox', bb);*/
 		},
-		data: function(){
+		/*data: function(){
 			var places = K.findPlacesByBBox(K.Map.getBBox()).fetch();
 			return _.map(_.pluck(places,'_id'), K.placeById)
 		}*/
