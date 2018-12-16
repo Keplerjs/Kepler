@@ -82,6 +82,7 @@
 	width:30px;
 	height:30px;
 	border-radius:4px;
+	margin: 0;
 }
 .leaflet-control-gps .gps-button:hover,
 .leaflet-control-gps .gps-button.active:hover {
