@@ -25,7 +25,8 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-    'modules/Admin.js'
+    'modules/Admin.js',
+    'collections/users.js'
   ]);
 
   api.addFiles([
@@ -33,6 +34,7 @@ Package.onUse(function(api) {
     'client/Place_admin.js',
     'client/helpers.js',
     'client/views/pages/admin.html',
+    'client/views/pages/admin.js',
     'client/views/pages/places.html',
     'client/views/pages/places.js',    
     'client/views/pages/users.html',
@@ -46,7 +48,8 @@ Package.onUse(function(api) {
   api.addFiles([
     'server/admin.js',
     'server/places.js',
-    'server/users.js'
+    'server/users.js',
+    'server/pubs.js'
   ],'server');
 
 });

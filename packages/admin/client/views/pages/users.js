@@ -1,7 +1,5 @@
 
-
 Template.pageAdminUsers.onCreated(function() {
-
 	Session.set('itemSelected', null);
 });
 
@@ -52,7 +50,6 @@ Template.pageAdminUsers.events({
 			tmpl.$('.user-btn-new').trigger('click');
 		}
 	},
-
 	'click .items-list .list-group-item': function(e,tmpl) {
 		var li$ = $(e.currentTarget),
 			input$ = li$.find('input.btn-itemselect');
@@ -61,19 +58,14 @@ Template.pageAdminUsers.events({
 		li$.siblings().removeClass('selected')
 		.end().addClass('selected');
 	},
-
 	'change input.btn-itemselect': function(e,tmpl) {
-		//e.preventDefault();
-
 		var itemId = $(e.currentTarget).val();
 		
-		Meteor.subscribe('userById', itemId, function() {
+		Meteor.subscribe('adminUserById', itemId, function() {
 	
 			Session.set('itemSelected', itemId );
 		});
-
 	}
-
 });
 
 Template.pageAdminUsers.helpers({
