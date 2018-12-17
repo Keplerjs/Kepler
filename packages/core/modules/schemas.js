@@ -18,7 +18,9 @@ Kepler.schemas = {
 		warn: '',          //warnings and dangers
 		urls: [],	   		//websites url of place
 		emails: [],		   //contanct emails for place
-		source: {},		   //describe source of data
+		source: {	   	   //describe source of data
+			type: ''
+		}
 	},
 	
 	user: {
@@ -47,7 +49,11 @@ Kepler.schemas = {
 		usersReceive: [],  //ids users that I receive request
 		usersBlocked: [],  //ids users that I blocked
 		hist: [],		   //last places visited
-		source: {},		   //source of registration by single signon		
+		source: {		   //source of registration by single signon	
+			service: '',
+			url: '',
+			options: {}	
+		},	
 		settings: {
 			map: {
 				layer: null,

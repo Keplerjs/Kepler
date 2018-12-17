@@ -69,7 +69,7 @@ K.Admin.methods({
 			var userId = Accounts.createUser({
 				username: username,
 				password: username+username,
-				email: username+'@gmail.com',
+				email: username+'@keplerjs.io',
 				name: _.str.capitalize(username),
 				source: {
 					service: "kepler-admin"

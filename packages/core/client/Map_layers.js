@@ -126,8 +126,9 @@ _.extend(Kepler.Map, {
 				//autoOpen
 
 			if(layers.geojson.getLayers().length) {
-				if(e.target.getBoundsZoom(layers.geojson.getBounds()) - e.target.getZoom() > 2)
+				if(e.target.getBoundsZoom(layers.geojson.getBounds()) - e.target.getZoom() > 2) {
 					layers.geojson.clearLayers();
+				}
 			}
 
 		    if(z < opts.dataMinZoom) {
