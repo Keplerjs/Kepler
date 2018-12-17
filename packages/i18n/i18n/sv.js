@@ -73,7 +73,7 @@ i18n.map('sv', {
 	btn_addnew: "Lägg till ny",
 	btn_verify: "Verifiera",
 	btn_verified: "Verifierad",
-	btn_notverified: "Verifiera",
+	btn_notverified: "Inga Verifierad",
 	btn_logout: "Logga ut",
 	btn_home: "Hemsida",
 	btn_enter: "Skriv",

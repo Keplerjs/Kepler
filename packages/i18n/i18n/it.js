@@ -32,7 +32,7 @@ i18n.map('it', {
 	btn_addnew: "Aggiungi Nuovo",	
 	btn_verify: "Verifica",
 	btn_verified: "Verificata",
-	btn_notverified: "Verifica",
+	btn_notverified: "Non Verifica",
 	btn_logout: "Esci",
 	btn_home: "Homepage",
 	btn_enter: "Entra",

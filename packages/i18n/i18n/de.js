@@ -72,7 +72,7 @@ i18n.map('de', {
 	btn_addnew: "Neue hinzufügen",
 	btn_verify: "Überprüfen",
 	btn_verified: "Überprüft",
-	btn_notverified: "Überprüfen",
+	btn_notverified: "Kein Überprüft",
 	btn_logout: "Abmelden",
 	btn_home: "Startseite",
 	btn_enter: "Anmelden",

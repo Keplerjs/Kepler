@@ -80,7 +80,7 @@ i18n.map('en', {
 
 	btn_verify: "Verify",
 	btn_verified: "Verified",
-	btn_notverified: "Verify",
+	btn_notverified: "Not Verified",
 	btn_logout: "Logout",
 	btn_home: "Homepage",
 	btn_enter: "Enter",
