@@ -7,7 +7,8 @@ K.Plugin({
 		panelPlace: {
 			'panelPlace_cats': {order: -5 } //render after share plugin
 		},
-		panelPlaceEdit: 'panelPlaceEdit_cats'
+		panelPlaceEdit: 'panelPlaceEdit_cats',
+		panelAdmin: 'panelAdmin_cats',
 	},
 	settings: {
 		"public": {
@@ -35,7 +36,12 @@ K.Plugin({
 		},
 		user: {
 			cats: []
-		}		
+		},
+		cat: {
+			name: '',
+			type: 'all',//user, place, all
+			parent: ''
+		}
 	},
 	filters: {
 		currentUser: {

@@ -29,6 +29,7 @@ Package.onUse(function(api) {
     'modules/Cats.js',
     'collections/places.js',
     'collections/users.js',
+    'collections/cats.js',
   ]);
 
   api.addFiles([
@@ -41,13 +42,16 @@ Package.onUse(function(api) {
     'client/views/panels/user.html',
     //'client/views/panels/user.js',
     'client/views/panels/settings.html',
-    'client/views/panels/settings.js',  
+    'client/views/panels/settings.js', 
+    'client/views/panels/admin.html',
+    'client/views/panels/admin.js',
   ],'client');
 
   api.addFiles([
     'server/admin.js',
     'server/users.js',
-    'server/places.js'
+    'server/places.js',
+    'server/cats.js'
   ],'server');
 
 });

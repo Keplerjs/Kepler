@@ -48,5 +48,32 @@ Router.map(function() {
 				})
 			};
 		}
+	});
+
+	this.route('panelCats', {
+		path: '/categories/:type',
+		template: 'panelList',
+		layoutTemplate: 'layoutMap',
+		loadingTemplate: 'pageLoading',
+		onBeforeAction: function () {
+			if(!K.Admin || !K.Admin.isMe())
+				Router.go('root');
+			else
+				this.next();
+		},
+		waitOn: function() {
+			Session.set('showSidebar', true);
+			return Meteor.subscribe('catsByName', '', this.params.type);
+		},
+		data: function() {
+			if(!this.ready()) return null;
+			return  {
+				title: i18n('label_cats'),
+				className: 'cats-name',
+				headerTemplate: 'formSearchCats',
+				itemsTemplate: 'itemCat',
+				items: K.findCatsByName('',this.params.type).fetch()
+			};
+		}
 	});	
 });

@@ -7,7 +7,7 @@ Meteor.publish('poisByPlace', function(placeId) {
 			placeCur = K.findPlaceById(placeId),
 			placeData = placeCur.fetch()[0];
 
-		//var poisCur = findPoisByLoc(placeData.loc);
+		//var poisCur = K.findPoisByLoc(placeData.loc);
 		//TODO optimize this condition caching
 		//if(poisCur.count()===0) {
 
@@ -41,7 +41,7 @@ Meteor.publish('poisByPlace', function(placeId) {
 			}
 			console.log('Pub: poisByPlace insert from osm ', geojson.features.length);
 
-			poisCur = findPoisByLoc(placeData.loc);
+			poisCur = K.findPoisByLoc(placeData.loc);
 		//}
 
 		console.log('Pub: poisByPlace', placeData.name, poisCur.count());

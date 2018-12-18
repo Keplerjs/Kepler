@@ -7,6 +7,7 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 - disable gps when gone offline
 - new method K.Util.valid.bbox()
 - plugin edit button in place popup
+- plugin categories panel admin, search categories by name and type
 
 ## v1.5.8
 - movable places
