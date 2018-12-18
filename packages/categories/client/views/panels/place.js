@@ -3,21 +3,19 @@ Template.panelPlaceEdit_cats.helpers({
 	allCats: function() {
 		
 		var placeCats = this.getCats(),
-			activeCats = [];
+			activeCats = K.Cats.activeCats.place;
 
-		_.each(K.settings.public.categories.cats.place, function(v,k) {
-			if(v){
-				activeCats.push(k);
-			}
-		});
-
-		return _.map(_.union(activeCats, placeCats), function(c) {
+		var ret = _.map(_.union(activeCats, placeCats), function(c) {
 			return {
 				val: c,
 				name: c,
 				active: _.contains(placeCats, c)
 			};
 		});
+
+		console.log('allCats', ret);
+
+		return ret;
 	}
 });
 

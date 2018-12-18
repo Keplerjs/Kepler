@@ -13,6 +13,8 @@ Places.after.update(function(userId, doc, fieldNames, modifier, options) {
 				type: 'place'//user, place, all
 			});
 
+			console.log('Cats: after update',catData);
+
 			Categories.insert(catData);
 		});
 	}
@@ -23,13 +25,13 @@ Places.after.update(function(userId, doc, fieldNames, modifier, options) {
 	doc.createdAt = K.Util.time();
 });*/
 
-Meteor.publish('catsByActive', function() {
+Meteor.publish('catsActive', function() {
 
 	if(this.userId)
 	{
-		var cur = K.findCatsByActive();
+		var cur = K.findCatsActive();
 
-		console.log('Pub: catsByActive', cur.count());
+		console.log('Pub: catsActive', cur.count());
 
 		return cur;
 	}
@@ -51,31 +53,37 @@ Meteor.publish('catsByName', function(name, type) {
 		this.ready();
 });
 
+
 //add settings cats to database
-Meteor.startiup(function() {
+Meteor.startup(function() {
 
 	var sets = K.settings.public.categories.cats,
-		cplaces = [],
-		cusers = [];
+		cats = [];
 
-	_.each(sets.place, function(active, name) {
-		return _.extend({}, K.schemas.cat, {
+	_.each(sets.place, function(active, name) {	
+		cats.push(_.extend({}, K.schemas.cat, {
 			name: name,
 			active: active,
 			type: 'place'	//user, place, all
-		});
+		}));
 	});
 
-	_.each(sets.user, function(active, name) {
-		return _.extend({}, K.schemas.cat, {
+	_.each(sets.user, function(active, name) {	
+		cats.push(_.extend({}, K.schemas.cat, {
 			name: name,
 			active: active,
 			type: 'user'	//user, place, all
-		});
+		}));
 	});
 
-	return {
-		place: cplaces,
-		user: cusers
-	};
-})
+	var cc = 0;
+	_.each(cats, function(cat){
+		var ret = Categories.upsert({name: cat.name}, {
+			$set: cat
+		});
+		cc =+ ret.numberAffected;
+	});
+	//TODO Cate
+	console.log('Cats: update categories from settings...', cc, cats);
+
+});

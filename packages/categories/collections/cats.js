@@ -17,7 +17,7 @@ Categories.allow({
 });
 
 K.extend({
-	findCatsByActive: function() {
+	findCatsActive: function() {
 		return Categories.find({
 			active: true
 		}, {

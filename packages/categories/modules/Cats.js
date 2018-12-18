@@ -1,35 +1,37 @@
 Kepler.Cats = {
 
 	//TODO conver in function and sort by name
-	allCats: {
+	/*allCats: {
 		place: [],
 		user: []
-	},
-	
+	},*/
+	allCats: K.settings.public.categories.cats,
+
 	activeCats: {
 		place: [],
 		user: []
-	},
-
-	sanitize: function(cats, type) {
-		var self = this;
-		
-		cats = _.isArray(cats) ? cats : [cats];
-
-		return _.filter(cats, function(v) {
-			return _.contains(self.activeCats[type], v);
-		});
 	},
 
 	loadActiveCats: function() {
 		
 		var self = this;
 
-		Meteor.subscribe('catsByActive', function() {
+		_.each(self.allCats.place, function(active,name) {
+			if(active)
+				self.activeCats.place.push(name);
+		});
+		_.each(self.allCats.user, function(active,name) {
+			if(active)
+				self.activeCats.user.push(name);
+		});
+
+		Meteor.subscribe('catsActive', function() {
 			
-			var dbCats = K.findCatsByActive().fetch();
+			var cats = K.findCatsActive().fetch(),
+				cplace = _.pluck(_.where(cats,{type:'place'}),'name'),
+				cuser = _.pluck(_.where(cats,{type:'user'}),'name');
 			
-			console.log('sub: catsByActive', dbCats)
+			console.log('sub: catsActive', cplace,cuser)
 			
 		});
 	}
@@ -38,7 +40,7 @@ Kepler.Cats = {
 if(Meteor.isClient) {
 	Accounts.onLogin(function() {
 
-	   K.Cats.loadActiveCats()
+	   K.Cats.loadActiveCats();
 
 	});
 }

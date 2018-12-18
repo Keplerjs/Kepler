@@ -14,9 +14,11 @@ Meteor.methods({
 	addCatsToPlace: function(placeId, cats) {
 		if(!this.userId) return null;
 		
-		//TODO check user is owner
+		cats = _.isArray(cats) ? cats : [cats];
 		
-		cats = K.Cats.sanitize(cats,'place');
+		cats = _.map(cats, K.Util.sanitize.fileName);
+
+console.log('addCatsToPlace',cats);
 
 		var placeData = Places.findOne(placeId),
 			placeCats = placeData.cats;
@@ -29,7 +31,7 @@ Meteor.methods({
 				fields: {_id:0, cats:1}
 			}).cats;
 
-			console.log('Cats: addCatsToPlace', placeId);
+			console.log('Cats: addCatsToPlace', placeId, cats);
 		}
 
 		return placeCats;
