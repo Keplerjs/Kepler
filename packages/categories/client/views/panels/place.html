@@ -27,3 +27,16 @@
 		</div>
 	</div>
 </template>
+
+
+<template name="itemPlaceCats">
+	<div class="search-item">
+		<div class="pull-left">
+			{{> item_place}}
+
+			{{#each cats}}
+				<a href="/places/cat/{{this}}" class="label label-primary">{{this}}</a>
+			{{/each}}
+		</div>
+	</div>
+</template>

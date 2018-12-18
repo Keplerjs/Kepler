@@ -17,7 +17,7 @@ Router.map(function() {
 				title: i18n('title_cats_places', this.params.cat),
 				className: 'placesCats',
 				//headerTemplate: 'search_cats',
-				itemsTemplate: 'item_place_search',
+				itemsTemplate: 'itemPlaceCats',
 				items: _.map(places, function(place) {
 					return K.placeById(place._id);
 				})
