@@ -54,4 +54,8 @@ Package.onUse(function(api) {
     'server/cats.js'
   ],'server');
 
+  api.export([
+    'Categories'
+  ]);
+
 });

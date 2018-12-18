@@ -16,36 +16,19 @@ Categories.allow({
 	}
 });
 
-Places.after.update(function(userId, doc, fieldNames, modifier, options) {
-
-	if(_.contains(fieldNames,'cats') && modifier['$addToSet']) {
-
-		var catData = {},
-			cats = modifier.$addToSet.cats.$each;
-
-		_.each(cats, function(cat) {
-
-			catData = _.extend({}, K.schemas.cat, {
-				name: cat,
-				type: 'place',//user, place, all
-				parent: ''
-			});
-
-			Categories.insert(catData);
-		});
-	}
-
-});
-//TODO
-/*Categories.before.insert(function(userId, doc) {
-	doc.createdAt = K.Util.time();
-});*/
-
 K.extend({
+	findCatsByActive: function() {
+		return Categories.find({
+			active: true
+		}, {
+			sort: { name:1 }
+		});
+	},
 	findCatsByName: function(initial, type) {
 		
 		if(!initial) {
 			return Categories.find({
+				active: true,
 				type: type
 			}, {
 				sort: { name:1 },

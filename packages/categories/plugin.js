@@ -40,6 +40,7 @@ K.Plugin({
 		cat: {
 			name: '',
 			type: 'all',//user, place, all
+			active: true,
 			parent: ''
 		}
 	},
