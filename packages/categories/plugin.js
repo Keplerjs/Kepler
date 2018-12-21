@@ -41,6 +41,7 @@ K.Plugin({
 			name: '',
 			type: 'all',//user, place, all
 			active: true,
+			rank: 0,
 			parent: ''
 		}
 	},

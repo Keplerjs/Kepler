@@ -6,7 +6,7 @@ K.Admin.methods({
 		
 		if(!K.Admin.isMe()) return false;
 
-		cats = K.Cats.sanitize(cats,'user');
+		cats = _.map(cats, K.Util.sanitize.fileName);
 
 		Users.update(userId, { $addToSet: {'cats': {$each: cats} } });
 

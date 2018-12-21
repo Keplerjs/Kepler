@@ -18,7 +18,7 @@ Meteor.methods({
 		
 		cats = _.map(cats, K.Util.sanitize.fileName);
 
-console.log('addCatsToPlace',cats);
+		console.log('addCatsToPlace',cats);
 
 		var placeData = Places.findOne(placeId),
 			placeCats = placeData.cats;

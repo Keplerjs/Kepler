@@ -7,6 +7,12 @@ Package.describe({
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
+Npm.depends({
+  'typeahead.js': '0.11.1',
+  'bootstrap-tagsinput':'0.7.1',
+  //'jquery-tokeninput': '1.6.0'
+});
+
 Package.onUse(function(api) {
   var packages = [
     'keplerjs:core@'+version,
@@ -18,6 +24,17 @@ Package.onUse(function(api) {
   api.use(packages);
   api.imply(packages);
 
+  api.addFiles([ 
+    //'.npm/package/node_modules/jquery-tokeninput/dist/css/token-input.min.css',
+    //'.npm/package/node_modules/jquery-tokeninput/dist/js/jquery-tokeninput.min.js',
+/*    '.npm/package/node_modules/typeahead.js/dist/typeahead.bundle.js',
+    '.npm/package/node_modules/bootstrap-tagsinput/src/bootstrap-tagsinput-typeahead.css',
+    */
+    '.npm/package/node_modules/typeahead.js/dist/typeahead.bundle.js',
+    '.npm/package/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css',
+    '.npm/package/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.js',
+  ],'client');
+
   api.addFiles([
     'plugin.js',
     'i18n/it.js',
@@ -26,13 +43,13 @@ Package.onUse(function(api) {
     'i18n/es.js',
     'i18n/fr.js',
     'i18n/sv.js',
-    'modules/Cats.js',
     'collections/places.js',
     'collections/users.js',
     'collections/cats.js',
   ]);
 
   api.addFiles([
+    'client/Cats.js',    
     'client/Router.js',
     'client/Place_cats.js',
     'client/User_cats.js',

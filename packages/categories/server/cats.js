@@ -81,7 +81,7 @@ Meteor.startup(function() {
 		var ret = Categories.upsert({name: cat.name}, {
 			$set: cat
 		});
-		cc =+ ret.numberAffected;
+		cc += ret.numberAffected;
 	});
 	//TODO Cate
 	console.log('Cats: update categories from settings...', cc, cats);

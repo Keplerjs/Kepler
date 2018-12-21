@@ -9,7 +9,7 @@ K.Plugin({
 			'panelPlace_photos': { order:-8}
 		},
 		//markerPlace: 'markerPlace_photos',
-		panelPlaceEdit: 'panelPlaceEdit_photos',		
+		panelPlaceEdit: 'panelPlaceEdit_photos',
 		panelSettings: {
 			'panelSettings_photos': { order:-10},
 		},

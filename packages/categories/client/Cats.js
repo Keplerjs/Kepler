@@ -12,6 +12,14 @@ Kepler.Cats = {
 		user: []
 	},
 
+	_dep: new Tracker.Dependency(),
+
+	getCats: function(type) {
+		this._dep.depend();
+		return this.activeCats[type];
+	},
+
+
 	loadActiveCats: function() {
 		
 		var self = this;
@@ -31,8 +39,12 @@ Kepler.Cats = {
 				cplace = _.pluck(_.where(cats,{type:'place'}),'name'),
 				cuser = _.pluck(_.where(cats,{type:'user'}),'name');
 			
-			console.log('sub: catsActive', cplace,cuser)
-			
+			//console.log('sub: catsActive', cplace,cuser)
+			self.activeCats = {
+				place: cplace,
+				user: cuser
+			};
+			self._dep.changed();
 		});
 	}
 };

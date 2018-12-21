@@ -59,6 +59,12 @@ Template.registerHelper('arrayify',function(obj) {
     return result;
 });
 
+Template.registerHelper('join', function (arr, sep) {
+	sep = _.isString(sep) ? sep : ',';
+	console.log(arr,sep)
+	return arr.join(sep);
+});
+
 Template.registerHelper('humanAzimut', function(ang,code) {
 	return K.Util.humanize.azimut(ang, parseInt(code));
 });
