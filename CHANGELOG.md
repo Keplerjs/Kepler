@@ -11,6 +11,8 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 - core new blaze helper {{join array}}
 - new template helper join
 - plugin categories use tagsinput 
+- plugin categories admin remove categories
+
 
 ## v1.5.8
 - movable places

@@ -5,6 +5,8 @@ K.Admin.methods({
 		
 		if(!K.Admin.isMe()) return false;
 
+		Categories.remove({name: cat, type: type});
+
 		console.log('Cats: removeCat', cat, type);
 	},
 	addCatsToUser: function(userId, cats) {

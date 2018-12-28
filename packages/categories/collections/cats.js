@@ -27,10 +27,16 @@ K.extend({
 	findCatsByName: function(initial, type) {
 		
 		if(!initial) {
-			return Categories.find({
+
+			var w = {
 				active: true,
-				type: type
-			}, {
+			//	type: type
+			};
+
+			if(_.isString(type))
+				w.type = type;
+			
+			return Categories.find(w, {
 				sort: { name:1 },
 				limit: 30
 			});

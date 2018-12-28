@@ -3,10 +3,20 @@
 Categories.after.remove(function(userId, doc) {
 
 	console.log('Categories after.remove', doc)
-	/*Places.update({
-		cats: doc._id,
-		targetType:'place'
-	});*/
+
+	var type = doc.type,
+		cat = doc.name;
+
+	if(type==='user') {
+		Users.update({cats: cat}, {
+			$pull: {cats: cat }
+		});
+	}
+	else if(type==='place') {
+		Places.update({cats: cat}, {
+			$pull: {cats: cat }
+		});
+	}
 });
 
 Meteor.publish('catsActive', function() {

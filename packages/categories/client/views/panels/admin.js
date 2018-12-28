@@ -42,6 +42,6 @@ Template.itemCat.onRendered(function() {
 
 	self.$('.btn-catdel').btsConfirmButton(function(e) {
 
-		Meteor.call('removeCat', self.data.name);
+		K.Admin.call('removeCat', self.data.name, self.data.type);
 	});
 });
