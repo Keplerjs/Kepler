@@ -8,6 +8,9 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 - new method K.Util.valid.bbox()
 - plugin edit button in place popup
 - plugin categories panel admin, search categories by name and type
+- core new blaze helper {{join array}}
+- new template helper join
+- plugin categories use tagsinput 
 
 ## v1.5.8
 - movable places

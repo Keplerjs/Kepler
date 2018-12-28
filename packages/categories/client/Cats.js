@@ -48,11 +48,11 @@ Kepler.Cats = {
 		});
 	}
 };
-
+/*
 if(Meteor.isClient) {
 	Accounts.onLogin(function() {
 
 	   K.Cats.loadActiveCats();
 
 	});
-}
+}*/

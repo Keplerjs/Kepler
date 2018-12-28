@@ -61,7 +61,6 @@ Template.registerHelper('arrayify',function(obj) {
 
 Template.registerHelper('join', function (arr, sep) {
 	sep = _.isString(sep) ? sep : ',';
-	console.log(arr,sep)
 	return arr.join(sep);
 });
 

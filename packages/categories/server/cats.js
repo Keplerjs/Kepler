@@ -1,29 +1,13 @@
 
-Places.after.update(function(userId, doc, fieldNames, modifier, options) {
+//TODO //doc.createdAt = K.Util.time();
+Categories.after.remove(function(userId, doc) {
 
-	if(_.contains(fieldNames,'cats') && modifier['$addToSet']) {
-
-		var catData = {},
-			cats = modifier.$addToSet.cats.$each;
-
-		_.each(cats, function(cat) {
-
-			catData = _.extend({}, K.schemas.cat, {
-				name: cat,
-				type: 'place'//user, place, all
-			});
-
-			console.log('Cats: after update',catData);
-
-			Categories.insert(catData);
-		});
-	}
-
+	console.log('Categories after.remove', doc)
+	/*Places.update({
+		cats: doc._id,
+		targetType:'place'
+	});*/
 });
-//TODO
-/*Categories.before.insert(function(userId, doc) {
-	doc.createdAt = K.Util.time();
-});*/
 
 Meteor.publish('catsActive', function() {
 
@@ -31,7 +15,7 @@ Meteor.publish('catsActive', function() {
 	{
 		var cur = K.findCatsActive();
 
-		console.log('Pub: catsActive', cur.count());
+		console.log('Pub: catsActive', cur.count() );
 
 		return cur;
 	}
@@ -84,6 +68,6 @@ Meteor.startup(function() {
 		cc += ret.numberAffected;
 	});
 	//TODO Cate
-	console.log('Cats: update categories from settings...', cc, cats);
+	console.log('Cats: update categories from settings', cc);
 
 });

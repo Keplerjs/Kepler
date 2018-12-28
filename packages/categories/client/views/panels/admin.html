@@ -8,9 +8,16 @@
 </template>
 
 <template name="itemCat">
+	<div class="pull-left">
 	<a class="label label-primary" href="/{{type}}s/cat/{{name}}">
 		{{name}}
 	</a>
+	</div>
+	<div class="pull-right">
+		<a class="btn-catdel btn btn-default" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
+			<i class="icon icon-del"></i>  {{i18n 'btn_del'}}
+		</a>	
+	</div>
 </template>
 
 <template name="formSearchCats">

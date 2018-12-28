@@ -6,14 +6,7 @@
 
 .bootstrap-tagsinput {
     width: 100%;
-}
-
-.accordion {
-    margin-bottom: -3px;
-}
-
-.accordion-group {
-    border: none;
+    padding: 0 3px 3px 3px;
 }
 
 .twitter-typeahead .tt-query,
@@ -25,20 +18,20 @@
     display: none;
 }
 .typeahead-wrapper {
-display: block;
-margin: 50px 0;
+	display: block;
+	margin: 50px 0;
 }
 .tt-dropdown-menu {
-background-color: #fff;
-border: 1px solid #000;
+	background-color: #fff;
+	border: 1px solid #000;
 }
 .tt-suggestion.tt-cursor {
-background-color: #ccc;
+	background-color: #ccc;
 }
 .triggered-events {
-float: right;
-width: 500px;
-height: 300px;
+	float: right;
+	width: 500px;
+	height: 300px;
 }
 .tt-menu {
     position: static;

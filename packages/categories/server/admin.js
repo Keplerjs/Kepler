@@ -1,7 +1,12 @@
 
 if(K.Admin)
 K.Admin.methods({
+	removeCat: function(cat, type) {
+		
+		if(!K.Admin.isMe()) return false;
 
+		console.log('Cats: removeCat', cat, type);
+	},
 	addCatsToUser: function(userId, cats) {
 		
 		if(!K.Admin.isMe()) return false;

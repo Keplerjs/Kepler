@@ -34,3 +34,14 @@ Template.formSearchCats.onRendered(function() {
 		}
 	});
 });
+
+
+Template.itemCat.onRendered(function() {
+	
+	var self = this;
+
+	self.$('.btn-catdel').btsConfirmButton(function(e) {
+
+		Meteor.call('removeCat', self.data.name);
+	});
+});

@@ -16,6 +16,11 @@
 	<div class="form-group">
 		<label>{{i18n 'label_cats'}}</label>
 		<div class="clearfix">
+
+			<input data-role="tagsinput" class="input-cats" type="text" value="{{join cats}}">
+			
+			<br /><br />
+
 			<div id="cats-edit" class="btn-group" data-toggle="buttons">
 			{{#each allCats}}
 				<label class="btn btn-default btn-xs {{#if active}} active {{/if}}">
@@ -23,10 +28,6 @@
 				{{name}}
 				</label>
 			{{/each}}
-			</div>
-			<br />
-			<div>
-				<input data-role="tagsinput" class="input-cats" type="text" value="{{join cats}}">
 			</div>
 		</div>
 	</div>
