@@ -6,7 +6,7 @@ if(Meteor.isServer)
 
 Categories.allow({
 	insert: function(userId, doc) {
-		return true;
+		return false;
 	},
 	update: function(userId, doc) {
 		return false;
@@ -29,8 +29,7 @@ K.extend({
 		if(!initial) {
 
 			var w = {
-				active: true,
-			//	type: type
+				active: true
 			};
 
 			if(_.isString(type))

@@ -1,4 +1,14 @@
 
+Template.itemCat.onRendered(function() {
+	
+	var self = this;
+
+	self.$('.btn-catdel').btsConfirmButton(function(e) {
+
+		K.Admin.call('removeCat', self.data.name, self.data.type);
+	});
+});
+
 Template.formSearchCats.onRendered(function() {
 	var self = this,
 		typeCat = Router.current().params.type;
@@ -24,24 +34,30 @@ Template.formSearchCats.onRendered(function() {
 			return self.$('.search-canc');
 		}
 	});
-
-	self.$('#switch_online').bootstrapSwitch({
-		size: 'mini',
-		onColor: 'success',		
-		state: K.Profile.getOnline(),
-		onSwitchChange: function (e, stat) {
-			K.Profile.setOnline(stat);
-		}
-	});
 });
 
+Template.formSearchCats.events({
+	'click .cat-btn-new': function(e,tmpl) {
+		e.preventDefault();
+		
+		var input$ = tmpl.$('.cat-name-new'),
+			name = _.str.clean(input$.val()),
+			type = Router.current().params.type;
 
-Template.itemCat.onRendered(function() {
-	
-	var self = this;
+		if(type!=='place' && type!=='user')
+			type = undefined;
 
-	self.$('.btn-catdel').btsConfirmButton(function(e) {
-
-		K.Admin.call('removeCat', self.data.name, self.data.type);
-	});
+		if(!_.str.isBlank(name)) {
+			K.Admin.call('insertCat', name, type, function(err,ret) {
+				input$.val('')
+			});
+		}
+	},
+	'keydown .cat-name-new': function(e,tmpl) {
+		if(e.keyCode===13)//enter
+		{
+			e.preventDefault();
+			tmpl.$('.cat-btn-new').trigger('click');
+		}
+	}
 });

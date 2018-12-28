@@ -1,14 +1,25 @@
 
 if(K.Admin)
 K.Admin.methods({
-	removeCat: function(cat, type) {
+	removeCat: function(name, type) {
 		
 		if(!K.Admin.isMe()) return false;
 
-		Categories.remove({name: cat, type: type});
+		Categories.remove({name: name, type: type});
 
-		console.log('Cats: removeCat', cat, type);
+		console.log('Cats: removeCat', name, type);
 	},
+	insertCat: function(name, type) {
+		
+		if(!K.Admin.isMe()) return false;
+
+		Categories.insert(_.extend({}, K.schemas.cat, {
+			name: name,
+			type: type
+		}));
+
+		console.log('Cats: insertCat', cat, type);
+	},	
 	addCatsToUser: function(userId, cats) {
 		
 		if(!K.Admin.isMe()) return false;

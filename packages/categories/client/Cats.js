@@ -19,7 +19,6 @@ Kepler.Cats = {
 		return this.activeCats[type];
 	},
 
-
 	loadActiveCats: function() {
 		
 		var self = this;
