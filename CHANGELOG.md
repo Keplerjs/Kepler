@@ -12,6 +12,8 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 - new template helper join
 - plugin categories use tagsinput 
 - plugin categories admin remove categories
+- plugin categories admin create new cat by name
+- plugin categories admin user and place sections
 
 
 ## v1.5.8

@@ -68,7 +68,7 @@ Router.map(function() {
 		data: function() {
 			if(!this.ready()) return null;
 			return  {
-				title: i18n('label_cats'),
+				title: i18n('title_panelCatsType'),
 				className: 'cats-name',
 				headerTemplate: 'formSearchCats',
 				itemsTemplate: 'itemCat',
@@ -95,9 +95,12 @@ Router.map(function() {
 		data: function() {
 			if(!this.ready()) return null;
 			return  {
-				title: i18n('label_cats'),
+				title: i18n('title_panelCatsType'),
 				className: 'cats-name',
 				headerTemplate: 'formSearchCats',
+				headerData: {
+					typeCat: this.params.type
+				},
 				itemsTemplate: 'itemCat',
 				items: K.findCatsByName('',this.params.type).fetch()
 			};

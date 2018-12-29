@@ -10,17 +10,16 @@ Template.itemCat.onRendered(function() {
 });
 
 Template.formSearchCats.onRendered(function() {
-	var self = this,
-		typeCat = Router.current().params.type;
+	var self = this;
 
 	$(self.firstNode).parent().siblings('.list-items').btsListFilter('.cats-search', {
 		itemChild: '.label',
 		loadingClass: 'loading-lg',
 		sourceData: function(val, callback) {
 
-			Meteor.subscribe('catsByName', val, typeCat, function() {
+			Meteor.subscribe('catsByName', val, self.data.typeCat, function() {
 				
-				var cats = K.findCatsByName(val, typeCat).fetch();
+				var cats = K.findCatsByName(val, self.data.typeCat).fetch();
 
 				callback(cats);
 			});
@@ -41,8 +40,8 @@ Template.formSearchCats.events({
 		e.preventDefault();
 		
 		var input$ = tmpl.$('.cat-name-new'),
-			name = _.str.clean(input$.val()),
-			type = Router.current().params.type;
+			name = _.str.clean(input$.val());
+			type = tmpl.data.typeCat;
 
 		if(type!=='place' && type!=='user')
 			type = undefined;

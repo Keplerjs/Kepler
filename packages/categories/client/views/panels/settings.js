@@ -1,21 +1,19 @@
 
+Template.panelSettings_cats.onCreated(function() {
+	K.Cats.loadActiveCats();
+});
+
 Template.panelSettings_cats.helpers({
 	allCats: function() {
 		
-		var profileCats = K.Profile.data.cats,
-			activeCats = [];
+		var userCats = K.Profile.data.cats,
+			activeCats = K.Cats.getCats('user');
 
-		_.each(K.settings.public.categories.cats.user, function(v,k) {
-			if(v){
-				activeCats.push(k);
-			}
-		});
-
-		return _.map(_.union(activeCats, profileCats), function(c) {
+		return _.map(_.union(activeCats, userCats), function(c) {
 			return {
 				val: c,
 				name: c,
-				active: _.contains(profileCats, c)
+				active: _.contains(userCats, c)
 			};
 		});
 	}
