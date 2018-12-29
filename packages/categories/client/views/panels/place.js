@@ -1,10 +1,10 @@
 
 //https://www.jqueryscript.net/tags.php?/tags%20input/
 
-Template.panelPlaceEdit_cats.onCreated(function() {
+/*Template.panelPlaceEdit_cats.onCreated(function() {
 	K.Cats.loadActiveCats();
 });
-
+*/
 Template.panelPlaceEdit_cats.onRendered(function() {
 
 	var self = this,

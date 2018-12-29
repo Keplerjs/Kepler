@@ -5,6 +5,8 @@ K.Admin.methods({
 		
 		if(!K.Admin.isMe()) return false;
 
+		name = K.Util.sanitize.fileName(name);
+
 		Categories.remove({name: name, type: type});
 
 		console.log('Cats: removeCat', name, type);
@@ -13,12 +15,14 @@ K.Admin.methods({
 		
 		if(!K.Admin.isMe()) return false;
 
+		name = K.Util.sanitize.fileName(name);
+
 		Categories.insert(_.extend({}, K.schemas.cat, {
 			name: name,
 			type: type
 		}));
 
-		console.log('Cats: insertCat', cat, type);
+		console.log('Cats: insertCat', name, type);
 	},	
 	addCatsToUser: function(userId, cats) {
 		

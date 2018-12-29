@@ -1,8 +1,8 @@
 
-Template.panelSettings_cats.onCreated(function() {
+/*Template.panelSettings_cats.onCreated(function() {
 	K.Cats.loadActiveCats();
 });
-
+*/
 Template.panelSettings_cats.helpers({
 	allCats: function() {
 		

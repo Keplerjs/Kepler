@@ -2,8 +2,6 @@
 //TODO //doc.createdAt = K.Util.time();
 Categories.after.remove(function(userId, doc) {
 
-	console.log('Categories after.remove', doc)
-
 	var type = doc.type,
 		cat = doc.name;
 

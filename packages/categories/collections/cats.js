@@ -37,7 +37,7 @@ K.extend({
 			
 			return Categories.find(w, {
 				sort: { name:1 },
-				limit: 30
+				limit: 50
 			});
 		}
 
@@ -49,11 +49,12 @@ K.extend({
 		var ex = new RegExp('^'+ initial, 'i');
 			
 		var curCat = Categories.find({
+				active: true,
 				name: ex,
 				type: type
 			}, {
 				sort: { name:1 },
-				limit: 30
+				limit: 50
 			});
 
 		return curCat;
