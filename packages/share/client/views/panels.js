@@ -1,7 +1,7 @@
 
 
 Template.panelPlace_share.helpers({
-	urls: function() {
+	shareUrls: function() {
 
 		var loc = {
 			zoom: 15,
