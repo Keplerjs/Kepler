@@ -8,7 +8,7 @@ K.Plugin({
 			'panelPlace_cats': {order: -5 } //render after share plugin
 		},
 		panelPlaceEdit: 'panelPlaceEdit_cats',
-		//panelAdmin: 'panelAdmin_cats',
+		panelAdmin: 'panelAdmin_cats',
 	},
 	settings: {
 		"public": {
