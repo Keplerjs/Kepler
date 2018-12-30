@@ -60,6 +60,7 @@ Template.registerHelper('arrayify',function(obj) {
 });
 
 Template.registerHelper('join', function (arr, sep) {
+	arr = _.isArray(arr) ? arr : [];
 	sep = _.isString(sep) ? sep : ',';
 	return arr.join(sep);
 });

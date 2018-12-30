@@ -56,7 +56,13 @@ Kepler.Util.sanitize = {
 			.replace(/\//g,'');
 	},
 
-	fileExt(name) {
+	fileExt: function(name) {
 		return (name.split('.').pop()+"").toLowerCase();
+	},
+
+	url: function(url) {
+		if(!url.match(/^[a-zA-Z]+:\/\//))
+			url = 'http://'+url;
+		return url;
 	}
 };

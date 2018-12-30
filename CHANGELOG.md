@@ -2,6 +2,8 @@
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+- rename place file urls in urls
+- plugin edit url field is editable
 - plugin geoinfo fields calculate asyncronous on new place insert
 - fix all removeItem hide marker
 - disable gps when gone offline

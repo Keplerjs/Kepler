@@ -73,12 +73,18 @@
 	<br />
 </template>
 
-<template name="panelPlace_ui_info">
+<template name="tabPlace_ui_info">
 	<ul class="list-group">
 		{{#if desc}}
 		<li class="list-group-item">
 			<label>{{i18n 'label_desc'}}</label><br />
 			<p class="place-desc">{{desc}}</p>
+		</li>
+		{{/if}}
+		{{#if url}}
+		<li class="list-group-item">
+			<label>{{i18n 'label_url'}}</label>
+			<a class="btn btn-link place-url" href="{{url}}" target="_blank">{{url}}</a>
 		</li>
 		{{/if}}
 		{{#if warn}}

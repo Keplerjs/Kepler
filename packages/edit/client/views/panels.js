@@ -37,6 +37,28 @@ Template.panelPlaceEdit.events({
 	},
 	'click .btn-cancelren': function(e,tmpl) {
 		tmpl.$('.input-editren').val('');
+	},
+
+	'keyup .input-url': _.debounce(function(e, tmpl) {
+		var place = tmpl.data,
+			input$ = $(e.target),
+			data = {
+				url: input$.val()
+			};
+
+		if(data.url.length && !K.Util.valid.url(data.url))
+			sAlert.error( i18n('edit_error_notUrl') );
+		else {
+			Meteor.call('updatePlace', place.id, data, function(err) {
+				place.update();
+			});
+		}
+	}, 300),
+	'keydown .input-url': function(e,tmpl) {
+		if(e.keyCode===13) {//enter
+			e.preventDefault();
+			$(e.target).trigger('keyup');
+		}
 	}
 });
 

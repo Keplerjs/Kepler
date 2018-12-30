@@ -48,13 +48,17 @@ Meteor.methods({
 		
 		if(userId === this.userId || (K.Admin && K.Admin.isMe())) {
 
+			if(data.name)
+				data.name = K.Util.sanitize.name(data.name);
+			
+			if(data.url)
+				data.url = K.Util.sanitize.url(data.url);
+				
 			Places.update(placeId, {
-				$set: {
-					name: K.Util.sanitize.name(data.name)
-				}
+				$set: data
 			});
 
-			console.log('Edit: updatePlace', data.name);			
+			console.log('Edit: updatePlace', data);
 		}	
 	}
 });

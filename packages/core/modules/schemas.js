@@ -16,8 +16,7 @@ Kepler.schemas = {
 		hist: [],		   //recents checkins
 		desc: '',		   //description
 		warn: '',          //warnings and dangers
-		urls: [],	   		//websites url of place
-		emails: [],		   //contanct emails for place
+		url: '',	   	   //websites url of place
 		source: {	   	   //describe source of data
 			type: ''
 		}
@@ -28,6 +27,7 @@ Kepler.schemas = {
 		username: '',	   //username used in urls
 		createdAt: '',	   //new Date() of user insert
 		emails: [], 
+		url: '',			//user web sites and social
 		profile: {},		//user data
 		avatar: '',		    //user photo
 		mood: '',		    //status mood message, shown in profile

@@ -108,7 +108,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-12">
+				<div class="col-sm-10">
 					<label class="control-label">{{i18n 'label_name'}}</label>
 					<div class="input-group">
 						<input class="input-editren form-control" type="text" value="{{name}}" placeholder="{{#unless name}}{{i18n 'label_noname'}}{{/unless}}" />
@@ -121,9 +121,14 @@
 					</div>
 				</div>
 			</div>
-				
-			{{> pluginsTemplate name='panelPlaceEdit'}}
-				
+			<div class="row">
+				<div class="col-sm-10">
+					<label class="control-label">{{i18n 'label_url'}}</label>
+					<input class="input-url form-control" type="text" value="{{url}}" />
+				</div>
+			</div>
+
+			{{> pluginsTemplate name='panelPlaceEdit'}}	
 		
 		</div>	
 	</div>

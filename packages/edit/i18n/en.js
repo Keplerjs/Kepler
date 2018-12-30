@@ -10,5 +10,6 @@ i18n.map('en', {
 
 	label_editplaces: "Created places",
 
-	edit_error_notOwner: "Not Owner"
+	edit_error_notOwner: "Not Owner",
+	edit_error_notUrl: "Url Not Valid"
 });
