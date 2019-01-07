@@ -74,7 +74,7 @@ Kepler.Profile = {
 		Meteor.call('UserPresence:setDefaultStatus', online?'online':'offline', function(err, data) {
 			self._deps.online.changed();
 		});
-		if(!online)
+		if(!online && K.Map.controls.gps)
 			K.Map.controls.gps.deactivate();
 		return this;
 	},

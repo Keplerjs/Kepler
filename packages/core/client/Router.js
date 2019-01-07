@@ -96,7 +96,8 @@ Router.map(function() {
 				return Meteor.subscribe('placesByBBox', bb);*/
 		},
 		onStop: function() {
-			K.Map.controls.gps.deactivate();
+			if(K.Map.controls.gps)
+				K.Map.controls.gps.deactivate();
 		},
 		/*data: function(){
 			var places = K.findPlacesByBBox(K.Map.getBBox()).fetch();
