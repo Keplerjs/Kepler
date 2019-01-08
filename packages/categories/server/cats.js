@@ -70,7 +70,10 @@ Meteor.startup(function() {
 
 	var cc = 0;
 	_.each(cats, function(cat){
-		var ret = Categories.upsert({name: cat.name}, {
+		var ret = Categories.upsert({
+			name: cat.name,
+			type: cat.type
+		}, {
 			$set: cat
 		});
 		cc += ret.numberAffected;

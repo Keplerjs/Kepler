@@ -61,44 +61,6 @@ Template.formSearchCats.events({
 	}
 });
 
-
-/*Template.pageAdminUser_foliolum_cats.helpers({
-	allCats: function() {
-
-		var itemCats = this.getCats(),
-			activeCats = K.Cats.getCats('user');
-
-		var ret = _.map(_.union(activeCats, itemCats), function(c) {
-			return {
-				val: c,
-				name: c,
-				active: _.contains(itemCats, c)
-			};
-		});
-
-		return ret;
-	}
-});
-
-Template.pageAdminUser_foliolum_cats.events({
-	'change #cats-edit input': _.debounce(function(e,tmpl) {
-		var itemId = tmpl.data._id,
-			input$ = $(e.currentTarget),
-			checked = input$.is(':checked'),
-			val = input$.val();
-
-		var cb = function() {
-			K.userById(itemId).update();
-		};
-
-		if(!checked)
-			K.Admin.call('removeCatsFromUser', itemId, val, cb);
-		else
-			K.Admin.call('addCatsToUser', itemId, val, cb);
-	}, 300)
-});
-*/
-
 Template.pageAdminUser_cats.onRendered(function() {
 
 	var self = this,
@@ -110,7 +72,6 @@ Template.pageAdminUser_cats.onRendered(function() {
 		freeInput: false,
 		typeaheadjs: {
 			// https://github.com/twitter/typeahead.js
-			// 
 			hint: true,
 			highlight: true,
 			minLength: 1,
@@ -133,8 +94,6 @@ Template.pageAdminUser_cats.onRendered(function() {
 
 					cb(res);
 				});
-
-				return null
 			}
 		}
 	});
@@ -158,15 +117,13 @@ Template.pageAdminUser_cats.helpers({
 		var itemCats = this.getCats(),
 			activeCats = K.Cats.getCats('user');
 
-		var ret = _.map(_.union(activeCats, itemCats), function(c) {
+		return _.map(_.union(activeCats, itemCats), function(c) {
 			return {
 				val: c,
 				name: c,
 				active: _.contains(itemCats, c)
 			};
 		});
-
-		return ret;
 	}
 });
 

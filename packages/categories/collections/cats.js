@@ -1,8 +1,10 @@
 
 Categories = new Mongo.Collection('categories');
 
-if(Meteor.isServer)
-	Categories._ensureIndex({"name": 1},{unique: true});
+if(Meteor.isServer) {
+	console.log('Cats: createIndex...')
+	Categories._ensureIndex({"name": 1,"type":1},{unique: true});
+}
 
 Categories.allow({
 	insert: function(userId, doc) {

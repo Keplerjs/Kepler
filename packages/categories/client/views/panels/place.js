@@ -19,12 +19,10 @@ Template.panelPlaceEdit_cats.onRendered(function() {
 		freeInput: false,
 		typeaheadjs: {
 			// https://github.com/twitter/typeahead.js
-			// 
 			hint: true,
 			highlight: true,
 			minLength: 1,
 			limit: 30,
-			//name: 'catnames',
 	    	displayKey: 'name',
 	    	valueKey: 'name',
 			source: function(text, sync, cb) {
@@ -43,8 +41,6 @@ Template.panelPlaceEdit_cats.onRendered(function() {
 
 					cb(res);
 				});
-
-				return null
 			}
 		}
 	});
@@ -68,17 +64,13 @@ Template.panelPlaceEdit_cats.helpers({
 		var itemCats = this.getCats(),
 			activeCats = K.Cats.getCats('place');
 
-		var ret = _.map(_.union(activeCats, itemCats), function(c) {
+		return _.map(_.union(activeCats, itemCats), function(c) {
 			return {
 				val: c,
 				name: c,
 				active: _.contains(itemCats, c)
 			};
 		});
-
-		//console.log('allCats', ret);
-
-		return ret;
 	}
 });
 
