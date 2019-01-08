@@ -38,7 +38,8 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'server/admin.js',
-    'server/profile.js'
+    'server/profile.js',
+    'server/places.js'
   ],'server');
 
 });
