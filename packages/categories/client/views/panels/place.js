@@ -65,14 +65,14 @@ Template.panelPlaceEdit_cats.onRendered(function() {
 Template.panelPlaceEdit_cats.helpers({
 	allCats: function() {
 
-		var placeCats = this.getCats(),
+		var itemCats = this.getCats(),
 			activeCats = K.Cats.getCats('place');
 
-		var ret = _.map(_.union(activeCats, placeCats), function(c) {
+		var ret = _.map(_.union(activeCats, itemCats), function(c) {
 			return {
 				val: c,
 				name: c,
-				active: _.contains(placeCats, c)
+				active: _.contains(itemCats, c)
 			};
 		});
 

@@ -9,6 +9,7 @@ K.Plugin({
 		},
 		panelPlaceEdit: 'panelPlaceEdit_cats',
 		panelAdmin: 'panelAdmin_cats',
+		pageAdminUser: 'pageAdminUser_cats',
 	},
 	settings: {
 		"public": {

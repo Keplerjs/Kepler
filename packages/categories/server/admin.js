@@ -28,6 +28,8 @@ K.Admin.methods({
 		
 		if(!K.Admin.isMe()) return false;
 
+		cats = _.isArray(cats) ? cats : [cats];
+
 		cats = _.map(cats, K.Util.sanitize.fileName);
 
 		Users.update(userId, { $addToSet: {'cats': {$each: cats} } });

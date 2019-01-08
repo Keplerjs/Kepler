@@ -1,5 +1,4 @@
 
-
 <template name="panelAdmin_cats">
 	<a class="list-group-item" href="/categories/place">
 		<i class="icon icon-cats"></i>
@@ -56,4 +55,25 @@
 			</a>
 		</li>
 	</ul>
+</template>
+
+<template name="pageAdminUser_cats">
+<div class="form-group">
+	<label class="control-label">{{i18n 'label_cats'}}</label>
+	<div class="clearfix">
+		
+		<input data-role="tagsinput" class="input-cats" type="text" value="{{join cats}}">
+			
+		<br /><br />
+
+		<div id="cats-edit" class="btn-group" data-toggle="buttons">
+		{{#each allCats}}
+			<label class="btn btn-default btn-xs {{#if active}} active {{/if}}">
+			<input type="checkbox" name="cats" checked="{{active}}" value="{{val}}" />
+			{{name}}
+			</label>
+		{{/each}}
+		</div>
+	</div>
+</div>
 </template>
