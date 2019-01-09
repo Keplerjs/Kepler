@@ -8,9 +8,11 @@
 
 				{{> pageAdmin_admin_account}}
 
-				<a class="btn btn-default" type="button" data-toggle="collapse" data-target="#rawdata" aria-expanded="false" aria-controls="collapseExample">
-				  {{i18n 'label_rawdata'}}
-				</a>
+				<div class="btn-group">
+					<a class="btn btn-default" type="button" data-toggle="collapse" data-target="#rawdata" aria-expanded="false" aria-controls="collapseExample">
+					  {{i18n 'label_rawdata'}}
+					</a>
+				</div>
 				<div id="rawdata" class="collapse collapsed">
 					{{{log this}}}
 				</div>
@@ -47,6 +49,7 @@
 <template name="pageAdmin_admin_account">
 {{#with source}}
 	{{#if service}}
+	<div class="btn-group">
 		{{#if eq service 'keplerjs'}}
 			<a class="btn btn-default" href="/user/{{_id}}">
 				<i class="icon icon-kepler"></i> {{options.profile.name}}
@@ -72,6 +75,7 @@
 				<i class="icon icon-goo"></i> {{options.profile.name}}
 			</a>
 		{{/if}}
+	</div>
 	{{/if}}
 {{/with}}
 </template>
