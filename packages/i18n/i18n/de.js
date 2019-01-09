@@ -30,6 +30,7 @@ i18n.map('de', {
 	label_signupdate: "Registriert",
 	label_logindate: "Letzter anmeldgen",
 	label_name: "Name",
+	label_url: "Link",
 	label_username: "Nutzername",
 	label_email: "Email",
 	label_city: "Stadt",

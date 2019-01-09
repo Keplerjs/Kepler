@@ -39,9 +39,7 @@ i18n.map('en', {
 	label_layer: "Map",
 	label_mapcenter: "Home",
 	label_mapcentermap: "Set from current map",
-
 	label_userid: "User ID",
-
 	label_account: "Account",
 	label_password: "Password",
 	label_privacy: "Privacy",

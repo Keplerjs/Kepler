@@ -67,6 +67,7 @@ i18n.map('it', {
 	label_logindate: "Ultimo accesso",
 
 	label_name: "Nome",
+	label_url: "Link",
 	label_username: "Username",
 	label_email: "Email",
 	label_city: "Città",
@@ -75,7 +76,7 @@ i18n.map('it', {
 	label_layer: "Mappa",
 	label_mapcenter: "Casa",
 	label_mapcentermap: "Imposta dalla mappa attuale",
-
+	label_userid: "ID Utente",
 	label_account: "Account",
 	label_password: "Password",
 	label_privacy: "Privacy",

@@ -2,7 +2,7 @@
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
-...
+- various fixes
 
 ## v1.5.9
 - rename place file urls in urls
