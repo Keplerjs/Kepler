@@ -30,6 +30,23 @@ Kepler.Util.sanitize = {
 		return name.substr(0,255);
 	},
 
+	/**
+	 * return same name with added incremental number at tail
+	 * @param  {[type]} name [description]
+	 * @param  {[type]} sep  [description]
+	 * @return {[type]}      [description]
+	 */
+	nthName: function(name, sep) {
+		sep = sep || '';
+		var m = name.match(/^(\d+)$/),
+			nameo = m ? m[1] : name,
+			n2 = m ? parseInt(m[2],10) : 0;
+		
+		console.log('nthName',m)
+		n = n2 ? ++n2 : 2;
+		return nameo + sep + n;
+	},
+
 	username: function(name) {
 		name = name || '';
 

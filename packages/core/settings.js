@@ -213,6 +213,9 @@ Kepler.settings = {
 			"from": "Admin <no-reply@example.com>"
 		}
 		/*
+		"github": {
+			//https://github.com/settings/developers
+		}
 		"openstreetmap": {
 			"service": "openstreetmap",
 			"consumerKey": "",
