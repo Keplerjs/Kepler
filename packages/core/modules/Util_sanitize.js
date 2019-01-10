@@ -38,11 +38,9 @@ Kepler.Util.sanitize = {
 	 */
 	nthName: function(name, sep) {
 		sep = sep || '';
-		var m = name.match(/^(\d+)$/),
+		var m = name.match(/([^0-9]+)([0-9]+)$/),
 			nameo = m ? m[1] : name,
 			n2 = m ? parseInt(m[2],10) : 0;
-		
-		console.log('nthName',m)
 		n = n2 ? ++n2 : 2;
 		return nameo + sep + n;
 	},
