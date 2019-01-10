@@ -57,9 +57,10 @@ Accounts.onLoginFailure(function(e) {
 /*Accounts.validateNewUser(function (user) {
   console.log('Accounts.validateNewUser', user)
   //if (user.username && user.username.length >= 3)
-  //  return true;
+  //user.name = 'NOME'+user.name;
+  return true;
 	//TODO blacklist names
-  throw new Meteor.Error(403, "Username must have at least 3 characters");
+  //throw new Meteor.Error(403, "Username must have at least 3 characters");
 });*/
 
 Accounts.onCreateUser(function(options, user) {
@@ -81,7 +82,6 @@ Accounts.onCreateUser(function(options, user) {
 		source.service = 'password';
 		name = user.username;
 		username = user.username;
-
 		delete options.password;
 		user = _.extend({}, user, options);
 		avatar = options.avatar || avatar;
@@ -159,6 +159,20 @@ Accounts.onCreateUser(function(options, user) {
 		emails: emails,
 		source: source
 	});
+
+	if(!retuser.source.service!=='password') {
+
+		var userOld = Users.finOne({
+			username: retuser.username
+		},{
+			fields: { username:1 }
+		});
+
+		if(userOld) {
+			retuser.username = K.Util.sanitize.nthName(userOld.username);
+			console.log('Accounts: rename exists username', userOld.username, retuser.username);
+		}
+	}
 
 	console.log('Accounts: onCreateUser ', retuser.username);
 
