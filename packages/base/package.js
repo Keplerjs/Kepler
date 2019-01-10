@@ -1,4 +1,4 @@
-var version = '1.5.9';
+var version = '1.6.0';
 
 Package.describe({
   version: version,
@@ -9,8 +9,8 @@ Package.describe({
 
 Package.onUse(function(api) {
   var packages = [
-    'keplerjs:ui@'+version,
     'keplerjs:core@'+version,
+    'keplerjs:core-ui@'+version
   ];
   
   api.use(packages);

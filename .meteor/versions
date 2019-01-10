@@ -61,6 +61,7 @@ keplerjs:base@1.5.9
 keplerjs:categories@1.5.9
 keplerjs:convers@1.5.9
 keplerjs:core@1.5.9
+keplerjs:core-ui@1.5.9
 keplerjs:edit@1.5.9
 keplerjs:favorites@1.5.9
 keplerjs:geoinfo@1.5.9
@@ -78,7 +79,6 @@ keplerjs:share@1.5.9
 keplerjs:stats@1.5.9
 keplerjs:theme@1.5.9
 keplerjs:tracks@1.5.9
-keplerjs:ui@1.5.9
 keplerjs:upload@1.5.9
 keplerjs:wunderground@1.5.9
 kidovate:bootstrap-slider@0.0.5
