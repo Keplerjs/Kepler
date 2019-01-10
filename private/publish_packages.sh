@@ -10,16 +10,35 @@ for i in $IGNORE; do
     array[$i]=1
 done
 
-for d in ../packages/* ; do
+if [ $1 != "3rd" ] ; then
 
-	if [[ ${array[$d]} ]]; then
-		continue
-	fi
+	echo "publish base packages..."
 
-	echo "$d"
-	cd $d
-	meteor publish
-	
-	#return back
-	cd ../../private
-done
+	for d in ../packages/* ; do
+
+		if [[ ${array[$d]} ]]; then
+			continue
+		fi
+
+		echo "$d"
+		cd $d
+		meteor publish
+		
+		#return back
+		cd ../../private
+	done
+
+else
+
+	echo "publish 3rd party packages..."
+
+	for d in $IGNORE ; do
+
+		echo "$d"
+		cd $d
+		meteor publish
+		
+		#return back
+		cd ../../private
+	done
+fi
