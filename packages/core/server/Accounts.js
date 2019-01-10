@@ -162,7 +162,7 @@ Accounts.onCreateUser(function(options, user) {
 
 	if(!retuser.source.service!=='password') {
 
-		var userOld = Meteor.users.finOne({
+		var userOld = Users.findOne({
 			username: retuser.username
 		},{
 			fields: { username:1 }
