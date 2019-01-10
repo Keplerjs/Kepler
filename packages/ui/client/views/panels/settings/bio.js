@@ -21,7 +21,7 @@ Template.panelSettings_ui_bio.events({
 			
 			if(err) {
 				mes$.html(err.reason)
-				input$.val( tmpl.data.username );
+				input$.val( err.details || tmpl.data.username );
 			}
 			else {
 				input$.val(sanitized);

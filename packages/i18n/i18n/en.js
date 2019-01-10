@@ -60,7 +60,7 @@ i18n.map('en', {
 
 	error_novalid: "not valid!",
 	error_validchars: "Use letters, numbers, '-' '.' '_' min 3 max 16 chars",
-	error_taken: "already been taken",
+	error_taken: "username <i>{$1}</i> already been taken",
 
 	btn_ok: "Ok",
 	btn_cancel: "Cancel",

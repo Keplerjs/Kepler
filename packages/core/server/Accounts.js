@@ -135,10 +135,7 @@ Accounts.onCreateUser(function(options, user) {
 		username = options.profile.username;
 		avatar = options.profile.picture;
 		lang = options.profile.languages[0];
-/*		emails = [{
-			address: user.services.openstreetmap.email,
-			verified: user.services.openstreetmap.verified_email
-		}];*/
+		emails = [];
 	}
 	//TODO else if(user.services.twitter) {
 	//	source.service = 'twitter';

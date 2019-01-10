@@ -55,7 +55,7 @@ i18n.map('sv', {
 
 	error_novalid: "not valid",
 	error_validchars: "letters, numbers, '-' '.' '_' min 3 max 30 chars",
-	error_taken: "already been taken",
+	error_taken: "username <i>{$1}</i> already been taken",
 	
 	btn_ok: "Ok",
 	btn_cancel: "Avbryt",

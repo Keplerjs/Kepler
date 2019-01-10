@@ -100,6 +100,7 @@ Meteor.methods({
 			$pull: {friends: blockUserId},
 			$addToSet: {usersBlocked: blockUserId}
 		});
+
 		Users.update(blockUserId, {
 			$pull: {
 				friends: this.userId,
@@ -139,11 +140,16 @@ Meteor.methods({
 			throw new Meteor.Error(500, i18n('error_novalid')+' '+i18n('error_validchars'));
 		*/
 		username = K.Util.sanitize.username(username);
+		if(username==='') {
+			throw new Meteor.Error(500, i18n('error_validchars'), username);
+		}
 
 		var user = Users.findOne({username: username}, {fields: {username:1}});
 
-		if(user && user._id !== this.userId)
-			throw new Meteor.Error(500, '<big>'+username+'</big> '+i18n('error_taken'));
+		if(user && user._id !== this.userId) {
+			var usernameInc = K.Util.sanitize.nthName(username);
+			throw new Meteor.Error(500, i18n('error_taken',username), usernameInc);
+		}
 		
 		console.log('Profile: setUsername updated', this.userId, username);
 
