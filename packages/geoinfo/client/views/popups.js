@@ -3,15 +3,14 @@
 Template.tabGeoinfo.helpers({
 	fields: function() {
 
-		var ret = {},
-			suncalc = K.Geoinfo.suncalc(this.loc),
-			fields = _.extend({}, this, suncalc);
+		var fields = {};
 
-		_.each(fields, function(val, field) {
-			if(K.settings.public.geoinfo.fields[field])
-				ret[field]= val;
+		_.each(this, function(val, field) {
+			if(!!K.settings.public.geoinfo.fields[field])
+				fields[field]= val;
 		});
-		return ret;
+
+		return fields;
 	}
 });
 

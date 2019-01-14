@@ -1,7 +1,6 @@
 /*
 	server module for compute geospatial data by 3rd party services
 */
-
 var httpGet = function(url) {
 
 	var getOpts = {
@@ -230,6 +229,40 @@ Kepler.Geoapi = {
 
 		if(data.length)
 			ret = data;
+		else
+			ret = null;
+
+		return ret;
+	},
+	/**
+	 * return reverse geocoding of a location from nominatim OSM
+	 * @param  {Array} location [description]
+	 * @return {Array}    [description]
+	 */
+	reversegeo: function(ll) {
+		
+		var data, ret, src = {
+				par: 'address',
+				url: 'http://nominatim.openstreetmap.org/reverse?format=json'+
+					 //'&osm_type=N'+
+					 '&lat='+ll[0]+'&lon='+ll[1]
+			};
+			
+		data = httpGet(src.url);
+
+		if(data && data[src.par]) {
+
+			ret = _.omit(data[src.par],
+				'road',
+				'state',
+				'postcode',
+				'country',
+				'country_code');
+
+			ret = _.values(ret);
+
+			ret = _.map(ret, K.Util.sanitize.name);
+		}
 		else
 			ret = null;
 

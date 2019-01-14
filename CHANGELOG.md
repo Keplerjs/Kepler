@@ -2,7 +2,7 @@
 Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
-...
+- plugin geoingo new method K.Geoapi.reversegeo
 
 ## v1.6.0
 - rename base package from ui to core-ui

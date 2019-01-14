@@ -179,7 +179,24 @@ Meteor.methods({
 
 		var ret = K.Geoinfo.getGeocoding(text);
 
-		console.log('Geoinfo: findGeocoding', text, ret);
+		console.log('Geoinfo: findGeocoding', text);
+
+		return ret;
+	},
+	findReverseGeo: function(loc) {
+
+		if(!this.userId || !K.Util.valid.loc(loc)) return null;
+
+		var ret = [];
+
+		loc = K.Util.geo.roundLoc(loc, 6);
+
+		if(K.settings.geoinfo.caching)
+			ret = K.Cache.get(loc, 'reversegeo', K.Geoapi.reversegeo);
+		else
+			ret = K.Geoapi.reversegeo(loc);
+
+		console.log('Geoinfo: findReverseGeo', loc);
 
 		return ret;
 	}

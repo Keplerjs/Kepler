@@ -1,4 +1,21 @@
 
+Template.panelPlaceEdit_geoinfo_tips.onCreated(function() {
+	
+	var self = this;
+
+	this.geotips = new ReactiveVar([]);
+	
+	Meteor.call('findReverseGeo', self.data.loc, function(err, res) {
+		self.geotips.set(res);
+	}); 
+});
+
+Template.panelPlaceEdit_geoinfo_tips.helpers({
+	geotips: function() {
+		return Template.instance().geotips.get();
+	}
+});
+
 Template.panelPlaceEdit_geoinfo_tips.events({
 	'click .geoinfo-nametips .btn': function(e,tmpl) {
 		
