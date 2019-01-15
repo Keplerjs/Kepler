@@ -25,8 +25,7 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-    'modules/Admin.js',
-    'collections/users.js'
+    'modules/Admin.js'
   ]);
 
   api.addFiles([

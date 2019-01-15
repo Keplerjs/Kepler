@@ -50,15 +50,24 @@ Meteor.methods({
 		if(placeData.userId === this.userId || (K.Admin && K.Admin.isMe())) {
 
 			Places.update(placeId, { $addToSet: {'cats': {$each: cats} } });
-
-			placeCats = Places.findOne(placeId, {
-				fields: {_id:0, cats:1}
-			}).cats;
+			
+			Users.update(this.userId, {
+				$addToSet: {
+					'catshist': {
+						$each: cats,
+						//$slice: K.settings.public.categories.catsHistLength
+					}
+				}
+			});
+			Users.update({
+				_id: this.userId,
+				'catshist': { $size: K.settings.public.categories.catsHistLength+1 }
+			}, {
+				$pop: { 'catshist': -1 }
+			});
 
 			console.log('Cats: addCatsToPlace', placeId, cats);
 		}
-
-		return placeCats;
 	},
 	removeCatsFromPlace: function(placeId, cats) {
 		if(!this.userId) return null;
@@ -73,14 +82,8 @@ Meteor.methods({
 		if(placeData.userId === this.userId || (K.Admin && K.Admin.isMe())) {
 
 			Places.update(placeId, { $pull: {'cats':  {$in: cats} } });
-			
-			placeCats = Places.findOne(placeId, {
-				fields: {_id:0, cats:1}
-			}).cats;
 
-			console.log('Cats: removeCatsFromPlace', placeId);
+			console.log('Cats: removeCatsFromPlace', placeId, cats);
 		}
-
-		return placeCats;
 	}	
 });

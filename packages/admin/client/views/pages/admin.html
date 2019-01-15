@@ -23,6 +23,7 @@
 
 <template name="pageAdmin_admin_email">
 {{#if emails.length}}
+	<label>{{i18n 'label_email'}}</label>
 	{{#each emails}}
 		<div class="btn-group">
 			<a class="btn btn-default" href="mailto:{{address}}">
@@ -51,27 +52,27 @@
 	{{#if service}}
 	<div class="btn-group">
 		{{#if eq service 'keplerjs'}}
-			<a class="btn btn-default" href="/user/{{_id}}">
+			<a class="btn btn-default" target="_blank" href="/user/{{_id}}">
 				<i class="icon icon-kepler"></i> {{options.profile.name}}
 			</a>
 		{{/if}}
 		{{#if eq service 'openstreetmap'}}
-			<a class="btn btn-default" href="{{url}}">
+			<a class="btn btn-default" target="_blank" href="{{url}}">
 				<i class="icon icon-osm"></i> {{options.profile.name}}
 			</a>
 		{{/if}}
 		{{#if eq service 'facebook'}}
-			<a class="btn btn-default" href="{{url}}">
+			<a class="btn btn-default" target="_blank" href="{{url}}">
 				<i class="icon icon-fb"></i> {{options.profile.name}}
 			</a>
 		{{/if}}	
 		{{#if eq service 'github'}}
-			<a class="btn btn-default" href="{{url}}">
+			<a class="btn btn-default" target="_blank" href="{{url}}">
 				<i class="icon icon-git"></i> {{options.profile.name}}
 			</a>
 		{{/if}}					
 		{{#if eq service 'google'}}
-			<a class="btn btn-default" href="{{url}}">
+			<a class="btn btn-default" target="_blank" href="{{url}}">
 				<i class="icon icon-goo"></i> {{options.profile.name}}
 			</a>
 		{{/if}}

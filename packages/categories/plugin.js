@@ -15,6 +15,7 @@ K.Plugin({
 		"public": {
 			"categories": {
 				//TODO "editable": false,
+				"catsHistLength": 5,
 				"cats": {
 					"place": {
 						"bus": false,
@@ -36,7 +37,8 @@ K.Plugin({
 			cats: []
 		},
 		user: {
-			cats: []
+			cats: [],
+			catshist: []
 		},
 		cat: {
 			name: '',
@@ -49,7 +51,8 @@ K.Plugin({
 	filters: {
 		currentUser: {
 			fields: {
-				cats: 1
+				cats: 1,
+				catshist: 1
 			}
 		},
 		friendPanel: {

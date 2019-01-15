@@ -124,6 +124,7 @@ K.extend({
 					hist: userId
 				}
 			});
+
 		Users.update(userId, {
 				$set: {
 					checkin: placeId,
@@ -134,6 +135,9 @@ K.extend({
 				},
 				$addToSet: {
 					hist: placeId
+					
+				//TODO limiti hist length
+				////https://stackoverflow.com/questions/21466297/slice-array-in-mongodb-after-addtoset-update
 				}
 			});
 	},

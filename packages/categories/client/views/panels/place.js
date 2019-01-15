@@ -75,7 +75,17 @@ Template.panelPlaceEdit_cats.helpers({
 });
 
 Template.panelPlaceEdit_cats.events({
-	'change #cats-edit input': _.debounce(function(e, tmpl) {
+	'click #cats-hist .btn': _.debounce(function(e, tmpl) {
+		var itemId = tmpl.data._id,
+			input$ = $(e.currentTarget),
+			val = input$.val();
+
+		inputtags$ = tmpl.$('.input-cats');
+
+		inputtags$.tagsinput('add', val);
+	
+	}, 300)
+	/*'change #cats-edit input': _.debounce(function(e, tmpl) {
 		var itemId = tmpl.data._id,
 			input$ = $(e.currentTarget),
 			checked = input$.is(':checked'),
@@ -97,5 +107,5 @@ Template.panelPlaceEdit_cats.events({
 
 			Meteor.call('addCatsToPlace', itemId, val, cb);
 		}
-	}, 300)
+	}, 300)*/
 });

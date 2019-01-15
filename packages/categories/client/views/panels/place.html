@@ -19,16 +19,25 @@
 
 			<input data-role="tagsinput" class="input-cats" type="text" value="{{join cats}}">
 			
+			<label>{{i18n 'label_catshist'}}</label>
+			<div id="cats-hist" class="btn-group" data-toggle="buttons">
+			{{#each currentUser.catshist}}
+				<button class="btn btn-default btn-xs" value="{{this}}">
+					{{this}}
+				</button>
+			{{/each}}
+			</div>
+<!-- 
 			<br /><br />
-
+			<label>All Categories</label>
 			<div id="cats-edit" class="btn-group" data-toggle="buttons">
 			{{#each allCats}}
 				<label class="btn btn-default btn-xs {{#if active}} active {{/if}}">
-				<input type="checkbox" name="cats" checked="{{active}}" value="{{val}}" />
-				{{name}}
+					<input type="checkbox" name="cats" checked="{{active}}" value="{{val}}" />
+					{{name}}
 				</label>
 			{{/each}}
-			</div>
+			</div> -->
 		</div>
 	</div>
 </template>

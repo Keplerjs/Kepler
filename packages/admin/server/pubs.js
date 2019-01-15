@@ -3,7 +3,7 @@ Meteor.publish('adminUserById', function(userId) {
 
 	if(K.Admin.isMe() && userId)
 	{
-		var userCur = K.findAdminUserById(userId),
+		var userCur = Users.find(userId),
 			userData = userCur.fetch()[0],
 			retCurs = [],
 			placeIds = [];

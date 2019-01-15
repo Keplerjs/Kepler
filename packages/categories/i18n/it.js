@@ -5,4 +5,5 @@ i18n.map('it', {
 	title_panelCatsType: "Gestisci Categorie",	
 	label_cat: "Categoria",
 	label_cats: "Categorie",
+	label_catshist: "Ultime categorie",
 });
