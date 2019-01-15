@@ -68,7 +68,7 @@ Accounts.onCreateUser(function(options, user) {
 	var profile = {},
 		username = user.username,
 		name = user.username,
-		lang = K.settings.public.lang,
+		lang = K.settings.public.lang || '',
 		avatar = '',
 		gender = null,
 		emails = user.emails,
@@ -94,7 +94,7 @@ Accounts.onCreateUser(function(options, user) {
 		username = user.services.facebook.username || name;
 		avatar = 'http://graph.facebook.com/'+user.services.facebook.id+'/picture';
 		gender = user.services.facebook.gender;
-		lang = user.services.facebook.locale;		
+		lang = user.services.facebook.locale || '';		
 		emails = [{
 			address: user.services.facebook.email,
 			verified: true
@@ -121,7 +121,7 @@ Accounts.onCreateUser(function(options, user) {
 		username = name;
 		avatar = user.services.google.picture;
 		gender = user.services.google.gender;
-		lang = user.services.google.locale;		
+		lang = user.services.google.locale || '';		
 		emails = [{
 			address: user.services.google.email,
 			verified: user.services.google.verified_email
@@ -134,7 +134,7 @@ Accounts.onCreateUser(function(options, user) {
 		name = options.profile.username;
 		username = options.profile.username;
 		avatar = options.profile.picture;
-		lang = options.profile.languages[0];
+		lang = options.profile.languages[0] || '';
 		emails = [];
 	}
 	//TODO else if(user.services.twitter) {
@@ -149,7 +149,7 @@ Accounts.onCreateUser(function(options, user) {
 		createdAt: K.Util.time(),
 		name: K.Util.sanitize.name(name),
 		username: K.Util.sanitize.username(username),
-		lang: lang.substr(0,2),
+		lang: (''+lang).substr(0,2),
 		profile: profile,		
 		avatar: avatar,
 		gender: gender,
