@@ -36,6 +36,10 @@ Package.onUse(function(api) {
   ],'client');
 
   api.addFiles([
+    'modules/Util_sanitize.js'
+  ]);
+
+  api.addFiles([
     'plugin.js',
     'i18n/it.js',
     'i18n/en.js',

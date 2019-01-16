@@ -5,7 +5,7 @@ K.Admin.methods({
 		
 		if(!K.Admin.isMe()) return false;
 
-		name = K.Util.sanitize.fileName(name);
+		name = K.Util.sanitize.regExp(name);
 
 		Categories.remove({name: name, type: type});
 
@@ -15,7 +15,7 @@ K.Admin.methods({
 		
 		if(!K.Admin.isMe()) return false;
 
-		name = K.Util.sanitize.fileName(name);
+		name = K.Util.sanitize.catName(name);
 
 		Categories.insert(_.extend({}, K.schemas.cat, {
 			name: name,
@@ -30,7 +30,7 @@ K.Admin.methods({
 
 		cats = _.isArray(cats) ? cats : [cats];
 
-		cats = _.map(cats, K.Util.sanitize.fileName);
+		cats = _.map(cats, K.Util.sanitize.catName);
 
 		Users.update(userId, { $addToSet: {'cats': {$each: cats} } });
 

@@ -16,6 +16,7 @@ K.Plugin({
 			"categories": {
 				//TODO "editable": false,
 				"catsHistLength": 5,
+				"catsMax": 10,
 				"cats": {
 					"place": {
 						"bus": false,

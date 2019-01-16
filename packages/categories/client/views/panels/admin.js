@@ -36,6 +36,15 @@ Template.formSearchCats.onRendered(function() {
 });
 
 Template.formSearchCats.events({
+
+	'keyup .cat-name-new': _.debounce(function(e, tmpl) {
+		var input$ = $(e.target),
+			val = input$.val();
+		
+		input$.val( K.Util.sanitize.catName(val) );
+
+	}, 300),
+
 	'click .cat-btn-new': function(e,tmpl) {
 		e.preventDefault();
 		

@@ -1,22 +1,14 @@
 
-//https://www.jqueryscript.net/tags.php?/tags%20input/
-
-/*Template.panelPlaceEdit_cats.onCreated(function() {
-	K.Cats.loadActiveCats();
-});
-*/
 Template.panelPlaceEdit_cats.onRendered(function() {
 
 	var self = this,
 		input$ = self.$('.input-cats');
 
-//console.log('onRendered',input$)
-//
-	// http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/
-	// 
 	input$.tagsinput({
+		// http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/ 
 		tagClass: 'label label-primary',
 		freeInput: false,
+		maxTags: K.settings.public.categories.catsMax || null,
 		typeaheadjs: {
 			// https://github.com/twitter/typeahead.js
 			hint: true,

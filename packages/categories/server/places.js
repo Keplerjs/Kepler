@@ -40,7 +40,7 @@ Meteor.methods({
 		
 		cats = _.isArray(cats) ? cats : [cats];
 		
-		cats = _.map(cats, K.Util.sanitize.fileName);
+		cats = _.map(cats, K.Util.sanitize.catName);
 
 		console.log('addCatsToPlace',cats);
 
