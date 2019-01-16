@@ -3,7 +3,7 @@ Categories = new Mongo.Collection('categories');
 
 if(Meteor.isServer) {
 	console.log('Cats: createIndex...')
-	Categories._ensureIndex({"name": 1,"type":1},{unique: true});
+	Categories._ensureIndex({name: 1, type:1},{unique: true});
 }
 
 Categories.allow({

@@ -68,7 +68,8 @@ Package.onUse(function(api) {
     'server/admin.js',
     'server/users.js',
     'server/places.js',
-    'server/cats.js'
+    'server/cats.js',
+    'server/settings.js'
   ],'server');
 
   api.export([
