@@ -52,10 +52,15 @@ Template.pageAdminPlaces.events({
 			itemId = input$.val();
 		
 		console.log('change', itemId);
-
+//
+//TODO MOVE TO ROUTER
+//
 		Meteor.subscribe('placeById', itemId, function() {
-	
+			console.log('subscribe',itemId)
+
+			$('.panel.pageAdmin').remove()
 			Session.set('itemSelected', itemId);
+
 		});
 	}
 
