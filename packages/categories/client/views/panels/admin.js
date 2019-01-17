@@ -43,13 +43,13 @@ Template.formSearchCats.events({
 		
 		input$.val( K.Util.sanitize.catName(val) );
 
-	}, 300),
+	}, 1000),
 
 	'click .cat-btn-new': function(e,tmpl) {
 		e.preventDefault();
 		
 		var input$ = tmpl.$('.cat-name-new'),
-			name = _.str.clean(input$.val());
+			name = K.Util.sanitize.catName(input$.val());
 			type = tmpl.data.typeCat;
 
 		if(type!=='place' && type!=='user')
