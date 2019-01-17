@@ -70,8 +70,11 @@ Template.pageAdminUsers.events({
 
 Template.pageAdminUsers.helpers({
 	itemSelected: function() {
-		var id = Session.get('itemSelected');
-		return id && K.userById(id);
+		var id = Session.get('itemSelected'),
+			user = id && K.userById(id);
+		if(user)
+			user.update();
+		return user;
 	}
 });
 
@@ -82,4 +85,13 @@ Template.itemUserAdmin_admin_btns.onRendered(function() {
 		K.Admin.removeUser(self.data.username);
 		Session.set('itemSelected',null);
 	});
+});
+
+Template.pageAdminUser_admin_contact.helpers({
+	rawdata: function() {
+		if(this.type==='user')
+			return Users.findOne(this._id);
+		else if(this.type==='place')
+			return Places.findOne(this._id);
+	}
 });

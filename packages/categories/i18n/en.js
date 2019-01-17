@@ -5,5 +5,5 @@ i18n.map('en', {
 	title_panelCatsType: "Manage Categories",
 	label_cat: "Category",
 	label_cats: "Categories",
-	label_catshist: "Last categories",
+	label_catshist: "Last used categories",
 });

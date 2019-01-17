@@ -40,19 +40,22 @@ Template.pageAdminPlaces.events({
 		var li$ = $(e.currentTarget),
 			input$ = li$.find('input.btn-itemselect');
 		input$.prop('checked',true);
+		
 		input$.trigger('change');
+
 		li$.siblings().removeClass('selected')
 		.end().addClass('selected');
 	},
 
-	'change input.btn-itemselect': function(e,tmpl) {
-		//e.preventDefault();
-
-		var itemId = $(e.currentTarget).val();
+	'change input.btn-itemselect': function(e,tmpl,val) {
+		var input$ = $(e.target),
+			itemId = input$.val();
 		
+		console.log('change', itemId);
+
 		Meteor.subscribe('placeById', itemId, function() {
 	
-			Session.set('itemSelected', itemId );
+			Session.set('itemSelected', itemId);
 		});
 	}
 

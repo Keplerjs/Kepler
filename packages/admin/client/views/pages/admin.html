@@ -3,11 +3,6 @@
 	<div class="row">
 		<div class="col-xs-12">
 			{{#with rawdata}}
-
-				{{> pageAdmin_admin_email}}
-
-				{{> pageAdmin_admin_account}}
-
 				<div class="btn-group">
 					<a class="btn btn-default" type="button" data-toggle="collapse" data-target="#rawdata" aria-expanded="false" aria-controls="collapseExample">
 					  {{i18n 'label_rawdata'}}
@@ -19,64 +14,4 @@
 			{{/with}}
 		</div>
 	</div>
-</template>
-
-<template name="pageAdmin_admin_email">
-{{#if emails.length}}
-	<label>{{i18n 'label_email'}}</label>
-	{{#each emails}}
-		<div class="btn-group">
-			<a class="btn btn-default" href="mailto:{{address}}">
-				<i class="icon icon-mail"></i> 
-				{{address}}
-				&nbsp;
-				{{#if verified}}
-					<span class="text-green">
-					<i class="icon icon-success"></i> 
-					{{i18n 'btn_verified'}}
-					</span>
-				{{else}}
-					<span class="text-danger">
-					<i class="icon icon-warning"></i> 
-					{{i18n 'btn_notverified'}}
-					</span>
-				{{/if}}						
-			</a>
-		</div>
-	{{/each}}
-{{/if}}
-</template>
-
-<template name="pageAdmin_admin_account">
-{{#with source}}
-	{{#if service}}
-	<div class="btn-group">
-		{{#if eq service 'keplerjs'}}
-			<a class="btn btn-default" target="_blank" href="/user/{{_id}}">
-				<i class="icon icon-kepler"></i> {{options.profile.name}}
-			</a>
-		{{/if}}
-		{{#if eq service 'openstreetmap'}}
-			<a class="btn btn-default" target="_blank" href="{{url}}">
-				<i class="icon icon-osm"></i> {{options.profile.name}}
-			</a>
-		{{/if}}
-		{{#if eq service 'facebook'}}
-			<a class="btn btn-default" target="_blank" href="{{url}}">
-				<i class="icon icon-fb"></i> {{options.profile.name}}
-			</a>
-		{{/if}}	
-		{{#if eq service 'github'}}
-			<a class="btn btn-default" target="_blank" href="{{url}}">
-				<i class="icon icon-git"></i> {{options.profile.name}}
-			</a>
-		{{/if}}					
-		{{#if eq service 'google'}}
-			<a class="btn btn-default" target="_blank" href="{{url}}">
-				<i class="icon icon-goo"></i> {{options.profile.name}}
-			</a>
-		{{/if}}
-	</div>
-	{{/if}}
-{{/with}}
 </template>

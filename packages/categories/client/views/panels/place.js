@@ -4,6 +4,19 @@ Template.panelPlaceEdit_cats.onRendered(function() {
 	var self = this,
 		input$ = self.$('.input-cats');
 
+	console.log('panelPlaceEdit_cats onRendered', self.data.name);
+
+	self.autorun(function() {
+		var d = self.data.rData();
+		
+		//input$.val(self.data.cats.join(','));
+		setTimeout(function() {
+			input$.tagsinput('refresh');
+		}, 500);
+		
+		console.log('panelPlaceEdit_cats autorun', self.data.name);
+	});
+
 	input$.tagsinput({
 		// http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/ 
 		tagClass: 'label label-primary',
@@ -11,10 +24,10 @@ Template.panelPlaceEdit_cats.onRendered(function() {
 		maxTags: K.settings.public.categories.catsMax || null,
 		typeaheadjs: {
 			// https://github.com/twitter/typeahead.js
+			limit: 30,
 			hint: true,
 			highlight: true,
 			minLength: 1,
-			limit: 30,
 	    	displayKey: 'name',
 	    	valueKey: 'name',
 			source: function(text, sync, cb) {
@@ -25,7 +38,6 @@ Template.panelPlaceEdit_cats.onRendered(function() {
 					
 					var res = K.findCatsByName(text,'place').fetch();
 					
-					//res = _.pluck(res,'name');
 					res = _.map(res, function(c) {
 						c.text = c.name;
 						return c;
@@ -50,22 +62,6 @@ Template.panelPlaceEdit_cats.onRendered(function() {
 	});
 });
 
-Template.panelPlaceEdit_cats.helpers({
-	allCats: function() {
-
-		var itemCats = this.getCats(),
-			activeCats = K.Cats.getCats('place');
-
-		return _.map(_.union(activeCats, itemCats), function(c) {
-			return {
-				val: c,
-				name: c,
-				active: _.contains(itemCats, c)
-			};
-		});
-	}
-});
-
 Template.panelPlaceEdit_cats.events({
 	'click #cats-hist .btn': _.debounce(function(e, tmpl) {
 		var itemId = tmpl.data._id,
@@ -77,27 +73,4 @@ Template.panelPlaceEdit_cats.events({
 		inputtags$.tagsinput('add', val);
 	
 	}, 300)
-	/*'change #cats-edit input': _.debounce(function(e, tmpl) {
-		var itemId = tmpl.data._id,
-			input$ = $(e.currentTarget),
-			checked = input$.is(':checked'),
-			val = input$.val();
-
-		inputtags$ = tmpl.$('.input-cats');
-
-		var cb = function() {
-			K.placeById(itemId).update();
-		};
-
-		if(!checked) {
-			inputtags$.tagsinput('remove', val);
-
-			Meteor.call('removeCatsFromPlace', itemId, val, cb);
-		}
-		else {
-			inputtags$.tagsinput('add', val);
-
-			Meteor.call('addCatsToPlace', itemId, val, cb);
-		}
-	}, 300)*/
 });

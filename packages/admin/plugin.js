@@ -17,6 +17,7 @@ K.Plugin({
 		},
 		pageAdminUser: {
 			'pageAdmin_admin_raw':{order:0},
+			'pageAdminUser_admin_contact':{order:0},
 			'panelUser':{order:10}
 		},
 		itemUserAdmin: {

@@ -24,12 +24,7 @@ Package.onUse(function(api) {
   api.use(packages);
   api.imply(packages);
 
-  api.addFiles([ 
-    //'.npm/package/node_modules/jquery-tokeninput/dist/css/token-input.min.css',
-    //'.npm/package/node_modules/jquery-tokeninput/dist/js/jquery-tokeninput.min.js',
-/*    '.npm/package/node_modules/typeahead.js/dist/typeahead.bundle.js',
-    '.npm/package/node_modules/bootstrap-tagsinput/src/bootstrap-tagsinput-typeahead.css',
-    */
+  api.addFiles([
     '.npm/package/node_modules/typeahead.js/dist/typeahead.bundle.js',
     '.npm/package/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css',
     '.npm/package/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.js',
@@ -59,9 +54,10 @@ Package.onUse(function(api) {
     'client/User_cats.js',
     'client/views/panels/place.html',
     'client/views/panels/place.js',
-    'client/stylesheets/main.css',    
+    'client/stylesheets/main.css',  
+    'client/views/pages/admin.html',
+    'client/views/pages/admin.js',  
     'client/views/panels/user.html',
-    //'client/views/panels/user.js',
     'client/views/panels/settings.html',
     'client/views/panels/settings.js', 
     'client/views/panels/admin.html',

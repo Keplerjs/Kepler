@@ -2,7 +2,7 @@
 K.Plugin({
 	name: 'categories',
 	templates: {
-		panelSettings: 'panelSettings_cats',
+		//TODO refact using inputtags using panelSettings: 'panelSettings_cats',
 		panelUser: 'panelUser_cats',
 		panelPlace: {
 			'panelPlace_cats': {order: -5 } //render after share plugin

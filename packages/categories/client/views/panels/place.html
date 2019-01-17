@@ -16,8 +16,8 @@
 	<div class="form-group">
 		<label>{{i18n 'label_cats'}}</label>
 		<div class="clearfix">
-
-			<input data-role="tagsinput" class="input-cats" type="text" value="{{join cats}}">
+{{{join getCats}}}
+			<input data-role="tagsinput" class="input-cats" type="text" value="{{join getCats}}">
 			
 			<label>{{i18n 'label_catshist'}}</label>
 			<div id="cats-hist" class="btn-group" data-toggle="buttons">
@@ -27,17 +27,6 @@
 				</button>
 			{{/each}}
 			</div>
-<!-- 
-			<br /><br />
-			<label>All Categories</label>
-			<div id="cats-edit" class="btn-group" data-toggle="buttons">
-			{{#each allCats}}
-				<label class="btn btn-default btn-xs {{#if active}} active {{/if}}">
-					<input type="checkbox" name="cats" checked="{{active}}" value="{{val}}" />
-					{{name}}
-				</label>
-			{{/each}}
-			</div> -->
 		</div>
 	</div>
 </template>
