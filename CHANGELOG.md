@@ -6,6 +6,7 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 - core-ui new helper routeParam, renamed helper ifRoute in routeIs 
 - plugin geoingo new method K.Geoapi.reversegeo
 - new helper routeBack to get url of parent route
+- plugin admin close panel
 
 ## v1.6.0
 - rename base package from ui to core-ui

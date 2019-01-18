@@ -1,6 +1,7 @@
 
 .adminPage .panel .back,
-.adminPage .panel .close {
+.adminPage #user.panel .close,
+.adminPage #place.panel .close {
 	display: none;
 }
 
@@ -9,6 +10,7 @@
 }
 
 .adminPage .panel {
+	position: relative;
 	border:none;
 }
 .adminPage .items-list {
