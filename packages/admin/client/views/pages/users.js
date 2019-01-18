@@ -1,23 +1,17 @@
 
-Template.pageAdminUsers.onCreated(function() {
-	Session.set('itemSelected', null);
-});
-
 Template.pageAdminUsers.onRendered(function() {
 	var self = this;
 
 	$(self.firstNode).find('.list-group').btsListFilter('.items-search', {
 		itemChild: '.user-btn-name',
 		loadingClass: 'loading-lg',
-		sourceData: function(val, callback) {
+		sourceData: function(val, cb) {
 			
 			Meteor.subscribe('usersByName', val, function() {
-				
 				var items = _.map( K.findUsersByName(val).fetch(), function(item) {
 					return K.userById(item._id);
 				});
-
-				callback(items);
+				cb(items);
 			});
 		},
 		sourceNode: function(data) {
@@ -49,32 +43,6 @@ Template.pageAdminUsers.events({
 			e.preventDefault();
 			tmpl.$('.user-btn-new').trigger('click');
 		}
-	},
-	'click .items-list .list-group-item': function(e,tmpl) {
-		var li$ = $(e.currentTarget),
-			input$ = li$.find('input.btn-itemselect');
-		input$.prop('checked',true);
-		input$.trigger('change');
-		li$.siblings().removeClass('selected')
-		.end().addClass('selected');
-	},
-	'change input.btn-itemselect': function(e,tmpl) {
-		var itemId = $(e.currentTarget).val();
-		
-		Meteor.subscribe('adminUserById', itemId, function() {
-	
-			Session.set('itemSelected', itemId );
-		});
-	}
-});
-
-Template.pageAdminUsers.helpers({
-	itemSelected: function() {
-		var id = Session.get('itemSelected'),
-			user = id && K.userById(id);
-		if(user)
-			user.update();
-		return user;
 	}
 });
 

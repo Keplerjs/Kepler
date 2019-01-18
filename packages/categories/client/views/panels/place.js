@@ -3,8 +3,6 @@ Template.panelPlaceEdit_cats.onRendered(function() {
 
 	var self = this,
 		input$ = self.$('.input-cats');
-
-	console.log('panelPlaceEdit_cats onRendered',self.data.cats);
 	
 	input$.tagsinput({
 		// http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/ 
@@ -28,7 +26,6 @@ Template.panelPlaceEdit_cats.onRendered(function() {
 					var res = K.findCatsByName(text,'place').fetch();
 					
 					res = _.map(res, function(c) {
-						console.log(c)
 						c.text = c.name;
 						return c;
 					});

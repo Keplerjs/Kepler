@@ -10,12 +10,12 @@
 	</div>
 
 	<ul class="nav nav-tabs text-right">
-		<li class="{{ifRoute 'placesNearby' 'active'}}">
+		<li class="{{routeIs 'placesNearby' 'active'}}">
 			<a href="{{pathFor route='placesNearby'}}">
 				<span>{{i18n 'title_placesNearby'}}</span>
 			</a>
 		</li>
-		<li class="{{ifRoute 'placesNews' 'active'}}">
+		<li class="{{routeIs 'placesNews' 'active'}}">
 			<a href="{{pathFor route='placesNews'}}">
 				<span>{{i18n 'title_placesNews'}}</span>
 			</a>

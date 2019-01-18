@@ -52,18 +52,14 @@
 </template>
 
 <template name="itemPlaceAdmin">
-	<button class="list-group-item">
-		<div class="pull-left">
-			<input class="btn btn-default btn-itemselect" name="itemSelect" type="radio" value="{{id}}" />
-			&nbsp;
+	<a href="/admin/places/{{id}}" class="list-group-item {{#if routeParamIs 'id' id}}selected{{/if}}">
+		<span class="pull-left">
 			{{> item_place}} 
-		</div>
-		<div class="pull-right">
-
+		</span>
+		<span class="pull-right">
 			{{> pluginsTemplate name='itemPlaceAdmin'}}
-
-		</div>
-	</button>
+		</span>
+	</a>
 </template>
 
 <template name="itemPlaceAdmin_admin_btns">

@@ -22,7 +22,7 @@ Template.registerHelper('placeById', function(id) {
 	return K.placeById(id);
 });
 
-Template.registerHelper('ifRoute', function(name, classTrue) {
+Template.registerHelper('routeIs', function(name, classTrue) {
 	var cur = Router.current();
 	return cur.route && cur.route.getName()===name ? classTrue : '';
 });
@@ -31,6 +31,11 @@ Template.registerHelper('routeTitle', function() {
 	var cur = Router.current();
 	return cur.route && i18n('title_'+ cur.route.getName() );
 });
+Template.registerHelper('routeParamIs', function(name, val) {
+	var cur = Router.current();
+	return cur.getParams()[name] === val;
+});
+
 
 Template.registerHelper('connectionStatus', function() {
 	return Meteor.status();

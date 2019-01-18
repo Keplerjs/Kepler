@@ -38,7 +38,6 @@ Kepler.Cats = {
 				cplace = _.pluck(_.where(cats,{type:'place'}),'name'),
 				cuser = _.pluck(_.where(cats,{type:'user'}),'name');
 			
-			//console.log('sub: catsActive', cplace,cuser)
 			self.activeCats = {
 				place: cplace,
 				user: cuser

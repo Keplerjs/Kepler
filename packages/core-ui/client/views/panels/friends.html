@@ -14,12 +14,12 @@
 	</div>
 
 	<ul class="nav nav-tabs text-right">
-		<li class="{{ifRoute 'friends' 'active'}}">
+		<li class="{{routeIs 'friends' 'active'}}">
 			<a href="{{pathFor route='friends'}}">
 				<span>{{i18n 'title_friends'}}</span>
 			</a>
 		</li>
-		<li class="{{ifRoute 'usersNews' 'active'}}">
+		<li class="{{routeIs 'usersNews' 'active'}}">
 			<a href="{{pathFor route='usersNews'}}">
 				<span>{{i18n 'title_usersNews'}}</span>
 			</a>

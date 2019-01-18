@@ -6,7 +6,7 @@
 </template>
 
 <template name="navSidebar_ui_profile">
-	<li class="{{ifRoute 'profile' 'active'}}">
+	<li class="{{routeIs 'profile' 'active'}}">
 		{{#with currentUser}}
 		<a class="btn btn-sm" href="{{pathFor route='profile'}}" title="{{i18n 'btn_profile'}} {{username}}" role="tab">
 			<img class="icon-avatar {{#unless avatar}}icon-avatar-default{{/unless}}" src="{{#if avatar}}{{avatar}}{{/if}}" />
@@ -17,7 +17,7 @@
 </template>
 
 <template name="navSidebar_ui_friends">
-	<li class="{{ifRoute 'friends' 'active'}}">
+	<li class="{{routeIs 'friends' 'active'}}">
 		<a class="btn btn-sm" href="{{pathFor route='friends'}}" role="tab">
 			<i class="icon icon-friends"></i>
 			<span>{{i18n 'btn_users'}}</span>
@@ -26,7 +26,7 @@
 </template>
 
 <template name="navSidebar_ui_places">
-	<li class="{{ifRoute 'placesNews' 'active'}}">
+	<li class="{{routeIs 'placesNews' 'active'}}">
 		<a class="btn btn-sm" href="{{pathFor route='placesNews'}}" role="tab">
 			<i class="icon icon-map"></i>
 			<span>{{i18n 'btn_places'}}</span>
@@ -42,7 +42,7 @@
 	{{/unless}}
 </template>
 <!-- TODO template name="navSidebar_ui_search">
-	<li class="{{ifRoute 'search' 'active'}} pull-right">
+	<li class="{{routeIs 'search' 'active'}} pull-right">
 		<a class="btn btn-sm" href="{{pathFor route='search'}}" role="tab">
 			<i class="icon icon-search"></i>
 			<span> {{i18n 'btn_search'}}</span>

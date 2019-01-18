@@ -1,7 +1,7 @@
 
 <template name="navSidebar_notif">
 {{#if currentUser.notifs.length}}
-	<li class="nav-notif {{ifRoute 'notifs' 'active'}} pull-right">
+	<li class="nav-notif {{routeIs 'notifs' 'active'}} pull-right">
 		<a class="btn btn-sm btn-notif" href="{{pathFor route='notifs'}}" role="tab">
 			<i class="icon icon-notif"></i>
 			<span>{{i18n 'btn_notifs'}}</span>

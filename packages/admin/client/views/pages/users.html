@@ -65,18 +65,14 @@
 </template>
 
 <template name="itemUserAdmin">
-	<div class="list-group-item">
-		<div class="pull-left">
-			<input class="btn btn-default btn-itemselect" name="itemSelect" type="radio" value="{{id}}" />
-			&nbsp;
+	<a href="/admin/users/{{id}}" class="list-group-item {{#if routeParamIs 'id' id}}selected{{/if}}">
+		<span class="pull-left">
 			{{> item_user}} 
-		</div>
-		<div class="pull-right">
-
+		</span>
+		<span class="pull-right">
 			{{> pluginsTemplate name='itemUserAdmin'}}
-
-		</div>
-	</div>
+		</span>
+	</a>
 </template>
 
 <template name="itemUserAdmin_admin_btns">
