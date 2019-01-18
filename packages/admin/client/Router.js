@@ -56,7 +56,7 @@ Router.map(function() {
 		},
 		waitOn: function() {
 			return [
-				Meteor.subscribe('userById', this.params.id),
+				Meteor.subscribe('adminUserById', this.params.id),
 				Meteor.subscribe('usersByDate')
 			];
 		},

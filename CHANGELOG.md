@@ -5,6 +5,7 @@ Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
 - plugin admin create route for each loaded places and users, fix categories tagsinput bug
 - core-ui new helper routeParam, renamed helper ifRoute in routeIs 
 - plugin geoingo new method K.Geoapi.reversegeo
+- new helper routeBack to get url of parent route
 
 ## v1.6.0
 - rename base package from ui to core-ui

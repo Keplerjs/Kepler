@@ -18,4 +18,4 @@ Template.formLogin.helpers({
 		}
 		return c;
 	}
-})
+});
