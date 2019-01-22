@@ -12,6 +12,7 @@ K.Plugin({
 		panelAdmin: 'panelAdmin_btns',	
 
 		pageAdminPlace: {
+			'pageAdmin_admin_map':{order:0},			
 			'pageAdmin_admin_raw':{order:0},
 			'panelPlaceEdit':{order:10}
 		},
