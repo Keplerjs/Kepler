@@ -6,4 +6,5 @@ i18n.map('en', {
 	label_cat: "Category",
 	label_cats: "Categories",
 	label_catshist: "Last used categories",
+	error_cats_exists: "Category {$1} just exists"
 });

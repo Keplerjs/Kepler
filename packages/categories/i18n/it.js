@@ -6,4 +6,5 @@ i18n.map('it', {
 	label_cat: "Categoria",
 	label_cats: "Categorie",
 	label_catshist: "Ultime categorie usate",
+	error_cats_exists: "Categoria {$1} già esistente"
 });

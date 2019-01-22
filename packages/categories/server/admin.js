@@ -17,10 +17,17 @@ K.Admin.methods({
 
 		name = K.Util.sanitize.catName(name);
 
-		Categories.insert(_.extend({}, K.schemas.cat, {
-			name: name,
-			type: type
-		}));
+		try {
+			
+			Categories.insert(_.extend({}, K.schemas.cat, {
+				name: name,
+				type: type
+			}));
+
+		} catch(e) {
+			throw new Meteor.Error(500, i18n('error_cats_exists',name) );
+			return null;
+		}
 
 		console.log('Cats: insertCat', name, type);
 	},	
