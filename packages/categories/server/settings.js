@@ -28,12 +28,20 @@ Meteor.startup(function() {
 		}
 	});
 
-	_.each(cats, function(cat){
-		var ret = Categories.upsert({
-			name: cat.name,
-			type: cat.type
-		}, {
-			$set: cat
-		});
+	_.each(cats, function(cat) {
+
+		try {
+			var ret = Categories.upsert({
+				name: cat.name,
+				type: cat.type
+			}, {
+				$set: cat
+			});
+
+		} catch(e) {
+			//throw new Meteor.Error(500, i18n('error_cats_exists',name) );
+			console.log( i18n('error_cats_exists',cat.name), 'type', cat.type );
+			return null;
+		}
 	});
 });
