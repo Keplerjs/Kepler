@@ -1,8 +1,10 @@
 #!/bin/bash
 
-# example of script launcher for bash
+# copy this file in KeplerJs root path and run by user ./start.sh
 
-#move it in application root and run ./start.sh
+# example of script launcher for bash
+# more docs for ENV VARS here:
+# https://docs.meteor.com/environment-variables.html
 
 OPTS="--raw-logs"
 #OPTS="$OPTS --release blaze-rc1"
