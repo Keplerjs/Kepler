@@ -1,5 +1,7 @@
 ## CONTRIBUTING
 
+Join the [Roadmap](http://bit.ly/KeplerJsRoadmap)
+
 Most of the base code is contained in the plugins.
 Each plugin can be disabled or taken and modified or created by new ones.
 

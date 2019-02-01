@@ -13,7 +13,7 @@
 [Blog](https://medium.com/keplerjs) | 
 [Source code](https://github.com/Keplerjs) | 
 [Plugins](https://atmospherejs.com/keplerjs) | 
-[Roadmap](https://trello.com/b/FBK72QEJ/keplerjs-roadmap) | 
+[Roadmap](http://bit.ly/KeplerJsRoadmap) | 
 [Issues](https://waffle.io/Keplerjs/Kepler)
 
 

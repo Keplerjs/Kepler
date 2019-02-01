@@ -1,5 +1,7 @@
+[The Official Roadmap](http://bit.ly/KeplerJsRoadmap)
 
-Complete list of releases [here](https://github.com/Keplerjs/Kepler/releases)
+[Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
+
 
 ## Next version
 - plugin admin create route for each loaded places and users, fix categories tagsinput bug
