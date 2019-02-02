@@ -15,6 +15,7 @@ Meteor.startup(function() {
 	_.each(K.settings.accounts, function(conf, key) {
 		if(conf.service) {
 			var service = _.pick(conf,'service');
+			//TODO replace with upsert()
 			ServiceConfiguration.configurations.remove(service);
 			ServiceConfiguration.configurations.insert(conf);
 			services.push(service.service)
