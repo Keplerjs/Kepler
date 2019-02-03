@@ -1,3 +1,5 @@
 ## keplerjs:import
 
-keplerjs plugin for files upload
+keplerjs plugin for import bulk data
+
+support GeoJSON format
