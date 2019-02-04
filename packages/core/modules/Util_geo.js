@@ -1,4 +1,4 @@
-
+/** @namespace */
 Kepler.Util.geo = {
 	/**
 	 * round coordinates precision
@@ -20,9 +20,9 @@ Kepler.Util.geo = {
 	},
 	/**
 	 * rounc bounding box precision
-	 * @param  {[Array,Array]} bb   [description]
+	 * @param  {Array} bb   [description]
 	 * @param  {Number} prec [description]
-	 * @return {[Array,Array]}      [description]
+	 * @return {Array}      [description]
 	 */
 	roundBbox: function(bb, prec) {
 		prec = prec || 6;
@@ -31,26 +31,26 @@ Kepler.Util.geo = {
 	},
 	/**
 	 * convert bounding box fromm array of array to sinngle array
-	 * @param  {[type]} bb [description]
-	 * @return {[type]}    [description]
+	 * @param  {Array} bb [description]
+	 * @return {Array}    [description]
 	 */
 	plainBbox: function(bb) {
 		return [ bb[0][0], bb[0][1], bb[1][0], bb[1][1] ];
 	},
 	/**
 	 * convert bounding box from single array to double array
-	 * @param  {[type]} bb [description]
-	 * @return {[type]}    [description]
+	 * @param  {Array} bb [description]
+	 * @return {Array}    [description]
 	 */
 	reverseBbox: function(bb) {
 		return [ [bb[0][1], bb[0][0]], [bb[1][1], bb[1][0]] ];
 	},
 	/**
 	 * generate a bounding box having a location ad center dy certain distance
-	 * @param  {[type]} loc     [description]
-	 * @param  {[type]} dist    [description]
-	 * @param  {[type]} corners [description]
-	 * @return {[type]}         [description]
+	 * @param  {Array} loc     [description]
+	 * @param  {Number} dist    [description]
+	 * @param  {Boolean} corners [description]
+	 * @return {Array}         [description]
 	 */
 	bufferLoc: function(loc, dist, corners) {
 		//TODO check valid loc
@@ -66,25 +66,25 @@ Kepler.Util.geo = {
 	},
 	/**
 	 * convert a certain distrnace from radians to meters
-	 * @param  {[type]} deg [description]
-	 * @return {[type]}     [description]
+	 * @param  {Number} deg [description]
+	 * @return {Number}     [description]
 	 */
 	deg2rad: function(deg) {
 		return deg * (Math.PI/180);
 	},
 	/**
 	 * convert a certain distrnace from meters to radians
-	 * @param  {[type]} m [description]
-	 * @return {[type]}   [description]
+	 * @param  {Number} m [description]
+	 * @return {Number}   [description]
 	 */
 	meters2rad: function(m) {
 		return (m/1000)/111.12;
 	},
 	/**
 	 * calculate distance in meters from two locations
-	 * @param  {[type]} p1 [description]
-	 * @param  {[type]} p2 [description]
-	 * @return {[type]}    [description]
+	 * @param  {Array} p1 [description]
+	 * @param  {Array} p2 [description]
+	 * @return {Number}    [description]
 	 */
 	distance: function(p1, p2) {
 		if(!K.Util.valid.loc(p1) || !K.Util.valid.loc(p2))
@@ -101,9 +101,9 @@ Kepler.Util.geo = {
 	},
 	/**
 	 * calculate walking time of a certain distance and with a certain difference in height
-	 * @param  {[type]} len [description]
-	 * @param  {[type]} dis [description]
-	 * @return {[type]}     [description]
+	 * @param  {Number} len [description]
+	 * @param  {Number} dis [description]
+	 * @return {Number}     [description]
 	 */
 	timeTrack: function(len, dis) {
 		//http://ascoltotutti.blogspot.it/2012/12/calcolo-durata-di-un-percorso.html
@@ -115,9 +115,9 @@ Kepler.Util.geo = {
 	},
 	/**
 	 * check if a location is inside a certain bounding box
-	 * @param  {[type]} bb [description]
-	 * @param  {[type]} ll [description]
-	 * @return {[type]}    [description]
+	 * @param  {Array} bb [description]
+	 * @param  {Array} ll [description]
+	 * @return {Boolean}    [description]
 	 */
 	contains: function (bb, ll) { // (LatLngBounds) or (LatLng) -> Boolean
 		
@@ -129,8 +129,8 @@ Kepler.Util.geo = {
 	},	
 	/**
 	 * create a GeoJSON Point geometry
-	 * @param  {[type]} ll [description]
-	 * @return {[type]}    [description]
+	 * @param  {Array} ll [description]
+	 * @return {Object}    [description]
 	 */
 	createPoint: function(ll) {
 		return {
@@ -140,10 +140,10 @@ Kepler.Util.geo = {
 	},
 	/**
 	 * create a GeoJSON Feature having certrain properties
-	 * @param  {[type]} geom   [description]
-	 * @param  {[type]} coords [description]
-	 * @param  {[type]} props  [description]
-	 * @return {[type]}        [description]
+	 * @param  {Object} geom   [description]
+	 * @param  {Array} coords [description]
+	 * @param  {Object} props  [description]
+	 * @return {Object}        [description]
 	 */
 	createFeature: function(geom, coords, props) {
 		props = props || {};
@@ -159,8 +159,8 @@ Kepler.Util.geo = {
 	},
 	/**
 	 * create a GeoJSON Feature collection by list of features
-	 * @param  {[type]} ff [description]
-	 * @return {[type]}    [description]
+	 * @param  {Array} ff [description]
+	 * @return {Object}    [description]
 	 */
 	createFeatureColl: function(ff) {
 		return {
@@ -169,24 +169,9 @@ Kepler.Util.geo = {
 		};
 	},
 	/**
-	 * calculate the length of a Linestring geometry
-	 * @param  {[type]} line [description]
-	 * @return {[type]}      [description]
-	 */
-	linestringLen: function(line) {
-		var cc = line.coordinates, p, d = 0;
-		for(var i=0; i<cc.length; i++)
-		{
-			if(i>0 && cc[i])
-				d += K.Util.geo.distance( [p[1], p[0]], [cc[i][1], cc[i][0]] );
-			p = cc[i];
-		}
-		return d;
-	},
-	/**
 	 * remove double coordinates from a Linestring geometry
-	 * @param  {[type]} line [description]
-	 * @return {[type]}      [description]
+	 * @param  {Object} line [description]
+	 * @return {Object}      [description]
 	 */
 	linestringClean: function(line) {
 		var cc = line.coordinates,
@@ -203,9 +188,24 @@ Kepler.Util.geo = {
 		return line;
 	},
 	/**
+	 * calculate the length of a Geojson  Linestring geometry
+	 * @param  {Object} line [description]
+	 * @return {Number}      [description]
+	 */
+	linestringLen: function(line) {
+		var cc = line.coordinates, p, d = 0;
+		for(var i=0; i<cc.length; i++)
+		{
+			if(i>0 && cc[i])
+				d += K.Util.geo.distance( [p[1], p[0]], [cc[i][1], cc[i][0]] );
+			p = cc[i];
+		}
+		return d;
+	},
+	/**
 	 * calculate a length of a Leaflet Polyline 
-	 * @param  {[type]} line [description]
-	 * @return {[type]}      [description]
+	 * @param  {Object} line [description]
+	 * @return {Number}      [description]
 	 */
 	polylineLen: function(line) {
 		var ll = line.getLatLngs(), d = 0, p = null;
@@ -218,9 +218,9 @@ Kepler.Util.geo = {
 	},
 	/**
 	 * calculate the azimut angle from two locations
-	 * @param  {[type]} startLoc [description]
-	 * @param  {[type]} endLoc   [description]
-	 * @return {[type]}          [description]
+	 * @param  {Array} startLoc [description]
+	 * @param  {Array} endLoc   [description]
+	 * @return {Number}          [description]
 	 */
 	angleLocs: function(loc1, loc2) {
 
@@ -239,8 +239,8 @@ Kepler.Util.geo = {
 	},
 	/**
 	 * pick a random location inside a certain bounding box
-	 * @param  {[type]} bbox [description]
-	 * @return {[type]}      [description]
+	 * @param  {Array} bbox [description]
+	 * @return {Array}      [description]
 	 */
 	randomLoc: function(bbox) {
 		var world = [[-90, -180], [90, 180]];
@@ -277,8 +277,8 @@ Kepler.Util.geo = {
 
 	/**
 	 * parse coordinates location 
-	 * @param  {[type]} dmsString [description]
-	 * @return {[type]}           [description]
+	 * @param  {String} dmsString [description]
+	 * @return {Array}           [description]
 	 */
 	parseLocString: function(dmsString) {
 		//https://github.com/gmaclennan/parse-dms

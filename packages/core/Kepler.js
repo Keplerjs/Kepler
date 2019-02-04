@@ -1,9 +1,6 @@
 var version = '1.6.0';
-/**
- * Kepler global container
- * @type {[type]}
- */
-Kepler = K = {
+/** @namespace */
+Kepler = {
 	version: version,
 
 	//core models
@@ -32,3 +29,5 @@ Kepler = K = {
 		_.extend(this, e);
 	}
 };
+
+K = Kepler;

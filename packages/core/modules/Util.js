@@ -1,4 +1,4 @@
-
+/** @namespace */
 Kepler.Util = {
 	
 	//http://stackoverflow.com/questions/6491463/accessing-nested-javascript-objects-with-string-key
