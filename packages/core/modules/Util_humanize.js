@@ -1,8 +1,11 @@
-
-
-//TODO creare numberHuman da usare in bagde chekins e stars 2000 -> 2K 
-
+/**
+ * humanize string methods
+ * @namespace
+ * @memberOf Util
+ */
 Kepler.Util.humanize = {
+
+	//TODO creare numberHuman da usare in bagde chekins e stars 2000 -> 2K 
 
 	azimut: function(ang, code) {
 		ang = parseFloat(ang);

@@ -1,6 +1,4 @@
-/*
-	simple and smart caching system key/value for client and server
-*/
+
 //TODO memory cache level.. without use db
 //TODO loop to clean expired caches or via api
 //TODO store collection in localstorage
@@ -12,8 +10,8 @@
 //this._collections[namespace]._createCappedCollection(numBytes);
 
 /**
- * Kepler key/value Caching module
- * @type {Object}
+ * generic caching system client/server
+ * @namespace
  */
 Kepler.Cache = {
 
@@ -41,21 +39,13 @@ Kepler.Cache = {
 
 		return this._collections[namespace];
 	},
-	/**
-	 * generate key by any objects
-	 * @param  {[type]} key [description]
-	 * @return {[type]}     [description]
-	 */
+	//generate key by any objects
 	_keygen: function(key) {
 		key = _.isArray(key) ? key.join(this.sep) : key;
 		key = _.isObject(key) ? JSON.stringify(key) : key;
 		return key;
 	},
-	/**
-	 * generate future date of expiration
-	 * @param  {String} expire 'minutely'|'hourly'|'daily'|'weekly'|'monthly' or seconds number
-	 * @return {[type]}        date timestamp
-	 */
+	//generate future date of expiration
 	_expiregen: function(expire) {
 
 		expire = _.isUndefined(expire) ? 'daily' : expire;
@@ -77,7 +67,7 @@ Kepler.Cache = {
 	 * create or update cache record
 	 * @param {String|Array|Object}
 	 * @param {Any}
-	 * @param {String} namespace fir organize same cache values
+	 * @param {String} namespace for organize same cache values
 	 * @param {String} cache value duration, possible values is: minutely|hourly|daily|weekly|monthly|yearly
 	 */
 	set: function(key, val, namespace, expire) {
@@ -95,11 +85,11 @@ Kepler.Cache = {
 	},
 	/**
 	 * get value from cache, if not exists set new by valFunc and return it
-	 * @param  {[type]}
-	 * @param  {[type]}
-	 * @param  {[type]}
-	 * @param  {[type]}
-	 * @return {[type]}
+	 * @param  {String}
+	 * @param  {String}
+	 * @param  {Function}
+	 * @param  {Number}
+	 * @return {Object}
 	 */
 	get: function(key, namespace, valFunc, expire) {	//if value is not setted it's updated from valFunc
 
@@ -124,7 +114,6 @@ Kepler.Cache = {
 	/**
 	 * remove all cache value having same namespace
 	 * @param  {String}
-	 * @return {[type]}
 	 */
 	clean: function(namespace) {
 		this._getCollection(namespace).remove({});

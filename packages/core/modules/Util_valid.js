@@ -1,4 +1,8 @@
-
+/**
+ * validation string methods
+ * @namespace
+ * @memberOf Util
+ */
 Kepler.Util.valid = {
 
 	//TODO name place

@@ -8,6 +8,7 @@
 //
 Kepler.plugins = {};
 
+/** @namespace */
 Kepler.Plugin = function(plugin) {
 	
 	if(plugin && _.isString(plugin.name) && plugin.name!=='')
@@ -53,8 +54,8 @@ Kepler.Plugin = function(plugin) {
 };
 /**
  * fill not defined fields with defaults values in plugin config teomplates
- * @param  {[type]} tt [description]
- * @return {[type]}    [description]
+ * @param  {Array} tt [description]
+ * @return {Array}    [description]
  */
 Kepler.Plugin.normalizePlaceholders = function(tmpls, plugin) {
 	
@@ -79,7 +80,13 @@ Kepler.Plugin.normalizePlaceholders = function(tmpls, plugin) {
 	}
 	return tmpls;
 };
-
+/**
+ * return list od templates names for certain Kepler placeholder
+ * @param  {String} kepler placeholder name
+ * @param  {Object} data for each templates
+ * @param  {String} separator
+ * @return {Array}
+ */
 Kepler.Plugin.templatesByPlaceholder = function(placeholder, data, sep) {
 	
 	sep = sep || "\n";

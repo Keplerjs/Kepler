@@ -1,10 +1,15 @@
-/*
-	default values for new models and data documents
-
-	//TODO use https://atmospherejs.com/aldeed/simple-schema
-*/
+/** 
+ * default fields for new models and data documents
+ * @namespace
+ */
 Kepler.schemas = {
 
+	//TODO use https://atmospherejs.com/aldeed/simple-schema
+
+	/**
+	 * Place model
+	 * @type {Object}
+	 */
 	place: {
 		name: '',	       //place title
 		createdAt: '',	   //new Date() of place insert
@@ -21,7 +26,10 @@ Kepler.schemas = {
 			type: ''
 		}
 	},
-	
+	/**
+	 * User model
+	 * @type {Object}
+	 */
 	user: {
 		name: '',		   //display name	
 		username: '',	   //username used in urls

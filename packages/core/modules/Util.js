@@ -1,8 +1,17 @@
-/** @namespace */
+/**
+ * @namespace
+ * @memberOf Kepler
+ */
 Kepler.Util = {
 	
 	//http://stackoverflow.com/questions/6491463/accessing-nested-javascript-objects-with-string-key
-	getPath: function(obj, prop) {
+	/**
+	 * return sub property of object by path string
+	 * @param  {Object} obj  [description]
+	 * @param  {String} parh [description]
+	 * @return {Object}      [description]
+	 */
+	 getPath: function(obj, prop) {
 		var parts = prop ? prop.split('.') : [],
 			last = parts.pop(),
 			len = parts.length,
@@ -18,7 +27,7 @@ Kepler.Util = {
 	},
 
 	/**
-	 * [tmpl description]
+	 * minimal template function
 	 * @param  {String} str  [description]
 	 * @param  {Object} data [description]
 	 * @return {String}      [description]
@@ -87,7 +96,7 @@ Kepler.Util = {
 	 * @param {String} str string to hash
 	 * @returns {Number}
 	 */
-/*	bkdrHash: function(str) {
+	/*	bkdrHash: function(str) {
 	    var seed = 131;
 	    var seed2 = 137;
 	    var hash = 0;

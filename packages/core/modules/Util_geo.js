@@ -1,4 +1,7 @@
-/** @namespace */
+/**
+ * @namespace
+ * @memberOf Util
+ */
 Kepler.Util.geo = {
 	/**
 	 * round coordinates precision

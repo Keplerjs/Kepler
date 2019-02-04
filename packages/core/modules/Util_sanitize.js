@@ -1,4 +1,9 @@
 
+/**
+ * sanitization string methods
+ * @namespace
+ * @memberOf Util
+ */
 Kepler.Util.sanitize = {
 
 	text: function(body) {
@@ -17,7 +22,7 @@ Kepler.Util.sanitize = {
 
 	name: function(name) {
 		name = name || '';
-/*		name = name.toLowerCase()
+		/*name = name.toLowerCase()
 			.replace(/_+/g,' ')
 			.replace(/-+/g,' ')
 			.replace(/’+/g,'\'')
@@ -32,9 +37,9 @@ Kepler.Util.sanitize = {
 
 	/**
 	 * return same name with added incremental number at tail
-	 * @param  {[type]} name [description]
-	 * @param  {[type]} sep  [description]
-	 * @return {[type]}      [description]
+	 * @param  {String} name [description]
+	 * @param  {String} sep  [description]
+	 * @return {String}      [description]
 	 */
 	nthName: function(name, sep) {
 		sep = sep || '';
