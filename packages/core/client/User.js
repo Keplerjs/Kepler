@@ -20,9 +20,9 @@ Kepler.userById = function(id) {
 };
 
 /**
- * Model for instantiate users
- * @param  {[type]} userId) {		var       self [description]
- * @return {[type]}         [description]
+ * @class Model for instantiate users
+ * @param  {String} userId user Mongo ID
+ * @return {Object}         user instance
  */
 Kepler.User = Class.extend({
 
@@ -34,7 +34,6 @@ Kepler.User = Class.extend({
 	templateMarker: 'markerUser',
 	classMarker: '',
 	data: {},
-	
 	init: function(userId) {
 
 		var self = this;

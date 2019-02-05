@@ -1,6 +1,7 @@
 /**
- * Kepler.Map module
- * @type {Object}
+ * Kepler wrapper for Leaflet map
+ * @module
+ * @name  Map
  */
 Kepler.Map = {
 	/**
@@ -9,7 +10,14 @@ Kepler.Map = {
 	 */
 	map: null,
 	options: {},
+	/**
+	 * Leaflet layers
+	 */
 	layers: {},
+	/**
+	 * Leaflet controls
+	 * @type {Object}
+	 */
 	controls: {},
 	items: [],
 

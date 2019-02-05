@@ -1,15 +1,27 @@
 var version = '1.6.0';
-/** 
+/**
  * @namespace
+ * @name Kepler
  */
 Kepler = {
+	/**
+	 * @constant
+	 * @type {String}
+	 */
 	version: version,
+	/**
+	 * extend global Kepler object
+	 * @param  {Object} e [description]
+	 * @return {Object}   [description]
+	 */
+	extend: function(e) {
+		return _.extend(this, e);
+	},
 
 	//core models
 	Place: {},       //class for places                  (client)
-	placeById: {},	 //constructor of Place  		     (client)
-
 	User: {},        //class for users                   (client)
+	placeById: {},	 //constructor of Place  		     (client)
 	userById: {},	 //constructor of User  		     (client)
 
 	//config
@@ -18,7 +30,6 @@ Kepler = {
 	templates: {},//positions for plugins templates   (client,server)
 	settings: {},	 //settings for core and plugins	 (client,server)
 
-	//utilities
 	Util: {},        //module utils functions            (client,server)
 	Cache: {},       //module caching system             (client,server)
 	Plugin: {},		 //module for managing plugins		 (client,server)
@@ -26,10 +37,9 @@ Kepler = {
 	//core modules
 	Profile: {},     //module for user logged data       (client)
 	Map: {},         //module map, controls, layers      (client)
-
-	extend: function(e) {
-		_.extend(this, e);
-	}
 };
 
+/**
+ * @global
+ */
 K = Kepler;

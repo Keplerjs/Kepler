@@ -1,6 +1,8 @@
 /** 
  * Permissions definitions of fields in the queries for pubblications and methods
- * @namespace
+ * @module
+ * @name filters
+ * @type {Object}
  */
 Kepler.filters = {
 	

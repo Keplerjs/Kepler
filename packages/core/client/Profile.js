@@ -1,9 +1,9 @@
-/*
-	Module for logged user profile
-
-	//TODO extend by K.User	
-*/
-
+/**
+ * Module for logged user profile
+ * @module
+ * @memberOf Kepler
+ * @name  Profile
+ */
 Kepler.Profile = {
 
 	ready: false,

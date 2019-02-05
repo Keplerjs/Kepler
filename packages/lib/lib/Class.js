@@ -15,7 +15,9 @@ function extend(dest) {
 	}
 	return dest;
 }
-
+/**
+ * @class
+ */
 Class = function(){};
 Class.extend = function (props) {
 

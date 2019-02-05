@@ -8,7 +8,13 @@
 //
 Kepler.plugins = {};
 
-/** @namespace */
+/** 
+ * define new Kepler plugin
+ * @module
+ * @name Plugin
+ * @memberOf Kepler
+ * @param {Object} new plugin configuration
+ */
 Kepler.Plugin = function(plugin) {
 	
 	if(plugin && _.isString(plugin.name) && plugin.name!=='')
@@ -54,7 +60,9 @@ Kepler.Plugin = function(plugin) {
 };
 /**
  * fill not defined fields with defaults values in plugin config teomplates
- * @param  {Array} tt [description]
+ * @memberOf Plugin
+ * @param  {Array}  tmpls [description]
+ * @param  {String} plugin [description]
  * @return {Array}    [description]
  */
 Kepler.Plugin.normalizePlaceholders = function(tmpls, plugin) {

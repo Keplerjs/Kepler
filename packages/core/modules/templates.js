@@ -3,8 +3,16 @@
  * @type {Object}
  */
 
-/** @namespace */
+/** 
+ * @module
+ * @name templates
+ * @type {Object}
+ */
 Kepler.templates = {
+	/**
+	 * on top always visible navbar
+	 * @type {Object}
+	 */
 	navSidebar: {},
 	tabLocation: {},
 	pageHome: {},

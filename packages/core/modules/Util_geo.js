@@ -22,7 +22,7 @@ Kepler.Util.geo = {
 		return [ parseFloat(lat), parseFloat(lng) ];
 	},
 	/**
-	 * rounc bounding box precision
+	 * round bounding box precision
 	 * @param  {Array} bb   [description]
 	 * @param  {Number} prec [description]
 	 * @return {Array}      [description]

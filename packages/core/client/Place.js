@@ -20,9 +20,9 @@ Kepler.placeById = function(id) {
 };
 
 /**
- * Model for instantiate places
- * @param  {[type]} placeId) {		var       self [description]
- * @return {[type]}          [description]
+ * @class  Model for instantiate places
+ * @param  {String} placeId place Mongo ID
+ * @return {Object} place instance
  */
 Kepler.Place = Class.extend({
 
@@ -35,7 +35,6 @@ Kepler.Place = Class.extend({
 	templateMarker: 'markerPlace',
 	classMarker: '',
 	data: {},
-	
 	init: function(placeId) {
 
 		var self = this;

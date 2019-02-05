@@ -4,15 +4,25 @@
  * @memberOf Util
  */
 Kepler.Util.humanize = {
-
 	//TODO creare numberHuman da usare in bagde chekins e stars 2000 -> 2K 
-
+	
+	/**
+	 * return azimut angle
+	 * @param  {Number} ang  [description]
+	 * @param  {String} code [description]
+	 * @return {String}      [description]
+	 */
 	azimut: function(ang, code) {
 		ang = parseFloat(ang);
 		var texts = code ? "n,nne,ne,ene,e,ese,se,sse,s,ssw,sw,wsw,w,wnw,nw,nnw,n" : i18n('azimuth');
 		return ang ? texts.split(',')[Math.round(ang/22.5)] : '';
 	},
-
+	/**
+	 * time interval huamize in day,se,hours...
+	 * @param  {Number} sec [description]
+	 * @param  {Boolean} ago [description]
+	 * @return {String}     [description]
+	 */
 	time: function(sec, ago) {
 		//http://goo.gl/8DqYS
 		if(sec && ago)
@@ -48,7 +58,12 @@ Kepler.Util.humanize = {
 		
 		return ret;
 	},
-
+	/**
+	 * date having name of days and months
+	 * @param  {(String|Date|Number)} date  [description]
+	 * @param  {Boolean} short [description]
+	 * @return {String}       [description]
+	 */
 	date: function(date, short) {
 		
 		date = date || new Date();
@@ -108,7 +123,12 @@ Kepler.Util.humanize = {
 		else
 			return null;
 	},
-
+	/**
+	 * return distance in meters or kilometers
+	 * @param  {Number} d    [description]
+	 * @param  {Boolean} sign [description]
+	 * @return {String}      [description]
+	 */
 	distance: function(d, sign) {
 		sign = sign || false;
 		var len='',unit='',s='';
@@ -124,7 +144,12 @@ Kepler.Util.humanize = {
 			s = d>0 ? '+' : '';
 		return s + d +unit;
 	},
-	
+	/**
+	 * file size in Byte,Mbyte,Giga
+	 * @param  {Number} bytes   [description]
+	 * @param  {Number} decimal [description]
+	 * @return {String}         [description]
+	 */
 	filesize: function(bytes, decimal) {
 		if (bytes === 0) return bytes;		
 		decimal = decimal || 1;
@@ -132,7 +157,13 @@ Kepler.Util.humanize = {
 			i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
 		return Math.round(bytes / Math.pow(1024, i), decimal) + ' ' + sizes[i];
 	},
-
+	/**
+	 * string rappresent a geo location
+	 * @param  {Array} ll  [description]
+	 * @param  {Number} pre [description]
+	 * @param  {String} sep [description]
+	 * @return {String}     [description]
+	 */
 	loc: function (ll, pre, sep) {
 		sep = sep || ',';
 		pre = pre || 6;

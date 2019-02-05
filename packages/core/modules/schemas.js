@@ -1,6 +1,7 @@
 /** 
  * default fields for new models and data documents
- * @namespace
+ * @module
+ * @name schemas
  */
 Kepler.schemas = {
 
