@@ -6,11 +6,17 @@
 
 //TODO create handlebars helper to check is a placeholder have plugins
 //
+//
+/**
+ * index of defined plugins
+ * @memberOf Plugin
+ * @type {Object}
+ */
 Kepler.plugins = {};
 
 /** 
- * define new Kepler plugin
- * @module
+ * define new Kepler plugin by config
+ * @namespace
  * @name Plugin
  * @memberOf Kepler
  * @param {Object} new plugin configuration
@@ -60,10 +66,10 @@ Kepler.Plugin = function(plugin) {
 };
 /**
  * fill not defined fields with defaults values in plugin config teomplates
- * @memberOf Plugin
- * @param  {Array}  tmpls [description]
- * @param  {String} plugin [description]
- * @return {Array}    [description]
+ * @memberOf Kepler.Plugin
+ * @param  {Array}  tmpls array of templates config
+ * @param  {String} plugin 
+ * @return {Array}  
  */
 Kepler.Plugin.normalizePlaceholders = function(tmpls, plugin) {
 	
@@ -90,9 +96,9 @@ Kepler.Plugin.normalizePlaceholders = function(tmpls, plugin) {
 };
 /**
  * return list od templates names for certain Kepler placeholder
- * @param  {String} kepler placeholder name
+ * @param  {String} placeholder name
  * @param  {Object} data for each templates
- * @param  {String} separator
+ * @param  {String} separator  html string 
  * @return {Array}
  */
 Kepler.Plugin.templatesByPlaceholder = function(placeholder, data, sep) {

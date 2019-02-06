@@ -1,9 +1,5 @@
-/*
- * Class powers the OOP facilities of the library.
- * Thanks to John Resig and Dean Edwards for inspiration!
- * 
- * //TODO https://github.com/jeromeetienne/microevent.js/blob/master/package.json
- */
+//TODO https://github.com/jeromeetienne/microevent.js/blob/master/package.json
+
 function extend(dest) {
 	var i, j, len, src;
 
@@ -16,9 +12,16 @@ function extend(dest) {
 	return dest;
 }
 /**
+ * Class powers the OOP facilities of the library.
+ * Thanks to John Resig and Dean Edwards for inspiration!
  * @class
  */
 Class = function(){};
+/**
+ * Extends the current class given the properties to be included.
+ * @param  {Object} props properties of new class
+ * @return {Object}       Returns a Javascript function that is a class constructor (to be called with `new`).
+ */
 Class.extend = function (props) {
 
 	// extended class with the new prototype
@@ -45,17 +48,23 @@ Class.extend = function (props) {
 			NewClass[i] = this[i];
 		}
 	}
-	
 	// mix given properties into the prototype
 	extend(proto, props);
 
 	var parent = this;
-	// jshint camelcase: false
+
+	/**
+	 * parent prototype
+	 * @type {Function}
+	 */
 	NewClass.__super__ = parent.prototype;
 
 	return NewClass;
 };
-
+/**
+ * Includes a mixin into the current class.
+ * @param  {Object} props properties/methods include in this class
+ */
 Class.include = function (props) {
 	extend(this.prototype, props);
 };

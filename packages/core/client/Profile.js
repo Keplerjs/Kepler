@@ -1,6 +1,6 @@
 /**
  * Module for logged user profile
- * @module
+ * @namespace
  * @memberOf Kepler
  * @name  Profile
  */
