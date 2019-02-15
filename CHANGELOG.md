@@ -9,6 +9,7 @@
 - plugin geoingo new method K.Geoapi.reversegeo
 - new helper routeBack to get url of parent route
 - plugin admin close panel
+- increased coverage for jsdoc comments in the code
 
 ## v1.6.0
 - rename base package from ui to core-ui
