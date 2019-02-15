@@ -7,6 +7,19 @@ Meteor.methods({
 		console.log('Admin: adminGetMethods');
 
 		return _.keys(K.Admin.method);
+	},
+	adminsEmail: function(subject, body) {
+
+		Users.find({isAdmin: 1}).forEach(function (userAdmin) {
+			if(userAdmin.emails && userAdmin.emails[0] && userAdmin.emails[0].address) {
+				Email.send({
+					from: K.settings.accounts.emailTemplates.from,
+					to: userAdmin.emails[0].address,
+					subject: subject || '',
+					html: body || ''
+				});	
+			}
+		});
 	}
 });
 
@@ -50,6 +63,9 @@ Meteor.startup(function() {
 		/*if(!Users.findOne({username: 'admin'})) {
 			console.log('Admin: autocreate admin account user: admin pass: adminadmin ');
 		}*/
+	}
+	if(K.settings.admin.emailOnStartup) {
+		Meteor.call('adminsEmail','Kepler Startup!');
 	}
 });
 

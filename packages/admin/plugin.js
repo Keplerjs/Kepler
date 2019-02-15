@@ -59,6 +59,7 @@ K.Plugin({
 	settings: {
 		"admin": {
 			"emailOnNewUser": true,
+			"emailOnStartup": false,
 			"adminUsers": ["admin"]
 		}
 	}

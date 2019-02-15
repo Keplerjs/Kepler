@@ -33,24 +33,15 @@ Users.after.insert(function(userId, user) {
 		if( K.settings.admin.emailOnNewUser && 
 			K.Util.getPath(user,'source.options.source.service')!=="kepler-admin") {
 
-			Users.find({isAdmin: 1}).forEach(function (userAdmin) {
-
-				if(userAdmin.emails && userAdmin.emails[0] && userAdmin.emails[0].address) {
-					Email.send({
-						from: K.settings.accounts.emailTemplates.from,
-						to: userAdmin.emails[0].address,
-						subject: "New User: "+ user.username,
-						html:
-							"<h4>"+user.username+"</h4>"+
-							Meteor.absoluteUrl("user/"+user._id)+"<br />"+
-							user.name+"<br />"+
-							'<img height="80px" widht="80px" src="'+user.avatar+'" /><br />'+
-							user.source.url+"<br />"+
-							user.lang+"<br />"
-							//"<pre>"+JSON.stringify(user,null,'  ')+"</pre>"
-					});	
-				}
-			});
+			var sub ="New User: "+ user.username, 
+				body = "<h4>"+user.username+"</h4>"+
+					Meteor.absoluteUrl("user/"+user._id)+"<br />"+
+					user.name+"<br />"+
+					'<img height="80px" widht="80px" src="'+user.avatar+'" /><br />'+
+					user.source.url+"<br />"+
+					user.lang+"<br />";
+					
+			Meteor.call('adminsEmail',sub,body);
 		}
 	}
 });
