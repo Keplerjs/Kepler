@@ -4,6 +4,8 @@ var Future = Npm.require('fibers/future');
 //TODO move to settings
 var roundLocGeoinfo = 4;
 
+
+//TODO move to settings
 Kepler.Geoinfo = {
 	fields: {
 		ele: {
