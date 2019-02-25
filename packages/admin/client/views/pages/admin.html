@@ -1,7 +1,7 @@
 
 <template name="pageAdmin_admin_raw">
 	<div class="row">
-		<div class="col-xs-12">
+		<div class="col-xs-10">
 			{{#with rawdata}}
 				<div class="btn-group">
 					<a class="btn btn-default" type="button" data-toggle="collapse" data-target="#rawdata" aria-expanded="false" aria-controls="collapseExample">
@@ -12,6 +12,9 @@
 					{{{log this}}}
 				</div>
 			{{/with}}
+		</div>
+		<div class="col-xs-2 text-right">
+			{{> itemUserAdmin_admin_btns}}
 		</div>
 	</div>
 </template>

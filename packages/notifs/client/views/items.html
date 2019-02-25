@@ -6,11 +6,13 @@
 		</a> -->
 		<div>
 			{{#if url}}
-				<a href="{{url}}"><i class="icon icon-{{type}}"></i></a>
+				<a href="{{url}}">
+					<i class="icon icon-{{type}}"></i>
+					<span>{{{msg}}}</span>
+				</a>
 			{{else}}
 				<i class="icon icon-{{type}}"></i>
 			{{/if}}
-			<span>{{{msg}}}</span>
 			<span class="pull-right">{{humanDate createdAt}}</span>
 		</div>
 	</div>

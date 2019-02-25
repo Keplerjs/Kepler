@@ -7,6 +7,8 @@ Template.panelUser_admin.onRendered(function() {
 		
 		K.Map.removeItem(K.userById(self.data.id));
 	
+		delete K.usersById[self.data.id];
+
 		Router.go('root');
 	});
 });

@@ -41,7 +41,7 @@
 				</div>
 			</div>
 			<div class="col-sm-6">
-
+				{{#if itemSelected}}
 				{{#with itemSelected}}
 				
 					<div class="panel pageAdmin">
@@ -61,7 +61,7 @@
 					</div>
 					
 				{{/with}}
-
+				{{/if}}
 			</div>
 		</div>
 	</section>
@@ -80,7 +80,7 @@
 
 <template name="itemUserAdmin_admin_btns">
 	<a class="btn btn-sm btn-default item-btn-del" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
-		<i class="icon icon-del"></i>
+		<i class="icon icon-del"></i> {{i18n 'btn_del'}}
 	</a>
 </template>
 

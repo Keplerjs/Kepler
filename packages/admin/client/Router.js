@@ -62,13 +62,20 @@ Router.map(function() {
 		},
 		data: function() {
 			if(!this.ready()) return null;
-			var users = K.findUsersByDate().fetch(),
+			
+			var user = K.userById(this.params.id),
+				users = K.findUsersByDate().fetch(),
 				userIds = _.pluck(users,'_id');
+			
 			userIds = _.without(userIds, K.Profile.id);
-			return {
-				itemSelected: K.userById(this.params.id),
-				items: _.map(userIds, K.userById)
-			};
+
+			if(!user)
+				Router.go('pageAdminUsers');
+			else
+				return {
+					itemSelected: user,
+					items: _.map(userIds, K.userById)
+				};
 		}
 	});	
 

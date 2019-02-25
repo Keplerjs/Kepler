@@ -8,6 +8,8 @@ Meteor.publish('adminUserById', function(userId) {
 			retCurs = [],
 			placeIds = [];
 		
+		//if(userCur)
+
 		retCurs.push(userCur);
 
 		if(userData.friends.length > 0)

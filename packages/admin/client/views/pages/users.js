@@ -50,7 +50,10 @@ Template.itemUserAdmin_admin_btns.onRendered(function() {
 	var self = this;
 	self.$('.item-btn-del').btsConfirmButton(function(e) {
 		e.stopPropagation();
+		
 		K.Admin.removeUser(self.data.username);
+		delete K.usersById[self.data.id];
+
 		Session.set('itemSelected',null);
 	});
 });
