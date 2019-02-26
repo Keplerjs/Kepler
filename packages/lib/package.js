@@ -84,6 +84,9 @@ Package.onUse(function(api) {
     'nooitaf:colors@1.1.2_1',	//https://www.npmjs.com/package/colors
     'konecty:user-presence@1.2.9',
     'juliancwirko:s-alert@3.2.0',
+    'ostrio:iron-router-helper-class@1.0.1',
+    'ostrio:iron-router-meta@1.1.0',
+    'ostrio:iron-router-title@1.0.3',
   ];
 
   api.use(packages);

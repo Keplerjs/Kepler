@@ -2,8 +2,8 @@
 
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
-
 ## Next version
+- custom meta and link tags by settings by K.settings.public.router.meta
 - plugin admin create route for each loaded places and users, fix categories tagsinput bug
 - core-ui new helper routeParam, renamed helper ifRoute in routeIs 
 - plugin geoingo new method K.Geoapi.reversegeo

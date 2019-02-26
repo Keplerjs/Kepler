@@ -4,7 +4,10 @@ Router.configure({
 	loadingTemplate: 'panelLoading',
 	notFoundTemplate: 'page404',
 	//https://github.com/reywood/meteor-iron-router-ga
-	trackPageView: true
+	trackPageView: true,
+	//https://github.com/VeliovGroup/Meteor-iron-router-meta
+	meta: K.settings.public.router.meta,
+	link: K.settings.public.router.link
 });
 
 Router.waitOn(function() {
@@ -40,7 +43,8 @@ Router.onAfterAction(function() {
 
 	var routeName = this.route.getName();
 
-	document.title =  i18n('title_'+routeName) || _.str.capitalize(routeName);
+	document.title = i18n('title_'+routeName) || _.str.capitalize(routeName);
+	//TODO replace with https://github.com/VeliovGroup/Meteor-iron-router-title
 
 	if(this.ready() && K.Profile.ready) {
 

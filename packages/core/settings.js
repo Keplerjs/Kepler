@@ -25,6 +25,12 @@ Kepler.settings = {
 			"fr": "Français"
 		},
 		"router": {
+			"meta": {
+				"gen": {
+					"generator": "KeplerJs - http://keplerjs.io"
+				}
+			},
+			"link": {},
 			"enterRoute": "root",
 			"publicRoutes": {
 				"about": true
