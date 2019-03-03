@@ -5,7 +5,7 @@
 			"layers": {
                 "road": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 "landscape": "https://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png?apikey=<YOUR API KEY>",
-                "transport": "https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey=<YOUR API KEY>"
+                "satellite": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
             }
 		},
 		"accounts": {
