@@ -1,8 +1,8 @@
 #!/bin/bash
 #
 ### BEGIN INIT INFO
-# Provides:             keplerjs_daemon
-# Required-Start:       $syslog $remote_fs
+# Provides:             keplerd
+# Required-Start:       $syslog $remote_fs mongodb nginx
 # Required-Stop:        $syslog $remote_fs
 # Should-Start:         $local_fs
 # Should-Stop:          $local_fs
@@ -12,76 +12,72 @@
 # Description:          Forever Demonizer with a low privilege user
 ### END INIT INFO
 #
-# Copyright 2014 stefano.cudini@gmail.com
+# Copyright 2019 stefano.cudini@gmail.com
 #
 # NodeJs Forever Demonizer with a low privilege user, official code:
 # 	https://gist.github.com/stefanocudini/6116527
 # Requirements:
 # 	https://github.com/nodejitsu/forever
+#   npm install -g forever
 #
 . /lib/lsb/init-functions
 
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
-VERSION="app"
-PORT=3000
+DAEMON_NAME="keplerd"
+DAEMON_USER="kepler"
+DAEMON_GROUP="kepler"
+
+PORT=4000
 BIND_IP=127.0.0.1
-DOMAIN="app_meteor.net"
-#app,  beta, admin, adv
-#3000, 3001, 3002,  3003
+DOMAIN="app.kepler.com"
 
-APPNAME="app_meteor_$VERSION"
-APPFILE="/var/www/$VERSION.bundle/main.js"
-APPCONF="/var/www/$VERSION$DOMAIN/settings.json"
+APPNAME="kepler"
+APPFILE="/var/www/$APPNAME.bundle/main.js"
+APPCONF="/var/www/$APPNAME.bundle/settings.json"
 
-LOGDIR="/var/log/app_meteor"
-LOGERR="$LOGDIR/$VERSION.err"
-LOGOUT="$LOGDIR/$VERSION.log"
+LOGDIR="/var/log/$APPNAME"
+LOGERR="$LOGDIR/$APPNAME.err"
+LOGOUT="$LOGDIR/$APPNAME.log"
 
-NODE_BIN_DIR="/opt/node/bin"
-export NODE_PATH="/opt/node/lib/node_modules"
+NODE_BIN_DIR="/usr/bin/node"
+export NODE_PATH="/usr/lib/node_modules"
 
 #NODE_OPTIONS="--debug --expose-gc --always-compact"
 #ottimizza utilizzo ram su NodeJs
 
 export MONGO_URL="mongodb://localhost:27017/$APPNAME"
 export METEOR_SETTINGS=`cat "$APPCONF"`
-export ROOT_URL="http://$VERSION$DOMAIN"
+export ROOT_URL="http://$DOMAIN"
 export BIND_IP=$BIND_IP
 export PORT=$PORT
 
-DAEMON_NAME="daemon_$APPNAME"
-DAEMON_USER=meteor
-DAEMON_GROUP=meteor
-
-FOREVER_DIR=$(bash <<< "echo ~$DAEMON_USER")"/.forever"
+FOREVER_DIR=$(bash <<< "dirname $APPFILE")"/.forever"
 FOREVER_PID="$FOREVER_DIR/$APPNAME.pid"
 
 DAEMON_PID="/var/run/$DAEMON_NAME.pid"
 DAEMON_LOG="$LOGDIR/$DAEMON_NAME.log"
-DAEMON_BIN=$(readlink -f $NODE_BIN_DIR/forever)
+DAEMON_BIN="/usr/lib/node_modules/forever/bin/forever"
 
 FOREVER_OPTS="--pidFile $FOREVER_PID -a -l $DAEMON_LOG "\
 "-e $LOGERR -o $LOGOUT --minUptime 5000 --spinSleepTime 2000 start $APPFILE "
-
-#exit 0
 
 if [ ! -d "$FOREVER_DIR" ]; then
     echo "make dir: $FOREVER_DIR"
     mkdir -p "$FOREVER_DIR"
     chown $DAEMON_USER:$DAEMON_GROUP "$FOREVER_DIR"
-    chmod 0775 "$FOREVER_DIR"
+    chmod 0770 "$FOREVER_DIR"
 fi
 
-if [ ! -d "/var/log/$DAEMON_NAME" ]; then
-    echo "make dir: /var/log/$DAEMON_NAME"
-    mkdir -p "/var/log/$DAEMON_NAME"
-    chown $DAEMON_USER:$DAEMON_GROUP "/var/log/$DAEMON_NAME"
-    chmod 0750 "/var/log/$DAEMON_NAME"
+if [ ! -d "$LOGDIR" ]; then
+    echo "make dir: $LOGDIR"
+    mkdir -p "$LOGDIR"
+    chown $DAEMON_USER:$DAEMON_GROUP "$LOGDIR"
+    chmod 0770 "$LOGDIR"
 fi
 
 start() {
-	echo "Starting $DAEMON_NAME as user: $DAEMON_USER"
+    echo "Starting $DAEMON_NAME as user: $DAEMON_USER"
     su $DAEMON_USER -c "$DAEMON_BIN $FOREVER_OPTS"
     echo $! > $DAEMON_PID
 
@@ -90,21 +86,21 @@ start() {
 
 stop() {
     if [ -f $DAEMON_PID ]; then
-		echo "Shutting down $DAEMON_NAME"
+	echo "Shutting down $DAEMON_NAME"
         su $DAEMON_USER -c "$DAEMON_BIN stop $APPFILE"
         rm -f $DAEMON_PID $FOREVER_PID
 
         RETVAL=$?
     else
-		echo "$DAEMON_NAME is not running."
-		RETVAL=0
+	echo "$DAEMON_NAME is not running."
+	RETVAL=0
     fi
 }
 
 restart() {
     echo "Restarting $DAEMON_NAME"
     stop
-	sleep 3
+    sleep 3
     start
 }
 

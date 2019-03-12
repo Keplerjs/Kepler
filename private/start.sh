@@ -8,8 +8,8 @@
 
 OPTS="--raw-logs"
 #OPTS="$OPTS --release blaze-rc1"
-DOMAINDEV="app_meteor.local"
-DOMAINPRO="app_meteor.net"
+DOMAINDEV="app.kepler.local"
+DOMAINPRO="app.kepler.com"
 DBNAME="kepler"
 SETS="settings.json"
 PORT="127.0.0.1:3000"
