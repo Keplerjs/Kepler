@@ -1,4 +1,4 @@
-## KeplerJs utils scripts and configuration samples
+## KeplerJs utils scripts and deploy configuration samples
 
 deploy.heroku.sh			deploy kepler instance in herokuapp.com
 kepler.daemon.sh			run kepler instance at startup in linux systems
