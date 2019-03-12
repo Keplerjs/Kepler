@@ -7,8 +7,8 @@ packages.publish.sh			publish in atmospherejs.com all kepler plugins in github o
 packages.pull.sh			pull all kepler plugins
 packages.push.sh			push all kepler plugins
 packages.status.sh			git staus in all kepler plugins
-packages.unpublish.sh		unpublish all kepler plugins in atmospherejs.com
-placeholders.list.sh		find all placeholders defined in all templates
-settings.light-ui.json		sample settings.json for minimal loading of kepler plugins templates
-settings.sample.json		sample settings.json for standard kepler app
+packages.unpublish.sh		  unpublish all kepler plugins in atmospherejs.com
+placeholders.list.sh		  find all placeholders defined in all templates
+settings.light-ui.json		  sample settings.json for minimal loading of kepler plugins templates
+settings.sample.json		  sample settings.json for standard kepler app
 start.sh					start kepler in localhost for develop 
