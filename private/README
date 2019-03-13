@@ -1,7 +1,6 @@
 ## KeplerJs utils scripts and configuration samples
 
 deploy.heroku.sh			deploy kepler instance in herokuapp.com
-kepler.daemon.sh			run kepler instance at startup in linux systems
 nginx.sample.conf			sample configuration for use nginx as web server proxy
 packages.publish.sh			publish in atmospherejs.com all kepler plugins in github organization
 packages.pull.sh			pull all kepler plugins
@@ -12,3 +11,5 @@ placeholders.list.sh		find all placeholders defined in all templates
 settings.light-ui.json		sample settings.json for minimal loading of kepler plugins templates
 settings.sample.json		sample settings.json for standard kepler app
 start.sh					start kepler in localhost for develop 
+build.sh					create meteor bundle, a standard nodejs application of kepler instance
+kepler.daemon.sh			run production kepler instance at startup in linux systems
