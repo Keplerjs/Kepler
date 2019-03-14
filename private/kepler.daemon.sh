@@ -40,17 +40,16 @@ LOGDIR="/var/log/$APPNAME"
 LOGERR="$LOGDIR/$APPNAME.err"
 LOGOUT="$LOGDIR/$APPNAME.log"
 
-NODE_BIN_DIR="/usr/bin/node"
-export NODE_PATH="/usr/lib/node_modules"
-
-#NODE_OPTIONS="--debug --expose-gc --always-compact"
-#ottimizza utilizzo ram su NodeJs
-
 export MONGO_URL="mongodb://localhost:27017/$APPNAME"
+export MAIL_URL="smtp://localhost:25"
 export METEOR_SETTINGS=`cat "$APPCONF"`
 export ROOT_URL="http://$DOMAIN"
 export BIND_IP=$BIND_IP
 export PORT=$PORT
+
+export NODE_PATH="/usr/lib/node_modules"
+#NODE_OPTIONS="--debug --expose-gc --always-compact"
+##optimize memory usage in NodeJs
 
 FOREVER_DIR=$(bash <<< "dirname $APPFILE")"/.forever"
 FOREVER_PID="$FOREVER_DIR/$APPNAME.pid"
@@ -126,8 +125,11 @@ case "$1" in
     restart)
         restart
         ;;
+    reload)
+        restart
+        ;;
     *)
-        echo "Usage: {start|stop|status|restart}"
+        echo "Usage: {start|stop|status|restart|reload}"
         exit 1
         ;;
 esac
