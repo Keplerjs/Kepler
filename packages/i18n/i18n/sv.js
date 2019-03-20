@@ -71,6 +71,8 @@ i18n.map('sv', {
 	btn_users: "Personer",
 	btn_settings: "Inställningar",
 	btn_addnew: "Lägg till ny",
+	btn_accept: "Acceptera",
+	btn_close: "Stänga",
 	btn_verify: "Verifiera",
 	btn_verified: "Verifierad",
 	btn_notverified: "Inga Verifierad",

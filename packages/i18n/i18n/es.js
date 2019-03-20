@@ -69,6 +69,8 @@ i18n.map('es', {
 	btn_users: "Personas",
 	btn_settings: "Configuracion",
 	btn_addnew: "Añadir Nuevo",
+	btn_accept: "Aceptar",
+	btn_close: "Cerrar",
 	btn_verify: "Verificar",
 	btn_verified: "Verificado",
 	btn_notverified: "No verificado",
