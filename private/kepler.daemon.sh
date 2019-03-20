@@ -59,7 +59,7 @@ DAEMON_LOG="$LOGDIR/$DAEMON_NAME.log"
 DAEMON_BIN="/usr/lib/node_modules/forever/bin/forever"
 
 FOREVER_OPTS="--pidFile $FOREVER_PID -a -l $DAEMON_LOG "\
-"-e $LOGERR -o $LOGOUT --minUptime 5000 --spinSleepTime 2000 start $APPFILE "
+"-e $LOGERR -o $LOGOUT --minUptime 5000 --spinSleepTime 2000"
 
 if [ ! -d "$FOREVER_DIR" ]; then
     echo "make dir: $FOREVER_DIR"
@@ -77,7 +77,7 @@ fi
 
 start() {
     echo "Starting $DAEMON_NAME as user: $DAEMON_USER"
-    su $DAEMON_USER -c "$DAEMON_BIN $FOREVER_OPTS"
+    su $DAEMON_USER -c "$DAEMON_BIN $FOREVER_OPTS start $APPFILE"
     echo $! > $DAEMON_PID
 
     RETVAL=$?
@@ -85,14 +85,13 @@ start() {
 
 stop() {
     if [ -f $DAEMON_PID ]; then
-	echo "Shutting down $DAEMON_NAME"
-        su $DAEMON_USER -c "$DAEMON_BIN stop $APPFILE"
+        echo "Shutting down $DAEMON_NAME"
+        su $DAEMON_USER -c "$DAEMON_BIN $FOREVER_OPTS stop $APPFILE"
         rm -f $DAEMON_PID $FOREVER_PID
-
         RETVAL=$?
     else
-	echo "$DAEMON_NAME is not running."
-	RETVAL=0
+    	echo "$DAEMON_NAME is not running."
+    	RETVAL=0
     fi
 }
 
