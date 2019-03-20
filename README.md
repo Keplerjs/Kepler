@@ -39,6 +39,6 @@ Eric S. Raymond
 5. Open *http://localhost:3000/* in your browser.
 
 
-## Author
-Created by [Stefano Cudini](https://github.com/stefanocudini) [@zakis](http://twitter.com/zakis) and other [contributors](https://github.com/Keplerjs/Kepler/graphs/contributors) under the [MIT](http://opensource.org/licenses/MIT) license.
+## Copyright
+Created by [Stefano Cudini](https://github.com/stefanocudini) [@zakis](http://twitter.com/zakis) and other [contributors](https://github.com/Keplerjs/Kepler/graphs/contributors) under the [BSD 2-Clause](https://opensource.org/licenses/BSD-2-Clause) license.
                 

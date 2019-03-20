@@ -26,7 +26,7 @@
     "email": "stefano.cudini@gmail.com",
     "url": "http://labs.easyblog.it/"
   },
-  "license": "MIT",
+  "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/Keplerjs/Kepler/issues"
   },

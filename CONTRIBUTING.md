@@ -9,7 +9,7 @@ If you want to implement your functionality to keep them generic and compatible 
 
 If you also want to help me correct some translation errors or add new langs… see the i18n core package.
 
-Alternatively, if you want to create your own personal adapter, I recommend you to make it as a KeplerJs plugin1 and publish it with the same license(MIT) in a your public repository and then publish it at Atmospherejs.com!
+Alternatively, if you want to create your own personal adapter, I recommend you to make it as a KeplerJs plugin1 and publish it with the same license in a your public repository and then publish it at Atmospherejs.com!
 
 A good idea to begin to understand basic functionality is to disable all plugins using meteor remove for each meteor package plugin.
 If you want to start kepler adapting to your study case right now, you should take one of the plugin code example, for example keplerjs:share and study its code.
