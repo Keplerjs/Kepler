@@ -58,6 +58,21 @@ Template.itemUserAdmin_admin_btns.onRendered(function() {
 	});
 });
 
+Template.pageUserAdmin_admin_logins.onRendered(function() {
+	var self = this;
+	self.$('.item-btn-logout').btsConfirmButton(function(e) {
+		e.stopPropagation();
+		
+		K.Admin.logoutUser(self.data.username);
+	});
+});
+
+Template.pageUserAdmin_admin_logins.helpers({
+	logins: function() {
+		return K.Util.getPath(Users.findOne(this._id),'services.resume.loginTokens');
+	}
+});
+
 Template.pageAdminUser_admin_contact.helpers({
 	rawdata: function() {
 		if(this.type==='user')

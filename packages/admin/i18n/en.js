@@ -9,6 +9,7 @@ i18n.map('en', {
 	title_panelAdminPlaces: "Manage Places",
 
 	label_rawdata: "Raw Data",
-
+	label_logins: "Sessions",
+	label_nologged: "Not logged",
 	btn_userdel: "Remove User"
 });

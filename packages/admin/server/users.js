@@ -113,6 +113,16 @@ K.Admin.methods({
 			
 		K.updateFriendship(user1._id, user2._id);
 	},
+	logoutUser: function(username) {
+		
+		if(!K.Admin.isMe()) return null;
+
+		Users.update({username: username}, {
+			$set: {
+				"services.resume.loginTokens" : []
+			}
+		});
+	},
 	cleanUserFriendship: function(username) {
 		
 		if(!K.Admin.isMe() || !username) return null;

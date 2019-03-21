@@ -84,10 +84,12 @@ Template.registerHelper('humanTime', function(sec, ago) {
 	return K.Util.humanize.time(sec, parseInt(ago));
 });
 
-Template.registerHelper('numericDate', function(date) {
+Template.registerHelper('numericDate', function(date, time) {
 	if(!date) return '';
 	date = new Date(date);
-	return [date.getDate(), date.getMonth()+1, date.getFullYear()].join('/');
+	var dd = [date.getDate(), date.getMonth()+1, date.getFullYear()].join('/');
+	var tt = [date.getHours(),date.getMinutes()].join(':');
+	return dd+(time && ' '+tt);
 });
 
 Template.registerHelper('humanDate', function(date, short) {

@@ -74,6 +74,7 @@ Router.map(function() {
 			else
 				return {
 					itemSelected: user,
+					rawdata: Users.findOne(this.params.id),
 					items: _.map(userIds, K.userById)
 				};
 		}

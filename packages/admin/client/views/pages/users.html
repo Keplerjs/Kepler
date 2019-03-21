@@ -84,6 +84,32 @@
 	</a>
 </template>
 
+<template name="pageUserAdmin_admin_logins">
+	<label>{{i18n 'label_logins'}}</label>
+	{{#if logins.length}}
+	<div class="pull-right">
+		<a class="btn btn-sm btn-default item-btn-logout" href="#" data-confirm-msg="{{i18n 'btn_logout'}}">
+			<i class="icon icon-logout"></i> {{i18n 'btn_logout'}}
+		</a>
+	</div>
+	<br /><br />
+	<div class="list-group">
+	{{#each logins}}
+		<div class="list-group-item">
+			<span>{{numericDate when 1}}</span>
+		</div>
+	{{/each}}
+	</div>
+	{{else}}
+	<div class="list-group">
+		<label class="text-warning">{{i18n 'label_nologged'}}</label>
+		{{#if loginAt}}
+		<span>{{i18n 'label_logindate'}} {{numericDate loginAt 1}}</span>
+		{{/if}}
+	</div>
+	{{/if}}
+</template>
+
 <template name="pageAdminUser_admin_contact">
 {{#with rawdata}}
 	{{#if emails.length}}

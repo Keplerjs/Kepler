@@ -9,6 +9,8 @@ i18n.map('it', {
 	title_panelAdminPlaces: "Gestisci Luoghi",
 
 	label_rawdata: "Dati grezzi",
+	label_logins: "Sessioni",
+	label_nologged: "Non loggato",
 
 	btn_userdel: "Rimuovi Utente"
 });
