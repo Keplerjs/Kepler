@@ -284,7 +284,7 @@ Kepler.Geoapi = {
 		data = httpGet(src.url);
 		
 		if(data && data.latitude && data.longitude) {
-			ret = K.Util.geo.roundLoc([data.latitude, data.longitude]);
+			ret = data;
 		}
 		else
 			ret = null;
