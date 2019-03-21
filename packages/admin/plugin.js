@@ -4,7 +4,7 @@ K.Plugin({
 	templates: {
 		//new placeholder
 		panelAdmin: {},
-		itemUserAdmin: {},
+		itemUser: 'itemUser_admin',
 		itemPlaceAdmin: {},
 		pageAdminUser: {},
 		pageAdminPlace: {},

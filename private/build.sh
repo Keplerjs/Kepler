@@ -1,11 +1,15 @@
 #!/bin/bash
+#
+#run this script by root
+#kepler is a system user that has install meteor
+#
 
-meteor build --directory ../kepler.bundle
-cd ../kepler.bundle/programs/server/
-npm install --production
-cd ../../
-##your process user:
-#chgrp -R kepler .
-#chmod -R 0775 .
+BDIR="../kepler.bundle"
+mkdir -p $BDIR
+chmod -R 0775 $BDIR
+chgrp -R kepler $BDIR
 
-#and run using kepler.daemon.sh
+su kepler -c "meteor build --directory $BDIR"
+#meteor build --directory
+cd $BDIR/bundle/programs/server/
+su kepler -c "npm install --production"

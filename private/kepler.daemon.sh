@@ -16,6 +16,7 @@
 #
 # NodeJs Forever Demonizer with a low privilege user, official code:
 # 	https://gist.github.com/stefanocudini/6116527
+#     
 # Requirements:
 # 	https://github.com/nodejitsu/forever
 #   npm install -g forever
@@ -33,7 +34,7 @@ BIND_IP=127.0.0.1
 DOMAIN="app.kepler.com"
 
 APPNAME="kepler"
-APPFILE="/var/www/$APPNAME.bundle/main.js"
+APPFILE="/var/www/$APPNAME.bundle/bundle/main.js"
 APPCONF="/var/www/$APPNAME.bundle/settings.json"
 
 LOGDIR="/var/log/$APPNAME"
@@ -77,7 +78,7 @@ fi
 
 start() {
     echo "Starting $DAEMON_NAME as user: $DAEMON_USER"
-    su $DAEMON_USER -c "$DAEMON_BIN $FOREVER_OPTS start $APPFILE"
+    su $DAEMON_USER -c "$DAEMON_BIN start $FOREVER_OPTS $APPFILE"
     echo $! > $DAEMON_PID
 
     RETVAL=$?
@@ -86,7 +87,7 @@ start() {
 stop() {
     if [ -f $DAEMON_PID ]; then
         echo "Shutting down $DAEMON_NAME"
-        su $DAEMON_USER -c "$DAEMON_BIN $FOREVER_OPTS stop $APPFILE"
+        su $DAEMON_USER -c "$DAEMON_BIN stop $FOREVER_OPTS $APPFILE"
         rm -f $DAEMON_PID $FOREVER_PID
         RETVAL=$?
     else
