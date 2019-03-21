@@ -11,5 +11,7 @@ i18n.map('en', {
 	label_rawdata: "Raw Data",
 	label_logins: "Sessions",
 	label_nologged: "Not logged",
+	label_ip: "IP address",
+
 	btn_userdel: "Remove User"
 });

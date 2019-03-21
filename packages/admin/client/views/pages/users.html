@@ -85,29 +85,33 @@
 </template>
 
 <template name="pageUserAdmin_admin_logins">
-	<label>{{i18n 'label_logins'}}</label>
-	{{#if logins.length}}
-	<div class="pull-right">
-		<a class="btn btn-sm btn-default item-btn-logout" href="#" data-confirm-msg="{{i18n 'btn_logout'}}">
-			<i class="icon icon-logout"></i> {{i18n 'btn_logout'}}
-		</a>
-	</div>
-	<br /><br />
+{{#with rawdata}}
 	<div class="list-group">
-	{{#each logins}}
-		<div class="list-group-item">
-			<span>{{numericDate when 1}}</span>
-		</div>
-	{{/each}}
-	</div>
-	{{else}}
-	<div class="list-group">
-		<label class="text-warning">{{i18n 'label_nologged'}}</label>
 		{{#if loginAt}}
-		<span>{{i18n 'label_logindate'}} {{numericDate loginAt 1}}</span>
+		<label>{{i18n 'label_logindate'}}</label> {{numericDate loginAt 1}}
+		{{/if}}
+		{{#if loginIp}}
+		<label>{{i18n 'label_ip'}}</label> <code>{{loginIp}}</code>
 		{{/if}}
 	</div>
+	
+	{{#if services.resume.loginTokens.length}}
+		<div class="pull-right">
+			<a class="btn btn-sm btn-default item-btn-logout" href="#" data-confirm-msg="{{i18n 'btn_logout'}}">
+				<i class="icon icon-logout"></i> {{i18n 'btn_logout'}}
+			</a>
+		</div>
+		<br />
+		<label>{{i18n 'label_logins'}}</label>
+		<div class="list-group">
+		{{#each services.resume.loginTokens}}
+			<div class="list-group-item">
+				<span>{{numericDate when 1}}</span>
+			</div>
+		{{/each}}
+		</div>
 	{{/if}}
+{{/with}}
 </template>
 
 <template name="pageAdminUser_admin_contact">

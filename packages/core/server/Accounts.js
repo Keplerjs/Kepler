@@ -41,7 +41,8 @@ Accounts.onLogin(function(e) {
 	
 	Users.update(e.user._id, {
 		$set: {
-			loginAt: K.Util.time()
+			loginAt: K.Util.time(),
+			loginIp: ip
 		}
 	});
 

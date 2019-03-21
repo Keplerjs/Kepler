@@ -68,8 +68,8 @@ Template.pageUserAdmin_admin_logins.onRendered(function() {
 });
 
 Template.pageUserAdmin_admin_logins.helpers({
-	logins: function() {
-		return K.Util.getPath(Users.findOne(this._id),'services.resume.loginTokens');
+	rawdata: function() {
+		return Users.findOne(this._id);
 	}
 });
 

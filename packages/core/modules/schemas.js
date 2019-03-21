@@ -41,6 +41,7 @@ Kepler.schemas = {
 		avatar: '',		    //user photo
 		mood: '',		    //status mood message, shown in profile
 		loginAt: '',	    //last date of login
+		loginIp: '',		//last ip from login
 
 		status: '',        
 		statusDefault: '', 
