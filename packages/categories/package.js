@@ -1,4 +1,4 @@
-var version = '1.6.0';
+var version = '1.6.1';
 
 Package.describe({
   version: version,
@@ -9,8 +9,7 @@ Package.describe({
 
 Npm.depends({
   'typeahead.js': '0.11.1',
-  'bootstrap-tagsinput':'0.7.1',
-  //'jquery-tokeninput': '1.6.0'
+  'bootstrap-tagsinput':'0.7.1'
 });
 
 Package.onUse(function(api) {

@@ -3,6 +3,9 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+...
+
+## v1.6.1
 - new user field loginIp
 - plugin admin new sessions section in user admin panel
 - custom meta and link tags by settings by K.settings.public.router.meta
