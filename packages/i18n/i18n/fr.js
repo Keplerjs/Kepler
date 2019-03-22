@@ -32,6 +32,7 @@ i18n.map('fr', {
 	label_name: "Nom",
 	label_username: "Username",
 	label_email: "Email",
+	label_social: "Social",
 	label_city: "Ville",
 	label_gender: "Sexe",
 	label_lang: "Langue",

@@ -33,6 +33,7 @@ i18n.map('es', {
 	label_url: "Link",
 	label_username: "Nombre de usuario",
 	label_email: "Enviar",
+	label_social: "Social",
 	label_city: "Ciudad",
 	label_gender: "Sexo",
 	label_lang: "Idioma",

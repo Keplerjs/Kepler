@@ -72,6 +72,7 @@ i18n.map('it', {
 	label_url: "Link",
 	label_username: "Username",
 	label_email: "Email",
+	label_social: "Social",
 	label_city: "Città",
 	label_gender: "Genere",
 	label_lang: "Lingua",

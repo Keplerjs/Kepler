@@ -33,6 +33,7 @@ i18n.map('sv', {
 	label_name: "Namn",
 	label_username: "Användarnamn",
 	label_email: "Email",
+	label_social: "Social",
 	label_city: "Stad",
 	label_gender: "Kön",
 	label_lang: "Språk",

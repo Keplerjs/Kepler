@@ -33,6 +33,7 @@ i18n.map('de', {
 	label_url: "Link",
 	label_username: "Nutzername",
 	label_email: "Email",
+	label_social: "Social",
 	label_city: "Stadt",
 	label_gender: "Geschlecht",
 	label_lang: "Sprache",

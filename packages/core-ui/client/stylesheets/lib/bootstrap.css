@@ -1,4 +1,5 @@
 
+.navbar .close,
 .panel-heading .close {
 	position: absolute;
 	right: 1px;
@@ -6,6 +7,7 @@
 	opacity: 1;
 	color:#fff;
 }
+
 .panel-heading h4 {
 	width: 88%;
 	white-space: nowrap;

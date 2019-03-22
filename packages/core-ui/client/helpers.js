@@ -37,11 +37,10 @@ Template.registerHelper('routeParamIs', function(name, val) {
 });
 Template.registerHelper('routeBack', function() {
 	var cur = Router.current(),
-		u = (cur && cur.url)
+		u = (cur && cur.url),
 		p = u.split('/').slice(0,-1).join('/');
 	return p || 'javascript:history.back()';
 });
-
 
 Template.registerHelper('connectionStatus', function() {
 	return Meteor.status();

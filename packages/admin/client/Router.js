@@ -6,7 +6,8 @@ Router.map(function() {
 		template: 'panelAdmin',
 		layoutTemplate: 'layoutMap',
 		loadingTemplate: 'pageLoading',
-/* TODO fix and uncomment		onBeforeAction: function () {
+		/* TODO fix and uncomment		
+		onBeforeAction: function () {
 			if(!K.Admin.isMe())
 				Router.go('root');
 			else
@@ -38,6 +39,7 @@ Router.map(function() {
 				userIds = _.pluck(users,'_id');
 			userIds = _.without(userIds, K.Profile.id);
 			return {
+
 				items: _.map(userIds, K.userById)
 			};
 		}
