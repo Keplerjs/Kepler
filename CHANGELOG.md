@@ -4,6 +4,7 @@
 
 ## Next version
 - plugin admin new settings adminsAutoFriendship
+- plugin geoinfo new method K.Geoinfo.getIpInfo
 
 ## v1.6.1
 - new user field loginIp

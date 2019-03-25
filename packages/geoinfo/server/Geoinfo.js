@@ -163,6 +163,17 @@ Kepler.Geoinfo = {
 		}
 
 		return prop;
+	},
+	getIpInfo: function(ip) {
+		
+		var ret;
+
+		if(K.settings.geoinfo.caching)
+			ret = K.Cache.get(ip, 'geoip', K.Geoapi.geoip);
+		else
+			ret = K.Geoapi.geoip(ip);
+
+		return ret;
 	}
 };
 
