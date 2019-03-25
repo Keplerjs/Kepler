@@ -24,25 +24,21 @@ Users.after.insert(function(userId, user) {
 
 	if(user.isRobot) return false;
 
-	if(K.settings.admin.adminUsers && K.settings.admin.adminUsers.length) {
-
-		//add all admins in the user friends list
+	if(K.settings.admin.adminsAutoFriendship)
 		K.updateFriendshipAdmins(user._id);
 
-		//user created by admin
-		if( K.settings.admin.emailOnNewUser && 
-			K.Util.getPath(user,'source.options.source.service')!=="kepler-admin") {
+	//user created by admin
+	if( K.settings.admin.emailOnNewUser && 
+		K.Util.getPath(user,'source.options.source.service') !== 'kepler-admin') {
 
-			var sub ="New User: "+ user.username, 
-				body = "<h4>"+user.username+"</h4>"+
-					Meteor.absoluteUrl("user/"+user._id)+"<br />"+
-					user.name+"<br />"+
-					'<img height="80px" widht="80px" src="'+user.avatar+'" /><br />'+
-					user.source.url+"<br />"+
-					user.lang+"<br />";
-					
-			Meteor.call('adminsEmail',sub,body);
-		}
+		//TODO create a template of body
+		Meteor.call('adminsEmail', "New User: "+ user.username,
+				"<h4>"+user.username+"</h4>"+
+				Meteor.absoluteUrl("user/"+user._id)+"<br />"+
+				user.name+"<br />"+
+				'<img height="80px" widht="80px" src="'+user.avatar+'" /><br />'+
+				user.source.url+"<br />"+
+				user.lang);
 	}
 });
 

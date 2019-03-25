@@ -3,7 +3,7 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
-...
+- plugin admin new settings adminsAutoFriendship
 
 ## v1.6.1
 - new user field loginIp

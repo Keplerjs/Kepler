@@ -10,19 +10,29 @@ Meteor.methods({
 	},
 	adminsEmail: function(subject, body) {
 
-		Users.find({isAdmin: 1}).forEach(function (userAdmin) {
-			if(userAdmin.emails && userAdmin.emails[0] && userAdmin.emails[0].address) {
-				Email.send({
-					from: K.settings.accounts.emailTemplates.from,
-					to: userAdmin.emails[0].address,
-					subject: subject || '',
-					html: body || ''
-				});	
-			}
-		});
+		if( K.settings.admin.adminUsers && 
+			K.settings.admin.adminUsers.length ) {
+ 
+			Users.find({isAdmin: 1}).forEach(function(userAdmin) {
+				if(userAdmin.emails && userAdmin.emails[0] && userAdmin.emails[0].address) {
+					try {
+						Email.send({
+							from: K.settings.accounts.emailTemplates.from,
+							to: userAdmin.emails[0].address,
+							subject: subject || '',
+							html: body || ''
+						});	
+					}
+					catch(e) {
+						console.warn('Accounts: email error',e.errno)
+					}
+				}
+			});
+		}
+		else
+			return false;
 	}
 });
-
 
 /*Accounts.onLogin(function(login) {
 
@@ -39,7 +49,7 @@ Meteor.methods({
 });
 */
 Meteor.startup(function() {
-	if(K.settings.admin.adminUsers.length) {
+	if(K.settings.admin.adminUsers && K.settings.admin.adminUsers.length) {
 
 		var on = Users.update({
 			username: {$in: K.settings.admin.adminUsers}
@@ -64,6 +74,7 @@ Meteor.startup(function() {
 			console.log('Admin: autocreate admin account user: admin pass: adminadmin ');
 		}*/
 	}
+	
 	if(K.settings.admin.emailOnStartup) {
 		Meteor.call('adminsEmail','Kepler Startup!');
 	}

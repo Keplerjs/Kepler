@@ -68,7 +68,7 @@ K.Plugin({
 		 * define a targets used by plugin upload
 		 */
 		"public": {
-			"upload": {
+			"upload": {	//THIS PLUGIN ADD SETTINGS TO PLUGIN-UPLOAD
 				"targets": {
 					"photos_places": {
 						"url": "/static/photos/",
@@ -99,7 +99,7 @@ K.Plugin({
 				}
 			}
 		},
-		"upload": {
+		"upload": {	//THIS PLUGIN ADD SETTINGS TO PLUGIN-UPLOAD
 			"targets": {
 				"photos_places": {
 					//pass uploaded object to this method

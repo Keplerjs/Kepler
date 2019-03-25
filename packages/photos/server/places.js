@@ -2,7 +2,12 @@
 var fs = Npm.require('fs');
 
 Meteor.methods({
-
+	/**
+	 * attach to place an uploaded photo
+	 * @param  {Object} fileObj File uploader
+	 * @param  {String} placeId place id to attach photo
+	 * @return {String}         return place id
+	 */
 	updatePlacePhoto: function(fileObj, placeId) {
 
 		if(!this.userId) return null;
@@ -36,7 +41,7 @@ Meteor.methods({
 						places: placeId,
 						photos: placeId
 					}
-				});	
+				});
 
 				console.log('Photos: updatePlacePhoto create new place ', placeId, exifData.loc)
 
