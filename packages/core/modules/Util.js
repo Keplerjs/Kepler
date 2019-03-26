@@ -60,20 +60,29 @@ Kepler.Util = {
 
 		return newDate;   
 	},
-
+	/**
+	 * return numeric current unix timestamp
+	 * @param  {Date} date [description]
+	 * @return {Number}      [description]
+	 */
 	time: function(date) {
 		date = date || new Date();
 		return date.getTime();
 	},
-
-	timeName: function(prefix) {
+	/**
+	 * return string name current unix timestamp
+	 * @param  {[type]} prefix [description]
+	 * @return {[type]}        [description]
+	 */
+	timeName: function(prefix, sep) {
 		prefix = prefix || '';
+		sep = sep || '-';
 		var D = new Date(),
 			d = D.getDate(),
 			m = D.getMonth()+1,
 			y = D.getFullYear(),
-			today = [d,m,y].join('.');
-		return K.Util.sanitize.name(prefix+' '+today);
+			today = [d,m,y].join(sep);
+		return K.Util.sanitize.name(prefix+today);
 	},
 
 	isMobile: function() {
@@ -84,6 +93,31 @@ Kepler.Util = {
 		//https://stackoverflow.com/questions/17845584/converting-a-random-string-into-a-hex-colour
 		this.color_codes = {};
 	    return (str in this.color_codes) ? this.color_codes[str] : (this.color_codes[str] = '#'+ ('000000' + (Math.random()*0xFFFFFF<<0).toString(16)).slice(-6));
+	},
+	/**
+	 * transform json or literal object into a nested ul list
+	 * @param  {Object} json json string or literal object
+	 * @return {String}      return html ul li
+	 */
+	json2html: function(json) {
+		var obj = _.isString(json) ? JSON.parse(json) : json,
+			list = '<ul style="list-style:none">';
+
+		if(_.isObject(obj)) {
+			for (const key in obj) {
+				let val = obj[key];
+				if (obj.hasOwnProperty(key)) {
+
+					if(_.isObject(val))
+						val = K.Util.json2html(val);
+					else
+						val = '<span>'+val+'</span>';
+
+					list += "<li><i>"+key+"</i>&nbsp;"+(val)+"</li>";
+				}
+			}
+		}
+		return list+"</ul>";
 	},
 
 	randomString(len) {

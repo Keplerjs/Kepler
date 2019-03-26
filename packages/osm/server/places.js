@@ -29,7 +29,7 @@ var osmToPlace = function(osm) {
 		prop = feature.properties,
 		coords = feature.geometry.coordinates;
 
-	var name = prop.tags.name || '';//K.Util.timeName('osm '+prop.id)
+	var name = prop.tags.name || '';
 
 	var place = {
 		name: name, //K.Util.sanitize.name(name),

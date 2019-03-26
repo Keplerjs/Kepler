@@ -108,7 +108,7 @@ Template.registerHelper('humanLoc', function(loc, pre) {
 	debugging helpers
 */
 Template.registerHelper('log', function(prop) {
-	return '<pre>'+JSON.stringify(prop,null,4)+'</pre>';
+	return '<pre class="log">'+JSON.stringify(prop,null,4)+'</pre>';
 });
 
 Template.registerHelper('htmlComment', function() {

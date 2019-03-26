@@ -3,6 +3,7 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+- new method K.Util.json2html transform json or literal object into a nested ul list
 - plugin admin new settings adminsAutoFriendship
 - plugin geoinfo new method K.Geoinfo.getIpInfo
 

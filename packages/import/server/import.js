@@ -4,7 +4,7 @@ var geojsonToPlace = function(feature, importName) {
 	var prop = feature.properties,
 		coords = feature.geometry.coordinates;
 
-	var name = prop.name || '';//K.Util.timeName('obj '+prop.id)
+	var name = prop.name || '';
 
 	_.each(prop, function(v, k) {
 		if(!v) {
