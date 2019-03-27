@@ -6,6 +6,8 @@ var urls = {
 		usersByGeo: '/stats/users/bygeo',
 		usersByDate: '/stats/users/bydate',
 		conversByDate: '/stats/convers/bydate',
+		
+		placesByField: '/stats/places/byfield/:field',
 	},
 	opts = { 
 		where: 'server',
@@ -81,6 +83,17 @@ Router.route(urls.conversByDate, opts)
 .get(function (req, res) {
 
 	var out = K.Cache.get('conversByDate','stats', K.Stats.findConversByDate, K.settings.stats.cacheTime);
+
+	writeOut(req, res, out);
+});
+
+//TODO
+Router.route(urls.placesByField, opts)
+.get(function (req, res) {
+
+	//var out = K.Cache.get('placesByField','stats', K.Stats.findPlacesByField, K.settings.stats.cacheTime);
+	console.log('Stats: placesByField',this.params)
+	var out = K.Stats.findPlacesByField(this.params.field);
 
 	writeOut(req, res, out);
 });

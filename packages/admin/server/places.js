@@ -135,5 +135,28 @@ K.Admin.methods({
 		Places.update({}, {$set: {checkins: []} }, { multi: true });
 
 		console.log('Admin: cleanAllCheckins');
+	},
+	sanitizePlacesField: function(field, func) {
+
+		if(!K.Admin.isMe() || !field || !K.Util.sanitize[func] ) return null;
+
+		var filter = {},
+			count = 0
+		
+		filter[field]= {'$exists':true, '$ne':null, '$ne': ''};
+
+		Places.find(filter).forEach(function(place) {
+			
+			var set = {};
+			
+			set[field] = K.Util.sanitize[func]( K.Util.getPath(place,field) );
+
+			count += Places.update(place._id, {
+				$set: set
+			});
+
+		});
+
+		console.log('Admin: sanitizePlacesField', field, func, count);
 	}
 });

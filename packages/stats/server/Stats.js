@@ -121,9 +121,7 @@ Kepler.Stats = {
 		return geojson;
 	},
 
-	findUsersByDate: function(limit) {
-
-		limit = limit || 90;
+	findUsersByDate: function() {
 
 		var data = Users.find({}, {
 			fields: { createdAt: 1 },
@@ -150,9 +148,7 @@ Kepler.Stats = {
 		};
 	},
 
-	findPlacesByDate: function(limit) {
-
-		limit = limit || 90;
+	findPlacesByDate: function() {
 
 		var data = Places.find({}, {
 			fields: { createdAt: 1 },
@@ -173,17 +169,13 @@ Kepler.Stats = {
 			return [parseInt(key), count];//, num];
 		});
 
-		//TODO data = _.last(data, limit)
-
 		return {
 			count: count,
 			rows: data
 		};
 	},
 
-	findConversByDate: function(limit) {
-
-		limit = limit || 90;
+	findConversByDate: function() {
 
 		var data = K.Messages.find({}, {
 			fields: { updatedAt: 1 },
@@ -204,20 +196,56 @@ Kepler.Stats = {
 			return [parseInt(key), count];
 		});
 
-		//TODO data = _.last(data, limit)
-
 		return {
 			count: count,
 			rows: data
 		};
-	}	
+	},
+
+	findPlacesByField: function(field) {
+
+		field = field || 'geoinfo.naz';
+		
+		var filter = {},
+			fields = {};
+		
+		filter[field]= {'$exists':true, '$ne':null, '$ne': ''};
+		fields[field]= 1;
+
+		var data = Places.find(filter, {
+			fields: fields,
+			sort: { createdAt: 1}
+		}).fetch();
+
+		data = _.map(data, function(o) {
+			var v = K.Util.getPath(o,field);
+			v = v.toLowerCase();
+			return o;
+		});
+
+		data = _.countBy(data, function(o) {
+			return K.Util.getPath(o,field);
+		});
+
+		var count = 0;
+		var rows = _.map(data, function(num, key) {
+			count += num;
+			return [key, count];
+		});
+
+		return {
+			count: count,
+			rows: rows
+		};
+	},
+
 };
 
 Meteor.methods({
 	findPlacesStats: function(noClassify) {
 		return K.Stats.findPlaces(noClassify);
 	},
-	findUsersStats: function(noClassify) {
+	/*findUsersStats: function(noClassify) {
 		return K.Stats.findUsers(noClassify);
-	}
+	}*/
 });

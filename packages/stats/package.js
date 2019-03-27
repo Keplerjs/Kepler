@@ -13,7 +13,8 @@ Npm.depends({
 
 Package.onUse(function(api) {
   api.use([
-    'keplerjs:core@'+version
+    'keplerjs:core@'+version,
+    'keplerjs:geoinfo@'+version
   ]);
 
   api.versionsFrom("1.5.1");

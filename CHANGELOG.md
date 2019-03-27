@@ -6,6 +6,7 @@
 - new method K.Util.json2html transform json or literal object into a nested ul list
 - plugin admin new settings adminsAutoFriendship
 - plugin geoinfo new method K.Geoinfo.getIpInfo
+- plugin admin new method for debug data in database, sanitizePlacesField
 
 ## v1.6.1
 - new user field loginIp
