@@ -25,6 +25,13 @@ var httpGet = function(url) {
 	}
 }
 
+var sanitizeText = function(text) {
+	if(_.isString(text) && text!=='')
+		return K.Util.sanitize.name(text).toLowerCase();
+	else
+		return null;
+};
+
 Kepler.Geoapi = {	
 	/**
 	 * return the geo aspect the compass direction that a slope faces(free service but only for Italy)
@@ -109,11 +116,11 @@ Kepler.Geoapi = {
 		data = httpGet(src.url);
 
 		if(data && data.geonames && data.geonames[0] && data.geonames[0][src.par])
-			ret = K.Util.sanitize.name(data.geonames[0][src.par]);
+			ret = data.geonames[0][src.par];
 		else
 			ret = null;
 
-		return ret;
+		return sanitizeText(ret);
 	},
 	/**
 	 * return municipality from geonames
@@ -132,11 +139,11 @@ Kepler.Geoapi = {
 		data = httpGet(src.url);
 		
 		if(data && data[src.par])
-			ret = K.Util.sanitize.name(data[src.par]);
+			ret = data[src.par];
 		else
 			ret = null;
 
-		return ret;
+		return sanitizeText(ret);
 	},
 	/**
 	 * return province from geonames
@@ -155,11 +162,11 @@ Kepler.Geoapi = {
 		data = httpGet(src.url);
 
 		if(data && data[src.par])
-			ret = K.Util.sanitize.name(data[src.par]);
+			ret = data[src.par];
 		else
 			ret = null;
 
-		return ret;
+		return sanitizeText(ret);
 	},
 	/**
 	 * return region from geonames
@@ -178,11 +185,11 @@ Kepler.Geoapi = {
 		data = httpGet(src.url);
 		
 		if(data && data[src.par])
-			ret = K.Util.sanitize.name(data[src.par]);
+			ret = data[src.par];
 		else
 			ret = null;
 
-		return ret;
+		return sanitizeText(ret);
 	},
 	/**
 	 * return country from geonames
@@ -201,11 +208,11 @@ Kepler.Geoapi = {
 		data = httpGet(src.url);
 
 		if(data && data[src.par])
-			ret = K.Util.sanitize.name(data[src.par]);
+			ret = data[src.par];
 		else
 			ret = null;
 
-		return ret;
+		return sanitizeText(ret);
 	},
 	/**
 	 * return geocoding from nominatim OSM

@@ -8,11 +8,11 @@ Kepler.Util = {
 	/**
 	 * return sub property of object by path string
 	 * @param  {Object} obj  [description]
-	 * @param  {String} parh [description]
+	 * @param  {String} path [description]
 	 * @return {Object}      [description]
 	 */
-	 getPath: function(obj, prop) {
-		var parts = prop ? prop.split('.') : [],
+	getPath: function(obj, path) {
+		var parts = path ? path.split('.') : [],
 			last = parts.pop(),
 			len = parts.length,
 			cur = parts[0],
@@ -26,6 +26,31 @@ Kepler.Util = {
 			return obj[last];
 	},
 
+	/**
+	 * set sub property of object by path string
+	 * @param  {Object} obj  [description]
+	 * @param  {String} path [description]
+	 * @param  {String} value [description]
+	 * @return {Object}      [description]
+	 */
+	setPath: function(obj, path, value) {
+		//inspired by https://medium.com/data-scraper-tips-tricks/safely-read-write-in-deeply-nested-objects-js-a1d9ddd168c6
+
+		var properties = _.isArray(path) ? path : path.split(".");
+
+		// Not yet at the last property so keep digging
+		if (properties.length > 1) {
+		// The property doesn't exists OR is not an object (and so we overwritte it) so we create it
+		if (!obj.hasOwnProperty(properties[0]) || typeof obj[properties[0]] !== "object") obj[properties[0]] = {}
+		  // We iterate.
+		return K.Util.setPath(obj[properties[0]], properties.slice(1), value)
+		  // This is the last property - the one where to set the value
+		} else {
+			// We set the value to the last property
+			obj[properties[0]] = value
+			return true // this is the end
+		}
+	},
 	/**
 	 * minimal template function
 	 * @param  {String} str  [description]

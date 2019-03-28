@@ -204,7 +204,7 @@ Kepler.Stats = {
 
 	findPlacesByField: function(field) {
 
-		field = field || 'geoinfo.naz';
+		if(!field) return null;
 		
 		var filter = {},
 			fields = {};
@@ -218,20 +218,32 @@ Kepler.Stats = {
 		}).fetch();
 
 		data = _.map(data, function(o) {
-			var v = K.Util.getPath(o,field);
-			v = v.toLowerCase();
+			var v = K.Util.getPath(o, field);
+			//patch fo geoinfo data fields
+			v = _.isString(v) ? v.toLowerCase() : v;
+
+			K.Util.setPath(o, field, v);
 			return o;
 		});
 
+		data = _.filter(data, function(o) {
+			var v = K.Util.getPath(o, field)
+			return !_.isEmpty(v);
+		});
+
 		data = _.countBy(data, function(o) {
-			return K.Util.getPath(o,field);
+			return K.Util.getPath(o, field);
 		});
 
 		var count = 0;
 		var rows = _.map(data, function(num, key) {
 			count += num;
-			return [key, count];
+			return [key, num];
 		});
+
+		rows = _.sortBy(rows, function(r) {
+			return r[1];
+		}).reverse();
 
 		return {
 			count: count,
