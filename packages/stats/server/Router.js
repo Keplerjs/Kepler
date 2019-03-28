@@ -91,9 +91,13 @@ Router.route(urls.conversByDate, opts)
 Router.route(urls.placesByField, opts)
 .get(function (req, res) {
 
-	//var out = K.Cache.get('placesByField','stats', K.Stats.findPlacesByField, K.settings.stats.cacheTime);
-	console.log('Stats: placesByField',this.params)
-	var out = K.Stats.findPlacesByField(this.params.field);
+	var field = this.params.field,
+		out = K.Cache.get('placesByField','stats', function() {
+			return K.Stats.findPlacesByField(field);
+		}, K.settings.stats.cacheTime);
+
+	//console.log('Stats: placesByField',this.params)
+	//var out = K.Stats.findPlacesByField(this.params.field);
 
 	writeOut(req, res, out);
 });
