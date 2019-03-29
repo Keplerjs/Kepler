@@ -91,8 +91,9 @@ Router.route(urls.conversByDate, opts)
 Router.route(urls.placesByField, opts)
 .get(function (req, res) {
 
-	var field = this.params.field,
-		out = K.Cache.get('placesByField','stats', function() {
+	var field = this.params.field || '';
+
+	var	out = K.Cache.get('placesByField_'+field, 'stats', function() {
 			return K.Stats.findPlacesByField(field);
 		}, K.settings.stats.cacheTime);
 
