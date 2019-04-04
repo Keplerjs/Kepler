@@ -204,6 +204,8 @@ Kepler.Stats = {
 
 	findPlacesByField: function(field) {
 
+		field = K.Util.sanitize.regExp(field);
+
 		if(!field) return null;
 		
 		var filter = {},
@@ -225,7 +227,7 @@ Kepler.Stats = {
 		data = _.map(data, function(o) {
 			var v = K.Util.getPath(o, field);
 			v = _.isString(v) ? v.toLowerCase() : v;
-			v = _.isArray(v) ? v.sort().join() : v;
+			v = _.isArray(v) ? v.length : v;
 			v = _.isObject(v) ? JSON.stringify(v) : v;
 			K.Util.setPath(o, field, v);
 			return o;
@@ -251,6 +253,67 @@ Kepler.Stats = {
 		};
 	},
 
+	findUsersByField: function(field) {
+
+		field = K.Util.sanitize.regExp(field);
+
+		if(!field) return null;
+
+		var allowFields = [
+			'createdAt','loginAt','status',
+			'city','lang','mob',
+			'checkins','friends','source','places'
+		];
+
+		if(!_.contains(allowFields, field)) return null;
+
+		var filter = {},
+			fields = {};
+		
+		filter[field]= {'$exists':true, '$ne':null, '$ne': ''};
+		fields[field]= 1;
+		fields._id = -1;
+
+		var data = Users.find(filter, {
+			fields: fields,
+			sort: { createdAt: 1}
+		}).fetch();
+
+		data = _.filter(data, function(o) {
+			var v = K.Util.getPath(o, field);
+			console.log(v)
+			return v!='' && v!=null;
+		});
+
+		data = _.map(data, function(o) {
+			var v = K.Util.getPath(o, field);
+			v = _.isString(v) ? v.toLowerCase() : v;
+			v = _.isArray(v) ? v.length : v;
+			v = _.isObject(v) ? JSON.stringify(v) : v;
+			K.Util.setPath(o, field, v);
+			return o;
+		});
+
+		data = _.countBy(data, function(o) {
+			console.log(o)
+			return K.Util.getPath(o, field);
+		});
+
+		var count = 0;
+		var rows = _.map(data, function(num, key) {
+			count += num;
+			return [key, num];
+		});
+
+		rows = _.sortBy(rows, function(r) {
+			return r[1];
+		}).reverse();
+
+		return {
+			count: count,
+			rows: rows
+		};
+	},
 };
 
 Meteor.methods({

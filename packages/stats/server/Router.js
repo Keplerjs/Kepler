@@ -8,6 +8,7 @@ var urls = {
 		conversByDate: '/stats/convers/bydate',
 		
 		placesByField: '/stats/places/byfield/:field',
+		usersByField: '/stats/users/byfield/:field',
 	},
 	opts = { 
 		where: 'server',
@@ -87,7 +88,7 @@ Router.route(urls.conversByDate, opts)
 	writeOut(req, res, out);
 });
 
-//TODO
+
 Router.route(urls.placesByField, opts)
 .get(function (req, res) {
 
@@ -97,8 +98,18 @@ Router.route(urls.placesByField, opts)
 			return K.Stats.findPlacesByField(field);
 		}, K.settings.stats.cacheTime);
 
-	//console.log('Stats: placesByField',this.params)
-	//var out = K.Stats.findPlacesByField(this.params.field);
+	writeOut(req, res, out);
+});
+
+Router.route(urls.usersByField, opts)
+.get(function (req, res) {
+
+	var field = this.params.field || '';
+
+	var	out = K.Cache.get('usersByField_'+field, 'stats', function() {
+			return K.Stats.findUsersByField(field);
+		}, 'none');// K.settings.stats.cacheTime);
 
 	writeOut(req, res, out);
 });
+
