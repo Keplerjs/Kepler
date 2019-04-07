@@ -108,7 +108,7 @@ Router.route(urls.usersByField, opts)
 
 	var	out = K.Cache.get('usersByField_'+field, 'stats', function() {
 			return K.Stats.findUsersByField(field);
-		}, 'none');// K.settings.stats.cacheTime);
+		}, K.settings.stats.cacheTime);
 
 	writeOut(req, res, out);
 });

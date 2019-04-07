@@ -204,8 +204,6 @@ Kepler.Stats = {
 
 	findPlacesByField: function(field) {
 
-		field = K.Util.sanitize.regExp(field);
-
 		if(!field) return null;
 		
 		var filter = {},
@@ -220,12 +218,13 @@ Kepler.Stats = {
 		}).fetch();
 
 		data = _.filter(data, function(o) {
-			var v = K.Util.getPath(o, field)
-			return !_.isEmpty(v);
+			var v = K.Util.getPath(o, field);
+			return v!='' && v!=null;
 		});
 
 		data = _.map(data, function(o) {
 			var v = K.Util.getPath(o, field);
+			console.log(v)
 			v = _.isString(v) ? v.toLowerCase() : v;
 			v = _.isArray(v) ? v.length : v;
 			v = _.isObject(v) ? JSON.stringify(v) : v;
@@ -255,8 +254,6 @@ Kepler.Stats = {
 
 	findUsersByField: function(field) {
 
-		field = K.Util.sanitize.regExp(field);
-
 		if(!field) return null;
 
 		var allowFields = [
@@ -272,7 +269,7 @@ Kepler.Stats = {
 		
 		filter[field]= {'$exists':true, '$ne':null, '$ne': ''};
 		fields[field]= 1;
-		fields._id = -1;
+		//fields._id = -1;
 
 		var data = Users.find(filter, {
 			fields: fields,
@@ -281,7 +278,6 @@ Kepler.Stats = {
 
 		data = _.filter(data, function(o) {
 			var v = K.Util.getPath(o, field);
-			console.log(v)
 			return v!='' && v!=null;
 		});
 

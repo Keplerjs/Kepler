@@ -17,7 +17,9 @@ Kepler.Util.sanitize = {
 	},
 
 	regExp: function(text) {
-		return text && text.replace(new RegExp("[({[^.$*+?\\\]})]","g"),'');
+		text = text || '';
+		return text
+			.replace(/[({[^$\*\.+?\\\]})]/g,'');
 	},
 
 	name: function(name) {
