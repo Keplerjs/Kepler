@@ -34,6 +34,7 @@
 	},
 	"admin": {
 		"emailOnNewUser": false,
+		"adminsAutoFriendship": true,
 		"adminUsers": ["admin"]
 	},
 	"upload": {

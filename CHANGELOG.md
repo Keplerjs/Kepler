@@ -5,6 +5,9 @@
 ## Next version
 - new method K.Util.setPath set sub property of object by path string
 - new method K.Util.json2html transform json or literal object into a nested ul list
+- plugin pois new method K.Pois.poisTracks
+- plugin Openrouteservice extend K.Pois.poisTracks
+- plugin Openrouteservice K.settings.public.openrouteservice.poisRoutes
 - plugin admin new settings adminsAutoFriendship
 - plugin geoinfo new method K.Geoinfo.getIpInfo
 - plugin admin new method for debug data in database, sanitizePlacesField
@@ -44,7 +47,6 @@
 - plugin categories admin remove categories
 - plugin categories admin create new cat by name
 - plugin categories admin user and place sections
-
 
 ## v1.5.8
 - movable places
