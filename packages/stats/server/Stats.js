@@ -257,9 +257,10 @@ Kepler.Stats = {
 		if(!field) return null;
 
 		var allowFields = [
-			'createdAt','loginAt','status',
-			'city','lang','mob',
-			'checkins','friends','source','places'
+			'createdAt','loginAt','status','checkin',
+			'city','lang','mob','gender',
+			'checkins','friends','places',
+			'source.service'
 		];
 
 		if(!_.contains(allowFields, field)) return null;
