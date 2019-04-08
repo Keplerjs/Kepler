@@ -89,7 +89,7 @@ Kepler.Profile = {
 	},
 	setMobile: function(val) {
 		Users.update(Meteor.userId(), {
-			$set: {mob: val }
+			$set: {mob: !!val }
 		});
 		return this;
 	},

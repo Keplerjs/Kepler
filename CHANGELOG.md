@@ -3,7 +3,6 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
-- fix K.Util.sanitize.regExp
 - new method K.Util.setPath set sub property of object by path string
 - new method K.Util.json2html transform json or literal object into a nested ul list
 - plugin admin new settings adminsAutoFriendship
@@ -11,6 +10,8 @@
 - plugin admin new method for debug data in database, sanitizePlacesField
 - plugin geoinfo sanitize text values
 - plugin stats new stat findPlacesByField 
+- fix K.Util.sanitize.regExp
+- fix mobile status
 
 ## v1.6.1
 - new user field loginIp

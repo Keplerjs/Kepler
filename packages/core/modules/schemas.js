@@ -53,7 +53,7 @@ Kepler.schemas = {
 		loc: null,		   //current gps position
 		loclast: null,	   //lat gps position
 		checkin: null,	   //id Place where I am
-		mob:0,			   //if my device is mobile
+		mob: false,			   //if my device is mobile
 		friends: [],	   //ids users friends
 		usersPending: [],  //ids users that I send request
 		usersReceive: [],  //ids users that I receive request
