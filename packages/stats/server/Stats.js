@@ -278,7 +278,7 @@ Kepler.Stats = {
 
 		data = _.filter(data, function(o) {
 			var v = K.Util.getPath(o, field);
-			return v!='' && v!=null;
+			return v!=='' && v!==null;
 		});
 
 		data = _.map(data, function(o) {
@@ -286,12 +286,13 @@ Kepler.Stats = {
 			v = _.isString(v) ? v.toLowerCase() : v;
 			v = _.isArray(v) ? v.length : v;
 			v = _.isObject(v) ? JSON.stringify(v) : v;
+			v = _.isBoolean(v) ? ""+v : v;
 			K.Util.setPath(o, field, v);
 			return o;
 		});
 
 		data = _.countBy(data, function(o) {
-			console.log(o)
+			//console.log(o)
 			return K.Util.getPath(o, field);
 		});
 
