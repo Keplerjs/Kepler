@@ -11,27 +11,10 @@ Kepler.Pois = {
 		}
 		return type;
 	},
-	
-	poisTracks: function(loc, features) {
 
-		var placeLoc = [loc[1], loc[0]],
-			coordLines = _.map(features, function(poi) {
-				return [placeLoc, poi.geometry.coordinates];
-			});
-			
-		return K.Util.geo.createFeature('MultiLineString', coordLines);
-	},
-
- 	poisToGeojson: function(features, place, poisType) {
-		//decorate Poi markers with place circle and lines from place to pois
-		
+ 	poisToGeojson: function(features) {
+ 		
 		var self = this;
-
-		if(poisType) {
-			features = _.filter(features, function(feature) {
-				return self.typeByTags(feature.properties.tags) === poisType;
-			});
-		}
 
 		features = _.map(features, function(feature) {
 			feature.templateMarker = 'markerPoi'; 
@@ -39,8 +22,6 @@ Kepler.Pois = {
 			return feature;
 		});
 
-		var poisTracks = self.poisTracks(place.loc, features);
-
-		return K.Util.geo.createFeatureColl(_.union(features, poisTracks));
+		return K.Util.geo.createFeatureColl(features);
 	}
 };

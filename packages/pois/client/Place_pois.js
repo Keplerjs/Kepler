@@ -1,5 +1,4 @@
 
-
 Kepler.Place.include({
 
 	poisList: null,
@@ -11,7 +10,7 @@ Kepler.Place.include({
 		cb = _.isFunction(cb) ? cb : $.noop;
 
 		if(self.poisList)
-			cb(self.poisList);
+			cb.call(self, K.Pois.poisToGeojson(self.poisList) );
 		else
 			Meteor.subscribe('poisByPlace', self.id, function() {
 				
@@ -19,23 +18,56 @@ Kepler.Place.include({
 
 				self._dep.changed();
 
-				cb(self.poisList);
+				cb.call(self, K.Pois.poisToGeojson(self.poisList) );
 			});
+		return this;
 	},
+
+	loadPoisTracks: function(poisGeojson, cb) {
+		var self = this;
+
+		var placeLoc = [self.loc[1], self.loc[0]],
+			coords = _.map(poisGeojson.features, function(poi) {
+				return [placeLoc, poi.geometry.coordinates];
+			}),
+			tracksGeojson = K.Util.geo.createFeatureColl([
+				K.Util.geo.createFeature('MultiLineString', coords)
+			]);
+
+		setTimeout(function() {
+			
+			cb.call(self, tracksGeojson);
+
+		},100);
+		
+		return this;
+	},
+	
 	showPois: function(poisType) {
 		
 		var self = this
 
-		self.loadPois(function(poisList) {
+		self.loadPois(function(poisGeojson) {
 
-			if(poisList.length) {
-				
-				var geojsonPois = K.Pois.poisToGeojson(poisList, self, poisType);
-
-				K.Map.addGeojson(geojsonPois, {
-					style: K.settings.public.map.styles.pois
+			if(poisType) {
+				poisGeojson.features = _.filter(poisGeojson.features, function(f) {
+					return K.Pois.typeByTags(f.properties.tags) === poisType;
 				});
 			}
+			
+			K.Map.addGeojson(poisGeojson, {
+				clear: true,
+				style: K.settings.public.map.styles.pois
+			});
+
+			self.loadPoisTracks(poisGeojson, function(tracksGeojson) {
+
+				K.Map.addGeojson(tracksGeojson, {
+					clear: false,
+					noFitBounds: true,
+					style: K.settings.public.map.styles.pois
+				});
+			});
 		});
 	},
 	getPoisList: function() {
