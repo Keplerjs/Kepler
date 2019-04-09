@@ -9,7 +9,9 @@ K.Plugin({
 		"public": {
 			"map": {
 				"styles": {
-					"pois": { "color": "#f33", "weight": 4, "opacity": 0.7, "dashArray": "1,6"}
+					"pois": {
+						"color": "#f33", "opacity": 0.8, "weight": 4, "dashArray": "4,6"
+					}
 				}
 			},
 			"pois": {

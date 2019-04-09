@@ -16,6 +16,7 @@
 - plugin stats new stat findPlacesByField 
 - fix K.Util.sanitize.regExp
 - fix mobile status
+- fix K.Map zoomout geojson reloading
 
 ## v1.6.1
 - new user field loginIp
