@@ -32,7 +32,7 @@
   },
   "homepage": "http://keplerjs.io",
   "dependencies": {
-    "@babel/runtime": "^7.0.0-beta.55",
+    "@babel/runtime": "^7.4.3",
     "bcrypt": "^3.0.4",
     "core-js": "^2.5.4",
     "fibers": "^3.0.0",

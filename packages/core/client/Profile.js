@@ -70,12 +70,19 @@ Kepler.Profile = {
 		return (self.data.status==='online' || self.data.status==='away');
 	},	
 	setOnline: function(online) {
-		var self = this;
-		Meteor.call('UserPresence:setDefaultStatus', online?'online':'offline', function(err, data) {
+
+		var self = this,
+			stat = (!!online)?'online':'offline';
+
+		Meteor.call('UserPresence:setDefaultStatus', stat, function(err, data) {
+			if(err)
+				console.warn('error',err)
 			self._deps.online.changed();
 		});
+		
 		if(!online && K.Map.controls.gps)
 			K.Map.controls.gps.deactivate();
+
 		return this;
 	},
 	setLoc: function(loc) {

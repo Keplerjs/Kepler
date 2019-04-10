@@ -1,4 +1,4 @@
-var version = '1.6.1';
+var version = '1.6.2';
 
 Package.describe({
   version: version,
@@ -68,8 +68,8 @@ Package.onUse(function(api) {
     'accounts-google',
     'accounts-github',
     //'accounts-twitter',
-    
     'blaze-html-templates@1.1.2',
+
     'matb33:collection-hooks@0.8.4',
     'underscorestring:underscore.string@3.3.4',
     'kidovate:bootstrap-slider@0.0.5',
@@ -82,7 +82,7 @@ Package.onUse(function(api) {
     'mstn:accounts-openstreetmap@0.2.0',
 
     'nooitaf:colors@1.1.2_1',	//https://www.npmjs.com/package/colors
-    'konecty:user-presence@1.2.9',
+    'konecty:user-presence@2.4.0',
     'juliancwirko:s-alert@3.2.0',
     'ostrio:iron-router-helper-class@1.0.1',
     'ostrio:iron-router-meta@1.1.0',

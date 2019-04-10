@@ -3,6 +3,10 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+...
+
+## v1.6.2
+- upgrade to Meteor 1.8.1 and other libs updates
 - new method K.Util.setPath set sub property of object by path string
 - new method K.Util.json2html transform json or literal object into a nested ul list
 - plugin pois new async method K.Place.loadPoisTracks()

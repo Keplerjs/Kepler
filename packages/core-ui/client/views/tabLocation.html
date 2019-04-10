@@ -28,20 +28,24 @@
 
 <template name="btns_location">
 {{#if getCheckin}}
-
+	
+	{{#if getCheckin}}
 	{{#with placeById getCheckin}}
 	
 		{{> item_place}} 
 	
 	{{/with}}
+	{{/if}}
 
 	{{#if isMe}}
 	
+		{{#if getCheckin}}
 		{{#with placeById getCheckin}}
 	
 			{{> place_btn_checkin}}
 	
 		{{/with}}
+		{{/if}}
 
 	{{/if}}
 {{else}}
