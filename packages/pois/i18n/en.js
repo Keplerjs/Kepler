@@ -11,5 +11,7 @@ i18n.map('en', {
 	pois_type_eat: "Where to eat",
 	pois_type_camp: "Where to camp",
 	pois_type_bed: "Where to sleep",
-	pois_type_bus: "Bus stop"
+	pois_type_bus: "Bus stop",
+
+	error_nopoisfound: "Points Of Interest Not Found nearby",
 });

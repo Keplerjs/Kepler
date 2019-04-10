@@ -17,9 +17,11 @@ K.Plugin({
 				"caching": true,	//cache response by OSM overpass		
 				"maxDistance": 800,
 				"typesByTags": {
+				//osm tags classification
 					"highway=path": "path",
 					"highway=track": "path",
-					"highway=footway": "path"
+					"highway=footway": "path",
+					"highway=pedestrian": "path"
 				}			
 			}
 		}

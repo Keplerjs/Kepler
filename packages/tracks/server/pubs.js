@@ -21,7 +21,7 @@ Meteor.publish('tracksByPlace', function(placeId) {
 			loc = placeData.loc,
 			imported = 0;
 
-		//var tracksCur = findTracksByLoc(loc);
+		//var tracksCur = K.findTracksByLoc(loc);
 		//TODO optimize this condition caching
 		//if(tracksCur.count()===0) {
 			var findOsm = function(loc) {
@@ -63,7 +63,7 @@ Meteor.publish('tracksByPlace', function(placeId) {
 			
 			console.log('Pub: tracksByPlace import from osm ',imported,'ways');
 
-			tracksCur = findTracksByLoc(placeData.loc);
+			tracksCur = K.findTracksByLoc(placeData.loc);
 		//}
 
 		console.log('Pub: tracksByPlace', placeId, tracksCur.count(),'tracks');

@@ -20,6 +20,7 @@ K.Plugin({
 				"maxDistance": 500,
 				"importPois": true,	//enable importing of pois like place
 				"typesByTags": {
+					//osm tags classification
 					"amenity=drinking_water": "water",
 					"amenity=fountain":       "water",
 					"amenity=bar":        "drink",

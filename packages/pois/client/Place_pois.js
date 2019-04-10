@@ -16,6 +16,9 @@ Kepler.Place.include({
 				
 				self.poisList = K.findPoisByLoc(self.loc).fetch();
 
+				if(!self.poisList.length)
+					sAlert.warning(i18n('error_nopoisfound'))
+
 				self._dep.changed();
 
 				cb.call(self, K.Pois.poisToGeojson(self.poisList) );

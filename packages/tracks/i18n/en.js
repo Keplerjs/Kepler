@@ -10,4 +10,6 @@ i18n.map('en', {
 
 	tracks_type_access: "Approaching",
 	tracks_type_other: "Other",
+
+	error_notracksfound: "Tracks Not Found nearby",
 });

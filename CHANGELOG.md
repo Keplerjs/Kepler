@@ -14,6 +14,7 @@
 - plugin admin new method for debug data in database, sanitizePlacesField
 - plugin geoinfo sanitize text values
 - plugin stats new stat findPlacesByField 
+- plugins pois tracks, alert not found
 - fix K.Util.sanitize.regExp
 - fix mobile status
 - fix K.Map zoomout geojson reloading
