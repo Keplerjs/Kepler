@@ -3,7 +3,7 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
-...
+- update npm packages, bcrypt babel
 
 ## v1.6.2
 - upgrade to Meteor 1.8.1 and other libs updates
