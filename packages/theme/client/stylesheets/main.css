@@ -50,3 +50,12 @@ footer .icons-social a:focus,
 footer .icons-social a:active {
 	opacity: 1
 }
+
+#login-buttons .login-button,
+.accounts-dialog .login-button,
+#login-buttons .login-button:hover,
+.accounts-dialog .login-button:hover {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
