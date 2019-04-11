@@ -2,7 +2,7 @@
 
 keplerjs plugin Pois(Points Of Interest) of Openstreetmap.
 
-osm tags classifiction
+osm tags classification rules
 ```
 	"amenity=drinking_water": "water",
 	"amenity=fountain":       "water",
