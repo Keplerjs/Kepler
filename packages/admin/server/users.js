@@ -37,6 +37,7 @@ Users.after.insert(function(userId, user) {
 				Meteor.absoluteUrl("user/"+user._id)+"<br />"+
 				user.name+"<br />"+
 				'<img height="80px" widht="80px" src="'+user.avatar+'" /><br />'+
+				user.emails[0].address+"<br />"+
 				user.source.url+"<br />"+
 				user.lang);
 	}
