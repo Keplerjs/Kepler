@@ -1,19 +1,24 @@
 
-var urls = {
-		root: '/stats',
-		placesByGeo: '/stats/places/bygeo',
-		placesByDate: '/stats/places/bydate',
-		usersByGeo: '/stats/users/bygeo',
-		usersByDate: '/stats/users/bydate',
-		conversByDate: '/stats/convers/bydate',
-		
-		placesByField: '/stats/places/byfield/:field',
-		usersByField: '/stats/users/byfield/:field',
-	},
+var baseUrl = K.settings.public.api.baseUrl+'/stats',
 	opts = { 
 		where: 'server',
 		notFoundTemplate: 'empty'
 	};
+
+var urls = {
+	root: baseUrl,
+	placesByGeo: baseUrl+'/places/bygeo',
+	placesByDate: baseUrl+'/places/bydate',
+	usersByGeo: baseUrl+'/users/bygeo',
+	usersByDate: baseUrl+'/users/bydate',
+	conversByDate: baseUrl+'/convers/bydate',
+	placesByField: baseUrl+'/places/byfield/:field',
+	usersByField: baseUrl+'/users/byfield/:field',
+};
+
+_.extend(K.Api.urls, {
+	stats: urls
+});
 
 function writeOut(req, res, out, jsonOpts) {
 

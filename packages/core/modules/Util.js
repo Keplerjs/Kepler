@@ -113,7 +113,11 @@ Kepler.Util = {
 	isMobile: function() {
 		return L ? L.Browser.mobile : false;
 	},
-
+	/**
+	 * convert any string in a random html color
+	 * @param  {[type]} str [description]
+	 * @return {[type]}     [description]
+	 */
 	textToColor: function(str) {
 		//https://stackoverflow.com/questions/17845584/converting-a-random-string-into-a-hex-colour
 		this.color_codes = {};
@@ -124,7 +128,7 @@ Kepler.Util = {
 	 * @param  {Object} json json string or literal object
 	 * @return {String}      return html ul li
 	 */
-	json2html: function(json) {
+	json2html: function(json, func) {
 		var obj = _.isString(json) ? JSON.parse(json) : json,
 			list = '<ul style="list-style:none">';
 
@@ -133,12 +137,17 @@ Kepler.Util = {
 				let val = obj[key];
 				if (obj.hasOwnProperty(key)) {
 
-					if(_.isObject(val))
-						val = K.Util.json2html(val);
-					else
-						val = '<span>'+val+'</span>';
+					if(_.isObject(val)) {
+						val = K.Util.json2html(val, func);
+					}
+					else {
+						if(_.isFunction(func))
+							val = func(val, key);
+						else
+							val = '<span>'+val+'</span>';
+					}
 
-					list += "<li><i>"+key+"</i>&nbsp;"+(val)+"</li>";
+					list += "<li><i>"+key+"</i>&nbsp;"+(val)+"</li>\n";
 				}
 			}
 		}

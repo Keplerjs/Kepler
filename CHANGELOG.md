@@ -4,6 +4,8 @@
 
 ## Next version
 - update npm packages, bcrypt babel
+- plugin api new K.settings.public.api.baseUrl
+- plugin stats depends from plugin api
 
 ## v1.6.2
 - upgrade to Meteor 1.8.1 and other libs updates

@@ -224,7 +224,6 @@ Kepler.Stats = {
 
 		data = _.map(data, function(o) {
 			var v = K.Util.getPath(o, field);
-			console.log(v)
 			v = _.isString(v) ? v.toLowerCase() : v;
 			v = _.isArray(v) ? v.length : v;
 			v = _.isObject(v) ? JSON.stringify(v) : v;

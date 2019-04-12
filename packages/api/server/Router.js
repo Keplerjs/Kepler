@@ -1,27 +1,36 @@
 //https://github.com/mondora/mondora-iron-router-rest-auth/
 //TODO use https://github.com/kahmali/meteor-restivus
 //
-var urls = {
-		root: '/api',
-		place: '/api/place/:name',
-		placeHist: '/api/place/:name/hist',
-		placeCheckins: '/api/place/:name/checkins',
-		placeConvers: '/api/place/:name/convers',
-		searchPlace: '/api/search/place/:name',
-		searchUser: '/api/search/user/:name'
-	},
+var baseUrl = K.settings.public.api.baseUrl,
 	opts = { 
 		where: 'server',
 		notFoundTemplate: 'empty'
 	};
 
+var urls ={
+	root: baseUrl,
+	place: baseUrl+'/place/:name',
+	placeHist: baseUrl+'/place/:name/hist',
+	placeCheckins: baseUrl+'/place/:name/checkins',
+	placeConvers: baseUrl+'/place/:name/convers',
+	searchPlace: baseUrl+'/search/place/:name',
+	searchUser: baseUrl+'/search/user/:name'
+};
+
+Kepler.Api = {
+	version: K.version,
+	urls: {
+		api: urls
+	}
+};
+
 function writeOut(req, res, out) {
 	
-	console.log('Api:', req.url, out);
+	console.log('Api:', req.url);
 	
 	if(out) {
 		res.writeHead(200, {
-			'Content-type': 'application/json'
+			'Content-type': _.isObject(out) ? 'application/json' : 'text/html'
 		});
 	} else {
 		res.writeHead(400, {
@@ -30,20 +39,16 @@ function writeOut(req, res, out) {
 		out = {'error': 'Not Found'};
 	}
 
-	res.end( JSON.stringify(out,null,4) );
+	res.end( _.isObject(out) ? JSON.stringify(out,null,4) : out );
 }
 
 Router.route(urls.root, opts)
 .get(function (req, res) {
 
-	var out = {};
-
-	_.each(urls, function(path, name) {
-		path = path.replace(/^\//,'')
-				   .replace(/:name/,'<name>');
-		out[name] = Meteor.absoluteUrl(path);
-	});
-
+	var out = K.Api;
+/*	var out = K.Util.json2html(K.Api.urls, function(v,k) {
+		return '<a href="'+v+'">'+v+'</a>';
+	}); */
 	writeOut(req, res, out);
 });
 

@@ -8,5 +8,12 @@ K.Plugin({
 				name:1, indoor:1, checkins:1, createdAt:1, userId:1
 			}
 		}
+	},
+	settings: {
+		"public": {
+			"api": {
+				"baseUrl": "/api"
+			}
+		}
 	}
 });
