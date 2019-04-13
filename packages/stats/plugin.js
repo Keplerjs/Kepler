@@ -16,10 +16,6 @@ K.Plugin({
 		},
 		"stats": {
 			"cacheTime": "hourly",	//0 to disable or values: none,minutely,hourly,daily,weekly,monthly,yearly,
-			"apiHeaders": {
-				//custom http headers for API response
-				//"Access-Control-Allow-Origin": "*"
-			}
 		}
 	}
 });

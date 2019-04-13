@@ -1,5 +1,5 @@
 
-var baseUrl = K.settings.public.api.baseUrl+'/stats',
+var baseUrl = K.settings.api.baseUrl+'/stats',
 	opts = { 
 		where: 'server',
 		notFoundTemplate: 'empty'
@@ -20,29 +20,6 @@ _.extend(K.Api.urls, {
 	stats: urls
 });
 
-function writeOut(req, res, out, jsonOpts) {
-
-	//jsonOpts = jsonOpts || [];
-	
-	var headers = _.defaults(K.settings.stats.apiHeaders, {
-		'Content-type': 'application/json'
-	});
-
-	if(out) {
-		res.writeHead(200, headers);
-	} else {
-		res.writeHead(400, headers);
-		out = {'error': 'Bad Request'};
-	}
-
-	var ret = JSON.stringify.apply(this, _.union(out, jsonOpts));
-
-	if(req.query && req.query['jsonp'])
-		ret = req.query['jsonp']+'('+ret+');';
-
-	res.end( ret );
-}
-
 ///////////DEBUG
 //K.Cache.clean('stats');
 Router.route(urls.root, opts)
@@ -50,7 +27,7 @@ Router.route(urls.root, opts)
 
 	var out = urls;
 
-	writeOut(req, res, out, [null, 4, ' ']);
+	K.Api.writeOut(req, res, out);
 });
 
 Router.route(urls.placesByGeo, opts)
@@ -58,7 +35,7 @@ Router.route(urls.placesByGeo, opts)
 
 	var out = K.Cache.get('placesByGeo','stats', K.Stats.findPlaces, K.settings.stats.cacheTime);
 
-	writeOut(req, res, out);
+	K.Api.writeOut(req, res, out);
 });
 
 Router.route(urls.placesByDate, opts)
@@ -66,7 +43,7 @@ Router.route(urls.placesByDate, opts)
 
 	var out = K.Cache.get('placesByDate','stats', K.Stats.findPlacesByDate, K.settings.stats.cacheTime);
 
-	writeOut(req, res, out);
+	K.Api.writeOut(req, res, out);
 });
 
 Router.route(urls.usersByGeo, opts)
@@ -74,7 +51,7 @@ Router.route(urls.usersByGeo, opts)
 
 	var out = K.Cache.get('usersByGeo','stats', K.Stats.findUsers, K.settings.stats.cacheTime);
 
-	writeOut(req, res, out);
+	K.Api.writeOut(req, res, out);
 });
 
 Router.route(urls.usersByDate, opts)
@@ -82,7 +59,7 @@ Router.route(urls.usersByDate, opts)
 
 	var out = K.Cache.get('usersByDate','stats', K.Stats.findUsersByDate, K.settings.stats.cacheTime);
 	
-	writeOut(req, res, out);
+	K.Api.writeOut(req, res, out);
 });
 
 Router.route(urls.conversByDate, opts)
@@ -90,7 +67,7 @@ Router.route(urls.conversByDate, opts)
 
 	var out = K.Cache.get('conversByDate','stats', K.Stats.findConversByDate, K.settings.stats.cacheTime);
 
-	writeOut(req, res, out);
+	K.Api.writeOut(req, res, out);
 });
 
 
@@ -103,7 +80,7 @@ Router.route(urls.placesByField, opts)
 			return K.Stats.findPlacesByField(field);
 		}, K.settings.stats.cacheTime);
 
-	writeOut(req, res, out);
+	K.Api.writeOut(req, res, out);
 });
 
 Router.route(urls.usersByField, opts)
@@ -115,6 +92,6 @@ Router.route(urls.usersByField, opts)
 			return K.Stats.findUsersByField(field);
 		}, K.settings.stats.cacheTime);
 
-	writeOut(req, res, out);
+	K.Api.writeOut(req, res, out);
 });
 

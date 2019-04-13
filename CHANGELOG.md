@@ -5,6 +5,7 @@
 ## Next version
 - update npm packages, bcrypt babel
 - plugin api new K.settings.public.api.baseUrl
+- plugin api K.Api.writeOut() used by plugin stats
 - plugin stats depends from plugin api
 - plugin admin move method in server method K.adminsEmai()
 

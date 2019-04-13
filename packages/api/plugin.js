@@ -10,9 +10,11 @@ K.Plugin({
 		}
 	},
 	settings: {
-		"public": {
-			"api": {
-				"baseUrl": "/api"
+		"api": {
+			"baseUrl": "/api",
+			"headers": {
+				//custom http headers for API response
+				//"Access-Control-Allow-Origin": "*"
 			}
 		}
 	}
