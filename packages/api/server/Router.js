@@ -36,7 +36,7 @@ K.Api = {
 
 		var ret = JSON.stringify(out,null,4);
 
-		if(req.query && req.query['jsonp']) {
+		if(K.settings.api.jsonp && req.query && req.query['jsonp']) {
 
 			ret = req.query['jsonp']+'('+ret+');';
 

@@ -12,6 +12,7 @@ K.Plugin({
 	settings: {
 		"api": {
 			"baseUrl": "/api",
+			"jsonp": false,
 			"headers": {
 				//custom http headers for API response
 				//"Access-Control-Allow-Origin": "*"
