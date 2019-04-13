@@ -32,7 +32,7 @@ Users.after.insert(function(userId, user) {
 		K.Util.getPath(user,'source.options.source.service') !== 'kepler-admin') {
 
 		//TODO create a template of body
-		Meteor.call('adminsEmail', "User new: "+ user.username,
+		K.adminsEmail("User new: "+ user.username,
 				"<h4>"+user.username+"</h4>"+
 				Meteor.absoluteUrl("user/"+user._id)+"<br />"+
 				user.name+"<br />"+

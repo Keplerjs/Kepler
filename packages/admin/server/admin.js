@@ -1,4 +1,30 @@
 
+K.adminsEmail = function(subject, body) {
+
+	if( K.settings.admin.adminUsers && 
+		K.settings.admin.adminUsers.length ) {
+
+		Users.find({isAdmin: 1}).forEach(function(userAdmin) {
+			if(userAdmin.emails && userAdmin.emails[0] && userAdmin.emails[0].address) {
+				try {
+					Email.send({
+						from: K.settings.accounts.emailTemplates.from,
+						to: userAdmin.emails[0].address,
+						subject: subject || '',
+						html: body || ''
+					});	
+				}
+				catch(e) {
+					console.warn('Admin: email send error',e.errno);
+				}
+			}
+		});
+	}
+	else
+		return false;
+};
+
+
 Meteor.methods({
 	adminGetMethods: function() {
 	
@@ -7,30 +33,6 @@ Meteor.methods({
 		console.log('Admin: adminGetMethods');
 
 		return _.keys(K.Admin.method);
-	},
-	adminsEmail: function(subject, body) {
-
-		if( K.settings.admin.adminUsers && 
-			K.settings.admin.adminUsers.length ) {
- 
-			Users.find({isAdmin: 1}).forEach(function(userAdmin) {
-				if(userAdmin.emails && userAdmin.emails[0] && userAdmin.emails[0].address) {
-					try {
-						Email.send({
-							from: K.settings.accounts.emailTemplates.from,
-							to: userAdmin.emails[0].address,
-							subject: subject || '',
-							html: body || ''
-						});	
-					}
-					catch(e) {
-						console.warn('Accounts: email error',e.errno)
-					}
-				}
-			});
-		}
-		else
-			return false;
 	}
 });
 
@@ -49,6 +51,7 @@ Meteor.methods({
 });
 */
 Meteor.startup(function() {
+
 	if(K.settings.admin.adminUsers && K.settings.admin.adminUsers.length) {
 
 		var on = Users.update({
@@ -76,7 +79,7 @@ Meteor.startup(function() {
 	}
 	
 	if(K.settings.admin.emailOnStartup) {
-		Meteor.call('adminsEmail','Kepler Startup!');
+		K.adminsEmail('Kepler Startup!');
 	}
 });
 
