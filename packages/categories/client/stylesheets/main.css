@@ -67,3 +67,11 @@
     outline: 0;
     background-color: #428bca;
 }
+
+.bootstrap-tagsinput input,
+.tt-input {
+    padding-top:5px;
+    line-height: 1em;
+    font-size: small;
+    min-width: 40px
+}

@@ -27,7 +27,7 @@ Meteor.publish('catsActive', function() {
 	{
 		var cur = K.findCatsActive();
 
-		console.log('Pub: catsActive', cur.count() );
+		console.log('Pub: catsActive' );
 
 		return cur;
 	}
@@ -41,7 +41,7 @@ Meteor.publish('catsByName', function(name, type) {
 	{
 		var cur = K.findCatsByName(name, type);
 
-		console.log('Pub: catsByName', name, cur.count());
+		console.log('Pub: catsByName', name);
 
 		return cur;
 	}

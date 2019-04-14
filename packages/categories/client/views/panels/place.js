@@ -7,8 +7,11 @@ Template.panelPlaceEdit_cats.onRendered(function() {
 	input$.tagsinput({
 		// http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/ 
 		tagClass: 'label label-primary',
-		freeInput: false,
+		freeInput: K.settings.public.categories.freeInput,
 		maxTags: K.settings.public.categories.catsMax || null,
+		itemText: function(item) {
+			return K.Util.sanitize.catName(item);
+		},
 		typeaheadjs: {
 			// https://github.com/twitter/typeahead.js
 			limit: 30,
@@ -17,7 +20,7 @@ Template.panelPlaceEdit_cats.onRendered(function() {
 			minLength: 1,
 	    	displayKey: 'name',
 	    	valueKey: 'name',
-			source: function(text, sync, cb) {
+			source: _.debounce(function(text, sync, cb) {
 				
 				if(!text.length) return [];
 
@@ -32,7 +35,7 @@ Template.panelPlaceEdit_cats.onRendered(function() {
 
 					cb(res);
 				});
-			}
+			}, 300)
 		}
 	});
 

@@ -4,20 +4,24 @@ Template.pageAdminUser_cats.onRendered(function() {
 	var self = this,
 		input$ = self.$('.input-cats');
 
-	// http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/
+	
 	input$.tagsinput({
+		// http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/
 		tagClass: 'label label-primary',
-		freeInput: false,
+		freeInput: K.settings.public.categories.freeInput,
+		maxTags: K.settings.public.categories.catsMax || null,
+		itemText: function(item) {
+			return K.Util.sanitize.catName(item);
+		},		
 		typeaheadjs: {
 			// https://github.com/twitter/typeahead.js
+			limit: 30,
 			hint: true,
 			highlight: true,
 			minLength: 1,
-			limit: 30,
-			//name: 'catnames',
 	    	displayKey: 'name',
 	    	valueKey: 'name',
-			source: function(text, sync, cb) {
+			source: _.debounce(function(text, sync, cb) {
 				
 				if(!text.length) return [];
 
@@ -32,7 +36,7 @@ Template.pageAdminUser_cats.onRendered(function() {
 
 					cb(res);
 				});
-			}
+			},300)
 		}
 	});
 

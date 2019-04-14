@@ -16,6 +16,7 @@ K.Plugin({
 		"public": {
 			"categories": {
 				//TODO "editable": false,
+				"freeInput": false,
 				"catsHistLength": 5,
 				"catsMax": 10,
 				"cats": {
