@@ -18,6 +18,8 @@ Kepler.Cache = {
 	sep: '_',
 
 	prefix: 'cache',
+
+	expire: 'daily',
 	
 	_collections: {},
 	
@@ -48,7 +50,7 @@ Kepler.Cache = {
 	//generate future date of expiration
 	_expiregen: function(expire) {
 
-		expire = _.isUndefined(expire) ? 'daily' : expire;
+		expire = _.isUndefined(expire) ? this.expire : expire;
 
 		var expires = {
 			'none':     0,

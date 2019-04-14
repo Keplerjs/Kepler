@@ -3,6 +3,7 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+- core default value K.Cache.expire
 - update npm packages, bcrypt babel
 - plugin api new K.settings.public.api.baseUrl
 - plugin api K.Api.writeOut() used by plugin stats
