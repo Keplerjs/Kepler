@@ -2,7 +2,7 @@
 Template.pageAdminPlaces.onRendered(function() {
 	var self = this;
 
-	$(self.firstNode).find('.list-group').btsListFilter('.items-search', {
+	$(self.firstNode).find('.list-group.items-list:first').btsListFilter('.items-search', {
 		itemChild: '.place-btn-name',
 		loadingClass: 'loading-lg',
 		sourceData: function(val, cb) {

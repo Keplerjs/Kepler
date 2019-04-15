@@ -1,26 +1,9 @@
 
-Places.after.update(function(userId, doc, fieldNames, modifier, options) {
+Places.after.remove(function(userId, doc) {
 
-	if(_.contains(fieldNames,'cats') && modifier['$addToSet']) {
-
-		var catData = {},
-			cats = modifier.$addToSet.cats.$each;
-
-		_.each(cats, function(cat) {
-
-			catData = _.extend({}, K.schemas.cat, {
-				name: cat,
-				type: 'place'//user, place, all
-			});
-
-			Categories.upsert({name: catData.name}, {
-				$set: catData
-			});
-		});
-
-		console.log('Cats: after update', cats);
-	}
-
+	Categories.update({name: {$in: doc.cats}, type: 'place'}, {
+		$inc: {rank: -1}
+	},{multi:true});
 });
 
 Meteor.publish('placesByCategory', function(cat) {
@@ -32,7 +15,6 @@ Meteor.publish('placesByCategory', function(cat) {
 	else
 		this.ready();	
 });
-
 
 Meteor.methods({
 	addCatsToPlace: function(placeId, cats) {
@@ -49,8 +31,23 @@ Meteor.methods({
 
 		if(placeData.userId === this.userId || (K.Admin && K.Admin.isMe())) {
 
-			Places.update(placeId, { $addToSet: {'cats': {$each: cats} } });
-			
+			Places.update(placeId, {
+				$addToSet: {'cats': {$each: cats} }
+			});
+
+			_.each(cats, function(cat) {
+				catData = _.extend({}, K.schemas.cat, {
+					name: cat,
+					type: 'place'
+				});
+				delete catData.rank;//path to maintain last value
+
+				Categories.upsert({name: cat, type: 'place'}, {
+					$set: catData,
+					$inc: {rank:1}
+				});
+			});
+
 			Users.update(this.userId, {
 				$addToSet: {
 					'catshist': {
@@ -82,7 +79,13 @@ Meteor.methods({
 
 		if(placeData.userId === this.userId || (K.Admin && K.Admin.isMe())) {
 
-			Places.update(placeId, { $pull: {'cats':  {$in: cats} } });
+			Places.update(placeId, {
+				$pull: {'cats':  {$in: cats} }
+			});
+
+			Categories.update({name: {$in: cats}, type: 'place'}, {
+				$inc: {rank: -1} 
+			},{multi:true});
 
 			console.log('Cats: removeCatsFromPlace', placeId, cats);
 		}

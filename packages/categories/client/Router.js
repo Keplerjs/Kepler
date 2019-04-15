@@ -90,7 +90,7 @@ Router.map(function() {
 		},
 		waitOn: function() {
 			Session.set('showSidebar', true);
-			return Meteor.subscribe('catsByName', '', this.params.type);
+			return Meteor.subscribe('catsByType', this.params.type);
 		},
 		data: function() {
 			if(!this.ready()) return null;
@@ -102,7 +102,7 @@ Router.map(function() {
 					typeCat: this.params.type
 				},
 				itemsTemplate: 'itemCat',
-				items: K.findCatsByName('',this.params.type).fetch()
+				items: K.findCatsByType(this.params.type).fetch()
 			};
 		}
 	});	

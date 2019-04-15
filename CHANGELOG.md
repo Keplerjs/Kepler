@@ -13,6 +13,9 @@
 - plugin api K.settings.api.jsonp
 - plugin stats depends from plugin api
 - plugin admin move method in server method K.adminsEmai()
+- plugin admin fix search user list result double
+- plugin categories show cat rank
+- plugin categories K.Admin.cleanCatsOrphan()
 
 ## v1.6.2
 - upgrade to Meteor 1.8.1 and other libs updates

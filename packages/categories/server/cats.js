@@ -49,3 +49,17 @@ Meteor.publish('catsByName', function(name, type) {
 		this.ready();
 });
 
+Meteor.publish('catsByType', function(type) {
+
+	if(this.userId)
+	{
+		var cur = K.findCatsByType(type);
+
+		console.log('Pub: catsByType', type);
+
+		return cur;
+	}
+	else
+		this.ready();
+});
+

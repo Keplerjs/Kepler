@@ -41,13 +41,18 @@ K.Admin.methods({
 
 		Users.update(userId, { $addToSet: {'cats': {$each: cats} } });
 
-		userCats = Users.findOne(userId, {
-			fields: {_id:0, cats:1}
-		}).cats;
+		_.each(cats, function(cat) {
+			catData = _.extend({}, K.schemas.cat, {
+				name: cat,
+				type: 'user'
+			});
+			delete catData.rank;//path to maintain last value
 
-		console.log('Cats: addCatsToUser', userId, cats);
-
-		return userCats;
+			Categories.upsert({name: cat, type: 'user'}, {
+				$set: catData,
+				$inc: {rank:1}
+			});
+		});
 	},
 	removeCatsFromUser: function(userId, cats) {
 		
@@ -57,6 +62,10 @@ K.Admin.methods({
 
 		Users.update(userId, { $pull: {'cats':  {$in: cats} } });
 		
+		Categories.update({name: {$in: cats}, type: 'user'}, {
+				$inc: {rank: -1} 
+			},{multi:true});
+
 		console.log('Cats: removeCatsFromPlace', userId, cats);
 	},
 	cleanCatsByPlace: function(placeId, cats) {
@@ -67,6 +76,29 @@ K.Admin.methods({
 
 		console.log('Cats: cleanCatsByPlace', placeId);
 	},
+	cleanAllCatsByType: function(type) {
+
+		if(!K.Admin.isMe()) return false;
+
+		if(type==='place')
+			Places.update({}, { $set: {'cats': [] } },{multi:true});
+		else if(type==='user')
+			Users.update({}, { $set: {'cats': [] } },{multi:true});
+		else
+			return false;
+
+		Categories.update({type: type}, { $set: {rank: 0 } }, {multi:true});
+
+		console.log('Cats: cleanAllCatsPlaces');
+	},
+	cleanCatsOrphan: function() {
+
+		if(!K.Admin.isMe()) return false;
+
+		Categories.remove({rank: {$lt: 1} });
+
+		console.log('Cats: cleanCatsOrphan');
+	},	
 	cleanCatsByUser: function(userId, cats) {
 
 		if(!K.Admin.isMe()) return false;
