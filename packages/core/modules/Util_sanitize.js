@@ -55,8 +55,7 @@ Kepler.Util.sanitize = {
 	username: function(name) {
 		name = name || '';
 
-		if(Meteor.isServer && Latinize)
-			name = Latinize(name);
+		name = Latinize(name);
 
 		name = name.toLowerCase()
 			.replace(/’+/g,'\'')

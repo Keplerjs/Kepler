@@ -6,6 +6,7 @@
 - core added default geometry for places
 - core rename methods K.Util.geo.point,feature,featureColl
 - core default value K.Cache.expire
+- lib include Latinize in client side
 - plugin admin show geometry plae in panel admin
 - update npm packages, bcrypt babel
 - plugin api new K.settings.public.api.baseUrl

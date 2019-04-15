@@ -95,16 +95,14 @@ Package.onUse(function(api) {
   api.addFiles([
     'lib/deepExtend.js',
     'lib/Class.js',
+    '.npm/package/node_modules/latinize/latinize.js',
+    'lib/Latinize.js',
     'config/leaflet.js',
     'config/Router.js',
     'config/underscore.js',
     'config/sAlert.js',
     'config/UserPresence.js'
   ]);
-
-  api.addFiles([
-    'lib/Latinize.js',
-  ], 'server');
 
   api.addFiles([
     'client/L.NodeIcon.js',
