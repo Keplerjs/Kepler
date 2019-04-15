@@ -18,9 +18,9 @@
 		<div class="clearfix">
 			<input value="{{join getCats}}" data-role="tagsinput" class="input-cats" type="text" />		
 			<br />
-			<label>{{i18n 'label_catshist'}}</label>
-			<div id="cats-hist" class="btn-group" data-toggle="buttons">
-			{{#each currentUser.catshist}}
+			<label>{{i18n 'label_catshist'}}</label><br />
+			<div id="cats-hist">
+			{{#each catshist}}
 				<button class="btn btn-default btn-xs" value="{{this}}">
 					{{this}}
 				</button>

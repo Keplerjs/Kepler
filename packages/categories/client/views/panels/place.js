@@ -52,6 +52,13 @@ Template.panelPlaceEdit_cats.onRendered(function() {
 	});
 });
 
+Template.panelPlaceEdit_cats.helpers({
+	catshist: function() {
+		var hist = _.difference(K.Profile.data.catshist, this.getCats());
+		return _.first(hist.reverse(), K.settings.public.categories.catsHistLength);
+	}
+});
+
 Template.panelPlaceEdit_cats.events({
 	'click #cats-hist .btn': _.debounce(function(e, tmpl) {
 		var itemId = tmpl.data._id,

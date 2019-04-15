@@ -59,9 +59,10 @@ Meteor.methods({
 					}
 				}
 			});
+			var maxcatshist = K.settings.public.categories.catsHistLength*3;
 			Users.update({
 				_id: this.userId,
-				'catshist': { $size: K.settings.public.categories.catsHistLength+1 }
+				'catshist': { $size: maxcatshist }
 			}, {
 				$pop: { 'catshist': -1 }
 			});
