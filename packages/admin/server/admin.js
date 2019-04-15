@@ -77,10 +77,6 @@ Meteor.startup(function() {
 			console.log('Admin: autocreate admin account user: admin pass: adminadmin ');
 		}*/
 	}
-	
-	if(K.settings.admin.emailOnStartup) {
-		K.adminsEmail('Kepler Startup!');
-	}
 });
 
 /*

@@ -61,7 +61,6 @@ K.Plugin({
 		"admin": {
 			"adminUsers": ["admin"],			
 			"emailOnNewUser": true,
-			"emailOnStartup": false,
 			"adminsAutoFriendship": true,	//add all admins in the user friends list
 		}
 	}
