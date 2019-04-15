@@ -158,8 +158,8 @@ Kepler.Geoinfo = {
 			prop.len  = prop.len || parseInt( Math.round( K.Util.geo.linestringLen(geom) ) );
 			prop.time = prop.time || parseInt( K.Util.geo.timeTrack(prop.len, prop.dis) );
 
-			prop.start= K.Util.geo.createPoint(p1);
-			prop.end  = K.Util.geo.createPoint(p2);
+			prop.start= K.Util.geo.point(p1);
+			prop.end  = K.Util.geo.point(p2);
 		}
 
 		return prop;

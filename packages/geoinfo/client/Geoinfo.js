@@ -35,11 +35,11 @@ Kepler.Geoinfo = {
 
 				data = _.extend(data, K.Geoinfo.suncalc(loc));
 
-				var feature = K.Util.geo.createFeature('Point', [loc[1],loc[0]], data);
+				var feature = K.Util.geo.feature('Point', [loc[1],loc[0]], data);
 				feature.templateMarker = 'markerGeoinfo';
 				feature.templatePopup = 'popupGeojson_geoinfo';
 
-				var geojson = K.Util.geo.createFeatureColl([feature]);
+				var geojson = K.Util.geo.featureColl([feature]);
 
 				K.Map.hideCursor();
 				K.Map.addGeojson(geojson, {noFitBounds: true}, function() {

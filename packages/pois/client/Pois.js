@@ -22,6 +22,6 @@ Kepler.Pois = {
 			return feature;
 		});
 
-		return K.Util.geo.createFeatureColl(features);
+		return K.Util.geo.featureColl(features);
 	}
 };

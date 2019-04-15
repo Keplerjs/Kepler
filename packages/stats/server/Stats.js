@@ -47,8 +47,8 @@ Kepler.Stats = {
 			//var classy = series.getClassJenks(10);
 		}
 
-		var geojson = K.Util.geo.createFeatureColl(_.map(data, function(d) {
-			return K.Util.geo.createFeature('Point', d.loc.reverse(), {
+		var geojson = K.Util.geo.featureColl(_.map(data, function(d) {
+			return K.Util.geo.feature('Point', d.loc.reverse(), {
 				rank: noClassify ? d.factor : series.getClass(d.factor)
 			});
 		}));
@@ -108,8 +108,8 @@ Kepler.Stats = {
 			//var classy = series.getClassJenks(10);
 		}
 	
-		var geojson = K.Util.geo.createFeatureColl(_.map(data, function(d) {
-			return K.Util.geo.createFeature('Point', d.loc.reverse(), {
+		var geojson = K.Util.geo.featureColl(_.map(data, function(d) {
+			return K.Util.geo.feature('Point', d.loc.reverse(), {
 				rank: noClassify ? d.factor : series.getClass(d.factor)
 			});
 		}));

@@ -135,7 +135,7 @@ Kepler.Util.geo = {
 	 * @param  {Array} ll [description]
 	 * @return {Object}    [description]
 	 */
-	createPoint: function(ll) {
+	point: function(ll) {
 		return {
 			"type": "Point",
 			"coordinates": ll
@@ -148,7 +148,7 @@ Kepler.Util.geo = {
 	 * @param  {Object} props  [description]
 	 * @return {Object}        [description]
 	 */
-	createFeature: function(geom, coords, props) {
+	feature: function(geom, coords, props) {
 		props = props || {};
 		coords = coords || [];
 		return {
@@ -165,7 +165,7 @@ Kepler.Util.geo = {
 	 * @param  {Array} ff [description]
 	 * @return {Object}    [description]
 	 */
-	createFeatureColl: function(ff) {
+	featureColl: function(ff) {
 		return {
 			"type": "FeatureCollection",
 			"features": ff || []

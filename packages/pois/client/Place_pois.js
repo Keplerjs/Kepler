@@ -33,8 +33,8 @@ Kepler.Place.include({
 			coords = _.map(poisGeojson.features, function(poi) {
 				return [placeLoc, poi.geometry.coordinates];
 			}),
-			tracksGeojson = K.Util.geo.createFeatureColl([
-				K.Util.geo.createFeature('MultiLineString', coords)
+			tracksGeojson = K.Util.geo.featureColl([
+				K.Util.geo.feature('MultiLineString', coords)
 			]);
 
 		setTimeout(function() {
