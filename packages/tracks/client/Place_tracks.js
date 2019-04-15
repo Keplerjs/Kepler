@@ -51,8 +51,6 @@ Kepler.Place.include({
 			track.templatePopup = 'popupGeojson_tracks';
 			return track;
 		});
-		//var placePoint = K.Util.geo.point([place.loc[1], place.loc[0]]);
- 		//tracks = _.union(tracks, placePoint);
 
 		return K.Util.geo.featureColl( tracks );
 	}

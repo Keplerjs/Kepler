@@ -119,7 +119,7 @@ Router.map(function() {
 		},
 		waitOn: function() {
 			return [
-				Meteor.subscribe('placeById', this.params.id),
+				Meteor.subscribe('adminPlaceById', this.params.id),
 				Meteor.subscribe('placesByDate')
 			];
 		},
@@ -127,6 +127,7 @@ Router.map(function() {
 			if(!this.ready()) return null;
 			return {
 				itemSelected: K.placeById(this.params.id),
+				rawdata: Places.findOne(this.params.id),
 				items: _.map(K.findPlacesByDate().fetch(), function(item) {
 					return K.placeById(item._id);
 				})

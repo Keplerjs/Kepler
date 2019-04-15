@@ -4,11 +4,23 @@ Places = new Mongo.Collection('places');
 if(Meteor.isServer)
 	Places._ensureIndex({"loc": "2d"});
 
-//https://github.com/matb33/meteor-collection-hooks
+// https://github.com/matb33/meteor-collection-hooks
 Places.before.insert(function(userId, doc) {
+	
 	doc.createdAt = K.Util.time();
 	doc.userId = userId;
+	doc.geometry = K.Util.geo.point([doc.loc[1],doc.loc[0]]);
 });
+
+//TODO
+/*Places.before.update(function(userId, doc, fieldNames, modifier, options) {
+	console.log('BEFORE UPDATE',fieldNames,modifier,options)
+	if(_.contains(fieldNames,'loc')) {
+		if(doc.geometry)
+		modifier.$set.geometry
+	}
+	//modifier.$set.modifiedAt = K.Util.time();
+});*/
 
 Places.after.remove(function(userId, doc) {
 	if(doc.checkins.length) {
@@ -41,10 +53,3 @@ Places.after.remove(function(userId, doc) {
 // $addToSet: {
 // 	hist: { $each: [placeId], $slice: 5 }
 // }
-
-/*
-//TODO
-Places.before.update(function(userId, doc, fieldNames, modifier, options) {
-//modifier.$set.modifiedAt = K.Util.time();
-});
-*/

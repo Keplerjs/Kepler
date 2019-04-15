@@ -31,3 +31,33 @@ Meteor.publish('adminUserById', function(userId) {
 	else
 		this.ready();
 });
+
+
+Meteor.publish('adminPlaceById', function(placeId) {
+
+	if(K.Admin.isMe() && placeId)
+	{
+		var placeCur = Places.find(placeId),
+			placeData = placeCur.fetch()[0],
+			retCurs = [];
+
+		retCurs.push(placeCur);
+		
+		if(!placeData) {
+			return retCurs;
+		}
+
+		var usersIds = _.union(placeData.hist, placeData.checkins, placeData.userId);
+		//TODO move publish of userId in plugin edit
+		//		
+		if(usersIds.length > 0)
+			retCurs.push( K.findUsersByIds(usersIds) );
+		//publish one cursor for collection users
+
+		console.log('Pub: adminPlaceById', placeId);
+
+		return retCurs;
+	}
+	else
+		this.ready();
+});

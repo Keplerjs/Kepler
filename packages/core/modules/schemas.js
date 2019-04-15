@@ -23,6 +23,10 @@ Kepler.schemas = {
 		desc: '',		   //description
 		warn: '',          //warnings and dangers
 		url: '',	   	   //websites url of place
+		geometry: {	   	   //GeoJSON geometry for the place(default is Point)
+			type: 'Point',
+			coordinates: []//default is loc.reverse()
+		},
 		source: {	   	   //describe source of data
 			type: ''
 		}

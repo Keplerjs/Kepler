@@ -24,6 +24,10 @@ Template.pageAdmin_admin_map.onRendered(function() {
 	var icon = new L.NodeIcon(),
 		marker = L.marker(loc, {icon: icon});
 
+	if(this.data.geometry && this.data.geometry.type!=='Point')
+		L.geoJson(this.data.geometry).addTo(map);
+
 	marker.addTo(map);
+	
 	Blaze.renderWithData(Template.markerPlace, this, icon.nodeHtml);
 });

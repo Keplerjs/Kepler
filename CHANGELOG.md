@@ -3,8 +3,10 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+- core added default geometry for places
 - core rename methods K.Util.geo.point,feature,featureColl
 - core default value K.Cache.expire
+- plugin admin show geometry plae in panel admin
 - update npm packages, bcrypt babel
 - plugin api new K.settings.public.api.baseUrl
 - plugin api K.Api.writeOut() used by plugin stats
