@@ -3,6 +3,9 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+...
+
+## v1.6.3
 - renamed all caching settings in cacheTime
 - fix K.Cache.get cacheTime
 - core added default geometry for places

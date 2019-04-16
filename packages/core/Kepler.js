@@ -1,4 +1,4 @@
-var version = '1.6.2';
+var version = '1.6.3';
 /**
  * @namespace
  * @name Kepler
