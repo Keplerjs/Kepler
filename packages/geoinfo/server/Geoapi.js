@@ -13,7 +13,7 @@ var httpGet = function(url) {
 	try {
 		
 		var res = HTTP.get(url, getOpts);
-
+console.log('Geoinfo: geoapi', res.statusCode, url)
 		if(res && res.data)
 			return res.data;
 		else

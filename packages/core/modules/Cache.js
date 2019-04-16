@@ -20,6 +20,16 @@ Kepler.Cache = {
 	prefix: 'cache',
 
 	expire: 'daily',
+
+	expires: {
+		'none':     0,
+		'minutely': 60,
+		'hourly':   60*60,
+		'daily':    60*60*24*1,
+		'weekly':   60*60*24*7,
+		'monthly':  60*60*24*30,
+		'yearly':   60*60*24*30*12
+	},
 	
 	_collections: {},
 	
@@ -54,21 +64,13 @@ Kepler.Cache = {
 		
 		if(_.isBoolean(expire))
 			expire = (expire===true) ? this.expire : 0;
+		
+		expire = _.isString(expire) ? this.expires[expire] : expire;
+		expire = _.isNumber(expire) ? expire : this.expire;
 
-		var expires = {
-			'none':     0,
-			'minutely': 60,
-			'hourly':   60*60,
-			'daily':    60*60*24*1,
-			'weekly':   60*60*24*7,
-			'monthly':  60*60*24*30,
-			'yearly':   60*60*24*30*12
-		},
-		exp = _.isNumber(expire) ? expire : expires[expire];
-		exp = _.isNumber(expire) || this.expire;
-
-		return parseInt( K.Util.time() + exp*1000 );
+		return parseInt( K.Util.time() + expire*1000 );
 	},
+	//check if cache document is expired
 	_expired: function(doc) {
 		return doc && doc.expire && K.Util.time() > doc.expire;
 	},

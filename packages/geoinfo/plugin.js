@@ -49,7 +49,8 @@ K.Plugin({
 			}
 		},
 		"geoinfo": {
-			"caching": true,
+			"roundLoc": 4,
+			"cacheTime": "monthly",
 			"autoupdate": true,
 			"geonamesUser": "",
 			"ipinfodbKey": ""

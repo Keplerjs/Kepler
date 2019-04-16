@@ -2,61 +2,44 @@
 var Future = Npm.require('fibers/future');
 
 //TODO move to settings
-var roundLocGeoinfo = 4;
-
-
-//TODO move to settings
 Kepler.Geoinfo = {
 	fields: {
 		ele: {
 			name: 'elevation',
-			caching: true,
+			func: K.Geoapi.elevation,
 			roundLoc: 8,
-			func: K.Geoapi.elevation
 		},
 		esp: {
 			name: 'aspect',
-			caching: true,
+			func: K.Geoapi.aspect,
 			roundLoc: 8,
-			func: K.Geoapi.aspect
 		},
 		near: {
 			name: 'near',
-			caching: true,
-			roundLoc: 4,
 			func: K.Geoapi.near
 		},
 		com: {
 			name: 'municipality',
-			caching: true,
-			roundLoc: roundLocGeoinfo,
 			func: K.Geoapi.municipality
 		},
 		prov: {
 			name: 'province',
-			caching: true,
-			roundLoc: roundLocGeoinfo,
 			func: K.Geoapi.province
 		},
 		reg: {
 			name: 'region',
-			caching: true,
-			roundLoc: roundLocGeoinfo,
 			func: K.Geoapi.region
 		},
 		naz: {
 			name: 'country',
-			caching: true,
-			roundLoc: roundLocGeoinfo,
 			func: K.Geoapi.country
 		},
+		//TODO refact
 		loc: {
 			name: 'loc',
-			caching: false,
-			roundLoc: roundLocGeoinfo,
-			func: function(loc) {
-				return loc;
-			}
+			cacheTime: 'none',
+			roundLoc: 8,
+			func: function(loc) {return loc}
 		}
 	},	
 	getFieldsByLoc: function(loc, fields, callback) {
@@ -72,12 +55,14 @@ Kepler.Geoinfo = {
 				tasks[field] = function(cb) {
 					Meteor.defer(function() {
 						
-						var rloc = K.Util.geo.roundLoc(loc, opt.roundLoc);
+						var rloc = K.Util.geo.roundLoc(loc, opt.roundLoc || K.settings.geoinfo.roundLoc),
+							cacheTime = opt.cacheTime || K.settings.geoinfo.cacheTime;
 					 	
-					 	if(K.settings.geoinfo.caching && opt.caching)
-					 		cb(null, K.Cache.get(rloc, opt.name, opt.func) );
-					 	else
-					 		cb(null, opt.func(rloc) );
+					 	var data = K.Cache.get(rloc, opt.name, function(o) {
+								return opt.func(rloc);
+							}, cacheTime);
+
+						cb(null, data);
 					});
 				};
 			}
@@ -165,13 +150,10 @@ Kepler.Geoinfo = {
 		return prop;
 	},
 	getIpInfo: function(ip) {
-		
-		var ret;
 
-		if(K.settings.geoinfo.caching)
-			ret = K.Cache.get(ip, 'geoip', K.Geoapi.geoip);
-		else
-			ret = K.Geoapi.geoip(ip);
+		var ret = K.Cache.get(ip, 'geoip', K.Geoapi.geoip, K.settings.geoinfo.cacheTime);
+
+		console.log('getIpInfo', ip);
 
 		return ret;
 	}
@@ -200,14 +182,10 @@ Meteor.methods({
 
 		if(!this.userId || !K.Util.valid.loc(loc)) return null;
 
-		var ret = [];
+		var ret = [],
+			rloc = K.Util.geo.roundLoc(loc, 6);
 
-		loc = K.Util.geo.roundLoc(loc, 6);
-
-		if(K.settings.geoinfo.caching)
-			ret = K.Cache.get(loc, 'reversegeo', K.Geoapi.reversegeo);
-		else
-			ret = K.Geoapi.reversegeo(loc);
+		var ret = K.Cache.get(rloc, 'reversegeo', K.Geoapi.reversegeo, K.settings.geoinfo.cacheTime);
 
 		console.log('Geoinfo: findReverseGeo', loc);
 

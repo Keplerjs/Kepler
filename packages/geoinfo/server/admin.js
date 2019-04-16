@@ -9,5 +9,13 @@ K.Admin.methods({
 			console.log('Geoinfo: cache clean ', opt.name);
 			K.Cache.clean(opt.name);
 		});
+	},
+	getIpInfo: function(ip) {
+		
+		if(!K.Admin.isMe()) return false;
+		
+		var info = K.Geoinfo.getIpInfo(ip);
+
+		return info;
 	}
 });

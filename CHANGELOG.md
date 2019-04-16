@@ -3,6 +3,8 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+- renamed all caching settings in cacheTime
+- fix K.Cache.get cacheTime
 - core added default geometry for places
 - core rename methods K.Util.geo.point,feature,featureColl
 - core default value K.Cache.expire
@@ -15,8 +17,10 @@
 - plugin stats depends from plugin api
 - plugin admin move method in server method K.adminsEmai()
 - plugin admin fix search user list result double
+- plugin admin K.Admin.getIpInfo()
 - plugin categories show cat rank
 - plugin categories K.Admin.cleanCatsOrphan()
+- plugin geoinfo use for each methods K.settings.geoinfo.cacheTime
 
 ## v1.6.2
 - upgrade to Meteor 1.8.1 and other libs updates
