@@ -19,6 +19,7 @@ K.Plugin({
 	},
 	settings: {
 		"osm": {
+			//TODO cachetime
 			"findByLocDist": 50,
 			"findByLocLimit": 10,
 			"findByBBoxLimit": 10,

@@ -51,6 +51,9 @@ Kepler.Cache = {
 	_expiregen: function(expire) {
 
 		expire = _.isUndefined(expire) ? this.expire : expire;
+		
+		if(_.isBoolean(expire))
+			expire = (expire===true) ? this.expire : 0;
 
 		var expires = {
 			'none':     0,
@@ -62,8 +65,12 @@ Kepler.Cache = {
 			'yearly':   60*60*24*30*12
 		},
 		exp = _.isNumber(expire) ? expire : expires[expire];
+		exp = _.isNumber(expire) || this.expire;
 
 		return parseInt( K.Util.time() + exp*1000 );
+	},
+	_expired: function(doc) {
+		return doc && doc.expire && K.Util.time() > doc.expire;
 	},
 	/**
 	 * create or update cache record
@@ -78,8 +85,7 @@ Kepler.Cache = {
 		
 		var set = {val: val};
 		
-		if(expire)
-			set.expire = this._expiregen(expire);
+		set.expire = this._expiregen(expire);
 
 		this._getCollection(namespace).upsert(idKey, {$set: set });
 		
@@ -101,15 +107,20 @@ Kepler.Cache = {
 
 		var doc = this._getCollection(namespace).findOne(idKey);
 
-		if(doc && doc.expire && K.Util.time() > doc.expire) {
+		if(this._expired(doc)) {
 			this._getCollection(namespace).remove(idKey);
 			doc = {val: undefined};
 		}
 
 		doc = doc || {val: undefined};
 		
-		if(_.isFunction(valFunc) && doc.val===undefined)
-			doc.val = this.set(idKey, valFunc(key), namespace, expire);
+		if(_.isFunction(valFunc) && doc.val===undefined) {
+
+			if(expire===false || expire===0 || expire==='none')
+				doc.val = valFunc(key);
+			else
+				doc.val = this.set(idKey, valFunc(key), namespace, expire);	
+		}
 
 		return doc.val;
 	},
