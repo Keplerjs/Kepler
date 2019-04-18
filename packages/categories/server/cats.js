@@ -27,7 +27,7 @@ Meteor.publish('catsActive', function() {
 	{
 		var cur = K.findCatsActive();
 
-		console.log('Pub: catsActive' );
+		//console.log('Pub: catsActive' );
 
 		return cur;
 	}

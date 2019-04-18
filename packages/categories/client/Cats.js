@@ -1,3 +1,12 @@
+
+if(Meteor.isClient) {
+	Accounts.onLogin(function() {
+
+	   K.Cats.loadActiveCats();
+
+	});
+}
+
 Kepler.Cats = {
 
 	//TODO conver in function and sort by name
@@ -46,11 +55,3 @@ Kepler.Cats = {
 		});
 	}
 };
-
-if(Meteor.isClient) {
-	Accounts.onLogin(function() {
-
-	   K.Cats.loadActiveCats();
-
-	});
-}

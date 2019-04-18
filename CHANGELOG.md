@@ -3,7 +3,7 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
-...
+- remove 3rd party kepler plugins from .meteor/packages
 
 ## v1.6.3
 - renamed all caching settings in cacheTime

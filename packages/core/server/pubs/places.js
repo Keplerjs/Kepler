@@ -7,7 +7,9 @@ Meteor.publish('placesByBBox', function(bbox) {
 
 		if(diag < K.settings.public.map.bboxMaxDiagonal) {
 			var cur = K.findPlacesByBBox(bbox);
-			console.log('Pub: placesByBBox ', this.userId, cur.count());
+			
+			//console.log('Pub: placesByBBox ', this.userId, cur.count());
+			
 			return cur;
 		}
 		else
