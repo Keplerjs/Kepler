@@ -1,0 +1,17 @@
+
+/* MARKER DRAG */
+.marker-handledrag  {
+	background: url("/packages/keplerjs_theme/assets/images/sprite.svg") no-repeat;
+	background-position: -239px -30px;
+	background-color: rgba(255,170,30,0.5);
+	border: 2px solid rgba(224,104,0, 0.6);
+	border-radius: 12px;
+	border-top-left-radius: 0;
+	position: absolute;
+	bottom: -45px;
+	right: -30px;
+	height: 37px;
+	width: 38px;	
+	cursor: move;
+}
+
