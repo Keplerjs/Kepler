@@ -25,6 +25,10 @@ keplerjs:pois
 keplerjs:tracks
 keplerjs:photos
 
+#UNCOMMENT TO ADD THIS ADDITIONAL KEPLER PLUGINS
+# OR USE COMMAND:
+#$ meteor add <pkg-name>
+
 #keplerjs:robots
 #keplerjs:wunderground
 #keplerjs:googlemaps
