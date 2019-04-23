@@ -3,6 +3,11 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+...
+
+## v1.6.4
+- fix map markers glich
+- updated leaflet-layerjson
 - remove 3rd party kepler plugins from .meteor/packages
 
 ## v1.6.3

@@ -1,4 +1,4 @@
-var version = '1.6.3';
+var version = '1.6.4';
 
 Package.describe({
   version: version,
@@ -14,7 +14,7 @@ Npm.depends({
   "bootstrap-confirm-button": "0.3.2",
   "leaflet": "1.3.4",
   "leaflet-gps": "1.7.6",
-  "leaflet-layerjson": "0.2.8",
+  "leaflet-layerjson": "0.3.1",
   "leaflet.markercluster": "1.4.1",
 });
 
@@ -34,6 +34,7 @@ Package.onUse(function(api) {
     '.npm/package/node_modules/leaflet-gps/dist/leaflet-gps.src.css',    
     '.npm/package/node_modules/leaflet-gps/dist/leaflet-gps.src.js',
     '.npm/package/node_modules/leaflet-layerjson/dist/leaflet-layerjson.src.js',
+
     '.npm/package/node_modules/leaflet.markercluster/dist/MarkerCluster.css',
     '.npm/package/node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css',
     '.npm/package/node_modules/leaflet.markercluster/dist/leaflet.markercluster-src.js'

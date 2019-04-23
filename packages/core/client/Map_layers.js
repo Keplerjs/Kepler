@@ -42,6 +42,7 @@ _.extend(Kepler.Map, {
 				spiderfyDistanceMultiplier: 1.4,
 				showCoverageOnHover: false,
 				maxClusterRadius: 40,
+				disableClusteringAtZoom:14,
 				iconCreateFunction: function(clust) {
 
 					clust.getCheckinsCount = function() {
@@ -66,8 +67,10 @@ _.extend(Kepler.Map, {
 
 		//layers.places = new L.LayerGroup();
 		layers.places = new L.LayerJSON({
-			caching: false,
+			
 			layerTarget: opts.layerPlaces.cluster && layers.cluster,
+			
+			caching: false,
 			minShift: opts.bboxMinShift,
 			callData: function(bbox, callback) {
 
