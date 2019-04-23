@@ -4,12 +4,16 @@ _.extend(K.Util.sanitize, {
 		
 		name = Latinize(name);
 
+		name = name.toLowerCase();
+
 		name = _.str.camelize(name);
-		return name
+
+		name = name
 			.replace(/[^a-zA-Z0-9\\\-\._]/g,'')
 			.replace(/\.\./g,'.')
 			.replace(/\//g,'')
-
 			.replace(/[\-\._]/g,'');
+
+		return name;
 	}
 });

@@ -3,7 +3,7 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
-...
+- plugin cats fix K.Util.sanitize.catName
 
 ## v1.6.4
 - fix map markers glich
