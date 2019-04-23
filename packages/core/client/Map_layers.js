@@ -41,6 +41,7 @@ _.extend(Kepler.Map, {
 			layers.cluster = new L.MarkerClusterGroup({
 				spiderfyDistanceMultiplier: 1.4,
 				showCoverageOnHover: false,
+				disableClusteringAtZoom:14,
 				maxClusterRadius: 40,
 				disableClusteringAtZoom:14,
 				iconCreateFunction: function(clust) {
