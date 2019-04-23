@@ -12,11 +12,6 @@ K.Plugin({
 						"mimeFileType": {
 							"image/png": true,
 							"image/jpeg": true
-						},
-						"imageOpts":{
-							"width": 1024,
-							"height": 1024,
-							"quality": 0.8
 						}
 					}*/
 				}

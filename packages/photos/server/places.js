@@ -20,8 +20,8 @@ Meteor.methods({
 		if(!placeId) {
 
 			var fileOri = Meteor.call('storePhoto', fileObj, path);
-			var fileMin = Meteor.call('resizePhoto', fileOri, imageOpts, path);
 			var exifData = Meteor.call('exifPhoto', fileOri, path);
+			var fileMin = Meteor.call('resizePhoto', fileOri, imageOpts, path);
 
 			if(exifData && exifData.loc) {
 
