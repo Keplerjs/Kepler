@@ -4,62 +4,17 @@ Template.panelPlace_photos.onRendered(function() {
 	var self = this,
 		place = self.data,
 		img$ = self.$('.place-photo');
-	
+
+	//	https://fengyuanchen.github.io/viewerjs/
+	//	hidden.spec.js	test: hide viewer before done	9 months ago	
 	img$.viewer({
 		navbar: false,
 		toolbar: false,
 		fullscreen: true,
+		//events: hide,ready,show,shown,view,viewed,zoom,zoomed
 	});
 
 	place.photo$ = img$;
-
-//TODO https://fengyuanchen.github.io/cropperjs/
-//
-	//	https://fengyuanchen.github.io/viewerjs/
-	//	hidden.spec.js	test: hide viewer before done	9 months ago
-/* 
-events:
-hide
-ready
-show
-shown
-view
-viewed
-zoom
-zoomed
-
-viewerData
-*/
-	/*if(place.photo && Viewer) {
-
-		if(place.photoViewer)
-			place.photoViewer.destroy();
-
-		place.photoViewer = new Viewer(img$[0], {
-			navbar: false,
-			toolbar: false,
-			fullscreen: true,
-			ready: function(e) {
-				console.log('ready')
-			},
-			show: function(e) {
-				console.log('show')	
-			},
-			shown: function(e) {
-				console.log('shown')	
-			},
-			view: function(e) {
-				console.log('view')	
-			},
-			viewed: function(e) {
-				console.log('viewed',e)
-			},
-			hide: function(e) {
-				console.log('hide',e)
-			}
-		});
-	
-	}*/
 });
 
 Template.panelPlace_photos.helpers({
