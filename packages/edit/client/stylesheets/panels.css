@@ -1,0 +1,11 @@
+	
+#maploc .maploc {
+	position: relative;
+	height: 250px;
+	width: auto;
+	cursor: move;
+	/*background-color: #ccc*/;
+	margin: 2px 1px;
+	border-radius: 4px;
+	border:1px solid #ccc;
+}

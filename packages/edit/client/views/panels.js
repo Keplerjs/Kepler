@@ -16,6 +16,51 @@ Template.panelPlaceEdit.onRendered(function() {
 			}
 		});
 	});
+
+	self.$('#maploc')
+	.on('hidden.bs.collapse', function(e) {
+		if(self.maploc) {
+			self.maploc.remove();
+			delete self.maploc;
+			delete self.newloc;
+		}
+	})
+	.on('shown.bs.collapse', function(e) {
+		if(!self.maploc) {
+
+			var loc = self.data.loc,
+				sets = K.settings.public,
+				layerName = K.Profile.getOpts('map.layer') || K.settings.public.map.layer,
+				layer = L.tileLayer(sets.map.layers[layerName]);
+
+			var icon = new L.NodeIcon(),
+				marker = L.marker(loc, {icon: icon});
+
+			self.maploc = L.map($(e.target).find('.maploc')[0], {
+				attributionControl:false,
+				zoomControl:false,
+				layers: layer,
+				center: loc,
+				zoom: 16
+			}).on('move zoomstart', function(e) {
+				//console.log(e)
+				var loc = self.maploc.getCenter(),
+					newloc = K.Util.geo.roundLoc([loc.lat, loc.lng]);
+
+				marker.setLatLng(newloc);
+				//self.$('#maploc')
+				self.$('.input-editloc').val(newloc.join(','))
+			});
+
+
+			if(self.data.geometry && self.data.geometry.type!=='Point')
+				L.geoJson(self.data.geometry).addTo(self.maploc);
+
+			marker.addTo(self.maploc);
+			
+			Blaze.renderWithData(Template.markerPlace, self, icon.nodeHtml);
+		}
+	});
 });
 
 Template.panelPlaceEdit.events({
@@ -29,13 +74,31 @@ Template.panelPlaceEdit.events({
 			place.update();
 		});
 	},
+	'click .btn-saveloc': function(e,tmpl) {
+		
+		var place = tmpl.data,
+			data = {
+				loc: K.Util.geo.roundLoc( tmpl.$('.input-editloc').val().split(',') )
+			};
+
+		Meteor.call('updatePlace', place.id, data, function(err) {
+			place.update();
+			tmpl.$('.collapse').collapse('hide');
+		});
+	},
+	'click .btn-cancloc': function(e,tmpl) {
+		tmpl.$('.collapse').trigger('hidden.bs.collapse');
+		tmpl.$('.collapse').trigger('shown.bs.collapse');
+		tmpl.$('.input-editloc').val( K.Util.geo.roundLoc(tmpl.data.loc) )
+		//TODO decide beahvior tmpl.$('.collapse').collapse('hide');
+	},
 	'keydown .input-editren': function(e,tmpl) {
 		if(e.keyCode===13) {//enter
 			e.preventDefault();
 			tmpl.$('.btn-editren').trigger('click');
 		}
 	},
-	'click .btn-cancelren': function(e,tmpl) {
+	'click .btn-cancren': function(e,tmpl) {
 		tmpl.$('.input-editren').val('');
 	},
 

@@ -4,6 +4,7 @@ i18n.map('it', {
 
 	btn_editinsert: "Crea Nuovo Luogo Qui!",
 	btn_edit: "Modifica",
+	btn_save: "Salva",
 	btn_del: "Rimuovi",
 	btn_ren: "Rinomina",
 	btn_reload: "Ricarica",

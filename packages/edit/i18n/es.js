@@ -4,6 +4,7 @@ i18n.map('es', {
 
 	btn_editinsert: "Anadir un lugar aqui!",
 	btn_edit: "Modificar",
+	btn_save: "Guardar",
 	btn_del: "Eliminar",
 	btn_ren: "Cambiar nombre",
 

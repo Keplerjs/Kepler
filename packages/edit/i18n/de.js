@@ -4,6 +4,7 @@ i18n.map('de', {
 
 	btn_editinsert: "Neuen Ort hier hinzufügen!",
 	btn_edit: "Bearbeiten",
+	btn_save: "Speichern",
 	btn_del: "Entfernen",
 	btn_ren: "Umbenennen",
 

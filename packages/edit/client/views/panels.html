@@ -1,5 +1,4 @@
 
-
 <template name="panelProfile_edit">
 	<a class="list-group-item" href="/places/edits">
 		<i class="icon icon-edit"></i>
@@ -87,7 +86,7 @@
 			{{> item_place}}
 				
 			<div class="row">
-				<div class="col-sm-12">
+				<div class="col-xs-11">
 				{{#if userId}}
 					<label>{{i18n 'label_creator'}}</label>
 					{{#with userById userId}}
@@ -108,12 +107,12 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-10">
+				<div class="col-xs-11">
 					<label class="control-label">{{i18n 'label_name'}}</label>
 					<div class="input-group">
 						<input class="input-editren form-control" type="text" value="{{name}}" placeholder="{{#unless name}}{{i18n 'label_noname'}}{{/unless}}" />
 						<span class="input-group-btn">
-							<a class="btn btn-default btn-cancelren" href="#">
+							<a class="btn btn-default btn-cancren" href="#">
 								<i class="icon icon-canc"></i>
 							</a>
 							<a class="btn-editren btn btn-default" href="#">{{i18n 'btn_ren'}}</a>
@@ -122,11 +121,31 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-sm-10">
+				<div class="col-xs-11">
 					<label class="control-label">{{i18n 'label_url'}}</label>
 					<input class="input-url form-control" type="text" value="{{url}}" />
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-xs-11">
+					<label class="control-label">{{i18n 'label_location'}}</label>
+					<div class="input-group">
+						<input class="input-editloc form-control" type="text" readonly="readonly" value="{{humanLoc loc}}" />
+						<span class="input-group-btn">
+							<a class="btn btn-default" data-toggle="collapse" data-target="#maploc" aria-expanded="false" aria-controls="mapLoc" href="#">
+								<i class="icon icon-map"></i> {{i18n 'btn_edit'}}
+							</a>
+						</span>
+					</div>
+					<div class="collapse" id="maploc">
+					  <div class="maploc"></div>
+					  <div class="btn-group pull-right">
+					  	<a class="btn btn-default btn-saveloc">{{i18n 'btn_save'}}</a>
+					  	<a class="btn btn-default btn-cancloc">{{i18n 'btn_cancel'}}</a>
+					  </div>
+					</div>
+				</div>
+			</div>			
 
 			{{> pluginsTemplate name='panelPlaceEdit'}}	
 		

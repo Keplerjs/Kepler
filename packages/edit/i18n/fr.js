@@ -4,6 +4,7 @@ i18n.map('fr', {
 
 	btn_editinsert: "Ajouter un lieu ici!",
 	btn_edit: "Modifier",
+	btn_save: "Sauver",
 	btn_del: "Eliminer",
 	btn_ren: "Renommer",
 

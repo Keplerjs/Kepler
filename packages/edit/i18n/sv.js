@@ -4,6 +4,7 @@ i18n.map('sv', {
 
 	btn_editinsert: "Lägg till plats här!",
 	btn_edit: "Redigera",
+	btn_save: "Spara",
 	btn_del: "Ta bort",
 	btn_ren: "Ändra namn",
 

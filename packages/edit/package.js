@@ -33,7 +33,9 @@ Package.onUse(function(api) {
     'client/views/popups.js',
     'client/views/items.html',
     'client/views/items.js',
-    'client/Router.js'
+    'client/Router.js',
+    'client/stylesheets/markers.css',
+    'client/stylesheets/panels.css',
   ],'client');
 
   api.addFiles([
