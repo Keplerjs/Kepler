@@ -4,6 +4,7 @@
 
 ## Next version
 - plugin cats fix K.Util.sanitize.catName
+- plugin edit change place location
 
 ## v1.6.4
 - fix map markers glich
