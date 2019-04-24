@@ -25,16 +25,14 @@ K.Admin.methods({
 		
 		console.log('Admin: removeAllPlaces');
 	},	
-	updatePlace: function(placeId, data) {
+	updatePlace: function(placeName, data) {
 		
 		if(!K.Admin.isMe()) return null;
 
-		var placeData = Places.findOne(placeId);
-
-		Places.update(placeId, {
-			$set: {
-				name: K.Util.sanitize.name(data.name)
-			}
+		var placeData = Places.findOne({name: placeName});
+			
+		Places.update(placeData._id, {
+			$set: data
 		});
 
 		console.log('Admin: updatePlace', data.name);	
