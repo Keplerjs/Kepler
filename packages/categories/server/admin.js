@@ -1,15 +1,30 @@
 
 if(K.Admin)
 K.Admin.methods({
-	removeCat: function(name, type) {
+	removeCat: function(cat, type) {
 		
 		if(!K.Admin.isMe()) return false;
 
-		name = K.Util.sanitize.regExp(name);
+		cat = K.Util.sanitize.regExp(cat);
 
-		Categories.remove({name: name, type: type});
+		Categories.remove({name: cat, type: type});
 
-		console.log('Cats: removeCat', name, type);
+		if(type==='user') {
+			Users.update({cats: cat }, {
+				$pull: {cats: cat }
+			},{multi:true});
+		}
+		else if(type==='place') {
+			Places.update({cats: cat }, {
+				$pull: {cats: cat }
+			},{multi:true});
+		}
+
+		Users.update({catshist: cat }, {
+			$pull: {catshist: cat }
+		},{multi:true});
+
+		console.log('Cats: removeCat', cat, type);
 	},
 	insertCat: function(name, type) {
 		
