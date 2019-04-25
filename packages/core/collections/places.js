@@ -6,21 +6,23 @@ if(Meteor.isServer)
 
 // https://github.com/matb33/meteor-collection-hooks
 Places.before.insert(function(userId, doc) {
-	
 	doc.createdAt = K.Util.time();
+	//TODO modifier.$set.modifiedAt = K.Util.time();
+	
 	doc.userId = userId;
 	doc.geometry = K.Util.geo.point([doc.loc[1],doc.loc[0]]);
 });
 
-//TODO
-/*Places.before.update(function(userId, doc, fieldNames, modifier, options) {
-	console.log('BEFORE UPDATE',fieldNames,modifier,options)
-	if(_.contains(fieldNames,'loc')) {
-		if(doc.geometry)
-		modifier.$set.geometry
+Places.before.update(function(userId, doc, fieldNames, modifier, options) {
+	//TODO modifier.$set.modifiedAt = K.Util.time();
+	
+	if(_.contains(fieldNames,'loc') && modifier.$set) {
+		if(doc.geometry && doc.geometry.type==='Point') {
+			modifier.$set.geometry = K.Util.geo.point([doc.loc[1],doc.loc[0]]);
+		}
 	}
-	//modifier.$set.modifiedAt = K.Util.time();
-});*/
+	
+});
 
 Places.after.remove(function(userId, doc) {
 	if(doc.checkins.length) {

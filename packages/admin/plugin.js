@@ -4,7 +4,6 @@ K.Plugin({
 	templates: {
 		//new placeholder
 		panelAdmin: {},
-		itemUser: 'itemUser_admin',
 		itemPlaceAdmin: {},
 		pageAdminUser: {},
 		pageAdminPlace: {},
@@ -28,6 +27,10 @@ K.Plugin({
 		itemPlaceAdmin: {
 			'itemPlaceAdmin_admin_btns': {order:10}
 		},	
+
+		itemUser: {'itemUser_admin': {order:-20}},
+		itemPlace: {'itemPlace_admin': {order:-20}},
+		
 		panelProfile: {
 			'panelProfile_admin': {order:10},
 			//'panelUser_admin': {order:50},

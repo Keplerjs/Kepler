@@ -107,3 +107,11 @@
 	</a>
 {{/if}}
 </template>
+
+<template name="itemPlace_admin">
+{{#if adminIsMe}}
+	<a class="btn btn-sm btn-default" href="/admin/places/{{id}}" title="{{i18n 'title_admin'}}">
+		<i class="icon icon-admin"></i> <span></span>
+	</a>
+{{/if}}
+</template>

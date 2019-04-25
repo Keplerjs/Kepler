@@ -17,16 +17,16 @@ Template.panelPlaceEdit.onRendered(function() {
 		});
 	});
 
-	self.$('#placeMap')
+	self.$('#editMap')
 	.on('hidden.bs.collapse', function(e) {
-		if(self.placeMap) {
-			self.placeMap.remove();
-			delete self.placeMap;
+		if(self.editMap) {
+			self.editMap.remove();
+			delete self.editMap;
 			delete self.newloc;
 		}
 	})
 	.on('shown.bs.collapse', function(e) {
-		if(!self.placeMap) {
+		if(!self.editMap) {
 
 			var loc = self.data.loc,
 				sets = K.settings.public,
@@ -36,27 +36,33 @@ Template.panelPlaceEdit.onRendered(function() {
 			var icon = new L.NodeIcon(),
 				marker = L.marker(loc, {icon: icon});
 
-			self.placeMap = L.map($(e.target).find('.map')[0], {
+			self.editMap = L.map($(e.target).find('.map')[0], {
 				attributionControl:false,
 				zoomControl:false,
 				layers: layer,
 				center: loc,
 				zoom: 16
 			}).on('move zoomstart', function(e) {
-				//console.log(e)
-				var loc = self.placeMap.getCenter(),
+
+				var loc = self.editMap.getCenter(),
 					newloc = K.Util.geo.roundLoc([loc.lat, loc.lng]);
 
 				marker.setLatLng(newloc);
-				//self.$('#placeMap')
+
 				self.$('.input-editloc').val(newloc.join(','))
 			});
 
+			L.control.zoom({
+				position:'topleft',
+				zoomOutText: i18n('map_zoomout'),
+				zoomInText: i18n('map_zoomin'),
+			}).addTo(self.editMap);
+
 
 			if(self.data.geometry && self.data.geometry.type!=='Point')
-				L.geoJson(self.data.geometry).addTo(self.placeMap);
+				L.geoJson(self.data.geometry).addTo(self.editMap);
 
-			marker.addTo(self.placeMap);
+			marker.addTo(self.editMap);
 			
 			Blaze.renderWithData(Template.markerPlace, self, icon.nodeHtml);
 		}

@@ -1,5 +1,5 @@
 	
-#placeMap .map {
+#editMap .map {
 	position: relative;
 	height: 250px;
 	width: auto;
@@ -8,4 +8,8 @@
 	margin: 2px 1px;
 	border-radius: 4px;
 	border:1px solid #ccc;
+}
+
+#editMap .leaflet-control-zoom.leaflet-bar {
+	padding: 2px;
 }

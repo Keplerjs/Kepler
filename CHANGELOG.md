@@ -7,6 +7,7 @@
 - plugin cats fica removeCat
 - plugin edit change place location
 - plugin theme new icon icon-places
+- plugin admin button in place panel
 
 ## v1.6.4
 - fix map markers glich
