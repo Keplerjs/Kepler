@@ -9,7 +9,7 @@ i18n.map('en', {
 	btn_ren: "Rename",
 	btn_reload: "Reload",
 
-	label_editplaces: "Created places",
+	label_editplaces: "Edits",
 
 	edit_error_notOwner: "Not Owner",
 	edit_error_notUrl: "Url Not Valid"

@@ -1,7 +1,7 @@
 
 i18n.map('en', {
 	title_photos: "Photos",
-	title_editphotos: "Added photos",
+	title_editphotos: "Photos added",
 	
 	title_placePhotos: "Photos to {$1}",
 

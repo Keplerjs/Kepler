@@ -6,6 +6,7 @@
 - plugin cats fix K.Util.sanitize.catName
 - plugin cats fica removeCat
 - plugin edit change place location
+- plugin theme new icon icon-places
 
 ## v1.6.4
 - fix map markers glich
