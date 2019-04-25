@@ -17,16 +17,16 @@ Template.panelPlaceEdit.onRendered(function() {
 		});
 	});
 
-	self.$('#maploc')
+	self.$('#placeMap')
 	.on('hidden.bs.collapse', function(e) {
-		if(self.maploc) {
-			self.maploc.remove();
-			delete self.maploc;
+		if(self.placeMap) {
+			self.placeMap.remove();
+			delete self.placeMap;
 			delete self.newloc;
 		}
 	})
 	.on('shown.bs.collapse', function(e) {
-		if(!self.maploc) {
+		if(!self.placeMap) {
 
 			var loc = self.data.loc,
 				sets = K.settings.public,
@@ -36,7 +36,7 @@ Template.panelPlaceEdit.onRendered(function() {
 			var icon = new L.NodeIcon(),
 				marker = L.marker(loc, {icon: icon});
 
-			self.maploc = L.map($(e.target).find('.maploc')[0], {
+			self.placeMap = L.map($(e.target).find('.map')[0], {
 				attributionControl:false,
 				zoomControl:false,
 				layers: layer,
@@ -44,19 +44,19 @@ Template.panelPlaceEdit.onRendered(function() {
 				zoom: 16
 			}).on('move zoomstart', function(e) {
 				//console.log(e)
-				var loc = self.maploc.getCenter(),
+				var loc = self.placeMap.getCenter(),
 					newloc = K.Util.geo.roundLoc([loc.lat, loc.lng]);
 
 				marker.setLatLng(newloc);
-				//self.$('#maploc')
+				//self.$('#placeMap')
 				self.$('.input-editloc').val(newloc.join(','))
 			});
 
 
 			if(self.data.geometry && self.data.geometry.type!=='Point')
-				L.geoJson(self.data.geometry).addTo(self.maploc);
+				L.geoJson(self.data.geometry).addTo(self.placeMap);
 
-			marker.addTo(self.maploc);
+			marker.addTo(self.placeMap);
 			
 			Blaze.renderWithData(Template.markerPlace, self, icon.nodeHtml);
 		}

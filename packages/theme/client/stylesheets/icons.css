@@ -159,7 +159,7 @@ div.leaflet-marker-icon,
 .icon-nav   { background-position: -90px -150px; } 
 .icon-stview{ background-position: -90px -180px; } 
 .icon-map   { background-position: -90px -210px; }
-.icon-route { background-position: -90px -240px; } 
+.icon-places{ background-position: -90px -240px; } 
 .icon-pois  { background-position: -90px -270px; } 
 .icon-home  { background-position: -90px -300px; }
 .icon-sets  { background-position: -90px -330px; } 
@@ -212,6 +212,7 @@ div.leaflet-marker-icon,
 .icon-import{ background-position: -150px -360px;  }
 .icon-export{ background-position: -150px -390px;  }
 .icon-cats{ background-position: -150px -420px;  }
+.icon-route{ background-position: -150px -450px;  }
 
 .icon-userbid{ background-position: -120px -330px;  } 
 .icon-info{ background-position: -120px -360px;  } 

@@ -10,3 +10,10 @@ Template.item_place_edit.onRendered(function() {
 		});			
 	});
 });
+
+Template.item_place_edit.events({
+	'click .place-btn-map': function(e, tmpl) {
+		e.preventDefault()
+		this.showLoc();
+	}
+});

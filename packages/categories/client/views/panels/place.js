@@ -71,3 +71,10 @@ Template.panelPlaceEdit_cats.events({
 	
 	}, 300)
 });
+
+Template.itemPlaceCats.events({
+	'click .place-btn-map': function(e, tmpl) {
+		e.preventDefault()
+		this.showLoc();
+	}
+});

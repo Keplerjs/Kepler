@@ -13,8 +13,8 @@
    inkscape:export-ydpi="90"
    inkscape:export-xdpi="90"
    inkscape:export-filename="/home/z4k/www//images/sprite.png"
-   sodipodi:docname="sprite.svg"
-   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="sprite_.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
    version="1.1"
    id="svg2"
    height="810"
@@ -26,16 +26,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="40.96"
-     inkscape:cx="155.73007"
-     inkscape:cy="385.95843"
+     inkscape:zoom="14.481547"
+     inkscape:cx="152.25546"
+     inkscape:cy="362.15007"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="1044"
-     inkscape:window-height="983"
+     inkscape:window-width="1231"
+     inkscape:window-height="956"
      inkscape:window-x="629"
-     inkscape:window-y="0"
+     inkscape:window-y="27"
      inkscape:window-maximized="0"
      inkscape:snap-global="false"
      showguides="true"
@@ -22743,7 +22743,7 @@
          inkscape:connector-curvature="0"
          id="path6045"
          d="m 45.047925,303.20235 c -6.283606,0 -11.367233,4.97343 -11.367233,11.11178 0,6.13832 4.035636,8.49102 11.367233,16.8912 7.331597,-8.40018 11.367232,-10.75288 11.367232,-16.8912 0,-6.13835 -5.083627,-11.11178 -11.367232,-11.11178 z"
-         style="fill:url(#linearGradient6841);fill-opacity:1;stroke:#698c00;stroke-width:1.39999998;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="fill:url(#linearGradient6841);fill-opacity:1;stroke:#698c00;stroke-width:1.4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <path
          inkscape:connector-curvature="0"
          id="path8566"
@@ -23493,7 +23493,7 @@
     </g>
     <g
        id="g7801"
-       transform="matrix(0.03712189,0,0,0.03712189,92.048069,482.02811)"
+       transform="matrix(0.03712189,0,0,0.03712189,152.26263,692.01949)"
        style="fill:#0078cd;fill-opacity:1">
       <g
          id="g7744"
