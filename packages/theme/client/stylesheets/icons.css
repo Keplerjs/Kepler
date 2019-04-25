@@ -19,11 +19,6 @@
 .leaflet-control-gps .gps-button.disabled:hover {
 	background: url("/packages/keplerjs_theme/assets/images/sprite.svg") no-repeat;
 }
-.icon.icon-social {
-	background: url("/packages/keplerjs_theme/assets/images/sprite-social.png") no-repeat;
-	width:30px;
-	height:30px;
-}
 .icon.icon-loader {
 	background: url("/packages/keplerjs_theme/assets/images/loader-icon.gif") no-repeat;
 }
@@ -260,11 +255,11 @@ div.leaflet-marker-icon,
 .icon-lang-sv{ background-position: -210px -150px; } 
 .icon-lang-ru{ background-position: -210px -180px; } 
 
-.icon-social.icon-social-tw {       background-position:0 0;     }
-.icon-social.icon-social-tw:hover { background-position:0 -31px; }
-.icon-social.icon-social-fb {       background-position:-30px 0; }
-.icon-social.icon-social-fb:hover { background-position:-30px -31px;}
-.icon-social.icon-social-gp {       background-position:-60px 0;}
-.icon-social.icon-social-gp:hover { background-position:-60px -31px;}
-.icon-social.icon-social-tu {       background-position:-90px 0;}
-.icon-social.icon-social-tu:hover { background-position:-90px -31px;}
+.icon-social-tw {       background-position:0 0;     }
+.icon-social-tw:hover { background-position:0 -31px; }
+.icon-social-fb {       background-position:-30px 0; }
+.icon-social-fb:hover { background-position:-30px -31px;}
+.icon-social-gp {       background-position:-60px 0;}
+.icon-social-gp:hover { background-position:-60px -31px;}
+.icon-social-tu {       background-position:-90px 0;}
+.icon-social-tu:hover { background-position:-90px -31px;}

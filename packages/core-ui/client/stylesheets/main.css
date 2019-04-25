@@ -22,14 +22,3 @@ hr {
 	clear: both;
 }
 
-.builtwith {
-	font-style: italic;
-	font-size: 11px;
-	letter-spacing: 1px;
-	color: #9c0;
-	white-space: nowrap;
-}
-.builtwith:hover {
-	color:#9c0;
-	text-decoration: none;
-}

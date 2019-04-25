@@ -1,21 +1,23 @@
 
 <template name="footer">
-
-<footer>
-	<div class="text-center">
-		<span>
-			
+	<footer>
+		<div class="text-center">
 			{{> pluginsTemplate name='footer'}}
 			
-		</span>
-	</div>
-</footer>
+			
+		</div>
+	</footer>
+	
+	{{> builtwith}}	
 
 </template>
 
-
-<template name="footer_ui_builtwith">
-	<a class="btn btn-link builtwith" href="http://keplerjs.io/" target="_blank">
-		built with <i class="icon icon-kepler"></i> KeplerJs&nbsp;&nbsp;
-	</a>
+<template name="builtwith">
+	<div style="text-align:center">
+		<a href="http://keplerjs.io/" target="_blank" style="color:#9c0;font:12px italic;letter-spacing:1px;white-space:nowrap;display:inline !important;visibility:visible !important;position: static !important">
+			built with 
+			<img height="16px" width="16px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABa1BMVEX///8AAAAAAACZzAAAAAAAAACZzAAAAAAAAACZzAAAAAAAAAB2ngB1nACZzAAAAAAAAACZzAAsOwArOQCZzACZzAAAAAAAAAARFwCJtwCJtgARFgBymABymACZzABdfABJYQCZzACZzACZzACJtwB3nwBtkgCGsgAGCACWyAAGCABggACZzAB8pgB2nwCZzABUcABuhSaUxgCPvwCYywAsOgCYygCZzACVxwCYywAoNQArOgCZzAAAAAABAQEDAwMEBgAICgAJDAALCwsNEgARFwAUGgAXHwAZHgsdHR0fKgAjLgAlJSMoNQApNgArOQAwQAAxMTEzRABCQkJCWABDWQBeXl5ffgBoiwBpjABra2tzmQB0mgB7pAB8pgCDrgCItQCLugCMvACNjY2NvACRwQCRwgCSwwCTxACVxwCWmI2WxwCXygCYygCZywCZzACgoKCsrKyvr6+zs7O1tbW3t7e/v7/Gxsb///98ot/uAAAAPXRSTlMAAQIFBgcPGB0dKCxLTF1lbHWEh4yYqbPExMXIzc7R1d/k5+jp6uvu8PDy8vLz9PT19vf5+vv7+/39/v7+4dtDEAAAANdJREFUeAFFyHc7w1AUB+BDKTVKaW1tuTUiYkSIcI+9B7H3iL1/Nh/fkzxJvH++5InE0+l4hALRRAtyObQmouSKJXvRMcjLty/oTsaIUqY1DJvX73Cy1m6ZKRLanAN78x5Hk7zxoAkSKjvYf8bBBPPlruoHsLcyvfj5zmFcz36/fv3+hPGE83ke2/oYD2LnDFdLzIdvbuh9F7BnTnGzygv9uqCyeimxzVPHeOwZkg3lRAVVTYZsGxkdgNFcXUiukrqMAiiZxlLy5VV0ZrNdlfn0r6imtpg8fzx0M44IguekAAAAAElFTkSuQmCC" />
+			KeplerJs
+		</a>
+	</div>
 </template>

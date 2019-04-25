@@ -24,15 +24,12 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-    'client/Router.js',
     'client/stylesheets/icons.css',
     'client/stylesheets/lib/bootstrap.css',
     'client/stylesheets/lib/leaflet.css',
     'client/stylesheets/lib/switch.css',
     'client/stylesheets/main.css',
-    'client/views/about.html',
-    'client/views/footer.html',
-    'client/views/home.html'
+    'client/home.html'
   ], 'client');
 
   api.addAssets([

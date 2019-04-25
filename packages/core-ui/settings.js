@@ -59,8 +59,5 @@ Kepler.settings.public.templates = {
 	},
 	"markerClusterPlace": {
 		"markerClusterPlace_ui_checkins": {order:-10}
-	},	
-	"footer": {
-		"footer_ui_builtwith": { order:10 }
 	}
 };
