@@ -61,7 +61,7 @@ Kepler.Map = {
 			minZoom: self.options.minZoom,
 			maxBounds: self.options.maxBounds,
 			attributionControl: false,
-			doubleClickZoom: false,
+			doubleClickZoom: true,
 			zoomControl: false			
 		});
 

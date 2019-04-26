@@ -5,6 +5,7 @@ L.Cursor = L.Layer.extend({
 	
 	options: {
 		className: 'leaflet-div-icon',
+		event: 'click'
 	},	
 
 	initialize: function(options) {
@@ -21,22 +22,18 @@ L.Cursor = L.Layer.extend({
 	},
 	onAdd: function(map) {
 		this._map = map;		
-		this._map.on('click', this._onSwitch, this);
-		this._map.on('dblclick', this._onSwitch, this);
+		this._map.on(this.options.event, this._onSwitch, this);
 	},
 	onRemove: function(map) {
-		map.off('click', this._onSwitch, this);
-		map.off('dblclick', this._onSwitch, this);
+		map.off(this.options.event, this._onSwitch, this);
 		map.removeLayer(this.marker);
 	},
 	_onSwitch: function(e) {
+
 		if(this._map.hasLayer(this.marker))
 			this.hide();
 		else
 			this.setLoc(e.latlng);
-
-		if(e.type==='dblclick')
-			this.marker.openPopup();
 	},
 
 	hide: function() {

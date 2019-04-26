@@ -13,6 +13,7 @@
 - plugin admin button in place panel
 - plugin admin move urls under /admin
 - plugin convers move autoresize lib in core lib
+- map zoom dblclick
 
 ## v1.6.4
 - fix map markers glich
