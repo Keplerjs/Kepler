@@ -8,7 +8,8 @@ K.Plugin({
 		},
 		tabPlace: 'tabPlace_geoinfo',
 		tabLocation: 'tabLocation_geoinfo',
-		popupCursor: 'popupCursor_geoinfo'
+		popupCursor: 'popupCursor_geoinfo',
+		itemPlaceSearch: 'itemPlaceSearch_geoinfo'		
 	},	
 	schemas: {
 		place: {
@@ -29,7 +30,12 @@ K.Plugin({
 			fields: {
 				geoinfo: 1
 			}
-		}
+		},
+		placeSearch: {
+			fields: {
+				geoinfo: 1
+			}
+		}		
 	},
 	settings: {
 		"public": {

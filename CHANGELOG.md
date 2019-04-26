@@ -3,7 +3,8 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
-...
+- new placeholder itemPlaceSearch
+- plugin geoinfo show country and city in place search results 
 
 ## v1.6.5
 - new tab in panel place show nearby places

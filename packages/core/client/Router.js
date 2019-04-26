@@ -231,7 +231,7 @@ Router.map(function() {
 	});
 
 	this.route('places', {
-		path: '/places',
+		path: '/places/',
 		onBeforeAction: function () {
 			Router.go('placesNews');
 			//this.redirect('/users/news');
@@ -255,8 +255,6 @@ Router.map(function() {
 
 			var loc = K.Map.getCenter(),
 				places = K.findPlacesByNearby(loc).fetch();
-
-			//debugging maxDistance L.circleMarker(loc,{radius:10}).addTo(K.Map.map);
 
 			return {
 				title: i18n('title_placesNearby'),

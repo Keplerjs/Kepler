@@ -16,7 +16,9 @@
 			{{> item_place}}
 		</div>
 		<div class="pull-right">
-			<!-- TODO geoinfo -->
+			
+			{{> pluginsTemplate name='itemPlaceSearch'}}
+
 			{{#if createdAt}}
 				<time class="text-muted">{{humanTime createdAt 1}}</time>
 			{{/if}}

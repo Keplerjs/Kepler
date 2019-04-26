@@ -2,7 +2,7 @@
 
 Template.tabGeoinfo.helpers({
 	fields: function() {
-
+//TODO convert to helper
 		var fields = {};
 
 		_.each(this, function(val, field) {

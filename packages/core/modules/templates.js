@@ -30,6 +30,7 @@ Kepler.templates = {
 	markerClusterPlace: {},	
 	markerUser: {},
 	itemPlace:  {},
+	itemPlaceSearch: {},
 	itemUser: {},
 	footer: {},
 	attribution: {}

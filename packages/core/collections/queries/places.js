@@ -60,7 +60,7 @@ K.extend({
 			/*createdAt: {
 				'$gte': dateFrom
 			}*/
-		}, _.deepExtend({}, K.filters.placeItem, {
+		}, _.deepExtend({}, K.filters.placeSearch, {
 				sort: { createdAt: -1 },
 				limit: 20
 			})
@@ -78,7 +78,7 @@ K.extend({
 				'$near': loc,
 				'$maxDistance': K.Util.geo.meters2rad(dist)
 			}
-		}, _.deepExtend({}, K.filters.placeItem, {
+		}, _.deepExtend({}, K.filters.placeSearch, {
 				limit: 20
 			})
 		);
