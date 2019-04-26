@@ -2,4 +2,4 @@
 
 keplerjs plugin for import bulk data
 
-support GeoJSON format
+for now support standard GeoJSON format

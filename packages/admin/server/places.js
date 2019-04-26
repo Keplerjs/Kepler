@@ -7,13 +7,13 @@ K.Admin.methods({
 		if(_.isString(placeId)) {
 
 			Places.remove({_id: placeId});
-	/*		Users.update(Meteor.userId(), {
+			Users.update({
+				places: placeId
+			}, {
 				$pull: {
 					places: placeId
 				}
-			});*/
-			//TODO remove ref
-
+			},{multi:true});
 			console.log('Admin: removePlace', placeId);
 		}
 	},
@@ -51,7 +51,11 @@ K.Admin.methods({
 					userId: userData._id
 				}
 			});
-
+			Users.update(placeData.userId, {
+				$pull: {
+					places: placeData._id
+				}
+			});
 			Users.update(userData._id, {
 				$addToSet: {
 					places: placeData._id

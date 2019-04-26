@@ -51,34 +51,14 @@ Router.map(function() {
 	});
 
 	this.route('panelCats', {
-		path: '/categories',
-		template: 'panelList',
-		layoutTemplate: 'layoutMap',
-		loadingTemplate: 'pageLoading',
+		path: '/admin/categories',
 		onBeforeAction: function () {
-			if(!K.Admin || !K.Admin.isMe())
-				Router.go('root');
-			else
-				this.next();
-		},
-		waitOn: function() {
-			Session.set('showSidebar', true);
-			return Meteor.subscribe('catsByName');
-		},
-		data: function() {
-			if(!this.ready()) return null;
-			return  {
-				title: i18n('title_panelCatsType'),
-				className: 'cats',
-				headerTemplate: 'formSearchCats',
-				itemsTemplate: 'itemCat',
-				items: K.findCatsByName('').fetch()
-			};
+			this.redirect('/admin/categories/place');
 		}
 	});
 
 	this.route('panelCatsType', {
-		path: '/categories/:type',
+		path: '/admin/categories/:type',
 		template: 'panelList',
 		layoutTemplate: 'layoutMap',
 		loadingTemplate: 'pageLoading',

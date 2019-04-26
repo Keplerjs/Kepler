@@ -4,7 +4,7 @@ Router.map(function() {
 	//TODO check isAdmin
 	//
 	this.route('panelImport', {
-		path: '/import',
+		path: '/admin/import',
 		template: 'panelList',
 		layoutTemplate: 'layoutMap',
 		loadingTemplate: 'pageLoading',
@@ -29,7 +29,7 @@ Router.map(function() {
 	});
 
 	this.route('panelImportName', {
-		path: '/import/:name',
+		path: '/admin/import/:name',
 		template: 'panelList',
 		layoutTemplate: 'layoutMap',
 		loadingTemplate: 'pageLoading',

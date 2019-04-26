@@ -29,8 +29,7 @@ Places.after.remove(function(userId, doc) {
 		Users.update({
 			$or: [
 				{checkin: doc._id },
-				{hist: doc._id }
-
+				{hist: doc._id },
 				//TODO limiti hist length
 				////https://stackoverflow.com/questions/21466297/slice-array-in-mongodb-after-addtoset-update
 			]

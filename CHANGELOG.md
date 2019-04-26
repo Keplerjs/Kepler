@@ -6,8 +6,10 @@
 - plugin cats fix K.Util.sanitize.catName
 - plugin cats fica removeCat
 - plugin edit change place location
+- plugin edit fix owner on remove
 - plugin theme new icon icon-places
 - plugin admin button in place panel
+- plugin admin move urls under /admin
 
 ## v1.6.4
 - fix map markers glich

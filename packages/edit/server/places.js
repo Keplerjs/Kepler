@@ -58,7 +58,7 @@ Meteor.methods({
 				$set: data
 			});
 
-			console.log('Edit: updatePlace', data);
+			console.log('Edit: updatePlace', placeData.name);
 		}	
 	}
 });
