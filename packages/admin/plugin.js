@@ -28,8 +28,8 @@ K.Plugin({
 			'itemPlaceAdmin_admin_btns': {order:10}
 		},	
 
-		itemUser: {'itemUser_admin': {order:-20}},
-		itemPlace: {'itemPlace_admin': {order:-20}},
+		panelUser: {'itemUser_admin': {order:-20}},
+		panelPlace:'itemPlace_admin',
 		
 		panelProfile: {
 			'panelProfile_admin': {order:10},
