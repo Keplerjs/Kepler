@@ -51,6 +51,9 @@ Meteor.methods({
 			if(data.name)
 				data.name = K.Util.sanitize.name(data.name);
 			
+			if(data.desc)
+				data.desc = K.Util.sanitize.text(data.desc);
+
 			if(data.url)
 				data.url = K.Util.sanitize.url(data.url);
 				

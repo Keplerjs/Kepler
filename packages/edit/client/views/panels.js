@@ -17,6 +17,8 @@ Template.panelPlaceEdit.onRendered(function() {
 		});
 	});
 
+	Autosize( self.$('.input-desc') );
+
 	self.$('#editMap')
 	.on('hidden.bs.collapse', function(e) {
 		if(self.editMap) {
@@ -80,24 +82,6 @@ Template.panelPlaceEdit.events({
 			place.update();
 		});
 	},
-	'click .btn-saveloc': function(e,tmpl) {
-		
-		var place = tmpl.data,
-			data = {
-				loc: K.Util.geo.roundLoc( tmpl.$('.input-editloc').val().split(',') )
-			};
-
-		Meteor.call('updatePlace', place.id, data, function(err) {
-			place.update();
-			tmpl.$('.collapse').collapse('hide');
-		});
-	},
-	'click .btn-cancloc': function(e,tmpl) {
-		tmpl.$('.collapse').trigger('hidden.bs.collapse');
-		tmpl.$('.collapse').trigger('shown.bs.collapse');
-		tmpl.$('.input-editloc').val( K.Util.geo.roundLoc(tmpl.data.loc) )
-		//TODO decide beahvior tmpl.$('.collapse').collapse('hide');
-	},
 	'keydown .input-editren': function(e,tmpl) {
 		if(e.keyCode===13) {//enter
 			e.preventDefault();
@@ -124,6 +108,45 @@ Template.panelPlaceEdit.events({
 		}
 	}, 300),
 	'keydown .input-url': function(e,tmpl) {
+		if(e.keyCode===13) {//enter
+			e.preventDefault();
+			$(e.target).trigger('keyup');
+		}
+	},
+
+	'click .btn-saveloc': function(e,tmpl) {
+		
+		var place = tmpl.data,
+			data = {
+				loc: K.Util.geo.roundLoc( tmpl.$('.input-editloc').val().split(',') )
+			};
+
+		Meteor.call('updatePlace', place.id, data, function(err) {
+			place.update();
+			tmpl.$('.collapse').collapse('hide');
+		});
+	},
+	'click .btn-cancloc': function(e,tmpl) {
+		tmpl.$('.collapse').trigger('hidden.bs.collapse');
+		tmpl.$('.collapse').trigger('shown.bs.collapse');
+		tmpl.$('.input-editloc').val( K.Util.geo.roundLoc(tmpl.data.loc) )
+		//TODO decide beahvior tmpl.$('.collapse').collapse('hide');
+	},
+	
+	'keyup .input-desc': _.debounce(function(e, tmpl) {
+		var place = tmpl.data,
+			input$ = $(e.target),
+			data = {
+				desc: input$.val()
+			};
+
+		if(data.desc.length) {
+			Meteor.call('updatePlace', place.id, data, function(err) {
+				place.update();
+			});
+		}
+	}, 300),
+	'keydown .input-desc': function(e,tmpl) {
 		if(e.keyCode===13) {//enter
 			e.preventDefault();
 			$(e.target).trigger('keyup');

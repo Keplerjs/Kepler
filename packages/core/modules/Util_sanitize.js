@@ -8,11 +8,8 @@ Kepler.Util.sanitize = {
 
 	text: function(body) {
 		body = _.str.stripTags(body);
-		body = _.str.trim(body);
-
+		body =  _.str.truncate(body, 1024)
 		//body = _.escape(body);
-		//TODO more filter msg
-		
 		return body;
 	},
 
@@ -34,7 +31,7 @@ Kepler.Util.sanitize = {
 		name = _.str.stripTags(name) || '';
 		name = _.str.clean(name) || '';
 
-		return name.substr(0,255);
+		return name.substr(0, 255);
 	},
 
 	/**

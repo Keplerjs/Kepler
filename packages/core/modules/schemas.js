@@ -40,10 +40,10 @@ Kepler.schemas = {
 		username: '',	   //username used in urls
 		createdAt: '',	   //new Date() of user insert
 		emails: [], 
+		mood: '',		    //status mood message, shown in profile
 		url: '',			//user web sites and social
 		profile: {},		//user data
 		avatar: '',		    //user photo
-		mood: '',		    //status mood message, shown in profile
 		loginAt: '',	    //last date of login
 		loginIp: '',		//last ip from login
 

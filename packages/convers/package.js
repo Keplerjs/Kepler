@@ -14,10 +14,6 @@ Package.onUse(function(api) {
 
   api.versionsFrom("1.5.1");
 
-  api.use([
-    'verron:autosize@3.0.8'
-  ],'client');
-
   api.addFiles([
     'plugin.js',
     'i18n/it.js',

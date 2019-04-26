@@ -8,6 +8,7 @@ Package.describe({
 });
 
 Npm.depends({
+  "autosize": "4.0.2",
   "latinize": "0.4.0",
   "bootstrap-switch": "3.3.2",
   "bootstrap-list-filter": "0.3.3",
@@ -70,7 +71,8 @@ Package.onUse(function(api) {
     'accounts-github',
     //'accounts-twitter',
     'blaze-html-templates@1.1.2',
-
+    
+    //'verron:autosize@3.0.8',
     'matb33:collection-hooks@0.8.4',
     'underscorestring:underscore.string@3.3.4',
     'kidovate:bootstrap-slider@0.0.5',
@@ -97,6 +99,8 @@ Package.onUse(function(api) {
     'lib/deepExtend.js',
     'lib/Class.js',
     '.npm/package/node_modules/latinize/latinize.js',
+    '.npm/package/node_modules/autosize/dist/autosize.js',
+    'lib/Autosize.js',
     'lib/Latinize.js',
     'config/leaflet.js',
     'config/Router.js',
@@ -113,8 +117,9 @@ Package.onUse(function(api) {
   api.export([
     'Class',
     'deepExtend',
+    'Autosize',
     'Latinize',
-    'sAlert'
+    'sAlert',
   ]);
   
 });

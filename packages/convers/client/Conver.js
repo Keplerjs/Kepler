@@ -20,7 +20,6 @@ Kepler.Conver = {
 	insertMsgToConver: function(convId, body) {	//TODO spostare lato server
 		
 		body = K.Util.sanitize.text(body);
-		//TODO move to Messages.allow
 
 		if(!_.str.isBlank(body))
 			K.insertMsgToConver(convId, body);

@@ -141,7 +141,6 @@ ui@1.0.13
 underscore@1.0.10
 underscorestring:underscore.string@3.3.4
 url@1.2.0
-verron:autosize@3.0.8
 webapp@1.7.4
 webapp-hashing@1.0.9
 zenorocha:clipboard@1.7.1

@@ -3,13 +3,16 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+- replace lib verron:autosize with npm version
 - plugin cats fix K.Util.sanitize.catName
 - plugin cats fica removeCat
+- plugin edit support description place editing
 - plugin edit change place location
 - plugin edit fix owner on remove
 - plugin theme new icon icon-places
 - plugin admin button in place panel
 - plugin admin move urls under /admin
+- plugin convers move autoresize lib in core lib
 
 ## v1.6.4
 - fix map markers glich

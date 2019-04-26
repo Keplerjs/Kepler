@@ -70,7 +70,7 @@ Kepler.filters = {
 	 */
 	placeItem: {
 		fields: {
-			loc:1, name:1, indoor:1, checkins:1, createdAt:1, userId:1 //TODOgeometry:1
+			loc:1, name:1, indoor:1, checkins:1, createdAt:1, userId:1 //TODO geometry:1
 		}
 	},
 	/**

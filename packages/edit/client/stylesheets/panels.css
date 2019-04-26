@@ -1,4 +1,11 @@
-	
+
+.input-desc {
+	font-size: 14px;
+	max-height: 100px;
+	overflow-y: auto;
+	resize: none;
+}
+
 #editMap .map {
 	position: relative;
 	height: 250px;

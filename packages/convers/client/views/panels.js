@@ -1,6 +1,6 @@
 
 Template.converInput.onRendered(function() {
-	autosize( this.find('textarea') );
+	Autosize( this.find('textarea') );
 });
 
 Template.converInput.events({
