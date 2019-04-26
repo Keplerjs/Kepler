@@ -90,9 +90,6 @@ i18n.map('it', {
 	label_histplace: "Visite recenti",
 	label_nearplaces: "Luoghi vicini",
 	label_nolistitems: "Lista vuota",
-	label_nofriendscomm: "Nessun amico in comune",
-	label_nohist: "Nessun luogo di recente",
-	label_nohistplace: "Nessuna visita di recente",
 	label_notfound: "Nessun risultato trovato",
 	label_version: "Versione",
 

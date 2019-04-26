@@ -48,9 +48,6 @@ i18n.map('de', {
 	
 	label_nearplaces: "Orte in der Nähe",
 	label_nolistitems: "Liste leer",
-	label_nofriendscomm: "Keine gemeinsamen Freunde",
-	label_nohist: "Kein Ort in der Historie",
-	label_nohistplace: "Kein Besuch in der Historie",
 	label_notfound: "Keine Ergebnisse gefunden",
 	label_version: "Version",
 

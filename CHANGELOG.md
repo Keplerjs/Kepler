@@ -3,6 +3,10 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+...
+
+## v1.6.5
+- new tab in panel place show nearby places
 - replace lib verron:autosize with npm version
 - plugin cats fix K.Util.sanitize.catName
 - plugin cats fica removeCat
@@ -14,6 +18,7 @@
 - plugin admin move urls under /admin
 - plugin convers move autoresize lib in core lib
 - map zoom dblclick
+- new tab tabPlace_ui_nearby
 
 ## v1.6.4
 - fix map markers glich

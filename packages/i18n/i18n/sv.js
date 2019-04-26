@@ -48,9 +48,6 @@ i18n.map('sv', {
 	label_histsearch: "Senaste sökningar",
 	label_nearplaces: "Platser i närheten",
 	label_nolistitems: "Tom lista",
-	label_nofriendscomm: "Inga gemensamma vänner",
-	label_nohist: "Ingen historik",
-	label_nohistplace: "Ingen besökshistorik",
 	label_notfound: "Inga resultat",
 	label_version: "Version",
 

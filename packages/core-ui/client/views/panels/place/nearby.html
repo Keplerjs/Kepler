@@ -1,0 +1,23 @@
+
+<template name="tabPlace_ui_nearby">
+
+	<div class="list-group">
+		<div class="list-group-item active">
+			{{i18n 'label_nearplaces'}}
+		</div>
+		{{#if getNearbyList.length}}
+		<ul class="list-group">
+			{{#each getNearbyList}}
+			<li class="list-group-item">
+				{{> item_place_search}}
+			</li>
+			{{/each}}
+		</ul>
+		{{else}}
+			<a class="list-group-item panel-btn-nearbyList" href="#">
+				<i class="icon icon-places"></i> {{i18n 'label_nearplaces'}}
+			</a>
+		{{/if}}
+	</div>
+
+</template>

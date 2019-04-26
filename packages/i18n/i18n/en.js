@@ -53,10 +53,6 @@ i18n.map('en', {
 	label_histsearch: "Recent searches",
 	label_nearplaces: "Nearby Places",
 	label_nolistitems: "List empty",
-	label_nofriendscomm: "No friend in common",
-	label_nohist: "No recent place",
-	label_nohistplace: "No recent visit",
-	label_notfound: "No results found",
 	label_version: "Version",
 
 	error_novalid: "not valid!",

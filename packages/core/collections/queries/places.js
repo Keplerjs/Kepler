@@ -62,18 +62,24 @@ K.extend({
 			}*/
 		}, _.deepExtend({}, K.filters.placeItem, {
 				sort: { createdAt: -1 },
-				limit: 30
+				limit: 20
 			})
 		);
 	},	
-	findPlacesByNearby: function(loc) {
+	findPlacesByNearby: function(loc, dist) {
+		
+		dist = dist || K.settings.public.map.nearbyMaxDist;
+
+		//TODO https://forums.meteor.com/t/mongodb-geonear-query-and-match-aggregation-return-empty-result/36948
+		////sort by distance
+		///
 		return Places.find({
 			loc: {
 				'$near': loc,
-				'$maxDistance': K.Util.geo.meters2rad(K.settings.public.map.nearbyMaxDist)
+				'$maxDistance': K.Util.geo.meters2rad(dist)
 			}
 		}, _.deepExtend({}, K.filters.placeItem, {
-				limit: 30
+				limit: 20
 			})
 		);
 	},
@@ -85,7 +91,7 @@ K.extend({
 
 		var filters = _.deepExtend({}, K.filters.placeSearch, {
 			sort: { name:1 },
-			limit: 30
+			limit: 20
 		});
 
 		var ex = new RegExp('^'+ initial, 'i');

@@ -272,6 +272,8 @@ Kepler.Map = {
 
 			if(!this.isVisible())
 				Session.set('showSidebar', false);
+			/*else
+				Session.set('showSidebar', true);*/
 			
 			if(_.isFunction(cb))
 				this.map.once("moveend zoomend", cb);

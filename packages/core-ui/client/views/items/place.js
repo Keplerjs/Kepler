@@ -12,7 +12,7 @@ Template.place_btn_checkin.events({
 
 Template.place_btns.events({
 	'click .place-btn-map': function(e, tmpl) {
-		e.preventDefault()
+		e.preventDefault();
 		this.showLoc();
 	}
 });

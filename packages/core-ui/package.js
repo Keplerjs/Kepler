@@ -1,4 +1,4 @@
-var version = '1.6.4';
+var version = '1.6.5';
 
 Package.describe({
   version: version,
@@ -41,6 +41,7 @@ Package.onUse(function(api) {
     'client/stylesheets/popups.css',
     'client/stylesheets/scrollbars.css',
     'client/stylesheets/sidebar.css',
+
     'client/views/btnConnect.html',
     'client/views/btnConnect.js',
     'client/views/errors.html',
@@ -48,23 +49,31 @@ Package.onUse(function(api) {
     'client/views/formLogin.html',
     'client/views/formLogin.js',
     'client/views/header.html',
-    'client/views/items/place.html',
-    'client/views/items/place.js',
-    'client/views/items/user.html',
     'client/views/loaders.html',
     'client/views/markers.html',
     'client/views/navSidebar.html',
+
+    'client/views/items/place.html',
+    'client/views/items/place.js',
+    'client/views/items/user.html',
+
     'client/views/panels/friends.html',
     'client/views/panels/friends.js',
     'client/views/panels/panelList.html',
     'client/views/panels/panelList.js',
+
     'client/views/panels/place.html',
+    'client/views/panels/place.js',
+    'client/views/panels/place/nearby.html',
+    'client/views/panels/place/nearby.js',
+
     'client/views/panels/places.html',
     'client/views/panels/places.js',
     'client/views/panels/profile.html',
     'client/views/panels/search.html',
     'client/views/panels/search.js',
     'client/views/panels/settings.html',
+    
     'client/views/panels/user.html',
     'client/views/panels/user.js',
     'client/views/panels/user/friends.html',
