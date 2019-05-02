@@ -1,19 +1,15 @@
 
 <template name="item_notif">
 	<div class="item-notif">
-<!-- 		<a class="close pull-right">
-			<i class="icon icon-close-blue"></i>
-		</a> -->
-		<div>
-			{{#if url}}
-				<a href="{{url}}">
-					<i class="icon icon-{{type}}"></i>
-					<span>{{{msg}}}</span>
-				</a>
-			{{else}}
+		{{#if url}}
+			<a href="{{url}}">
 				<i class="icon icon-{{type}}"></i>
-			{{/if}}
-			<span class="pull-right">{{humanDate createdAt}}</span>
-		</div>
+				<span>{{{msg}}}</span>
+			</a>
+		{{else}}
+			<i class="icon icon-{{type}}"></i>
+			<span>{{{msg}}}</span>
+		{{/if}}
+		<span class="pull-right">{{humanDate createdAt}}</span>
 	</div>
 </template>
