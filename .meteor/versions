@@ -68,10 +68,12 @@ keplerjs:core-ui@1.6.5
 keplerjs:edit@1.6.5
 keplerjs:favorites@1.6.5
 keplerjs:geoinfo@1.6.5
+keplerjs:googlemaps@1.6.5
 keplerjs:i18n@1.6.5
 keplerjs:import@1.6.5
 keplerjs:lib@1.6.5
 keplerjs:notifs@1.6.5
+keplerjs:openrouteservice@1.6.5
 keplerjs:osm@1.6.5
 keplerjs:photos@1.6.5
 keplerjs:pois@1.6.5
@@ -80,6 +82,7 @@ keplerjs:stats@1.6.5
 keplerjs:theme@1.6.5
 keplerjs:tracks@1.6.5
 keplerjs:upload@1.6.5
+keplerjs:wunderground@1.6.5
 kidovate:bootstrap-slider@0.0.5
 konecty:user-presence@2.4.0
 less@2.8.0
