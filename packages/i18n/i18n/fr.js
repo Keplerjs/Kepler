@@ -52,6 +52,7 @@ i18n.map('fr', {
 	error_novalid: "not valid",
 	error_validchars: "letters, numbers, '-' '.' '_' min 3 max 30 chars",
 	error_taken: "username <i>{$1}</i> already been taken",
+	error_nozoomdata: "Zoom avant pour afficher les données",
 	
 	btn_ok: "Ok",
 	btn_cancel: "Annuler",

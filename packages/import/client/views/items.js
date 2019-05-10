@@ -20,7 +20,7 @@ Template.itemImport.onRendered(function() {
 	self.$('.btn-del').btsConfirmButton(function(e) {
 		
 		Meteor.call('removeImport', self.data.name, function(err,res) {
-			sAlert.info('Removed '+res+' places by import name: '+self.data.name);
+			K.Alert.info('Removed '+res+' places by import name: '+self.data.name);
 		});			
 	});
 });

@@ -59,7 +59,7 @@ Template.formSearchCats.events({
 			K.Admin.call('insertCat', name, type, function(err,ret) {
 				
 				if(err)
-					sAlert.error( i18n('error_cats_exists',name) );
+					K.Alert.error( i18n('error_cats_exists',name) );
 				
 				input$.val('')
 			});

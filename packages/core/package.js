@@ -42,6 +42,7 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'client/Accounts.js',
+    'client/Alert.js',
     'client/Map.js',
     'client/Map_controls.js',
     'client/Map_layers.js',

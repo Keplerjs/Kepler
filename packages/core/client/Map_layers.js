@@ -124,6 +124,10 @@ _.extend(Kepler.Map, {
 			}
 		});
 
+		map._zoomData = function (e) {
+			K.Alert.warning( i18n('error_nozoomdata') );
+		};
+
 		map.on('zoomend moveend', function(e) {
 			var c = map.getCenter(),
 				z = map.getZoom();
@@ -148,6 +152,8 @@ _.extend(Kepler.Map, {
 
 				if(layers.places)
 					map.removeLayer(layers.places);
+
+				map.on('click', map._zoomData);
 		    }
 		    else {
 		    	if(layers.users)
@@ -161,6 +167,8 @@ _.extend(Kepler.Map, {
 
 				if(layers.cluster)
 					map.addLayer(layers.cluster);
+
+				map.off('click', map._zoomData);
 
 				/* TODO FIX if(opts.tooltips.autoOpen) {
 					var bb = map.getBounds().pad(-0.7);

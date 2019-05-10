@@ -96,6 +96,7 @@ i18n.map('it', {
 	error_novalid: "non valido",
 	error_validchars: "lettere, numberi, '-' '.' '_' min 3 max 30 caratteri",
 	error_taken: "username <i>{$1}</i> gia stato preso",
+	error_nozoomdata: "Zoom in per mostrare i dati",
 
 	map_gps_title: "Tua posizione",
 	map_gps_error: "gps non disponibile",
