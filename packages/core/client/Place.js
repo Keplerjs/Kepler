@@ -18,7 +18,7 @@ Kepler.placeById = function(id) {
 	
 	if(id && !K.placesById['id_'+id] && K.findPlaceById(id).fetch()[0])
 		K.placesById['id_'+id] = new K.Place(id);
-	
+
 	return K.placesById['id_'+id] || null;
 };
 
@@ -66,7 +66,7 @@ Kepler.Place = Class.extend({
 		self.update = function(comp) {	//sincronizza istanza con dati nel db
 
 			self.data = K.findPlaceById(self.id).fetch()[0];
-		
+	
 			//TODO rewrite loading data into place instance!
 			_.extend(self, self.data);
 

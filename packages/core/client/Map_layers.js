@@ -145,6 +145,9 @@ _.extend(Kepler.Map, {
 				
 				if(layers.cluster)
 					map.removeLayer(layers.cluster);
+
+				if(layers.places)
+					map.removeLayer(layers.places);
 		    }
 		    else {
 		    	if(layers.users)
@@ -152,7 +155,10 @@ _.extend(Kepler.Map, {
 				
 				if(layers.cursor)
 					map.addLayer(layers.cursor);
-				
+			
+				if(layers.places)
+					map.addLayer(layers.places);
+
 				if(layers.cluster)
 					map.addLayer(layers.cluster);
 

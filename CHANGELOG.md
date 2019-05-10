@@ -5,6 +5,7 @@
 ## Next version
 - new placeholder itemPlaceSearch
 - plugin geoinfo show country and city in place search results 
+- core fix zoom min for cluster disable
 
 ## v1.6.5
 - new tab in panel place show nearby places

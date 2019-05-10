@@ -22,7 +22,7 @@ Tracker.autorun(function(comp) {
 		K.Map.map.on('zoomend', function(e) {
 			var z = K.Map.map.getZoom();
 
-			if(z < K.settings.public.map.dataMinZoom){
+			if(z < K.settings.public.map.dataMinZoom) {
 			
 				if(!placesLayer.getLayers().length)
 				{
