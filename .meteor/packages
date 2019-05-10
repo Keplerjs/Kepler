@@ -31,7 +31,7 @@ keplerjs:photos
 
 #keplerjs:robots
 #keplerjs:wunderground
-#keplerjs:googlemaps
+keplerjs:googlemaps
 #keplerjs:openrouteservice
 
 ##work in progress
