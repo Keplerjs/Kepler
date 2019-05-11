@@ -25,7 +25,7 @@ Meteor.publish('tracksByPlace', function(placeId) {
 		//TODO optimize this condition caching
 		//if(tracksCur.count()===0) {
 			var findOsm = function(loc) {
-				return K.Osm.findOsmByLoc(loc, {
+				return K.Osm.findByLoc(loc, {
 					type: 'way',
 					filter: _.keys(sets.typesByTags),
 					dist: sets.maxDistance,

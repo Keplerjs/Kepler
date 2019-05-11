@@ -41,7 +41,6 @@ Package.onUse(function (api) {
   api.addFiles([
     'server/Osm.js',
     'server/places.js',
-    'server/pubs.js'
   ],'server');
 
 //TODO export Osm client and server

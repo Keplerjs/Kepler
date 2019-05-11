@@ -12,7 +12,7 @@ Meteor.publish('poisByPlace', function(placeId) {
 		//if(poisCur.count()===0) {
 
 			var findOsm = function(loc) {
-				return K.Osm.findOsmByLoc(loc, {
+				return K.Osm.findByLoc(loc, {
 					filter: _.keys(sets.typesByTags),
 					dist: sets.maxDistance,
 					limit: sets.limit,

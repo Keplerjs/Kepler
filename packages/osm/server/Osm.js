@@ -119,7 +119,7 @@ Kepler.Osm = {
 		return query;
 	},
 	
-	findOsmByLoc: function(loc, opts) {
+	findByLoc: function(loc, opts) {
 		
 		var query = this.queryBuilder(opts, loc);
 
@@ -135,11 +135,11 @@ Kepler.Osm = {
 					delete features[f].properties.relations;
 			}
 		}
-
+		
 		return geojson;
 	},
 
-	findOsmById: function(osmId) {
+	findById: function(osmId) {
 
 		var query = this.queryBuilder({id: osmId});
 
@@ -155,13 +155,13 @@ Meteor.methods({
 		
 		if(!this.userId) return null;
 
-		return K.Osm.findOsmByLoc(loc, opts);
+		return K.Osm.findByLoc(loc, opts);
 	},
 
 	findOsmById: function(osmId) {
 		
 		if(!this.userId) return null;
 		
-		return K.Osm.findOsmById(osmId);
+		return K.Osm.findById(osmId);
 	}
 });
