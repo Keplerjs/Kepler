@@ -27,3 +27,20 @@
 		</div>
 	</div>
 </template>
+
+<template name="pageAdmin_admin_owner">
+	{{#if userId}}
+	<div class="row">
+		<div class="col-xs-12">
+			<label>{{i18n 'label_owner'}}: </label>
+			{{#with userById userId}}
+				
+				{{> item_user}}
+			
+				<input class="form-control input-owner" type="text" aria-describedby="user-addon" value="{{username}}" />
+			
+			{{/with}}
+		</div>
+	</div>
+	{{/if}}
+</template>

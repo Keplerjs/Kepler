@@ -13,6 +13,8 @@ K.Plugin({
 		pageAdminPlace: {
 			'pageAdmin_admin_map':{order:0},			
 			'pageAdmin_admin_raw':{order:0},
+			'pageAdmin_admin_owner':{order:0},
+			
 			'panelPlaceEdit':{order:10}
 		},
 		pageAdminUser: {
@@ -26,7 +28,11 @@ K.Plugin({
 		},
 		itemPlaceAdmin: {
 			'itemPlaceAdmin_admin_btns': {order:10}
-		},	
+		},
+		
+		panelPlaceEdit: {
+			'itemPlace_admin': {order:-30}
+		},
 
 		panelUser: {'itemUser_admin': {order:-20}},
 		panelPlace:'itemPlace_admin',

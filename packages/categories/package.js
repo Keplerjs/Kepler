@@ -8,8 +8,8 @@ Package.describe({
 });
 
 Npm.depends({
-  'typeahead.js': '0.11.1',
-  'bootstrap-tagsinput':'0.7.1'
+  //moved in kepler plugin edit 'typeahead.js': '0.11.1',
+  'bootstrap-tagsinput':'0.7.1'//require typeahead.js
 });
 
 Package.onUse(function(api) {
@@ -24,7 +24,7 @@ Package.onUse(function(api) {
   api.imply(packages);
 
   api.addFiles([
-    '.npm/package/node_modules/typeahead.js/dist/typeahead.bundle.js',
+    //moved in kepler plugin edit '.npm/package/node_modules/typeahead.js/dist/typeahead.bundle.js',
     '.npm/package/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css',
     '.npm/package/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.js',
   ],'client');

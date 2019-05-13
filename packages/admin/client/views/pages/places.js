@@ -32,3 +32,4 @@ Template.itemPlaceAdmin_admin_btns.onRendered(function() {
 		K.Admin.removePlace(self.data.id);
 	});
 });
+

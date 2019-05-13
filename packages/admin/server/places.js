@@ -37,11 +37,11 @@ K.Admin.methods({
 
 		console.log('Admin: updatePlace', data.name);	
 	},
-	updatePlaceAuthor: function(placeName, userName) {
+	updatePlaceOwner: function(placeId, userName) {
 		
 		if(!K.Admin.isMe()) return null;
 
-		var placeData = Places.findOne({name: placeName}),
+		var placeData = Places.findOne(placeId),
 			userData = Users.findOne({username: userName});
 
 		if(placeData && userData) {
@@ -62,7 +62,7 @@ K.Admin.methods({
 				}
 			});
 
-			console.log('Admin: updatePlaceAuthor', placeName, userName);
+			console.log('Admin: updatePlaceOwner', placeId, userName);
 		}
 	},	
 	movePlace: function(placeId, loc) {

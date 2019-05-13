@@ -49,7 +49,7 @@ Meteor.publish('adminPlaceById', function(placeId) {
 
 		var usersIds = _.union(placeData.hist, placeData.checkins, placeData.userId);
 		//TODO move publish of userId in plugin edit
-		//		
+		//
 		if(usersIds.length > 0)
 			retCurs.push( K.findUsersByIds(usersIds) );
 		//publish one cursor for collection users

@@ -7,12 +7,20 @@ Package.describe({
   git: "https://github.com/Keplerjs/Kepler.git"
 });
 
+Npm.depends({
+  'typeahead.js': '0.11.1',
+});
+
 Package.onUse(function(api) {
   api.use([
     'keplerjs:core@'+version,
   ]);
 
   api.versionsFrom("1.5.1");
+  
+  api.addFiles([
+    '.npm/package/node_modules/typeahead.js/dist/typeahead.bundle.js',
+  ],'client');
 
   api.addFiles([
     'plugin.js',
