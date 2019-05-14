@@ -10,11 +10,15 @@ Template.pageAdmin_admin_raw.helpers({
 
 Template.pageAdmin_admin_map.onRendered(function() {
 	var self = this,
+		mapDiv = self.find('.minimap'),
 		loc = self.data.loc,
 		sets = K.settings.public.map,
 		layer = L.tileLayer(sets.layers[sets.layer]);
+	
+	if(!mapDiv)
+		return false;
 
-	var map = L.map(self.find('.minimap'), {
+	var map = L.map(mapDiv, {
 		attributionControl:false,
 		zoomControl:false,
 		layers: layer,
@@ -45,14 +49,26 @@ Template.pageAdmin_admin_owner.onRendered(function() {
 
 	// https://github.com/twitter/typeahead.js
 	input$.typeahead({
-		limit: 30,
+		limit: 1,
 		minLength: 1,
-		highlight: true
+		highlight: true,
+		classNames: {
+			suggestion:''
+		},
 	},
 	{
 		name: 'users',
 		display: 'username',
-    	suggestion: '<a class="btn user-btn-name">{{value}}</a>',		
+		templates: {
+			suggestion: function(u) {
+				var div = $('<div>')[0];
+				//eturn K.Util.tmpl('<a class="btn user-btn-name">{username}</a>',u);
+				Blaze.renderWithData(Template.item_user, u, div);
+
+				return $(div.firstChild).html();
+			}
+		},
+
 		source: _.debounce(function(text, sync, cb) {
 			
 			if(!text.length) return [];

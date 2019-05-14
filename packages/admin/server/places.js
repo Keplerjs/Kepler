@@ -51,6 +51,7 @@ K.Admin.methods({
 					userId: userData._id
 				}
 			});
+			//TODO owner instead of replace
 			Users.update(placeData.userId, {
 				$pull: {
 					places: placeData._id

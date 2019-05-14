@@ -28,3 +28,8 @@
 .adminPage .items-list .item-place {
 	width: auto;
 }
+
+
+.twitter-typeahead .tt-suggestion.tt-selectable {
+	font-size: 14px !important;
+}
