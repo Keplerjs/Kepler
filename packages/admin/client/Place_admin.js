@@ -1,7 +1,6 @@
 
 
 Kepler.Place.include({
-	
 	//override edit plugin
 	isEditable: function() {
 

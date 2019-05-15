@@ -39,7 +39,7 @@ K.Admin.methods({
 	},
 	updatePlaceOwner: function(placeId, userName) {
 		
-		if(!K.Admin.isMe()) return null;
+		if(!K.Admin.isMe() || !userName || !placeId) return null;
 
 		var placeData = Places.findOne(placeId),
 			userData = Users.findOne({username: userName});

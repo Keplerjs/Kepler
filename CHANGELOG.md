@@ -3,11 +3,13 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+- plugin admin change place owner
 - new placeholder itemPlaceSearch
 - plugin geoinfo show country and city in place search results 
 - core fix zoom min for cluster disable
 - core new Kepler module K.Alert.xxx to show notifications over the map(extend sAlert lib)
 - plugin cats moved typeahead.js in kepler plugin edit
+- plugin edit new Place reactive var placeInstance.getOwner()
 
 ## v1.6.5
 - new tab in panel place show nearby places

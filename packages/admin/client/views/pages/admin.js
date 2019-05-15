@@ -36,10 +36,14 @@ Template.pageAdmin_admin_map.onRendered(function() {
 		marker.addTo(this);
 		
 		Blaze.renderWithData(Template.markerPlace, self, icon.nodeHtml);
-	})
-
-	
+	});	
 });
+
+/*Moved in plugin edit Place_edit.js Template.pageAdmin_admin_owner.helpers({
+	owner: function() {
+		return this.userId ? K.userById(this.userId) : {username: ''}
+	}
+});*/
 
 Template.pageAdmin_admin_owner.onRendered(function() {
 
@@ -62,10 +66,10 @@ Template.pageAdmin_admin_owner.onRendered(function() {
 		templates: {
 			suggestion: function(u) {
 				var div = $('<div>')[0];
-				//eturn K.Util.tmpl('<a class="btn user-btn-name">{username}</a>',u);
+				//return K.Util.tmpl('<a class="btn user-btn-name">{username}</a>',u);
 				Blaze.renderWithData(Template.item_user, u, div);
-
-				return $(div.firstChild).html();
+				$(div).find('a').attr('href','#');
+				return div;
 			}
 		},
 
@@ -86,7 +90,11 @@ Template.pageAdmin_admin_owner.onRendered(function() {
 		}, 300)
 	})
 	.on('typeahead:select', function(e) {
+		
+		console.log('updatePlaceOwner',placeId, e.target.value)
+		
 		K.Admin.updatePlaceOwner(placeId, e.target.value);
+
 		self.data.update();
 	});
 });

@@ -30,9 +30,9 @@ K.Plugin({
 			'itemPlaceAdmin_admin_btns': {order:10}
 		},
 		
-		panelPlaceEdit: {
+		/*panelPlaceEdit: {
 			'itemPlace_admin': {order:-30}
-		},
+		},*/
 
 		panelUser: {'itemUser_admin': {order:-20}},
 		panelPlace:'itemPlace_admin',
