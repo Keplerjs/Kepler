@@ -9,6 +9,7 @@ Package.describe({
 
 Npm.depends({
   'typeahead.js': '0.11.1',
+  //TODO 'bootstrap-3-typeahead': '3.1.1'
 });
 
 Package.onUse(function(api) {
@@ -20,6 +21,7 @@ Package.onUse(function(api) {
   
   api.addFiles([
     '.npm/package/node_modules/typeahead.js/dist/typeahead.bundle.js',
+    //TODO '.npm/package/node_modules/bootstrap-3-typeahead/bootstrap3-typeahead.js'
   ],'client');
 
   api.addFiles([

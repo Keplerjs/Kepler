@@ -3,6 +3,7 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+- plugin admin add friend in user admin
 - plugin admin change place owner
 - new placeholder itemPlaceSearch
 - plugin geoinfo show country and city in place search results 

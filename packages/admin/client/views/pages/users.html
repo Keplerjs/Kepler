@@ -84,7 +84,7 @@
 	</a>
 </template>
 
-<template name="pageUserAdmin_admin_logins">
+<template name="pageAdminUser_admin_logins">
 {{#with rawdata}}
 	<div class="list-group">
 		{{#if loginAt}}
@@ -172,4 +172,20 @@
 		{{/if}}
 	{{/with}}
 {{/with}}
+</template>
+
+<template name="pageAdminUser_admin_friends">
+	
+	<div class="row">
+		<div class="col-xs-12">
+			<label>{{i18n 'btn_addfriends'}}: </label>
+			<span class="input-group">
+				<span class="input-group-addon">
+					<i class="icon icon-useradd"></i>
+				</span>
+				<input class="form-control input-friends" type="text" placeholder="{{i18n 'btn_addfriends'}}" value="" />
+			</span>
+		</div>
+	</div>
+	
 </template>

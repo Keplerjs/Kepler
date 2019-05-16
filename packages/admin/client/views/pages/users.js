@@ -58,7 +58,7 @@ Template.itemUserAdmin_admin_btns.onRendered(function() {
 	});
 });
 
-Template.pageUserAdmin_admin_logins.onRendered(function() {
+Template.pageAdminUser_admin_logins.onRendered(function() {
 	var self = this;
 	self.$('.item-btn-logout').btsConfirmButton(function(e) {
 		e.stopPropagation();
@@ -67,7 +67,7 @@ Template.pageUserAdmin_admin_logins.onRendered(function() {
 	});
 });
 
-Template.pageUserAdmin_admin_logins.helpers({
+Template.pageAdminUser_admin_logins.helpers({
 	rawdata: function() {
 		return Users.findOne(this._id);
 	}
@@ -80,4 +80,52 @@ Template.pageAdminUser_admin_contact.helpers({
 		else if(this.type==='place')
 			return Places.findOne(this._id);
 	}
+});
+
+Template.pageAdminUser_admin_friends.onRendered(function() {
+
+	var self = this,
+		userId = self.data.id,
+		input$ = self.$('.input-friends');
+
+	// https://github.com/twitter/typeahead.js
+	input$.typeahead({
+		limit: 1,
+		minLength: 1,
+		highlight: true,
+		classNames: {
+			suggestion:''
+		},
+	},
+	{
+		name: 'users',
+		display: 'username',
+		templates: {
+			suggestion: function(u) {
+				var div = $('<div>')[0];
+				Blaze.renderWithData(Template.item_user, u, div);
+				$(div).find('a').attr('href','#');
+				return div;
+			}
+		},
+
+		source: _.debounce(function(text, sync, cb) {
+			
+			if(!text.length) return [];
+
+			Meteor.subscribe('usersByName', text, function() {
+
+				var users = K.findUsersByName(text).fetch();
+
+				cb(users);
+			});
+
+		}, 300)
+	})
+	.on('typeahead:select', function(e) {
+		
+		K.Admin.createFriendship(self.data.username, e.target.value, function(){
+			self.data.update();	
+		});
+	});
 });

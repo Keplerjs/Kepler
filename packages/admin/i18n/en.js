@@ -13,5 +13,6 @@ i18n.map('en', {
 	label_nologged: "Not logged",
 	label_ip: "IP address",
 
-	btn_userdel: "Remove User"
+	btn_userdel: "Remove User",
+	btn_addfriends: "Add Friend"
 });

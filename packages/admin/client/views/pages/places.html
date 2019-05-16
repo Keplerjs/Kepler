@@ -70,3 +70,18 @@
 		<i class="icon icon-del"></i>
 	</a>
 </template>
+
+
+<template name="pageAdminPlace_admin_owner">
+	
+	<div class="row">
+		<div class="col-xs-12">
+			<label>{{i18n 'label_owner'}}: </label>
+			{{#with getOwner}}
+				{{> item_user}}
+				<input class="form-control input-owner" type="text" aria-describedby="user-addon" placeholder="{{i18n 'label_username'}}" value="{{username}}" />
+			{{/with}}
+		</div>
+	</div>
+	
+</template>

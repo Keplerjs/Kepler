@@ -13,14 +13,17 @@ K.Plugin({
 		pageAdminPlace: {
 			'pageAdmin_admin_map':{order:0},			
 			'pageAdmin_admin_raw':{order:0},
-			'pageAdmin_admin_owner':{order:0},
+			
+			'pageAdminPlace_admin_owner':{order:0},
 			
 			'panelPlaceEdit':{order:10}
 		},
 		pageAdminUser: {
 			'pageAdmin_admin_raw':{order:0},
 			'pageAdminUser_admin_contact':{order:0},
-			'pageUserAdmin_admin_logins':{order:0},
+			'pageAdminUser_admin_logins':{order:0},
+			'pageAdminUser_admin_friends':{order:0},
+
 			'panelUser':{order:10}
 		},
 		itemUserAdmin: {

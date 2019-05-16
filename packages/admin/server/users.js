@@ -107,8 +107,23 @@ K.Admin.methods({
 
 		var user1 = Users.findOne({username: username1 }),
 			user2 = Users.findOne({username: username2 })
-			
-		K.updateFriendship(user1._id, user2._id);
+		
+		console.log('Admin: createFriendship',username1,username2 )
+
+		if(user1 && user2)
+			K.updateFriendship(user1._id, user2._id);
+	},
+	removeFriendship: function(username1, username2) {
+		//TODO
+		/*if(!K.Admin.isMe()) return null;
+
+		var user1 = Users.findOne({username: username1 }),
+			user2 = Users.findOne({username: username2 })
+		
+		console.log('Admin: removeFriendship',username1,username2 )
+
+		if(user1 && user2)
+			K.updateFriendship(user1._id, user2._id);*/
 	},
 	logoutUser: function(username) {
 		
