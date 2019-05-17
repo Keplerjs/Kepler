@@ -168,7 +168,7 @@ Kepler.Util.geo = {
 	featureColl: function(ff) {
 		return {
 			"type": "FeatureCollection",
-			"features": _.isArray(ff) ? ff || [ff]
+			"features": _.isArray(ff) ? ff : [ff]
 		};
 	},
 	/**
