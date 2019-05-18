@@ -67,6 +67,7 @@ Kepler.settings = {
 				//TODO rename in  "baseLayer":{...}...
 				"road": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 			},
+			"disableClusteringAtZoom": 16,
 			"layerPlaces": {
 				"enabled": true,
 				"cluster": true

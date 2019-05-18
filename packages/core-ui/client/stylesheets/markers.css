@@ -19,12 +19,14 @@
 	display: none;
 }
 .marker-cluster {
+	text-align: center;
+	padding-top: 50%;
 	border-radius: 0;
 }
-.marker-cluster span {
-	line-height: 1
+.marker-cluster .badge-cluster {
+	display: inline-block;
+	margin-top: -64%;
 }
-
 .marker-place .badge-checkins,
 .marker-cluster .badge-checkins {
 	position: absolute;
@@ -32,12 +34,6 @@
 	right: -2px;
 	z-index: 1000;
 }
-.marker-cluster .badge-cluster {
-	position: absolute;
-	top: 7px;
-	left: 7px;
-}
-
 .leaflet-marker-icon {
 	border: none
 }

@@ -43,7 +43,7 @@ _.extend(Kepler.Map, {
 				showCoverageOnHover: false,
 				disableClusteringAtZoom:14,
 				maxClusterRadius: 40,
-				disableClusteringAtZoom:14,
+				disableClusteringAtZoom: K.settings.public.map.disableClusteringAtZoom,
 				iconCreateFunction: function(clust) {
 
 					clust.getCheckinsCount = function() {
