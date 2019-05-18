@@ -6,6 +6,8 @@
 Kepler.Util.humanize = {
 	//TODO creare numberHuman da usare in bagde chekins e stars 2000 -> 2K 
 	
+	//TODO https://github.com/HubSpot/humanize	
+	//
 	/**
 	 * return azimut angle
 	 * @param  {Number} ang  [description]
@@ -171,5 +173,19 @@ Kepler.Util.humanize = {
 			return parseFloat(ll[0]).toFixed(pre)+ sep +parseFloat(ll[1]).toFixed(pre);
 		else
 			return '';
+	},
+	/**
+	 * clean ad humanize url string
+	 * @param  {[type]} text [description]
+	 * @return {[type]}      [description]
+	 */
+	url: function(u) {
+		u = u.replace(/\/$/, '');
+		u = u.replace(/^(?:https?:)?\/\//, '');
+		u = u.split("?")[0];
+		if((u.match(/\//g) || []).length>1)
+			u = _.str.strLeft(u,'/')+'/.../'+_.str.strRightBack(u,'/');
+		u = _.str.truncate(u,35);
+		return u;
 	}
 };

@@ -7,6 +7,7 @@
 - plugin admin change place owner
 - new placeholder itemPlaceSearch
 - plugin geoinfo show country and city in place search results 
+- core new method K.Util.humanize.url()
 - core fix zoom min for cluster disable
 - core new Kepler module K.Alert.xxx to show notifications over the map(extend sAlert lib)
 - plugin cats moved typeahead.js in kepler plugin edit

@@ -10,6 +10,7 @@ Package.describe({
 Npm.depends({
   "autosize": "4.0.2",
   "latinize": "0.4.0",
+  //"normalize-url": "4.3.0",
   "bootstrap-switch": "3.3.2",
   "bootstrap-list-filter": "0.3.3",
   "bootstrap-confirm-button": "0.3.2",
@@ -100,6 +101,7 @@ Package.onUse(function(api) {
     'lib/Class.js',
     '.npm/package/node_modules/latinize/latinize.js',
     '.npm/package/node_modules/autosize/dist/autosize.js',
+    //'.npm/package/node_modules/normalize-url/index.js',
     'lib/Autosize.js',
     'lib/Latinize.js',
     'config/leaflet.js',

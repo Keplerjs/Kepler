@@ -83,6 +83,10 @@ Template.registerHelper('humanTime', function(sec, ago) {
 	return K.Util.humanize.time(sec, parseInt(ago));
 });
 
+Template.registerHelper('humanUrl', function(url) {
+	return K.Util.humanize.url(url);
+});
+
 Template.registerHelper('numericDate', function(date, time) {
 	if(!date) return '';
 	date = new Date(date);
