@@ -1,6 +1,8 @@
 
 Template.panelSettings_ui_map.helpers({
+	
 	layers: function() {
+		
 		var layer = K.Profile.getOpts('map.layer') || K.settings.public.map.layer,
 			layers = [];
 
