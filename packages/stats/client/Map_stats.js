@@ -26,10 +26,11 @@ Tracker.autorun(function(comp) {
 			
 				if(!placesLayer.getLayers().length)
 				{
-					Meteor.call('findPlacesStats', function(err, geojson) {
+					//TODO pass bbox param
+					Meteor.call('findStatsPlacesByGeo', function(err, geojson) {
 
 						placesLayer.addData(geojson);
-					});				
+					});		
 				}
 
 				K.Map.map.addLayer(placesLayer);

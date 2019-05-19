@@ -1,10 +1,19 @@
 
 K.Plugin({
 	name: 'stats',
+	filters: {
+		placeStats: {
+			fields: { createdAt:1, loc:1, rank:1, checkins:1, hist:1, convers:1 },
+			sort: { createdAt: -1}
+		},
+		userStats: {
+			fields: { createdAt:1, loc:1, loclast:1, places:1, friends:1, convers:1, hist:1, favorites:1 },
+			sort: { createdAt: -1}
+		}
+	},
 	settings: {
 		"public": {
 			"stats": {
-				"noClassify": true,	//disable geostatistics classification
 				"mapStyle": {
 					"weight": 2,
 					"opacity": 0.8,
@@ -15,6 +24,7 @@ K.Plugin({
 			}
 		},
 		"stats": {
+			"classify": false,	//geostatistics classification
 			"cacheTime": "hourly",	//0 to disable or values: none,minutely,hourly,daily,weekly,monthly,yearly,
 		}
 	}

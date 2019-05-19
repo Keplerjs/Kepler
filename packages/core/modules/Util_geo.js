@@ -165,10 +165,14 @@ Kepler.Util.geo = {
 	 * @param  {Array} ff [description]
 	 * @return {Object}    [description]
 	 */
-	featureColl: function(ff) {
+	featureColl: function(ff, props) {
+		ff = ff || [];
+		ff = _.isArray(ff) ? ff : [ff];
+		props = props || {};
 		return {
 			"type": "FeatureCollection",
-			"features": _.isArray(ff) ? ff : [ff]
+			"properties": props,
+			"features": ff
 		};
 	},
 	/**

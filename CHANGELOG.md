@@ -3,6 +3,9 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+- plugin stats rewritten in submodules
+- plugin stats renamed in K.settings.stats.classify
+- core K.Util.geo.featureColl have properties
 - core hide tooltip on popup open
 - plugin admin add friend in user admin
 - plugin admin change place owner
