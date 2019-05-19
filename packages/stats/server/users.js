@@ -1,9 +1,23 @@
 
+Meteor.methods({
+	findStatsUsersByGeo: function(bbox) {
+		return K.findStatsUsersByGeo(bbox);
+	}
+});
+
 K.extend({
 	
 	findStatsUsersByGeo: function(bbox) {
 
-		var cur = Users.find({}, K.filters.userStats),
+		var w = {};/* //TODO K.Util.valid.bbox(bbox) ? {
+			loc: {
+				'$within': {
+					'$box': K.Util.geo.roundBbox(bbox,0)
+				}
+			}
+		} : {};*/
+
+		var cur = Users.find(w, K.filters.userStats),
 			total = cur.count(),
 			data = cur.fetch(),			
 			features = [];
@@ -115,9 +129,3 @@ K.extend({
 	},
 });
 
-
-Meteor.methods({
-	findStatsUsersByGeo: function(bbox) {
-		return K.findStatsUsersByGeo(bbox);
-	}
-});

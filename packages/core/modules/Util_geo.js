@@ -28,7 +28,7 @@ Kepler.Util.geo = {
 	 * @return {Array}      [description]
 	 */
 	roundBbox: function(bb, prec) {
-		prec = prec || 6;
+		prec = _.isNumber(prec) ? prec : 6;
 		return [ K.Util.geo.roundLoc(bb[0], prec),
 				 K.Util.geo.roundLoc(bb[1], prec) ];
 	},

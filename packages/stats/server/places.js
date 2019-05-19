@@ -1,13 +1,28 @@
 
+
+Meteor.methods({
+	findStatsPlacesByGeo: function(bbox) {
+		return K.findStatsPlacesByGeo(bbox);
+	}
+});
+
 K.extend({
 
 	findStatsPlacesByGeo: function(bbox) {
-		
-		var cur = Places.find({}, K.filters.placeStats),
+
+		var w = {};/* //TODO K.Util.valid.bbox(bbox) ? {
+			loc: {
+				'$within': {
+					'$box': K.Util.geo.roundBbox(bbox,0)
+				}
+			}
+		} : {};*/
+
+		var cur = Places.find(w, K.filters.placeStats),
 			total = cur.count(),
 			data = cur.fetch(),
 			features = [];
-
+		
 		var dataFactors = K.Stats.factorize(data,'place');
 
 		var dataCluster = K.Stats.clusterize(dataFactors);
@@ -103,8 +118,3 @@ K.extend({
 	}
 });
 
-Meteor.methods({
-	findStatsPlacesByGeo: function(bbox) {
-		return K.findStatsPlacesByGeo(bbox);
-	}
-});
