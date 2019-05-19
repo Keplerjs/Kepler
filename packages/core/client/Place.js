@@ -138,12 +138,12 @@ Kepler.Place = Class.extend({
 						Blaze.renderWithData(Template[self.templatePopup], self.rData, divp);
 					
 					marker.bindPopup(divp.firstChild, opts.popups);
-					/* TODO disable tooltip if popup is open
-					 marker.on('popupopen', function(ee) {
-						var t = e.target.getTooltip();
-						ee.target.unbindTooltip()
-						console.log(t)
-					});*/
+					//TODO disable tooltip if popup is open
+					marker.on('popupopen', function(em) {
+						setTimeout(function() {
+							em.target.closeTooltip();
+						},0);
+					});
 				}
 				else {
 					marker.on('click', function(ee) {
