@@ -3,22 +3,24 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
-- plugin stats rewritten in submodules
-- plugin stats renamed in K.settings.stats.classify
-- plugins stats plugin stats testing bbox support
-- core K.Util.geo.featureColl have properties
+- core create if not exists geometry field on loc update 
+- core fix zoom min for cluster disable
 - core hide tooltip on popup open
+- core K.Util.geo.featureColl have properties
+- core new Kepler module K.Alert.xxx to show notifications over the map(extend sAlert lib)
+- core new method K.Util.humanize.url()
+- core settings K.settings.public.map.disableClusteringAtZoom,
+- new placeholder itemPlaceSearch
 - plugin admin add friend in user admin
 - plugin admin change place owner
-- new placeholder itemPlaceSearch
-- plugin geoinfo show country and city in place search results 
-- core settings K.settings.public.map.disableClusteringAtZoom,
-- core new method K.Util.humanize.url()
-- core fix zoom min for cluster disable
-- core new Kepler module K.Alert.xxx to show notifications over the map(extend sAlert lib)
+- plugin admin new method normalizePlaces to debug data
+- plugin api default disabled rest by new sets K.settings.api.enableRest
 - plugin cats moved typeahead.js in kepler plugin edit
 - plugin edit new Place reactive var placeInstance.getOwner()
-- plugin admin new method normalizePlaces to debug data
+- plugin geoinfo show country and city in place search results
+- plugin stats renamed in K.settings.stats.classify
+- plugin stats rewritten in submodules
+- plugin stats plugin stats testing bbox support
 
 ## v1.6.5
 - new tab in panel place show nearby places

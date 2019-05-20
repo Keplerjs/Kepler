@@ -1,25 +1,15 @@
 //https://github.com/mondora/mondora-iron-router-rest-auth/
 //TODO use https://github.com/kahmali/meteor-restivus
 //
-var baseUrl = K.settings.api.baseUrl,
-	opts = { 
+var opts = { 
 		where: 'server',
 		notFoundTemplate: 'empty'
 	};
 
-var urls ={
-	root: baseUrl,
-	place: baseUrl+'/place/:name',
-	placeHist: baseUrl+'/place/:name/hist',
-	placeCheckins: baseUrl+'/place/:name/checkins',
-	placeConvers: baseUrl+'/place/:name/convers',
-	searchPlace: baseUrl+'/search/place/:name',
-	searchUser: baseUrl+'/search/user/:name'
-};
+var baseUrl = K.settings.public.api.baseUrl,
+	urls = K.settings.public.api.urls;
 
 K.Api = {
-	
-	version: K.version,
 	
 	urls: {
 		api: urls
@@ -49,24 +39,34 @@ K.Api = {
 	}
 };
 
-Router.route(urls.root, opts)
-.get(function (req, res) {
+Router.onBeforeAction(function (req, res) {
+	
+	if(K.settings.api.enableRest)
+		this.next();
+	else {
+		res.writeHead(403, {'Content-type': 'application/json'});
+		res.end(JSON.stringify({"error": "Api REST disabled"},null,4));
+	}
+});
 
-	var out = K.Api;
+Router.route(baseUrl+urls.root, opts).get(function (req, res) {
+
+	var out = {
+		version: K.version,
+		urls: K.Api.urls,
+	};
 
 	K.Api.writeOut(req, res, out);
 });
 
-Router.route(urls.place, opts)
-.get(function (req, res) {
+Router.route(baseUrl+urls.place, opts).get(function (req, res) {
 
 	var out = Places.findOne({name: this.params.name }, K.filters.placeItemApi);
 
 	K.Api.writeOut(req, res, out);
 });
 
-Router.route(urls.placeHist, opts)
-.get(function (req, res) {
+Router.route(baseUrl+urls.placeHist, opts).get(function (req, res) {
 
 	var placeData = Places.findOne({name: this.params.name }),
 		out = placeData && K.getUsersByIds(placeData.hist).fetch();
@@ -74,8 +74,7 @@ Router.route(urls.placeHist, opts)
 	K.Api.writeOut(req, res, out);
 });
 
-Router.route(urls.placeCheckins, opts)
-.get(function (req, res) {
+Router.route(baseUrl+urls.placeCheckins, opts).get(function (req, res) {
 
 	var placeData = Places.findOne({name: this.params.name }),
 		out = placeData && K.getUsersByIds(placeData.checkins).fetch();
@@ -83,8 +82,7 @@ Router.route(urls.placeCheckins, opts)
 	K.Api.writeOut(req, res, out);
 });
 
-Router.route(urls.placeConvers, opts)
-.get(function (req, res) {
+Router.route(baseUrl+urls.placeConvers, opts).get(function (req, res) {
 
 	var placeData = Places.findOne({name: this.params.name }),
 		out = placeData && K.getConversByIds(placeData.convers).fetch();
@@ -92,16 +90,14 @@ Router.route(urls.placeConvers, opts)
 	K.Api.writeOut(req, res, out);
 });
 
-Router.route(urls.searchPlace, opts)
-.get(function (req, res) {
+Router.route(baseUrl+urls.searchPlace, opts).get(function (req, res) {
 
 	var out = K.getPlacesByName(this.params.name).fetch();
 
 	K.Api.writeOut(req, res, out);
 });
 
-Router.route(urls.searchUser, opts)
-.get(function (req, res) {
+Router.route(baseUrl+urls.searchUser, opts).get(function (req, res) {
 
 	var out = K.getPlacesByName(this.params.name).fetch();
 

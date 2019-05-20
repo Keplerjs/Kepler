@@ -10,8 +10,22 @@ K.Plugin({
 		}
 	},
 	settings: {
+		"public": {
+			"api": {
+				"baseUrl": "/api",
+				"urls": {
+					"root": "/",
+					"place": "/place/:name",
+					"placeHist": "/place/:name/hist",
+					"placeCheckins": "/place/:name/checkins",
+					"placeConvers": "/place/:name/convers",
+					"searchPlace": "/search/place/:name",
+					"searchUser": "/search/user/:name"
+				}
+			}
+		},
 		"api": {
-			"baseUrl": "/api",
+			"enableRest": false,
 			"jsonp": false,
 			"headers": {
 				//custom http headers for API response

@@ -1,20 +1,20 @@
 
-var baseUrl = K.settings.api.baseUrl+'/stats',
-	opts = { 
+var opts = { 
 		where: 'server',
 		notFoundTemplate: 'empty'
 	};
 
-var urls = {
-	root: baseUrl,
-	placesByGeo: baseUrl+'/places/bygeo',//TODO bbox param
-	placesByDate: baseUrl+'/places/bydate',
-	usersByGeo: baseUrl+'/users/bygeo',
-	usersByDate: baseUrl+'/users/bydate',
-	conversByDate: baseUrl+'/convers/bydate',
-	placesByField: baseUrl+'/places/byfield/:field',
-	usersByField: baseUrl+'/users/byfield/:field',
-};
+var baseUrl = K.settings.public.api.baseUrl+'/stats',
+	urls = {
+		root: baseUrl,
+		placesByGeo: baseUrl+'/places/bygeo',//TODO bbox param
+		placesByDate: baseUrl+'/places/bydate',
+		usersByGeo: baseUrl+'/users/bygeo',
+		usersByDate: baseUrl+'/users/bydate',
+		conversByDate: baseUrl+'/convers/bydate',
+		placesByField: baseUrl+'/places/byfield/:field',
+		usersByField: baseUrl+'/users/byfield/:field',
+	};
 
 _.extend(K.Api.urls, {
 	stats: urls
@@ -22,14 +22,14 @@ _.extend(K.Api.urls, {
 
 ///////////DEBUG
 //K.Cache.clean('stats');
-Router.route(urls.root, opts).get(function (req, res) {
+Router.route(baseUrl, opts).get(function (req, res) {
 
 	var out = urls;
 
 	K.Api.writeOut(req, res, out);
 });
 
-Router.route(urls.placesByGeo, opts).get(function (req, res) {
+Router.route(baseUrl+urls.placesByGeo, opts).get(function (req, res) {
 
 	//TODO var bbox = this.params.bbox || '';
 	////TODO roundBBox!!
@@ -39,28 +39,28 @@ Router.route(urls.placesByGeo, opts).get(function (req, res) {
 	K.Api.writeOut(req, res, out);
 });
 
-Router.route(urls.placesByDate, opts).get(function (req, res) {
+Router.route(baseUrl+urls.placesByDate, opts).get(function (req, res) {
 
 	var out = K.Cache.get('placesByDate','stats', K.findStatsPlacesByDate, K.settings.stats.cacheTime);
 
 	K.Api.writeOut(req, res, out);
 });
 
-Router.route(urls.usersByGeo, opts).get(function (req, res) {
+Router.route(baseUrl+urls.usersByGeo, opts).get(function (req, res) {
 
 	var out = K.Cache.get('usersByGeo','stats', K.findStatsUsersByGeo, K.settings.stats.cacheTime);
 
 	K.Api.writeOut(req, res, out);
 });
 
-Router.route(urls.usersByDate, opts).get(function (req, res) {
+Router.route(baseUrl+urls.usersByDate, opts).get(function (req, res) {
 
 	var out = K.Cache.get('usersByDate','stats', K.findStatsUsersByDate, K.settings.stats.cacheTime);
 	
 	K.Api.writeOut(req, res, out);
 });
 
-Router.route(urls.conversByDate, opts).get(function (req, res) {
+Router.route(baseUrl+urls.conversByDate, opts).get(function (req, res) {
 
 	var out = K.Cache.get('conversByDate','stats', K.findStatsConversByDate, K.settings.stats.cacheTime);
 
