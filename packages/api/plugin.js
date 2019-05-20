@@ -9,6 +9,11 @@ K.Plugin({
 			}
 		}
 	},
+/*	TODO schemas: {
+		user: {
+			apiToken: ''
+		}
+	},*/
 	settings: {
 		"public": {
 			"api": {
