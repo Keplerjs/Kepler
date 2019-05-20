@@ -29,7 +29,7 @@ Router.route(baseUrl, opts).get(function (req, res) {
 	K.Api.writeOut(req, res, out);
 });
 
-Router.route(baseUrl+urls.placesByGeo, opts).get(function (req, res) {
+Router.route(urls.placesByGeo, opts).get(function (req, res) {
 
 	//TODO var bbox = this.params.bbox || '';
 	////TODO roundBBox!!
@@ -39,28 +39,28 @@ Router.route(baseUrl+urls.placesByGeo, opts).get(function (req, res) {
 	K.Api.writeOut(req, res, out);
 });
 
-Router.route(baseUrl+urls.placesByDate, opts).get(function (req, res) {
+Router.route(urls.placesByDate, opts).get(function (req, res) {
 
 	var out = K.Cache.get('placesByDate','stats', K.findStatsPlacesByDate, K.settings.stats.cacheTime);
 
 	K.Api.writeOut(req, res, out);
 });
 
-Router.route(baseUrl+urls.usersByGeo, opts).get(function (req, res) {
+Router.route(urls.usersByGeo, opts).get(function (req, res) {
 
 	var out = K.Cache.get('usersByGeo','stats', K.findStatsUsersByGeo, K.settings.stats.cacheTime);
 
 	K.Api.writeOut(req, res, out);
 });
 
-Router.route(baseUrl+urls.usersByDate, opts).get(function (req, res) {
+Router.route(urls.usersByDate, opts).get(function (req, res) {
 
 	var out = K.Cache.get('usersByDate','stats', K.findStatsUsersByDate, K.settings.stats.cacheTime);
 	
 	K.Api.writeOut(req, res, out);
 });
 
-Router.route(baseUrl+urls.conversByDate, opts).get(function (req, res) {
+Router.route(urls.conversByDate, opts).get(function (req, res) {
 
 	var out = K.Cache.get('conversByDate','stats', K.findStatsConversByDate, K.settings.stats.cacheTime);
 
