@@ -18,6 +18,7 @@
 - core new Kepler module K.Alert.xxx to show notifications over the map(extend sAlert lib)
 - plugin cats moved typeahead.js in kepler plugin edit
 - plugin edit new Place reactive var placeInstance.getOwner()
+- plugin admin new method normalizePlaces to debug data
 
 ## v1.6.5
 - new tab in panel place show nearby places

@@ -139,7 +139,7 @@ K.Admin.methods({
 
 		console.log('Admin: cleanAllCheckins');
 	},
-	sanitizePlacesField: function(field, func) {
+	sanitizePlaces: function(field, func) {
 
 		if(!K.Admin.isMe() || !field || !K.Util.sanitize[func] ) return null;
 
@@ -161,5 +161,31 @@ K.Admin.methods({
 		});
 
 		console.log('Admin: sanitizePlacesField', field, func, count);
+	},
+	normalizePlaces: function() {
+
+		if(!K.Admin.isMe()) return null;
+
+		var count = 0
+		
+		Places.find({}).forEach(function(place) {
+			
+			var set = {};
+			console.log("\n------------------------\n");
+			console.log(place);
+			console.log("\n-----\n");
+						var newPlace = _.deepExtend({}, K.schemas.place, place);
+			console.log(newPlace);
+
+
+			//var placeId = Places.update(place._id);
+			/*count += Places.update(place._id, {
+				$set: set
+			});*/
+
+			count++;
+		});
+
+		console.log('Admin: normalizePlaces', count);
 	}
 });
