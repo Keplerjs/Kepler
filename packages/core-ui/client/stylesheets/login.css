@@ -27,6 +27,9 @@
 #formlogin.no-accounts-facebook #login-buttons-facebook {
 	display: none;
 }
+#formlogin.no-accounts-instagram #login-buttons-instagram {
+	display: none;
+}
 #formlogin.no-accounts-google #login-buttons-google {
 	display: none;
 }

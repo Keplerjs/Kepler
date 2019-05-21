@@ -131,6 +131,7 @@ Kepler.settings = {
 				"github": true,
 				"twitter": false,
 				"facebook": true,
+				"instagram": true,
 				"openstreetmap": true
 			},
 			"ui": {

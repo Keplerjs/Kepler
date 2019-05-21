@@ -11,6 +11,7 @@ Template.formLogin.helpers({
 			c += ' no-accounts-creation';
 		else {
 			if(!serv.facebook) c += ' no-accounts-facebook';
+			if(!serv.instagram) c += ' no-accounts-instagram';
 			if(!serv.google) c += ' no-accounts-google';
 			if(!serv.github) c += ' no-accounts-github';
 			if(!serv.twitter) c += ' no-accounts-twitter';
