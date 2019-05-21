@@ -5,7 +5,7 @@ K.Plugin({
 		placeItemApi: {
 			fields: {
 				//loc:1,
-				name:1, indoor:1, checkins:1, createdAt:1, userId:1
+				name:1, checkins:1, createdAt:1, userId:1
 			}
 		}
 	},
@@ -21,7 +21,7 @@ K.Plugin({
 				"urls": {
 					"root": "/",
 					"place": "/place/:name",
-					"placeHist": "/place/:name/hist",
+					"placeHist": "/place/:name/history",
 					"placeCheckins": "/place/:name/checkins",
 					"placeConvers": "/place/:name/convers",
 					"searchPlace": "/search/place/:name",

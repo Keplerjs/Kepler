@@ -3,6 +3,7 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+- core-ui fix fullscreen to add in home
 - core create if not exists geometry field on loc update 
 - core fix zoom min for cluster disable
 - core hide tooltip on popup open
@@ -15,6 +16,7 @@
 - plugin admin change place owner
 - plugin admin new method normalizePlaces to debug data
 - plugin api default disabled rest by new sets K.settings.api.enableRest
+- plugin api fix queries
 - plugin cats moved typeahead.js in kepler plugin edit
 - plugin edit new Place reactive var placeInstance.getOwner()
 - plugin geoinfo show country and city in place search results
