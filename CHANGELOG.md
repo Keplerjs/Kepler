@@ -3,6 +3,7 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+- core-ui fix fullscreen to add in home
 - core create if not exists geometry field on loc update 
 - core fix zoom min for cluster disable
 - core hide tooltip on popup open
