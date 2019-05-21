@@ -71,6 +71,7 @@ Package.onUse(function(api) {
     'accounts-google',
     'accounts-github',
     //'accounts-twitter',
+    'bozhao:accounts-instagram',
     'blaze-html-templates@1.1.2',
     
     //'verron:autosize@3.0.8',
