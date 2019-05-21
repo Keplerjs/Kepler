@@ -16,6 +16,7 @@
 - plugin admin change place owner
 - plugin admin new method normalizePlaces to debug data
 - plugin api default disabled rest by new sets K.settings.api.enableRest
+- plugin api fix queries
 - plugin cats moved typeahead.js in kepler plugin edit
 - plugin edit new Place reactive var placeInstance.getOwner()
 - plugin geoinfo show country and city in place search results

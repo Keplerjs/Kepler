@@ -33,7 +33,10 @@ K.Plugin({
 		},
 		placeSearch: {
 			fields: {
-				geoinfo: 1
+				'geoinfo.near': 1,
+				'geoinfo.com': 1,
+				'geoinfo.reg': 1,
+				'geoinfo.naz': 1
 			}
 		}		
 	},

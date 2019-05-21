@@ -9,6 +9,10 @@ var opts = {
 var baseUrl = K.settings.public.api.baseUrl,
 	urls = K.settings.public.api.urls;
 
+_.each(K.settings.public.api.urls, function(v,k) {
+	urls[k]= baseUrl+v;
+});
+
 K.Api = {
 	
 	urls: {
@@ -49,7 +53,7 @@ Router.onBeforeAction(function (req, res) {
 	}
 });
 
-Router.route(baseUrl+urls.root, opts).get(function (req, res) {
+Router.route(urls.root, opts).get(function (req, res) {
 
 	var out = {
 		version: K.version,
@@ -59,47 +63,47 @@ Router.route(baseUrl+urls.root, opts).get(function (req, res) {
 	K.Api.writeOut(req, res, out);
 });
 
-Router.route(baseUrl+urls.place, opts).get(function (req, res) {
+Router.route(urls.place, opts).get(function (req, res) {
 
 	var out = Places.findOne({name: this.params.name }, K.filters.placeItemApi);
 
 	K.Api.writeOut(req, res, out);
 });
 
-Router.route(baseUrl+urls.placeHist, opts).get(function (req, res) {
+Router.route(urls.placeHist, opts).get(function (req, res) {
 
 	var placeData = Places.findOne({name: this.params.name }),
-		out = placeData && K.getUsersByIds(placeData.hist).fetch();
+		out = placeData && K.findUsersByIds(placeData.hist).fetch();
 
 	K.Api.writeOut(req, res, out);
 });
 
-Router.route(baseUrl+urls.placeCheckins, opts).get(function (req, res) {
+Router.route(urls.placeCheckins, opts).get(function (req, res) {
 
 	var placeData = Places.findOne({name: this.params.name }),
-		out = placeData && K.getUsersByIds(placeData.checkins).fetch();
+		out = placeData && K.findUsersByIds(placeData.checkins).fetch();
 
 	K.Api.writeOut(req, res, out);
 });
 
-Router.route(baseUrl+urls.placeConvers, opts).get(function (req, res) {
+Router.route(urls.placeConvers, opts).get(function (req, res) {
 
 	var placeData = Places.findOne({name: this.params.name }),
-		out = placeData && K.getConversByIds(placeData.convers).fetch();
+		out = placeData && K.findConversByIds(placeData.convers).fetch();
 
 	K.Api.writeOut(req, res, out);
 });
 
-Router.route(baseUrl+urls.searchPlace, opts).get(function (req, res) {
+Router.route(urls.searchPlace, opts).get(function (req, res) {
 
-	var out = K.getPlacesByName(this.params.name).fetch();
+	var out = K.findPlacesByName(this.params.name).fetch();
 
 	K.Api.writeOut(req, res, out);
 });
 
-Router.route(baseUrl+urls.searchUser, opts).get(function (req, res) {
+Router.route(urls.searchUser, opts).get(function (req, res) {
 
-	var out = K.getPlacesByName(this.params.name).fetch();
+	var out = K.findPlacesByName(this.params.name).fetch();
 
 	K.Api.writeOut(req, res, out);
 });
