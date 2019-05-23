@@ -7,19 +7,19 @@
 
 # Links
 
-[Website](http://keplerjs.io/) | 
-[Documentation](http://docs.keplerjs.io/) | 
+[Website](https://keplerjs.io/) | 
+[Documentation](https://docs.keplerjs.io/) | 
 [News](https://twitter.com/Kepler_JS) | 
 [Blog](https://medium.com/keplerjs) | 
 [Source code](https://github.com/Keplerjs) | 
 [Plugins](https://atmospherejs.com/keplerjs) | 
-[Roadmap](http://bit.ly/KeplerJsRoadmap) | 
-[Issues](https://waffle.io/Keplerjs/Kepler)
+[Roadmap](https://bit.ly/KeplerJsRoadmap) | 
+[Issues](https://github.com/keplerjs/kepler/issues)
 
 
 ## Introduction
-Kepler is a open source [geosocial](https://en.wikipedia.org/wiki/Geosocial_networking) solution that lets users share favorite places and join discussions in real-time. It can be seen as a platform where users can interact with other open data platforms searching across [OpenStreetMap](http://www.openstreetmap.org/about), [Geonames](http://www.geonames.org/) among other sources.
-The name as the best [Meteor](https://www.meteor.com/) tradition wants to remain in the space field, *Kepler* is inspired by [Kepler space telescope](https://en.wikipedia.org/wiki/Kepler_Mission) and wants to be seen as an sequel of the first and largest open source Meteor projects the old *Telescope* current *[VulcanJS](http://docs.vulcanjs.org/vulcan.html)*.
+Kepler is a open source [geosocial](https://en.wikipedia.org/wiki/Geosocial_networking) solution that lets users share favorite places and join discussions in real-time. It can be seen as a platform where users can interact with other open data platforms searching across [OpenStreetMap](https://www.openstreetmap.org/about), [Geonames](https://www.geonames.org/) among other sources.
+The name as the best [Meteor](https://www.meteor.com/) tradition wants to remain in the space field, *Kepler* is inspired by [Kepler space telescope](https://en.wikipedia.org/wiki/Kepler_Mission) and wants to be seen as an sequel of the first and largest open source Meteor projects the old *Telescope* current *VulcanJS*.
 
 ### Mission
 Allows users to collect and georeferencing places on a modern web-mapping interface, describe them accurately, create relationships, sharing with other users and create a social environment. In addition to creating new place you can import pre-existing objects from Openstreetmap creating a social layer over OpenStreetMap.
@@ -40,6 +40,6 @@ Eric S. Raymond
 
 
 ## Copyright
-Created by [Stefano Cudini](https://github.com/stefanocudini) [@zakis](http://twitter.com/zakis) and other [contributors](https://github.com/Keplerjs/Kepler/graphs/contributors).
+Created by [Stefano Cudini](https://github.com/stefanocudini) [@zakis](https://twitter.com/zakis) and other [contributors](https://github.com/Keplerjs/Kepler/graphs/contributors).
 Distributed under the [BSD 2-Clause](https://opensource.org/licenses/BSD-2-Clause) license.
 

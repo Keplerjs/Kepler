@@ -30,7 +30,7 @@
   "bugs": {
     "url": "https://github.com/Keplerjs/Kepler/issues"
   },
-  "homepage": "http://keplerjs.io",
+  "homepage": "https://keplerjs.io",
   "dependencies": {
     "@babel/runtime": "^7.4.3",
     "bcrypt": "^3.0.5",

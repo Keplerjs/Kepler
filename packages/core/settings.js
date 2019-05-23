@@ -27,7 +27,7 @@ Kepler.settings = {
 		"router": {
 			"meta": {
 				"gen": {
-					"generator": "KeplerJs v"+K.version+" http://keplerjs.io"
+					"generator": "KeplerJs v"+K.version+" https://keplerjs.io"
 				}
 			},
 			"link": {},
