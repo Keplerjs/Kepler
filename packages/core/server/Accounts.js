@@ -102,18 +102,15 @@ Accounts.onCreateUser(function(options, user) {
 			verified: true
 		}]; 
 	}
-	else if(user.services.github)
+	else if(user.services.instagram)
 	{
-		source.service = 'github';
-		source.url = 'https://github.com/'+user.services.github.username;
-		name = user.services.github.username;
-		username = user.services.github.username;
-		avatar = 'https://avatars.githubusercontent.com/u/'+user.services.github.id+'?s=300&v=4';
-		//lang = user.services.github.locale;
-		emails = [{
-			address: user.services.github.email,
-			verified: true
-		}];
+		source.service = 'instagram';
+		source.url = "https://www.instagram.com/"+user.services.instagram.username;
+		name = user.services.instagram.full_name;
+		username = user.services.instagram.username;
+		avatar = user.services.instagram.profile_picture;
+		lang = '';
+		emails = [];
 	}
 	else if(user.services.google)
 	{
@@ -129,6 +126,19 @@ Accounts.onCreateUser(function(options, user) {
 			verified: user.services.google.verified_email
 		}];
 	}
+	else if(user.services.github)
+	{
+		source.service = 'github';
+		source.url = 'https://github.com/'+user.services.github.username;
+		name = user.services.github.username;
+		username = user.services.github.username;
+		avatar = 'https://avatars.githubusercontent.com/u/'+user.services.github.id+'?s=300&v=4';
+		//lang = user.services.github.locale;
+		emails = [{
+			address: user.services.github.email,
+			verified: true
+		}];
+	}	
 	else if(user.services.openstreetmap)
 	{
 		source.service = 'openstreetmap';
@@ -138,7 +148,7 @@ Accounts.onCreateUser(function(options, user) {
 		avatar = options.profile.picture;
 		lang = options.profile.languages[0] || '';
 		emails = [];
-	}
+	}	
 	//TODO else if(user.services.twitter) {
 	//	source.service = 'twitter';
 	// 	name = user.services.twitter.name;
