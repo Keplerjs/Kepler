@@ -166,6 +166,7 @@
 				"facebook":false,
 				"github":false,
 				"twitter":false,
+				"instagram":false,
 				"openstreetmap":false
 			},
             "ui": {

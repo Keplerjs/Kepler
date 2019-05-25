@@ -3,6 +3,10 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+...
+
+## v1.6.6
+- core support Instagram OAuth signup
 - core-ui fix fullscreen to add in home
 - core create if not exists geometry field on loc update 
 - core fix zoom min for cluster disable

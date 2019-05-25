@@ -30,6 +30,19 @@
 			"popupCursor": {
 				"popupCursor_share":true
 			}
+		},
+		"accounts": {
+			"services": {
+				"google": false,
+				"github": false,
+				"twitter": false,
+				"facebook": true,
+				"instagram": true,
+				"openstreetmap": false
+			},
+			"ui": {
+				"passwordSignupFields": "USERNAME_AND_EMAIL"
+			}
 		}
 	},
 	"admin": {
