@@ -104,15 +104,13 @@ Accounts.onCreateUser(function(options, user) {
 	}
 	else if(user.services.instagram)
 	{
-/*		source.service = 'instagram';
-		source.url = "http://www.openstreetmap.org/user/"+options.profile.username;
-		name = options.profile.username;
-		username = options.profile.username;
-		avatar = options.profile.picture;
-		lang = options.profile.languages[0] || '';
-		emails = [];*/
-		console.log('LOGIN ACCOUNT instagram:', user)
-		return false;
+		source.service = 'instagram';
+		source.url = "https://www.instagram.com/"+user.services.instagram.username;
+		name = user.services.instagram.full_name;
+		username = user.services.instagram.username;
+		avatar = user.services.instagram.profile_picture;
+		lang = '';
+		emails = [];
 	}
 	else if(user.services.google)
 	{
