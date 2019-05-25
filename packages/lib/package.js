@@ -71,18 +71,15 @@ Package.onUse(function(api) {
     'accounts-google',
     'accounts-github',
     //'accounts-twitter',
-    'bozhao:accounts-instagram',
+    //
+    'bozhao:accounts-instagram@0.1.2',
     'blaze-html-templates@1.1.2',
-    
-    //'verron:autosize@3.0.8',
     'matb33:collection-hooks@0.8.4',
     'underscorestring:underscore.string@3.3.4',
     'kidovate:bootstrap-slider@0.0.5',
     'iron:router@1.1.2',
     'reywood:iron-router-ga@2.0.1',
-    //'mrt:modernizr-meteor@2.6.2',
     'twbs:bootstrap@3.3.6',
-    //'ian:accounts-ui-bootstrap-3@1.2.89',
     //TODO https://github.com/bogdanlungu/meteor-accounts-ui-bootstrap-4
     'mstn:accounts-openstreetmap@0.2.0',
 
