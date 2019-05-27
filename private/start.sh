@@ -19,12 +19,18 @@ MYIP=$( hostname -i | cut -f1 -d' ')
 export MONGO_URL="mongodb://localhost:27017/$DBNAME"
 export MAIL_URL="smtp://localhost:25"
 
-if [ $MYIP = '127.0.1.1' ]; then
-	echo "START DEVELOPMENT MODE"
-	export ROOT_URL="http://$DOMAINDEV"
-	meteor --port $PORT --settings $SETS
-else
-	echo "START PRODUTION MODE"
-	export ROOT_URL="http://$DOMAINPRO"
-	meteor --port $PORT --settings $SETS --production
+#TOP previous instance
+if [ -f kepler.pid ]
+then kill -9 `cat kepler.pid`
 fi
+
+#ARCHIVE previous logs
+if [ -f kepler.log ]
+then mv kepler.log kepler_$(date +%Y%m%d%M%H%S).log
+fi
+touch kepler.log kepler.pid
+chmod 0700 kepler.log
+
+#RUN Kepler in background
+meteor --port $PORT --settings $SETS --production > kepler.log 2>&1 &
+echo $! > kepler.pid
