@@ -1,35 +1,40 @@
 
-var geojsonToPlace = function(feature, importName) {
+Kepler.Import = {
 
-	var prop = feature.properties,
-		coords = feature.geometry.coordinates;
+	geojsonToPlace: function(feature, importName) {
 
-	var name = prop.name || '';
+		var prop = feature.properties,
+			coords = feature.geometry.coordinates,
+			loc = [coords[1], coords[0]];
 
-	_.each(prop, function(v, k) {
-		if(!v) {
-			delete prop[k];
-		}
-	});
+		var name = prop.name || '';
+		var url = prop.url || '';
 
-	if(feature.geometry.type==='Point') {
-		return {
-			name: K.Util.sanitize.name(name),
-			loc: [coords[1], coords[0]],
-			active: 0,
-			import: {
-				name: importName,
-				data: feature
-			},
-			source: {
-				type: 'import'
+		_.each(prop, function(v, k) {
+			if(!v) {
+				delete prop[k];
 			}
-		};
-	}
-	else
-		return null;
-};
+		});
 
+		if(feature.geometry.type==='Point') {
+			return {
+				name: K.Util.sanitize.name(name),
+				url: K.Util.sanitize.url(url),
+				loc: K.Util.geo.roundLoc(loc,8),
+				active: 0,
+				import: {
+					name: importName,
+					data: feature
+				},
+				source: {
+					type: 'import'
+				}
+			};
+		}
+		else
+			return null;
+	}
+};
 
 Meteor.methods({
 
@@ -83,7 +88,7 @@ Meteor.methods({
 
 				//TODO check md5 of feature or loc if just imported
 
-				var placeData = geojsonToPlace(feature, importName),
+				var placeData = K.Import.geojsonToPlace(feature, importName),
 					placeId = null;
 				
 				if(placeData) {
