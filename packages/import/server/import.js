@@ -26,10 +26,8 @@ var geojsonToPlace = function(feature, importName) {
 			}
 		};
 	}
-	else {
-		console.log('Import: error geometry not a Point', feature.geometry.type );
+	else
 		return null;
-	}
 };
 
 
@@ -94,6 +92,10 @@ Meteor.methods({
 					placeId = Meteor.call('importPlace', placeData);
 					
 					//console.log('Import: insertPlaceByImport ', placeId);
+				}
+				else {
+					console.log('Import: error importing item', feature );
+					return null;
 				}
 
 				if(placeId) {

@@ -7,9 +7,9 @@ Template.search_place.onRendered(function() {
 		loadingClass: 'loading-lg',
 		sourceData: function(val, cb) {
 			
-			Meteor.subscribe('placesByName', val, function() {
+			Meteor.subscribe('placesByText', val, function() {
 			
-				var places = _.map( K.findPlacesByName(val).fetch(), function(place) {
+				var places = _.map( K.findPlacesByText(val).fetch(), function(place) {
 					return K.placeById(place._id);
 				});
 

@@ -146,9 +146,51 @@ Kepler.Osm = {
 		console.log('Osm: findOsmById', osmId);
 
 		return this.overpassSync(query);
-	}	
-};
+	},
+	
+	osmToPlace: function(osm) {
 
+		var feature = osm.features[0],
+			prop = feature.properties,
+			coords = feature.geometry.coordinates;
+
+		var name = prop.tags.name || '';
+
+		var place = {
+			name: name, //K.Util.sanitize.name(name),
+			loc: [coords[1], coords[0]],
+			osm: feature,
+			source: {
+				type: 'osm'
+			}
+		};
+
+		if(prop.tags.website)
+			place.url = prop.tags.website;
+		
+		return place;
+	}
+};
+	
+/* OSM data structure
+{
+   "type":"Feature",
+   "id":"node/3517622759",
+   "properties":{
+      "type":"node",
+      "id":3517622759,
+      "tags":{
+         "amenity":"restaurant",
+      },
+      "relations":[],
+      "meta":{}
+   },
+   "geometry":{
+      "type":"Point",
+      "coordinates":[12.5123636,41.8814402]
+   }
+}
+*/
 
 Meteor.methods({
 	findOsmByLoc: function(loc, opts) {

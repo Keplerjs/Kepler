@@ -110,6 +110,75 @@ K.extend({
 
 		return curPlace;
 	},
+	findPlacesByText: function(text) {
+
+		//https://www.okgrow.com/posts/guide-to-full-text-search-in-meteor
+		//WORKAROUND https://www.okgrow.com/posts/guide-to-full-text-search-in-meteor
+		
+	    text = K.Util.sanitize.regExp(text);
+
+		if(!text.length)
+			return null;
+
+		var curPlace;
+
+		if(Meteor.isClient) {
+
+			var filters = _.deepExtend({}, K.filters.placeSearch, {
+				fields: {
+					score: 1
+				},
+				sort: { score:1 },
+				limit: 20
+			});
+
+			curPlace = Places.find({
+					name: new RegExp(text, 'i'),
+					score: {
+						$exists: true
+					}
+				}, filters);
+		}
+		else if(Meteor.isServer) {
+
+			var filters = _.deepExtend({}, K.filters.placeSearch, {
+				fields: {
+					score: {
+						$meta: "textScore"
+					}
+				},
+				sort: {
+					score: {
+						$meta: "textScore"
+					}
+				},
+				limit: 20
+			});
+
+			curPlace = Places.find({
+					$text: {
+						$search: text,
+						$language: 'it',
+						$diacriticSensitive: true
+					}
+				}, filters);
+
+			/*if(curPlace.count()===0) {
+				console.log('FULLTEXT FAIL')
+				curPlace = Places.find({
+					name: new RegExp(text, 'i')
+				}, filters);
+			}*/	
+		}
+/*
+		if(curPlace.count()===0)
+			curPlace = Places.find({prov: ex }, filters);
+		
+		if(curPlace.count()===0)
+			curPlace = Places.find({reg: ex }, filters);*/
+
+		return curPlace;
+	},
 	insertCheckin: function(placeId, userId) {
 
 		if(!userId || !placeId) return null;

@@ -7,6 +7,7 @@ Template.panelSettings_ui_map.helpers({
 			layers = [];
 
 		_.each(K.settings.public.map.layers, function(v,k) {
+			console.log(v,k)
 			if(!!v && _.isString(v)) {
 				layers.push({
 					key: k,

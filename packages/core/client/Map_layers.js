@@ -43,6 +43,7 @@ _.extend(Kepler.Map, {
 				showCoverageOnHover: false,
 				disableClusteringAtZoom:14,
 				maxClusterRadius: 40,
+				animate:false,
 				disableClusteringAtZoom: K.settings.public.map.disableClusteringAtZoom,
 				iconCreateFunction: function(clust) {
 
