@@ -3,7 +3,8 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
-...
+- core search place name in Fulltext
+- plugin import K.Import.geojsonToPlace()
 
 ## v1.6.6
 - core support Instagram OAuth signup

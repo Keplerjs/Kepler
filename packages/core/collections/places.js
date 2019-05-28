@@ -1,8 +1,10 @@
 
 Places = new Mongo.Collection('places');
 
-if(Meteor.isServer)
+if(Meteor.isServer) {
 	Places._ensureIndex({"loc": "2d"});
+	Places._ensureIndex({"name": "text"});
+}
 
 // https://github.com/matb33/meteor-collection-hooks
 Places.before.insert(function(userId, doc) {

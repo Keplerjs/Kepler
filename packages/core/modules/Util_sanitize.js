@@ -34,6 +34,10 @@ Kepler.Util.sanitize = {
 		return name.substr(0, 255);
 	},
 
+/*	TODO move code from roundLoc loc: function(loc) {
+		return loc
+	},*/
+
 	/**
 	 * return same name with added incremental number at tail
 	 * @param  {String} name [description]

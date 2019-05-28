@@ -13,7 +13,9 @@ var httpGet = function(url) {
 	try {
 		
 		var res = HTTP.get(url, getOpts);
-console.log('Geoinfo: geoapi', res.statusCode, url)
+
+		console.log('Geoinfo: geoapi', res.statusCode, url)
+
 		if(res && res.data)
 			return res.data;
 		else
@@ -282,6 +284,10 @@ Kepler.Geoapi = {
 	 */		
 	geoip: function(ip) {
 		
+		if(!K.settings.geoinfo.ipinfodbKey) {
+			console.warn('Geoinfo: K.settings.geoinfo.ipinfodbKey is required');
+			return null;
+		}
 		var data, ret, src = {
 				par: '',
 				url: 'http://api.ipinfodb.com/v3/ip-city/?key='+K.settings.geoinfo.ipinfodbKey+

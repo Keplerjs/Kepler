@@ -32,6 +32,16 @@ Meteor.publish('placesByName', function(initial) {
 		this.ready();	
 });
 
+Meteor.publish('placesByText', function(text) {
+	if(this.userId) {
+		var cur = K.findPlacesByText(text);
+		console.log('Pub: placesByText', text, cur ? cur.count() : 0 );
+		return cur;
+	}
+	else
+		this.ready();	
+});
+
 Meteor.publish('placeById', function(placeId) {
 	if(this.userId) {
 		var placeCur = K.findPlaceById(placeId),
