@@ -117,8 +117,6 @@ Kepler.Geoinfo = {
 			};
 		});
 
-		console.log('getGeocoding', ret, ori);
-
 		return ret;
 	},
 	getTrackInfo: function(track) {
@@ -152,8 +150,6 @@ Kepler.Geoinfo = {
 	getIpInfo: function(ip) {
 
 		var ret = K.Cache.get(ip, 'geoip', K.Geoapi.geoip, K.settings.geoinfo.cacheTime);
-
-		console.log('getIpInfo', ip);
 
 		return ret;
 	}
