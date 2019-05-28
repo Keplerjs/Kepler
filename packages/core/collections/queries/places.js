@@ -158,17 +158,16 @@ K.extend({
 			curPlace = Places.find({
 					$text: {
 						$search: text,
-						$language: 'it',
-						$diacriticSensitive: true
+						//$language: 'it',
+						//$diacriticSensitive: true
 					}
 				}, filters);
 
-			/*if(curPlace.count()===0) {
-				console.log('FULLTEXT FAIL')
+			if(curPlace.count()===0) {
 				curPlace = Places.find({
 					name: new RegExp(text, 'i')
 				}, filters);
-			}*/	
+			}
 		}
 /*
 		if(curPlace.count()===0)
