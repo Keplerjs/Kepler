@@ -5,6 +5,7 @@
 ## Next version
 - core search place name in Fulltext
 - plugin import K.Import.geojsonToPlace()
+- plugin import added new place holder panelImport
 
 ## v1.6.6
 - core support Instagram OAuth signup
