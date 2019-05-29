@@ -7,13 +7,13 @@
 
 # Links
 
-[Website](https://keplerjs.io/) | 
-[Documentation](https://docs.keplerjs.io/) | 
-[Roadmap](https://bit.ly/KeplerJsRoadmap) |
-[News](https://twitter.com/Kepler_JS) | 
-[Blog](https://blog.keplerjs.io) | 
-[Plugins](https://atmospherejs.com/keplerjs) | 
-[Issues](https://github.com/keplerjs/kepler/issues)
+* [Website](https://keplerjs.io/)
+* [Documentation](https://docs.keplerjs.io/)
+* [Roadmap](https://bit.ly/KeplerJsRoadmap)
+* [News](https://twitter.com/Kepler_JS)
+* [Blog](https://blog.keplerjs.io)
+* [Plugins](https://atmospherejs.com/keplerjs) 
+* [Issues](https://github.com/keplerjs/kepler/issues)
 
 
 ## Introduction
@@ -29,9 +29,6 @@ In the near future Kepler as any open source projects will follow a community-dr
 
 *"Any tool should be useful in the expected way, but a truly great tool lends itself to uses you never expected."*
 Eric S. Raymond
-
-## Roadmap
-[Roadmap](https://bit.ly/KeplerJsRoadmap)
 
 ## Install
 1. Install the latest version of [NodeJs](https://nodejs.org).
