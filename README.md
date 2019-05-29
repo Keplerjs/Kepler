@@ -28,6 +28,7 @@ A place in Kepler can be linked to metadata from different sources automatically
 In the near future Kepler as any open source projects will follow a community-driven evolution that will support it instead of the initial mission ad we hope it has growth beyond expectations.
 
 *"Any tool should be useful in the expected way, but a truly great tool lends itself to uses you never expected."*
+
 Eric S. Raymond
 
 ## Install
