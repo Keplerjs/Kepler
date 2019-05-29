@@ -5,9 +5,6 @@
 * [Official DEMO](https://demo.keplerjs.io/)
 * [Current Version](https://github.com/Keplerjs/Kepler/releases)
 
-## Roadmap
-[Roadmap](https://bit.ly/KeplerJsRoadmap) | 
-
 # Links
 
 [Website](https://keplerjs.io/) | 
