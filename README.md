@@ -12,12 +12,11 @@
 
 [Website](https://keplerjs.io/) | 
 [Documentation](https://docs.keplerjs.io/) | 
+[Roadmap](https://bit.ly/KeplerJsRoadmap) |
 [News](https://twitter.com/Kepler_JS) | 
-[Blog](https://medium.com/keplerjs) | 
-[Source code](https://github.com/Keplerjs) | 
+[Blog](https://blog.keplerjs.io) | 
 [Plugins](https://atmospherejs.com/keplerjs) | 
-[Issues](https://github.com/keplerjs/kepler/issues) |
-[Roadmap](https://bit.ly/KeplerJsRoadmap) | 
+[Issues](https://github.com/keplerjs/kepler/issues)
 
 
 ## Introduction
