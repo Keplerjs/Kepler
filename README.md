@@ -31,7 +31,7 @@ In the near future Kepler as any open source projects will follow a community-dr
 Eric S. Raymond
 
 ## Roadmap
-[Roadmap](https://bit.ly/KeplerJsRoadmap) | 
+[Roadmap](https://bit.ly/KeplerJsRoadmap)
 
 ## Install
 1. Install the latest version of [NodeJs](https://nodejs.org).
