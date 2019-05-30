@@ -41,8 +41,9 @@ Package.onUse(function(api) {
   ],'client');
 
   api.addFiles([
-    'server/import.js',
+    'server/Import.js',
     'server/pubs.js',
+    'server/api.js',    
   ],'server');
 
 });
