@@ -1,3 +1,5 @@
+
+var geoUtils = Package['geojson-utils'].GeoJSON;
 /**
  * @namespace
  * @memberOf Util
@@ -233,9 +235,7 @@ Kepler.Util.geo = {
 	 * @return {[type]}      [description]
 	 */
 	polygonCentroid: function(poly) {
-		var g = Package['geojson-utils'];
-			geo = g.GeoJSON;
-		var cc = geo.centroid(poly).cc;
+		var cc = geoUtils.centroid(poly).coordinates;
 		return [cc[1], cc[0]];
 	},
 	/**
