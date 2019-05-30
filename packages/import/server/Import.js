@@ -20,7 +20,7 @@ Kepler.Import = {
 			return {
 				name: K.Util.sanitize.name(name),
 				url: K.Util.sanitize.url(url),
-				loc: K.Util.geo.roundLoc(loc,8),
+				loc: K.Util.geo.locRound(loc,8),
 				active: 0,
 				import: {
 					name: importName,

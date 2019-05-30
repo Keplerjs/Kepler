@@ -35,7 +35,7 @@ Meteor.publish('tracksByPlace', function(placeId) {
 			}
 
 			var cachePrec = 2,
-				cacheLoc = K.Util.geo.roundLoc(placeData.loc, cachePrec),
+				cacheLoc = K.Util.geo.locRound(placeData.loc, cachePrec),
 				geojson = null;
 
 			if(sets.caching)

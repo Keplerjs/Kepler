@@ -13,7 +13,7 @@ K.extend({
 		var w = {};/* //TODO K.Util.valid.bbox(bbox) ? {
 			loc: {
 				'$within': {
-					'$box': K.Util.geo.roundBbox(bbox,0)
+					'$box': K.Util.geo.bboxRound(bbox,0)
 				}
 			}
 		} : {};*/

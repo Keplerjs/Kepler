@@ -7,12 +7,12 @@ Kepler.Geoinfo = {
 		ele: {
 			name: 'elevation',
 			func: K.Geoapi.elevation,
-			roundLoc: 8,
+			locRound: 8,
 		},
 		esp: {
 			name: 'aspect',
 			func: K.Geoapi.aspect,
-			roundLoc: 8,
+			locRound: 8,
 		},
 		near: {
 			name: 'near',
@@ -38,7 +38,7 @@ Kepler.Geoinfo = {
 		loc: {
 			name: 'loc',
 			cacheTime: 'none',
-			roundLoc: 8,
+			locRound: 8,
 			func: function(loc) {return loc}
 		}
 	},	
@@ -55,7 +55,7 @@ Kepler.Geoinfo = {
 				tasks[field] = function(cb) {
 					Meteor.defer(function() {
 						
-						var rloc = K.Util.geo.roundLoc(loc, opt.roundLoc || K.settings.geoinfo.roundLoc),
+						var rloc = K.Util.geo.locRound(loc, opt.locRound || K.settings.geoinfo.locRound),
 							cacheTime = opt.cacheTime || K.settings.geoinfo.cacheTime;
 					 	
 					 	var data = K.Cache.get(rloc, opt.name, function(o) {
@@ -113,7 +113,7 @@ Kepler.Geoinfo = {
 			return {
 				name: disp[0],
 				full: full,
-				loc: K.Util.geo.roundLoc([r.lat, r.lon])
+				loc: K.Util.geo.locRound([r.lat, r.lon])
 			};
 		});
 
@@ -135,14 +135,12 @@ Kepler.Geoinfo = {
 				geo2 = K.Geoinfo.getFieldsByLoc(loc2, {ele: 1 }),
 				dis = Math.abs(parseInt(geo2.ele) - parseInt(geo1.ele));
 	
-	//TODO add sub property 'geoinfo'
+		//TODO add in sub property 'geoinfo'
+			prop.start= K.Util.geo.point(loc1);
+			prop.end  = K.Util.geo.point(loc2);
 			prop.dis  = parseInt( dis );
-			
 			prop.len  = prop.len || parseInt( Math.round( K.Util.geo.linestringLen(geom) ) );
-			prop.time = prop.time || parseInt( K.Util.geo.timeTrack(prop.len, prop.dis) );
-
-			prop.start= K.Util.geo.point(p1);
-			prop.end  = K.Util.geo.point(p2);
+			prop.time = prop.time || parseInt( K.Util.geo.linestringTime(prop.len, prop.dis) );
 		}
 
 		return prop;
@@ -179,7 +177,7 @@ Meteor.methods({
 		if(!this.userId || !K.Util.valid.loc(loc)) return null;
 
 		var ret = [],
-			rloc = K.Util.geo.roundLoc(loc, 6);
+			rloc = K.Util.geo.locRound(loc, 6);
 
 		var ret = K.Cache.get(rloc, 'reversegeo', K.Geoapi.reversegeo, K.settings.geoinfo.cacheTime);
 

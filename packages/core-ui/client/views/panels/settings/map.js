@@ -49,7 +49,7 @@ Template.panelSettings_ui_map.events({
 		var input$ = $(e.currentTarget).parents('#mapcenter').find('input'),
 			cen = K.Map.getCursorLoc() || K.Map.getCenter(),
 			zom = K.Map.map.getZoom(),
-			val = K.Util.geo.roundLoc(cen);
+			val = K.Util.geo.locRound(cen);
 		
 		input$.val(K.Util.humanize.loc(val)+','+zom);
 		

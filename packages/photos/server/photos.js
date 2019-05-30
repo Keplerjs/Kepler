@@ -107,7 +107,7 @@ Meteor.methods({
 			//example: parseLoc('59°12\'7.7"N 02°15\'39.6"W')
 			delete exif.makerNote;
 			
-			exif.loc = K.Util.geo.parseLocString(lat+' '+lng);
+			exif.loc = K.Util.geo.locParseString(lat+' '+lng);
 		}
 
 		console.log('Photos: exifPhoto ', basePath+fileOri);//exif);

@@ -65,10 +65,10 @@ Kepler.Osm = {
 
 				/*
 				//for debug opts.dist directly in browser console
-				L.rectangle(K.Util.geo.bufferLoc(K.Map.getCenter(), 100, true)).addTo(K.Map.map)
+				L.rectangle(K.Util.geo.locBuffer(K.Map.getCenter(), 100, true)).addTo(K.Map.map)
 				*/
 
-				bbox = K.Util.geo.bufferLoc(loc, opts.dist).join(',');
+				bbox = K.Util.geo.locBuffer(loc, opts.dist).join(',');
 			}
 
 			if(_.isArray(opts.filter)) {

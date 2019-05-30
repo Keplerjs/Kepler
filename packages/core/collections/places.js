@@ -20,7 +20,7 @@ Places.before.update(function(userId, doc, fieldNames, modifier, options) {
 	
 	if(_.contains(fieldNames,'loc') && modifier.$set) {
 		if(!doc.geometry || (doc.geometry && doc.geometry.type==='Point')) {
-			modifier.$set.geometry = K.Util.geo.point([doc.loc[1],doc.loc[0]]);
+			modifier.$set.geometry = K.Util.geo.point(doc.loc);
 		}
 	}
 	

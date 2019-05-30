@@ -23,7 +23,7 @@ Users.after.update(function(userId, user, fieldNames, modifier, options) {
 
 	if(K.settings.public.map.checkinAutomatic && _.contains(fieldNames,'loc') && user.loc) {
 
-		//console.log('users.after.update loc ', user.username, K.Util.geo.roundLoc(user.loc).join());
+		//console.log('users.after.update loc ', user.username, K.Util.geo.locRound(user.loc).join());
 
 		var nearPlace = Places.findOne({
 				loc: {
