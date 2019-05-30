@@ -228,6 +228,17 @@ Kepler.Util.geo = {
 		return sec>60 ? sec : 0;
 	},
 	/**
+	 * calculate centroid of geojson polygon geometry, return a loc [lat,lon]
+	 * @param  {[type]} poly [description]
+	 * @return {[type]}      [description]
+	 */
+	polygonCentroid: function(poly) {
+		var g = Package['geojson-utils'];
+			geo = g.GeoJSON;
+		var cc = geo.centroid(poly).cc;
+		return [cc[1], cc[0]];
+	},
+	/**
 	 * calculate a length of a Leaflet Polyline 
 	 * @param  {Object} line [description]
 	 * @return {Number}      [description]
