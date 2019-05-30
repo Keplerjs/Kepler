@@ -47,7 +47,7 @@ Template.panelPlaceEdit.onRendered(function() {
 			}).on('move zoomstart', function(e) {
 
 				var loc = self.editMap.getCenter(),
-					newloc = K.Util.geo.roundLoc([loc.lat, loc.lng]);
+					newloc = K.Util.geo.locRound([loc.lat, loc.lng]);
 
 				marker.setLatLng(newloc);
 
@@ -118,7 +118,7 @@ Template.panelPlaceEdit.events({
 		
 		var place = tmpl.data,
 			data = {
-				loc: K.Util.geo.roundLoc( tmpl.$('.input-editloc').val().split(',') )
+				loc: K.Util.geo.locRound( tmpl.$('.input-editloc').val().split(',') )
 			};
 
 		Meteor.call('updatePlace', place.id, data, function(err) {
@@ -129,7 +129,7 @@ Template.panelPlaceEdit.events({
 	'click .btn-cancloc': function(e,tmpl) {
 		tmpl.$('.collapse').trigger('hidden.bs.collapse');
 		tmpl.$('.collapse').trigger('shown.bs.collapse');
-		tmpl.$('.input-editloc').val( K.Util.geo.roundLoc(tmpl.data.loc) )
+		tmpl.$('.input-editloc').val( K.Util.geo.locRound(tmpl.data.loc) )
 		//TODO decide beahvior tmpl.$('.collapse').collapse('hide');
 	},
 	

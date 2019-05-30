@@ -1,3 +1,5 @@
+
+var geoUtils = Package['geojson-utils'].GeoJSON;
 /**
  * @namespace
  * @memberOf Util
@@ -9,7 +11,7 @@ Kepler.Util.geo = {
 	 * @param  {Number} prec [description]
 	 * @return {Array}      [description]
 	 */
-	roundLoc: function(loc, prec) {
+	locRound: function(loc, prec) {
 		prec = _.isNumber(prec) ? prec : 6; 
 		if( (typeof loc === 'undefined' || loc === null) ||
 			(typeof loc[0] === 'undefined' || loc[0] === null) ||
@@ -22,40 +24,13 @@ Kepler.Util.geo = {
 		return [ parseFloat(lat), parseFloat(lng) ];
 	},
 	/**
-	 * round bounding box precision
-	 * @param  {Array} bb   [description]
-	 * @param  {Number} prec [description]
-	 * @return {Array}      [description]
-	 */
-	roundBbox: function(bb, prec) {
-		prec = _.isNumber(prec) ? prec : 6;
-		return [ K.Util.geo.roundLoc(bb[0], prec),
-				 K.Util.geo.roundLoc(bb[1], prec) ];
-	},
-	/**
-	 * convert bounding box fromm array of array to sinngle array
-	 * @param  {Array} bb [description]
-	 * @return {Array}    [description]
-	 */
-	plainBbox: function(bb) {
-		return [ bb[0][0], bb[0][1], bb[1][0], bb[1][1] ];
-	},
-	/**
-	 * convert bounding box from single array to double array
-	 * @param  {Array} bb [description]
-	 * @return {Array}    [description]
-	 */
-	reverseBbox: function(bb) {
-		return [ [bb[0][1], bb[0][0]], [bb[1][1], bb[1][0]] ];
-	},
-	/**
 	 * generate a bounding box having a location ad center dy certain distance
 	 * @param  {Array} loc     [description]
 	 * @param  {Number} dist    [description]
 	 * @param  {Boolean} corners [description]
 	 * @return {Array}         [description]
 	 */
-	bufferLoc: function(loc, dist, corners) {
+	locBuffer: function(loc, dist, corners) {
 		//TODO check valid loc
 		corners = corners || false;
 
@@ -67,6 +42,44 @@ Kepler.Util.geo = {
 
 		return corners ? [[lat1, lon1], [lat2, lon2]] : [lat1, lon1, lat2, lon2];
 	},
+	/**
+	 * round bounding box precision
+	 * @param  {Array} bb   [description]
+	 * @param  {Number} prec [description]
+	 * @return {Array}      [description]
+	 */
+	bboxRound: function(bb, prec) {
+		prec = _.isNumber(prec) ? prec : 6;
+		return [ K.Util.geo.locRound(bb[0], prec),
+				 K.Util.geo.locRound(bb[1], prec) ];
+	},
+	/**
+	 * convert bounding box fromm array of array to sinngle array
+	 * @param  {Array} bb [description]
+	 * @return {Array}    [description]
+	 */
+	bboxPlain: function(bb) {
+		return [ bb[0][0], bb[0][1], bb[1][0], bb[1][1] ];
+	},
+	/**
+	 * convert bounding box from single array to double array
+	 * @param  {Array} bb [description]
+	 * @return {Array}    [description]
+	 */
+	bboxReverse: function(bb) {
+		return [ [bb[0][1], bb[0][0]], [bb[1][1], bb[1][0]] ];
+	},
+	/**
+	 * check if a location is inside a certain bounding box
+	 * @param  {Array} bb [description]
+	 * @param  {Array} ll [description]
+	 * @return {Boolean}    [description]
+	 */
+	bboxContains: function(bb,ll)	{
+		//inspired by npm 'geojson-utils'.pointInBoundingBox()
+		if(!_.isArray(bb) || !K.Util.valid.loc(ll)) return false;
+		return !(ll[0] < bb[0][0] || ll[0] > bb[1][0] || ll[1] < bb[0][1] || ll[1] > bb[1][1]);
+	},	
 	/**
 	 * convert a certain distrnace from radians to meters
 	 * @param  {Number} deg [description]
@@ -103,33 +116,26 @@ Kepler.Util.geo = {
 		return Math.round(R * c);
 	},
 	/**
-	 * calculate walking time of a certain distance and with a certain difference in height
-	 * @param  {Number} len [description]
-	 * @param  {Number} dis [description]
-	 * @return {Number}     [description]
+	 * calculate the azimut angle from two locations
+	 * @param  {Array} startLoc [description]
+	 * @param  {Array} endLoc   [description]
+	 * @return {Number}          [description]
 	 */
-	timeTrack: function(len, dis) {
-		//http://ascoltotutti.blogspot.it/2012/12/calcolo-durata-di-un-percorso.html
-		var km = len/1000,
-			dif = dis>0 ? 4 : 6,	//fattore: salita/discesa
-			ore = ( km + (Math.abs(dis)/100) ) / dif,
-			sec = Math.round(ore*3600);
-		return sec>60 ? sec : 0;
-	},
-	/**
-	 * check if a location is inside a certain bounding box
-	 * @param  {Array} bb [description]
-	 * @param  {Array} ll [description]
-	 * @return {Boolean}    [description]
-	 */
-	contains: function (bb, ll) { // (LatLngBounds) or (LatLng) -> Boolean
-		
-		if(!_.isArray(bb) || !K.Util.valid.loc(ll)) return false;
+	azimuth: function(loc1, loc2) {
 
-		return L.latLngBounds(bb).contains(L.latLng(ll));
-		//var GeoJSON = Package['geojson-utils'].GeoJSON;
-		//return GeoJSON.pointInBoundingBox(bb, [ll[1],ll[0]]);
-	},	
+		var RAD2DEG = 0.017453,
+			DEG2RAD = 57.2957795,
+			dlat = loc2[0] - loc1[0],
+			dlng = loc2[1] - loc1[1],
+			ang = Math.atan2(dlng * Math.cos(loc2.lat() * RAD2DEG), dlat)* DEG2RAD;
+
+		if (ang >= 360)
+			ang -= 360;
+		else if (ang < 0)
+			ang += 360;
+
+		return ang;
+	},
 	/**
 	 * create a GeoJSON Point geometry
 	 * @param  {Array} ll [description]
@@ -138,7 +144,7 @@ Kepler.Util.geo = {
 	point: function(ll) {
 		return {
 			"type": "Point",
-			"coordinates": ll
+			"coordinates": [ll[1],ll[0]]
 		};
 	},
 	/**
@@ -210,6 +216,29 @@ Kepler.Util.geo = {
 		return d;
 	},
 	/**
+	 * calculate walking time of a certain distance and with a certain difference in height
+	 * @param  {Number} len [description]
+	 * @param  {Number} dis [description]
+	 * @return {Number}     [description]
+	 */
+	linestringTime: function(len, dis) {
+		//http://ascoltotutti.blogspot.it/2012/12/calcolo-durata-di-un-percorso.html
+		var km = len/1000,
+			dif = dis>0 ? 4 : 6,	//fattore: salita/discesa
+			ore = ( km + (Math.abs(dis)/100) ) / dif,
+			sec = Math.round(ore*3600);
+		return sec>60 ? sec : 0;
+	},
+	/**
+	 * calculate centroid of geojson polygon geometry, return a loc [lat,lon]
+	 * @param  {[type]} poly [description]
+	 * @return {[type]}      [description]
+	 */
+	polygonCentroid: function(poly) {
+		var cc = geoUtils.centroid(poly).coordinates;
+		return [cc[1], cc[0]];
+	},
+	/**
 	 * calculate a length of a Leaflet Polyline 
 	 * @param  {Object} line [description]
 	 * @return {Number}      [description]
@@ -224,32 +253,11 @@ Kepler.Util.geo = {
 		return d;
 	},
 	/**
-	 * calculate the azimut angle from two locations
-	 * @param  {Array} startLoc [description]
-	 * @param  {Array} endLoc   [description]
-	 * @return {Number}          [description]
-	 */
-	angleLocs: function(loc1, loc2) {
-
-		var RAD2DEG = 0.017453,
-			DEG2RAD = 57.2957795,
-			dlat = loc2[0] - loc1[0],
-			dlng = loc2[1] - loc1[1],
-			ang = Math.atan2(dlng * Math.cos(loc2.lat() * RAD2DEG), dlat)* DEG2RAD;
-
-		if (ang >= 360)
-			ang -= 360;
-		else if (ang < 0)
-			ang += 360;
-
-		return ang;
-	},
-	/**
 	 * pick a random location inside a certain bounding box
 	 * @param  {Array} bbox [description]
 	 * @return {Array}      [description]
 	 */
-	randomLoc: function(bbox) {
+	locRandom: function(bbox) {
 		var world = [[-90, -180], [90, 180]];
 		bbox = bbox || world;
 		var sw = bbox[0],
@@ -269,7 +277,7 @@ Kepler.Util.geo = {
 	 * @param  {String} crsDst [description]
 	 * @return {Array}        [description]
 	 */
-	transformLoc: function(loc, crsSrc, crsDst) {
+	locTransform: function(loc, crsSrc, crsDst) {
 		//https://leafletjs.com/reference-1.3.4.html#crs
 		crsSrc = crsSrc || '3857';
 		crsDst = crsDst || '4326';
@@ -287,7 +295,7 @@ Kepler.Util.geo = {
 	 * @param  {String} dmsString [description]
 	 * @return {Array}           [description]
 	 */
-	parseLocString: function(dmsString) {
+	locParseString: function(dmsString) {
 		//https://github.com/gmaclennan/parse-dms
 		//example: parseLoc('59°12\'7.7"N 02°15\'39.6"W')
 

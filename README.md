@@ -7,14 +7,13 @@
 
 # Links
 
-[Website](https://keplerjs.io/) | 
-[Documentation](https://docs.keplerjs.io/) | 
-[News](https://twitter.com/Kepler_JS) | 
-[Blog](https://medium.com/keplerjs) | 
-[Source code](https://github.com/Keplerjs) | 
-[Plugins](https://atmospherejs.com/keplerjs) | 
-[Roadmap](https://bit.ly/KeplerJsRoadmap) | 
-[Issues](https://github.com/keplerjs/kepler/issues)
+* [Website](https://keplerjs.io/)
+* [Documentation](https://docs.keplerjs.io/)
+* [Roadmap](https://bit.ly/KeplerJsRoadmap)
+* [News](https://twitter.com/Kepler_JS)
+* [Blog](https://blog.keplerjs.io)
+* [Plugins](https://atmospherejs.com/keplerjs) 
+* [Issues](https://github.com/keplerjs/kepler/issues)
 
 
 ## Introduction
@@ -29,6 +28,7 @@ A place in Kepler can be linked to metadata from different sources automatically
 In the near future Kepler as any open source projects will follow a community-driven evolution that will support it instead of the initial mission ad we hope it has growth beyond expectations.
 
 *"Any tool should be useful in the expected way, but a truly great tool lends itself to uses you never expected."*
+
 Eric S. Raymond
 
 ## Install

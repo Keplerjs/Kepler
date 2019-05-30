@@ -58,7 +58,7 @@ K.Plugin({
 			}
 		},
 		"geoinfo": {
-			"roundLoc": 4,
+			"locRound": 4,
 			"cacheTime": "monthly",
 			"autoupdate": true,
 			"geonamesUser": "",

@@ -57,7 +57,7 @@ Kepler.Stats = {
 
 		//approximate location for clustering
 		var dataApprox = _.map(data, function(d) {
-			d.loc = K.Util.geo.roundLoc(d.loc,1);
+			d.loc = K.Util.geo.locRound(d.loc,1);
 			return d;
 		});
 

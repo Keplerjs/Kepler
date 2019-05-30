@@ -203,7 +203,7 @@ Kepler.Map = {
 	 * get current bounding box of map
 	 * @return {Array} "[[sw.lat, sw.lng], [ne.lat, ne.lng]]"
 	 */
-	getBBox: function() {
+	getBBox: function(pad) {
 		if(this.ready()) {
 			this._deps.bbox.depend();
 
@@ -217,7 +217,9 @@ Kepler.Map = {
 				sw = this.map.containerPointToLatLng(p);
 			}
 
-			return K.Util.geo.roundBbox([[sw.lat, sw.lng], [ne.lat, ne.lng]]);
+			//TODO add pad
+
+			return K.Util.geo.bboxRound([[sw.lat, sw.lng], [ne.lat, ne.lng]]);
 		}
 	},
 	/**

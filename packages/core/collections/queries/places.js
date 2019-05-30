@@ -27,7 +27,7 @@ K.extend({
 		if(Meteor.isClient) {
 
 			var pp = _.filter(Places.find().fetch(), function(place) {
-				return K.Util.geo.contains(bbox, place.loc);
+				return K.Util.geo.bboxContains(bbox, place.loc);
 			});
 
 			return {

@@ -4,8 +4,13 @@
 
 ## Next version
 - core search place name in Fulltext
+- core rename methods K.Util.geo.bboxContains(), bboxReverse(), bboxPlain(), bboxRound() 
+- core rename methods K.Util.geo.locBuffer(), locTransform(), locRound()
+- core simplify method K.Util.geo.bboxContains()
+- core new method L.Util.geo.polygonCentroid()
 - plugin import K.Import.geojsonToPlace()
 - plugin import added new place holder panelImport
+- core K.Util.geo.point() accept [lat,lon]
 
 ## v1.6.6
 - core support Instagram OAuth signup

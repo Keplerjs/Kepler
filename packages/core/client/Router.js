@@ -119,7 +119,7 @@ Router.map(function() {
 		onAfterAction: function() {
 			if(!this.ready()) return null;
 			
-			var loc = K.Util.geo.roundLoc([this.params.lat, this.params.lng]);
+			var loc = K.Util.geo.locRound([this.params.lat, this.params.lng]);
 
 			K.Map.showLoc(loc, function() {
 				K.Map.showCursor(loc);
