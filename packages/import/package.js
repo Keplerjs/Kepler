@@ -42,6 +42,7 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'server/Import.js',
+    'server/places.js',
     'server/pubs.js',
     'server/api.js',    
   ],'server');
