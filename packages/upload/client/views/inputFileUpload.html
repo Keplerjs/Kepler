@@ -1,7 +1,16 @@
 
 <template name="inputFile_upload">
 	<div class="inputFile_upload">
-		<input type="file" class="file-upload form-control" />
-		<label class="text-danger upload-err"></label>
+		<div class="input-group -loading-bar">
+			<input type="file" class="form-control file-upload" />
+			<span class="input-group-btn">
+				<a class="btn btn-default pull-right btn-upload">{{i18n 'btn_upload'}}</a>
+			</span>
+		</div>
 	</div>
 </template>
+	<!-- TODO		<div class="progress">
+		  <div class="progress-bar progress-bar-warning" role="progressbar" style="width: 60%;">
+		    <span class="sr-only">60% Complete</span>
+		  </div>
+		</div> -->

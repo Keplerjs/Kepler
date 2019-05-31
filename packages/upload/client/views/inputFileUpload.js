@@ -4,31 +4,41 @@ Template.inputFile_upload.events({
 	'change .file-upload': function(e, tmpl) {
 		e.preventDefault();
 
-		var input$ = $(e.target),
-			fileObj = e.originalEvent.target.files[0],
+		var input$ = tmpl.$('.file-upload'),
+			fileObj = input$[0].files[0],
+			target = tmpl.data.target,
+			params = tmpl.data.params,
+			onSelect = tmpl.data.onSelect;
+
+		if(_.isFunction(onSelect)) {
+
+			onSelect(target, fileObj, params);
+		}
+	},
+	
+	'click .btn-upload': function(e, tmpl) {
+		e.preventDefault();
+
+		var input$ = tmpl.$('.file-upload'),
+			fileObj = input$[0].files[0],
 			target = tmpl.data.target,
 			params = tmpl.data.params,
 			onUploaded = tmpl.data.onUploaded;
 
-//TODO use aAlert!!!
-//
-		input$.parent().addClass('loading-default');
+		input$.parent().addClass('loading-bar');
 		
-		input$.next('.upload-err').text('');
-
 		K.Upload.uploadFile(target, fileObj, params, function(err, ret) {
-			input$.parent().removeClass('loading-default');
+
+			input$.parent().removeClass('loading-bar');
 
 			if(err) {
-				input$.next('.upload-err').text(err);
 				input$.val('');
+				K.Alert.error(err);
 			}
 			else if(_.isFunction(onUploaded)) {
 
 				onUploaded(ret);
 			}
-			else
-				input$.next('.upload-err').text('');
 		});
 	}
 });

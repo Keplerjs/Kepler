@@ -1,9 +1,9 @@
 
 Kepler.Upload = {
 	
-	uploadFile: function(target, fileObj, params, cb) {
+	uploadFile: function(target, fileObj, params, callback) {
 
-		cb = _.isFunction(cb) ? cb : $.noop;
+		callback = _.isFunction(callback) ? callback : function(){};
 
 		var sets = K.settings.public.upload.targets[target];
 		
@@ -12,7 +12,7 @@ Kepler.Upload = {
 		if(!fileObj) return false;
 
 		if(fileObj.size > sets.maxFileSize) {
-			cb( i18n('upload_error_filesizeNotValid') + 
+			callback( i18n('upload_error_filesizeNotValid') + 
 				K.Util.humanize.filesize(sets.maxFileSize) );
 			return this;
 		}
@@ -25,7 +25,7 @@ Kepler.Upload = {
 			});
 			
 			if(!_.contains(mimes, fileObj.type)) {
-				cb( i18n('upload_error_formatNotValid') );
+				callback( i18n('upload_error_formatNotValid') );
 				return null;
 			}
 		}
@@ -34,7 +34,7 @@ Kepler.Upload = {
 			this.fileReader.abort();
 		else
 			this.fileReader = new FileReader();
-
+		
 		this.fileReader.onloadend = function(e) {
 			fileObj = {
 				name: fileObj.name,
@@ -42,8 +42,8 @@ Kepler.Upload = {
 				size: fileObj.size,
 				blob: e.target.result
 			};
-			Meteor.call('uploadFile', target, fileObj, params, cb);
-		}
+			Meteor.call('uploadFile', target, fileObj, params, callback);
+		};
 		this.fileReader.readAsBinaryString(fileObj);
 		//TODO not work.. this.fileReader.readAsDataURL(fileObj);
 		

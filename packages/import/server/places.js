@@ -1,44 +1,12 @@
 
 Meteor.methods({
 
-	removeImport: function(name) {
-
-		if(!this.userId) return null;
-
-		var count = Places.remove({
-			'import.name': name,
-			'userId': this.userId
-		});
-		Users.update(this.userId, {
-			$pull: {
-				imports: name
-			}
-		});
-		
-		console.log('Import: removeImport ', name, this.userId);
-
-		return count;
-	},
-
-	importPlace: function(obj) {
-
-		if(!this.userId) return null;
-
-		var place = _.deepExtend({}, K.schemas.place, obj);
-
-		var placeId = Places.insert(place);
-
-		console.log('Import: importPlace ', place.name || placeId);
-
-		return placeId;
-	},
-
 	importFile: function(fileObj, params) {
 
 		if(!this.userId) return null;
 
 		var geo = JSON.parse(fileObj.blob),
-			importName = K.Util.sanitize.fileName(fileObj.name, true) || K.Util.timeName(),
+			importName = params.importname || K.Import.importnameFromFile(fileObj),
 			placeIds = [];
 
 		console.log('Import: file ', fileObj.name);
@@ -85,5 +53,37 @@ Meteor.methods({
 		});
 
 		return placeIds.length+' '+i18n('label_imported');
+	},
+
+	importPlace: function(obj) {
+
+		if(!this.userId) return null;
+
+		var place = _.deepExtend({}, K.schemas.place, obj);
+
+		var placeId = Places.insert(place);
+
+		console.log('Import: importPlace ', place.name || placeId);
+
+		return placeId;
+	},
+
+	removeImport: function(name) {
+
+		if(!this.userId) return null;
+
+		var count = Places.remove({
+			'import.name': name,
+			'userId': this.userId
+		});
+		Users.update(this.userId, {
+			$pull: {
+				imports: name
+			}
+		});
+		
+		console.log('Import: removeImport ', name, this.userId);
+
+		return count;
 	}
 });

@@ -28,7 +28,8 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-    'collections/places.js'
+    'collections/places.js',
+    'modules/Import.js',
   ]);
 
   api.addFiles([
@@ -41,7 +42,7 @@ Package.onUse(function(api) {
   ],'client');
 
   api.addFiles([
-    'server/Import.js',
+  	'server/Import.js',
     'server/places.js',
     'server/pubs.js',
     'server/api.js',    

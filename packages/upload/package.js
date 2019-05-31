@@ -27,7 +27,8 @@ Package.onUse(function(api) {
   api.addFiles([
     'client/Upload.js',
     'client/views/inputFileUpload.html',
-    'client/views/inputFileUpload.js'
+    'client/views/inputFileUpload.js',
+    'client/stylesheets/panels.css'
   ],'client');
 
   api.addFiles([
