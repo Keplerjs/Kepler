@@ -41,10 +41,10 @@ Meteor.methods({
 			importName = K.Util.sanitize.fileName(fileObj.name, true) || K.Util.timeName(),
 			placeIds = [];
 
+		console.log('Import: file ', fileObj.name);
+		console.log('importFile params:', params);
 		//TODO user params as importName
 		
-		console.log('Import: file ', fileObj.name);
-
 		if(geo && geo.features && geo.features.length>0) {
 
 			_.each(geo.features, function(feature) {

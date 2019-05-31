@@ -8,7 +8,7 @@ Template.inputFile_upload.events({
 			fileObj = e.originalEvent.target.files[0],
 			target = tmpl.data.target,
 			params = tmpl.data.params,
-			callback = tmpl.data.callback;
+			onUploaded = tmpl.data.onUploaded;
 
 //TODO use aAlert!!!
 //
@@ -23,9 +23,9 @@ Template.inputFile_upload.events({
 				input$.next('.upload-err').text(err);
 				input$.val('');
 			}
-			else if(_.isFunction(callback)) {
+			else if(_.isFunction(onUploaded)) {
 
-				callback(ret);
+				onUploaded(ret);
 			}
 			else
 				input$.next('.upload-err').text('');

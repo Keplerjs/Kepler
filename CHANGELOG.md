@@ -8,6 +8,7 @@
 - core rename methods K.Util.geo.locBuffer(), locTransform(), locRound()
 - core simplify method K.Util.geo.bboxContains()
 - core new method L.Util.geo.polygonCentroid()
+- plugin upload rename param 'callback' in 'onUploaded' in template inputFile_upload
 - plugin import K.Import.geojsonToPlace()
 - plugin import added new place holder panelImport
 - core K.Util.geo.point() accept [lat,lon]

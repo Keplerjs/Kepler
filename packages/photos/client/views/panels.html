@@ -13,7 +13,7 @@
 			<label class="control-label"><i class="icon icon-photos"></i> {{i18n 'label_photoplacenew'}}</label>
 		</div>
 		<div class="col-xs-6">
-			{{> inputFile_upload target='photos_places' callback=uploadDone}}
+			{{> inputFile_upload target='photos_places' onUploaded=uploadDone}}
 		</div>
 	</div>
 </template>
@@ -31,7 +31,7 @@
 		<label class="control-label"><i class="icon icon-photos"></i> {{i18n 'label_addphotos'}}</label>
 		<div class="clearfix">
 	
-			{{> inputFile_upload target='photos_places' params=this.id callback=photoUploaded}}
+			{{> inputFile_upload target='photos_places' params=this.id onUploaded=photoUploaded}}
 			
 			<div class="clearfix" style="position: relative;">
 				{{#if photo}}

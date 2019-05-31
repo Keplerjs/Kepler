@@ -31,7 +31,7 @@ Package.onUse(function(api) {
 
   api.addFiles([
   	'server/Stats.js',
-    'server/Router.js',
+    'server/api.js',
     'server/places.js',
     'server/users.js',
     'server/convers.js',

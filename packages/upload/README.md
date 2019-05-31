@@ -19,7 +19,7 @@ Need writable path to upload file from browser and serve it by url
 Usage from other Kepler plugins:
 ```
 <template id="panelSettings_photos">
-	{{> inputFile_upload target='photos_avatars' callback=setAvatar}}
+	{{> inputFile_upload target='photos_avatars' onUploaded=setAvatar}}
 </template>
 ```
 expose a method accpet the result of uploading, usually a url of published file.
