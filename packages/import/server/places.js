@@ -10,9 +10,9 @@ Meteor.methods({
 			placeIds = [];
 
 		console.log('Import: file ', fileObj.name);
-		console.log('importFile params:', params);
+		console.log('importFile PARAMS:', params);
 		//TODO user params as importName
-		
+		return
 		if(geo && geo.features && geo.features.length>0) {
 
 			_.each(geo.features, function(feature) {

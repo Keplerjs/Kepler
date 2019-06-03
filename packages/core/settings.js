@@ -124,6 +124,20 @@ Kepler.settings = {
 				"default": { "color": "#b6f", "weight": 5, "opacity": 0.7 }
 			}
 		},
+		"ga": {
+			//https://github.com/reywood/meteor-iron-router-ga
+			"id": "UA-XXXX-Y",
+			/*"create": {
+                "cookieDomain": "example.com",
+                "cookieName": "my_ga_cookie",
+                "cookieExpires": 3600
+            },
+            "set": {
+                "forceSSL": true,
+                "anonymizeIp": true
+            },*/
+            "trackUserId": false
+		},		
 		"accounts": {
 			"creation": true,
 			"services": {
@@ -138,20 +152,6 @@ Kepler.settings = {
 				"passwordSignupFields": "USERNAME_AND_OPTIONAL_EMAIL"
 				//https://docs.meteor.com/api/accounts.html#Accounts-ui-config
 			}
-		},
-		"ga": {
-			//https://github.com/reywood/meteor-iron-router-ga
-			"id": "UA-XXXX-Y",
-			/*"create": {
-                "cookieDomain": "example.com",
-                "cookieName": "my_ga_cookie",
-                "cookieExpires": 3600
-            },
-            "set": {
-                "forceSSL": true,
-                "anonymizeIp": true
-            },*/
-            "trackUserId": false
 		}
 	},
 	"accounts": {
