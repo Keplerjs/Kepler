@@ -3,6 +3,8 @@ Template.formImport.onCreated(function() {
 
     this.importName = new ReactiveVar('');
 
+    this.importCount = new ReactiveVar(0);
+
 });
 
 Template.formImport.helpers({
@@ -12,32 +14,17 @@ Template.formImport.helpers({
 			importname: tmpl.importName.get()
 		};
 	},
+	importCount: function() {
+		var tmpl = Template.instance();
+		return tmpl.importCount.get();
+	},
 	importOnSelect: function() {
 		var tmpl = Template.instance();
 		return function(err, fileObj, params) {
 			var name$ = tmpl.$('.import-name'),
 				importName =  K.Util.sanitize.importName(fileObj.name);
 			
-			var geoj = JSON.parse(fileObj.blob);
-
-			var n=0, maxFeatures = 10,
-				sample = _.first(_.shuffle(geoj.features), maxFeatures);
-
-			K.Map.addGeojson({features: sample});
-
-			_.each(sample, function(f) {
-				
-				let cen = K.Util.geo.centroid(f.geometry),
-					icon = new L.NodeIcon(),
-					marker = L.marker(cen, {icon: icon});
-
-				marker.addTo(K.Map.layers.geojson);
-				
-				Blaze.renderWithData(Template.markerPlace, f.properties, icon.nodeHtml);
-				n++;
-			});
-
-			K.Alert.info(i18n('label_importpreview',n,geoj.features.length));
+			tmpl.fileObj = fileObj;
 
 			name$.val( importName );
 		}
@@ -53,11 +40,36 @@ Template.formImport.helpers({
 
 Template.formImport.events({
 	'keydown .import-name': _.debounce(function(e, tmpl) {
-		console.log(e.target.value)
 		var importName = K.Util.sanitize.importName(e.target.value);
 		
 		$(e.target).val(importName);
 
 		tmpl.importName.set(importName)
-	},300)
+	},300),
+	'click .import-preview': function(e, tmpl) {
+		
+		if(!tmpl.fileObj) return;
+
+		var geoj = JSON.parse(tmpl.fileObj.blob);
+
+		tmpl.importCount.set(geoj.features.length);
+
+		var maxFeatures = 10,
+			sample = _.first(_.shuffle(geoj.features), maxFeatures);
+
+		K.Map.addGeojson({features: sample});
+
+		_.each(sample, function(f) {
+			
+			let cen = K.Util.geo.centroid(f.geometry),
+				icon = new L.NodeIcon(),
+				marker = L.marker(cen, {icon: icon});
+
+			marker.addTo(K.Map.layers.geojson);
+			
+			Blaze.renderWithData(Template.markerPlace, f.properties, icon.nodeHtml);
+		});
+
+		K.Alert.info(i18n('label_importpreview'));
+	}
 });
