@@ -6,13 +6,12 @@ Meteor.methods({
 		if(!this.userId) return null;
 
 		var geo = JSON.parse(fileObj.blob),
-			importName = params.importname || K.Import.importnameFromFile(fileObj),
+			importName = K.Util.sanitize.importName(params.importname) || K.Util.timeName(),
 			placeIds = [];
 
-		console.log('Import: file ', fileObj.name);
-		console.log('importFile PARAMS:', params);
+		console.log('Import: file', fileObj.name, 'import name', importName);
 		//TODO user params as importName
-		return
+		
 		if(geo && geo.features && geo.features.length>0) {
 
 			_.each(geo.features, function(feature) {
@@ -25,11 +24,7 @@ Meteor.methods({
 					placeId = null;
 				
 				if(placeData) {
-					
-					//insertPlace() from edit plugin
 					placeId = Meteor.call('importPlace', placeData);
-					
-					//console.log('Import: insertPlaceByImport ', placeId);
 				}
 				else {
 					console.log('Import: error importing item', feature );

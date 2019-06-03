@@ -10,10 +10,18 @@ Template.inputFile_upload.events({
 			params = tmpl.data.params,
 			onSelect = tmpl.data.onSelect;
 
-		if(_.isFunction(onSelect)) {
+		input$.parent('.inputFile_upload').addClass('selected');
 
-			onSelect(target, fileObj, params);
-		}
+		K.Upload.loadFile(target, fileObj, params, function(err, fileObj, params) {
+
+			if(err) {	
+				K.Alert.error(err);
+			}
+			else if(_.isFunction(onSelect)) {
+
+				onSelect(err, fileObj, params);
+			}
+		});
 	},
 	
 	'click .btn-upload': function(e, tmpl) {
@@ -25,19 +33,19 @@ Template.inputFile_upload.events({
 			params = tmpl.data.params,
 			onUploaded = tmpl.data.onUploaded;
 
-		input$.parent().addClass('loading-bar');
+		input$.parent('.inputFile_upload').removeClass('selected').addClass('loading-bar');
 		
 		K.Upload.uploadFile(target, fileObj, params, function(err, ret) {
 
-			input$.parent().removeClass('loading-bar');
+			input$.parent('.inputFile_upload').removeClass('loading-bar');
+			input$.val('');
 
-			if(err) {
-				input$.val('');
+			if(err) {	
 				K.Alert.error(err);
 			}
 			else if(_.isFunction(onUploaded)) {
 
-				onUploaded(ret);
+				onUploaded(ret, fileObj, params);
 			}
 		});
 	}

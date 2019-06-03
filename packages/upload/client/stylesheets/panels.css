@@ -1,10 +1,12 @@
 
 .inputFile_upload .btn-upload {
-	display: none;
+	visibility: hidden;
 }
-
-.inputFile_upload .loading-bar .file-upload {
-	display: block;
+.inputFile_upload.selected .btn-upload {
+	visibility: visible;
+}
+.inputFile_upload.loading-bar * {
+	visibility: hidden;
 }
 
 /*.inputFile_upload.loading-bar > .btn-upload-canc {

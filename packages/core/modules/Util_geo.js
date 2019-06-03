@@ -234,9 +234,35 @@ Kepler.Util.geo = {
 	 * @param  {[type]} poly [description]
 	 * @return {[type]}      [description]
 	 */
-	polygonCentroid: function(poly) {
-		var cc = geoUtils.centroid(poly).coordinates;
-		return [cc[1], cc[0]];
+	centroid: function(geom) {
+		
+		var ll;
+
+		if(geom.type==="Point")
+			ll = geom.coordinates
+		else
+		{
+			if(geom.type==="Polygon") {
+				cc = geom.coordinates;
+			}
+			else if(geom.type==="MultiPolygon") {
+				cc = geom.coordinates[0];
+			}
+			/*else if(geom.type==="LineString") {
+				cc = geom.coordinates;
+				console.log(cc)
+			}*/
+			else {
+				console.warn('Core: L.Util.geo.centroid() geometry not supported',geom.type)
+				return null;
+			}
+
+			let cen = geoUtils.centroid({coordinates: cc});
+
+			ll = cen.coordinates;
+		}
+
+		return ll && [ll[1], ll[0]];
 	},
 	/**
 	 * calculate a length of a Leaflet Polyline 

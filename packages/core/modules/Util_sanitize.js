@@ -70,7 +70,7 @@ Kepler.Util.sanitize = {
 
 	fileName: function(name, trimExt) {
 		name = name || '';
-		name = trimExt ? name.split('.').slice(0, -1).join('.') : name;
+		name = trimExt && /\./.test(name)? name.split('.').slice(0, -1).join('.') : name;
 		return name.toLowerCase()
 			.replace(/ +/g,'_')
 			.replace(/[^a-z0-9\\\-\._]/g,'')

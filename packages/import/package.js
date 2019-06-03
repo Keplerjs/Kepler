@@ -29,7 +29,7 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'collections/places.js',
-    'modules/Import.js',
+    'modules/Util_sanitize.js',
   ]);
 
   api.addFiles([

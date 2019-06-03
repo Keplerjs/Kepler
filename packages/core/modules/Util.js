@@ -101,13 +101,15 @@ Kepler.Util = {
 	 */
 	timeName: function(prefix, sep) {
 		prefix = prefix || '';
-		sep = sep || '-';
-		var D = new Date(),
+		sep = sep || '';
+		var mm = 'Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec',
+			D = new Date(),
 			d = D.getDate(),
-			m = D.getMonth()+1,
+			m = mm.split(',')[D.getMonth()+1],
 			y = D.getFullYear(),
-			today = [d,m,y].join(sep);
-		return K.Util.sanitize.name(prefix+today);
+			dd = d > 9 ? d : '0'+d,
+			today = [dd,m,y].join(sep);
+		return K.Util.sanitize.name(prefix+today)
 	},
 
 	isMobile: function() {
