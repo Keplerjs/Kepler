@@ -16,6 +16,12 @@ Need writable path to upload file from browser and serve it by url
 }
 ```
 
+The template ```{{> inputFile_upload}}``` accept this parameters:
+* target: defined in settings.upload.targets
+* params: addition custom options pass to remote method
+* onSelect: callback run when a file il selected(before upload)
+* onUploaded: callback run after the file is uploaded in server
+
 Usage from other Kepler plugins:
 ```
 <template id="panelSettings_photos">

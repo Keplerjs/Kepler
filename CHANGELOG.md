@@ -11,6 +11,7 @@
 - plugin upload rename param 'callback' in 'onUploaded' in template inputFile_upload
 - plugin upload new param 'params' in template inputFile_upload
 - plugin upload new method K.Upload.loadFile()
+- plugin import preview of geojson data on map before upload
 - plugin import K.Import.geojsonToPlace()
 - plugin import new params importname by form
 - plugin import new global method K.Util.sanitize.importName

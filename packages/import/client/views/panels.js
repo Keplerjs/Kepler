@@ -8,15 +8,15 @@ Template.formImport.onCreated(function() {
 });
 
 Template.formImport.helpers({
-	importParams: function() {
+	importCount: function() {
+		var tmpl = Template.instance();
+		return tmpl.importCount.get();
+	},
+	importGetParams: function() {
 		var tmpl = Template.instance();
 		return {
 			importname: tmpl.importName.get()
 		};
-	},
-	importCount: function() {
-		var tmpl = Template.instance();
-		return tmpl.importCount.get();
 	},
 	importOnSelect: function() {
 		var tmpl = Template.instance();
@@ -50,12 +50,12 @@ Template.formImport.events({
 		
 		if(!tmpl.fileObj) return;
 
-		var geoj = JSON.parse(tmpl.fileObj.blob);
+		var geo = JSON.parse(tmpl.fileObj.blob);
 
-		tmpl.importCount.set(geoj.features.length);
+		tmpl.importCount.set(geo.features.length);
 
 		var maxFeatures = 10,
-			sample = _.first(_.shuffle(geoj.features), maxFeatures);
+			sample = _.first(_.shuffle(geo.features), maxFeatures);
 
 		K.Map.addGeojson({features: sample});
 
@@ -69,7 +69,5 @@ Template.formImport.events({
 			
 			Blaze.renderWithData(Template.markerPlace, f.properties, icon.nodeHtml);
 		});
-
-		K.Alert.info(i18n('label_importpreview'));
 	}
 });

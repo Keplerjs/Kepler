@@ -12,6 +12,9 @@ Router.map(function() {
 			Session.set('showSidebar', true);
 			return Meteor.subscribe('importsByUser', K.Profile.id);
 		},
+		onStop: function() {
+
+		},
 		data: function() {
 			if(!this.ready()) return null;
 			return {
