@@ -1,7 +1,7 @@
 
 Kepler.extend({
 	Import: {
-		geojsonToPlace: function(feature, importName) {
+		geojsonToPlace: function(feature, importName, params) {
 
 			var geom = feature.geometry,
 				props = feature.properties,
@@ -10,14 +10,14 @@ Kepler.extend({
 			if(K.Util.valid.loc(loc)) {
 
 				return {
-					name: K.Util.sanitize.name(props.name || ''),
+					name: K.Util.sanitize.name(props.name || '', true),
 					url: K.Util.sanitize.url(props.url || ''),
 					loc: K.Util.geo.locRound(loc, 8),
 					geometry: geom,
 					//TODO simplify
 					import: {
 						name: importName,
-						data: feature
+						data: props
 					},
 					source: {
 						type: 'import'

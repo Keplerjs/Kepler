@@ -2,9 +2,11 @@
 Places.after.insert(function(userId, doc) {
 	if(K.settings.geoinfo && K.settings.geoinfo.autoupdate) {
 
+		//TODO add async random delay
+		//
 		K.Geoinfo.getFieldsByLoc(doc.loc, function(geo) {
 
-			console.log('Geoinfo: getFieldsByLoc ', doc.name);
+			console.log('Geoinfo: getFieldsByLoc', doc.name);
 
 			Places.update(doc._id, {
 				$set: {
@@ -14,14 +16,26 @@ Places.after.insert(function(userId, doc) {
 		});
 	}
 });
-/*
 
-//TODO uncomment whe edit plugin support moving place
 Places.after.update(function(userId, doc, fieldNames, modifier, options) {
-	if(_.contains(fieldNames,'loc'))
-		doc.geoinfo = K.Geoinfo.getFieldsByLoc(doc.loc)
+
+	if(K.settings.geoinfo && K.settings.geoinfo.autoupdate) {
+		if(_.contains(fieldNames,'loc') && modifier.$set && modifier.$set.loc) {
+			if(doc.geoinfo && !_.contains(fieldNames,'geoinfo')) {
+				K.Geoinfo.getFieldsByLoc(doc.loc, function(geo) {
+
+					console.log('Geoinfo: getFieldsByLoc', doc.name);
+
+					Places.update(doc._id, {
+						$set: {
+							geoinfo: geo
+						}
+					});
+				});
+			}
+		}
+	}
 });
-*/
 
 Meteor.methods({
 	updatePlaceGeoinfo: function(placeId) {

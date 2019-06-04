@@ -29,7 +29,9 @@
 	width: auto;
 }
 
-
-.twitter-typeahead .tt-suggestion.tt-selectable {
-	font-size: 14px !important;
+.minimap {
+	position:relative;
+	height:200px;
+	width:auto;
 }
+

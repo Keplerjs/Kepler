@@ -19,10 +19,11 @@ Kepler.Util.sanitize = {
 			.replace(/[({[^$\*\.+?\\\]})]/g,'');
 	},
 
-	name: function(name) {
+	name: function(name, lower) {
 		name = name || '';
-		/*name = name.toLowerCase()
-			.replace(/_+/g,' ')
+		if(lower)
+			name = name.toLowerCase();
+			/*.replace(/_+/g,' ')
 			.replace(/-+/g,' ')
 			.replace(/’+/g,'\'')
 			.replace(/[^a-z0-9\.'\- ]/g,'');*/
@@ -85,8 +86,8 @@ Kepler.Util.sanitize = {
 	},
 
 	url: function(url) {
-		if(!url.match(/^[a-zA-Z]+:\/\//))
+		if(url && !url.match(/^[a-zA-Z]+:\/\//))
 			url = 'http://'+url;
-		return url;
+		return url.toLowerCase();
 	}
 };

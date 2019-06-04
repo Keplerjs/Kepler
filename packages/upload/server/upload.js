@@ -31,7 +31,7 @@ Meteor.startup(function() {
 Meteor.methods({
 	
 	uploadFile: function(target, fileObj, params) {
-
+		
 		if(!this.userId) return null;
 
 		if(!K.settings.upload.targets[target]) {

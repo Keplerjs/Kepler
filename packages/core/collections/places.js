@@ -3,6 +3,7 @@ Places = new Mongo.Collection('places');
 
 if(Meteor.isServer) {
 	Places._ensureIndex({"loc": "2d"});
+	Places._ensureIndex({"geometry": "2dsphere"});
 	Places._ensureIndex({"name": "text"});
 }
 
@@ -12,7 +13,7 @@ Places.before.insert(function(userId, doc) {
 	//TODO modifier.$set.modifiedAt = K.Util.time();
 	
 	doc.userId = userId;
-	if(!doc.geometry) {
+	if(doc.loc && !doc.geometry) {
 		doc.geometry = K.Util.geo.point(doc.loc);
 	}
 });

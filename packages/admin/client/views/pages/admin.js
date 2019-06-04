@@ -30,8 +30,10 @@ Template.pageAdmin_admin_map.onRendered(function() {
 		var icon = new L.NodeIcon(),
 		marker = L.marker(loc, {icon: icon});
 
-		if(self.data.geometry && self.data.geometry.type!=='Point')
-			L.geoJson(self.data.geometry).addTo(this);
+		if(self.data.geometry && self.data.geometry.type!=='Point') {
+			let geo = L.geoJson(self.data.geometry).addTo(this);
+			this.fitBounds(geo.getBounds())
+		}
 
 		marker.addTo(this);
 		

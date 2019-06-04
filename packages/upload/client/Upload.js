@@ -8,7 +8,7 @@ Kepler.Upload = {
 		callback = _.isFunction(callback) ? callback : function(){};
 
 		var sets = K.settings.public.upload.targets[target],
-			err = null
+			err = null;
 		
 
 		if(!fileObj) return false;
@@ -21,8 +21,9 @@ Kepler.Upload = {
 			});
 			
 			if(!_.contains(mimes, fileObj.type)) {
-				callback( i18n('upload_error_formatNotValid') );
-				return null;
+				err = i18n('upload_error_formatNotValid');
+				callback(err);
+				return this;
 			}
 		}
 

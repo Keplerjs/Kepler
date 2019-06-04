@@ -46,6 +46,7 @@ Template.inputFile_upload.events({
 			else if(_.isFunction(onUploaded)) {
 
 				onUploaded(ret, fileObj, params);
+
 			}
 		});
 	}

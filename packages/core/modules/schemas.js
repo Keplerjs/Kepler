@@ -30,6 +30,7 @@ Kepler.schemas = {
 		source: {	   	   //describe source of data
 			type: ''
 		}
+		//TODO add mobile field to specify if place is a static or mobile object(bus,car...)
 	},
 	/**
 	 * User model

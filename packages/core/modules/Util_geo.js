@@ -5,6 +5,7 @@ var geoUtils = Package['geojson-utils'].GeoJSON;
  * @memberOf Util
  */
 Kepler.Util.geo = {
+	geojsonUtils: geoUtils,
 	/**
 	 * round coordinates precision
 	 * @param  {Array} loc  [description]

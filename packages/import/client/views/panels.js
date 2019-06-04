@@ -27,24 +27,28 @@ Template.formImport.helpers({
 			tmpl.fileObj = fileObj;
 
 			name$.val( importName );
+			tmpl.importName.set(importName);
 		}
 	},
 	importOnUploaded: function() {
 		var tmpl = Template.instance();
-		return function(ret, fileObj, params) {
+		return function(err, msg) {
 			K.Map.cleanGeojson();
-			K.Alert.info(ret);
+			if(err)
+				K.Alert.error(err);
+			else if(msg)
+				K.Alert.K.Alert.success(msg);
 		}
 	}
 });
 
 Template.formImport.events({
 	'keydown .import-name': _.debounce(function(e, tmpl) {
-		var importName = K.Util.sanitize.importName(e.target.value);
+		var name$ = tmpl.$('.import-name'),
+			importName =  K.Util.sanitize.importName(fileObj.name);
 		
-		$(e.target).val(importName);
-
-		tmpl.importName.set(importName)
+		name$.val(importName);
+		tmpl.importName.set(importName);
 	},300),
 	'click .import-preview': function(e, tmpl) {
 		
@@ -59,15 +63,16 @@ Template.formImport.events({
 
 		K.Map.addGeojson({features: sample});
 
-		_.each(sample, function(f) {
-			
+		_.each(sample, function(f,n) {
+				
 			let cen = K.Util.geo.centroid(f.geometry),
 				icon = new L.NodeIcon(),
 				marker = L.marker(cen, {icon: icon});
 
 			marker.addTo(K.Map.layers.geojson);
 			
-			Blaze.renderWithData(Template.markerPlace, f.properties, icon.nodeHtml);
+			Blaze.renderWithData(Template.markerPlace, f.properties, icon.nodeHtml);				
+			
 		});
 	}
 });

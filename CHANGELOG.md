@@ -8,6 +8,13 @@
 - core rename methods K.Util.geo.locBuffer(), locTransform(), locRound()
 - core simplify method K.Util.geo.bboxContains()
 - core new method L.Util.geo.centroid() support Point, Polygon, MultiPolygon
+- core K.Util.geo.point() accept [lat,lon]
+- core edit outputof K.Util.timeName()
+- core fix K.Util.sanitize.fileName()
+- core fix K.Util.sanitize.fileExt()
+- core K.Util.sanitize.name() lower param
+- core index 2dsphere geometry field
+- plugin geoinfo autoupdate geoinfo field when loc is changed
 - plugin upload rename param 'callback' in 'onUploaded' in template inputFile_upload
 - plugin upload new param 'params' in template inputFile_upload
 - plugin upload new method K.Upload.loadFile()
@@ -15,10 +22,6 @@
 - plugin import K.Import.geojsonToPlace()
 - plugin import new params importname by form
 - plugin import new global method K.Util.sanitize.importName
-- core K.Util.geo.point() accept [lat,lon]
-- core edit outputof K.Util.timeName()
-- core fix K.Util.sanitize.fileName()
-- core fix K.Util.sanitize.fileExt()
 
 ## v1.6.6
 - core support Instagram OAuth signup
