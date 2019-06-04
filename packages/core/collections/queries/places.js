@@ -169,12 +169,24 @@ K.extend({
 				}, filters);
 			}
 		}
-/*
+		/*
 		if(curPlace.count()===0)
 			curPlace = Places.find({prov: ex }, filters);
 		
 		if(curPlace.count()===0)
 			curPlace = Places.find({reg: ex }, filters);*/
+
+		return curPlace;
+	},
+	findPlaceGeometryById: function(placeId) {
+		
+		if(!placeId) return null;
+
+		var curPlace = Places.find(placeId, {
+			fields: {
+				geometry: 1
+			}
+		});
 
 		return curPlace;
 	},

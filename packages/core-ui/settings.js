@@ -51,7 +51,8 @@ Kepler.settings.public.templates = {
 		"panelUser_ui_tablocation": { order:-10 }
 	},
 	"popupPlace": {
-		"popupPlace_ui_checkins": {order:-10}
+		"popupPlace_ui_checkins": {order:-10},
+		"popupPlace_ui_geometry": {order:-10}
 	},
 	"popupCursor": {
 		"popupCursor_ui_loc": {order:-10}

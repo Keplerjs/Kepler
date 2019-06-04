@@ -197,7 +197,7 @@ div.leaflet-marker-icon,
 .icon-unusers{ background-position: -150px -180px;  } 
 .icon-checkin{ background-position: -120px -210px;  } 
 .icon-uncheckin{ background-position: -150px -210px;  }
-
+.icon-geometry{ background-position: -150px -240px;  }
 .icon-checkout{ background-position: -120px -240px;  }
 .icon-useradd{ background-position: -120px -270px;  } 
 .icon-userdel{ background-position: -120px -300px;  }

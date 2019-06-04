@@ -94,3 +94,11 @@ Meteor.publish('placesByNearby', function(loc) {
 	else
 		this.ready();
 });
+
+Meteor.publish('placeGeometryById', function(placeId) {
+	if(this.userId) {
+		return K.findPlaceGeometryById(placeId);
+	}
+	else
+		this.ready();	
+});
