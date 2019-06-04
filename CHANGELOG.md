@@ -22,6 +22,7 @@
 - plugin import K.Import.geojsonToPlace()
 - plugin import new params importname by form
 - plugin import new global method K.Util.sanitize.importName
+- plugin import K.settings.public.import.limit
 
 ## v1.6.6
 - core support Instagram OAuth signup

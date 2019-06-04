@@ -35,6 +35,10 @@ K.Plugin({
 		 * define a targets used by plugin upload
 		 */
 		"public": {
+			"import": {
+				"limit":1000,
+				//TODO importGeometry: true
+			},
 			"upload": {
 				"targets": {
 					"import_places": {

@@ -19,13 +19,13 @@ Meteor.methods({
 			return null;
 		}
 
-		if(geo && geo.features && geo.features.length>0) {
-
- 			geo.features = _.shuffle( geo.features)
+		if(geo && geo.features) {
 
 			_.each(geo.features, function(feature, n) {
 
 				if(!feature) return null;
+
+				if(count > K.settings.public.import.limit) return null;
 
 				//TODO check md5 of feature or loc if just imported
 
