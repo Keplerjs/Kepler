@@ -22,7 +22,7 @@ Template.formImport.helpers({
 		var tmpl = Template.instance();
 		return function(err, fileObj, params) {
 			var name$ = tmpl.$('.import-name'),
-				importName =  K.Util.sanitize.importName(fileObj.name);
+				importName = K.Util.sanitize.importName(fileObj.name);
 			
 			tmpl.fileObj = fileObj;
 
@@ -45,7 +45,7 @@ Template.formImport.helpers({
 Template.formImport.events({
 	'keydown .import-name': _.debounce(function(e, tmpl) {
 		var name$ = tmpl.$('.import-name'),
-			importName =  K.Util.sanitize.importName(fileObj.name);
+			importName = K.Util.sanitize.importName(name$.val());
 		
 		name$.val(importName);
 		tmpl.importName.set(importName);

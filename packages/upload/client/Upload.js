@@ -22,8 +22,6 @@ Kepler.Upload = {
 			
 			if(!_.contains(mimes, fileObj.type)) {
 				err = i18n('upload_error_formatNotValid');
-				callback(err);
-				return this;
 			}
 		}
 
@@ -32,8 +30,6 @@ Kepler.Upload = {
 		if(fileObj.size > sets.maxFileSize) {
 			err = i18n('upload_error_filesizeNotValid') + 
 				  K.Util.humanize.filesize(sets.maxFileSize);
-			callback(err);
-			return this;
 		}
 
 		if(this.fileReader)
@@ -48,7 +44,7 @@ Kepler.Upload = {
 				size: fileObj.size,
 				blob: e.target.result
 			};
-			callback(err, fileObj, params)
+			callback(err, fileObj, params);
 			//Meteor.call('uploadFile', target, fileObj, params, callback);
 		};
 		this.fileReader.readAsBinaryString(fileObj);
