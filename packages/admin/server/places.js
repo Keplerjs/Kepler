@@ -174,7 +174,7 @@ K.Admin.methods({
 			console.log("\n------------------------\n");
 			console.log(place);
 			console.log("\n-----\n");
-						var newPlace = _.deepExtend({}, K.schemas.place, place);
+			var newPlace = _.deepExtend({}, K.schemas.place, place);
 			console.log(newPlace);
 
 

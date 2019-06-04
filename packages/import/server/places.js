@@ -6,7 +6,7 @@ Meteor.methods({
 		if(!this.userId) return null;
 
 		var importName = params.importname ? K.Util.sanitize.importName(params.importname) : K.Util.timeName(),
-			placeIds = [];
+			count = 0;
 
 		console.log('Import: file', fileObj.name, 'import name', importName);
 		//TODO user params as importName
@@ -34,42 +34,34 @@ Meteor.methods({
 				
 				if(placeData) {
 					placeId = Meteor.call('importPlace', placeData);
+					if(placeId) count++;
 				}
 				else {
 					console.log('Import: error geojson', n, placeData && placeData.name );
 					return null;
 				}
-
-				if(placeId) {
-					placeIds.push(placeId);
-				}
 			});
 
-			console.log('Import: places imported ', placeIds.length);
+			console.log('Import: places imported ', count);
 		}
 		else if(geo && geo.type && geo.type==='Feature') {
-
-				//TODO check md5 of feature or loc if just imported
 
 				var placeData = K.Import.geojsonToPlace(geo, importName, params),
 					placeId = null;
 				
 				if(placeData) {
 					placeId = Meteor.call('importPlace', placeData);
+					if(placeId) count++;
 				}
 				else {
 					console.log('Import: error geojson', n, placeData && placeData.name );
 					return null;
 				}
-
-				if(placeId) {
-					placeIds.push(placeId);
-				}
 		}
 		else
 			console.log('Import: error json parse');
 
-		if(placeIds.length>0) {
+		if(count>0) {
 			Users.update(this.userId, {
 				$addToSet: {
 					imports: importName
@@ -77,22 +69,22 @@ Meteor.methods({
 			});
 		}
 
-		return placeIds.length+' '+i18n('label_imported');
+		return count+' '+i18n('label_imported');
 	},
 
 	importPlace: function(obj) {
 
 		if(!this.userId) return null;
-
-		var place = _.deepExtend({}, K.schemas.place, obj);
+		
+		var place = _.deepExtend({}, K.schemas.place, _.omit(obj,'geometry'));
+		//PATCH to don't edit K.schema.places.geometry
+		place.geometry = obj.geometry;
 
 		try {
 			var placeId = Places.insert(place);
-			console.log('Import: importPlace OK', place.name, place.geometry.coordinates.length);
 		}
 		catch(err) {
-			console.log('Import: importPlace Error ', place.name, place.geometry.coordinates.length );
-			//console.log(_.omit(place,'geometry','geoinfo'))
+			console.log('Import: importPlace Error ', place.name);
 			return false;
 		}
 

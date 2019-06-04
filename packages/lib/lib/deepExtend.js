@@ -13,7 +13,9 @@
 **/
 
 // Based conceptually on the _.extend() function in underscore.js ( see http://documentcloud.github.com/underscore/#extend for more details )
-
+//
+//TODO have a "bug" second parametes id modified by third
+//
 deepExtend = function(obj) {
   var parentRE = /#{\s*?_\s*?}/,
       source,
