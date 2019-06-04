@@ -79,7 +79,9 @@ Kepler.Util.sanitize = {
 	},
 
 	fileExt: function(name) {
-		return (name.split('.').pop()+"").toLowerCase();
+		name = name || "";
+		let parts = name.split('.');
+		return (parts.length>1 ? parts.pop() : "").toLowerCase();
 	},
 
 	url: function(url) {

@@ -12,15 +12,17 @@ Places.before.insert(function(userId, doc) {
 	//TODO modifier.$set.modifiedAt = K.Util.time();
 	
 	doc.userId = userId;
-	doc.geometry = K.Util.geo.point([doc.loc[1],doc.loc[0]]);
+	if(!doc.geometry) {
+		doc.geometry = K.Util.geo.point(doc.loc);
+	}
 });
 
 Places.before.update(function(userId, doc, fieldNames, modifier, options) {
 	//TODO modifier.$set.modifiedAt = K.Util.time();
-	
-	if(_.contains(fieldNames,'loc') && modifier.$set) {
-		if(!doc.geometry || (doc.geometry && doc.geometry.type==='Point')) {
-			modifier.$set.geometry = K.Util.geo.point(doc.loc);
+
+	if(_.contains(fieldNames,'loc') && modifier.$set && modifier.$set.loc) {
+		if(!_.contains(fieldNames,'geometry') && doc.geometry.type==='Point') {
+			modifier.$set.geometry = K.Util.geo.point(modifier.$set.loc);
 		}
 	}
 	

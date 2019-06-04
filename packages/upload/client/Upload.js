@@ -10,9 +10,23 @@ Kepler.Upload = {
 		var sets = K.settings.public.upload.targets[target],
 			err = null
 		
-		sets.maxFileSize = sets.maxFileSize || K.settings.public.upload.maxFileSize
 
 		if(!fileObj) return false;
+
+		if(_.isObject(sets.mimeFileType)) {
+			var mimes = [];
+			_.each(sets.mimeFileType, function(v,k) {
+				if(v===true)
+					mimes.push(k);
+			});
+			
+			if(!_.contains(mimes, fileObj.type)) {
+				callback( i18n('upload_error_formatNotValid') );
+				return null;
+			}
+		}
+
+		sets.maxFileSize = sets.maxFileSize || K.settings.public.upload.maxFileSize
 
 		if(fileObj.size > sets.maxFileSize) {
 			err = i18n('upload_error_filesizeNotValid') + 
@@ -43,33 +57,16 @@ Kepler.Upload = {
 
 		callback = _.isFunction(callback) ? callback : function(){};
 
-		/*var sets = K.settings.public.upload.targets[target];
-		
-		sets.maxFileSize = sets.maxFileSize || K.settings.public.upload.maxFileSize
-
-		if(!fileObj) return false;
-
-		if(fileObj.size > sets.maxFileSize) {
-			callback( i18n('upload_error_filesizeNotValid') + 
-				K.Util.humanize.filesize(sets.maxFileSize) );
-			return this;
-		}*/
-
-		if(_.isObject(sets.mimeFileType)) {
-			var mimes = [];
-			_.each(sets.mimeFileType, function(v,k) {
-				if(v===true)
-					mimes.push(k);
-			});
-			
-			if(!_.contains(mimes, fileObj.type)) {
-				callback( i18n('upload_error_formatNotValid') );
-				return null;
-			}
-		}
-
+		//TODO maybe unuseful
 		if(!this.fileReader)
-			this.loadFile(target, fileObj, params)
+			this.loadFile(target, fileObj, params);
+		
+		fileObj = {
+			name: fileObj.name,
+			type: fileObj.type,
+			size: fileObj.size,
+			blob: this.fileReader.result
+		};
 
 		Meteor.call('uploadFile', target, fileObj, params, callback);
 		

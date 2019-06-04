@@ -18,6 +18,7 @@
 - core K.Util.geo.point() accept [lat,lon]
 - core edit outputof K.Util.timeName()
 - core fix K.Util.sanitize.fileName()
+- core fix K.Util.sanitize.fileExt()
 
 ## v1.6.6
 - core support Instagram OAuth signup

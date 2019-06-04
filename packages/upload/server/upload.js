@@ -47,8 +47,8 @@ Meteor.methods({
 		fileObj.size = Buffer.byteLength(fileObj.blob, 'binary');
 		fileObj.ext = K.Util.sanitize.fileExt(fileObj.name);
 
-		if(fileObj.size > K.settings.public.upload.maxFileSize) {
-			console.log('Upload: error ', target, _.omit(fileObj,'blob') );
+		if(fileObj.size > sets.maxFileSize) {
+			console.log('Upload: error size', target, _.omit(fileObj,'blob') );
 			throw new Meteor.Error(500, i18n('upload_error_filesizeNotValid') + K.Util.humanize.filesize(K.settings.public.upload.maxFileSize) );
 			return null;
 		}
@@ -63,7 +63,8 @@ Meteor.methods({
 			});
 			
 			if(!_.contains(mimes, fileObj.type)) {
-				cb( i18n('upload_error_formatNotValid') );
+				console.log('Upload: error format', fileObj.type );
+				throw new Meteor.Error(500, i18n('upload_error_formatNotValid'));
 				return null;
 			}
 		}

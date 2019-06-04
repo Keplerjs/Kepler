@@ -1,20 +1,26 @@
 
 Meteor.methods({
 
-	importFile: function(fileObj, params) {
+	importFile: function(fileObj, params, sets) {
 
 		if(!this.userId) return null;
 
-		var geo = JSON.parse(fileObj.blob),
-			importName = K.Util.sanitize.importName(params.importname) || K.Util.timeName(),
+		var importName = K.Util.sanitize.importName(params.importname) || K.Util.timeName(),
 			placeIds = [];
 
 		console.log('Import: file', fileObj.name, 'import name', importName);
 		//TODO user params as importName
-		
+		try {
+			var geo = JSON.parse(fileObj.blob);
+		}
+		catch(err) {
+			console.warn('Import: error parse json', fileObj.name, err);
+			return i18n('error_import_formatNotValid');
+		}
+
 		if(geo && geo.features && geo.features.length>0) {
 
-			_.each(geo.features, function(feature) {
+			_.each(geo.features, function(feature, k) {
 
 				if(!feature) return null;
 
@@ -27,7 +33,7 @@ Meteor.methods({
 					placeId = Meteor.call('importPlace', placeData);
 				}
 				else {
-					console.log('Import: error importing item', feature );
+					console.log('Import: error importing item', k );
 					return null;
 				}
 

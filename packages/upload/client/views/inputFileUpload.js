@@ -5,14 +5,14 @@ Template.inputFile_upload.events({
 		e.preventDefault();
 
 		var input$ = tmpl.$('.file-upload'),
-			fileObj = input$[0].files[0],
 			target = tmpl.data.target,
+			file = input$[0].files[0],
 			params = tmpl.data.params,
 			onSelect = tmpl.data.onSelect;
 
 		input$.parent('.inputFile_upload').addClass('selected');
 
-		K.Upload.loadFile(target, fileObj, params, function(err, fileObj, params) {
+		K.Upload.loadFile(target, file, params, function(err, fileObj, params) {
 
 			if(err) {	
 				K.Alert.error(err);
@@ -28,13 +28,13 @@ Template.inputFile_upload.events({
 		e.preventDefault();
 
 		var input$ = tmpl.$('.file-upload'),
-			fileObj = input$[0].files[0],
 			target = tmpl.data.target,
+			fileObj = _.pick(input$[0].files[0],'blob','size','type','name'),
 			params = tmpl.data.params,
 			onUploaded = tmpl.data.onUploaded;
 
 		input$.parent('.inputFile_upload').removeClass('selected').addClass('loading-bar');
-		
+
 		K.Upload.uploadFile(target, fileObj, params, function(err, ret) {
 
 			input$.parent('.inputFile_upload').removeClass('loading-bar');
