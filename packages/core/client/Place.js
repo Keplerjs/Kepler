@@ -89,6 +89,15 @@ Kepler.Place = Class.extend({
 				}
 			}
 
+			if(self.geometry) {
+
+				self.buildGeometry();
+			
+				if(K.Map.ready() && self.geom) {
+					self.geom.addTo(K.Map.layers.geometries);
+				}
+			}
+
 			self._dep.changed();
 
 			return self;
@@ -103,16 +112,14 @@ Kepler.Place = Class.extend({
 	 */
 	buildMarker: function() {
 		
-		var self = this;
-
-		var opts = K.settings.public.map;
+		var self = this,
+			opts = K.settings.public.map;
 
 		//TODO move this in self.update
 		if(!opts.layerPlaces.enabled)
 			return null;
 
 		if(!self.marker) {
-			var opts = K.settings.public.map;
 			
 			self.icon = new L.NodeIcon({
 				/*conSize: new L.Point(opts.icon.iconSize),
@@ -172,6 +179,35 @@ Kepler.Place = Class.extend({
 		return self.marker;
 	},
 	/**
+	 * build a Leaflet GeoJSON layer bind to this geometry instance
+	 * @memberOf Kepler.Place
+	 * @return {Object} geometry instance
+	 */
+	buildGeometry: function() {
+		var self = this,
+			opts = K.settings.public.map;
+
+		//TODO move this in self.update
+		if(!opts.layerPlaces.enabled)
+			return null;
+
+		if(!self.geom && self.geometry && self.geometry.type!=='Point' && self.geometry.coordinates) {
+			
+			self.geom = new L.GeoJSON(self.geometry, {
+				style: function (f) {
+					return f.style || opts.styles.geometry;
+				}
+			});
+			self.geom.item = self;
+			self.geom.on('click dblclick', function(e) {
+				L.DomEvent.stopPropagation(e);
+				e.target.item.marker.fire(e.type);
+			});
+		}
+
+		return self.geom;
+	},
+	/**
 	 * load on map the place location
 	 * @memberOf Kepler.Place
 	 */
@@ -185,6 +221,19 @@ Kepler.Place = Class.extend({
 				self.marker.openPopup();
 				self.icon.animate();
 			},200);
+		});
+	},
+	/**
+	 * load on map the place geometry
+	 * @memberOf Kepler.Place
+	 */
+	showGeometry: function() {
+		var self = this;
+		Meteor.subscribe('placeGeometryById', self.id, function() {
+			self.update();
+			//self.buildGeometry();
+			if(self.geom && self.geometry.type!=='Point')
+				K.Map.fitBounds(self.geom.getBounds());
 		});
 	},
 	

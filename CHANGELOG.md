@@ -3,6 +3,7 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+- core new method K.Place.showGeometry()
 - core search place name in Fulltext
 - core rename methods K.Util.geo.bboxContains(), bboxReverse(), bboxPlain(), bboxRound() 
 - core rename methods K.Util.geo.locBuffer(), locTransform(), locRound()

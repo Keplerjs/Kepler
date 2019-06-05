@@ -115,9 +115,8 @@ Kepler.User = Class.extend({
 	 */
 	buildMarker: function() {
 
-		var self = this;
-		
-		var opts = K.settings.public.map;
+		var self = this,
+			opts = K.settings.public.map;
 
 		//TODO move this in self.update
 		if(!opts.layerUsers.enabled)

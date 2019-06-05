@@ -348,7 +348,25 @@ Router.map(function() {
 			var place = K.placeById( this.params.placeId );
 
 			if(place)
-				place.showLoc();
+				place.update().showLoc();
+		}
+	});
+
+	this.route('placeGeom', {
+		path: '/place/:placeId/geom',
+		template: 'empty',
+		layoutTemplate: 'layoutMap',
+		waitOn: function() {
+			Session.set('showSidebar', false);
+			return Meteor.subscribe('placeById', this.params.placeId);
+		},
+		onAfterAction: function() {
+			if(!this.ready()) return null;
+
+			var place = K.placeById( this.params.placeId );
+
+			if(place)
+				place.update().showGeometry();
 		}
 	});
 

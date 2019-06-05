@@ -121,7 +121,8 @@ Kepler.settings = {
 				"popupAnchor": [0, -30]
 			},
 			"styles": {
-				"default": { "color": "#b6f", "weight": 5, "opacity": 0.7 }
+				"default": { "color": "#b6f", "weight": 5, "opacity": 0.7 },
+				"geometry": { "color": "#f90", "weight": 10, "opacity": 0.7 }
 			}
 		},
 		"ga": {

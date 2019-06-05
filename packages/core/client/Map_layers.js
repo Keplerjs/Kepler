@@ -6,12 +6,23 @@ _.extend(Kepler.Map, {
 		var self = this,
 			optsDef = K.settings.public.map,
 			layers = {};
-
+		/**
+		 * base tilelayer by user settings
+		 * @type {L}
+		 */
 		layers.baselayer = new L.TileLayer(opts.layers[opts.layer], {
 			noWrap:true
 		});
-
+		/**
+		 * marker users
+		 * @type {L}
+		 */
 		layers.users = new L.LayerGroup();
+		/**
+		 * places geometries
+		 * @type {L}
+		 */
+		layers.geometries = new L.LayerGroup();
 
 		if(opts.cursor.enabled && L.Cursor) {
 			
@@ -92,7 +103,6 @@ _.extend(Kepler.Map, {
 			}
 		});
 
-
 		layers.geojson = new L.GeoJSON(null, {
 			style: function (feature) {
 				return feature.style || opts.styles.default;
@@ -154,6 +164,9 @@ _.extend(Kepler.Map, {
 				if(layers.places)
 					map.removeLayer(layers.places);
 
+				if(layers.geometries)
+					map.removeLayer(layers.geometries);
+
 				map.on('click', map._zoomData);
 		    }
 		    else {
@@ -162,12 +175,15 @@ _.extend(Kepler.Map, {
 				
 				if(layers.cursor)
 					map.addLayer(layers.cursor);
-			
+
 				if(layers.places)
 					map.addLayer(layers.places);
 
 				if(layers.cluster)
 					map.addLayer(layers.cluster);
+
+				if(layers.geometries)
+					map.addLayer(layers.geometries);
 
 				map.off('click', map._zoomData);
 
