@@ -58,8 +58,8 @@ Router.map(function() {
 		},
 		waitOn: function() {
 			return [
-				Meteor.subscribe('adminUserById', this.params.id),
-				Meteor.subscribe('usersByDate')
+				Meteor.subscribe('usersByDate'),
+				Meteor.subscribe('adminUserById', this.params.id)
 			];
 		},
 		data: function() {
@@ -75,7 +75,7 @@ Router.map(function() {
 				Router.go('pageAdminUsers');
 			else
 				return {
-					itemSelected: user,
+					itemSelected: user.update(),
 					rawdata: Users.findOne(this.params.id),
 					items: _.map(userIds, K.userById)
 				};
@@ -119,16 +119,22 @@ Router.map(function() {
 		},
 		waitOn: function() {
 			return [
-				Meteor.subscribe('adminPlaceById', this.params.id),
-				Meteor.subscribe('placesByDate')
+				Meteor.subscribe('placesByDate'),
+				Meteor.subscribe('adminPlaceById', this.params.id)
 			];
 		},
 		data: function() {
 			if(!this.ready()) return null;
+			var places = K.findPlacesByDate().fetch(),
+				place = K.placeById(this.params.id).update();
+			
+			if(_.where(places,{_id: place.id}).length===0)
+				places = _.union(place, places);
+
 			return {
-				itemSelected: K.placeById(this.params.id),
+				itemSelected: place,
 				rawdata: Places.findOne(this.params.id),
-				items: _.map(K.findPlacesByDate().fetch(), function(item) {
+				items: _.map(places, function(item) {
 					return K.placeById(item._id);
 				})
 			};

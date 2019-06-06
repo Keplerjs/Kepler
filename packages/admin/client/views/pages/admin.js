@@ -8,35 +8,38 @@ Template.pageAdmin_admin_raw.helpers({
 	}
 });
 
-Template.pageAdmin_admin_map.onRendered(function() {
-	var self = this,
-		mapDiv = self.find('.minimap'),
-		loc = self.data.loc,
-		sets = K.settings.public.map,
-		layer = L.tileLayer(sets.layers[sets.layer]);
-	
-	if(!mapDiv)
-		return false;
+Template.pageAdmin_admin_map.onDestroyed(function() {
+	if(this.minimap)
+		this.minimap.remove();
+});
 
-	var map = L.map(mapDiv, {
+Template.pageAdmin_admin_map.onRendered(function() {
+
+	var self = this,
+		loc = self.data.loc,
+		geom = self.data.geometry,
+		sets = K.settings.public.map;
+
+	if(loc)
+	this.minimap = L.map(self.find('.minimap'), {
 		attributionControl:false,
 		zoomControl:false,
-		layers: layer,
+		layers: L.tileLayer(sets.layers[sets.layer]),
 		center: loc,
 		zoom: 12
 	})
 	.whenReady(function() {
+		
+		this.setView(loc);
 
 		var icon = new L.NodeIcon(),
-		marker = L.marker(loc, {icon: icon});
+			marker = L.marker(self.data.loc, {icon: icon}).addTo(this);
 
-		if(self.data.geometry && self.data.geometry.type!=='Point') {
-			let geo = L.geoJson(self.data.geometry).addTo(this);
-			this.fitBounds(geo.getBounds())
+		if(geom && geom.type!=='Point' && geom.coordinates) {
+			let geo = L.geoJson(geom).addTo(this);
+			this.fitBounds( geo.getBounds() ,{animate:false});
 		}
-
-		marker.addTo(this);
 		
-		Blaze.renderWithData(Template.markerPlace, self, icon.nodeHtml);
+		Blaze.renderWithData(Template.markerPlace, self.data, icon.nodeHtml);
 	});	
 });

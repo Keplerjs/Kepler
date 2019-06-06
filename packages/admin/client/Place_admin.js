@@ -1,5 +1,4 @@
 
-
 Kepler.Place.include({
 	//override edit plugin
 	isEditable: function() {
@@ -7,43 +6,40 @@ Kepler.Place.include({
 		return K.Admin.isMe() || (this.userId ? (K.Profile.id === this.userId) : false);
 	}
 });
-
+/*
 Kepler.extend({
 	placesById: {},
 	placeById: function(id) {
-		check(id, String);
-		
-		if(!K.placesById[id] && K.findPlaceById(id).fetch()[0])
+
+		if(!K.placesById['id_'+id] && K.findPlaceById(id).fetch()[0])
 		{
-			K.placesById[id] = new K.Place(id);
+			K.placesById['id_'+id] = new K.Place(id);
 			
 			if(K.Admin.isMe()) {
-				var iname = K.Util.sanitize.fileName(K.placesById[id].name);
-				K.Admin.placesByName[iname || 'id_'+id] = K.placesById[id];
+				var iname = K.Util.sanitize.fileName(K.placesById['id_'+id].name);
+				K.Admin.placesByName[iname || 'id_'+id] = K.placesById['id_'+id];
 			}
 		}
 		
-		return K.placesById[id] || null;
+		return K.placesById['id_'+id] || null;
 	}
 });
 
-//TODO refact!  extend userById 
 Kepler.extend({
 	usersById: {},
 	userById: function(id) {
-		check(id, String);
 		
-		if(!K.usersById[id] && K.findUserById(id).fetch()[0])
+		if(!K.usersById['id_'+id] && K.findUserById(id).fetch()[0])
 		{
 			K.usersById[id] = new K.User(id);
 			
-			//TODO move to admin moduile
 			if(K.Admin.isMe()) {
-				var iname = K.Util.sanitize.fileName(K.usersById[id].name);
-				K.Admin.usersByName[iname || 'id_'+id] = K.usersById[id];
+				var iname = K.Util.sanitize.fileName(K.usersById['id_'+id].name);
+				K.Admin.usersByName[iname || 'id_'+id] = K.usersById['id_'+id];
 			}
 		}
 		
-		return K.usersById[id] || null;
+		return K.usersById['id_'+id] || null;
 	}
 });
+//*/

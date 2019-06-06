@@ -44,6 +44,7 @@
 						<div class="panel-body">
 
 							{{> pluginsTemplate name='pageAdminPlace' sep='<hr />'}}
+							
 
 						</div>
 					</div>
@@ -57,7 +58,7 @@
 <template name="itemPlaceAdmin">
 	<a href="/admin/places/{{id}}" class="list-group-item {{#if routeParamIs 'id' id}}selected{{/if}}">
 		<span class="pull-left">
-			{{> item_place}} 
+			{{> item_place}}
 		</span>
 		<span class="pull-right">
 			{{> pluginsTemplate name='itemPlaceAdmin'}}

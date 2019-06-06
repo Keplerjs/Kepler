@@ -358,7 +358,7 @@ Router.map(function() {
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			Session.set('showSidebar', false);
-			return Meteor.subscribe('placeById', this.params.placeId);
+			return Meteor.subscribe('placeGeometryById', this.params.placeId);
 		},
 		onAfterAction: function() {
 			if(!this.ready()) return null;
