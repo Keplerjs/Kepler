@@ -51,6 +51,13 @@ Kepler.Util.valid = {
 				(lng <= 180 && lng >= -180);
 	},
 
+	point: function(geom) {
+		return !!(geom &&
+			   geom.type === 'Point' && 
+			   geom.coordinates && 
+			   geom.coordinates.length===2);
+	},
+
 	name: function(name) {
 		//maintain regexp compatible with K.Util.sanitize.name!
 		var reg = /^[a-zA-Z0-9\.'\- ]{0,255}$/;

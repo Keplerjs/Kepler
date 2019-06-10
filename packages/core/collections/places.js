@@ -9,13 +9,12 @@ if(Meteor.isServer) {
 
 // https://github.com/matb33/meteor-collection-hooks
 Places.before.insert(function(userId, doc) {
+	doc.userId = userId;
 	doc.createdAt = K.Util.time();
 	//TODO modifier.$set.modifiedAt = K.Util.time();
-	
-	doc.userId = userId;
-	if(doc.loc && !doc.geometry) {
+
+	if(doc.loc && !K.Util.valid.point(doc.geometry))
 		doc.geometry = K.Util.geo.point(doc.loc);
-	}
 });
 
 Places.before.update(function(userId, doc, fieldNames, modifier, options) {
