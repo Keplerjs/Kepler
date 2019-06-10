@@ -16,6 +16,7 @@
 - core K.Util.sanitize.name() lower param
 - core index 2dsphere geometry field
 - core new method K.Util.valid.point()
+- core fix place click location in places news panel
 - plugin geoinfo autoupdate geoinfo field when loc is changed
 - plugin upload rename param 'callback' in 'onUploaded' in template inputFile_upload
 - plugin upload new param 'params' in template inputFile_upload

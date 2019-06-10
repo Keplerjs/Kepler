@@ -71,7 +71,13 @@ K.extend({
 	findStatsPlacesByField: function(field) {
 
 		if(!field) return null;
-		
+
+		var denyFields = [
+			'geometry','geometry.coordinates',
+		];
+
+		if(_.contains(denyFields, field)) return null;
+
 		var filter = {},
 			fields = {};
 		

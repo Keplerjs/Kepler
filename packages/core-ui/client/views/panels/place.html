@@ -66,9 +66,16 @@
 		
 		{{> place_btns}}
 
-		&nbsp;<a class="btn btn-sm btn-default place-btn-map pull-right" href="/place/{{id}}/map">
-			<i class="icon icon-map"></i>
-		</a>
+		<div class="btn-group">
+			{{#unless eq geometry.type 'Point' }}
+			<a class="btn btn-sm btn-default place-btn-geom" href="/place/{{id}}/geom" title="{{geometry.type}}">
+				<i class="icon icon-geometry"></i>
+			</a>
+			{{/unless}}
+			<a class="btn btn-sm btn-default place-btn-map pull-right" href="/place/{{id}}/map">
+				<i class="icon icon-map"></i>
+			</a>
+		</div>
 	</div>
 	<br />
 </template>

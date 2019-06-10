@@ -23,6 +23,7 @@ Template.pageAdmin_admin_map.onRendered(function() {
 	if(loc)
 	this.minimap = L.map(self.find('.minimap'), {
 		attributionControl:false,
+		scrollWheelZoom:false,
 		zoomControl:false,
 		layers: L.tileLayer(sets.layers[sets.layer]),
 		center: loc,

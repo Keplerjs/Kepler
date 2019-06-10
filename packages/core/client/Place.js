@@ -89,15 +89,6 @@ Kepler.Place = Class.extend({
 				}
 			}
 
-			if(self.geometry) {
-
-				self.buildGeometry();
-			
-				if(K.Map.ready() && self.geom) {
-					self.geom.addTo(K.Map.layers.geometries);
-				}
-			}
-
 			self._dep.changed();
 
 			return self;
@@ -191,7 +182,9 @@ Kepler.Place = Class.extend({
 		if(!opts.layerPlaces.enabled)
 			return null;
 
-		if(!self.geom && self.geometry && self.geometry.type!=='Point' && self.geometry.coordinates) {
+		if(!self.geom && self.geometry && 
+			self.geometry.type!=='Point' && 
+			self.geometry.coordinates) {
 			
 			self.geom = new L.GeoJSON(self.geometry, {
 				style: function (f) {
@@ -199,7 +192,7 @@ Kepler.Place = Class.extend({
 				}
 			});
 			self.geom.item = self;
-			self.geom.on('click dblclick', function(e) {
+			self.geom.on('mouseover mouseout', function(e) {
 				L.DomEvent.stopPropagation(e);
 				e.target.item.marker.fire(e.type);
 			});
@@ -229,12 +222,18 @@ Kepler.Place = Class.extend({
 	 */
 	showGeometry: function() {
 		var self = this;
-		Meteor.subscribe('placeGeometryById', self.id, function() {
-			self.update();
-			//self.buildGeometry();
-			if(self.geom && self.geometry.type!=='Point')
+		//self.update();
+		
+		self.buildGeometry();
+
+		if(K.Map.ready()) {
+			if(self.geom && self.geometry.type!=='Point') {
 				K.Map.fitBounds(self.geom.getBounds());
-		});
+				self.geom.addTo(K.Map.layers.geometries);
+			}
+			else
+				self.showLoc();
+		}
 	},
 	
 	isOutdoor: function() {

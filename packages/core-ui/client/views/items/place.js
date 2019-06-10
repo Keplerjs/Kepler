@@ -18,7 +18,7 @@ Template.place_btns.events({
 });
 Template.item_place_search.events({
 	'click .place-btn-map': function(e, tmpl) {
-		e.preventDefault()
+		e.preventDefault();
 		this.showLoc();
 	}
 });

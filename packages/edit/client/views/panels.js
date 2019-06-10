@@ -40,6 +40,7 @@ Template.panelPlaceEdit.onRendered(function() {
 
 			self.editMap = L.map($(e.target).find('.map')[0], {
 				attributionControl:false,
+				scrollWheelZoom:false,
 				zoomControl:false,
 				layers: layer,
 				center: loc,
@@ -113,6 +114,10 @@ Template.panelPlaceEdit.events({
 			$(e.target).trigger('keyup');
 		}
 	},
+
+	/* //TODO	'keyup .input-editloc': _.debounce(function(e, tmpl) {
+		e.preventDefault();
+	}, 300),*/
 
 	'click .btn-saveloc': function(e,tmpl) {
 		

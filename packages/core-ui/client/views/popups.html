@@ -50,9 +50,8 @@
 
 <template name="popupPlace_ui_geometry">
 	{{#unless eq geometry.type 'Point' }}
-	<a class="btn btn-sm btn-default" href="/place/{{id}}/geom">
+	<a class="btn btn-sm btn-default" href="/place/{{id}}/geom" title="{{geometry.type}}">
 		<i class="icon icon-geometry"></i>
-		{{geometry.type}}
 	</a>
 	{{/unless}}
 </template>
