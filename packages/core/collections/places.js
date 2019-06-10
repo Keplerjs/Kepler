@@ -13,7 +13,7 @@ Places.before.insert(function(userId, doc) {
 	doc.createdAt = K.Util.time();
 	//TODO modifier.$set.modifiedAt = K.Util.time();
 
-	if(doc.loc && !K.Util.valid.point(doc.geometry))
+	if(doc.loc && doc.geometry && doc.geometry.type==='Point' && !K.Util.valid.point(doc.geometry))
 		doc.geometry = K.Util.geo.point(doc.loc);
 });
 
