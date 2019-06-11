@@ -17,6 +17,7 @@
 - core index 2dsphere geometry field
 - core new method K.Util.valid.point()
 - core fix place click location in places news panel
+- plugin admin fix show geometry in minimap
 - plugin geoinfo autoupdate geoinfo field when loc is changed
 - plugin upload rename param 'callback' in 'onUploaded' in template inputFile_upload
 - plugin upload new param 'params' in template inputFile_upload
@@ -27,7 +28,7 @@
 - plugin import new global method K.Util.sanitize.importName
 - plugin import K.settings.public.import.limit
 - plugin import fix panel data
-- plugin admin fix show geometry in minimap
+- plugin import support geojson LineString
 
 ## v1.6.6
 - core support Instagram OAuth signup

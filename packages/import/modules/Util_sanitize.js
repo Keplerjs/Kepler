@@ -8,7 +8,7 @@ _.extend(K.Util.sanitize, {
 
 		name = name.toLowerCase();
 
-		//name = _.str.camelize(name);
+		name = _.str.camelize(name);
 
 		name = name
 			.replace(/[^a-zA-Z0-9\\\-\._]/g,'')

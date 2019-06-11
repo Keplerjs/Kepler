@@ -35,9 +35,9 @@ Template.formImport.helpers({
 		return function(err, msg) {
 			K.Map.cleanGeojson();
 			if(err)
-				K.Alert.error(err);
+				K.Alert.success(err);
 			else if(msg)
-				K.Alert.K.Alert.success(msg);
+				K.Alert.success(msg);
 		}
 	}
 });

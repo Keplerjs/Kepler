@@ -237,7 +237,7 @@ Kepler.Util.geo = {
 	 */
 	centroid: function(geom) {
 		
-		var ll;
+		var ll, cen;
 
 		if(geom.type==="Point")
 			ll = geom.coordinates
@@ -248,17 +248,22 @@ Kepler.Util.geo = {
 			}
 			else if(geom.type==="MultiPolygon") {
 				cc = geom.coordinates[0];
+				//TODO intersect multiple centers of polygons
 			}
-			/*else if(geom.type==="LineString") {
-				cc = geom.coordinates;
-				console.log(cc)
-			}*/
+			else if(geom.type==="LineString") {
+				cc = [geom.coordinates];
+				//TODO point in polyline
+			}
+			else if(geom.type==="MultiLineString") {
+				cc = [geom.coordinates[0]];
+				//TODO point in polyline
+			}
 			else {
 				console.warn('Core: L.Util.geo.centroid() geometry not supported',geom.type)
 				return null;
 			}
 
-			let cen = geoUtils.centroid({coordinates: cc});
+			cen = geoUtils.centroid({coordinates: cc});
 
 			ll = cen.coordinates;
 		}
