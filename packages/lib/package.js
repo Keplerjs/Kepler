@@ -76,7 +76,10 @@ Package.onUse(function(api) {
     'blaze-html-templates@1.1.2',
     'matb33:collection-hooks@0.8.4',
     'underscorestring:underscore.string@3.3.4',
+    
     'kidovate:bootstrap-slider@0.0.5',
+    //TODO use npm
+
     'iron:router@1.1.2',
     'reywood:iron-router-ga@2.0.1',
     'twbs:bootstrap@3.3.6',
