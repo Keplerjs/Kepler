@@ -119,5 +119,6 @@ i18n.map('it', {
 	day: "giorno,giorni",
 	hour: "ora,ore",
 	minute: "min,min",
-	second: "sec,sec"
+	second: "sec,sec",
+	night: "notte",
 });

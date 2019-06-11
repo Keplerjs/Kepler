@@ -116,5 +116,6 @@ i18n.map('sv', {
 	day: "dag,dagar",
 	hour: "timma,timmar",
 	minute: "min,min",
-	second: "sek,sek"
+	second: "sek,sek",
+	night: "natt",
 });

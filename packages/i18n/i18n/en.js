@@ -122,6 +122,7 @@ i18n.map('en', {
 	hour: "hour,hours",
 	minute: "min,min",
 	second: "sec,sec",
+	night: "night",
 
 	email_verifyEmail_subject: "Verify your email address",
 	email_verifyEmail_text: "Hi {$1}! Verify your email by following this link: {$2}",
