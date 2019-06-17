@@ -16,16 +16,20 @@
 	<div class="form-group">
 		<label>{{i18n 'label_cats'}}</label>
 		<div class="clearfix">
-			<input value="{{join getCats}}" data-role="tagsinput" class="input-cats" type="text" />		
-			<br />
-			<label>{{i18n 'label_catshist'}}</label><br />
-			<div id="cats-hist">
-			{{#each catshist}}
-				<button class="btn btn-default btn-xs" value="{{this}}">
-					{{this}}
-				</button>
-			{{/each}}
-			</div>
+			<input value="{{join getCats}}" data-role="tagsinput" class="input-cats" type="text" />
+		</div>
+	</div>
+</template>
+
+<template name="panelPlaceEdit_cats_latest">	
+	<div class="form-group">
+		<label>{{i18n 'label_catshist'}}</label><br />
+		<div class="cats-latest">
+		{{#each cats}}
+			<button class="btn btn-default btn-xs" value="{{this}}">
+				{{this}}
+			</button>
+		{{/each}}
 		</div>
 	</div>
 </template>

@@ -10,6 +10,7 @@ K.Plugin({
 		
 		panelPlaceEdit: {
 			'panelPlaceEdit_cats': {order:0},
+			'panelPlaceEdit_cats_latest': {order:0},
 
 			//TODO split this template in two
 			//

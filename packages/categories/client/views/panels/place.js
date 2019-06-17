@@ -2,9 +2,9 @@
 Template.panelPlaceEdit_cats.onRendered(function() {
 
 	var self = this,
-		input$ = self.$('.input-cats');
+		inputtags$ = self.$('.input-cats');
 	
-	input$.tagsinput({
+	inputtags$.tagsinput({
 		// http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/ 
 		tagClass: 'label label-primary',
 		freeInput: K.settings.public.categories.freeInput,
@@ -43,7 +43,7 @@ Template.panelPlaceEdit_cats.onRendered(function() {
 		K.placeById(self.data.id).update();
 	};
 
-	input$
+	inputtags$
 	.on('itemAdded', function(e) {
 		Meteor.call('addCatsToPlace', self.data.id, e.item, cb);
 	})
@@ -52,22 +52,22 @@ Template.panelPlaceEdit_cats.onRendered(function() {
 	});
 });
 
-Template.panelPlaceEdit_cats.helpers({
-	catshist: function() {
+Template.panelPlaceEdit_cats_latest.helpers({
+	cats: function() {
 		var hist = _.difference(K.Profile.data.catshist, this.getCats());
 		return _.first(hist.reverse(), K.settings.public.categories.catsHistLength);
 	}
 });
 
-Template.panelPlaceEdit_cats.events({
-	'click #cats-hist .btn': _.debounce(function(e, tmpl) {
+Template.panelPlaceEdit_cats_latest.events({
+	'click .cats-latest .btn': _.debounce(function(e, tmpl) {
 		var itemId = tmpl.data._id,
-			input$ = $(e.currentTarget),
-			val = input$.val();
+			btn$ = $(e.currentTarget),
+			panel$ = $(tmpl.firstNode).parents('.panel-body');
 
-		inputtags$ = tmpl.$('.input-cats');
+		inputtags$ = panel$.find('.input-cats');
 
-		inputtags$.tagsinput('add', val);
+		inputtags$.tagsinput('add', btn$.val() );
 	
 	}, 300)
 });

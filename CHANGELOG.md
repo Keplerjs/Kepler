@@ -29,6 +29,7 @@
 - plugin import K.settings.public.import.limit
 - plugin import fix panel data
 - plugin import support geojson LineString
+- plugin categories new template panelPlaceEdit_cats_latest
 
 ## v1.6.6
 - core support Instagram OAuth signup
