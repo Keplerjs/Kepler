@@ -1,11 +1,14 @@
 
 Template.itemCat.onRendered(function() {
 	
-	var self = this;
+	var self = this,
+		btn$ = self.$('.btn-catdel');
 
-	self.$('.btn-catdel').btsConfirmButton(function(e) {
+	btn$.btsConfirmButton(function(e) {
 
-		K.Admin.call('removeCat', self.data.name, self.data.type);
+		K.Admin.call('removeCat', self.data.name, self.data.type, function(err,ret) {
+			btn$.parents('.list-group-item').remove();
+		});
 	});
 });
 
@@ -13,6 +16,7 @@ Template.formSearchCats.onRendered(function() {
 	var self = this;
 
 	$(self.firstNode).parent().siblings('.list-items').btsListFilter('.cats-search', {
+		resetOnBlur: false,
 		itemChild: '.label',
 		loadingClass: 'loading-lg',
 		sourceData: function(val, callback) {
