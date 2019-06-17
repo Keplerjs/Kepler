@@ -7,7 +7,16 @@ K.Plugin({
 		panelPlace: {
 			'panelPlace_cats': {order: -5 } //render after share plugin
 		},
-		panelPlaceEdit: 'panelPlaceEdit_cats',
+		
+		panelPlaceEdit: {
+			'panelPlaceEdit_cats': {order:0},
+
+			//TODO split this template in two
+			//
+			//'panelPlaceEdit_cats_input': {order:0}
+			//'panelPlaceEdit_cats_last': {order:0}
+
+		},		
 		panelAdmin: 'panelAdmin_cats',
 		//pageAdminPlace: 'panelPlaceEdit_cats',
 		pageAdminUser: 'pageAdminUser_cats',
