@@ -191,8 +191,6 @@ div.leaflet-marker-icon,
 .icon-unstar{ background-position: -150px -120px;  } 
 .icon-mes{ background-position: -120px -150px;  } 
 .icon-unmes{ background-position: -150px -150px;  } 
-.icon-like{ background-position: -120px -150px;  } 
-.icon-unlike{ background-position: -150px -150px;  } 
 .icon-users{ background-position: -120px -180px;  } 
 .icon-unusers{ background-position: -150px -180px;  } 
 .icon-checkin{ background-position: -120px -210px;  } 
@@ -217,6 +215,11 @@ div.leaflet-marker-icon,
 .icon-photos{ background-position: -120px -480px;  }
 .icon-report{ background-position: -120px -510px;  }
 .icon-edit{ background-position: -120px -540px;  }
+
+.icon-like{ background-position: -120px -570px;  } 
+.icon-unlike{ background-position: -150px -570px;  } 
+.icon-gps{ background-position: -120px -600px;  } 
+
 
 /* ICON GEO */
 .icon-geo{ background-position: -180px 0;  } 

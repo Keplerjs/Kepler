@@ -257,30 +257,47 @@ Kepler.Util.geo = {
 		return sec>60 ? sec : 0;
 	},
 	/**
+	 * search for the coordinate of the linestring closest to the point indicated
+	 * @param  {[type]} point [description]
+	 * @param  {[type]} line  [description]
+	 * @return {[type]}       [description]
+	 */
+	pointInLinestring: function(point, line) {
+		var dd = _.map(line.coordinates, function(ll, k) {
+				return {
+					k: k,
+					d: geoUtils.pointDistance(point, {coordinates: ll})
+				}
+			}),
+			min = _.sortBy(dd,'d')[0];
+			
+		return line.coordinates[ min.k ];
+	},
+	/**
 	 * calculate centroid of geojson polygon geometry, return a loc [lat,lon]
 	 * @param  {[type]} poly [description]
 	 * @return {[type]}      [description]
 	 */
 	centroid: function(geom) {
 		
-		var ll, cen;
+		var ll, point;
 
-		if(geom.type==="Point")
+		if(geom.type==='Point')
 			ll = geom.coordinates
 		else
 		{
-			if(geom.type==="Polygon") {
+			if(geom.type==='Polygon') {
 				cc = geom.coordinates;
 			}
-			else if(geom.type==="MultiPolygon") {
+			else if(geom.type==='MultiPolygon') {
 				cc = geom.coordinates[0];
 				//TODO intersect multiple centers of polygons
 			}
-			else if(geom.type==="LineString") {
+			else if(geom.type==='LineString') {
 				cc = [geom.coordinates];
 				//TODO point in polyline
 			}
-			else if(geom.type==="MultiLineString") {
+			else if(geom.type==='MultiLineString') {
 				cc = [geom.coordinates[0]];
 				//TODO point in polyline
 			}
@@ -289,9 +306,13 @@ Kepler.Util.geo = {
 				return null;
 			}
 
-			cen = geoUtils.centroid({coordinates: cc});
+			point = geoUtils.centroid({coordinates: cc});
 
-			ll = cen.coordinates;
+			ll = point.coordinates;
+
+			if(geom.type==='LineString') {
+				ll = K.Util.geo.pointInLinestring(point, geom);
+			}
 		}
 
 		return ll && [ll[1], ll[0]];

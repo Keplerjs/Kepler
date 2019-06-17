@@ -42,6 +42,7 @@ i18n.map('sv', {
 	label_password: "Password",
 	label_privacy: "Synlighet",
 	label_location: "Plats",
+	label_geometry: "Geometri",
 	label_userblocked: "Blockerad Användare",
 	label_histuser: "Senaste besök",
 	label_histplace: "Senaste besök",

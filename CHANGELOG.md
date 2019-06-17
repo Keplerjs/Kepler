@@ -9,6 +9,7 @@
 - core rename methods K.Util.geo.locBuffer(), locTransform(), locRound()
 - core simplify method K.Util.geo.bboxContains()
 - core new method L.Util.geo.centroid() support Point, Polygon, MultiPolygon
+- core new method L.Util.geo.pointInLinestring()
 - core K.Util.geo.point() accept [lat,lon]
 - core edit outputof K.Util.timeName()
 - core fix K.Util.sanitize.fileName()
@@ -17,6 +18,7 @@
 - core index 2dsphere geometry field
 - core new method K.Util.valid.point()
 - core fix place click location in places news panel
+- plugin theme new icon-gps
 - plugin admin fix show geometry in minimap
 - plugin geoinfo autoupdate geoinfo field when loc is changed
 - plugin upload rename param 'callback' in 'onUploaded' in template inputFile_upload
@@ -28,7 +30,7 @@
 - plugin import new global method K.Util.sanitize.importName
 - plugin import K.settings.public.import.limit
 - plugin import fix panel data
-- plugin import support geojson LineString
+- plugin import support geojson LineString centroid
 - plugin categories new template panelPlaceEdit_cats_latest
 - plugin categories fix remove cat button
 

@@ -41,6 +41,7 @@ i18n.map('fr', {
 	label_password: "Password",
 	label_privacy: "Confidentialité",
 	label_location: "Position",
+	label_geometry: "Géométrie",
 	label_userblocked: "Utilisateur bloqué",
 	label_histuser: "visites récentes",
 	label_histplace: "visites récentes",

@@ -66,8 +66,12 @@ Template.formImport.events({
 		_.each(sample, function(f,n) {
 				
 			let cen = K.Util.geo.centroid(f.geometry),
-				icon = new L.NodeIcon(),
-				marker = L.marker(cen, {icon: icon});
+				icon = new L.NodeIcon({
+					//TODO className: 'marker-blue'
+				}),
+				marker = L.marker(cen, {
+					icon: icon
+				});
 
 			marker.addTo(K.Map.layers.geojson);
 			
