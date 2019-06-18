@@ -25,3 +25,6 @@
 #editMap .leaflet-editing-icon {
 	background: #fff
 }
+#editMap .leaflet-draw-toolbar a {
+	padding: 0
+}

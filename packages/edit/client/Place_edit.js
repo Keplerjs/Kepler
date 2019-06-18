@@ -1,8 +1,6 @@
 
 Kepler.Place.include({
 
-	geomEdited: false,
-	
 	getOwner: function() {
 		this._dep.depend();
 		return this.userId ? K.userById(this.userId) : {username: ''}
@@ -12,22 +10,21 @@ Kepler.Place.include({
 		return !!(this.userId ? (K.Profile.id === this.userId) : false);
 	},
 
-	setGeometry(geoj) {
-		this._dep.depend();
-		
-		console.log('setGeometry',geoj, this)
+	setGeometry(geo) {
 
-		this.geometry = geoj.geometry;
+		this._dep.depend();
+
+		this.geometry = geo;
 		
 		if(this.geom) {
+			//this.geom.removeFrom(K.Map.layers.geometries);
 			this.geom.remove();
-			delete this.geom;
+			//K.Map.layers.geometries.removeLayer(this.geom);
+			delete this.geom;//force rebuild dont remove
+			this.buildGeometry();//fill this.geom
 		}
 		
-		this.buildGeometry();//fill this.geom
 		//this.update();
-
-		this.geomEdited = true;
 
 		return this;
 	}

@@ -31,7 +31,8 @@ Template.panelPlaceEdit_edit_map.onRendered(function() {
 				layers: layer,
 				center: place.loc,
 				zoom: 16
-			}).on('move zoomstart', function(e) {
+			})
+			.on('move zoomstart', function(e) {
 
 				var loc = self.editMap.getCenter(),
 					newloc = K.Util.geo.locRound([loc.lat, loc.lng]);
@@ -47,10 +48,6 @@ Template.panelPlaceEdit_edit_map.onRendered(function() {
 				zoomInText: i18n('map_zoomin'),
 			}).addTo(self.editMap);
 
-			if(place.geom) {
-				place.geom.addTo(self.editMap);
-				self.editMap.fitBounds(place.geom.getBounds());
-			}
 //EDIT LEFLET DRAW
 			if(sets.controls.draw.enabled) {
 				let conf = _.deepExtend({}, sets.controls.draw, {
@@ -64,50 +61,62 @@ Template.panelPlaceEdit_edit_map.onRendered(function() {
 
 				conf.position = 'topright';
 				
-				if(place.geom)
-					conf.edit.featureGroup = place.geom;
-				else {
-					conf.edit.featureGroup = L.geoJson();
-					conf.edit.featureGroup.addTo(self.editMap);
+				if(place.geom) {
+					conf.edit.featureGroup = L.geoJson(place.geometry, {
+						style: function (f) {
+							return f.style || sets.styles.geometry;
+						}
+					});
+				
+					let ll = L.latLng(place.loc),
+						bb = place.geom.getBounds().extend(ll),
+						z = self.editMap.getBoundsZoom(bb);
+					self.editMap.setZoom(z-1);
 				}
+				else
+					conf.edit.featureGroup = L.geoJson();
+
+				conf.edit.featureGroup.addTo(self.editMap);
 
 				self.drawControl = new L.Control.Draw(conf);
 				self.drawControl.addTo(self.editMap);
 				self.editMap
-				.on('draw:drawstart editstart', function(e) {
+				.on('draw:drawstart', function(e) {
 					//TODO backup old geom and geometry
 					//self._geom = self.geom;
+					conf.edit.featureGroup.clearLayers();
 				})
 				.on('draw:created', function (e) {
 					var type = e.layerType,
 						layer = e.layer,
-						newGeoj = layer.toGeoJSON();
+						geoj = layer.toGeoJSON();
 					
-					console.log('draw:created', newGeoj);
+					//console.log('draw:created', geoj);
 
-					conf.edit.featureGroup.clearLayers().addData(newGeoj);
-					//layer.addTo(self.editMap);
-					//
-					place.setGeometry(newGeoj);
-					place.showGeometry();
+					//setTimeout(function() {
+					conf.edit.featureGroup.addData(geoj);
+					//},100);
+
+					place.setGeometry(geoj.geometry);
+					//place.showGeometry();
+					place.geomEdited = true;
 				})
 				.on('draw:edited', function (e) {
-					
-					console.log('draw:edited',e)
-
 					var type = e.layerType,
 						layer = e.layers,
-						newGeoj = layer.toGeoJSON();
+						geoj = layer.toGeoJSON().features.pop();
 					
-					console.log('draw:edited', newGeoj);
+					//console.log('draw:edited', geoj);
 
-					//conf.edit.featureGroup.addLayer(layer)
-					//layer.addTo(self.editMap);
-					conf.edit.featureGroup.clearLayers().addData(newGeoj.features);
+					//setTimeout(function() {
+					conf.edit.featureGroup.clearLayers();
+					conf.edit.featureGroup.addData(geoj);
+					//},100);
 
-					place.setGeometry(newGeoj.features[0]);
-					place.showGeometry();
-				});				
+					place.setGeometry(geoj.geometry);
+					//place.showGeometry();
+					place.geomEdited = true;
+				});			
 			}
 
 			marker.addTo(self.editMap);
@@ -128,16 +137,21 @@ Template.panelPlaceEdit_edit_map.events({
 			newData = {
 				loc: K.Util.geo.locRound( tmpl.$('.input-editloc').val().split(',') )
 			};
-
+		
 		if(place.geomEdited) {
-			console.log('geometry edited', place.geometry)
 			newData.geometry = place.geometry;
 		}
 
 		Meteor.call('updatePlace', place.id, newData, function(err) {
-			place.update();
-			place.geomEdited = false;
+			
 			tmpl.$('.collapse').collapse('hide');
+
+			place.update();
+			
+			if(place.geomEdited) {
+				place.geomEdited = false;
+				place.showGeometry();
+			}
 		});
 	},
 	'click .btn-cancloc': function(e,tmpl) {

@@ -34,6 +34,8 @@
 - plugin categories new template panelPlaceEdit_cats_latest
 - plugin categories fix remove cat button
 - plugin edit split template panelPlaceEdit in panelPlaceEdit_edit_map
+- plugin edit new method K.Place.setGeometry()
+- plugin edit panel edit location and place geometry by Leaflet Draw
 
 ## v1.6.6
 - core support Instagram OAuth signup
