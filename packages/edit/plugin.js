@@ -48,8 +48,45 @@ K.Plugin({
 			}
 		}	
 	},
-	/*settings: {
-		public: {
+	settings: {
+		"public": {
+			"map": {
+				"controls": {
+					"draw": {
+					  "enabled": true,
+					  //leaflet draw config:
+					  "draw": {
+					    "marker": false,
+					    "polyline": false,
+					    "polygon": {
+					      "allowIntersection": false,
+					      "drawError": {
+					        "color": "#399BCC",
+					        "timeout": 1000
+					      },
+					      "shapeOptions": {
+					        "color": "#3FAAA9",
+					        "fillColor": "#3FAAA9",
+					        "fillOpacity": 0.1
+					      },
+					      "showArea": true
+					    },
+					    "circlemarker": false,
+					    "circle": {
+					      "shapeOptions": {
+					        "color": "#3FAAA9",
+					        "fillColor": "#3FAAA9",
+					        "fillOpacity": 0.1
+					      }
+					    }
+					  },
+					  "edit": {
+					    "featureGroup": null,
+					    "edit": true
+					  }
+					}
+				}
+			}
 		}
-	}*/
+	}
 });

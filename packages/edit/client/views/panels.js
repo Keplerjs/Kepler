@@ -1,6 +1,8 @@
 
 Template.panelPlaceEdit.onRendered(function() {
-	var self = this;
+	
+	var self = this,
+		sets = K.settings.public.map;
 	
 	self.$('.btn-editdel').btsConfirmButton(function(e) {
 
@@ -31,9 +33,9 @@ Template.panelPlaceEdit.onRendered(function() {
 		if(!self.editMap) {
 
 			var loc = self.data.loc,
-				sets = K.settings.public,
+				geom = self.data.geom,//layer L.geojson
 				layerName = K.Profile.getOpts('map.layer') || K.settings.public.map.layer,
-				layer = L.tileLayer(sets.map.layers[layerName]);
+				layer = L.tileLayer(sets.layers[layerName]);
 
 			var icon = new L.NodeIcon(),
 				marker = L.marker(loc, {icon: icon});
@@ -56,14 +58,25 @@ Template.panelPlaceEdit.onRendered(function() {
 			});
 
 			L.control.zoom({
-				position:'topleft',
+				position: 'bottomright',
 				zoomOutText: i18n('map_zoomout'),
 				zoomInText: i18n('map_zoomin'),
 			}).addTo(self.editMap);
 
+			if(geom) {
+				geom.addTo(self.editMap);
 
-			if(self.data.geometry && self.data.geometry.type!=='Point')
-				L.geoJson(self.data.geometry).addTo(self.editMap);
+				self.editMap.fitBounds(geom.getBounds());
+
+				//EDIT LEFLET DRAW
+				if(sets.controls.draw.enabled) {
+					let conf = _.deepExtend({}, sets.controls.draw)
+					conf.position = 'topright';
+					conf.edit.featureGroup = geom;
+					self.drawControl = new L.Control.Draw(conf);
+					self.drawControl.addTo(self.editMap);
+				}
+			}
 
 			marker.addTo(self.editMap);
 			

@@ -7,7 +7,6 @@ _.extend(K.Util.sanitize, {
 		name = Latinize(name);
 
 		name = name.toLowerCase();
-
 		name = _.str.camelize(name)
 		name = _.str.underscored(name);
 

@@ -18,6 +18,10 @@ Router.map(function() {
 				Router.go('root');
 				return null;
 			}
+			
+			place.update();	//update instance adding new fields by placeById
+
+			place.buildGeometry();
 
 			return place.rData();
 		}
