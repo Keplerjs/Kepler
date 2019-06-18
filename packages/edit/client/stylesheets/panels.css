@@ -22,3 +22,6 @@
 	border: none;
 	padding: 0;
 }
+#editMap .leaflet-editing-icon {
+	background: #fff
+}
