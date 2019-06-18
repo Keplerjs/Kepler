@@ -22,7 +22,7 @@ Meteor.methods({
 		if(!this.userId) return null;
 
 		var placeData = Places.findOne(placeId),
-			userId = placeData.userId || null;
+			userId = placeData ? placeData.userId : null;
 
 		if(userId === this.userId || (K.Admin && K.Admin.isMe())) {
 			
