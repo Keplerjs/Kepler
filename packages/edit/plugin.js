@@ -5,6 +5,9 @@ K.Plugin({
 		panelPlaceEdit: {},
 		//create new placeholder used from other plugins
 		//
+		panelPlaceEdit: {
+			'panelPlaceEdit_edit_map': {order: 0}
+		},
 		panelProfile: {
 			'panelProfile_edit': {order: 10 }
 		},
@@ -53,37 +56,31 @@ K.Plugin({
 			"map": {
 				"controls": {
 					"draw": {
-					  "enabled": true,
-					  //leaflet draw config:
-					  "draw": {
-					    "marker": false,
-					    "polyline": false,
-					    "polygon": {
-					      "allowIntersection": false,
-					      "drawError": {
-					        "color": "#399BCC",
-					        "timeout": 1000
-					      },
-					      "shapeOptions": {
-					        "color": "#3FAAA9",
-					        "fillColor": "#3FAAA9",
-					        "fillOpacity": 0.1
-					      },
-					      "showArea": true
-					    },
-					    "circlemarker": false,
-					    "circle": {
-					      "shapeOptions": {
-					        "color": "#3FAAA9",
-					        "fillColor": "#3FAAA9",
-					        "fillOpacity": 0.1
-					      }
-					    }
-					  },
-					  "edit": {
-					    "featureGroup": null,
-					    "edit": true
-					  }
+						"enabled": true,
+						//leaflet draw config:
+						"draw": {
+							"marker": false,
+							"circle": false,					    
+							"circlemarker": false,
+							"polyline": {
+								"allowIntersection": false,
+								"shapeOptions": {}
+								//TODO ...
+							},					    
+							"polygon": {
+								"showArea": true,
+								"shapeOptions": {},//default: K.settings.public.map.styles
+								"allowIntersection": false,
+								"drawError": {
+									"color": "#ee0000",
+									"timeout": 1000
+								}
+							}
+						},
+						"edit": {
+							"edit": true,		
+							"featureGroup": null//from place geometry
+						}
 					}
 				}
 			}

@@ -24,12 +24,10 @@ Package.onUse(function(api) {
     '.npm/package/node_modules/typeahead.js/dist/typeahead.bundle.js',
     '.npm/package/node_modules/leaflet-draw/dist/leaflet.draw.js',
     '.npm/package/node_modules/leaflet-draw/dist/leaflet.draw.css'
-
     //TODO '.npm/package/node_modules/bootstrap-3-typeahead/bootstrap3-typeahead.js'
   ],'client');
 
   api.addAssets([
-    //'.npm/package/node_modules/leaflet/dist/images/marker-icon.png',
     '.npm/package/node_modules/leaflet-draw/dist/images/spritesheet.svg'
   ],'client');
 
@@ -52,6 +50,8 @@ Package.onUse(function(api) {
     'client/views/popups.js',
     'client/views/items.html',
     'client/views/items.js',
+    'client/views/panels/map.html',
+    'client/views/panels/map.js',
     'client/Router.js',
     'client/stylesheets/leaflet.css',
     'client/stylesheets/markers.css',

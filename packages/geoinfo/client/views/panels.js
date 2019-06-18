@@ -20,8 +20,8 @@ Template.panelPlaceEdit_geoinfo_tips.events({
 	'click .geoinfo-nametips .btn': function(e,tmpl) {
 		
 		var panel$ = $(tmpl.firstNode).parents('.panel-body'),
-			input$ = panel$.find('.input-editren'),
-			btn$ = panel$.find('.btn-editren'),
+			input$ = panel$.find('.input-name'),
+			btn$ = panel$.find('.btn-rename'),
 			name = $(e.target).text();
 
 		input$.val(name);
