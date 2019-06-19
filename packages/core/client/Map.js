@@ -258,6 +258,8 @@ Kepler.Map = {
 				//DO NOT REMOVE
 				Meteor.defer(function() {
 					item.marker.remove();
+					if(item.geom)
+						item.geom.remove();
 				});
 			}
 		}
