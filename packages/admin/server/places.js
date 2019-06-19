@@ -83,7 +83,7 @@ K.Admin.methods({
 		var placeData = Places.findOne({name: placeName}),
 			placeId = placeData._id;
 
-		if(placeData.hist)
+		if(placeData && placeData.hist)
 			Users.update({_id: {$in: placeData.hist }}, {
 				$pull: {
 					hist: placeId

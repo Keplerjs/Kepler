@@ -1,7 +1,6 @@
 
 .adminPage .panel .back,
-.adminPage #user.panel .close,
-.adminPage #place.panel .close {
+.adminPage .panel .close {
 	display: none;
 }
 

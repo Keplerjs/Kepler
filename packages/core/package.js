@@ -49,6 +49,7 @@ Package.onUse(function(api) {
     'client/Profile.js',	
     'client/Place.js',
     'client/User.js',
+    'client/Router_config.js',
     'client/Router.js',
   ], 'client');
 
