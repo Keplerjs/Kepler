@@ -99,19 +99,3 @@
 	</div>
 </div> -->
 </template>
-
-<template name="itemUser_admin">
-{{#if adminIsMe}}
-	<a class="btn btn-sm btn-default pull-right" href="/admin/users/{{id}}" title="{{i18n 'title_admin'}}">
-		<i class="icon icon-admin"></i> <span>{{i18n 'title_admin'}}</span>
-	</a>
-{{/if}}
-</template>
-
-<template name="itemPlace_admin">
-{{#if adminIsMe}}
-	<a class="btn btn-sm btn-default pull-right" href="/admin/places/{{id}}" title="{{i18n 'title_admin'}}">
-		<i class="icon icon-admin"></i> <span>{{i18n 'title_admin'}}</span>
-	</a>
-{{/if}}
-</template>

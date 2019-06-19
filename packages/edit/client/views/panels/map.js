@@ -59,7 +59,7 @@ Template.panelPlaceEdit_edit_map.onRendered(function() {
 					}
 				});
 
-				conf.position = 'topright';
+				conf.position = 'bottomright';
 				
 				if(place.geom) {
 					conf.edit.featureGroup = L.geoJson(place.geometry, {

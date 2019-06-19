@@ -1,0 +1,22 @@
+
+<template name="itemUser_admin">
+{{#if adminIsMe}}
+<div class="clearfix">
+	<a class="btn btn-sm btn-default pull-right" href="/admin/users/{{id}}" title="{{i18n 'title_admin'}}">
+		<i class="icon icon-admin"></i> <span>{{i18n 'title_admin'}}</span>
+	</a>
+</div>
+<br />
+{{/if}}
+</template>
+
+<template name="itemPlace_admin">
+{{#if adminIsMe}}
+<div class="clearfix">
+	<a class="btn btn-sm btn-default pull-right" href="/admin/places/{{id}}" title="{{i18n 'title_admin'}}">
+		<i class="icon icon-admin"></i> <span>{{i18n 'title_admin'}}</span>
+	</a>
+</div>
+<br />
+{{/if}}
+</template>

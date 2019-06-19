@@ -63,7 +63,8 @@ Package.onUse(function(api) {
     'client/views/panels/panelList.js',
 
     'client/views/panels/place.html',
-    'client/views/panels/place.js',
+    'client/views/panels/place/info.html',
+    'client/views/panels/place/hist.html',
     'client/views/panels/place/nearby.html',
     'client/views/panels/place/nearby.js',
 

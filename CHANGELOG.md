@@ -36,6 +36,8 @@
 - plugin edit split template panelPlaceEdit in panelPlaceEdit_edit_map
 - plugin edit new method K.Place.setGeometry()
 - plugin edit panel edit location and place geometry by Leaflet Draw
+- plugin edit restyle panelEdit
+- plugin edit new templates panelPlaceEdit_edit_del, panelPlaceEdit_edit_info
 
 ## v1.6.6
 - core support Instagram OAuth signup

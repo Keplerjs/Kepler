@@ -1,0 +1,29 @@
+
+<template name="panelPlaceEdit_edit_info">
+	<div class="row">
+		<div class="col-xs-12">
+			<label class="control-label">{{i18n 'label_name'}}</label>
+			<div class="input-group">
+				<input class="input-name form-control" type="text" value="{{name}}" placeholder="{{#unless name}}{{i18n 'label_noname'}}{{/unless}}" />
+				<span class="input-group-btn">
+					<a class="btn btn-default btn-renamecanc" href="#">
+						<i class="icon icon-canc"></i>
+					</a>
+					<a class="btn-rename btn btn-default" href="#">{{i18n 'btn_ren'}}</a>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<label class="control-label">{{i18n 'label_desc'}}</label>
+			<textarea rows="1" class="input-desc form-control">{{desc}}</textarea>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<label class="control-label">{{i18n 'label_url'}}</label>
+			<input class="input-url form-control" type="text" value="{{url}}" />
+		</div>
+	</div>	
+</template>

@@ -2,8 +2,8 @@
 Kepler.settings.public.templates = {
 	
 	//TODO refact.. templates without placeholder
-	"tabPlace_ui_info": { "show": true},
-	"tabPlace_ui_hist": { "show": true},
+	"tabPlace_ui_info": { "show": true, order:-10},
+	"tabPlace_ui_hist": { "show": true, order:-10},
 	"tabPlace_ui_nearby": { "show": true, order:-10},
 	
 	"tabUser_ui_info": { "show": true},
@@ -42,7 +42,7 @@ Kepler.settings.public.templates = {
 	},
 	"tabPlace": {
 		"tabPlace_ui_info": { order:-10 },
-		"tabPlace_ui_nearby": { order:-10 },
+		"tabPlace_ui_nearby": { order:-5 },
 	},			
 	"panelUser": {
 		"panelUser_ui_bio": { order:-20 },

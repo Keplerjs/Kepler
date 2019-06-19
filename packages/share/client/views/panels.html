@@ -1,11 +1,10 @@
 
 <template name="panelPlace_share">
-	<br />
 	<div class="row">
 		<div class="col-xs-6">
 			<div class="btn-group btn-share-url" role="group" aria-label="...">
 				<div class="input-group">
-					<input class="form-control input-share" type="text" value="{{absoluteUrl 'place/'}}{{id}}" />
+					<input class="form-control input-share" value="{{absoluteUrl 'place/'}}{{id}}" type="text" readonly="readonly" />
 					<span class="input-group-btn">
 						<a class="btn btn-default btn-share" href="#">
 							<i class="icon icon-share"></i>
@@ -15,7 +14,7 @@
 			</div>
 		</div>
 		<div class="col-xs-6">	
-			<div class="btn-group btn-share-map" role="group">
+			<div class="btn-group btn-share-map pull-right" role="group">
 				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				  {{i18n 'btn_nav'}}
 				  <span class="caret"></span>

@@ -1,0 +1,25 @@
+
+<template name="tabPlace_ui_info">
+	<div class="list-group">
+		<div class="list-group-item">
+		{{#if desc}}
+		
+			<label>{{i18n 'label_desc'}}</label><br />
+			<p class="place-desc">{{desc}}</p>
+		
+		{{/if}}
+		{{#if url}}
+		
+			<label>{{i18n 'label_url'}}</label>
+			<a class="btn btn-link place-url" href="{{url}}" target="_blank">{{humanUrl url}}</a>
+		
+		{{/if}}
+		</div>
+		{{#if warn}}
+		<div class="list-group-item alert alert-warning alert-dismissable place-warn">
+			<i class="icon icon-danger"></i>
+			<span>{{warn}}</span>
+		</div>
+		{{/if}}
+	</div>
+</template>

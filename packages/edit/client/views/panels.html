@@ -69,74 +69,50 @@
 
 <template name="panelPlaceEdit">
 
-	<div id="place" class="panel">
-		<div class="panel-heading bg-primary">
+	<div id="placeEdit" class="panel">
+		<div class="panel-heading bg-orange">
 			<h4 class="pull-left">
-				<a class="back" href="javascript:history.back()">
-					<i class="icon icon-arrow-l"></i>
-				</a> 
-				{{i18n 'title_edit'}}: {{#if name}} {{name}} {{else}}<i>{{i18n 'label_noname'}}</i>{{/if}}
+				<a class="back" href="/place/{{id}}">
+					<i class="icon icon-edit"></i>
+				</a>
+				{{i18n 'title_edit'}}: 
+				<a href="/place/{{id}}" class="">
+					{{#if name}} {{name}} {{else}}<i>{{i18n 'label_noname'}}</i>{{/if}}
+				</a>
 			</h4>
-			<a class="close pull-right" href="/">
+			<a class="close pull-right" href="/place/{{id}}">
 				<i class="icon icon-close"></i>
 			</a>
 		</div>
 		<div class="panel-body">
-				
-			{{> item_place}}
-				
-			<div class="row">
-				<div class="col-xs-12">
-				{{#if userId}}
-					<label>{{i18n 'label_creator'}}</label>
-					{{#with userById userId}}
-						{{> item_user_name}}
-					{{/with}}
-				{{/if}}
-				{{#if createdAt}}
-					<label>{{i18n 'label_createdAt'}}</label>
-					<time>{{numericDate createdAt}}</time>
-				{{/if}}
 			
-				<div class="pull-right">
-					<a class="btn-editdel btn btn btn-default" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
-						<i class="icon icon-del"></i> {{i18n 'btn_del'}}
-					</a>
-				</div>
-
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-xs-12">
-					<label class="control-label">{{i18n 'label_name'}}</label>
-					<div class="input-group">
-						<input class="input-name form-control" type="text" value="{{name}}" placeholder="{{#unless name}}{{i18n 'label_noname'}}{{/unless}}" />
-						<span class="input-group-btn">
-							<a class="btn btn-default btn-renamecanc" href="#">
-								<i class="icon icon-canc"></i>
-							</a>
-							<a class="btn-rename btn btn-default" href="#">{{i18n 'btn_ren'}}</a>
-						</span>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-12">
-					<label class="control-label">{{i18n 'label_desc'}}</label>
-					<textarea rows="1" class="input-desc form-control">{{desc}}</textarea>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-12">
-					<label class="control-label">{{i18n 'label_url'}}</label>
-					<input class="input-url form-control" type="text" value="{{url}}" />
-				</div>
-			</div>		
-
 			{{> pluginsTemplate name='panelPlaceEdit'}}	
-		
+					
 		</div>	
 	</div>
 
+</template>
+
+<template name="panelPlaceEdit_edit_del">
+	<div class="row">
+		<div class="col-xs-12">
+		{{#if userId}}
+			<label>{{i18n 'label_creator'}}</label>
+			{{#with userById userId}}
+				{{> item_user_name}}
+			{{/with}}
+		{{/if}}
+		{{#if createdAt}}
+			<label>{{i18n 'label_createdAt'}}</label>
+			<time>{{numericDate createdAt}}</time>
+		{{/if}}
+
+		<div class="pull-right">
+			<a class="btn-editdel btn btn btn-default" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
+				<i class="icon icon-del"></i> {{i18n 'btn_del'}}
+			</a>
+		</div>
+
+		</div>
+	</div>	
 </template>

@@ -77,47 +77,9 @@
 			</a>
 		</div>
 	</div>
-	<br />
+	<br /><br />
 </template>
 
-<template name="tabPlace_ui_info">
-	<ul class="list-group">
-		{{#if desc}}
-		<li class="list-group-item">
-			<label>{{i18n 'label_desc'}}</label><br />
-			<p class="place-desc">{{desc}}</p>
-		</li>
-		{{/if}}
-		{{#if url}}
-		<li class="list-group-item">
-			<label>{{i18n 'label_url'}}</label>
-			<a class="btn btn-link place-url" href="{{url}}" target="_blank">{{humanUrl url}}</a>
-		</li>
-		{{/if}}
-		{{#if warn}}
-		<li class="list-group-item alert alert-warning alert-dismissable place-warn">
-			<i class="icon icon-danger"></i>
-			<span>{{warn}}</span>
-		</li>
-		{{/if}}
-	</ul>
-</template>
 
-<template name="tabPlace_ui_hist">
-	{{#if hist.length}}		
-		<label>{{i18n 'label_histplace'}}</label>
-		<ul class="list-group list-items">		
-			{{#each hist}}
-			<li class="list-group-item">
-				{{#with userById this}}
-					{{> item_user}}
-				{{/with}}
-			</li>
-			{{/each}}
-		</ul>		
-	{{else}}
-		<label class="text-gray">{{i18n 'label_notfound'}}</label>
-	{{/if}}
-</template>
 
 

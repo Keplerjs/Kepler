@@ -4,8 +4,8 @@ K.Plugin({
 	templates: {
 		//TODO refact using inputtags using panelSettings: 'panelSettings_cats',
 		panelUser: 'panelUser_cats',
-		panelPlace: {
-			'panelPlace_cats': {order: -5 } //render after share plugin
+		tabPlace: {
+			'panelPlace_cats': {order: -5 } //render after info
 		},
 		
 		panelPlaceEdit: {

@@ -40,6 +40,7 @@ Package.onUse(function(api) {
     'client/views/pages/users.js',
     'client/views/panels.html',
     'client/views/panels.js',
+    'client/views/items.html',
     'client/stylesheets/panels.css',
     'client/Router.js'
   ],'client');

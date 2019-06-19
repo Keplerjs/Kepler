@@ -45,6 +45,10 @@ a.list-group-item {
 }
 .bg-orange {
 	background: #f80 !important;
+	color: #fff;
+}
+.bg-orange a {
+	color: #fff
 }
 .bg-primary,
 .list-group-item.active,

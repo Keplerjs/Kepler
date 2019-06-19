@@ -32,13 +32,11 @@ K.Plugin({
 		itemPlaceAdmin: {
 			'itemPlaceAdmin_admin_btns': {order:10}
 		},
-		
-		/*panelPlaceEdit: {
-			'itemPlace_admin': {order:-30}
-		},*/
 
-		panelUser: {'itemUser_admin': {order:-20}},
-		panelPlace:'itemPlace_admin',
+		panelUser: {'itemUser_admin': {order:-5}},
+		panelPlace: {'itemPlace_admin': {order:-5}},
+		//panelPlaceEdit: {'itemPlace_admin': {order:-5}},
+		//panelPlace:'itemPlace_admin',
 		
 		panelProfile: {
 			'panelProfile_admin': {order:10},

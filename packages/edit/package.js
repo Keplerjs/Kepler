@@ -52,6 +52,8 @@ Package.onUse(function(api) {
     'client/views/items.js',
     'client/views/panels/map.html',
     'client/views/panels/map.js',
+    'client/views/panels/info.html',
+    'client/views/panels/info.js',    
     'client/Router.js',
     'client/stylesheets/leaflet.css',
     'client/stylesheets/markers.css',
