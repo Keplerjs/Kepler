@@ -13,5 +13,6 @@ i18n.map('en', {
 	label_owner: "Owner",
 
 	edit_error_notOwner: "Not Owner",
-	edit_error_notUrl: "Url Not Valid"
+	edit_error_notUrl: "Url Not Valid",
+	edit_error_notMultigeom: "Multi Geometries Not Supported to editing"
 });

@@ -40,16 +40,20 @@ Template.panelPlaceEdit_edit_map.onRendered(function() {
 				marker.setLatLng(newloc);
 
 				self.$('.input-editloc').val(newloc.join(','))
-			});
-
-			L.control.zoom({
+			})
+			.addControl(L.control.zoom({
 				position: 'bottomright',
 				zoomOutText: i18n('map_zoomout'),
 				zoomInText: i18n('map_zoomin'),
-			}).addTo(self.editMap);
+			}));
 
-//EDIT LEFLET DRAW
+			marker.addTo(self.editMap);
+			
+			Blaze.renderWithData(Template.markerPlace, self, icon.nodeHtml);
+
+			
 			if(sets.controls.draw.enabled) {
+
 				let conf = _.deepExtend({}, sets.controls.draw, {
 					polyline: {
 						shapeOptions: sets.styles.geometry
@@ -62,6 +66,7 @@ Template.panelPlaceEdit_edit_map.onRendered(function() {
 				conf.position = 'bottomright';
 				
 				if(place.geom) {
+
 					conf.edit.featureGroup = L.geoJson(place.geometry, {
 						style: function (f) {
 							return f.style || sets.styles.geometry;
@@ -77,28 +82,26 @@ Template.panelPlaceEdit_edit_map.onRendered(function() {
 					conf.edit.featureGroup = L.geoJson();
 
 				conf.edit.featureGroup.addTo(self.editMap);
+				
+				if(place.geometry && place.geometry.type.startsWith('Multi')) {
+					//TODO K.Alert.warning(i18n('edit_error_notMultigeom'))
+					editMap$.before('<div class="alert alert-warning">'+i18n('edit_error_notMultigeom')+'<div>')
+					return;
+				}
 
 				self.drawControl = new L.Control.Draw(conf);
 				self.drawControl.addTo(self.editMap);
 				self.editMap
 				.on('draw:drawstart', function(e) {
-					//TODO backup old geom and geometry
-					//self._geom = self.geom;
 					conf.edit.featureGroup.clearLayers();
 				})
 				.on('draw:created', function (e) {
 					var type = e.layerType,
 						layer = e.layer,
 						geoj = layer.toGeoJSON();
-					
-					//console.log('draw:created', geoj);
 
-					//setTimeout(function() {
 					conf.edit.featureGroup.addData(geoj);
-					//},100);
-
 					place.setGeometry(geoj.geometry);
-					//place.showGeometry();
 					place.geomEdited = true;
 				})
 				.on('draw:edited', function (e) {
@@ -106,22 +109,12 @@ Template.panelPlaceEdit_edit_map.onRendered(function() {
 						layer = e.layers,
 						geoj = layer.toGeoJSON().features.pop();
 					
-					//console.log('draw:edited', geoj);
-
-					//setTimeout(function() {
 					conf.edit.featureGroup.clearLayers();
 					conf.edit.featureGroup.addData(geoj);
-					//},100);
-
 					place.setGeometry(geoj.geometry);
-					//place.showGeometry();
 					place.geomEdited = true;
 				});			
 			}
-
-			marker.addTo(self.editMap);
-			
-			Blaze.renderWithData(Template.markerPlace, self, icon.nodeHtml);
 		}
 	});
 });

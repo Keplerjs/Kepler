@@ -1,4 +1,7 @@
 
+.s-alert-box {
+	z-index: 5000 !important;
+}
 .s-alert-close {
     width: 30px;
     height: 30px;

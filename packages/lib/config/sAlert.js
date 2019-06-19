@@ -3,11 +3,11 @@ if(Meteor.isClient) {
 	Meteor.startup(function () {
 
 		//https://github.com/juliancwirko/meteor-s-alert
-		sAlert.config({
+		K.Alert.config({
 			effect: '',
 			position: 'bottom',
-			timeout: 5000,
-			onRouteClose: true,
+			timeout: 8000,
+			onRouteClose: false,//dont edit or hide hen sidebar show!
 			html: true,
 			stack: true,
 			// or you can pass an object:
