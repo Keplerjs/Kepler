@@ -51,9 +51,10 @@ Package.onUse(function(api) {
     'client/Router.js',
     'client/Place_cats.js',
     'client/User_cats.js',
+	'client/stylesheets/main.css', 
+    'client/stylesheets/panels.css',  
     'client/views/panels/place.html',
     'client/views/panels/place.js',
-    'client/stylesheets/main.css',  
     'client/views/pages/admin.html',
     'client/views/pages/admin.js',  
     'client/views/panels/user.html',
@@ -61,6 +62,7 @@ Package.onUse(function(api) {
     'client/views/panels/settings.js', 
     'client/views/panels/admin.html',
     'client/views/panels/admin.js',
+    'client/views/panels/cats.html',
   ],'client');
 
   api.addFiles([

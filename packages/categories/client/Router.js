@@ -16,7 +16,7 @@ Router.map(function() {
 			return {
 				title: i18n('title_cats_places', this.params.cat),
 				className: 'placesCats',
-				//headerTemplate: 'search_cats',
+				headerTemplate: 'headerCatsType',
 				itemsTemplate: 'itemPlaceCats',
 				items: _.map(places, function(place) {
 					return K.placeById(place._id);
@@ -41,7 +41,7 @@ Router.map(function() {
 			return {
 				title: i18n('title_cats_users', this.params.cat),
 				className: 'usersCats',
-				//headerTemplate: 'search_cats',
+				headerTemplate: 'headerCatsType',
 				itemsTemplate: 'item_user_search',
 				items: _.map(users, function(user) {
 					return K.userById(user._id);
@@ -50,14 +50,14 @@ Router.map(function() {
 		}
 	});
 
-	this.route('panelCats', {
+	this.route('panelAdminCats', {
 		path: '/admin/categories',
 		onBeforeAction: function () {
 			this.redirect('/admin/categories/place');
 		}
 	});
 
-	this.route('panelCatsType', {
+	this.route('panelAdminCatsType', {
 		path: '/admin/categories/:type',
 		template: 'panelList',
 		layoutTemplate: 'layoutMap',
@@ -81,9 +81,41 @@ Router.map(function() {
 				headerData: {
 					typeCat: this.params.type
 				},
+				itemsTemplate: 'itemAdminCat',
+				items: K.findCatsByType(this.params.type).fetch()
+			};
+		}
+	});
+
+	this.route('panelCats', {
+		path: '/categories',
+		onBeforeAction: function () {
+			this.redirect('/categories/place');
+		}
+	});
+
+	this.route('panelCatsType', {
+		path: '/categories/:type',
+		template: 'panelList',
+		layoutTemplate: 'layoutMap',
+		loadingTemplate: 'pageLoading',
+		waitOn: function() {
+			Session.set('showSidebar', true);
+			return Meteor.subscribe('catsByType', this.params.type);
+		},
+		data: function() {
+			if(!this.ready()) return null;
+			return  {
+				title: i18n('label_cats'),
+				className: 'allcats',
+				headerTemplate: 'panelAllCats',
+				headerData: {
+					typeCat: this.params.type
+				},
+				grid: true,
 				itemsTemplate: 'itemCat',
 				items: K.findCatsByType(this.params.type).fetch()
 			};
 		}
-	});	
+	});
 });

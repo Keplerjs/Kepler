@@ -1,8 +1,8 @@
 
 <template name="panelPlace_cats">
 	{{#if getCats.length}}
-	<div class="list-group">
-		<div class="list-group-item">
+	<div class="row">
+		<div class="col-xs-12">
 			<label>{{i18n 'label_cats'}}</label> 
 			{{#each getCats}}
 				<a href="/places/cat/{{this}}" class="label label-primary">{{this}}</a>

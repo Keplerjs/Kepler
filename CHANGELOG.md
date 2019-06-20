@@ -31,13 +31,14 @@
 - plugin import K.settings.public.import.limit
 - plugin import fix panel data
 - plugin import support geojson LineString centroid
-- plugin categories new template panelPlaceEdit_cats_latest
-- plugin categories fix remove cat button
 - plugin edit split template panelPlaceEdit in panelPlaceEdit_edit_map
 - plugin edit new method K.Place.setGeometry()
 - plugin edit panel edit location and place geometry by Leaflet Draw
 - plugin edit restyle panelEdit
 - plugin edit new templates panelPlaceEdit_edit_del, panelPlaceEdit_edit_info
+- plugin categories new template panelPlaceEdit_cats_latest
+- plugin categories fix remove cat button
+- plugin categories all categories panel for non admin users
 
 ## v1.6.6
 - core support Instagram OAuth signup

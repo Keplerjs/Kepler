@@ -6,7 +6,7 @@
 	</a>
 </template>
 
-<template name="itemCat">
+<template name="itemAdminCat">
 	<div class="cat-item">
 		<div class="pull-left">
 			<a class="label label-primary" href="/{{type}}s/cat/{{name}}">
@@ -46,12 +46,12 @@
 
 	<ul class="nav nav-tabs text-right">
 		<li class="{{#if eq typeCat 'place'}}active{{/if}}">
-			<a href="{{pathFor route='panelCatsType' type='place'}}">
+			<a href="{{pathFor route='panelAdminCatsType' type='place'}}">
 				<span>{{i18n 'btn_places'}}</span>
 			</a>
 		</li>
 		<li class="{{#if eq typeCat 'user'}}active{{/if}}">
-			<a href="{{pathFor route='panelCatsType' type='user'}}">
+			<a href="{{pathFor route='panelAdminCatsType' type='user'}}">
 				<span>{{i18n 'btn_users'}}</span>
 			</a>
 		</li>

@@ -1,0 +1,15 @@
+
+.allcats .list-items.list-items-grid .list-group-item {
+	height: auto;
+	max-width: none;
+	width: auto;
+}
+
+.allcats .btn-cat {
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}

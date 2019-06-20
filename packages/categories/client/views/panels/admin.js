@@ -1,5 +1,5 @@
 
-Template.itemCat.onRendered(function() {
+Template.itemAdminCat.onRendered(function() {
 	
 	var self = this,
 		btn$ = self.$('.btn-catdel');

@@ -1,0 +1,39 @@
+
+<template name="panelAllCats">
+<!-- TODO	<div class="row form-group">
+		<div class="col-xs-4 has-feedback">
+			<input class="cats-search form-control" type="text" placeholder="{{i18n 'label_find'}}" /> 
+			<span class="search-canc form-control-feedback" aria-hidden="true"><i class="icon icon-canc"></i></span>
+		</div>
+	</div> -->
+	<ul class="nav nav-tabs text-right">
+		<li class="{{#if eq typeCat 'place'}}active{{/if}}">
+			<a href="{{pathFor route='panelCatsType' type='place'}}">
+				<span>{{i18n 'btn_places'}}</span>
+			</a>
+		</li>
+		<li class="{{#if eq typeCat 'user'}}active{{/if}}">
+			<a href="{{pathFor route='panelCatsType' type='user'}}">
+				<span>{{i18n 'btn_users'}}</span>
+			</a>
+		</li>
+	</ul>
+</template>
+
+<template name="headerCatsType">
+	<a class="btn btn-default pull-right" href="{{pathFor route='panelCats'}}">
+		<i class="icon icon-cats"></i> {{i18n 'label_catsall'}}
+	</a>
+</template>
+
+<template name="itemCat">
+{{#if gt rank 0}}
+	<a class="btn btn-primary btn-sm btn-cat" href="/{{type}}s/cat/{{name}}">
+		{{name}} <small class="badge">{{rank}}</small>
+	</a>
+{{else}}
+	<a class="btn btn-primary btn-sm btn-cat" href="#">
+		{{name}}
+	</a>
+{{/if}}
+</template>
