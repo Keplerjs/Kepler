@@ -24,7 +24,7 @@ Kepler.Osm = {
 		return future.wait();
 	},
 
-	queryBuilder: function(o, loc) {
+	queryBuilder: function(options, loc) {
 		
 		//TODO [timeout:1];
 		var queryTmplId = '{type}({id});',
@@ -38,7 +38,7 @@ Kepler.Osm = {
 			bbox = '',
 			union = '(._;>;);';
 
-		var opts = _.defaults(o || {}, {
+		var opts = _.defaults(options || {}, {
 			id: '',
 			type: 'node',
 			filter: '~".*"~"."',
@@ -72,9 +72,7 @@ Kepler.Osm = {
 			}
 
 			if(_.isArray(opts.filter)) {
-			
 				//TODO rewrite using regexpression for multiple keys value 
-
 				tags += '(';
 				for(var f in opts.filter) {
 					tags += K.Util.tmpl(queryTmpl, {
@@ -90,9 +88,9 @@ Kepler.Osm = {
 					});
 				}
 				tags += ');';
-
-			}else{
-
+			}
+			else
+			{
 				tags = K.Util.tmpl(queryTmpl, {
 					
 					bbox: bbox,
@@ -114,7 +112,7 @@ Kepler.Osm = {
 
 		query = head + tags + union + foot;
 
-		console.log('Osm: queryBuilder ','"'+query+'"');
+		console.log('Osm: queryBuilder',query);
 
 		return query;
 	},

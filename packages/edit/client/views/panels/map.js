@@ -18,7 +18,10 @@ Template.panelPlaceEdit_edit_map.onRendered(function() {
 		if(!self.editMap) {
 
 			var layerName = K.Profile.getOpts('map.layer') || K.settings.public.map.layer,
-				layer = L.tileLayer(sets.layers[layerName]);
+				layer = L.tileLayer(sets.layers[layerName], {
+					maxZoom: 20,
+    				maxNativeZoom: 18
+				});
 
 			var icon = new L.NodeIcon(),
 				marker = L.marker(place.loc, {icon: icon});
@@ -63,7 +66,7 @@ Template.panelPlaceEdit_edit_map.onRendered(function() {
 					}
 				});
 
-				conf.position = 'bottomright';
+				conf.position = 'topright';
 				
 				if(place.geom) {
 

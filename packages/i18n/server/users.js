@@ -10,7 +10,7 @@
 Meteor.users.before.find(function(userId, selector, options, cursor) {
 	
 	var lang = K.Util.getPath(options,'fields.lang');
-
+	
 	if(lang) {
 		options.transform = function(doc) {
 			doc.lang = findLangByCode(doc.lang);
