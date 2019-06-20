@@ -20,6 +20,7 @@ K.Plugin({
 		},
 		pageAdminUser: {
 			'pageAdmin_admin_raw':{order:0},
+			'itemUserAdmin_admin_btns':{order:0},
 			'pageAdminUser_admin_contact':{order:0},
 			'pageAdminUser_admin_logins':{order:0},
 			'pageAdminUser_admin_friends':{order:0},

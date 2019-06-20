@@ -4,6 +4,31 @@ var Future = Npm.require('fibers/future'),
 
 Kepler.Osm = {
 
+	osmToPlace: function(osm) {
+
+		var feature = osm.features[0],
+			tags = feature.properties.tags,
+			geom = feature.geometry,
+			loc = K.Util.geo.centroid(geom);
+
+		var place = {
+			loc: loc,
+			geometry: geom,
+			osm: feature,
+			source: {
+				type: 'osm'
+			}
+		};
+
+		if(tags.name)
+			place.name = K.Util.sanitize.name(tags.name);
+
+		if(tags.website)
+			place.url = K.Util.sanitize.url(tags.website);
+		
+		return place;
+	},
+
 	overpassSync: function(query) {
 
 		//TODO here implement caching system
@@ -144,29 +169,6 @@ Kepler.Osm = {
 		console.log('Osm: findOsmById', osmId);
 
 		return this.overpassSync(query);
-	},
-	
-	osmToPlace: function(osm) {
-
-		var feature = osm.features[0],
-			prop = feature.properties,
-			coords = feature.geometry.coordinates;
-
-		var name = prop.tags.name || '';
-
-		var place = {
-			name: name, //K.Util.sanitize.name(name),
-			loc: [coords[1], coords[0]],
-			osm: feature,
-			source: {
-				type: 'osm'
-			}
-		};
-
-		if(prop.tags.website)
-			place.url = prop.tags.website;
-		
-		return place;
 	}
 };
 	

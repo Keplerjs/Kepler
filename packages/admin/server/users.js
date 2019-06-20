@@ -72,6 +72,8 @@ K.Admin.methods({
 		
 		if(!K.Admin.isMe()) return null;
 
+		if(Meteor.user().username===username) return null;
+
 		var userData = Users.findOne({username: username}),
 			userId = userData._id;
 

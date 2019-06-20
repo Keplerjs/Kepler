@@ -29,7 +29,11 @@ Template.itemPlaceAdmin_admin_btns.onRendered(function() {
 	var self = this;
 	self.$('.item-btn-del').btsConfirmButton(function(e) {
 		e.stopPropagation();
+		
 		K.Admin.removePlace(self.data.id);
+		delete K.placesById[self.data.id];
+
+		Session.set('itemSelected',null);
 	});
 });
 
