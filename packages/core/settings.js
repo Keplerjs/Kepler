@@ -32,7 +32,7 @@ Kepler.settings = {
 			},
 			"link": {},
 			"enterRoute": "root",
-			"publicRoutes": {
+			"publicRoutes": {	//routes that don't need logged user
 				"about": true
 			}
 		},
@@ -54,6 +54,7 @@ Kepler.settings = {
 			
 			"checkinAutomatic": true,
 			"checkinMaxDist": 150,
+			"checkinGeometry": true,	//automatica checkin if inside place geometry
 
 			"bboxMinShift": 200,
 			"bboxMaxDiagonal": 200000,	//max bounding box diangonal size for pub findPlacesByBBox in meters

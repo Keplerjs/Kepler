@@ -21,16 +21,34 @@ Users.allow({
  */
 Users.after.update(function(userId, user, fieldNames, modifier, options) {
 
-	if(K.settings.public.map.checkinAutomatic && _.contains(fieldNames,'loc') && user.loc) {
+	if( K.settings.public.map.checkinAutomatic && 
+		_.contains(fieldNames,'loc') && user.loc) {
 
 		//console.log('users.after.update loc ', user.username, K.Util.geo.locRound(user.loc).join());
-
-		var nearPlace = Places.findOne({
-				loc: {
+		var dist = K.Util.geo.meters2rad(K.settings.public.map.checkinMaxDist),
+			w = {
+				'loc': {
 					'$near': user.loc,
-					'$maxDistance': K.Util.geo.meters2rad(K.settings.public.map.checkinMaxDist)
+					'$maxDistance': dist
+					//TODO replace with minDistance
+					// https://docs.mongodb.com/manual/reference/operator/query/minDistance/
 				}
-			});
+			};
+
+		if(K.settings.public.map.checkinGeometry) {
+			w = {
+				'geometry.type': {
+					'$ne': 'Point'
+				},
+				'geometry': {
+					'$geoIntersects': {
+						'$geometry': K.Util.geo.point(user.loc)
+					}
+				} 
+			};
+		};
+
+		var nearPlace = Places.findOne(w);
 
 		if(nearPlace && nearPlace._id != user.checkin) {
 			K.insertCheckin(nearPlace._id, user._id);
