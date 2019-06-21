@@ -40,6 +40,7 @@
 - plugin categories new template panelPlaceEdit_cats_latest
 - plugin categories fix remove cat button
 - plugin categories all categories panel for non admin users
+- plugin osm import geometry from openstreetmap 
 
 ## v1.6.6
 - core support Instagram OAuth signup

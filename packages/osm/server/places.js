@@ -4,7 +4,7 @@ Meteor.methods({
 
 		if(!this.userId) return null;
 
-		var obj = Meteor.call('findOsmById', osmId);
+		var obj = K.Osm.findById(osmId);
 		
 		if(!obj) return null;
 

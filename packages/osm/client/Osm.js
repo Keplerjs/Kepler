@@ -23,8 +23,8 @@ Kepler.Osm = {
 	loadByLoc: function(loc, cb) {
 
 		var opts = {
-			filter: '~".*"~".*"',//'highway~".*"',
-			type: 'node',//'way'
+			tags: '~".*"~".*"',//'highway~".*"',
+			type: 'way',
 			limit: 1
 		};
 

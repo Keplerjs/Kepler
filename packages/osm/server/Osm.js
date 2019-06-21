@@ -52,20 +52,21 @@ Kepler.Osm = {
 	queryBuilder: function(options, loc) {
 
 		//docs https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_API_by_Example
-		
-		var query = '',
+			
+		var loc = K.Util.geo.locRound(loc),
+			out = '',
 			head = '[out:json];', //TODO [timeout:1];
 			filter = '',
 			tail = '',
 			bbox = '',
 			type = 'node',	//way,rel
-			tags = '~".*"~"."',	//all values
-			union = '(._;>;);';		//for gropuping nodes
+			tags = ['~".*"~"."'],	//all values
+			union = '(._;>;);';		//for grouping nodes
 		
 		var tmplId = '{type}({id});',
-			tmplAround = '{type}(around:{dist},{lat},{lon})[{tags}];',
-			tmplBbox = '{type}({bbox})[{tags}];',
-			tmplTail = 'out{meta} {limit};',
+			tmplAround = '{type}(around:{dist},{lat},{lon})[{tag}];',
+			tmplBbox = '{type}({bbox})[{tag}];',
+			tmplTail = 'out {meta};out geom;out {limit};',
 			tmpl = tmplAround;
 
 		var opts = _.defaults(options || {}, {
@@ -76,64 +77,51 @@ Kepler.Osm = {
 			limit: K.settings.osm.findByLocLimit,
 			meta: K.settings.osm.overpassMeta
 		});
+
+		opts.tags = _.isArray(opts.tags) ? opts.tags : [opts.tags];
+		//opts.types = _.isArray(opts.types) ? opts.types : [opts.types];
 		
-		if(opts.type==='way') {
+		/*PATCH NOW UN USEFUL if(opts.type==='way') {
 			tmpl = tmplBbox;
-			bbox = K.Util.geo.locBuffer(loc, opts.dist).join(',');
-		}
+			bbox = K.Util.geo.locBuffer(loc, opts.dist*2).join(',');
+		}*/
 
 		if(opts.id) {
 
 			filter = K.Util.tmpl(tmplId, {
-				id: opts.id,
-				type: opts.type
+				type: opts.id.split('/')[0],
+				id: opts.id.split('/')[1]
 			});
 
-			union = '';	
+			//union = '';	
 		}
 		else
 		{
-			if(_.isArray(opts.tags))
-			{
-				filter = '(';
-
-				for(var k in opts.tags) {
-
-					filter += K.Util.tmpl(tmpl, {
-						bbox: bbox,
-						lat: loc[0],
-						lon: loc[1],
-						type: opts.type,
-						dist: opts.dist,
-						tags: opts.tags[k],
-					});
-				}
-
-				filter += ");\n";
-			}
-			else
-			{
-				filter = K.Util.tmpl(tmpl, {
+			filter = _.map(opts.tags, function(tag) {
+				return K.Util.tmpl(tmpl, {
 					bbox: bbox,
 					lat: loc[0],
 					lon: loc[1],
 					type: opts.type,
 					dist: opts.dist,
-					tags: opts.tags
+					tag: tag
 				});
-			}		
+			});
+
+			filter = '('+filter.join("\n")+');';
 		}
 
 		tail = K.Util.tmpl(tmplTail, {
-			meta: opts.meta ? ' meta' : '',
+			meta: opts.meta ? 'meta' : '',
 			limit: opts.limit
 		});
 
-		query = [head, filter, union, tail].join("\n");
+		out = [head, filter, union, tail].join("\n");
 
-		console.log('Osm: queryBuilder',query);
+		console.log('Osm: queryBuilder');
+		console.log(out);
 
-		return query;
+		return out;
 	},
 	
 	findByLoc: function(loc, opts) {
@@ -154,16 +142,19 @@ Kepler.Osm = {
 			}
 		}
 		
+		console.log('Osm: findByLoc', loc);
+
 		return geojson;
 	},
 
 	findById: function(osmId) {
 
-		var query = this.queryBuilder({id: osmId});
+		var query = this.queryBuilder({id: osmId}),
+			geojson = this.overpassSync(query);
 
 		console.log('Osm: findOsmById', osmId);
 
-		return this.overpassSync(query);
+		return geojson;
 	}
 };
 

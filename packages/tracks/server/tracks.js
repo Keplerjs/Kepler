@@ -12,6 +12,6 @@ Tracks.before.upsert(function(trackId, selector, modifier) {
 	track.properties.createdAt = K.Util.time();
 
 	//Tracks.update(doc._id, track);
-	console.log('Tracks: update properties', track.id);
+	//console.log('Tracks: update properties', track.id);
 
 });
