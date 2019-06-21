@@ -27,7 +27,7 @@ Meteor.publish('tracksByPlace', function(placeId) {
 			var findOsm = function(loc) {
 				return K.Osm.findByLoc(loc, {
 					type: 'way',
-					filter: _.keys(sets.typesByTags),
+					tags: _.keys(sets.typesByTags),
 					dist: sets.maxDistance,
 					limit: sets.limit*2,//unlimit find way! cause nodes splitting,
 					meta: false

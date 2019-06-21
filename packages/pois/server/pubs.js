@@ -10,10 +10,13 @@ Meteor.publish('poisByPlace', function(placeId) {
 		//var poisCur = K.findPoisByLoc(placeData.loc);
 		//TODO optimize this condition caching
 		//if(poisCur.count()===0) {
+		//
+		//
 
 			var findOsm = function(loc) {
 				return K.Osm.findByLoc(loc, {
-					filter: _.keys(sets.typesByTags),
+					type: 'node',					
+					tags: _.keys(sets.typesByTags),
 					dist: sets.maxDistance,
 					limit: sets.limit,
 					meta: false

@@ -1,17 +1,17 @@
 
 Kepler.Pois = {
-
 	typeByTags: function(tags) {
-		var type, val;
+		var types = K.settings.public.pois.typesByTags,
+			type, val;
+
 		for(var tag in tags) {
 			val = tags[tag];
-			type = K.settings.public.pois.typesByTags[tag+'='+val];
+			type = types[tag+'='+val];
 			if(type)
 				return type;
 		}
 		return type;
 	},
-
  	poisToGeojson: function(features) {
  		
 		var self = this;

@@ -21,6 +21,7 @@ K.Plugin({
 				"importPois": true,	//enable importing of pois like place
 				"typesByTags": {
 					//osm tags classification
+					//docs https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_API_by_Example
 					"amenity=drinking_water": "water",
 					"amenity=fountain":       "water",
 					"amenity=bar":        "drink",

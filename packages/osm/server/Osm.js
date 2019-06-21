@@ -50,92 +50,86 @@ Kepler.Osm = {
 	},
 
 	queryBuilder: function(options, loc) {
+
+		//docs https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_API_by_Example
 		
-		//TODO [timeout:1];
-		var queryTmplId = '{type}({id});',
-			queryTmplAround = '{type}(around:{dist},{lat},{lon})[{filter}];',
-			queryTmplBbox = '{type}({bbox})[{filter}];',
-			queryTmpl = queryTmplAround,
-			query = '',
-			head = '[out:json];',
-			tags = '',
-			foot = '',
+		var query = '',
+			head = '[out:json];', //TODO [timeout:1];
+			filter = '',
+			tail = '',
 			bbox = '',
-			union = '(._;>;);';
+			type = 'node',	//way,rel
+			tags = '~".*"~"."',	//all values
+			union = '(._;>;);';		//for gropuping nodes
+		
+		var tmplId = '{type}({id});',
+			tmplAround = '{type}(around:{dist},{lat},{lon})[{tags}];',
+			tmplBbox = '{type}({bbox})[{tags}];',
+			tmplTail = 'out{meta} {limit};',
+			tmpl = tmplAround;
 
 		var opts = _.defaults(options || {}, {
 			id: '',
-			type: 'node',
-			filter: '~".*"~"."',
+			type: type,
+			tags: tags,
 			dist: K.settings.osm.findByLocDist,
 			limit: K.settings.osm.findByLocLimit,
 			meta: K.settings.osm.overpassMeta
 		});
+		
+		if(opts.type==='way') {
+			tmpl = tmplBbox;
+			bbox = K.Util.geo.locBuffer(loc, opts.dist).join(',');
+		}
 
 		if(opts.id) {
-			
-			queryTmpl = queryTmplId;
-			
-			tags = K.Util.tmpl(queryTmpl, {
+
+			filter = K.Util.tmpl(tmplId, {
 				id: opts.id,
 				type: opts.type
 			});
 
 			union = '';	
 		}
-		else {
-			if(opts.type=='way') {
-				queryTmpl = queryTmplBbox;
-				//union = 'way(bn);'+union;
+		else
+		{
+			if(_.isArray(opts.tags))
+			{
+				filter = '(';
 
-				/*
-				//for debug opts.dist directly in browser console
-				L.rectangle(K.Util.geo.locBuffer(K.Map.getCenter(), 100, true)).addTo(K.Map.map)
-				*/
+				for(var k in opts.tags) {
 
-				bbox = K.Util.geo.locBuffer(loc, opts.dist).join(',');
-			}
-
-			if(_.isArray(opts.filter)) {
-				//TODO rewrite using regexpression for multiple keys value 
-				tags += '(';
-				for(var f in opts.filter) {
-					tags += K.Util.tmpl(queryTmpl, {
-
+					filter += K.Util.tmpl(tmpl, {
 						bbox: bbox,
-						
 						lat: loc[0],
 						lon: loc[1],
-
 						type: opts.type,
 						dist: opts.dist,
-						filter: opts.filter[f],
+						tags: opts.tags[k],
 					});
 				}
-				tags += ');';
+
+				filter += ");\n";
 			}
 			else
 			{
-				tags = K.Util.tmpl(queryTmpl, {
-					
+				filter = K.Util.tmpl(tmpl, {
 					bbox: bbox,
-					
 					lat: loc[0],
 					lon: loc[1],
-
 					type: opts.type,
 					dist: opts.dist,
-					filter: opts.filter
+					tags: opts.tags
 				});
 			}		
-		}	
+		}
 
-		foot = K.Util.tmpl('out{meta} {limit};', {
+		tail = K.Util.tmpl(tmplTail, {
 			meta: opts.meta ? ' meta' : '',
 			limit: opts.limit
 		});
 
-		query = head + tags + union + foot;
+		query = [head, filter, union, tail].join("\n");
 
 		console.log('Osm: queryBuilder',query);
 
@@ -151,6 +145,7 @@ Kepler.Osm = {
 		
 		for(var f in features) {
 			if( features[f] && features[f].properties) {
+				
 				if(opts.meta!==true && features[f].properties.meta)
 					delete features[f].properties.meta;
 				
@@ -171,7 +166,23 @@ Kepler.Osm = {
 		return this.overpassSync(query);
 	}
 };
-	
+
+Meteor.methods({
+	findOsmByLoc: function(loc, opts) {
+		
+		if(!this.userId) return null;
+
+		return K.Osm.findByLoc(loc, opts);
+	},
+
+	findOsmById: function(osmId) {
+		
+		if(!this.userId) return null;
+		
+		return K.Osm.findById(osmId);
+	}
+});
+
 /* OSM data structure
 {
    "type":"Feature",
@@ -191,19 +202,3 @@ Kepler.Osm = {
    }
 }
 */
-
-Meteor.methods({
-	findOsmByLoc: function(loc, opts) {
-		
-		if(!this.userId) return null;
-
-		return K.Osm.findByLoc(loc, opts);
-	},
-
-	findOsmById: function(osmId) {
-		
-		if(!this.userId) return null;
-		
-		return K.Osm.findById(osmId);
-	}
-});
