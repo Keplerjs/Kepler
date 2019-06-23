@@ -3,6 +3,9 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+...
+
+## v1.6.7
 - core new settings K.settings.public.map.checkinGeometry autocheckin inside place geometry
 - core new method K.Place.showGeometry()
 - core search place name in Fulltext
