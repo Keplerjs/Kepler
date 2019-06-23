@@ -4,6 +4,7 @@ Template.panelPlaceEdit_edit_map.onRendered(function() {
 	var self = this,
 		place = this.data,
 		editMap$ = self.$('#editMap'),
+		editSave$ = self.$('.btn-editsave'),
 		sets = K.settings.public.map;
 	
 	editMap$
@@ -57,13 +58,11 @@ Template.panelPlaceEdit_edit_map.onRendered(function() {
 			
 			if(sets.controls.draw.enabled) {
 
-				let conf = _.deepExtend({}, sets.controls.draw, {
-					polyline: {
-						shapeOptions: sets.styles.geometry
-					},
-					polygon: {
-						shapeOptions: sets.styles.geometry
-					}
+				let conf = sets.controls.draw;
+
+				_.each(sets.controls.draw, function(c, k) {
+					if(c)
+						c.shapeOptions = sets.styles.geometry;
 				});
 
 				conf.position = 'topright';
@@ -110,12 +109,17 @@ Template.panelPlaceEdit_edit_map.onRendered(function() {
 				.on('draw:edited', function (e) {
 					var type = e.layerType,
 						layer = e.layers,
-						geoj = layer.toGeoJSON().features.pop();
-					
-					conf.edit.featureGroup.clearLayers();
-					conf.edit.featureGroup.addData(geoj);
-					place.setGeometry(geoj.geometry);
+						geoj = layer.toGeoJSON(),
+						feature = geoj.features.pop();
+
+					if(feature) {
+						conf.edit.featureGroup.clearLayers();
+						conf.edit.featureGroup.addData(feature);
+						place.setGeometry(feature.geometry);
+					}
 					place.geomEdited = true;
+
+					editSave$.trigger('click');
 				});			
 			}
 		}
@@ -127,7 +131,7 @@ Template.panelPlaceEdit_edit_map.events({
 	/* //TODO	'keyup .input-editloc': _.debounce(function(e, tmpl) {
 		e.preventDefault();
 	}, 300),*/
-	'click .btn-saveloc': function(e,tmpl) {
+	'click .btn-editsave': function(e,tmpl) {
 		
 		var place = tmpl.data,
 			newData = {
@@ -150,7 +154,7 @@ Template.panelPlaceEdit_edit_map.events({
 			}
 		});
 	},
-	'click .btn-cancloc': function(e,tmpl) {
+	'click .btn-editcanc': function(e,tmpl) {
 		tmpl.$('.collapse').trigger('hidden.bs.collapse');
 		tmpl.$('.collapse').trigger('shown.bs.collapse');
 		tmpl.$('.input-editloc').val( K.Util.geo.locRound(tmpl.data.loc) )

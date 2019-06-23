@@ -22,7 +22,7 @@ i18n.map('sv', {
 	label_noname: "namnlös",
 	label_desc: "Beskrivning",
 	label_createdAt: "Skapad",
-	label_creator: "Skapare",
+	label_owner: "Skapare",
 	label_friendscomm: "Delade Vänner",
 	label_friendsother: "Andra Vänner",
 	label_find: "Sök...",

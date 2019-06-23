@@ -36,7 +36,7 @@ K.Plugin({
 
 		panelUser: {'itemUser_admin': {order:-5}},
 		panelPlace: {'itemPlace_admin': {order:-5}},
-		panelPlaceEdit: {'itemPlace_admin': {order:-5}},
+		//panelPlaceEdit: {'itemPlace_admin': {order:-5}},
 		//panelPlace:'itemPlace_admin',
 		
 		panelProfile: {

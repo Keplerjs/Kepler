@@ -21,7 +21,7 @@ i18n.map('de', {
 	label_noname: "unbenannt",
 	label_desc: "Beschreibung",
 	label_createdAt: "Erstellt",
-	label_creator: "Autor",
+	label_owner: "Autor",
 	label_friendscomm: "Gemeinsame Freunde",
 	label_friendsother: "Andere Freunde",
 	label_find: "Nach...",

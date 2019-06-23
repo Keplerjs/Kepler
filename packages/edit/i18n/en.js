@@ -10,7 +10,7 @@ i18n.map('en', {
 	btn_reload: "Reload",
 
 	label_editplaces: "Edits",
-	label_owner: "Owner",
+	label_owner: "Creator",
 
 	edit_error_notOwner: "Not Owner",
 	edit_error_notUrl: "Url Not Valid",

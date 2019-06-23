@@ -8,9 +8,9 @@ K.Plugin({
 		panelPlaceEdit: {
 			'panelPlace_ui_btn_checkin': {order: -10},
 			'panelPlace_ui_btns': {order: -10},
-			'panelPlaceEdit_edit_del': {order: -10},
+			'panelPlaceEdit_edit_map': {order: -10},
+			'panelPlaceEdit_edit_del': {order: -10},			
 			'panelPlaceEdit_edit_info': {order: -10},
-			'panelPlaceEdit_edit_map': {order: -10}
 		},
 		panelProfile: {
 			'panelProfile_edit': {order: 10 }
@@ -64,7 +64,8 @@ K.Plugin({
 						//leaflet draw config:
 						"draw": {
 							"marker": false,
-							"circle": false,					    
+							"circle": false,	
+							"rectangle": false,
 							"circlemarker": false,
 							"polyline": {
 								"allowIntersection": false,

@@ -1,4 +1,10 @@
-
+#placeEdit .panel-heading {
+	background: #f90;
+	color: #fff;
+}
+#placeEdit .panel-heading a {
+	color: #fff
+}
 #placeEdit .back {
 	background-color: rgba(255,255,255,0.6)
 }
@@ -18,6 +24,9 @@
 	margin: 2px 1px;
 	border-radius: 4px;
 	border:1px solid #ccc;
+}
+#editMap .leaflet-control {
+	padding: 2px;
 }
 #editMap .leaflet-draw .leaflet-bar,
 #editMap .leaflet-control-zoom .leaflet-bar {
