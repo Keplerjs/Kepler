@@ -24,7 +24,7 @@ Kepler.Osm = {
 
 		var opts = {
 			tags: '~".*"~".*"',//'highway~".*"',
-			type: 'way',
+			types: ['way','node'],
 			limit: 1
 		};
 

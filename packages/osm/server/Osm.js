@@ -137,7 +137,7 @@ Kepler.Osm = {
 				if(opts.meta!==true && features[f].properties.meta)
 					delete features[f].properties.meta;
 				
-				if(opts.type!=='rel' && features[f].properties.relations)
+				if(!_.contains(opts.types,'rel') && features[f].properties.relations)
 					delete features[f].properties.relations;
 			}
 		}
