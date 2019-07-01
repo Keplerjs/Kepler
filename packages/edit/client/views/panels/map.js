@@ -41,9 +41,11 @@ Template.panelPlaceEdit_edit_map.onRendered(function() {
 				var loc = self.editMap.getCenter(),
 					newloc = K.Util.geo.locRound([loc.lat, loc.lng]);
 
-				marker.setLatLng(newloc);
+				if(!self.geomEditing) {
+					marker.setLatLng(newloc);
 
-				self.$('.input-editloc').val(newloc.join(','))
+					self.$('.input-editloc').val(newloc.join(','))
+				}
 			})
 			.addControl(L.control.zoom({
 				position: 'bottomright',
@@ -94,6 +96,12 @@ Template.panelPlaceEdit_edit_map.onRendered(function() {
 				self.drawControl = new L.Control.Draw(conf);
 				self.drawControl.addTo(self.editMap);
 				self.editMap
+				.on('draw:editstart', function(e) {
+					self.geomEditing = true;
+				})
+				.on('draw:editstop', function(e) {
+					self.geomEditing = false;
+				})
 				.on('draw:drawstart', function(e) {
 					conf.edit.featureGroup.clearLayers();
 				})
