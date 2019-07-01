@@ -3,7 +3,7 @@ Kepler.extend({
 	Import: {
 		geojsonToPlace: function(feature, importName, params) {
 
-			var geom = feature.geometry,
+			var geom = K.Util.sanitize.importGeometry(feature.geometry),
 				props = feature.properties,
 				loc = K.Util.geo.centroid(geom);
 

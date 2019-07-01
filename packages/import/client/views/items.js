@@ -7,11 +7,9 @@ Template.itemPlaceImport.onRendered(function() {
 		$(e.target).addClass('disabled');
 		Meteor.call('removePlace', self.data.id, function(err,res) {
 			K.Map.removeItem(K.placeById(self.data.id));
-			//Router.go('root');
 		});			
 	});
 });
-
 
 Template.itemImport.onRendered(function() {
 	

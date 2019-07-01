@@ -5,6 +5,7 @@
 ## Next version
 - core K.Place.showLoc() and K.Place.showLoc() support callaback
 - plugin osm K.Osm.findByLoc() support node and way
+- plugin import reduce multigeometyr to single, new method K.Util.sanitize.importGeometry()
 
 ## v1.6.7
 - core new settings K.settings.public.map.checkinGeometry autocheckin inside place geometry
