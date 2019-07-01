@@ -58,20 +58,20 @@ Kepler.Osm = {
 			head = '[out:json];', //TODO [timeout:1];
 			filter = '',
 			tail = '',
-			bbox = '',
-			type = 'node',	//way,rel
+			//bbox = '',
+			types = ['node'],	//way,rel
 			tags = ['~".*"~"."'],	//all values
 			union = '(._;>;);';		//for grouping nodes
 		
 		var tmplId = '{type}({id});',
 			tmplAround = '{type}(around:{dist},{lat},{lon})[{tag}];',
-			tmplBbox = '{type}({bbox})[{tag}];',
+			//tmplBbox = '{type}({bbox})[{tag}];',
 			tmplTail = 'out {meta};out geom;out {limit};',
 			tmpl = tmplAround;
 
 		var opts = _.defaults(options || {}, {
 			id: '',
-			type: type,
+			types: types,
 			tags: tags,
 			dist: K.settings.osm.findByLocDist,
 			limit: K.settings.osm.findByLocLimit,
@@ -79,36 +79,35 @@ Kepler.Osm = {
 		});
 
 		opts.tags = _.isArray(opts.tags) ? opts.tags : [opts.tags];
-		//opts.types = _.isArray(opts.types) ? opts.types : [opts.types];
-		
-		/*PATCH NOW UN USEFUL if(opts.type==='way') {
-			tmpl = tmplBbox;
-			bbox = K.Util.geo.locBuffer(loc, opts.dist*2).join(',');
-		}*/
+		opts.types = _.isArray(opts.types) ? opts.types : [opts.types];
 
 		if(opts.id) {
 
-			filter = K.Util.tmpl(tmplId, {
-				type: opts.id.split('/')[0],
-				id: opts.id.split('/')[1]
-			});
+			let osmid = opts.id.split('/');
 
-			//union = '';	
+			filter = K.Util.tmpl(tmplId, {
+				type: osmid[0],
+				id: osmid[1]
+			});
 		}
 		else
 		{
-			filter = _.map(opts.tags, function(tag) {
-				return K.Util.tmpl(tmpl, {
-					bbox: bbox,
-					lat: loc[0],
-					lon: loc[1],
-					type: opts.type,
-					dist: opts.dist,
-					tag: tag
+			filter = [];
+			
+			_.each(opts.types, function(type) {
+				_.each(opts.tags, function(tag) {
+					filter.push(K.Util.tmpl(tmpl, {
+						//bbox: bbox,
+						lat: loc[0],
+						lon: loc[1],
+						dist: opts.dist,
+						type: type,
+						tag: tag
+					}));
 				});
 			});
 
-			filter = '('+filter.join("\n")+');';
+			filter = "(\n"+filter.join("\n")+'\n);';
 		}
 
 		tail = K.Util.tmpl(tmplTail, {

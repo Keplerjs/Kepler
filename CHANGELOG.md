@@ -3,7 +3,7 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
-...
+- plugin osm K.Osm.findByLoc() support node and way
 
 ## v1.6.7
 - core new settings K.settings.public.map.checkinGeometry autocheckin inside place geometry
