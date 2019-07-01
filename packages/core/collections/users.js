@@ -20,20 +20,36 @@ Users.allow({
  */
 Users.after.update(function(userId, user, fieldNames, modifier, options) {
 
-	if( K.settings.public.map.checkinAutomatic && 
-		_.contains(fieldNames,'loc') && user.loc) {
+	if( K.settings.public.map.checkinAutomatic && _.contains(fieldNames,'loc') && user.loc)
+	{
 
 		//console.log('users.after.update loc ', user.username, K.Util.geo.locRound(user.loc).join());
-		var dist = K.Util.geo.meters2rad(K.settings.public.map.checkinMaxDist),
+		var w = {},
+			dist = K.Util.geo.meters2rad(K.settings.public.map.checkinMaxDist);
+
+		//TODO replace with minDistance
+		// https://docs.mongodb.com/manual/reference/operator/query/minDistance/
+		
+		if(K.settings.public.map.checkinGeometry) {
+			w =	{
+				'geometry': {
+					'$nearSphere': {
+						'$geometry': K.Util.geo.point(user.loc),
+						'$maxDistance': K.settings.public.map.checkinMaxDist
+					}
+				}
+			};
+		}
+		else {
 			w = {
 				'loc': {
 					'$near': user.loc,
 					'$maxDistance': dist
-					//TODO replace with minDistance
-					// https://docs.mongodb.com/manual/reference/operator/query/minDistance/
 				}
 			};
+		};
 
+		/*
 		if(K.settings.public.map.checkinGeometry) {
 			w = {
 				'geometry.type': {
@@ -45,7 +61,9 @@ Users.after.update(function(userId, user, fieldNames, modifier, options) {
 					}
 				} 
 			};
-		};
+		};*/
+
+		
 
 		var nearPlace = Places.findOne(w);
 

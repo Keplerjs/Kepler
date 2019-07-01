@@ -53,8 +53,9 @@ Kepler.settings = {
 			"dataMinZoom": 10,	//zoom limit to hide places and user
 			
 			"checkinAutomatic": true,
+			"checkinGeometry": true,	//automatic checkin near by geometry, if false use only field loc
 			"checkinMaxDist": 150,
-			"checkinGeometry": true,	//automatica checkin if inside place geometry
+			
 
 			"bboxMinShift": 200,
 			"bboxMaxDiagonal": 200000,	//max bounding box diangonal size for pub findPlacesByBBox in meters
