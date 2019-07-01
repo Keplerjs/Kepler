@@ -204,15 +204,19 @@ Kepler.Place = Class.extend({
 	 * load on map the place location
 	 * @memberOf Kepler.Place
 	 */
-	showLoc: function() {		//TODO rename showLoc in showLoc
+	showLoc: function(cb) {		//TODO rename showLoc in showLoc
+		
+		cb = _.isFunction(cb) ? cb : $.noop;
+
 		var self = this;
 		
 		self.buildMarker();
 
-		K.Map.showLoc(self.loc, function() {
+		K.Map.showLoc(self.loc, function(loc) {
 			Meteor.setTimeout(function() {
 				self.marker.openPopup();
 				self.icon.animate();
+				cb(loc);
 			},200);
 		});
 	},
@@ -220,7 +224,10 @@ Kepler.Place = Class.extend({
 	 * load on map the place geometry
 	 * @memberOf Kepler.Place
 	 */
-	showGeometry: function() {
+	showGeometry: function(cb) {
+
+		cb = _.isFunction(cb) ? cb : $.noop;
+
 		var self = this;
 		//self.update();
 		
@@ -228,11 +235,17 @@ Kepler.Place = Class.extend({
 
 		if(K.Map.ready()) {
 			if(self.geom && self.geometry.type!=='Point') {
-				K.Map.fitBounds(self.geom.getBounds());
 				self.geom.addTo(K.Map.layers.geometries);
+				K.Map.fitBounds(self.geom.getBounds(), function(loc) {
+					self.marker.openPopup();
+					cb(loc);
+				});
 			}
 			else
-				self.showLoc();
+				self.showLoc(function(loc) {
+					self.marker.openPopup();
+					cb(loc);
+				});
 		}
 	},
 	

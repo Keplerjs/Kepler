@@ -92,22 +92,22 @@ Kepler.Osm = {
 		}
 		else
 		{
-			filter = [];
+			filter = "(\n";
 			
 			_.each(opts.types, function(type) {
 				_.each(opts.tags, function(tag) {
-					filter.push(K.Util.tmpl(tmpl, {
+					filter += K.Util.tmpl(tmpl, {
 						//bbox: bbox,
 						lat: loc[0],
 						lon: loc[1],
 						dist: opts.dist,
 						type: type,
 						tag: tag
-					}));
+					})+"\n";
 				});
 			});
 
-			filter = "(\n"+filter.join("\n")+'\n);';
+			filter += "\n);";
 		}
 
 		tail = K.Util.tmpl(tmplTail, {

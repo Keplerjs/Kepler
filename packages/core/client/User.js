@@ -163,14 +163,18 @@ Kepler.User = Class.extend({
 	 * load on map the place location
 	 * @memberOf Kepler.User
 	 */
-	showLoc: function() {
+	showLoc: function(cb) {
+
 		var self = this;
 		
 		self.buildMarker();
 
-		K.Map.showLoc(self.loc, function() {
+		K.Map.showLoc(self.loc, function(loc) {
 			if(self.icon)
 				self.icon.animate();
+			
+			if(_.isFunction(cb))
+				cb(loc);
 		});
 	},
 	/**

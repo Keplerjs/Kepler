@@ -50,6 +50,7 @@ Router.map(function() {
 
 			K.Map.showLoc(loc, function() {
 				K.Map.showCursor(loc);
+				Router.go('root');
 			});
 		}
 	});
@@ -274,8 +275,11 @@ Router.map(function() {
 
 			var place = K.placeById( this.params.placeId );
 
-			if(place)
-				place.update().showLoc();
+			if(place){
+				place.update().showLoc(function() {
+					Router.go('root');	
+				});
+			}
 		}
 	});
 
@@ -293,7 +297,9 @@ Router.map(function() {
 			var place = K.placeById( this.params.placeId );
 
 			if(place) {
-				place.update().showGeometry();
+				place.update().showGeometry(function() {
+					Router.go('root');	
+				});
 			}
 		}
 	});

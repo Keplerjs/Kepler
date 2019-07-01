@@ -190,10 +190,16 @@ Kepler.Map = {
 	 * @param  {Array} bbox [description]
 	 * @return {K.Map}      [description]
 	 */
-	fitBounds: function(bbox) {
+	fitBounds: function(bbox, cb) {
+
 		if(this.ready() && bbox.isValid()) {
 			var sidebarW = (this.sidebar.hasClass('expanded') && this.sidebar.width()) || 0;
-			this.map.fitBounds(bbox, {
+			this.map
+			.once('moveend zoomend', function() {
+				if(_.isFunction(cb))
+					cb(K.Map.getCenter());
+			})
+			.fitBounds(bbox, {
 				paddingTopLeft: L.point(sidebarW,0)
 			});
 		}
@@ -280,7 +286,9 @@ Kepler.Map = {
 				Session.set('showSidebar', true);*/
 			
 			if(_.isFunction(cb))
-				this.map.once("moveend zoomend", cb);
+				this.map.once('moveend zoomend', function() {
+					cb(K.Map.getCenter())
+				});
 			
 			if(loc && K.Util.valid.loc(loc))
 				this.setView( L.latLng(loc) , this.options.showLocZoom);

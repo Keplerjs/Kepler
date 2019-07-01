@@ -3,6 +3,7 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+- core K.Place.showLoc() and K.Place.showLoc() support callaback
 - plugin osm K.Osm.findByLoc() support node and way
 
 ## v1.6.7
