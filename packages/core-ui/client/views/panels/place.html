@@ -32,6 +32,13 @@
 				</a>
 			</li>
 			{{/if}}
+			{{#if settings 'templates.tabPlace_ui_nearby.show'}}
+			<li>
+				<a href="#tab_nearbyplace" data-toggle="tab">
+					<i class="icon icon-places"></i> <span>{{i18n 'btn_nearby'}}</span>
+				</a>
+			</li>
+			{{/if}}			
 		</ul>
 
 		<div class="tab-content">
@@ -49,6 +56,13 @@
 
 			</div>	
 			{{/if}}
+			{{#if settings 'templates.tabPlace_ui_nearby.show'}}
+			<div class="tab-pane" id="tab_nearbyplace">
+			
+				{{> tabPlace_ui_nearby}}
+
+			</div>	
+			{{/if}}			
 		</div>
 	</div>	
 </div>

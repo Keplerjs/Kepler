@@ -1,39 +1,4 @@
-/*
-	https://docs.meteor.com/api/accounts-multi.html#AccountsCommon-config
 
-	//TODO 	Accounts.oauth.unregisterService('facebook');
-	//https://forums.meteor.com/t/disable-accounts-ui-social-logins-at-runtime/46479
-*/
-
-Meteor.startup(function() {	
-
-	Accounts.config({
-		sendVerificationEmail: K.settings.accounts.verifyEmail
-	});
-
-	var services = [];
-	_.each(K.settings.accounts, function(conf, key) {
-		if(conf.service) {
-			var service = _.pick(conf,'service');
-			//TODO replace with upsert()
-			ServiceConfiguration.configurations.remove(service);
-			ServiceConfiguration.configurations.insert(conf);
-			services.push(service.service)
-		}
-	});
-
-	console.log('Accounts: services', services.join(','));
-
-	Accounts.emailTemplates.from = K.settings.accounts.emailTemplates.from;
-	Accounts.emailTemplates.verifyEmail = {
-	   subject() {
-	      return i18n('email_verifyEmail_subject');
-	   },
-	   text(user, url) {
-	      return i18n('email_verifyEmail_text',user.username, url);
-	   }
-	};
-});
 
 Accounts.onLogin(function(e) {
 	var ip = e && (e.connection.httpHeaders['x-real-ip'] || e.connection.clientAddress),

@@ -31,7 +31,9 @@ i18n.map('it', {
 	btn_settings: "Impostazioni",
 	btn_addnew: "Aggiungi Nuovo",	
 	btn_accept: "Accetta",
-	btn_close: "Chiudi",	
+	btn_close: "Chiudi",
+	btn_nearby: "Vicinanze",
+
 	btn_verify: "Verifica",
 	btn_verified: "Verificata",
 	btn_notverified: "Non Verifica",

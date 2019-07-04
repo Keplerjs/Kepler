@@ -5,7 +5,8 @@ Kepler.settings.public.templates = {
 	"tabPlace_ui_info": { "show": true, order:-10},
 	"tabPlace_ui_hist": { "show": true, order:-10},
 	"tabPlace_ui_nearby": { "show": true, order:-10},
-	
+	//tabPlace_ui_nearby	
+	//
 	"tabUser_ui_info": { "show": true},
 	"tabUser_ui_friends": { "show": true},
 	"tabUser_ui_hist": { "show": true},
@@ -41,8 +42,7 @@ Kepler.settings.public.templates = {
 		"panelPlace_ui_btns": { order:-10 }
 	},
 	"tabPlace": {
-		"tabPlace_ui_info": { order:-10 },
-		"tabPlace_ui_nearby": { order:-5 },
+		"tabPlace_ui_info": { order:-10 }
 	},			
 	"panelUser": {
 		"panelUser_ui_bio": { order:-20 },

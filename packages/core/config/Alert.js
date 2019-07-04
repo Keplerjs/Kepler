@@ -1,5 +1,6 @@
 
 if(Meteor.isClient) {
+
 	Meteor.startup(function () {
 
 		//https://github.com/juliancwirko/meteor-s-alert

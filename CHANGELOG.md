@@ -3,7 +3,7 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
-...
+- core node config directory to moved configurations
 
 ## v1.6.8
 - core K.Place.showLoc() and K.Place.showGeometry() support callaback

@@ -70,6 +70,8 @@ i18n.map('fr', {
 	btn_addnew: "Ajouter un nouveau",
 	btn_accept: "Accepter",
 	btn_close: "Fermer",
+	btn_nearby: "Nearby",
+	
 	btn_verify: "Vérifier",
 	btn_verified: "Verifié",
 	btn_notverified: "Non verifié",

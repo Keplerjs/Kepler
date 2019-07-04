@@ -37,6 +37,7 @@ Kepler = {
 	//core modules
 	Profile: {},     //module for user logged data       (client)
 	Map: {},         //module map, controls, layers      (client)
+	Alert: {},		 //module to show alerts in client	 (client)	
 };
 
 /**

@@ -21,6 +21,11 @@ Package.onUse(function(api) {
   api.addFiles([
     'Kepler.js',
     'settings.js',
+    
+    'config/Alert.js',
+    'config/Accounts.js',
+    'config/Router.js',
+
     'modules/Util.js',
     'modules/Util_geo.js',
     'modules/Util_humanize.js',
@@ -41,7 +46,6 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-    'client/Accounts.js',
     'client/Alert.js',
     'client/Map.js',
     'client/Map_controls.js',
@@ -49,7 +53,6 @@ Package.onUse(function(api) {
     'client/Profile.js',	
     'client/Place.js',
     'client/User.js',
-    'client/Router_config.js',
     'client/Router.js',
   ], 'client');
 
