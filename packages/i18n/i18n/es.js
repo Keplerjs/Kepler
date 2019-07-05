@@ -46,7 +46,10 @@ i18n.map('es', {
 	label_userblocked: "Usuario bloqueado",
 	label_histuser: "Visitas recientes",
 	label_histplace: "Visitas recientes",
+	
 	label_nearplaces: "Lugares cercanos",
+	label_otherplaces: "Andere Places",
+
 	label_nolistitems: "Lista vacía",
 	label_notfound: "Ningún resultado encontrado",
 	label_version: "Versión",

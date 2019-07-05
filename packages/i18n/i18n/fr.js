@@ -46,6 +46,7 @@ i18n.map('fr', {
 	label_histuser: "visites récentes",
 	label_histplace: "visites récentes",
 	label_nearplaces: "Lieux à proximité",
+	label_otherplaces: "Autres Lieux",
 	label_nolistitems: "Liste vide",
 	label_notfound: "Aucun résultat trouvé",
 	label_version: "Version",

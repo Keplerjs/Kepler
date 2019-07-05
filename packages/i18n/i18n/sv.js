@@ -48,6 +48,8 @@ i18n.map('sv', {
 	label_histplace: "Senaste besök",
 	label_histsearch: "Senaste sökningar",
 	label_nearplaces: "Platser i närheten",
+	label_otherplaces: "Andra Platser",
+	
 	label_nolistitems: "Tom lista",
 	label_notfound: "Inga resultat",
 	label_version: "Version",

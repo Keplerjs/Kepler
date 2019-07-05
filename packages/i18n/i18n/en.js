@@ -54,6 +54,7 @@ i18n.map('en', {
 	label_histplace: "Recent visits",
 	label_histsearch: "Recent searches",
 	label_nearplaces: "Nearby Places",
+	label_otherplaces: "Other Places",
 	label_nolistitems: "List empty",
 	label_version: "Version",
 

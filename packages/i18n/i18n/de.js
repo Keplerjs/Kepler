@@ -48,6 +48,8 @@ i18n.map('de', {
 	label_histplace: "Letzte Besuche",
 	
 	label_nearplaces: "Orte in der Nähe",
+	label_otherplaces: "Andere Places",
+	
 	label_nolistitems: "Liste leer",
 	label_notfound: "Keine Ergebnisse gefunden",
 	label_version: "Version",
