@@ -51,7 +51,17 @@ Template.panelPlaceEdit_edit_map.onRendered(function() {
 				position: 'bottomright',
 				zoomOutText: i18n('map_zoomout'),
 				zoomInText: i18n('map_zoomin'),
-			}));
+			}))
+			.addControl(L.control.fullscreen({
+				position: 'bottomright'
+			}))
+			.on('fullscreenchange', function(e) {
+				
+				if(this.isFullscreen())
+					this.scrollWheelZoom.enable()
+				else
+					this.scrollWheelZoom.disable()
+			});
 
 			marker.addTo(self.editMap);
 			

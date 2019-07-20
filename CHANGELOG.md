@@ -4,6 +4,7 @@
 
 ## Next version
 - core node config directory to moved configurations
+- plugin edit fullscreen for edit map
 
 ## v1.6.8
 - core K.Place.showLoc() and K.Place.showGeometry() support callaback
