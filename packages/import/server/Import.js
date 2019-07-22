@@ -3,6 +3,8 @@ Kepler.extend({
 	Import: {
 		geojsonToPlace: function(feature, importName, params) {
 
+			//TODO key to lowercase https://gist.github.com/radutta/4480e8292372da56b426f7a4c65f8774
+
 			var geom = K.Util.sanitize.importGeometry(feature.geometry),
 				props = feature.properties || {},
 				loc = K.Util.geo.centroid(geom);
