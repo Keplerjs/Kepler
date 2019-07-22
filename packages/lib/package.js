@@ -18,6 +18,7 @@ Npm.depends({
   "leaflet-gps": "1.7.6",
   "leaflet-layerjson": "0.3.1",
   "leaflet.markercluster": "1.4.1",
+  "leaflet-fullscreen": "1.0.2"
 });
 
 Package.onUse(function(api) {
@@ -36,16 +37,19 @@ Package.onUse(function(api) {
     '.npm/package/node_modules/leaflet-gps/dist/leaflet-gps.src.css',    
     '.npm/package/node_modules/leaflet-gps/dist/leaflet-gps.src.js',
     '.npm/package/node_modules/leaflet-layerjson/dist/leaflet-layerjson.src.js',
-
+    //
     '.npm/package/node_modules/leaflet.markercluster/dist/MarkerCluster.css',
     '.npm/package/node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css',
-    '.npm/package/node_modules/leaflet.markercluster/dist/leaflet.markercluster-src.js'
+    '.npm/package/node_modules/leaflet.markercluster/dist/leaflet.markercluster-src.js',
+    '.npm/package/node_modules/leaflet-fullscreen/dist/Leaflet.fullscreen.js',
+    '.npm/package/node_modules/leaflet-fullscreen/dist/leaflet.fullscreen.css'
   ],'client');
   
   api.addAssets([
     '.npm/package/node_modules/leaflet/dist/images/marker-icon.png',
     '.npm/package/node_modules/leaflet/dist/images/marker-shadow.png',
     '.npm/package/node_modules/leaflet-gps/images/gps-icon.png',
+    '.npm/package/node_modules/leaflet-fullscreen/dist/fullscreen.png',
   ],'client');
 
   var packages = [
