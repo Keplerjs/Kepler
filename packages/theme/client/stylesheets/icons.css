@@ -3,7 +3,7 @@
 .marker-active,
 .marker-place,
 .marker-user,
-.marker-gray,
+.marker-none,
 .marker-anim,
 .marker-cursor,
 .leaflet-marker-icon,
@@ -83,7 +83,7 @@ div.leaflet-marker-icon,
 .marker-active,
 .marker-place,
 .marker-user,
-.marker-gray {
+.marker-none {
 	display: inline-block;
 	width:27px;
 	height:30px;
@@ -111,7 +111,12 @@ div.leaflet-marker-icon,
 .marker-cluster{ background-position: -30px 0;      } 
 .marker-active { background-position: -30px -30px;  } 
 .marker-place  { background-position: -30px -60px;  } 
-.marker-gray   { background-position: -30px -90px;  } 
+.marker-none   { background-position: -30px -90px;  } 
+.marker-active { background-position: -30px -120px; } 
+/* MARKERS UTILS */
+.marker-gray   { background-position: -30px -150px; }
+.marker-cursor,
+.marker-orange { background-position: -30px -180px; }
 .marker-red    { background-position: -30px -210px; }
 .marker-blue   { background-position: -30px -240px; }
 .marker-green  { background-position: -30px -270px; }

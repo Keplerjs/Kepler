@@ -23,7 +23,13 @@ Router.map(function() {
 
 			place.buildGeometry();
 
+			$(place.icon.nodeHtml).find('.marker-place').addClass('marker-active');
+
 			return place.rData();
+		},
+		onStop: function(e) {
+			var place = K.placeById( this.params.placeId );
+			$(place.icon.nodeHtml).find('.marker-place').removeClass('marker-active');
 		}
 	});
 
