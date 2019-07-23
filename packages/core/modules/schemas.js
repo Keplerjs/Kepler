@@ -12,6 +12,12 @@ Kepler.schemas = {
 	 * @type {Object}
 	 */
 	place: {
+		type: 'Feature',   //only for GeoJSON standard compatibility
+		properties: {},	   //only for GeoJSON standard compatibility
+		geometry: {	   	   //GeoJSON geometry for the place(default is Point)
+			type: 'Point',
+			coordinates: []//default is loc.reverse()
+		},
 		name: '',	       //place title
 		createdAt: '',	   //new Date() of place insert
 		userId: '',	   	   //user to created it
@@ -23,10 +29,6 @@ Kepler.schemas = {
 		desc: '',		   //description
 		warn: '',          //warnings and dangers
 		url: '',	   	   //websites url of place
-		geometry: {	   	   //GeoJSON geometry for the place(default is Point)
-			type: 'Point',
-			coordinates: []//default is loc.reverse()
-		},
 		source: {	   	   //describe source of data
 			type: ''
 		}
