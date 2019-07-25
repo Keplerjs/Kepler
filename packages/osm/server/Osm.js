@@ -49,8 +49,11 @@ Kepler.Osm = {
 		return future.wait();
 	},
 
+
+//TODO move to https://github.com/stefanocudini/overpass-query-builder
 	queryBuilder: function(options, loc) {
 
+//TODO https://github.com/idris-maps/idris-overpass/blob/master/index.js
 		//docs https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_API_by_Example
 			
 		var loc = K.Util.geo.locRound(loc),
