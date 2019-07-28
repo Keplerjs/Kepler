@@ -40,6 +40,8 @@ Package.onUse(function (api) {
 
   api.addFiles([
     'server/Osm.js',
+    'server/Osm_queryBuilder.js',
+    'server/Osm_queryCache.js',
     'server/places.js',
   ],'server');
 
