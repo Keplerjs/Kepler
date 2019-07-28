@@ -3,8 +3,11 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+- core Place schema valid geojson
 - core node config directory to moved configurations
+- theme fix css marker-place icons
 - plugin edit fullscreen for edit map
+- plugin edit highlight marker place on editing
 
 ## v1.6.8
 - core K.Place.showLoc() and K.Place.showGeometry() support callaback

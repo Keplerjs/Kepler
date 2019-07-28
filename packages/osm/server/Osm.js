@@ -68,7 +68,7 @@ Kepler.Osm = {
 
 		return future.wait();
 	},
-	
+
 	findByLoc: function(loc, opts) {
 		
 		var query = this.queryBuilder(opts, loc);
