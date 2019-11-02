@@ -12,7 +12,9 @@ Router.map(function() {
 		onAfterAction: function() {
 			var place = K.placeById( this.params.placeId );
 			if(place) {
-				place.showLoc();
+				place.showLoc(function() {
+					Router.go('root');	
+				});
 				place.showTracks();
 			}
 		}
