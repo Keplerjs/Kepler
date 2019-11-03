@@ -51,7 +51,7 @@ Template.panelPlaceEdit_edit_info.events({
 		var place = tmpl.data,
 			input$ = $(e.target),
 			data = {
-				desc: _.str.trim(input$.val())
+				desc: input$.val()
 			};
 
 		Meteor.call('updatePlace', place.id, data, function(err) {
