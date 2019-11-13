@@ -62,7 +62,10 @@ K.Plugin({
 			"cacheTime": "monthly",
 			"autoupdate": true,
 			"geonamesUser": "",
-			"ipinfodbKey": ""
+			"ipinfodbKey": "",
+			"headers": {
+				"User-Agent": "KeplerJs "+K.version
+			}
 		}
 	}
 });

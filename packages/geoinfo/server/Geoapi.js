@@ -5,9 +5,7 @@ var httpGet = function(url) {
 
 	var getOpts = {
 			timeout: 20000,	//timeout connessioni http remote
-			httpHeaders: {
-				'User-Agent': ''
-			}
+			headers: K.settings.geoinfo.headers
 		};
 
 	try {
