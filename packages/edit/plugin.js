@@ -59,6 +59,10 @@ K.Plugin({
 		"public": {
 			"map": {
 				"controls": {
+					"addButton": {
+						"enabled": true,
+						"minZoom": 12
+					},
 					"draw": {
 						"enabled": true,
 						//leaflet draw config:

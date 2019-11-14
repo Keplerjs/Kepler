@@ -2,3 +2,10 @@
 .leaflet-draw-toolbar a {
 	background-image: url('/packages/keplerjs_edit/.npm/package/node_modules/leaflet-draw/dist/images/spritesheet.svg');	
 }
+
+.leaflet-control.control-edit a {
+	display: block;
+	height: 30px;
+	width: 30px;
+	padding: 7px;
+}

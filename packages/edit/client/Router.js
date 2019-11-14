@@ -24,6 +24,7 @@ Router.map(function() {
 			place.buildGeometry();
 
 			$(place.icon.nodeHtml).find('.marker-place').addClass('marker-active');
+			place.icon.animate();
 
 			return place.rData();
 		},
