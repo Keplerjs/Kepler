@@ -8,6 +8,7 @@
 - theme fix css marker-place icons
 - plugin edit fullscreen for edit map
 - plugin edit highlight marker place on editing
+- plugin edit new addbutton control
 
 ## v1.6.8
 - core K.Place.showLoc() and K.Place.showGeometry() support callaback

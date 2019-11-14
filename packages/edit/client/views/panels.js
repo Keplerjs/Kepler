@@ -12,7 +12,9 @@ Template.panelPlaceEdit.onRendered(function() {
 				console.warn(err.message);
 			else
 			{
-				K.Map.removeItem(K.placeById(place.id));
+				let p = K.placeById(place.id)
+				K.Map.removeItem(p);
+				p.marker.remove();
 			
 				Router.go('root');
 			}
