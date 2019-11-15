@@ -9,13 +9,9 @@ K.Plugin({
 		},
 		
 		panelPlaceEdit: {
-			'panelPlaceEdit_cats': {order:0},
+			'panelPlaceEdit_cats_input': {order:0},
 			'panelPlaceEdit_cats_latest': {order:0},
-
-			//TODO split this template in two
-			//
-			//'panelPlaceEdit_cats_input': {order:0}
-			//'panelPlaceEdit_cats_last': {order:0}
+			'panelPlaceEdit_cats_all': {order:0},
 
 		},		
 		panelAdmin: 'panelAdmin_cats',

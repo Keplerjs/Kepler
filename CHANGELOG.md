@@ -9,6 +9,7 @@
 - plugin edit fullscreen for edit map
 - plugin edit highlight marker place on editing
 - plugin edit new addbutton control
+- plugin categories new template panelPlaceEdit_cats_all
 
 ## v1.6.8
 - core K.Place.showLoc() and K.Place.showGeometry() support callaback

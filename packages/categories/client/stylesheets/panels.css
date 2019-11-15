@@ -13,3 +13,13 @@
     vertical-align: baseline;
     border-radius: .25em;
 }
+
+.pick-cats-all,
+.pick-cats-latest {
+	max-height: 78px;
+	overflow-y: auto;
+}
+.pick-cats-all .btn,
+.pick-cats-latest .btn {
+	margin-bottom: 5px
+}
