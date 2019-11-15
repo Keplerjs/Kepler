@@ -18,8 +18,6 @@ Tracker.autorun(function(comp) {
 
 								var loc = K.Map.getCenter();
 
-								console.log('click .btn-insert', loc )
-								//K.Map.showCursor(loc);
 								Meteor.call('insertPlace', {loc: loc }, function(err, placeId) {
 
 									Meteor.subscribe('placeById', placeId, function() {
