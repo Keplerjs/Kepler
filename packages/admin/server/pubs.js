@@ -39,9 +39,9 @@ Meteor.publish('adminUserById', function(userId) {
 			userData = userCur.fetch()[0],
 			retCurs = [],
 			placeIds = [];
-		/*if(userData) {
+		if(userData) {
 			this.added('users', userId, userData);
-		}*/
+		}
 
 		retCurs.push(userCur);
 		

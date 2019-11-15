@@ -30,11 +30,13 @@ keplerjs:photos
 #$ meteor add <pkg-name>
 
 #keplerjs:robots
-#keplerjs:wunderground
-#keplerjs:googlemaps
-#keplerjs:openrouteservice
+keplerjs:wunderground
+keplerjs:googlemaps
+keplerjs:openrouteservice
 
 ##work in progress
 #keplerjs:gtfs
 #keplerjs:mapillary
 #keplerjs:foursquare
+
+keplerjs:demo
