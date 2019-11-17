@@ -1,7 +1,7 @@
 
 i18n.map('it', {
 	btn_share: "Invia",
-	btn_copied: "Copiato!",
+	btn_copied: "Url Copiato!",
 	btn_copyloc: "Copia posizione",
 	btn_nav: "Naviga con",
 	btn_navapp: "App Navigazione",

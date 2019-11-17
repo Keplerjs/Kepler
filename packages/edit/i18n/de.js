@@ -8,5 +8,5 @@ i18n.map('de', {
 	btn_del: "Entfernen",
 	btn_ren: "Umbenennen",
 
-	label_editplaces: "Erstellte Orte"
+	label_editplaces: "Erstellte Orte",
 });

@@ -92,7 +92,7 @@ Template.registerHelper('numericDate', function(date, time) {
 	date = new Date(date);
 	var dd = [date.getDate(), date.getMonth()+1, date.getFullYear()].join('/');
 	var tt = [date.getHours(),date.getMinutes()].join(':');
-	return dd+(time && ' '+tt);
+	return dd+(time ? ' '+tt : '');
 });
 
 Template.registerHelper('humanDate', function(date, short) {

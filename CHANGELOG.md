@@ -9,6 +9,7 @@
 - plugin edit fullscreen for edit map
 - plugin edit highlight marker place on editing
 - plugin edit new addbutton control
+- plugin edit new template panelPlaceEdit_edit_status
 - plugin categories new template panelPlaceEdit_cats_all
 
 ## v1.6.8

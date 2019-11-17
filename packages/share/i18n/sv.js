@@ -1,7 +1,7 @@
 
 i18n.map('sv', {
 	btn_share: "Skicka",
-	btn_copied: "Kopierat!",
+	btn_copied: "Url Kopierat!",
 	btn_copyloc: "kopia plats",
 	btn_nav: "Navigera",
 	btn_navapp: "Standard-app",

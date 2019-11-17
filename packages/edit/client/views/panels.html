@@ -11,17 +11,9 @@
 {{#if or createdAt userId}}
 	<div class="row">
 		<div class="col-sm-12">
+
 			<br />
-			{{#if userId}}
-				<label>{{i18n 'label_owner'}}</label>
-				{{#with userById userId}}
-					{{> item_user_name}}
-				{{/with}}
-			{{/if}}
-			{{#if createdAt}}
-				<label>{{i18n 'label_createdAt'}}</label>
-				<time>{{numericDate createdAt}}</time>
-			{{/if}}
+			{{> panelPlaceEdit_edit_status}}
 
 			{{#if isEditable}}
 			<div class="btn-group pull-right" role="group">
@@ -68,7 +60,6 @@
 </template>
 
 <template name="panelPlaceEdit">
-
 	<div id="placeEdit" class="panel">
 		<div class="panel-heading">
 			<h4 class="pull-left">
@@ -85,19 +76,31 @@
 			</a>
 		</div>
 		<div class="panel-body">
-			
+
 			{{> pluginsTemplate name='panelPlaceEdit'}}	
 					
 		</div>	
 	</div>
+</template>
 
+<template name="panelPlaceEdit_edit_status">
+	{{#if userId}}
+		<label>{{i18n 'label_owner'}}</label>
+		{{#with userById userId}}
+			{{> item_user_name}}
+		{{/with}}
+	{{/if}}
+	{{#if createdAt}}
+		<label>{{i18n 'label_createdAt'}}</label>
+		<time>{{numericDate createdAt false}}</time>
+	{{/if}}
 </template>
 
 <template name="panelPlaceEdit_edit_del">
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="pull-right">
-				<a class="btn-editdel btn btn btn-default" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
+				<a class="btn-editdel btn btn btn-default" href="#" data-confirm-msg="{{i18n 'btn_delplace'}}">
 					<i class="icon icon-del"></i> {{i18n 'btn_del'}}
 				</a>
 			</div>
