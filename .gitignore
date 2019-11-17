@@ -9,5 +9,10 @@ public/node_modules
 nohup.out
 .npm
 start*.sh
+stop*.sh
+push*.sh
 settings*.json
 packages/keplerjs-*
+kepler.log
+kepler.pid
+
