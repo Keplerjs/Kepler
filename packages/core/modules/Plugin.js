@@ -125,9 +125,19 @@ Kepler.Plugin.templatesByPlaceholder = function(placeholder, data, sep) {
 
 			sorts = _.sortBy(arr, 'order');
 
-			var len = sorts.length-3;
+			var len = sorts.length-3,
+				add = false;
+
 			for(var s in sorts) {
-				if(sorts[s].show) {
+
+				if(_.isBoolean(sorts[s].show))
+					add = sorts[s].show;
+				else if(_.isFunction(sorts[s].show))
+					add = sorts[s].show(placeholder, data, sep);
+				else
+					add = false;
+
+				if(add) {
 					tmpls.push({
 						pluginTemplate: sorts[s].name,
 						pluginData: data,

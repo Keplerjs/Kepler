@@ -3,6 +3,7 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+- core Plugin templates placeholder show support function value
 - core Place schema valid geojson
 - core node config directory to moved configurations
 - theme fix css marker-place icons
