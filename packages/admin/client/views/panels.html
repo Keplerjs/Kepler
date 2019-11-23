@@ -1,99 +1,24 @@
 
-
-<template name="panelUser_admin">
-{{#if adminIsMe}}
-	<div class="list-group">
-		<div class="list-group-item active">
-			{{i18n 'title_admin'}}
-		</div>
-		<div class="list-group-item">
-			<a class="btn btn-default" type="button" data-toggle="collapse" data-target="#rawdata" aria-expanded="false" aria-controls="collapseExample">
-			  {{i18n 'label_rawdata'}}
-			</a>
-			<div id="rawdata" class="collapse collapsed">
-				{{{log data}}}
-			</div>
-			{{#if source.url}}
-			<a class="btn btn-link" href="{{source.url}}">
-				{{i18n 'label_account'}}
-			</a>
-			{{/if}}
-			<a class="btn-editdel btn btn btn-default pull-right" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
-				<i class="icon icon-del"></i> {{i18n 'btn_del'}}
-			</a>
-		</div>
-	</div>
-{{/if}}
-</template>
-
 <template name="panelProfile_admin">
-{{#if adminIsMe}}
 	<a class="list-group-item" href="/admin">
 		<i class="icon icon-admin"></i>
 		 {{i18n 'title_admin'}}
 	</a>
-{{/if}}
 </template>
 
-<template name="panelPlaceAdmin">
-	<div class="panel">
-		<div class="panel-heading bg-primary">
-			<h4 class="text-left">
-				{{i18n 'title_adminPlace' name}}
-			</h4>
-		</div>
-		<div class="panel-body">
-
-			{{> pluginsTemplate name='panelPlaceAdmin' sep='<hr />'}}
-
-		</div>		
+<template name="panelUser_admin">
+	<div class="clearfix">
+		<a class="btn btn-sm btn-default pull-right" href="/admin/users/{{id}}" title="{{i18n 'title_admin'}}">
+			<i class="icon icon-admin"></i> <span>{{i18n 'title_admin'}}</span>
+		</a>
 	</div>
 </template>
 
-<template name="panelAdmin">
-	<div id="admin" class="panel">
-
-		<div class="panel-heading bg-primary">
-			<h4 class="pull-left">
-				<a class="back" href="{{routeBack}}">
-					<i class="icon icon-arrow-l"></i>
-				</a> 
-				{{i18n 'title_admin'}}
-			</h4>
-			<a class="close pull-right" href="/">
-				<i class="icon icon-close"></i>
-			</a>
-		</div>
-		<div class="panel-body">
-			<div class="list-group">
-
-				{{> pluginsTemplate name='panelAdmin'}}
-				
-			</div>
-		</div>
+<template name="panelPlace_admin">
+	<div class="clearfix">
+		<a class="btn btn-sm btn-default pull-right" href="/admin/places/{{id}}" title="{{i18n 'title_admin'}}">
+			<i class="icon icon-admin"></i> <span>{{i18n 'title_admin'}}</span>
+		</a>
 	</div>
 </template>
 
-<template name="panelAdmin_btns">
-	<a class="list-group-item" href="/admin/users">
-		<i class="icon icon-users"></i>
-		{{i18n 'title_panelAdminUsers'}}
-	</a>
-	<a class="list-group-item" href="/admin/places">
-		<i class="icon icon-map"></i>
-		{{i18n 'title_panelAdminPlaces'}}
-	</a>	
-</template>
-
-<template name="panelAdmin_admin_methods">
-<!-- 	TODO	<div class="list-group">
-	<div class="list-group-item active">
-		Admin methods registered in the browser console
-	</div>
-	<div class="list-group-item" style="max-height:150px;overflow-y:auto">
-	{{#each methods}}
-		<a href="#" data-name="{{this}}">K.Admin.{{this}}()</a><br />
-	{{/each}}
-	</div>
-</div> -->
-</template>

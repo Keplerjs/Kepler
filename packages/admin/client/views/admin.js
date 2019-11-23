@@ -1,19 +1,4 @@
 
-Template.panelUser_admin.onRendered(function() {
-	var self = this;
-	self.$('.btn-editdel').btsConfirmButton(function(e) {
-			
-		K.Admin.removeUser(self.data.username)
-		
-		K.Map.removeItem(K.userById(self.data.id));
-	
-		delete K.usersById[self.data.id];
-
-		Router.go('root');
-	});
-});
-
-
 Template.panelAdmin.onCreated(function() {
 
     this.methods = new ReactiveVar();

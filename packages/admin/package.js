@@ -39,8 +39,9 @@ Package.onUse(function(api) {
     'client/views/pages/users.html',
     'client/views/pages/users.js',
     'client/views/panels.html',
-    'client/views/panels.js',
-    'client/views/items.html',
+    //'client/views/panels.js',
+    'client/views/admin.html',
+    'client/views/admin.js',
     'client/stylesheets/panels.css',
     'client/Router.js'
   ],'client');

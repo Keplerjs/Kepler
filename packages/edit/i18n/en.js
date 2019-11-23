@@ -11,7 +11,7 @@ i18n.map('en', {
 	btn_delplace: "Delete this place",
 
 	label_editplaces: "Edits",
-	label_owner: "Creator",
+	label_owner: "Owner",
 
 	edit_error_editing: "Change each field and close to return to public view",
 	edit_error_notOwner: "Not Owner",

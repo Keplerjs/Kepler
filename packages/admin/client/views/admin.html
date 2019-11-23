@@ -1,0 +1,65 @@
+
+
+<template name="panelPlaceAdmin">
+	<div class="panel">
+		<div class="panel-heading bg-primary">
+			<h4 class="text-left">
+				{{i18n 'title_adminPlace' name}}
+			</h4>
+		</div>
+		<div class="panel-body">
+
+			{{> pluginsTemplate name='panelPlaceAdmin' sep='<hr />'}}
+
+		</div>		
+	</div>
+</template>
+
+<template name="panelAdmin">
+	<div id="admin" class="panel">
+
+		<div class="panel-heading bg-primary">
+			<h4 class="pull-left">
+				<a class="back" href="{{routeBack}}">
+					<i class="icon icon-arrow-l"></i>
+				</a> 
+				{{i18n 'title_admin'}}
+			</h4>
+			<a class="close pull-right" href="/">
+				<i class="icon icon-close"></i>
+			</a>
+		</div>
+		<div class="panel-body">
+			<div class="list-group">
+
+				{{> pluginsTemplate name='panelAdmin'}}
+				
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="panelAdmin_btns">
+	<a class="list-group-item" href="/admin/users">
+		<i class="icon icon-users"></i>
+		{{i18n 'title_panelAdminUsers'}}
+	</a>
+	<a class="list-group-item" href="/admin/places">
+		<i class="icon icon-map"></i>
+		{{i18n 'title_panelAdminPlaces'}}
+	</a>	
+</template>
+
+<template name="panelAdmin_admin_methods">
+<!-- 	TODO	<div class="list-group">
+	<div class="list-group-item active">
+		Admin methods registered in the browser console
+	</div>
+	<div class="list-group-item" style="max-height:150px;overflow-y:auto">
+	{{#each methods}}
+		<a href="#" data-name="{{this}}">K.Admin.{{this}}()</a><br />
+	{{/each}}
+	</div>
+</div> -->
+</template>
+

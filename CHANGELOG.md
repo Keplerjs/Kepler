@@ -12,6 +12,7 @@
 - plugin edit new addbutton control
 - plugin edit new template panelPlaceEdit_edit_status
 - plugin categories new template panelPlaceEdit_cats_all
+- plugin admin use new settings by function
 
 ## v1.6.8
 - core K.Place.showLoc() and K.Place.showGeometry() support callaback

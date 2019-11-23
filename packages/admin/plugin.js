@@ -34,13 +34,32 @@ K.Plugin({
 			'itemPlaceAdmin_admin_btns': {order:10}
 		},
 
-		panelUser: {'itemUser_admin': {order:-5}},
-		panelPlace: {'itemPlace_admin': {order:10}},
+		panelUser: {
+			'panelUser_admin': {
+				order:-5,
+				show: function() {
+					return K.Admin.isMe()
+				}
+			}
+		},
+		panelPlace: {
+			'panelPlace_admin': {
+				order:10,
+				show: function() {
+					return K.Admin.isMe()
+				}
+			}
+		},
 		//panelPlaceEdit: {'itemPlace_admin': {order:-5}},
 		//panelPlace:'itemPlace_admin',
 		
 		panelProfile: {
-			'panelProfile_admin': {order:10},
+			'panelProfile_admin': {
+				order:10,
+				show: function() {
+					return K.Admin.isMe()
+				}
+			},
 			//'panelUser_admin': {order:50},
 		},
 		//panelPlaceAdmin:'panelPlaceAdmin_admin_raw',
