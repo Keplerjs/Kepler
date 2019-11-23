@@ -60,6 +60,7 @@ K.Plugin({
 				"controls": {
 					"addButton": {
 						"enabled": true,
+						"position": "bottomright",
 						"minZoom": 12
 					},
 					"draw": {

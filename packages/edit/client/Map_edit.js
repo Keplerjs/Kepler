@@ -1,11 +1,15 @@
 
 Tracker.autorun(function(comp) {
 
-	if(K.Map.ready() && K.settings.public.map.controls.addButton.enabled) {
+	var btnSets = K.settings.public.map.controls.addButton;
+
+	if(K.Map.ready() && btnSets.enabled) {
 
 		if(!K.Map.controls.addButton) {
 			K.Map.controls.addButton = (function() {
-				var ctrl = new L.Control({position:'bottomright'});
+				var ctrl = new L.Control({
+					position: btnSets.position
+				});
 				ctrl.onAdd = function(map) {
 						var divp = L.DomUtil.create('div','test');
 
@@ -41,7 +45,7 @@ Tracker.autorun(function(comp) {
 			var z = K.Map.map.getZoom();
 
 			if(	z > K.settings.public.map.dataMinZoom &&
-				z > K.settings.public.map.controls.addButton.minZoom )
+				z > btnSets.minZoom )
 			{
 
 				K.Map.map.addControl(K.Map.controls.addButton);
