@@ -53,14 +53,9 @@
 .sidebar > .nav > li:first-child {
 	margin-left: 4px;
 }
-.sidebar > .nav > li:first-child > .btn {
-	padding: 0 4px 0 0;
-	border: none;
-	height: 30px;
-	/*width: 30px;*/
-}
 .sidebar > .nav > li:first-child img {
 	vertical-align: middle;
+    margin: -4px 0 -4px -4px;
 }
 
 li#navsearch {

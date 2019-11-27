@@ -88,9 +88,10 @@ Kepler.Profile = {
 	setLoc: function(loc) {
 		var self = this;
 		Meteor.call('setLoc', loc, function(err) {
-			self.user.update();
-			if(self.user && self.user.icon)
+			if(self.user && self.user.icon) {
+				self.user.update();
 				self.user.icon.animate();
+			}
 		});
 		return this;
 	},

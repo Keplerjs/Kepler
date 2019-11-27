@@ -7,12 +7,19 @@
 
 <template name="navSidebar_ui_profile">
 	<li class="{{routeIs 'profile' 'active'}}">
+	{{#if currentUser}}
 		{{#with currentUser}}
-		<a class="btn btn-sm" href="{{pathFor route='profile'}}" title="{{i18n 'btn_profile'}} {{username}}" role="tab">
+		<a class="btn btn-sm btn-avatar" href="{{pathFor route='profile'}}" title="{{i18n 'btn_profile'}} {{username}}" role="tab">
 			<img class="icon-avatar {{#unless avatar}}icon-avatar-default{{/unless}}" src="{{#if avatar}}{{avatar}}{{/if}}" />
 			<span>{{username}}</span>
 		</a>
 		{{/with}}
+	{{else}}
+		<a class="btn btn-sm" href="{{pathFor route='pageHome'}}" role="tab">
+			<i class="icon icon-home"></i>
+			<span>home</span>
+		</a>
+	{{/if}}
 	</li>
 </template>
 

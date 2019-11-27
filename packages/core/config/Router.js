@@ -40,17 +40,20 @@ if(Meteor.isClient && Router) {
 				});
 			});
 		}
-		
 	});
 
 	Router.onAfterAction(function() {
 
-		var routeName = this.route.getName();
+		var routeName = this.route.getName(),
+			mapSets = K.settings.public.map;
 
 		document.title = i18n('title_'+routeName) || _.str.capitalize(routeName);
 		//TODO replace with https://github.com/VeliovGroup/Meteor-iron-router-title
+		
+		if(K.Profile.ready)
+			mapSets = K.Profile.getOpts('map');
 
-		if(this.ready() && K.Profile.ready) {
+		if(this.ready()) {//} && K.Profile.ready) {
 
 			if(this.route.options.layoutTemplate==='layoutMap') {
 				/*
@@ -66,7 +69,7 @@ if(Meteor.isClient && Router) {
 
 				Meteor.setTimeout(function() {
 					
-					K.Map.init($('#map')[0], K.Profile.getOpts('map'));
+					K.Map.init($('#map')[0], mapSets);
 
 				},10);
 			

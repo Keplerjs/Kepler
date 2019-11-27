@@ -3,7 +3,6 @@ _.extend(Kepler.Map, {
 	_initControls: function(map, opts) {
 
 		var self = this,
-			optsDef = K.settings.public.map,
 			controls = {};
 
 		if(i18n('map_zoomout'))
@@ -19,7 +18,7 @@ _.extend(Kepler.Map, {
 			controls.gps = new L.Control.Gps({
 				autoActive: false,
 				autoCenter: false,
-				marker: K.Profile.user.marker,
+				marker: K.Profile.ready && K.Profile.user.marker,
 				style: {opacity:0,fillOpacity:0},
 				position: opts.controls.gps.position,
 				title: i18n('map_gps_title'),

@@ -1,23 +1,11 @@
 
 Meteor.publish('placesByBBox', function(bbox) {
+
+	var diag = K.Util.geo.distance(bbox[0],bbox[1]);
 	
-	//TODO remove
-	if(this.userId) {
-
-		var diag = K.Util.geo.distance(bbox[0],bbox[1]);
-
-		//console.log('Pub: placesByBBox ', diag);
-
-		if(diag < K.settings.public.map.bboxMaxDiagonal) {
-			var cur = K.findPlacesByBBox(bbox);
-			
-			//console.log('Pub: placesByBBox ', this.userId, cur.count());
-			
-			return cur;
-		}
-		else
-			this.ready();
-	}
+	if( diag < K.settings.public.map.bboxMaxDiagonal && 
+	    (this.userId || K.settings.public.router.publicRoutes.map) )
+		return K.findPlacesByBBox(bbox);
 	else
 		this.ready();
 });

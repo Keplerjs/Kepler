@@ -28,7 +28,7 @@ Kepler.settings = {
 			"mainRoute": "map",			//page where logged user enter
 			"loginRoute": "pageHome",	//page where user can do login/signup
 			"publicRoutes": {	//routes that don't need logged user
-				"map": false,
+				"map": false
 			},
 			"meta": {
 				"gen": {
