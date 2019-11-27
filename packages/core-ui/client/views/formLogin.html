@@ -4,7 +4,7 @@
 	{{#if currentUser}}
 		{{#with currentUser}}
 
-			<a class="btn btn-default" href="{{pathFor route=enterRoute}}">
+			<a class="btn btn-default" href="{{pathFor route=mainRoute}}">
 				<span class=" user-btn-name">
 					<img class="icon-avatar {{#unless avatar}}icon-avatar-default{{/unless}}" src="{{#if avatar}}{{avatar}}{{/if}}" />
 					<u>{{i18n 'btn_enter'}}</u>

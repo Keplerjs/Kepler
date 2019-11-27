@@ -17,29 +17,30 @@ if(Meteor.isClient && Router) {
 
 		var routeName = this.route.getName();
 
-		if(!K.settings.public.router.publicRoutes[routeName]) {
-			
-			if(!Meteor.user()) {
-				if(Meteor.loggingIn())
-					this.render(this.loadingTemplate);
-				else
-					Router.go('home');
-			}
+		if(!Meteor.user()) {
+			if(Meteor.loggingIn())
+				this.render(this.loadingTemplate);
 			else {
-				return Meteor.subscribe('currentUser', function() {
-
-					K.Profile.init(function(data) {
-						
-						i18n.setLanguage(data.lang);
-
-						//TODO move to plugin admin
-						if(K.Admin && K.Admin.isMe()){
-							K.Admin.loadMethods();
-						}
-					});
-				});
+				//is not a public route go to login box
+				if(!K.settings.public.router.publicRoutes[routeName])
+					Router.go(K.settings.public.router.loginRoute);
 			}
 		}
+		else {
+			return Meteor.subscribe('currentUser', function() {
+
+				K.Profile.init(function(data) {
+					
+					i18n.setLanguage(data.lang);
+
+					//TODO move to plugin admin
+					if(K.Admin && K.Admin.isMe()){
+						K.Admin.loadMethods();
+					}
+				});
+			});
+		}
+		
 	});
 
 	Router.onAfterAction(function() {

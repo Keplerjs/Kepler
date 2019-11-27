@@ -16,7 +16,7 @@ Template.panelPlaceEdit.onRendered(function() {
 				K.Map.removeItem(p);
 				p.marker.remove();
 			
-				Router.go('root');
+				Router.go(K.settings.public.router.mainRoute);
 			}
 		});
 	});

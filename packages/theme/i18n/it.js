@@ -1,11 +1,5 @@
 
 i18n.map('it', {
-	title_root: "KeplerJs",
-	title_home: "Benvenuto",
-	title_pageAbout: "About",
-	title_pageCredits: "Crediti",
-	title_pageFeedback: "Feedback",
-	
 	website_name: "KeplerJs",
 	website_slogan: "The open source full-stack geosocial network framework",
 

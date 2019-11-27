@@ -1,11 +1,5 @@
 
-i18n.map('sv', {
-	title_root: "KeplerJs",
-	title_home: "Välkommer",
-	title_pageAbout: "Om",
-	title_pageCredits: "Medverkande",
-	title_pageFeedback: "Feedback",
-	
+i18n.map('sv', {	
 	website_name: "KeplerJs",
 	website_slogan: "Open source geosocial nätverksplatform",
 

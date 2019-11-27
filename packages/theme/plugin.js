@@ -32,9 +32,6 @@ K.Plugin({
 					//	"name": "msapplication-TileImage",
 					//	"content": "/packages/keplerjs_theme/assets/images/apple-touch-icon-144.png",
 					//}
-				},
-				"publicRoutes": {
-					"pageAbout": 1
 				}
 			}
 		}

@@ -25,16 +25,17 @@ Kepler.settings = {
 			"fr": "Français"
 		},
 		"router": {
+			"mainRoute": "map",			//page where logged user enter
+			"loginRoute": "pageHome",	//page where user can do login/signup
+			"publicRoutes": {	//routes that don't need logged user
+				"map": false,
+			},
 			"meta": {
 				"gen": {
 					"generator": "KeplerJs v"+K.version+" https://keplerjs.io"
 				}
 			},
-			"link": {},
-			"enterRoute": "root",
-			"publicRoutes": {	//routes that don't need logged user
-				"about": true
-			}
+			"link": {}			
 		},
 		"profile": {
 			"awayTime": 10000,

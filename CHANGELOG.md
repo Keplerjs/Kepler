@@ -6,13 +6,16 @@
 - core Plugin templates placeholder show support function value
 - core Place schema valid geojson
 - core node config directory to moved configurations
-- theme fix css marker-place icons
+- core renamed K.settings.public.router.enterRoute in .loginRoute
+- core rename root route in K.settings.public.router.mainRoute
+- core add new sets K.settings.public.router.mainRoute that replace 'root' route
 - plugin edit fullscreen for edit map
 - plugin edit highlight marker place on editing
 - plugin edit new addbutton control
 - plugin edit new template panelPlaceEdit_edit_status
 - plugin categories new template panelPlaceEdit_cats_all
 - plugin admin use new settings by function
+- theme fix css marker-place icons
 
 ## v1.6.8
 - core K.Place.showLoc() and K.Place.showGeometry() support callaback

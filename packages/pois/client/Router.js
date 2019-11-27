@@ -13,7 +13,7 @@ Router.map(function() {
 			var place = K.placeById( this.params.placeId );
 			if(place) {
 				place.showLoc(function() {
-					Router.go('root');	
+					Router.go(K.settings.public.router.mainRoute);	
 				});
 				place.showPois();
 			}

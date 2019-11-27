@@ -147,7 +147,7 @@ _.extend(Kepler.Map, {
 			if(layers.geojson.getLayers().length) {
 				if(e.target.getBoundsZoom(layers.geojson.getBounds()) - e.target.getZoom() > 2) {
 					layers.geojson.clearLayers();
-					Router.go('root');
+					Router.go(K.settings.public.router.mainRoute);
 				}
 			}
 

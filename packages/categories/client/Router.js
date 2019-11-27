@@ -64,7 +64,7 @@ Router.map(function() {
 		loadingTemplate: 'pageLoading',
 		onBeforeAction: function () {
 			if(!K.Admin || !K.Admin.isMe())
-				Router.go('root');
+				Router.go(K.settings.public.router.mainRoute);
 			else
 				this.next();
 		},

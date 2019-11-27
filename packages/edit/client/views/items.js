@@ -6,7 +6,7 @@ Template.item_place_edit.onRendered(function() {
 	self.$('.btn-placedel').btsConfirmButton(function(e) {
 		Meteor.call('removePlace', self.data.id, function(err,res) {
 			K.Map.removeItem(K.placeById(self.data.id));
-			//Router.go('root');
+			//Router.go(K.settings.public.router.mainRoute);
 		});			
 	});
 });

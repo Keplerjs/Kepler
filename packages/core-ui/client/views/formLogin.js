@@ -1,7 +1,7 @@
 
 Template.formLogin.helpers({
-	enterRoute: function() {
-		return K.settings.public.router.enterRoute;
+	mainRoute: function() {
+		return K.settings.public.router.mainRoute;
 	},
 	classnames: function() {
 		var sets = K.settings.public.accounts,

@@ -1,7 +1,7 @@
 i18n.map('sv', {
 
-	title_root: "Karta",
-	title_home: "Välkommer",
+	title_main: "Karta",
+	title_pageHome: "Välkommer",
 	title_profile: "Profil",
 	title_settings: "Inställningar",
 	title_settingsBlocked: "Blockerade användare",
@@ -14,7 +14,6 @@ i18n.map('sv', {
 	title_usersNews: "Senaste användare",
 	title_checkins: "Personer på {$1}",
 	title_login: "Logga in",
-	title_about: "Om oss",
 	title_page404: "Hittar inte sidan!",
 
 	label_mapcenter: "Hem",

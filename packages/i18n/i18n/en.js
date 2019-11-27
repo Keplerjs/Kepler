@@ -1,7 +1,7 @@
 i18n.map('en', {
 
-	title_root: "Map",
-	title_home: "Welcome",
+	title_main: "Map",
+	title_pageHome: "Welcome",
 	title_profile: "Profile",
 	title_settings: "Settings",
 	title_settingsBlocked: "Blocked Users",
@@ -14,7 +14,6 @@ i18n.map('en', {
 	title_usersNews: "Recent Users",
 	title_checkins: "People at {$1}",
 	title_login: "Log in",
-	title_about: "About Us",
 	title_page404: "Page Not Found!",
 
 	label_loading: "Loading...",
