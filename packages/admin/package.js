@@ -29,7 +29,6 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
-    'client/Profile_admin.js',
     'client/Place_admin.js',
     'client/helpers.js',
     'client/views/pages/admin.html',

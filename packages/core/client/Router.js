@@ -225,7 +225,7 @@ Router.map(function() {
 			return {
 				title: i18n('title_placesNearby'),
 				className: 'placesNearby',
-				headerTemplate: 'search_place',
+				headerTemplate: 'panelPlaces',
 				itemsTemplate: 'item_place_search',
 				items: _.map(places, function(place) {
 					return K.placeById(place._id);
@@ -250,7 +250,7 @@ Router.map(function() {
 			return {
 				title: i18n('title_placesNews'),
 				className: 'placesNews',
-				headerTemplate: 'search_place',
+				headerTemplate: 'panelPlaces',
 				itemsTemplate: 'item_place_search',
 				items: _.map(places, function(place) {
 					return K.placeById(place._id);

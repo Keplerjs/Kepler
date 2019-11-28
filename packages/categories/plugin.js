@@ -7,6 +7,10 @@ K.Plugin({
 		tabPlace: {
 			'panelPlace_cats': {order: -5 } //render after info
 		},
+
+		panelPlaces: {
+			"btnCats_place": { order:0 }
+		},
 		
 		panelPlaceEdit: {
 			'panelPlaceEdit_cats_input': {order:0},
@@ -37,6 +41,11 @@ K.Plugin({
 						"animal": false,
 						"robot": false,
 					}
+				}
+			},
+			"router": {
+				"publicRoutes": {
+					"placePois": false
 				}
 			}
 		}

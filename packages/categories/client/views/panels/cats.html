@@ -20,8 +20,14 @@
 	</ul>
 </template>
 
-<template name="headerCatsType">
-	<a class="btn btn-default pull-right" href="{{pathFor route='panelCats'}}">
+<template name="btnCats_place">
+	<a class="btn btn-default pull-right" href="{{pathFor route='panelCatsType' type='place'}}">
+		<i class="icon icon-cats"></i> {{i18n 'label_catsall'}}
+	</a>
+</template>
+
+<template name="btnCats_user">
+	<a class="btn btn-default pull-right" href="{{pathFor route='panelCatsType' type='user'}}">
 		<i class="icon icon-cats"></i> {{i18n 'label_catsall'}}
 	</a>
 </template>

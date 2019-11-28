@@ -7,7 +7,7 @@ Places.after.remove(function(userId, doc) {
 });
 
 Meteor.publish('placesByCategory', function(cat) {
-	if(this.userId) {
+	if(this.userId || K.settings.public.router.publicRoutes.placesCats) {
 		var cur = K.findPlacesByCategory(cat);
 		console.log('Pub: placesByCategory', cat);
 		return cur;

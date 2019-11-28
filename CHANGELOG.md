@@ -13,6 +13,7 @@
 - core-ui helper routeIs support array
 - core-ui simplify helper settings now is also object
 - core-ui fix panel close href
+- core-ui new placehoder "panelPlaces" and new panelPlaces_ui_search
 - plugin edit fullscreen for edit map
 - plugin edit highlight marker place on editing
 - plugin edit new addbutton control

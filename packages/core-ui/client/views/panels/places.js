@@ -1,5 +1,5 @@
 
-Template.search_place.onRendered(function() {
+Template.panelPlaces.onRendered(function() {
 	var self = this;
 
 	$(self.firstNode).parent().siblings('.list-items').btsListFilter('.places-search', {

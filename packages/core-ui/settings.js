@@ -45,6 +45,9 @@ Kepler.settings.public.templates = {
 		"panelPlace_ui_btn_checkin": { order:-10, show: ifUserLogged },
 		"panelPlace_ui_btns": { order:-10 }
 	},
+	"panelPlaces": {
+		"panelPlaces_ui_search": { order:0 }
+	},
 	"tabPlace": {
 		"tabPlace_ui_info": { order:-10 }
 	},			

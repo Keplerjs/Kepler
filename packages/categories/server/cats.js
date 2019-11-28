@@ -1,7 +1,7 @@
 
 Meteor.publish('catsActive', function() {
 
-	if(this.userId)
+	if(this.userId|| K.settings.public.router.publicRoutes.panelCatsType)
 	{
 		var cur = K.findCatsActive();
 
@@ -29,7 +29,7 @@ Meteor.publish('catsByName', function(name, type) {
 
 Meteor.publish('catsByType', function(type) {
 
-	if(this.userId)
+	if(this.userId || K.settings.public.router.publicRoutes.panelCatsType)
 	{
 		var cur = K.findCatsByType(type);
 

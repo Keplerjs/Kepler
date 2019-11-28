@@ -1,15 +1,11 @@
 
-<template name="search_place">
-	<div class="row form-group">
-		<div class="col-xs-6">
-			<input class="places-search form-control" type="text" placeholder="{{i18n 'label_find'}}" /> 
-			<span class="search-canc form-control-feedback" aria-hidden="true"><i class="icon icon-canc"></i></span>
-		</div>
-		<div class="col-xs-6 text-right">
-		</div>
-	</div>
+<template name="panelPlaces">
 
-	<ul class="nav nav-tabs text-right">
+	{{> pluginsTemplate name='panelPlaces'}}
+
+	<div class="clearfix"></div>
+
+	<ul class="nav nav-tabs text-right clearfix">
 		<li class="{{routeIs 'placesNews' 'active'}}">
 			<a href="{{pathFor route='placesNews'}}">
 				<span>{{i18n 'title_placesNews'}}</span>
@@ -21,4 +17,11 @@
 			</a>
 		</li>
 	</ul>
+</template>
+
+<template name="panelPlaces_ui_search">
+	<div class="form-group has-feedback pull-left">
+		<input class="places-search form-control" type="text" placeholder="{{i18n 'label_find'}}" /> 
+		<span class="search-canc form-control-feedback" aria-hidden="true"><i class="icon icon-canc"></i></span>
+	</div>
 </template>

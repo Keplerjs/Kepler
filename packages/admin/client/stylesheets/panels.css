@@ -28,6 +28,10 @@
 	width: auto;
 }
 
+.adminPage .panel .editdel {
+	display: none;
+}
+
 .minimap {
 	position:relative;
 	height:200px;
