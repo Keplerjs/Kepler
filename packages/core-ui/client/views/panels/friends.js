@@ -1,5 +1,5 @@
 
-Template.search_user.onRendered(function() {
+Template.panelUsers_ui_search.onRendered(function() {
 	var self = this;
 
 	$(self.firstNode).parent().siblings('.list-items').btsListFilter('.users-search', {
@@ -25,8 +25,12 @@ Template.search_user.onRendered(function() {
 			return self.$('.search-canc');
 		}
 	});
+});
 
-	self.$('#switch_online').bootstrapSwitch({
+
+Template.panelUsers_ui_status.onRendered(function() {
+
+	this.$('#switch_online').bootstrapSwitch({
 		size: 'mini',
 		onColor: 'success',		
 		state: K.Profile.getOnline(),
@@ -34,4 +38,4 @@ Template.search_user.onRendered(function() {
 			K.Profile.setOnline(stat);
 		}
 	});
-});
+});	

@@ -42,7 +42,7 @@ Meteor.publish('userById', function(userId) {
 });
 
 Meteor.publish('usersByIds', function(usersIds) {
-	if(this.userId) {
+	if(this.userId || K.settings.public.router.publicRoutes.users) {
 
 		console.log('Pub: usersByIds', usersIds);
 

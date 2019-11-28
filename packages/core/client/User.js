@@ -223,7 +223,7 @@ Kepler.User = Class.extend({
 	 * @return {Boolean} [description]
 	 */
 	isBlockMe: function() {
-		return _.contains(this.data.usersBlocked, K.Profile.id);
+		return K.Profile.ready && _.contains(this.data.usersBlocked, K.Profile.id);
 	},
 	/**
 	 * user status is online

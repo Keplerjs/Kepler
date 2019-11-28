@@ -155,7 +155,7 @@ Router.map(function() {
 			return {
 				title: i18n('title_usersNews'),
 				className: 'usersNews',			
-				headerTemplate: 'search_user',
+				headerTemplate: 'panelUsers',
 				itemsTemplate: 'item_user_search',
 				items: _.map(userIds, K.userById)
 			};
@@ -167,9 +167,6 @@ Router.map(function() {
 		template: 'panelList',
 		layoutTemplate: 'layoutMap',
 		onAfterAction: function () {
-
-			console.log('friends onAfterAction', K.Profile.ready)
-			
 			if(!K.Profile.ready)
 				Router.go('users');
 
@@ -186,7 +183,7 @@ Router.map(function() {
 			return {
 				title: i18n('title_friends'),
 				className: 'friends',			
-				headerTemplate: 'search_user',
+				headerTemplate: 'panelUsers',
 				itemsTemplate: 'item_user_friend',
 				items: _.map(userIds, K.userById),
 				sortBy: function(user) {

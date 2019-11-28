@@ -67,7 +67,7 @@ Kepler.Profile = {
 		var self = this;
 		this._deps.online.depend();
 		//TODO var mstatus = Meteor.status(); mstatus.connected &&
-		return (self.data.status==='online' || self.data.status==='away');
+		return K.Profile.ready && (self.data.status==='online' || self.data.status==='away');
 	},	
 	setOnline: function(online) {
 
@@ -105,16 +105,16 @@ Kepler.Profile = {
 		return K.Util.getPath(this.data,'settings.'+prop);
 	},
 	hasFriend: function(userId) {
-		return _.contains(this.data.friends, userId);
+		return K.Profile.ready && _.contains(this.data.friends, userId);
 	},
 	hasPending: function(userId) {
-		return _.contains(this.data.usersPending, userId);
+		return K.Profile.ready && _.contains(this.data.usersPending, userId);
 	},
 	hasReceive: function(userId) {	
-		return _.contains(this.data.usersReceive, userId);
+		return K.Profile.ready && _.contains(this.data.usersReceive, userId);
 	},
 	hasBlocked: function(userId) {
-		return _.contains(this.data.usersBlocked, userId);
+		return K.Profile.ready && _.contains(this.data.usersBlocked, userId);
 	},
 	friendAdd: function(userId) {
 		Meteor.call('friendAdd', userId);
@@ -157,6 +157,7 @@ Kepler.Profile = {
 	logout: function() {
 		this.setOnline(false);
 		this.ready = false;
+		this.data = {};
 		Meteor.logout();
 		return this;
 	}

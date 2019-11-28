@@ -14,7 +14,7 @@
 			</a>
 		</div>
 		<div class="panel-body">
-
+		
 		{{#if or isBlocked isBlockMe}}
 		
 			<div class="row tab-user-bio">
@@ -43,21 +43,21 @@
 			{{> pluginsTemplate name='panelUser'}}
 
 			<ul class="nav nav-tabs">
-				{{#if settings 'templates.tabUser_ui_info.show'}}
+				{{#if settings.templates.tabUser_ui_info.show}}
 				<li class="active">
 					<a href="#tab_info" data-toggle="tab">
 						<i class="icon icon-info"></i> <span>{{i18n 'btn_info'}}</span>
 					</a>
 				</li>
 				{{/if}}
-				{{#if settings 'templates.tabUser_ui_friends.show'}}
+				{{#if settings.templates.tabUser_ui_friends.show}}
 				<li class="">
 					<a href="#tab_friends" data-toggle="tab">
 						<i class="icon icon-users"></i> <span>{{i18n 'btn_friends'}}</span>
 					</a>
 				</li>
 				{{/if}}
-				{{#if settings 'templates.tabUser_ui_hist.show'}}
+				{{#if settings.templates.tabUser_ui_hist.show}}
 				{{#if isFriend}}
 				<li class="">
 					<a href="#tab_histuser" data-toggle="tab">
@@ -74,14 +74,14 @@
 					{{> pluginsTemplate name='tabUser'}}
 
 				</div>
-				{{#if settings 'templates.tabUser_ui_friends.show'}}
+				{{#if settings.templates.tabUser_ui_friends.show}}
 				<div class="tab-pane" id="tab_friends">
 					
 					{{> tabUser_ui_friends}}
 
 				</div>
 				{{/if}}
-				{{#if settings 'templates.tabUser_ui_hist.show'}}
+				{{#if settings.templates.tabUser_ui_hist.show}}
 				{{#if isFriend}}
 				<div class="tab-pane" id="tab_histuser">
 					

@@ -1,6 +1,6 @@
 
 var ifUserLogged = function() {
-	return K.Profile.ready
+	return K.Profile.ready;
 };
 
 Kepler.settings.public.templates = {
@@ -12,8 +12,8 @@ Kepler.settings.public.templates = {
 	//tabPlace_ui_nearby	
 	//
 	"tabUser_ui_info": { "show": true},
-	"tabUser_ui_friends": { "show": true},
-	"tabUser_ui_hist": { "show": true},
+	"tabUser_ui_friends": { "show": ifUserLogged},
+	"tabUser_ui_hist": { "show": ifUserLogged},
 
 	//core/ui templates configurations
 	"navSidebar": {
@@ -50,12 +50,16 @@ Kepler.settings.public.templates = {
 	},
 	"tabPlace": {
 		"tabPlace_ui_info": { order:-10 }
-	},			
+	},
 	"panelUser": {
 		"panelUser_ui_bio": { order:-20 },
 		"panelUser_ui_status": { order:-20, show: ifUserLogged },
 		"panelUser_ui_btns": { order:-20, show: ifUserLogged },
 		"panelUser_ui_tablocation": { order:-10 }
+	},
+	"panelUsers": {
+		"panelUsers_ui_search": { order:0 },
+		"panelUsers_ui_status": { order:0, show: ifUserLogged },
 	},
 	"popupPlace": {
 		"popupPlace_ui_checkins": {order:-10},

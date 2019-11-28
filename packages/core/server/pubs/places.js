@@ -56,7 +56,7 @@ Meteor.publish('placeById', function(placeId) {
 });
 
 Meteor.publish('placesByIds', function(placesIds) {
-	if(this.userId) {
+	if(this.userId || K.settings.public.router.publicRoutes.places) {
 		console.log('Pub: placesByIds');
 		return K.findPlacesByIds(placesIds);	
 	}

@@ -1,19 +1,9 @@
 
-<template name="search_user">
-	<div class="row form-group has-feedback">
-		<div class="col-xs-6">
-			<input class="users-search form-control" type="text" placeholder="{{i18n 'label_find'}}" /> 
-			<span class="search-canc form-control-feedback" aria-hidden="true"><i class="icon icon-canc"></i></span>
-		</div>
-		<div class="col-xs-6 text-right" style="padding-left:0">
-		{{#if currentUser}}
-			{{#with currentUser}}
-				{{> user_status}}
-			{{/with}}
-			<input id="switch_online" type="checkbox" />
-		{{/if}}
-		</div>
-	</div>
+<template name="panelUsers">
+
+	{{> pluginsTemplate name='panelUsers'}}
+
+	<div class="clearfix"></div>
 
 	<ul class="nav nav-tabs text-right">
 		{{#if currentUser}}
@@ -29,4 +19,22 @@
 			</a>
 		</li>
 	</ul>
+</template>
+
+<template name="panelUsers_ui_search">
+	<div class="form-group has-feedback pull-left">
+		<input class="users-search form-control" type="text" placeholder="{{i18n 'label_find'}}" /> 
+		<span class="search-canc form-control-feedback" aria-hidden="true"><i class="icon icon-canc"></i></span>
+	</div>
+</template>
+
+<template name="panelUsers_ui_status">
+	<div class="pull-right">
+	{{#if currentUser}}
+		{{#with currentUser}}
+			{{> user_status}}
+		{{/with}}
+		<input id="switch_online" type="checkbox" />
+	{{/if}}
+	</div>
 </template>
