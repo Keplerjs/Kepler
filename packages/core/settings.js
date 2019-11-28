@@ -31,7 +31,7 @@ Kepler.settings = {
 			"logoutRoute": "pageHome",	//
 			"publicRoutes": {	//routes that don't need logged user
 				"map": false,
-				
+				"mapLoc":false,
 				"places": false,
 				"placesNews": false,
 				"placesNearby": false,

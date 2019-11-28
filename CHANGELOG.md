@@ -12,6 +12,7 @@
 - core add new sets K.settings.public.router.mainRoute that replace 'root' route
 - core-ui helper routeIs support array
 - core-ui simplify helper settings now is also object
+- core-ui fix panel close href
 - plugin edit fullscreen for edit map
 - plugin edit highlight marker place on editing
 - plugin edit new addbutton control

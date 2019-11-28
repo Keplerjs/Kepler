@@ -1,6 +1,6 @@
 
 Meteor.publish('tracksByIds', function(trackIds) {
-	if(this.userId) {
+	if(this.userId || K.settings.public.router.publicRoutes.placeTracks) {
 
 		console.log('Pub: tracksByIds', trackIds);
 

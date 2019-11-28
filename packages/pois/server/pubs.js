@@ -1,7 +1,7 @@
 
 Meteor.publish('poisByPlace', function(placeId) {
 
-	if(this.userId) {
+	if(this.userId || K.settings.public.router.publicRoutes.placePois) {
 
 		var sets = K.settings.public.pois,
 			placeCur = K.findPlaceById(placeId),

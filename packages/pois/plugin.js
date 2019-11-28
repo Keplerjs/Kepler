@@ -14,6 +14,11 @@ K.Plugin({
 					}
 				}
 			},
+			"router": {
+				"publicRoutes": {
+					"placePois": false
+				}
+			},
 			"pois": {
 				"limit": 30,
 				"caching": true,	//cache response by OSM overpass

@@ -32,15 +32,18 @@ Template.registerHelper('routeTitle', function() {
 	var cur = Router.current();
 	return cur.route && i18n('title_'+ cur.route.getName() );
 });
+
 Template.registerHelper('routeParamIs', function(name, val) {
 	var cur = Router.current();
 	return cur.getParams()[name] === val;
 });
+
+Blaze._allowJavascriptUrls();
 Template.registerHelper('routeBack', function() {
-	var cur = Router.current(),
+/* not work always	var cur = Router.current(),
 		u = (cur && cur.url),
-		p = u.split('/').slice(0,-1).join('/');
-	return p || 'javascript:history.back()';
+		p = u.split('/').slice(0,-1).join('/');*/
+	return 'javascript:history.back()';
 });
 
 Template.registerHelper('connectionStatus', function() {

@@ -12,6 +12,11 @@ K.Plugin({
 					"tracks": { "color": "#66f", "weight": 8, "opacity": 0.7 }
 				}	
 			},
+			"router": {
+				"publicRoutes": {
+					"placeTracks": false
+				}
+			},			
 			"tracks": {
 				"limit": 5,
 				"caching": true,	//cache response by OSM overpass		

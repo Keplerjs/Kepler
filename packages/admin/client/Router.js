@@ -2,7 +2,7 @@
 Router.map(function() {
 
 	this.route('panelAdmin', {
-		path: '/admin/',
+		path: '/admin',
 		template: 'panelAdmin',
 		layoutTemplate: 'layoutMap',
 		loadingTemplate: 'pageLoading',
