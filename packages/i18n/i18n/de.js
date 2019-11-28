@@ -74,7 +74,6 @@ i18n.map('de', {
 	btn_addnew: "Neue hinzufügen",
 	btn_nearby: "in der Nähe",
 	btn_explore: "Erkunden",
-	
 	btn_verify: "Überprüfen",
 	btn_verified: "Überprüft",
 	btn_notverified: "Kein Überprüft",

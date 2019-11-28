@@ -80,7 +80,6 @@ i18n.map('en', {
 	btn_close: "Close",
 	btn_nearby: "Nearby",
 	btn_explore: "Explore",
-
 	btn_verify: "Verify",
 	btn_verified: "Verified",
 	btn_notverified: "Not Verified",
