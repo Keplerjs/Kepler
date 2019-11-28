@@ -1,15 +1,15 @@
 
 Router.map(function() {
 
-	this.route('main', {
+/* unuseful	this.route('main', {
 		path: '/',
 		onBeforeAction: function () {
-			Router.go(K.settings.public.router.mainRoute);
+			//Router.go();
 		}
-	});
+	});*/
 
 	this.route('pageHome', {
-		path: '/home',
+		path: '/',
 		template: 'pageHome',
 		layoutTemplate: 'layoutFull',
 		loadingTemplate: 'pageLoading',
@@ -20,7 +20,7 @@ Router.map(function() {
 		onBeforeAction: function () {
 			K.Profile.logout();
 			K.Map.destroy();
-			Router.go(K.settings.public.router.loginRoute);
+			Router.go(K.settings.public.router.logoutRoute);
 		}
 	});
 
@@ -58,20 +58,20 @@ Router.map(function() {
 
 			K.Map.showLoc(loc, function() {
 				K.Map.showCursor(loc);
-				Router.go(K.settings.public.router.mainRoute);
+				Router.go('map');
 			});
 		}
 	});
 	
 	//TODO
-	this.route('mapSearch', {
+/*	this.route('mapSearch', {
 		path: '/map/search/:query',
 		template: 'panelSearch',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			Session.set('showSidebar', true);
 		},
-/*		data: function() {
+		data: function() {
 			if(!this.ready()) return null;
 
 			return {
@@ -83,8 +83,8 @@ Router.map(function() {
 					return K.placeById(place._id);
 				})
 			};
-		}*/
-	});
+		}
+	});*/
 
 	this.route('profile', {
 		path: '/profile',
@@ -211,11 +211,9 @@ Router.map(function() {
 		template: 'panelList',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
-			if(!K.Map.ready()) return null;
-
 			Session.set('showSidebar', true);
-			var loc = K.Map.getCenter(),
-				places = K.findPlacesByNearby(loc).fetch();
+			if(!K.Map.ready()) return null;
+			var loc = K.Map.getCenter();
 			return Meteor.subscribe('placesByNearby', loc);
 		},
 		data: function() {
@@ -292,8 +290,8 @@ Router.map(function() {
 
 			var place = K.placeById( this.params.placeId );
 			
-			if(!place){
-				Router.go(K.settings.public.router.mainRoute);
+			if(!place) {
+				history.back();
 				return null;
 			}
 
@@ -318,7 +316,7 @@ Router.map(function() {
 
 			if(place){
 				place.update().showLoc(function() {
-					Router.go(K.settings.public.router.mainRoute);	
+					Router.go('map');	
 				});
 			}
 		}
@@ -339,7 +337,7 @@ Router.map(function() {
 
 			if(place) {
 				place.update().showGeometry(function() {
-					Router.go(K.settings.public.router.mainRoute);	
+					Router.go('map');	
 				});
 			}
 		}
@@ -374,7 +372,7 @@ Router.map(function() {
 		waitOn: function() {
 			Session.set('showSidebar', true);
 			if(this.params.userId===Meteor.userId())
-				Router.go(K.settings.public.router.mainRoute);
+				Router.go('profile');
 			else
 				return Meteor.subscribe('userById', this.params.userId);
 		},
@@ -382,14 +380,14 @@ Router.map(function() {
 			if(!this.ready()) return null;
 
 			if(!K.findUserById(this.params.userId).count()) {
-				Router.go(K.settings.public.router.mainRoute);
+				history.back();
 				return null
 			}
 
 			var user = K.userById(this.params.userId);
 			
 			if(!user){
-				Router.go(K.settings.public.router.mainRoute);
+				history.back();
 				return null;
 			}
 

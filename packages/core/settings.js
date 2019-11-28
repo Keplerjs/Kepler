@@ -25,8 +25,10 @@ Kepler.settings = {
 			"fr": "Français"
 		},
 		"router": {
-			"mainRoute": "map",			//page where logged user enter
-			"loginRoute": "pageHome",	//page where user can do login/signup
+			"enterRoute": "map",		//page where logged user enter
+			//TODO auto redirect logged user
+			"loginRoute": "pageHome",	//page where user is redirect is not logged(if current route is not public)
+			"logoutRoute": "pageHome",	//
 			"publicRoutes": {	//routes that don't need logged user
 				"map": false,
 				

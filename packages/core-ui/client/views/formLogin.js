@@ -1,8 +1,5 @@
 
 Template.formLogin.helpers({
-	mainRoute: function() {
-		return K.settings.public.router.mainRoute;
-	},
 	classnames: function() {
 		var sets = K.settings.public.accounts,
 			serv = sets.services,

@@ -44,7 +44,9 @@ K.Plugin({
 		panelPlace: {
 			'panelPlace_admin': { order:10, show: ifUserAdmin }
 		},
-		//panelPlaceEdit: {'itemPlace_admin': {order:-5}},
+		panelPlaceEdit: {
+			'panelPlaceEdit_edit_del': {show: !ifUserAdmin}
+		},
 		//panelPlace:'itemPlace_admin',
 		
 		panelProfile: {

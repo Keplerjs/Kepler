@@ -2,17 +2,16 @@
 Router.map(function() {
 
 	this.route('panelAdmin', {
-		path: '/admin',
+		path: '/admin/',
 		template: 'panelAdmin',
 		layoutTemplate: 'layoutMap',
 		loadingTemplate: 'pageLoading',
-		/* TODO fix and uncomment		
 		onBeforeAction: function () {
 			if(!K.Admin.isMe())
-				Router.go(K.settings.public.router.mainRoute);
+				history.back();
 			else
 				this.next();
-		},*/
+		},
 		waitOn: function() {
 			Session.set('showSidebar', true);
 			//return Meteor.subscribe('usersByDate');
@@ -26,7 +25,7 @@ Router.map(function() {
 		loadingTemplate: 'pageLoading',
 		onBeforeAction: function () {
 			if(!K.Admin.isMe())
-				Router.go(K.settings.public.router.mainRoute);
+				history.back();
 			else
 				this.next();
 		},
@@ -52,7 +51,7 @@ Router.map(function() {
 		loadingTemplate: 'pageLoading',
 		onBeforeAction: function () {
 			if(!K.Admin.isMe())
-				Router.go(K.settings.public.router.mainRoute);
+				history.back();
 			else
 				this.next();
 		},
@@ -89,7 +88,7 @@ Router.map(function() {
 		loadingTemplate: 'pageLoading',
 		onBeforeAction: function () {
 			if(!K.Admin.isMe())
-				Router.go(K.settings.public.router.mainRoute);
+				history.back();
 			else
 				this.next();
 		},
@@ -113,7 +112,7 @@ Router.map(function() {
 		loadingTemplate: 'pageLoading',
 		onBeforeAction: function () {
 			if(!K.Admin.isMe())
-				Router.go(K.settings.public.router.mainRoute);
+				history.back();
 			else
 				this.next();
 		},

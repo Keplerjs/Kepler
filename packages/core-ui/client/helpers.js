@@ -11,7 +11,7 @@ Template.registerHelper('absoluteUrl', function(url) {
 
 Template.registerHelper('settings', function(prop, subprop) {
 	var path = _.isString(subprop) ? prop+'.'+subprop : prop;
-	return K.Util.getPath(K.settings.public, path);
+	return _.isString(prop) ? K.Util.getPath(K.settings.public, path) : K.settings.public;
 });
 
 Template.registerHelper('userById', function(id) {

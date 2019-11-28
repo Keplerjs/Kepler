@@ -11,6 +11,7 @@
 - core rename root route in K.settings.public.router.mainRoute
 - core add new sets K.settings.public.router.mainRoute that replace 'root' route
 - core-ui helper routeIs support array
+- core-ui simplify helper settings now is also object
 - plugin edit fullscreen for edit map
 - plugin edit highlight marker place on editing
 - plugin edit new addbutton control

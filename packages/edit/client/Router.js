@@ -15,7 +15,7 @@ Router.map(function() {
 			var place = K.placeById( this.params.placeId );
 
 			if(!place) {
-				Router.go(K.settings.public.router.mainRoute);
+				history.back();
 				return null;
 			}
 			
