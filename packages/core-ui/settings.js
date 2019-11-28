@@ -1,4 +1,8 @@
 
+var ifUserLogged = function() {
+	return K.Profile.ready
+};
+
 Kepler.settings.public.templates = {
 	
 	//TODO refact.. templates without placeholder
@@ -14,7 +18,7 @@ Kepler.settings.public.templates = {
 	//core/ui templates configurations
 	"navSidebar": {
 		"navSidebar_ui_profile": { order:-10 },
-		"navSidebar_ui_friends": { order:0 },
+		"navSidebar_ui_users":   { order:0 },
 		"navSidebar_ui_places":  { order:0 },
 		"navSidebar_ui_connect": { order:10 }
 	},
@@ -38,7 +42,7 @@ Kepler.settings.public.templates = {
 		"itemPlace_ui_checkins": { order:-10 }
 	},
 	"panelPlace": {
-		"panelPlace_ui_btn_checkin": { order:-10 },
+		"panelPlace_ui_btn_checkin": { order:-10, show: ifUserLogged },
 		"panelPlace_ui_btns": { order:-10 }
 	},
 	"tabPlace": {
@@ -46,8 +50,8 @@ Kepler.settings.public.templates = {
 	},			
 	"panelUser": {
 		"panelUser_ui_bio": { order:-20 },
-		"panelUser_ui_status": { order:-20 },
-		"panelUser_ui_btns": { order:-20 },
+		"panelUser_ui_status": { order:-20, show: ifUserLogged },
+		"panelUser_ui_btns": { order:-20, show: ifUserLogged },
 		"panelUser_ui_tablocation": { order:-10 }
 	},
 	"popupPlace": {
@@ -62,5 +66,8 @@ Kepler.settings.public.templates = {
 	},
 	"markerClusterPlace": {
 		"markerClusterPlace_ui_checkins": {order:-10}
+	},
+	"pageHome": {
+		"formLogin": { order:10, show: true}
 	}
 };

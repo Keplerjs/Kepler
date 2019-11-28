@@ -6,19 +6,23 @@
 			<span class="search-canc form-control-feedback" aria-hidden="true"><i class="icon icon-canc"></i></span>
 		</div>
 		<div class="col-xs-6 text-right" style="padding-left:0">
+		{{#if currentUser}}
 			{{#with currentUser}}
 				{{> user_status}}
 			{{/with}}
 			<input id="switch_online" type="checkbox" />
+		{{/if}}
 		</div>
 	</div>
 
 	<ul class="nav nav-tabs text-right">
+		{{#if currentUser}}
 		<li class="{{routeIs 'friends' 'active'}}">
 			<a href="{{pathFor route='friends'}}">
 				<span>{{i18n 'title_friends'}}</span>
 			</a>
 		</li>
+		{{/if}}
 		<li class="{{routeIs 'usersNews' 'active'}}">
 			<a href="{{pathFor route='usersNews'}}">
 				<span>{{i18n 'title_usersNews'}}</span>

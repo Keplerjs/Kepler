@@ -21,7 +21,7 @@ Meteor.publish('placesByName', function(initial) {
 });
 
 Meteor.publish('placesByText', function(text) {
-	if(this.userId) {
+	if(this.userId || K.settings.public.router.publicRoutes.places) {
 		var cur = K.findPlacesByText(text);
 		console.log('Pub: placesByText', text, cur ? cur.count() : 0 );
 		return cur;
@@ -31,7 +31,7 @@ Meteor.publish('placesByText', function(text) {
 });
 
 Meteor.publish('placeById', function(placeId) {
-	if(this.userId) {
+	if(this.userId || K.settings.public.router.publicRoutes.panelPlace) {
 		var placeCur = K.findPlaceById(placeId),
 			placeData = placeCur.fetch()[0],
 			retCurs = [];
@@ -65,7 +65,7 @@ Meteor.publish('placesByIds', function(placesIds) {
 });
 
 Meteor.publish('placesByDate', function() {
-	if(this.userId) {
+	if(this.userId || K.settings.public.router.publicRoutes.placesNews) {
 		console.log('Pub: placesByDate');
 		return K.findPlacesByDate();
 	}
@@ -74,7 +74,7 @@ Meteor.publish('placesByDate', function() {
 });
 
 Meteor.publish('placesByNearby', function(loc) {
-	if(this.userId) {
+	if(this.userId || K.settings.public.router.publicRoutes.placesNearby) {
 		console.log('Pub: placesByNearby',loc);
 		if(K.Util.valid.loc(loc))
 			return K.findPlacesByNearby(loc);

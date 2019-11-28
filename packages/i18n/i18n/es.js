@@ -74,6 +74,7 @@ i18n.map('es', {
 	btn_accept: "Aceptar",
 	btn_close: "Cerrar",
 	btn_nearby: "Cercano",
+	btn_explore: "Explorar",
 
 	btn_verify: "Verificar",
 	btn_verified: "Verificado",

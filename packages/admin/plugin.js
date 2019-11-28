@@ -1,4 +1,8 @@
 
+var ifUserAdmin = function() {
+	return K.Admin.isMe()
+};
+
 K.Plugin({
 	name: 'admin',
 	templates: {
@@ -35,31 +39,16 @@ K.Plugin({
 		},
 
 		panelUser: {
-			'panelUser_admin': {
-				order:-5,
-				show: function() {
-					return K.Admin.isMe()
-				}
-			}
+			'panelUser_admin': { order:-5, show: ifUserAdmin }
 		},
 		panelPlace: {
-			'panelPlace_admin': {
-				order:10,
-				show: function() {
-					return K.Admin.isMe()
-				}
-			}
+			'panelPlace_admin': { order:10, show: ifUserAdmin }
 		},
 		//panelPlaceEdit: {'itemPlace_admin': {order:-5}},
 		//panelPlace:'itemPlace_admin',
 		
 		panelProfile: {
-			'panelProfile_admin': {
-				order:10,
-				show: function() {
-					return K.Admin.isMe()
-				}
-			},
+			'panelProfile_admin': { order:10, show: ifUserAdmin }
 			//'panelUser_admin': {order:50},
 		},
 		//panelPlaceAdmin:'panelPlaceAdmin_admin_raw',

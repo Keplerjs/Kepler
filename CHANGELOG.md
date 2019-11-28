@@ -3,12 +3,14 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+- plugins support publicRoutes show contents
 - core Plugin templates placeholder show support function value
 - core Place schema valid geojson
 - core node config directory to moved configurations
 - core renamed K.settings.public.router.enterRoute in .loginRoute
 - core rename root route in K.settings.public.router.mainRoute
 - core add new sets K.settings.public.router.mainRoute that replace 'root' route
+- core-ui helper routeIs support array
 - plugin edit fullscreen for edit map
 - plugin edit highlight marker place on editing
 - plugin edit new addbutton control

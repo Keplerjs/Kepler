@@ -17,23 +17,23 @@
 	{{else}}
 		<a class="btn btn-sm" href="{{pathFor route='pageHome'}}" role="tab">
 			<i class="icon icon-home"></i>
-			<span>home</span>
+			<span>{{i18n 'btn_home'}}</span>
 		</a>
 	{{/if}}
 	</li>
 </template>
 
-<template name="navSidebar_ui_friends">
-	<li class="{{routeIs 'friends' 'active'}}">
-		<a class="btn btn-sm" href="{{pathFor route='friends'}}" role="tab">
-			<i class="icon icon-friends"></i>
+<template name="navSidebar_ui_users">
+	<li class="{{routeIs 'users|friends|usersNews' 'active'}}">
+		<a class="btn btn-sm" href="{{pathFor route='users'}}" role="tab">
+			<i class="icon icon-users"></i>
 			<span>{{i18n 'btn_users'}}</span>
 		</a>
 	</li>
 </template>
 
 <template name="navSidebar_ui_places">
-	<li class="{{routeIs 'placesNews' 'active'}}">
+	<li class="{{routeIs 'placesNews|placesNearby' 'active'}}">
 		<a class="btn btn-sm" href="{{pathFor route='placesNews'}}" role="tab">
 			<i class="icon icon-places"></i>
 			<span>{{i18n 'btn_places'}}</span>

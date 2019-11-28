@@ -22,9 +22,10 @@ Template.registerHelper('placeById', function(id) {
 	return K.placeById(id);
 });
 
-Template.registerHelper('routeIs', function(name, classTrue) {
-	var cur = Router.current();
-	return cur.route && cur.route.getName()===name ? classTrue : '';
+Template.registerHelper('routeIs', function(names, classTrue) {
+	var cur = Router.current(),
+		nn = names.split('|');
+	return cur.route && _.contains(nn, cur.route.getName()) ? classTrue : '';
 });
 
 Template.registerHelper('routeTitle', function() {

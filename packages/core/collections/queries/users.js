@@ -73,8 +73,8 @@ K.extend({
 			date.setDate(date.getDate() - 10),
 			dateFrom = K.Util.time(date);
 		*/
-		var user = Meteor.user(),
-			exIds = _.union(user._id, user.friends);
+		/*var user = Meteor.user(),
+			exIds = _.union(user._id, user.friends);*/
 
 		return Users.find({
 			

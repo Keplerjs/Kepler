@@ -29,7 +29,9 @@
 
 		</div>
 		<div class="panel-footer">
+		
 			{{> converInput}}
+		
 		</div>		
 	</div>
 
@@ -42,14 +44,17 @@
 </template>
 
 <template name="converInput">
+	{{#if currentUser}}
 	<form id="converInput">
 		<div class="col-xs-12">
 			<textarea name="body" rows="1" placeholder="{{i18n 'label_msgnew'}}"  maxlength="300" aria-expanded="true" aria-label="{{i18n 'label_msgnew'}}"></textarea>
 		</div>
 	</form>
+	{{/if}}
 </template>
 
 <template name="conver_place_new">
+	{{#if currentUser}}
 	<form class="form-horizontal item_conver-new" role="form">
 		<div class="input-group">
 			<input class="form-control conver-title-new" tyte="text" maxlength="60" placeholder="{{i18n 'label_convertit'}}" aria-label="{{i18n 'label_convertit'}}" aria-expanded="true" />
@@ -61,6 +66,7 @@
 			</span>
 		</div>
 	</form>
+	{{/if}}
 </template>
 
 <template name="itemPlace_conver">

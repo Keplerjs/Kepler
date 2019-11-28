@@ -75,6 +75,7 @@ i18n.map('sv', {
 	btn_accept: "Acceptera",
 	btn_close: "Stänga",
 	btn_nearby: "Nearby",
+	btn_explore: "Utforska",
 	
 	btn_verify: "Verifiera",
 	btn_verified: "Verifierad",

@@ -132,33 +132,6 @@ Router.map(function() {
 		}
 	});
 
-	this.route('friends', {
-		path: '/friends',
-		template: 'panelList',
-		layoutTemplate: 'layoutMap',
-		waitOn: function() {
-			Session.set('showSidebar', true);
-			return Meteor.subscribe('friendsByIds', K.Profile.data.friends);
-		},
-		data: function() {
-			if(!this.ready()) return null;
-			var users = K.findFriendsByIds(K.Profile.data.friends).fetch(),
-				userIds = _.pluck(users,'_id');
-			return {
-				title: i18n('title_friends'),
-				className: 'friends',			
-				headerTemplate: 'search_user',
-				itemsTemplate: 'item_user_friend',
-				items: _.map(userIds, K.userById),
-				sortBy: function(user) {
-					var status = user.status || 'offline',
-						ords = ['online','away','offline'];
-					return ords.indexOf(status);
-				}
-			};
-		}	
-	});
-
 	this.route('users', {
 		path: '/users',
 		onBeforeAction: function () {
@@ -187,6 +160,42 @@ Router.map(function() {
 				items: _.map(userIds, K.userById)
 			};
 		}	
+	});
+
+	this.route('friends', {
+		path: '/friends',
+		template: 'panelList',
+		layoutTemplate: 'layoutMap',
+		onAfterAction: function () {
+
+			console.log('friends onAfterAction', K.Profile.ready)
+			
+			if(!K.Profile.ready)
+				Router.go('users');
+
+			this.ready();
+		},
+		waitOn: function() {
+			Session.set('showSidebar', true);
+			return Meteor.subscribe('friendsByIds', K.Profile.data.friends);
+		},
+		data: function() {
+			if(!this.ready()) return null;
+			var users = K.findFriendsByIds(K.Profile.data.friends).fetch(),
+				userIds = _.pluck(users,'_id');
+			return {
+				title: i18n('title_friends'),
+				className: 'friends',			
+				headerTemplate: 'search_user',
+				itemsTemplate: 'item_user_friend',
+				items: _.map(userIds, K.userById),
+				sortBy: function(user) {
+					var status = user.status || 'offline',
+						ords = ['online','away','offline'];
+					return ords.indexOf(status);
+				}
+			};
+		}
 	});
 
 	this.route('places', {
@@ -280,6 +289,7 @@ Router.map(function() {
 		},
 		data: function() {
 			if(!this.ready()) return null;
+
 			var place = K.placeById( this.params.placeId );
 			
 			if(!place){
@@ -345,6 +355,7 @@ Router.map(function() {
 		},
 		data: function() {
 			if(!this.ready()) return null;
+
 			var place = K.placeById(this.params.placeId);
 			return place && {
 				title: i18n('title_checkins', place.name),
@@ -368,26 +379,23 @@ Router.map(function() {
 				return Meteor.subscribe('userById', this.params.userId);
 		},
 		data: function() {
-			if(this.ready()) {
+			if(!this.ready()) return null;
 
-				if(!K.findUserById(this.params.userId).count()){
-					Router.go(K.settings.public.router.mainRoute);
-					return null
-				}
-
-				var user = K.userById(this.params.userId);
-				
-				if(!user){
-					Router.go(K.settings.public.router.mainRoute);
-					return null;
-				}
-
-				user.update();	//update instance adding new fields by userById
-				
-				return user.rData();
+			if(!K.findUserById(this.params.userId).count()) {
+				Router.go(K.settings.public.router.mainRoute);
+				return null
 			}
-			else
-				this.render(this.loadingTemplate);
+
+			var user = K.userById(this.params.userId);
+			
+			if(!user){
+				Router.go(K.settings.public.router.mainRoute);
+				return null;
+			}
+
+			user.update();	//update instance adding new fields by userById
+			
+			return user.rData();
 		}
 	});
 

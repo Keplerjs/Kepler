@@ -1,7 +1,7 @@
 
 Meteor.publish('userById', function(userId) {
 
-	if(this.userId && userId)
+	if(userId && (this.userId || K.settings.public.router.publicRoutes.panelUser))
 	{
 		var userCur = K.findUserById(userId),
 			userData = userCur.fetch()[0],
@@ -53,7 +53,7 @@ Meteor.publish('usersByIds', function(usersIds) {
 });
 
 Meteor.publish('usersByName', function(initial) {
-	if(this.userId) {
+	if(this.userId || K.settings.public.router.publicRoutes.users) {
 		var cur = K.findUsersByName(initial);
 		console.log('Pub: usersByName', "'"+initial+"'", cur ? cur.count() : 0 );
 		return cur;
@@ -89,12 +89,12 @@ Meteor.publish('friendsByIds', function(usersIds) {
 });
 
 Meteor.publish('usersByDate', function() {
-	if(this.userId) {
+	if(this.userId || K.settings.public.router.publicRoutes.users) {
 		
 		console.log('Pub: usersByDate');
 
 		return K.findUsersByDate();
 	}
 	else
-		this.ready();	
+		this.ready();
 });

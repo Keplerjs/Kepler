@@ -1,7 +1,7 @@
 
 Tracker.autorun(function(comp) {
 
-	var btnSets = K.settings.public.map.controls.addButton;
+	var btnSets = K.settings.public.map.controls.addButton && K.Profile.ready;
 
 	if(K.Map.ready() && btnSets.enabled) {
 

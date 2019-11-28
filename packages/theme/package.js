@@ -49,7 +49,8 @@ Package.onUse(function(api) {
     'assets/images/logo-50.png',
     'assets/images/logo-app.png',
     'assets/images/logo.svg',
-    'assets/images/sprite.svg'
+    'assets/images/sprite.svg',
+    //'assets/images/sprite_grey.svg'
   ], 'client');
 
 });

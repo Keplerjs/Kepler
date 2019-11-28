@@ -27,7 +27,7 @@ Meteor.publish('conversByIds', function(convIds) {
 });
 
 Meteor.publish('converById', function(convId) {
-	if(this.userId && convId)
+	if(convId && this.userId || K.settings.public.router.publicRoutes.panelConver)
 	{
 		console.log('Pub: converById', convId);	
 
@@ -46,7 +46,7 @@ Meteor.publish('converById', function(convId) {
 });
 
 Meteor.publish('conversByTarget', function(targetId) {
-	if(this.userId && targetId)
+	if(targetId && this.userId || K.settings.public.router.publicRoutes.placeConvers)
 	{
 		console.log('Pub: conversByTarget', targetId);
 
@@ -87,7 +87,7 @@ Meteor.publish('conversByUser', function(userId) {
 });
 
 Meteor.publish('conversByDate', function() {
-	if(this.userId) {
+	if(this.userId || K.settings.public.router.publicRoutes.convers) {
 
 		console.log('Pub: conversByDate');
 

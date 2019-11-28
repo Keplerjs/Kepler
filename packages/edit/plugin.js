@@ -1,4 +1,8 @@
 
+var ifUserLogged = function() {
+	return K.Profile.ready
+};
+
 K.Plugin({
 	name: 'edit',
 	templates: {
@@ -19,9 +23,11 @@ K.Plugin({
 		},
 		tabUser: 'tabUser_edit',
 		popupPlace: {
-			'popupPlace_edit': {order:10}
+			'popupPlace_edit': {order:10, show: ifUserLogged }
 		},
-		popupCursor: 'popupCursor_edit'
+		popupCursor: {
+			'popupCursor_edit': {order:0, show: ifUserLogged }
+		}
 	},
 	schemas: {
 		place: {
