@@ -144,11 +144,12 @@ _.extend(Kepler.Map, {
 				z = map.getZoom();
 				//autoOpen
 
-			if(layers.geojson.getLayers().length) {
-				if(e.target.getBoundsZoom(layers.geojson.getBounds()) - e.target.getZoom() > 2) {
-					layers.geojson.clearLayers();
-					Router.go('map');
-				}
+			if( layers.geojson.getLayers().length &&
+				z >= opts.dataMinZoom &&
+				(e.target.getBoundsZoom(layers.geojson.getBounds()) - e.target.getZoom() > 2)
+			) {
+				layers.geojson.clearLayers();
+				Router.go('map');
 			}
 
 		    if(z < opts.dataMinZoom) {

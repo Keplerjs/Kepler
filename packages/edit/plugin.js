@@ -10,7 +10,7 @@ K.Plugin({
 		//create new placeholder used from other plugins
 		//
 		panelPlaceEdit: {
-			'panelPlaceEdit_edit_status': {order: -10},
+			'panelPlaceEdit_edit_creation': {order: -10},
 			'panelPlaceEdit_edit_info': {order: -10},
 			'panelPlaceEdit_edit_map': {order: -10},
 			'panelPlaceEdit_edit_del': {order: -10}

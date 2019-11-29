@@ -13,7 +13,7 @@
 		<div class="col-sm-12">
 
 			<br />
-			{{> panelPlaceEdit_edit_status}}
+			{{> panelPlaceEdit_edit_creation}}
 
 			{{#if isEditable}}
 			<div class="btn-group pull-right" role="group">
@@ -57,54 +57,4 @@
 		{{/if}}
 	</ul>
 {{/if}}	
-</template>
-
-<template name="panelPlaceEdit">
-	<div id="placeEdit" class="panel">
-		<div class="panel-heading">
-			<h4 class="pull-left">
-				<a class="back" href="/place/{{id}}">
-					<i class="icon icon-edit"></i>
-				</a>
-				{{i18n 'title_edit'}}: 
-				<a href="/place/{{id}}" class="">
-					{{#if name}} {{name}} {{else}}<i>{{i18n 'label_noname'}}</i>{{/if}}
-				</a>
-			</h4>
-			<a class="close pull-right" href="/place/{{id}}">
-				<i class="icon icon-close"></i>
-			</a>
-		</div>
-		<div class="panel-body">
-
-			{{> pluginsTemplate name='panelPlaceEdit'}}	
-					
-		</div>	
-	</div>
-</template>
-
-<template name="panelPlaceEdit_edit_status">
-	{{#if userId}}
-		<label>{{i18n 'label_owner'}}</label>
-		{{#with userById userId}}
-			{{> item_user_name}}
-		{{/with}}
-	{{/if}}
-	{{#if createdAt}}
-		<label>{{i18n 'label_createdAt'}}</label>
-		<time>{{numericDate createdAt false}}</time>
-	{{/if}}
-</template>
-
-<template name="panelPlaceEdit_edit_del">
-	<div class="row editdel">
-		<div class="col-xs-12">
-			<div class="pull-right">
-				<label class="text-danger">{{i18n 'btn_delplace'}}</label>
-				<a class="btn-editdel btn btn btn-default" href="#" data-confirm-msg="{{i18n 'btn_del'}}">
-					<i class="icon icon-del"></i> {{i18n 'btn_del'}}
-				</a>
-			</div>
-		</div>
-	</div>	
 </template>

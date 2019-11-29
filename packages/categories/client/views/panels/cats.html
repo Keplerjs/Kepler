@@ -1,11 +1,5 @@
 
-<template name="panelAllCats">
-<!-- TODO	<div class="row form-group">
-		<div class="col-xs-4 has-feedback">
-			<input class="cats-search form-control" type="text" placeholder="{{i18n 'label_find'}}" /> 
-			<span class="search-canc form-control-feedback" aria-hidden="true"><i class="icon icon-canc"></i></span>
-		</div>
-	</div> -->
+<template name="panelCats">
 	<ul class="nav nav-tabs text-right">
 		<li class="{{#if eq typeCat 'place'}}active{{/if}}">
 			<a href="{{pathFor route='panelCatsType' type='place'}}">
@@ -22,13 +16,13 @@
 
 <template name="btnCats_place">
 	<a class="btn btn-default pull-right" href="{{pathFor route='panelCatsType' type='place'}}">
-		<i class="icon icon-cats"></i> {{i18n 'label_catsall'}}
+		<i class="icon icon-cats"></i> {{i18n 'label_cats'}}
 	</a>
 </template>
 
 <template name="btnCats_user">
 	<a class="btn btn-default pull-right" href="{{pathFor route='panelCatsType' type='user'}}">
-		<i class="icon icon-cats"></i> {{i18n 'label_catsall'}}
+		<i class="icon icon-cats"></i> {{i18n 'label_cats'}}
 	</a>
 </template>
 

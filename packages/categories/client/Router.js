@@ -108,7 +108,7 @@ Router.map(function() {
 			return  {
 				title: i18n('label_cats'),
 				className: 'allcats',
-				headerTemplate: 'panelAllCats',
+				headerTemplate: 'panelCats',
 				headerData: {
 					typeCat: this.params.type
 				},

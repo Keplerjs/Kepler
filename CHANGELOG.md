@@ -17,7 +17,7 @@
 - plugin edit fullscreen for edit map
 - plugin edit highlight marker place on editing
 - plugin edit new addbutton control
-- plugin edit new template panelPlaceEdit_edit_status
+- plugin edit new template panelPlaceEdit_edit_creation
 - plugin categories new template panelPlaceEdit_cats_all
 - plugin admin use new settings by function
 - theme fix css marker-place icons

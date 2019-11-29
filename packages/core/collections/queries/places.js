@@ -21,7 +21,9 @@ K.extend({
 			return m + place.checkins.length;
 		}, 0);
 	},	
-	findPlacesByBBox: function(bbox) {
+	findPlacesByBBox: function(bbox, query) {
+
+		query = query || {};
 
 		//PATCH while minimongo not supporting $within $box queries
 		if(Meteor.isClient) {
@@ -37,13 +39,13 @@ K.extend({
 			};
 		}
 		else if(Meteor.isServer) {
-			return Places.find({
+			return Places.find(_.deepExtend({
 				loc: {
 					'$within': {
 						'$box': bbox
 					}
 				}
-			}, _.deepExtend({}, K.filters.placeItem, {
+			}, query), _.deepExtend({}, K.filters.placeItem, {
 					limit: K.settings.public.map.bboxMaxResults
 				})
 			);

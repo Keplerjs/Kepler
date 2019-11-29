@@ -45,6 +45,7 @@ Package.onUse(function(api) {
     'client/Map_edit.js',
     'client/Place_edit.js',
     'client/User_edit.js',
+    'client/views/edit.html',
     'client/views/controls.html',
     'client/views/panels.html',
     'client/views/panels.js',
