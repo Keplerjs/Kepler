@@ -1,20 +1,18 @@
 /*
-	Default KeplerJs settings
-
 	use settings.json in root application having the same structure to overwrite the following values
-
-	//TODO remove properties outside public in client K.settings
 */
-Meteor.startup(function() {
-	_.deepExtend(K.settings, Meteor.settings);
-	//TODO uncomment when exists a 'debug mode'
-	if(Meteor.isServer)
-		console.log("Core: METEOR_SETTINGS='"+JSON.stringify(Meteor.settings)+"'");
-});
-
+/**
+ * Default KeplerJs settings
+ * @type {Object}
+ */
 Kepler.settings = {
-
+	"queries": {
+		/* defined in file /core/config/settings.js */
+	},
 	"public": {
+		"templates": {
+			/* defined in file /core-ui/settings.js */
+		},
 		"lang": "en",
 		"langs": {
 			"en": "English",
@@ -54,9 +52,6 @@ Kepler.settings = {
 			"awayTime": 10000,
 			"awayOnWindowBlur": true
 		},
-		"templates": {
-			/* define in file ./core-ui/settings.js */
-		},
 		"map": {
 			"zoom": 5,
 			"minZoom": 3,
@@ -65,19 +60,15 @@ Kepler.settings = {
 			"maxBounds": [[-90, -180], [90, 180]],	//WORLD
 			//"maxBounds": [[36.282794, 5.361328], [47.542735, 21.071777]],//ITALY 
 			"dataMinZoom": 10,	//zoom limit to hide places and user
-			
 			"checkinAutomatic": true,
 			"checkinGeometry": true,	//automatic checkin near by geometry, if false use only field loc
 			"checkinMaxDist": 150,
-			
-
 			"bboxMinShift": 200,
 			"bboxMaxDiagonal": 200000,	//max bounding box diangonal size for pub findPlacesByBBox in meters
 			"bboxMaxResults": 50,
 			"nearbyMaxDist": 20000,
 			"gpsMinShift": 40,
 			"showLocZoom": 16,
-
 			"layer": "road",
 			"layers": {
 				//TODO rename in  "baseLayer":{...}...

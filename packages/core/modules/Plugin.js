@@ -1,12 +1,8 @@
 /*
 	core module for define and manage Kepler plugins
+	//TODO create handlebars helper to check if a placeholder have plugins
 */
 
-//TODO execute code inside Plugin() at Meteor.startup(), not immediately. for using K.settings
-
-//TODO create handlebars helper to check is a placeholder have plugins
-//
-//
 /**
  * index of defined plugins
  * @memberOf Plugin
@@ -47,6 +43,9 @@ Kepler.Plugin = function(plugin) {
 				}
 			}
 			
+			if(_.isObject(plugin.queries))
+				_.deepExtend(K.queries, plugin.queries);
+
 			if(_.isObject(plugin.filters))
 				_.deepExtend(K.filters, plugin.filters);
 			
@@ -150,38 +149,3 @@ Kepler.Plugin.templatesByPlaceholder = function(placeholder, data, sep) {
 
 	return tmpls;	
 };
-
-if(Meteor.isClient) {
-	Meteor.startup(function() {
-		var sets = K.settings.public.templates;
-
-		for(var placeholder in K.templates) {
-			
-			var tmpls = K.templates[placeholder];
-
-			for(var t in tmpls) {
-				if(!Template[t]) {
-					console.warn('Template not exists: "'+t+'", defined in plugin: '+(tmpls[t] && tmpls[t].plugin))
-					delete tmpls[t];
-				}
-			}
-		}
-
-		for(var placeholder in sets) {
-
-			if(sets[placeholder].show===false)
-				delete K.templates[placeholder];
-
-			if(!K.templates[placeholder]) continue;
-
-			_.extend(K.templates[placeholder], K.Plugin.normalizePlaceholders(sets[placeholder]) );
-		}
-
-	});
-}
-
-if(Meteor.isServer) {
-	Meteor.startup(function() {
-		console.log('Plugins: ', _.keys(K.plugins).join(','));
-	});
-}

@@ -25,6 +25,7 @@ Package.onUse(function(api) {
     'config/Alert.js',
     'config/Accounts.js',
     'config/Router.js',
+    'config/settings.js',
 
     'modules/Util.js',
     'modules/Util_geo.js',
@@ -34,6 +35,7 @@ Package.onUse(function(api) {
     'modules/Cache.js',
     'modules/Plugin.js',
     'modules/schemas.js',
+    'modules/queries.js',
     'modules/filters.js',
     'modules/templates.js',
   ]);
@@ -59,6 +61,7 @@ Package.onUse(function(api) {
   api.addFiles([
     'server/Accounts.js',
     'server/profile.js',
+    'server/queries.js',
     'server/pubs/places.js',
     'server/pubs/profile.js',
     'server/pubs/users.js'

@@ -1,13 +1,10 @@
 /** 
- * Permissions definitions of fields in the queries for pubblications and methods
+ * Definitions of returned fields in the queries options
  * @module
  * @name filters
  * @type {Object}
  */
 Kepler.filters = {
-	
-	//TODO rename to K.privacy
-
 	/**
 	 * current logged user
 	 * @type {Object}

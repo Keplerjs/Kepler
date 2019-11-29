@@ -1,9 +1,5 @@
 /**
- * list of default  placeholder used to render templates in the UI
- * @type {Object}
- */
-
-/** 
+ * list of default  placeholder used to render templates in the UI 
  * @module
  * @name templates
  * @type {Object}

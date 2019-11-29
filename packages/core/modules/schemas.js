@@ -39,6 +39,7 @@ Kepler.schemas = {
 	 * @type {Object}
 	 */
 	user: {
+		//TODO implement active field like as place
 		name: '',		   //display name	
 		username: '',	   //username used in urls
 		createdAt: '',	   //new Date() of user insert

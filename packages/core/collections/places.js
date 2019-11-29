@@ -17,7 +17,7 @@ Places.before.insert(function(userId, doc) {
 		doc.geometry = K.Util.geo.point(doc.loc);
 });
 
-Places.before.update(function(userId, doc, fieldNames, modifier, options) {
+Places.before.update(function(userId, doc, fieldNames, modifier, opts) {
 	//TODO modifier.$set.modifiedAt = K.Util.time();
 
 	if(_.contains(fieldNames,'loc') && modifier.$set && modifier.$set.loc) {

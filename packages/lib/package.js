@@ -78,7 +78,8 @@ Package.onUse(function(api) {
     //
     'bozhao:accounts-instagram@0.2.2',
     'blaze-html-templates@1.1.2',
-    'matb33:collection-hooks@0.8.4',
+    //'matb33:collection-hooks@0.8.4',
+    'matb33:collection-hooks@1.0.1',
     'underscorestring:underscore.string@3.3.4',
     
     'kidovate:bootstrap-slider@0.0.5',

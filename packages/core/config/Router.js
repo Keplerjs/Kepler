@@ -1,7 +1,7 @@
 
 //TODO use https://github.com/DerMambo/ms-seo
 
-if(Meteor.isClient && Router) {
+if(Router && Meteor.isClient) {
 	
 	Router.configure({
 		loadingTemplate: 'panelLoading',

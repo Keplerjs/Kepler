@@ -87,7 +87,7 @@ less@2.8.0
 livedata@1.0.18
 localstorage@1.2.0
 logging@1.1.20
-matb33:collection-hooks@0.8.4
+matb33:collection-hooks@1.0.1
 meteor@1.9.3
 meteor-base@1.4.0
 minifier-css@1.4.2

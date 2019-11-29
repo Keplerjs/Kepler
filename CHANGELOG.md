@@ -3,13 +3,15 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
-- plugins support publicRoutes show contents
+- show contents for not logged users can be enabled by settings.route.publicRoutes
+- core new module K.queries, to prefilter every queries before show result by settings.json
 - core Plugin templates placeholder show support function value
-- core Place schema valid geojson
+- core Place schema is a valid geojson format
 - core node config directory to moved configurations
 - core renamed K.settings.public.router.enterRoute in .loginRoute
 - core rename root route in K.settings.public.router.mainRoute
 - core add new sets K.settings.public.router.mainRoute that replace 'root' route
+- core new file /config/settings.js to configure modules from settings.json
 - core-ui helper routeIs support array
 - core-ui simplify helper settings now is also object
 - core-ui fix panel close href
