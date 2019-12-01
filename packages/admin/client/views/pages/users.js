@@ -4,6 +4,7 @@ Template.pageAdminUsers.onRendered(function() {
 
 	$(self.firstNode).find('.list-group.items-list:first').btsListFilter('.items-search', {
 		itemChild: '.user-btn-name',
+		resetOnBlur: false,
 		loadingClass: 'loading-lg',
 		sourceData: function(val, cb) {
 			

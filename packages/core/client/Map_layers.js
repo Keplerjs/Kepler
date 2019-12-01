@@ -87,9 +87,14 @@ _.extend(Kepler.Map, {
 			minShift: opts.bboxMinShift,
 			callData: function(bbox, callback) {
 
-				var sub = Meteor.subscribe('placesByBBox', bbox, function() {
+				var query = self.options.query;
+				//TODO conver in reactive to able reload sub
+
+				//console.log('map query',query);
+
+				var sub = Meteor.subscribe('placesByBBox', bbox, query, function() {
 					//console.log('sub placesByBBox',bbox)
-					callback( K.findPlacesByBBox(bbox).fetch() );
+					callback( K.findPlacesByBBox(bbox, query).fetch() );
 				});
 
 				return {

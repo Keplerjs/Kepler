@@ -59,6 +59,8 @@ Template.panelSettings_ui_map.events({
 				'settings.map.zoom': zom
 			}
 		});
+
+		K.Alert.info(i18n('label_mapcentermap'))
 	}, 300),
 
 	'click #mapcenter .btn-mapcancel': _.debounce(function(e) {

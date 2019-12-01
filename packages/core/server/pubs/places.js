@@ -1,9 +1,9 @@
 
-Meteor.publish('placesByBBox', function(bbox) {
-	
+Meteor.publish('placesByBBox', function(bbox, query) {
+
 	if( (this.userId || K.settings.public.router.publicRoutes.map) &&
 		K.Util.geo.distance(bbox[0],bbox[1]) < K.settings.public.map.bboxMaxDiagonal )
-		return K.findPlacesByBBox(bbox);
+		return K.findPlacesByBBox(bbox, query);
 	else
 		this.ready();
 });

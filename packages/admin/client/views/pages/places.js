@@ -4,6 +4,7 @@ Template.pageAdminPlaces.onRendered(function() {
 
 	$(self.firstNode).find('.list-group.items-list:first').btsListFilter('.items-search', {
 		itemChild: '.place-btn-name',
+		resetOnBlur: false,
 		loadingClass: 'loading-lg',
 		sourceData: function(val, cb) {
 			

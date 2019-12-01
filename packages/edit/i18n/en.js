@@ -10,6 +10,8 @@ i18n.map('en', {
 	btn_reload: "Reload",
 	btn_delplace: "Delete this place",
 
+	btn_placesmap: "Show on map",
+
 	label_editplaces: "Edits",
 	label_owner: "Owner",
 

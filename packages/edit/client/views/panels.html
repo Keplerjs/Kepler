@@ -1,9 +1,16 @@
 
 <template name="panelProfile_edit">
-	<a class="list-group-item" href="/places/edits">
+	<a class="list-group-item" href="{{pathFor route='panelPlacesEdit'}}">
 		<i class="icon icon-edit"></i>
 		 {{i18n 'label_editplaces'}} 
 		<span class="badge">{{places.length}}</span>
+	</a>
+</template>
+
+<template name="panelEdits_edit_map">
+	<a class="btn btn-default pull-right" href="{{pathFor route='mapPlacesEdit'}}">
+		<i class="icon icon-places"></i>
+		 {{i18n 'btn_placesmap'}} 
 	</a>
 </template>
 
@@ -17,7 +24,7 @@
 
 			{{#if isEditable}}
 			<div class="btn-group pull-right" role="group">
-				<a class="btn btn-edit btn-default" href="/place/{{id}}/edit">
+				<a class="btn btn-edit btn-default" href="{{pathFor route='panelPlaceEdit' placeId=id}}">
 					<i class="icon icon-edit"></i> {{i18n 'btn_edit'}}
 				</a>
 			</div>

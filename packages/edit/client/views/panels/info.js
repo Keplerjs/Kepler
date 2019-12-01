@@ -39,7 +39,7 @@ Template.panelPlaceEdit_edit_info.events({
 				place.update();
 			});
 		}
-	}, 300),
+	}, 500),
 	'keydown .input-url': function(e,tmpl) {
 		if(e.keyCode===13) {//enter
 			e.preventDefault();
@@ -58,7 +58,7 @@ Template.panelPlaceEdit_edit_info.events({
 			place.update();
 		});
 
-	}, 300),
+	}, 500),
 	'keydown .input-desc': function(e,tmpl) {
 		if(e.keyCode===13) {//enter
 			e.preventDefault();

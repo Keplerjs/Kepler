@@ -49,7 +49,37 @@ _.extend(Kepler.Map, {
 				}			
 			});
 		}
-		
+/* TODO
+		if(opts.controls.switch.enabled) {
+
+			controls.switch = (function() {
+				var ctrl = new L.Control({position: opts.controls.switch.position});
+				ctrl.onAdd = function(map) {
+					var divp = L.DomUtil.create('div','leaflet-control-switch');
+
+					Blaze.renderWithData(Template.controlSwitch, null, divp);
+					
+					L.DomEvent
+						.on(divp, 'dblclick', L.DomEvent.stop, divp)
+						.on(divp, 'click', L.DomEvent.stop, divp);
+					return divp;
+				};
+
+				ctrl.dict = new ReactiveDict();
+
+				ctrl.add = function(id, label) {
+					ctrl.dict.set(id, label);
+				}
+				ctrl.remove = function(id) {
+					ctrl.dict.delete(id);
+				}
+				ctrl.all = function() {
+					ctrl.dict.all();
+				}
+				return ctrl;
+			}());
+		}*/
+
 		if(opts.controls.scale.enabled) {
 			controls.scale = L.control.scale(opts.controls.scale);
 		}
@@ -57,7 +87,7 @@ _.extend(Kepler.Map, {
 		if(opts.controls.attrib.enabled) {
 			controls.attrib = L.control.attribution(opts.controls.attrib);
 		}
-		
+
 		return controls;
 	}
 });

@@ -47,6 +47,9 @@ Router.map(function() {
 			return {
 				title: i18n('label_editplaces'),
 				className: 'edits',
+				//TODO
+				//headerTemplate: 'panelEdits_edit_map',
+				//
 				itemsTemplate: 'item_place_edit',
 				items: _.map(K.Profile.data.places, function(id) {
 					return place = K.placeById(id);
@@ -55,6 +58,36 @@ Router.map(function() {
 				sortDesc: true
 			};
 		}
-	});	
+	});
+/*
+	this.route('mapPlacesEdit', {
+		path: '/map/edits',	//PATCH use '/' to end otherwise gen a console error
+		template: 'empty',
+		layoutTemplate: 'layoutMap',
+		waitOn: function() {
+			Session.set('showSidebar', false);
+		},
+		onAfterAction: function() {
+			if(!this.ready()) return null;
+			
+			//K.Map.cleanItems();
+
+			K.Map.setOpts({
+				query: 'placeCheckins'
+			});
+		},
+		onStop: function(e) {
+			if(!this.ready()) return null;
+			K.Map.setOpts({query: ''});
+		}
+	});*/
 	
 });
+/*
+setTimeout(function(argumen) {
+	
+	K.Map.controls.switch.add(1,"test1 eccp un titolo molto molto lugno");
+	K.Map.controls.switch.add(2,"query 2")
+	K.Map.controls.switch.add(3,"cose 3");
+
+}, 500);*/

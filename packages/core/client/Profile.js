@@ -102,7 +102,7 @@ Kepler.Profile = {
 		return this;
 	},
 	getOpts: function(prop) {
-		return K.Util.getPath(this.data,'settings.'+prop);
+		return prop ? K.Util.getPath(this.data,'settings.'+prop) : this.data.settings;
 	},
 	hasFriend: function(userId) {
 		return K.Profile.ready && _.contains(this.data.friends, userId);

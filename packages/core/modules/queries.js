@@ -1,5 +1,5 @@
 /** 
- * selectors for all MongDB queries
+ * selectors for all MongDB queries, its' can be literal of functions
  * @module
  * @name filters
  * @type {Object}
@@ -11,5 +11,11 @@ Kepler.queries = {
 	 */
 	placeFind: {
 		//TODO uncomment active: 1 //example of usage.. for show only active places 
-	}
+	},
+	placeGeometries: {
+        "geometry.type":{"$ne":"Point"}
+    },
+    placeCheckins: {
+        "checkins": {"$ne":[]}
+    }
 };

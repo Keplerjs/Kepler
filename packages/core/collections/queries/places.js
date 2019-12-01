@@ -21,12 +21,18 @@ K.extend({
 			return m + place.checkins.length;
 		}, 0);
 	},	
-	findPlacesByBBox: function(bbox) {
+	findPlacesByBBox: function(bbox, qname) {
+
+		var query = K.queries[qname] || {};
+
+		let sel = _.isFunction(query) ? query() : query;
 
 		//PATCH while minimongo not supporting $within $box queries
 		if(Meteor.isClient) {
+			
+			//console.log('QUERY findPlacesByBBox', sel)
 
-			var pp = _.filter(Places.find().fetch(), function(place) {
+			let pp = _.filter(Places.find(sel).fetch(), function(place) {
 				return K.Util.geo.bboxContains(bbox, place.loc);
 			});
 
@@ -37,13 +43,18 @@ K.extend({
 			};
 		}
 		else if(Meteor.isServer) {
-			return Places.find({
+
+			_.deepExtend(sel, {
 				loc: {
 					'$within': {
 						'$box': bbox
 					}
 				}
-			}, _.deepExtend({}, K.filters.placeItem, {
+			});
+		
+			//console.log('QUERY findPlacesByBBox', sel)
+
+			return Places.find(sel, _.deepExtend({}, K.filters.placeItem, {
 					limit: K.settings.public.map.bboxMaxResults
 				})
 			);

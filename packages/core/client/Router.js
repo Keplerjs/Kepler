@@ -62,7 +62,7 @@ Router.map(function() {
 			});
 		}
 	});
-	
+
 	//TODO
 /*	this.route('mapSearch', {
 		path: '/map/search/:query',

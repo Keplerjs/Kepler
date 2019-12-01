@@ -14,27 +14,6 @@
 .leaflet-dragging .leaflet-container {
 	cursor: move;
 }
-
-/* CONTROLS */
-.leaflet-left.leaflet-top .leaflet-control,
-.leaflet-left.leaflet-bottom .leaflet-control,
-.leaflet-right.leaflet-top .leaflet-control,
-.leaflet-right.leaflet-bottom .leaflet-control {
-	box-shadow: 0 0 4px rgba(0,0,0,0.3);
-	background:#fff;
-	border-radius:4px;
-	border: none;
-}
-.leaflet-right.leaflet-top .leaflet-control {
-	margin-bottom: 0;
-}
-
-.leaflet-control.leaflet-control-gps {
-	float: right;
-	clear: both;
-	z-index: 10;
-}
-
 .leaflet-marker-icon {
 	background-image: url('/packages/keplerjs_lib/.npm/package/node_modules/leaflet/dist/images/marker-icon.png');
 	background-repeat: no-repeat;

@@ -7,7 +7,7 @@
  */
 Kepler.settings = {
 	"queries": {
-		/* defined in file /core/config/settings.js */
+		/* defined in file /core/modules/queries.js */
 	},
 	"public": {
 		"templates": {
@@ -86,25 +86,30 @@ Kepler.settings = {
 				//TODO implement cluster
 			},
 			"controls": {
-				"gps": {
-					"enabled": true,
-					"position": "bottomright"
-				},
 				"zoom": {
 					"enabled": true,
 					"position": "bottomright"
+				},
+				"attrib": {
+					"enabled": true,
+					"position": "bottomleft",
+					"prefix": "<a href=\"http://osm.org/copyright\" target=\"_blank\">&copy; osm.org</a>"
 				},
 				"scale": {
 					"enabled": true,
 					"position": "bottomleft",
 					"imperial": false,
 					"metric": true
-				},
-				"attrib": {
+				},					
+				"gps": {
 					"enabled": true,
-					"position": "bottomleft",
-					"prefix": "<a href=\"http://osm.org/copyright\" target=\"_blank\">&copy; osm.org</a>"
-				}
+					"position": "bottomright"
+				},
+				"switch": {
+					"enabled": true,
+					"position": "bottomleft"
+				},
+
 			},
 			"cursor": {
 				"enabled": true,

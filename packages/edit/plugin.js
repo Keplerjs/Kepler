@@ -1,6 +1,6 @@
 
 var ifUserLogged = function() {
-	return K.Profile.ready
+	return Meteor.user();
 };
 
 K.Plugin({
@@ -27,6 +27,13 @@ K.Plugin({
 		},
 		popupCursor: {
 			'popupCursor_edit': {order:0, show: ifUserLogged }
+		}
+	},
+	queries: {
+		'placesEdit': function() {
+			var userId = Meteor.userId();
+			console.log('EDIT query placesEdit', userId)
+			return _.isString(userId) ? {userId: userId } : {};
 		}
 	},
 	schemas: {

@@ -1,6 +1,6 @@
 
 var ifUserLogged = function() {
-	return K.Profile.ready;
+	return Meteor.user()
 };
 
 Kepler.settings.public.templates = {

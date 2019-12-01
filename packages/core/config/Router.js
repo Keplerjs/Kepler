@@ -15,11 +15,13 @@ if(Router && Meteor.isClient) {
 
 	Router.waitOn(function() {
 
+		var self = this;
+		
 		var routeName = this.route.getName();
 
 		if(!Meteor.user()) {
 			if(Meteor.loggingIn())
-				this.render(this.loadingTemplate);
+				self.render(self.loadingTemplate);
 			else {
 				//is not a public route go to login box
 				if(!K.settings.public.router.publicRoutes[routeName])
@@ -29,6 +31,8 @@ if(Router && Meteor.isClient) {
 		else {
 			return Meteor.subscribe('currentUser', function() {
 
+				self.render(self.loadingTemplate);
+
 				K.Profile.init(function(data) {
 					
 					i18n.setLanguage(data.lang);
@@ -37,6 +41,10 @@ if(Router && Meteor.isClient) {
 					if(K.Admin && K.Admin.isMe()){
 						K.Admin.loadMethods();
 					}
+
+					//console.log('profile init');
+					if(K.Map.ready())
+						K.Map.setOpts( K.Profile.getOpts('map') );
 				});
 			});
 		}
@@ -49,9 +57,6 @@ if(Router && Meteor.isClient) {
 
 		document.title = i18n('title_'+routeName) || _.str.capitalize(routeName);
 		//TODO replace with https://github.com/VeliovGroup/Meteor-iron-router-title
-		
-		if(K.Profile.ready)
-			mapSets = K.Profile.getOpts('map');
 
 		if(this.ready()) {//} && K.Profile.ready) {
 
@@ -67,11 +72,15 @@ if(Router && Meteor.isClient) {
 				//PATCH render map after template layoutMap is rendered
 				//Template.layoutMap.onRendered(function() {
 
+		
 				Meteor.setTimeout(function() {
 					
+					if(K.Profile.ready)
+						mapSets = K.Profile.getOpts('map');
+//console.log('map iinit')
 					K.Map.init($('#map')[0], mapSets);
 
-				},10);
+				},500);
 			
 			}
 			else 

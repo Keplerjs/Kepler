@@ -12,10 +12,15 @@
 - core rename root route in K.settings.public.router.mainRoute
 - core add new sets K.settings.public.router.mainRoute that replace 'root' route
 - core new file /config/settings.js to configure modules from settings.json
+- core new method K.Map.cleanItems()
+- core query K.findPlacesByBBox() support additional query parameter
 - core-ui helper routeIs support array
 - core-ui simplify helper settings now is also object
 - core-ui fix panel close href
 - core-ui new placehoder panelPlaces/panelUsers and split templates
+- core-ui new control K.Map.controls.switch to show Map queries and other options
+- core-ui new options K.settings.public.map.query to filter map contents
+- lib add meteor reactive-dict
 - plugin edit fullscreen for edit map
 - plugin edit highlight marker place on editing
 - plugin edit new addbutton control

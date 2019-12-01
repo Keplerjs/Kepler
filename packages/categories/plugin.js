@@ -9,7 +9,7 @@ K.Plugin({
 		},
 
 		panelPlaces: {
-			"btnCats_place": { order:0 }
+			"panelPlaces_cats_all": { order:0 }
 		},
 		
 		panelPlaceEdit: {

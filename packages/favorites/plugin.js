@@ -2,7 +2,9 @@
 K.Plugin({
 	name: 'favorites',
 	templates: {
-		panelProfile: 'panelProfile_favorites',
+		panelProfile: {
+			'panelProfile_favorites': {order: 0},
+		},
 		tabUser: 'tabUser_favorites',
 		itemPlace: 'itemPlace_favorites',
 		markerPlace: 'markerPlace_favorites',

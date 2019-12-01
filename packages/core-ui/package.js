@@ -39,6 +39,7 @@ Package.onUse(function(api) {
     'client/stylesheets/panels/settings.css',
     'client/stylesheets/panels/user.css',
     'client/stylesheets/popups.css',
+    'client/stylesheets/controls.css',
     'client/stylesheets/scrollbars.css',
     'client/stylesheets/sidebar.css',
 
@@ -51,6 +52,9 @@ Package.onUse(function(api) {
     'client/views/header.html',
     'client/views/loaders.html',
     'client/views/markers.html',
+    'client/views/popups.html',
+    'client/views/controls.html',
+    'client/views/controls.js',
     'client/views/navSidebar.html',
 
     'client/views/items/place.html',
@@ -75,7 +79,8 @@ Package.onUse(function(api) {
     'client/views/panels/search.html',
     'client/views/panels/search.js',
     'client/views/panels/settings.html',
-    
+    'client/views/tabLocation.html',
+
     'client/views/panels/user.html',
     'client/views/panels/user.js',
     'client/views/panels/user/friends.html',
@@ -97,8 +102,6 @@ Package.onUse(function(api) {
 
     'client/views/pluginsTemplate.html',
     'client/views/pluginsTemplate.js',
-    'client/views/popups.html',
-    'client/views/tabLocation.html'
   ], 'client');
 
 });

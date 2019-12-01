@@ -140,6 +140,7 @@ Kepler.Place = Class.extend({
 					marker.on('popupopen', function(em) {
 						setTimeout(function() {
 							em.target.closeTooltip();
+							K.Map.hideCursor();
 						},0);
 					});
 				}

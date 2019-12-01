@@ -57,6 +57,7 @@ Package.onUse(function(api) {
     'underscore',
     'mongo',
     'reactive-var',
+    'reactive-dict',
     'session',
     'tracker',
     'check',
@@ -119,7 +120,7 @@ Package.onUse(function(api) {
 
   api.addFiles([
     'client/L.NodeIcon.js',
-    'client/L.Cursor.js'    
+    'client/L.Cursor.js',
   ], 'client');
 
   api.export([

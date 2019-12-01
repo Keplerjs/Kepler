@@ -43,8 +43,10 @@ Kepler.Plugin = function(plugin) {
 				}
 			}
 			
-			if(_.isObject(plugin.queries))
-				_.deepExtend(K.queries, plugin.queries);
+			if(_.isObject(plugin.queries)) {
+				//DONT USER deepExtend that not support functions as value
+				_.extend(K.queries, plugin.queries);
+			}
 
 			if(_.isObject(plugin.filters))
 				_.deepExtend(K.filters, plugin.filters);

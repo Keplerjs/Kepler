@@ -23,7 +23,8 @@ Kepler.Map = {
 
 	_deps: {
 		ready: new ReactiveVar(false),
-		bbox: new Tracker.Dependency()
+		bbox: new Tracker.Dependency(),
+		query: new ReactiveVar('')
 	},
 	/**
 	 * return map rendering status
@@ -53,7 +54,7 @@ Kepler.Map = {
 
 		self.sidebar = $('#sidebar');
 
-		self.options = self.setOpts(opts);
+		self.setOpts(opts);
 
 		self.map = new L.Map(div, {
 			center: self.options.center,
@@ -96,29 +97,33 @@ Kepler.Map = {
 	 * @param {Object} options [description]
 	 */
 	setOpts: function(options) {
-		if(this.ready()) {
-			var optsDef = K.settings.public.map,
-				opts = _.deepExtend({}, optsDef, options);
+	
+		var optsDef = K.settings.public.map,
+			opts = _.deepExtend({}, optsDef, options);
+	
+		this.options = opts;
 
-			opts.popups.autoPanPaddingTopLeft = L.point(opts.popups.autoPanPaddingTopLeft);
-			opts.popups.autoPanPaddingBottomRight = L.point(opts.popups.autoPanPaddingTopLeft);
+		opts.popups.autoPanPaddingTopLeft = L.point(opts.popups.autoPanPaddingTopLeft);
+		opts.popups.autoPanPaddingBottomRight = L.point(opts.popups.autoPanPaddingTopLeft);
 
-			if(!K.Util.valid.loc(options.center)){
-				opts.center = optsDef.center;
-				opts.zoom = optsDef.zoom;
-			}
-			
-			if(!opts.layers[opts.layer])
-				opts.layer = optsDef.layer;
+		if(!K.Util.valid.loc(options.center)){
+			opts.center = optsDef.center;
+			opts.zoom = optsDef.zoom;
+		}
 
-			if(opts.layer && this.layers && this.layers.baselayer){
-				var u = optsDef.layers[opts.layer];
-				if(u) {
-					this.layers.baselayer.setUrl( u );
-				}
+		if(!opts.layers[opts.layer])
+			opts.layer = optsDef.layer;
+
+		if(opts.layer && this.layers && this.layers.baselayer){
+			var u = optsDef.layers[opts.layer];
+			if(u) {
+				this.layers.baselayer.setUrl( u );
 			}
 		}
-		return opts;
+		//if(this.ready()) {
+		////TODO apply new options
+		//}
+		return this;
 	},
 	/**
 	 * destroy K.Map instance
@@ -271,6 +276,19 @@ Kepler.Map = {
 		}
 		return this;
 	},
+	/**
+	 * clean Items place layer
+	 * @return {K.Map} [description]
+	 */
+	cleanItems: function() {
+		if(this.ready()) {
+			this.layers.places.clearLayers();
+			this.layers.users.clearLayers();
+			if(this.options.layerPlaces.cluster && this.layers.cluster)
+				this.layers.cluster.clearLayers();
+		}
+		return this;
+	},	
 	/**
 	 * show location on map
 	 * @param  {Array}    loc location to show

@@ -1,0 +1,36 @@
+
+
+/* CONTROLS */
+.leaflet-left.leaflet-top .leaflet-control,
+.leaflet-left.leaflet-bottom .leaflet-control,
+.leaflet-right.leaflet-top .leaflet-control,
+.leaflet-right.leaflet-bottom .leaflet-control {
+	box-shadow: 0 0 4px rgba(0,0,0,0.3);
+	background:#fff;
+	border-radius:4px;
+	border: none;
+}
+.leaflet-right.leaflet-top .leaflet-control {
+	margin-bottom: 0;
+}
+
+.leaflet-control.leaflet-control-gps {
+	float: right;
+	clear: both;
+	z-index: 10;
+}
+
+/*.leaflet-control.leaflet-control-attribution {
+	position: absolute;
+	bottom: 0;
+}*/
+.leaflet-bottom.leaflet-left > .leaflet-control.leaflet-control-switch {
+	background: none;
+	box-shadow: none;
+	margin-bottom: 20px;
+	padding: 0;
+}
+
+.leaflet-control.leaflet-control-switch a {
+
+}
