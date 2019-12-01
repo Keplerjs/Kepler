@@ -1,7 +1,7 @@
 
 Tracker.autorun(function(comp) {
 
-	var btnSets = K.settings.public.map.controls.addButton && K.Profile.ready;
+	var btnSets = K.settings.public.map.controls.addButton;
 
 	if(K.Map.ready() && btnSets.enabled) {
 
@@ -44,7 +44,8 @@ Tracker.autorun(function(comp) {
 			
 			var z = K.Map.map.getZoom();
 
-			if(	z > K.settings.public.map.dataMinZoom &&
+			if( K.Profile.ready && 
+				z > K.settings.public.map.dataMinZoom &&
 				z > btnSets.minZoom )
 			{
 
