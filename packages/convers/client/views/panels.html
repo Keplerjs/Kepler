@@ -45,11 +45,14 @@
 
 <template name="converInput">
 	{{#if currentUser}}
-	<form id="converInput">
-		<div class="col-xs-12">
-			<textarea name="body" rows="1" placeholder="{{i18n 'label_msgnew'}}"  maxlength="300" aria-expanded="true" aria-label="{{i18n 'label_msgnew'}}"></textarea>
-		</div>
-	</form>
+	<div id="converInput" class="row">
+		<div class="col-xs-1 text-center">
+			<i class="icon icon-mes"></i>
+		</div>		
+		<div class="col-xs-11">
+			<textarea class="pull-left" rows="1" placeholder="{{i18n 'label_msgnew'}}"  maxlength="300" aria-expanded="true" aria-label="{{i18n 'label_msgnew'}}"></textarea>
+		</div>	
+	</div>
 	{{/if}}
 </template>
 

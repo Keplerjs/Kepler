@@ -1,6 +1,6 @@
 i18n.map('sv', {
 
-	title_main: "Karta",
+	title_map: "Karta",
 	title_pageHome: "Välkommer",
 	title_profile: "Profil",
 	title_settings: "Inställningar",

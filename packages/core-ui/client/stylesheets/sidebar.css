@@ -133,6 +133,9 @@ li#navsearch {
         margin: 0;
         max-height: calc(100%);
     }
+    .sidebar .panel-footer {
+        margin: 0
+    }    
     .leaflet-right.leaflet-top {
         padding-top: 50px;
     }

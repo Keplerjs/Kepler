@@ -1,17 +1,15 @@
 
 Meteor.publish('placesByBBox', function(bbox) {
-
-	var diag = K.Util.geo.distance(bbox[0],bbox[1]);
 	
-	if( diag < K.settings.public.map.bboxMaxDiagonal && 
-	    (this.userId || K.settings.public.router.publicRoutes.map) )
+	if( (this.userId || K.settings.public.router.publicRoutes.map) &&
+		K.Util.geo.distance(bbox[0],bbox[1]) < K.settings.public.map.bboxMaxDiagonal )
 		return K.findPlacesByBBox(bbox);
 	else
 		this.ready();
 });
 
 Meteor.publish('placesByName', function(initial) {
-	if(this.userId) {
+	if(this.userId || K.settings.public.router.publicRoutes.places) {
 		var cur = K.findPlacesByName(initial);
 		console.log('Pub: placesByName', initial, cur ? cur.count() : 0 );
 		return cur;
@@ -84,7 +82,7 @@ Meteor.publish('placesByNearby', function(loc) {
 });
 
 Meteor.publish('placeGeometryById', function(placeId) {
-	if(this.userId) {
+	if(this.userId || K.settings.public.router.publicRoutes.placeGeom) {
 		return K.findPlaceGeometryById(placeId);
 	}
 	else

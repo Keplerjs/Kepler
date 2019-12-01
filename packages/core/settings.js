@@ -35,6 +35,7 @@ Kepler.settings = {
 				"placesNearby": false,
 				"panelPlace": false,
 				"placeMap": false,
+				"placeGeom": false,
 				"placeCheckins": false,
 				
 				"users": false,
@@ -76,6 +77,7 @@ Kepler.settings = {
 			},
 			"disableClusteringAtZoom": 16,
 			"layerPlaces": {
+				//TODO "query": "",
 				"enabled": true,
 				"cluster": true
 			},

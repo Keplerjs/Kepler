@@ -1,6 +1,6 @@
 i18n.map('es', {
 
-	title_main: "Map",
+	title_map: "Map",
 	title_pageHome: "Benvenidos",
 	title_profile: "Perfil",
 	title_settings: "Configuración",

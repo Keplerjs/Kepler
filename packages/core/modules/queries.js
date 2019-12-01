@@ -6,18 +6,10 @@
  */
 Kepler.queries = {
 	/**
-	 * selector for all place find and FindOne
+	 * selector for all find() and FindOne() query in Places collection
 	 * @type {Object}
 	 */
 	placeFind: {
-		selector: {
-			//active: 1
-			//example of usage.. for show only approved places 
-		},
-		options: {
-			fields: {
-				//active: 1
-			}
-		}
+		//TODO uncomment active: 1 //example of usage.. for show only active places 
 	}
 };

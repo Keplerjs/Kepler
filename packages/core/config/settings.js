@@ -6,23 +6,15 @@ Meteor.startup(function() {
 	
 	_.deepExtend(K.settings, Meteor.settings);
 
-	if(Meteor.isClient)
-		K.settings = _.pick(K.settings,'public');
+	if(Meteor.isServer) {
 
-	/**
-	 * configure K.queries from settings.json
-	 * @param  {[type]} Meteor.isClient [description]
-	 * @return {[type]}                 [description]
-	 */
-	if(Meteor.isServer)
 		_.deepExtend(K.queries, K.settings.queries);
 
-	/**
-	 * configure K.templates from settings.json
-	 * @param  {[type]} Meteor.isClient [description]
-	 * @return {[type]}                 [description]
-	 */
-	if(Meteor.isClient) {
+	}
+	else if(Meteor.isClient) {
+		
+		K.settings = _.pick(K.settings,'public');
+
 		var sets = K.settings.public.templates;
 
 		for(var placeholder in K.templates) {
