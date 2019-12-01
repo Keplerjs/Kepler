@@ -45,8 +45,8 @@ Tracker.autorun(function(comp) {
 			var z = K.Map.map.getZoom();
 
 			if( K.Profile.ready && 
-				z > K.settings.public.map.dataMinZoom &&
-				z > btnSets.minZoom )
+				z >= K.settings.public.map.dataMinZoom &&
+				z >= btnSets.minZoom )
 			{
 
 				K.Map.map.addControl(K.Map.controls.addButton);
