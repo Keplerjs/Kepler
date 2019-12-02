@@ -7,11 +7,9 @@ K.Plugin({
 		tabPlace: {
 			'panelPlace_cats': {order: -5 } //render after info
 		},
-
 		panelPlaces: {
-			"panelPlaces_cats_all": { order:0 }
+			"btnCats_place": { order:0 }
 		},
-		
 		panelPlaceEdit: {
 			'panelPlaceEdit_cats_input': {order:0},
 			'panelPlaceEdit_cats_latest': {order:0},
