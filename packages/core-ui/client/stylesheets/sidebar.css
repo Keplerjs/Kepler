@@ -145,13 +145,16 @@ li#navsearch {
     .sidebar > .nav > li > .btn {
 		/*padding: 4px 2px;*/
     	margin-right: 0;	    	
-		max-width: 80px;
+		max-width: 70px;
 		overflow:hidden;
 		text-overflow: ellipsis;
     }
     .sidebar > .nav > li:last-child {
 		margin-right: 4px;
 	}
+    .sidebar .btn-avatar span {
+        display: none;
+    }
 
 }
 @media (min-width: 768px) {

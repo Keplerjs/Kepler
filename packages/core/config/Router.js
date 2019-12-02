@@ -26,6 +26,9 @@ if(Router && Meteor.isClient) {
 				//is not a public route go to login box
 				if(!K.settings.public.router.publicRoutes[routeName])
 					Router.go(K.settings.public.router.loginRoute);
+				else {
+					//not logged users
+				}
 			}
 		}
 		else {

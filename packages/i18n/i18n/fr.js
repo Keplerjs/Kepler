@@ -79,7 +79,7 @@ i18n.map('fr', {
 	btn_logout: "Déconnexion",
 	btn_home: "Home",
 	btn_enter: "Entrer",
-	btn_signup: "S'inscrire",
+	btn_signup: "Sign up",
 	btn_signin: "Login",
 	btn_signinfb: "Connectez-vous avec Facebook",
 	btn_signingp: "Connectez-vous avec Google",

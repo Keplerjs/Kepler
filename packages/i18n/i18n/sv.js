@@ -82,7 +82,7 @@ i18n.map('sv', {
 	btn_logout: "Logga ut",
 	btn_home: "Hemsida",
 	btn_enter: "Skriv",
-	btn_signup: "Registrera",
+	btn_signup: "Sign up",
 	btn_signin: "Logga in",
 	btn_signinfb: "Registrera med Facebook",
 	btn_signingp: "Registrera med Google",

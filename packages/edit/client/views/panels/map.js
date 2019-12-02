@@ -18,8 +18,10 @@ Template.panelPlaceEdit_edit_map.onRendered(function() {
 	.on('shown.bs.collapse', function(e) {
 		if(!self.editMap) {
 
-			var layerName = K.Profile.getOpts('map.layer') || K.settings.public.map.layer,
-				layer = L.tileLayer(sets.layers[layerName], {
+			var layerNameDef = K.settings.public.map.layer,
+				layerName = K.Profile.getOpts('map.layer') || layerNameDef,
+				layerUrl = sets.layers[layerName] || sets.layers[layerNameDef],
+				layer = L.tileLayer(layerUrl, {
 					maxZoom: 20,
     				maxNativeZoom: 18
 				});

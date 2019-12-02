@@ -76,5 +76,8 @@ Kepler.settings.public.templates = {
 	},
 	"pageHome": {
 		"formLogin": { order:10, show: true}
+	},
+	"footer": {
+		"footer_ui_lang": { order:10, show: true}
 	}
 };

@@ -80,7 +80,7 @@ i18n.map('de', {
 	btn_logout: "Abmelden",
 	btn_home: "Startseite",
 	btn_enter: "Anmelden",
-	btn_signup: "Registrieren",
+	btn_signup: "Sign up",
 	btn_signin: "Anmelden",
 	btn_signinfb: "Mit Facebook anmelden",
 	btn_signingp: "Mit Google anmelden",

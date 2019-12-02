@@ -1,16 +1,18 @@
 
-Template.panelSettings_ui_lang.helpers({
+Template.footer_ui_lang.helpers({
 	lang: function() {
-		return K.settings.public.langs[K.Profile.data.lang] ? K.Profile.data.lang : K.settings.public.lang;
+		let lang = i18n.getLanguage() || K.settings.public.lang;
+		return K.settings.public.langs[lang];
 	},
 	langs: function() {
-		var langs = [];
+		let lang = i18n.getLanguage() || K.settings.public.lang,
+			langs = [];
 		_.each(K.settings.public.langs, function(v,k) {
 			if(!!v && _.isString(v)) {
 				langs.push({
 					key: k,
 					val: v,
-					active: k===K.Profile.data.lang
+					active: k===lang
 				});
 			}
 		});
@@ -18,11 +20,11 @@ Template.panelSettings_ui_lang.helpers({
 	}
 });
 
-Template.panelSettings_ui_lang.events({
-	'change #lang': function(e) {
+Template.footer_ui_lang.events({
+	'click .btn': function(e) {
 		e.preventDefault();
 
-		var lang = $(e.currentTarget).val();
+		var lang = $(e.currentTarget).data('key');
 
 		if(Meteor.user())
 			Users.update(Meteor.userId(), { $set: {'lang': lang} });

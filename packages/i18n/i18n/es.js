@@ -81,7 +81,7 @@ i18n.map('es', {
 	btn_logout: "Cerrar sesión",
 	btn_home: "Pagina de inicio",
 	btn_enter: "Entra",
-	btn_signup: "Registrarse",
+	btn_signup: "Signup",
 	btn_signin: "Iniciar la sesión",
 	btn_signinfb: "Inicia sesión con Facebook",
 	btn_signingp: "Conectarse con Google",

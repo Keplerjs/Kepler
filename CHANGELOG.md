@@ -20,6 +20,7 @@
 - core-ui new placehoder panelPlaces/panelUsers and split templates
 - core-ui new control K.Map.controls.switch to show Map queries and other options
 - core-ui new options K.settings.public.map.query to filter map contents
+- core-ui new default template footer_ui_lang select lang from not logged users
 - lib add meteor reactive-dict
 - plugin edit fullscreen for edit map
 - plugin edit highlight marker place on editing

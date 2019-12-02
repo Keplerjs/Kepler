@@ -47,6 +47,7 @@ Package.onUse(function(api) {
     'client/views/btnConnect.js',
     'client/views/errors.html',
     'client/views/footer.html',
+    'client/views/footer.js',
     'client/views/formLogin.html',
     'client/views/formLogin.js',
     'client/views/header.html',
