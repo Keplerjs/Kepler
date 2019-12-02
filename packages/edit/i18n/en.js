@@ -15,8 +15,9 @@ i18n.map('en', {
 	label_editplaces: "Edits",
 	label_owner: "Owner",
 
-	edit_error_editing: "Change each field and close to return to public view",
-	edit_error_notOwner: "Not Owner",
-	edit_error_notUrl: "Url Not Valid",
-	edit_error_notMultigeom: "Multi Geometries Not Supported to editing"
+	error_edit_minzoom: "Zoom in to add new place",
+	error_edit_notUrl: "Url Not Valid",
+	error_edit_notOwner: "Not Owner",
+	error_edit_notMultigeom: "Multi Geometries Not Supported to editing",
+	//error_edit_editing: "Change each field and close to return to public view",	
 });

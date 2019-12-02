@@ -12,6 +12,4 @@ i18n.map('it', {
 
 	label_editplaces: "Modifiche",
 	label_owner: "Creatore",
-
-	edit_error_editing: "Modifica ogni campo e chiudi per tornare alla vista pubblica",	
 });

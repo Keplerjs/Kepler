@@ -99,7 +99,7 @@ i18n.map('de', {
 	btn_userUnblock: "Freischalten",
 
 	map_gps_title: "Dein Ort",
-	map_gps_error: "GPS deaktiviert",
+	error_gps: "GPS deaktiviert",
 	map_layer_road: "Straßen",
 	map_layer_landscape: "Trekking",
 	map_layer_transport: "Transport",

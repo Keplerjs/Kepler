@@ -103,7 +103,7 @@ i18n.map('it', {
 	error_nozoomdata: "Zoom in per mostrare i dati",
 
 	map_gps_title: "Tua posizione",
-	map_gps_error: "gps non disponibile",
+	error_gps: "gps non disponibile",
 	map_layer_road: "Stradale",
 	map_layer_landscape: "Trekking",
 	map_layer_transport: "Trasporti",

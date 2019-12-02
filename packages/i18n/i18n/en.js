@@ -103,7 +103,7 @@ i18n.map('en', {
 	btn_userUnblock: "Unlock",
 
 	map_gps_title: "Your location",
-	map_gps_error: "gps disabled",
+	error_gps: "gps disabled",
 
 	map_layer_road: "Roads",
 	map_layer_landscape: "Trekking",

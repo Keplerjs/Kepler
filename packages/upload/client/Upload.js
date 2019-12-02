@@ -21,14 +21,14 @@ Kepler.Upload = {
 			});
 			
 			if(!_.contains(mimes, fileObj.type)) {
-				err = i18n('upload_error_formatNotValid');
+				err = i18n('error_upload_formatNotValid');
 			}
 		}
 
 		sets.maxFileSize = sets.maxFileSize || K.settings.public.upload.maxFileSize
 
 		if(fileObj.size > sets.maxFileSize) {
-			err = i18n('upload_error_filesizeNotValid') + 
+			err = i18n('error_upload_filesizeNotValid') + 
 				  K.Util.humanize.filesize(sets.maxFileSize);
 		}
 

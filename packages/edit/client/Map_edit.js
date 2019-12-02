@@ -20,17 +20,21 @@ Tracker.autorun(function(comp) {
 							.on(divp.firstChild, 'click', L.DomEvent.stop, divp.firstChild)
 							.on(divp.firstChild, 'click', function(e) {
 
-								var loc = K.Map.getCenter();
+								var loc = K.Map.getCenter(),
+									z = K.Map.map.getZoom();
 
-								Meteor.call('insertPlace', {loc: loc }, function(err, placeId) {
+								if(z >= btnSets.minZoom)
+									Meteor.call('insertPlace', {loc: loc }, function(err, placeId) {
 
-									Meteor.subscribe('placeById', placeId, function() {
+										Meteor.subscribe('placeById', placeId, function() {
 
-										Router.go('panelPlaceEdit', {placeId: placeId});
+											Router.go('panelPlaceEdit', {placeId: placeId});
 
-										K.Map.addItem(K.placeById(placeId));
+											K.Map.addItem(K.placeById(placeId));
+										});
 									});
-								});
+								else
+									K.Alert.warning(i18n('error_edit_minzoom'))
 
 							}, divp.firstChild);
 
@@ -45,8 +49,7 @@ Tracker.autorun(function(comp) {
 			var z = K.Map.map.getZoom();
 
 			if( K.Profile.ready && 
-				z >= K.settings.public.map.dataMinZoom &&
-				z >= btnSets.minZoom )
+				z >= K.settings.public.map.dataMinZoom )
 			{
 
 				K.Map.map.addControl(K.Map.controls.addButton);

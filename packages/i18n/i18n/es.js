@@ -98,7 +98,7 @@ i18n.map('es', {
 	btn_userunblock: "Desbloquear",
 
 	map_gps_title: "Su posición",
-	map_gps_error: "Gps no disponible",
+	error_gps: "Gps no disponible",
 	map_layer_road: "Rutas",
 	map_layer_landscape: "Trekking",
 	map_layer_transport: "Transporte",

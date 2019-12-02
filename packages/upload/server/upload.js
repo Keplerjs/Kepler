@@ -35,7 +35,7 @@ Meteor.methods({
 		if(!this.userId) return null;
 
 		if(!K.settings.upload.targets[target]) {
-			throw new Meteor.Error(500, i18n('upload_error_targetNotValid'));
+			throw new Meteor.Error(500, i18n('error_upload_targetNotValid'));
 			return null;
 		}
 
@@ -49,7 +49,7 @@ Meteor.methods({
 
 		if(fileObj.size > sets.maxFileSize) {
 			console.log('Upload: error size', target, _.omit(fileObj,'blob') );
-			throw new Meteor.Error(500, i18n('upload_error_filesizeNotValid') + K.Util.humanize.filesize(K.settings.public.upload.maxFileSize) );
+			throw new Meteor.Error(500, i18n('error_upload_filesizeNotValid') + K.Util.humanize.filesize(K.settings.public.upload.maxFileSize) );
 			return null;
 		}
 		
@@ -64,7 +64,7 @@ Meteor.methods({
 			
 			if(!_.contains(mimes, fileObj.type)) {
 				console.log('Upload: error format', fileObj.type );
-				throw new Meteor.Error(500, i18n('upload_error_formatNotValid'));
+				throw new Meteor.Error(500, i18n('error_upload_formatNotValid'));
 				return null;
 			}
 		}

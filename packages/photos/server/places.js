@@ -48,7 +48,7 @@ Meteor.methods({
 				return placeId;
 			}
 			else {
-				throw new Meteor.Error(500, i18n('photos_error_exifNotFound') );
+				throw new Meteor.Error(500, i18n('error_photos_exifNotFound') );
 			}
 
 		}

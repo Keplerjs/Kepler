@@ -9,5 +9,5 @@ i18n.map('it', {
 	label_editphotos: "Foto aggiunte",
 
 	btn_avatar: "Foto profilo",
-	upload_error_imageNotValid: "Solo immagini JPG/PNG",
+	error_photos_imageNotValid: "Solo immagini JPG/PNG",
 });

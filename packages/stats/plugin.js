@@ -15,9 +15,9 @@ K.Plugin({
 		"public": {
 			"stats": {
 				"mapStyle": {
-					"weight": 2,
-					"opacity": 0.8,
-					"fillOpacity": 0.8,
+					"weight": 0,
+					"opacity": 0.9,
+					"fillOpacity": 1,
 					"fillColor": "#9c0",
 					"color": "#7a0"
 				}

@@ -36,7 +36,7 @@ Meteor.methods({
 			console.log('Edit: removePlace', placeId);
 		}
 		else
-			throw new Meteor.Error(500, i18n('edit_error_notOwner'));
+			throw new Meteor.Error(500, i18n('error_edit_notOwner'));
 
 	},
 	updatePlace: function(placeId, data) {

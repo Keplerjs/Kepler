@@ -22,7 +22,7 @@ _.extend(Kepler.Map, {
 				style: {opacity:0,fillOpacity:0},
 				position: opts.controls.gps.position,
 				title: i18n('map_gps_title'),
-				textErr: '<i class="icon icon-warning"></i> '+i18n('map_gps_error'),
+				textErr: '<i class="icon icon-warning"></i> '+i18n('error_gps'),
 				callErr: function(err) {
 					K.Alert.error(err)
 				}

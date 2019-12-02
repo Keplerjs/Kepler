@@ -33,7 +33,7 @@ Template.panelPlaceEdit_edit_info.events({
 			};
 
 		if(data.url.length && !K.Util.valid.url(data.url))
-			K.Alert.error( i18n('edit_error_notUrl') );
+			K.Alert.error( i18n('error_edit_notUrl') );
 		else {
 			Meteor.call('updatePlace', place.id, data, function(err) {
 				place.update();

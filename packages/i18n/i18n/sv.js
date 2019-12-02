@@ -100,7 +100,7 @@ i18n.map('sv', {
 	btn_userUnblock: "Avblockera",
 
 	map_gps_title: "Din plats",
-	map_gps_error: "gps avstängd",
+	error_gps: "gps avstängd",
 	map_layer_road: "Vägar",
 	map_layer_landscape: "Trekking",
 	map_layer_transport: "Transport",

@@ -37,7 +37,7 @@ Meteor.methods({
 		}
 		catch(e) {
 			console.warn('Photos: error to create file "'+basePath+fileOri+'"');
-			throw new Meteor.Error(500, i18n('upload_error_imageNotValid') );
+			throw new Meteor.Error(500, i18n('error_photos_imageNotValid') );
 		}
 
 		return fileOri;
@@ -66,7 +66,7 @@ Meteor.methods({
 		}
 		catch(e) {
 			console.warn('Photos: error to resize photo', opts.dstPath);
-			throw new Meteor.Error(500, i18n('upload_error_imageNotValid') );
+			throw new Meteor.Error(500, i18n('error_photos_imageNotValid') );
 		}
 	
 		console.log('Photos: resized', fileMin);
@@ -92,7 +92,7 @@ Meteor.methods({
 		}
 		catch(e) {
 			console.log('Photos: error to read exif from file ', e);
-			throw new Meteor.Error(500, i18n('photos_error_exifNotFound') );
+			throw new Meteor.Error(500, i18n('error_photos_exifNotFound') );
 		}
 		
 		if(exif && exif.gpsLatitude && exif.gpsLongitude) {

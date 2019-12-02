@@ -4,5 +4,5 @@ i18n.map('es', {
 	title_editphotos: "Fotos",
 
 	btn_avatar: "Foto del Perfil",
-	upload_error_imageNotValid: "solo imagen JPG/PNG",
+	error_photos_imageNotValid: "solo imagen JPG/PNG",
 });

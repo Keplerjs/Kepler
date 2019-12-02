@@ -98,8 +98,9 @@ Template.panelPlaceEdit_edit_map.onRendered(function() {
 				conf.edit.featureGroup.addTo(self.editMap);
 				
 				if(place.geometry && place.geometry.type.startsWith('Multi')) {
-					//TODO K.Alert.warning(i18n('edit_error_notMultigeom'))
-					editMap$.before('<div class="alert alert-warning">'+i18n('edit_error_notMultigeom')+'<div>')
+					editMap$.before(
+						'<div class="alert alert-warning">'+
+						i18n('error_edit_notMultigeom')+'<div>');
 					return;
 				}
 
