@@ -23,10 +23,10 @@
 		<div class="col-xs-9">
 			<div id="maplayer" class="btn-group" data-toggle="buttons">
 			{{#each layers}}
-				<label class="btn btn-default {{#if active}} active {{/if}}" style="background-image:url('{{url}}')">
+			<a class="btn btn-default {{#if active}} active {{/if}}" style="background-image:url('{{url}}')">
 				<input type="radio" name="maplayer" checked="{{active}}" value="{{val}}" />
 				{{name}}
-				</label>
+			</a>
 			{{/each}}
 			</div>
 		</div>

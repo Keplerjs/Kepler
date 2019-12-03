@@ -20,7 +20,7 @@
 	border-color: #337ab7;
 	box-shadow: none;
 }
-#settings #maplayer label.btn {
+#settings #maplayer .btn {
 	background-position: center center;
 	background-repeat: no-repeat;
 	color: #fff;
@@ -30,9 +30,9 @@
 	margin: 0 2px 2px 0;
 	padding: 20px 10px;
 	border-radius: 4px;
-	min-width: 90px;
+	min-width: 80px;
 }
-#settings #maplayer label.btn.active {
+#settings #maplayer .btn.active {
 	border-color: #337ab7;
 	box-shadow: none;
 }

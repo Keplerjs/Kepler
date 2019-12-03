@@ -47,20 +47,23 @@ Template.panelSettings_ui_map.events({
 		e.preventDefault();
 
 		var input$ = $(e.currentTarget).parents('#mapcenter').find('input'),
-			cen = K.Map.getCursorLoc() || K.Map.getCenter(),
+			//cur = K.Map.getCursorLoc(),
+			ll = K.Map.map.getCenter(),
+			cen = K.Map.isVisible() ? K.Map.getCenter() : [ll.lat,ll.lng],
 			zom = K.Map.map.getZoom(),
-			val = K.Util.geo.locRound(cen);
+			loc = K.Util.geo.locRound(cen);
 		
-		input$.val(K.Util.humanize.loc(val)+','+zom);
+		input$.val(K.Util.humanize.loc(loc)+','+zom);
 		
 		Users.update(Meteor.userId(), {
 			$set: {
-				'settings.map.center': val,
+				'settings.map.center': loc,
 				'settings.map.zoom': zom
 			}
 		});
 
-		K.Alert.info(i18n('label_mapcentermap'))
+		//K.Alert.info(i18n('label_mapcentermap'));
+
 	}, 300),
 
 	'click #mapcenter .btn-mapcancel': _.debounce(function(e) {
