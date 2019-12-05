@@ -56,5 +56,5 @@
 .search-canc {
 	cursor: pointer;
 	display: none;
-	right: 16px;
+	/*right: 16px;*/
 }

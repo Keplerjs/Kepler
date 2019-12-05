@@ -4,17 +4,19 @@ Template.panelPlace_photos.onRendered(function() {
 	var self = this,
 		place = self.data,
 		img$ = self.$('.place-photo');
+	
+	if(self.data) {
+		//	https://fengyuanchen.github.io/viewerjs/
+		//	hidden.spec.js	test: hide viewer before done	9 months ago	
+		img$.viewer({
+			navbar: false,
+			toolbar: false,
+			fullscreen: true,
+			//events: hide,ready,show,shown,view,viewed,zoom,zoomed
+		});
 
-	//	https://fengyuanchen.github.io/viewerjs/
-	//	hidden.spec.js	test: hide viewer before done	9 months ago	
-	img$.viewer({
-		navbar: false,
-		toolbar: false,
-		fullscreen: true,
-		//events: hide,ready,show,shown,view,viewed,zoom,zoomed
-	});
-
-	place.photo$ = img$;
+		place.photo$ = img$;
+	}
 });
 
 Template.panelPlace_photos.helpers({

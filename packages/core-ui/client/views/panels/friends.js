@@ -5,6 +5,7 @@ Template.panelUsers_ui_search.onRendered(function() {
 	$(self.firstNode).parent().siblings('.list-items').btsListFilter('.users-search', {
 		itemChild: '.user-btn-name',
 		loadingClass: 'loading-lg',
+		resetOnBlur: false,
 		sourceData: function(val, callback) {
 			
 			Meteor.subscribe('usersByName', val, function() {

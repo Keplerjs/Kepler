@@ -5,6 +5,7 @@ Template.panelPlaces.onRendered(function() {
 	$(self.firstNode).parent().siblings('.list-items').btsListFilter('.places-search', {
 		itemChild: '.place-btn-name',
 		loadingClass: 'loading-lg',
+		resetOnBlur: false,
 		sourceData: function(val, cb) {
 			
 			Meteor.subscribe('placesByText', val, function() {
