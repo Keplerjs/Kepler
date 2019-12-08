@@ -49,7 +49,7 @@ Router.onBeforeAction(function (req, res) {
 		this.next();
 	else {
 		res.writeHead(403, {'Content-type': 'application/json'});
-		res.end(JSON.stringify({"error": "Api REST disabled"},null,4));
+		res.end(JSON.stringify({"error": "Api REST disabled K.settings.api.enableRest"},null,4));
 	}
 });
 

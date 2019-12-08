@@ -1,10 +1,18 @@
 
 Places.after.remove(function(userId, doc) {
-
+	if(doc.cats && doc.cats.length)
 	Categories.update({name: {$in: doc.cats}, type: 'place'}, {
 		$inc: {rank: -1}
 	},{multi:true});
 });
+
+Places.after.insert(function(userId, doc) {
+	if(doc.cats && doc.cats.length)
+	Categories.update({name: {$in: doc.cats}, type: 'place'}, {
+		$inc: {rank: 1}
+	},{multi:true});
+});
+
 
 Meteor.publish('placesByCategory', function(cat) {
 	if(this.userId || K.settings.public.router.publicRoutes.placesCats) {

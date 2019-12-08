@@ -97,7 +97,7 @@ K.extend({
 		data = _.map(data, function(o) {
 			var v = K.Util.getPath(o, field);
 			v = _.isString(v) ? v.toLowerCase() : v;
-			v = _.isArray(v) ? v.length : v;
+			v = _.isArray(v) ? v.sort().join() : v;
 			v = _.isObject(v) ? JSON.stringify(v) : v;
 			K.Util.setPath(o, field, v);
 			return o;

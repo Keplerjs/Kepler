@@ -28,13 +28,8 @@
 
 
 <template name="itemCat">
-{{#if gt rank 0}}
 	<a class="btn btn-primary btn-sm btn-cat" href="/{{type}}s/cat/{{name}}">
-		{{name}} <small class="badge">{{rank}}</small>
+		{{name}} 
+		{{#if gt rank 0}}<small class="badge">{{rank}}</small>{{/if}}
 	</a>
-{{else}}
-	<a class="btn btn-primary btn-sm btn-cat" href="#">
-		{{name}}
-	</a>
-{{/if}}
 </template>

@@ -2,11 +2,11 @@
  * apply K.queries selectors to all query
  */
 Places.before.find(function(userId, selector, options) {
-	_.deepExtend(selector, K.queries.placeFind);
+	_.extend(selector, K.queries.placeFind);
 });
 
 Places.before.findOne(function(userId, selector, options) {
-	_.deepExtend(selector, K.queries.placeFind);
+	_.extend(selector, K.queries.placeFind);
 });
 
 //TODO apply user settings if Meteor.user() is set

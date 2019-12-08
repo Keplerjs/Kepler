@@ -19,6 +19,6 @@ i18n.map('en', {
 	label_convertit: "New conversation title ...",
 	label_noconvers: "No recent converations",
 	label_newmesfrom: "New message from",
-
-	label_ownconvers: "Created conversations"
+	label_ownconvers: "Created conversations",
+	label_nologinconver: "Login to join conversations"
 });

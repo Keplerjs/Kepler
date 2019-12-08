@@ -18,7 +18,7 @@ Kepler.plugins = {};
  * @param {Object} new plugin configuration
  */
 Kepler.Plugin = function(plugin) {
-	
+
 	if(plugin && _.isString(plugin.name) && plugin.name!=='')
 	{
 		if(!this.plugins[plugin.name]) {
@@ -33,6 +33,7 @@ Kepler.Plugin = function(plugin) {
 						K.templates[placeholder]= {};
 				}
 
+				//TODO REFACT apply extend sort by ptmpls
 				for(var placeholder in K.templates) {
 					if(_.isObject(K.templates[placeholder]) && ptmpls[placeholder]) {
 						

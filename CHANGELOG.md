@@ -29,6 +29,7 @@
 - plugin categories new template panelPlaceEdit_cats_all
 - plugin admin use new settings by function
 - theme fix css marker-place icons
+- plugin stats findStatsPlacesByField support array values
 
 ## v1.6.8
 - core K.Place.showLoc() and K.Place.showGeometry() support callaback
