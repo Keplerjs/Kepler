@@ -52,10 +52,9 @@ _.extend(Kepler.Map, {
 			layers.cluster = new L.MarkerClusterGroup({
 				spiderfyDistanceMultiplier: 1.4,
 				showCoverageOnHover: false,
-				disableClusteringAtZoom:14,
 				//maxClusterRadius: 0,
 				animate:false,
-				disableClusteringAtZoom: K.settings.public.map.disableClusteringAtZoom,
+				disableClusteringAtZoom: K.settings.public.map.layerPlaces.disableClusteringAtZoom,
 				iconCreateFunction: function(clust) {
 
 					clust.getCheckinsCount = function() {
