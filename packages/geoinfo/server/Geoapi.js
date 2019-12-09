@@ -3,25 +3,36 @@
 */
 var httpGet = function(url) {
 
-	var getOpts = {
+	var res,
+		getOpts = {
 			timeout: 20000,	//timeout connessioni http remote
 			headers: K.settings.geoinfo.headers
 		};
 
 	try {
-		
-		var res = HTTP.get(url, getOpts);
+		//TODO memoization
+		/*if(url === K.Geoapi._cache.url) {
+			res = K.Geoapi._cache.res;
+			//TODO timeout to clean cache
+			console.log('Geoinfo: geoapi cached', res.statusCode)
+		} else {
+			res = HTTP.get(url, getOpts);
 
-		console.log('Geoinfo: geoapi', res.statusCode, url)
+			K.Geoapi._cache.url = url;
+			K.Geoapi._cache.res = res;
+
+			console.log('Geoinfo: geoapi', res.statusCode, url)
+		}*/
+		res = HTTP.get(url, getOpts);
 
 		if(res && res.data)
 			return res.data;
 		else
-			return null;
+			return undefined;
 
 	} catch(e) {
-		console.log('Geoinfo: error', e.statusCode || (e.response && e.response.statusCode), url);
-		return null;
+		console.log('Geoinfo: error', url);//.statusCode || (e.response && e.response.statusCode), url);
+		return undefined;
 	}
 }
 
@@ -29,10 +40,15 @@ var sanitizeText = function(text) {
 	if(_.isString(text) && text!=='')
 		return K.Util.sanitize.name(text).toLowerCase();
 	else
-		return null;
+		return undefined;
 };
 
-Kepler.Geoapi = {	
+Kepler.Geoapi = {
+
+	_cache: {
+		url: '',
+		res: undefined
+	},
 	/**
 	 * return the geo aspect the compass direction that a slope faces(free service but only for Italy)
 	 * @param  {Array} loc location [lat,lng]
@@ -50,7 +66,7 @@ Kepler.Geoapi = {
 		if(data && data[src.par])
 			ret = parseInt(data[src.par]);
 		else
-			ret = null;
+			ret = undefined;
 
 		return ret;
 	},
@@ -71,7 +87,7 @@ Kepler.Geoapi = {
 		if(data && data[src.par])
 			ret = parseInt(data[src.par]);
 		else
-			ret = null;
+			ret = undefined;
 
 		return ret;
 	},
@@ -94,7 +110,7 @@ Kepler.Geoapi = {
 		if(data && data[src.par])
 			ret = parseInt(data[src.par]);
 		else
-			ret = null;
+			ret = undefined;
 
 		return ret;
 	},
@@ -118,7 +134,7 @@ Kepler.Geoapi = {
 		if(data && data.geonames && data.geonames[0] && data.geonames[0][src.par])
 			ret = data.geonames[0][src.par];
 		else
-			ret = null;
+			ret = undefined;
 
 		return sanitizeText(ret);
 	},
@@ -141,7 +157,7 @@ Kepler.Geoapi = {
 		if(data && data[src.par])
 			ret = data[src.par];
 		else
-			ret = null;
+			ret = undefined;
 
 		return sanitizeText(ret);
 	},
@@ -164,7 +180,7 @@ Kepler.Geoapi = {
 		if(data && data[src.par])
 			ret = data[src.par];
 		else
-			ret = null;
+			ret = undefined;
 
 		return sanitizeText(ret);
 	},
@@ -187,7 +203,7 @@ Kepler.Geoapi = {
 		if(data && data[src.par])
 			ret = data[src.par];
 		else
-			ret = null;
+			ret = undefined;
 
 		return sanitizeText(ret);
 	},
@@ -200,7 +216,7 @@ Kepler.Geoapi = {
 
 		var data, ret, src = {
 				par: 'countryName',
-				url: 'http://api.geonames.org/countrySubdivisionJSON?'+
+				url: 'http://api.geonames.org/countrySubdivisionJSON?level=3&'+
 					 'lang=EN&'+
 					 'lat='+ll[0]+'&lng='+ll[1]+'&username='+K.settings.geoinfo.geonamesUser
 			};
@@ -210,7 +226,7 @@ Kepler.Geoapi = {
 		if(data && data[src.par])
 			ret = data[src.par];
 		else
-			ret = null;
+			ret = undefined;
 
 		return sanitizeText(ret);
 	},
@@ -237,7 +253,7 @@ Kepler.Geoapi = {
 		if(data.length)
 			ret = data;
 		else
-			ret = null;
+			ret = undefined;
 
 		return ret;
 	},
@@ -271,7 +287,7 @@ Kepler.Geoapi = {
 			ret = _.map(ret, K.Util.sanitize.name);
 		}
 		else
-			ret = null;
+			ret = undefined;
 
 		return ret;
 	},
@@ -284,7 +300,7 @@ Kepler.Geoapi = {
 		
 		if(!K.settings.geoinfo.ipinfodbKey) {
 			console.warn('Geoinfo: K.settings.geoinfo.ipinfodbKey is required');
-			return null;
+			return undefined;
 		}
 		var data, ret, src = {
 				par: '',
@@ -298,7 +314,7 @@ Kepler.Geoapi = {
 			ret = data;
 		}
 		else
-			ret = null;
+			ret = undefined;
 
 		return ret;
 		//: http://ipinfodb.com/ip_location_api.php

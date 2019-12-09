@@ -60,6 +60,7 @@ K.Plugin({
 		"geoinfo": {
 			"locRound": 4,
 			"cacheTime": "monthly",
+			//"cacheConsecutiveRequests": true,
 			"autoupdate": true,
 			"geonamesUser": "",
 			"ipinfodbKey": "",

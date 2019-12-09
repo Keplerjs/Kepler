@@ -4,7 +4,7 @@ Meteor.methods({
 
 		if(!this.userId) return null;
 
-		var place = _.deepExtend({}, K.schemas.place, obj);
+		var place = _.deepExtend({}, K.schemas.place, obj, {active:1});
 
 		var placeId = Places.insert(place);
 

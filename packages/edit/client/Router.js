@@ -30,7 +30,8 @@ Router.map(function() {
 		},
 		onStop: function(e) {
 			var place = K.placeById( this.params.placeId );
-			$(place.icon.nodeHtml).find('.marker-place').removeClass('marker-active');
+			if(place && place.icon)
+				$(place.icon.nodeHtml).find('.marker-place').removeClass('marker-active');
 		}
 	});
 

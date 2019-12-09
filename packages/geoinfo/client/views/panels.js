@@ -3,7 +3,9 @@ Template.panelPlaceEdit_geoinfo_tips.onCreated(function() {
 	
 	var self = this;
 
-	this.geotips = new ReactiveVar([]);
+	self.data = Template.currentData();
+
+	self.geotips = new ReactiveVar([]);
 	
 	Meteor.call('findReverseGeo', self.data.loc, function(err, res) {
 		self.geotips.set(res);
