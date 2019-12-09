@@ -5,9 +5,6 @@ Places.after.insert(function(userId, doc) {
 		//TODO add async random delay
 		//
 		K.Geoinfo.getFieldsByLoc(doc.loc, function(geo) {
-
-			console.log('Geoinfo: getFieldsByLoc', doc.name);
-
 			Places.update(doc._id, {
 				$set: {
 					geoinfo: geo
@@ -20,12 +17,11 @@ Places.after.insert(function(userId, doc) {
 Places.after.update(function(userId, doc, fieldNames, modifier, options) {
 
 	if(K.settings.geoinfo && K.settings.geoinfo.autoupdate) {
-		if(_.contains(fieldNames,'loc') && modifier.$set && modifier.$set.loc) {
+		if( _.contains(fieldNames,'loc') //||_.contains(fieldNames,'geometry'))
+		 	&& modifier.$set && modifier.$set.loc) {
+			
 			if(doc.geoinfo && !_.contains(fieldNames,'geoinfo')) {
 				K.Geoinfo.getFieldsByLoc(doc.loc, function(geo) {
-
-					console.log('Geoinfo: getFieldsByLoc', doc.name);
-
 					Places.update(doc._id, {
 						$set: {
 							geoinfo: geo

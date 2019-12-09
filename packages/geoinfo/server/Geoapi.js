@@ -11,18 +11,6 @@ var httpGet = function(url) {
 
 	try {
 		//TODO memoization
-		/*if(url === K.Geoapi._cache.url) {
-			res = K.Geoapi._cache.res;
-			//TODO timeout to clean cache
-			console.log('Geoinfo: geoapi cached', res.statusCode)
-		} else {
-			res = HTTP.get(url, getOpts);
-
-			K.Geoapi._cache.url = url;
-			K.Geoapi._cache.res = res;
-
-			console.log('Geoinfo: geoapi', res.statusCode, url)
-		}*/
 		res = HTTP.get(url, getOpts);
 
 		if(res && res.data)
@@ -31,7 +19,7 @@ var httpGet = function(url) {
 			return undefined;
 
 	} catch(e) {
-		console.log('Geoinfo: error', url);//.statusCode || (e.response && e.response.statusCode), url);
+		console.log('Geoinfo: Geoapi error', e.code, url);
 		return undefined;
 	}
 }
@@ -44,11 +32,6 @@ var sanitizeText = function(text) {
 };
 
 Kepler.Geoapi = {
-
-	_cache: {
-		url: '',
-		res: undefined
-	},
 	/**
 	 * return the geo aspect the compass direction that a slope faces(free service but only for Italy)
 	 * @param  {Array} loc location [lat,lng]

@@ -79,7 +79,7 @@ Kepler.settings = {
 				//TODO "query": "",
 				"enabled": true,
 				"cluster": true,
-				"disableClusteringAtZoom": 16,
+				"disableClusteringAtZoom": 12,
 			},
 			"layerUsers": {
 				"enabled": true

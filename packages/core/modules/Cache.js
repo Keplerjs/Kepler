@@ -89,7 +89,8 @@ Kepler.Cache = {
 		
 		set.expire = this._expiregen(expire);
 
-		this._getCollection(namespace).upsert(idKey, {$set: set });
+		if(set.val!==undefined)
+			this._getCollection(namespace).upsert(idKey, {$set: set });
 		
 		return val;
 	},

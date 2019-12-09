@@ -80,7 +80,6 @@ Kepler.Geoinfo = {
 		}
 		else
 		{
-
 			var future = new Future();
 
 			async.parallel(tasks, function(err, ret) {

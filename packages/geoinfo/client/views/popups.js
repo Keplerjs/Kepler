@@ -4,7 +4,7 @@ Template.tabGeoinfo.helpers({
 	fields: function() {
 //TODO convert to helper
 		var fields = {};
-
+		
 		_.each(this, function(val, field) {
 			if(!!K.settings.public.geoinfo.fields[field])
 				fields[field]= val;
@@ -22,7 +22,7 @@ Template.tabLocation_geoinfo.onCreated(function() {
 	self.showFields = {
 		"loc": true,
 		"near": true,
-		//"come": true,
+		//"com": true,
 		"prov": true,
 		//"reg": true,
 		"naz": true
