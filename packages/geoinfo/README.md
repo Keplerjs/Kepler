@@ -7,6 +7,7 @@ keplerjs plugin geoinfo
 
 Geonames API user:
 http://www.geonames.org/export/web-services.html
+https://www.geonames.org/export/credits.html
 
 Ipinfodb API key:
 http://ipinfodb.com/ip_location_api.php
