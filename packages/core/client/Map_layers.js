@@ -49,32 +49,29 @@ _.extend(Kepler.Map, {
 		}
 
 		if(opts.layerPlaces.cluster && L.MarkerClusterGroup) {
-			layers.cluster = new L.MarkerClusterGroup({
-				spiderfyDistanceMultiplier: 1.4,
-				showCoverageOnHover: false,
-				//maxClusterRadius: 0,
-				animate:false,
-				disableClusteringAtZoom: K.settings.public.map.layerPlaces.disableClusteringAtZoom,
-				iconCreateFunction: function(clust) {
+			layers.cluster = new L.MarkerClusterGroup(
+				_.extend({}, optsDef.layerPlaces.clusterOpts, {
+					iconCreateFunction: function(clust) {
 
-					clust.getCheckinsCount = function() {
-						var placeIds = _.map(clust.getAllChildMarkers(), function(marker) {
-							return marker.item.id;
+						clust.getCheckinsCount = function() {
+							var placeIds = _.map(clust.getAllChildMarkers(), function(marker) {
+								return marker.item.id;
+							});
+							return K.findCheckinsCountByPlaces(placeIds);
+						};
+
+						var div = L.DomUtil.create('div');
+
+						Blaze.renderWithData(Template.markerCluster, clust, div);
+
+						var icon = new L.NodeIcon({
+							nodeHtml: div
 						});
-						return K.findCheckinsCountByPlaces(placeIds);
-					};
 
-					var div = L.DomUtil.create('div');
-
-					Blaze.renderWithData(Template.markerCluster, clust, div);
-
-					var icon = new L.NodeIcon({
-						nodeHtml: div
-					});
-
-					return icon;
-				}
-			});
+						return icon;
+					}
+				})
+			);
 		}
 
 		//layers.places = new L.LayerGroup();
@@ -139,9 +136,9 @@ _.extend(Kepler.Map, {
 			}
 		});
 
-		map._zoomData = function (e) {
+		map._zoomData = _.once(function (e) {
 			K.Alert.warning( i18n('error_nozoomdata') );
-		};
+		});
 
 		map.on('zoomend moveend', function(e) {
 			var c = map.getCenter(),

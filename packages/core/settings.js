@@ -79,7 +79,16 @@ Kepler.settings = {
 				//TODO "query": "",
 				"enabled": true,
 				"cluster": true,
-				"disableClusteringAtZoom": 12,
+				"clusterOpts": {
+					//https://github.com/Leaflet/Leaflet.markercluster#options
+					"animate":false,
+					"spiderfyDistanceMultiplier": 1,
+					"spiderfyOnMaxZoom": false,
+					"showCoverageOnHover": false,
+					//"spiderLegPolylineOptions": {color:"#337ab7",weight:1},
+					//"maxClusterRadius": 0,	
+					"disableClusteringAtZoom": 12,
+				}
 			},
 			"layerUsers": {
 				"enabled": true

@@ -13,6 +13,7 @@
 - core add new sets K.settings.public.router.mainRoute that replace 'root' route
 - core new file /config/settings.js to configure modules from settings.json
 - core new method K.Map.cleanItems()
+- core new K.settings.public.map.layerPlaces.clusterOpts
 - core query K.findPlacesByBBox() support additional query parameter
 - core-ui helper routeIs support array
 - core-ui simplify helper settings now is also object
