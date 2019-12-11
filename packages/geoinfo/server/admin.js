@@ -36,6 +36,8 @@ K.Admin.methods({
 		var places = Places.find(w,{fields: {_id:1,name:1,loc:1}}).fetch(),
 			i = 0;
 
+		console.log('Geoinfo: startUpdateAllGeoinfo... '+places.length);
+		
 		K.Geoinfo.timer = Meteor.setInterval(function() {
 			
 			var place = places[i++];
@@ -56,8 +58,6 @@ K.Admin.methods({
 			else
 				Meteor.clearInterval(K.Geoinfo.timer);
 		}, time);
-
-		return 'Geoinfo: startUpdateAllGeoinfo... '+places.length;
 	},
 	stopUpdateAllGeoinfo: function() {
 		if(K.Geoinfo.timer)

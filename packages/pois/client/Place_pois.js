@@ -57,20 +57,25 @@ Kepler.Place.include({
 					return K.Pois.typeByTags(f.properties.tags) === poisType;
 				});
 			}
+
+			//poisGeojson.features.push()
 			
 			K.Map.addGeojson(poisGeojson, {
 				clear: true,
+				noFitBounds: true,//fitbound only the tracks
 				style: K.settings.public.map.styles.pois
-			});
+			}, function() {
+				self.loadPoisTracks(poisGeojson, function(tracksGeojson) {
 
-			self.loadPoisTracks(poisGeojson, function(tracksGeojson) {
-
-				K.Map.addGeojson(tracksGeojson, {
-					clear: false,
-					noFitBounds: true,
-					style: K.settings.public.map.styles.pois
+					K.Map.addGeojson(tracksGeojson, {
+						clear: false,
+						//noFitBounds: true,
+						style: K.settings.public.map.styles.pois
+					});
 				});
 			});
+
+			
 		});
 	},
 	getPoisList: function() {
