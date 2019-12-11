@@ -10,6 +10,8 @@ Router.map(function() {
 			return Meteor.subscribe('poisByPlace', this.params.placeId);
 		},
 		onAfterAction: function() {
+			if(!this.ready()) return null;
+			
 			var place = K.placeById( this.params.placeId );
 			if(place) {
 				place.showLoc(function() {
