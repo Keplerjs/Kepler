@@ -23,7 +23,7 @@
 
 <template name="tabPlace_pois_list">
 	{{#each getPoisList}}
-	<a class="list-group-item panel-btn-poi" href="#">
+	<a class="list-group-item panel-btn-poi" href="/place/{{placeId}}/pois/{{type}}">
 		<i class="icon icon-{{type}}"></i>
 		{{title}}
 		<span class="badge bg-gray">{{count}}</span>

@@ -62,7 +62,7 @@ Kepler.Place.include({
 			
 			K.Map.addGeojson(poisGeojson, {
 				clear: true,
-				noFitBounds: true,//fitbound only the tracks
+				//noFitBounds: true,//fitbound only the tracks
 				style: K.settings.public.map.styles.pois
 			}, function() {
 				self.loadPoisTracks(poisGeojson, function(tracksGeojson) {
@@ -90,6 +90,7 @@ Kepler.Place.include({
 
 		return _.map(featuresByType, function(features, type) {
 			return {
+				placeId: self.id,
 				type: type,
 				count: features.length,
 				title: i18n('pois_type_'+type)
