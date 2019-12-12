@@ -2,7 +2,7 @@
 Router.map(function() {
 
 	this.route('placeTracks', {
-		path: '/place/:placeId/tracks',
+		path: '/place/:placeId/tracks/:trackId?',
 		template: 'empty',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
@@ -10,12 +10,15 @@ Router.map(function() {
 			return Meteor.subscribe('tracksByPlace', this.params.placeId);
 		},
 		onAfterAction: function() {
+			if(!this.ready()) return null;
+
 			var place = K.placeById( this.params.placeId );
+
 			if(place) {
 				place.showLoc(function() {
 					Router.go('map');	
 				});
-				place.showTracks();
+				place.showTracks(this.params.trackId);
 			}
 		}
 	});

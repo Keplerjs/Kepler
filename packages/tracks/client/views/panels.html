@@ -22,11 +22,11 @@
 </template>
 
 <template name="tabPlace_tracks_list">
-		{{#each getTracksList}}
-		<a class="list-group-item panel-btn-track" href="#">
-			{{#with properties}}
-				{{> popupTrack}}
-			{{/with}}
-		</a>
-		{{/each}}
+	{{#each getTracksList}}
+	<a class="list-group-item panel-btn-track" href="/place/{{placeId}}/tracks/{{id}}">
+		{{#with properties}}
+			{{> popupTrack}}
+		{{/with}}
+	</a>
+	{{/each}}
 </template>

@@ -18,9 +18,9 @@ K.Plugin({
 				}
 			},			
 			"tracks": {
-				"limit": 5,
-				"caching": true,	//cache response by OSM overpass		
-				"maxDistance": 800,
+				"limit": 10,
+				"caching": false,	//cache response by OSM overpass		
+				"maxDistance": 500,
 				"typesByTags": {
 				//osm tags classification
 					"highway=path": "path",

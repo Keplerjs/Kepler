@@ -20,8 +20,8 @@ K.Plugin({
 				}
 			},
 			"pois": {
-				"limit": 30,
-				"caching": true,	//cache response by OSM overpass
+				"limit": 10,
+				"caching": false,	//cache response by OSM overpass
 				"maxDistance": 500,
 				"importPois": true,	//enable importing of pois like place
 				"typesByTags": {

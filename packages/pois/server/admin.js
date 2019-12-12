@@ -6,5 +6,6 @@ K.Admin.methods({
 		if(!K.Admin.isMe()) return false;
 
 		Pois.remove({});
+		K.Cache.clean('pois');
 	}	
 });

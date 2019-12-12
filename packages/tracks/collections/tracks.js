@@ -1,8 +1,8 @@
 
 Tracks = new Mongo.Collection('tracks');
 
-K.findTracksByIds = function(tracksIds) {
-	return Tracks.find({_id: {$in: tracksIds}});
+K.findTracksById = function(trackId) {
+	return Tracks.find({id: parseInt(trackId)});
 };
 
 K.findTracksByLoc = function(ll) {

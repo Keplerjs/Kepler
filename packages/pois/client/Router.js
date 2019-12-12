@@ -2,7 +2,7 @@
 Router.map(function() {
 
 	this.route('placePois', {
-		path: '/place/:placeId/pois/:type?',
+		path: '/place/:placeId/pois/:poisType?',//type is optional param
 		template: 'empty',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
@@ -13,11 +13,12 @@ Router.map(function() {
 			if(!this.ready()) return null;
 			
 			var place = K.placeById( this.params.placeId );
+
 			if(place) {
 				place.showLoc(function() {
 					Router.go('map');	
 				});
-				place.showPois(this.params.type);
+				place.showPois(this.params.poisType);
 			}
 		}
 	});

@@ -57,8 +57,6 @@ Kepler.Place.include({
 					return K.Pois.typeByTags(f.properties.tags) === poisType;
 				});
 			}
-
-			//poisGeojson.features.push()
 			
 			K.Map.addGeojson(poisGeojson, {
 				clear: true,
@@ -74,8 +72,6 @@ Kepler.Place.include({
 					});
 				});
 			});
-
-			
 		});
 	},
 	getPoisList: function() {

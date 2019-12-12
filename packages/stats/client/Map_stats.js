@@ -1,4 +1,31 @@
 
+K.Map.stats = {
+	update: function(e) {
+		
+		var bbox = K.Map.getBBox(),
+			z = K.Map.map.getZoom();
+
+		//L.rectangle(bbox,{style:{opacity:.25}}).addTo(K.Map.map)
+
+		if(z < K.settings.public.map.dataMinZoom) {
+			
+			K.Map.map.addLayer(K.Map.layers.stats);
+
+			if(K.Map.layers.stats.getLayers().length===0) {
+				Meteor.call('findStatsPlacesByGeo', bbox, function(err, geojson) {
+
+					//console.log(bbox.toString(), geojson.features.length)
+					K.Map.layers.stats.clearLayers();
+					K.Map.layers.stats.addData(geojson);
+				});		
+			}
+			
+		}
+		else
+			K.Map.map.removeLayer(K.Map.layers.stats);
+	}
+}
+
 Tracker.autorun(function(comp) {
 
 	if(K.Map.ready()) {
@@ -21,32 +48,9 @@ Tracker.autorun(function(comp) {
 			});
 		}
 
-		K.Map.map.on('zoomend', function(e) {
-			
-			var bbox = K.Map.getBBox(),
-				z = K.Map.map.getZoom();
+		K.Map.map.on('zoomend', K.Map.stats.update);
 
-			//L.rectangle(bbox,{style:{opacity:.25}}).addTo(K.Map.map)
-
-			if(z < K.settings.public.map.dataMinZoom) {
-				
-				K.Map.map.addLayer(K.Map.layers.stats);
-
-				if(K.Map.layers.stats.getLayers().length===0) {
-					Meteor.call('findStatsPlacesByGeo', bbox, function(err, geojson) {
-
-						//console.log(bbox.toString(), geojson.features.length)
-						K.Map.layers.stats.clearLayers();
-						K.Map.layers.stats.addData(geojson);
-					});		
-				}
-				
-			}
-			else
-				K.Map.map.removeLayer(K.Map.layers.stats);
-		})
-		.fire('zoomend');
-		//TODO REFACT!!
+		K.Map.stats.update();
 	}
 
 });

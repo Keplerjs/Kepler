@@ -25,7 +25,6 @@ Kepler.Util = {
 		if(obj)
 			return obj[last];
 	},
-
 	/**
 	 * set sub property of object by path string
 	 * @param  {Object} obj  [description]
@@ -74,6 +73,19 @@ Kepler.Util = {
 			}
 			return value;
 		});	
+	},
+
+	/**
+	 * return only valoried keys
+	 * @param  {[type]} obj [description]
+	 * @return {[type]}     [description]
+	 */
+	sets: function(obj) {
+		var kk = [];
+		for(let k in obj)
+			if(!!obj[k])
+				kk.push(k);
+		return _.pick(obj, _.uniq(kk));
 	},
 
 	dateUtcToLocal: function(date) {

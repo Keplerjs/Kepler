@@ -10,9 +10,5 @@ Template.tabPlace_pois.events({
 			$(e.target).removeClass('disabled');
 			icon$.removeClass('icon-loader');
 		});
-	},
-	/*'click .panel-btn-poi': function(e, tmpl) {
-		e.preventDefault();
-		tmpl.data.showPois(this.type);
-	}*/
+	}
 });

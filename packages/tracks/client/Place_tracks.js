@@ -31,29 +31,23 @@ Kepler.Place.include({
 		self.loadTracks(function(tracksList) {
 
 			if(trackId)
-				tracksList = K.findTracksByIds([trackId]).fetch();
+				tracksList = K.findTracksById(trackId).fetch();
 
-			K.Map.addGeojson( self.tracksToGeojson(tracksList, self), {
+			K.Map.addGeojson( K.Tracks.tracksToGeojson(tracksList, self), {
 				style: K.settings.public.map.styles.tracks
 			});
 		});
 	},
 	getTracksList: function() {
+
+		var self = this;
 		
 		this._dep.depend();
 
-		return this.tracksList;
-	},
-
-	tracksToGeojson: function(tracks, place) {
-
-		var tracks = _.map(tracks, function(track) {
-			track.templatePopup = 'popupGeojson_tracks';
-			return track;
+		return _.map(this.tracksList, function(t) {
+			t.placeId = self.id;
+			return t;
 		});
-
-		return K.Util.geo.featureColl( tracks );
 	}
-
 });
 

@@ -136,8 +136,13 @@ _.extend(Kepler.Map, {
 			}
 		});
 
-		map._zoomData = _.once(function (e) {
+		var zoomData = _.once(function (e) {
 			K.Alert.warning( i18n('error_nozoomdata') );
+		});
+
+		map.on('click', function(e) {
+			if( e.target.getZoom() < opts.dataMinZoom )
+				zoomData();
 		});
 
 		map.on('zoomend moveend', function(e) {
@@ -150,6 +155,7 @@ _.extend(Kepler.Map, {
 				(e.target.getBoundsZoom(layers.geojson.getBounds()) - e.target.getZoom() > 2)
 			) {
 				layers.geojson.clearLayers();
+
 				Router.go('map');
 			}
 
@@ -168,8 +174,6 @@ _.extend(Kepler.Map, {
 
 				if(layers.geometries)
 					map.removeLayer(layers.geometries);
-
-				map.on('click', map._zoomData);
 		    }
 		    else {
 		    	if(layers.users)
@@ -186,8 +190,6 @@ _.extend(Kepler.Map, {
 
 				if(layers.geometries)
 					map.addLayer(layers.geometries);
-
-				map.off('click', map._zoomData);
 
 				/* TODO FIX if(opts.tooltips.autoOpen) {
 					var bb = map.getBounds().pad(-0.7);

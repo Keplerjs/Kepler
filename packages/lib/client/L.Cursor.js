@@ -21,8 +21,13 @@ L.Cursor = L.Layer.extend({
 		})*/
 	},
 	onAdd: function(map) {
+		var self = this;
 		this._map = map;		
 		this._map.on(this.options.event, this._onSwitch, this);
+		this._map.on('zoomstart', function(e) {
+			if(this.marker.getPopup())
+				this.marker.closePopup()
+		}, this);
 	},
 	onRemove: function(map) {
 		map.off(this.options.event, this._onSwitch, this);

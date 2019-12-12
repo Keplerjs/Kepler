@@ -14,6 +14,7 @@
 - core new file /config/settings.js to configure modules from settings.json
 - core new method K.Map.cleanItems()
 - core new K.settings.public.map.layerPlaces.clusterOpts
+- core new method K.Util.sets()
 - core query K.findPlacesByBBox() support additional query parameter
 - core-ui helper routeIs support array
 - core-ui simplify helper settings now is also object
@@ -31,7 +32,10 @@
 - plugin admin use new settings by function
 - theme fix css marker-place icons
 - plugin stats findStatsPlacesByField support array values
-
+- plugin pois support settings.public.pois.typesByTags disabled
+- plugin tracks support settings.public.tracks.typesByTags disabled
+- plugin tracks fix osm query
+- plugin tracks new route to open single track by id
 ## v1.6.8
 - core K.Place.showLoc() and K.Place.showGeometry() support callaback
 - plugin osm K.Osm.findByLoc() support node and way

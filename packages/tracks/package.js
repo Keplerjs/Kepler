@@ -27,6 +27,7 @@ Package.onUse(function(api) {
   ]);
 
   api.addFiles([
+    'client/Tracks.js',
     'client/Place_tracks.js',
     'client/views/popups.html',
     'client/views/panels.html',

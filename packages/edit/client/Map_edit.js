@@ -1,4 +1,20 @@
 
+K.Map.edit = {
+	update: function(e) {
+		
+		var z = K.Map.map.getZoom();
+
+		if( K.Profile.ready && 
+			z >= K.settings.public.map.dataMinZoom )
+		{
+
+			K.Map.map.addControl(K.Map.controls.addButton);
+		}
+		else
+			K.Map.map.removeControl(K.Map.controls.addButton);
+	}
+};
+
 Tracker.autorun(function(comp) {
 
 	var btnSets = K.settings.public.map.controls.addButton;
@@ -44,21 +60,9 @@ Tracker.autorun(function(comp) {
 			}());
 		}
 
-		K.Map.map.on('zoomend', function(e) {
-			
-			var z = K.Map.map.getZoom();
+		K.Map.map.on('zoomend', K.Map.edit.update);
 
-			if( K.Profile.ready && 
-				z >= K.settings.public.map.dataMinZoom )
-			{
-
-				K.Map.map.addControl(K.Map.controls.addButton);
-			}
-			else
-				K.Map.map.removeControl(K.Map.controls.addButton);
-		})
-		.fire('zoomend');
-		//TODO REFACT!!
+		K.Map.edit.update();
 	}
 
 });

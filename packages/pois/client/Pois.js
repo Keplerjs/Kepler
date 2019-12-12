@@ -1,7 +1,7 @@
 
 Kepler.Pois = {
 	typeByTags: function(tags) {
-		var types = K.settings.public.pois.typesByTags,
+		var types = K.Util.sets(K.settings.public.pois.typesByTags),
 			type, val;
 
 		for(var tag in tags) {

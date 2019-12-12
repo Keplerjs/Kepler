@@ -6,5 +6,6 @@ K.Admin.methods({
 		if(!K.Admin.isMe()) return false;
 
 		Tracks.remove({});
+		K.Cache.clean('tracks');
 	}	
 });

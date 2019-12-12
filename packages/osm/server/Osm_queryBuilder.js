@@ -57,7 +57,7 @@ K.Osm.queryBuilder = function(options, loc) {
 			});
 		});
 
-		filter += "\n);";
+		filter += ");";
 	}
 
 	tail = K.Util.tmpl(tmplTail, {
@@ -67,8 +67,8 @@ K.Osm.queryBuilder = function(options, loc) {
 
 	out = [head, filter, union, tail].join("\n");
 
-	console.log('Osm: queryBuilder');
-	console.log(out);
+	console.log("Osm: queryBuilder\n", out,"\n");
+	//console.log(out);
 
 	return out;
 };
