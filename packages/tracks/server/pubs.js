@@ -1,6 +1,6 @@
 
 Meteor.publish('tracksByPlace', function(placeId) {
-	if(this.userId) {
+	if(this.userId || K.settings.public.router.publicRoutes.placeTracks) {
 
 		var sets = K.settings.public.tracks,
 			tags = _.keys(K.Util.sets(sets.typesByTags)),
