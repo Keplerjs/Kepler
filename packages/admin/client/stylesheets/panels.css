@@ -38,3 +38,7 @@
 	width:auto;
 }
 
+.adminMethods .list-group-item {
+	border:none;
+}
+

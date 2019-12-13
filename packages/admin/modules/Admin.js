@@ -51,7 +51,7 @@ Kepler.Admin = {
 		return Meteor.apply(this.prefix+method, args, cb);
 	},
 
-	methods: function(defs) {	//server
+	methods: function(defs) {	//only server
 	
 		var self = this;
 			newDef = {};
@@ -67,7 +67,7 @@ Kepler.Admin = {
 		Meteor.methods(newDef);
 	},
 
-	loadMethods: function() {	//client
+	loadMethods: function() {	//only client
 
 		var self = this;
 

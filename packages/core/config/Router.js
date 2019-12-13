@@ -39,12 +39,7 @@ if(Router && Meteor.isClient) {
 				K.Profile.init(function(data) {
 					
 					i18n.setLanguage(data.lang);
-
-					//TODO move to plugin admin
-					if(K.Admin && K.Admin.isMe()){
-						K.Admin.loadMethods();
-					}
-
+					
 					//console.log('profile init');
 					if(K.Map.ready())
 						K.Map.setOpts( K.Profile.getOpts('map') );

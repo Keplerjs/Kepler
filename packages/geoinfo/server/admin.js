@@ -1,6 +1,16 @@
 
 if(K.Admin)
 K.Admin.methods({
+	removeAllGeoinfo: function() {
+		
+		if(!K.Admin.isMe()) return false;
+
+		Places.update({},{
+			$set:{
+				geoinfo:{}
+			}
+		},{multi:true});
+	},
 	cleanAllGeoinfoCache: function() {
 		
 		if(!K.Admin.isMe()) return false;

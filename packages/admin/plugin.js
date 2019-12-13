@@ -12,7 +12,10 @@ K.Plugin({
 		pageAdminUser: {},
 		pageAdminPlace: {},
 		
-		panelAdmin: 'panelAdmin_btns',	
+		panelAdmin: {
+			'panelAdmin_admin_methods': {order:0},			
+			'panelAdmin_admin_btns': {order:0}
+		},
 
 		pageAdminPlace: {
 			'pageAdmin_admin_map':{order:0},			

@@ -36,6 +36,8 @@
 - plugin tracks support settings.public.tracks.typesByTags disabled
 - plugin tracks fix osm query
 - plugin tracks new route to open single track by id
+- plugin admin new panel admin methods
+
 ## v1.6.8
 - core K.Place.showLoc() and K.Place.showGeometry() support callaback
 - plugin osm K.Osm.findByLoc() support node and way

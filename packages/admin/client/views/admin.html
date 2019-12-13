@@ -39,27 +39,39 @@
 	</div>
 </template>
 
-<template name="panelAdmin_btns">
-	<a class="list-group-item" href="/admin/users">
+<template name="panelAdmin_admin_btns">
+	<a class="list-group-item" href="{{pathFor route='pageAdminUsers'}}">
 		<i class="icon icon-users"></i>
 		{{i18n 'title_panelAdminUsers'}}
 	</a>
-	<a class="list-group-item" href="/admin/places">
+	<a class="list-group-item" href="{{pathFor route='pageAdminPlaces'}}">
 		<i class="icon icon-map"></i>
 		{{i18n 'title_panelAdminPlaces'}}
-	</a>	
+	</a>
 </template>
 
 <template name="panelAdmin_admin_methods">
-<!-- 	TODO	<div class="list-group">
-	<div class="list-group-item active">
-		Admin methods registered in the browser console
-	</div>
-	<div class="list-group-item" style="max-height:150px;overflow-y:auto">
-	{{#each methods}}
-		<a href="#" data-name="{{this}}">K.Admin.{{this}}()</a><br />
-	{{/each}}
-	</div>
-</div> -->
+	<a class="list-group-item" href="{{pathFor route='panelAdminMethods'}}">
+		<i class="icon icon-sets"></i>
+		{{i18n 'title_panelAdminMethods'}}
+	</a>
 </template>
 
+<template name="panelAdminMethods_search">
+	<div class="form-inline form-group has-feedback pull-left">
+		<input class="methods-search form-control" size="16" type="text" placeholder="{{i18n 'label_find'}}" /> 
+		<span class="search-canc form-control-feedback" aria-hidden="true">
+			<i class="icon icon-canc"></i>
+		</span>
+	</div>
+</template>
+
+<template name="itemAdminMethod">
+	<span class="input-group">
+		<b class="method-name input-group-addon">{{name}}</b>
+		<input type="text" class="form-control" value="" size="5" />
+		<a class="btn btn-sm btn-default btn-run input-group-addon" href="#" data-name="{{name}}">
+			<i class="icon icon-play"></i>
+		</a>
+	</span>
+</template>

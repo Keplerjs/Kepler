@@ -97,6 +97,7 @@ K.Admin.methods({
 		});
 
 		console.log('Admin: cleanPlaceHist', placeName);
+		return 'cleaned'
 	},
 	cleanPlaceCheckins: function(placeName) {
 		

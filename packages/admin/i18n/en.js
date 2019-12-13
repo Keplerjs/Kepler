@@ -7,6 +7,7 @@ i18n.map('en', {
 	
 	title_panelAdminUsers: "Manage Users",
 	title_panelAdminPlaces: "Manage Places",
+	title_panelAdminMethods: "Admin Methods",
 
 	label_rawdata: "Raw Data",
 	label_logins: "Sessions",

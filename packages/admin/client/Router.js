@@ -18,6 +18,31 @@ Router.map(function() {
 		}
 	});
 
+	this.route('panelAdminMethods', {
+		path: '/admin/methods',
+		template: 'panelList',
+		layoutTemplate: 'layoutMap',
+		loadingTemplate: 'pageLoading',
+		waitOn: function() {
+			if(K.Admin.isMe())
+				K.Admin.loadMethods();
+		},
+		data: function() {
+			if(!this.ready()) return null;
+			return {
+				title: i18n('title_panelAdminMethods'),
+				className: 'adminMethods',
+				headerTemplate: 'panelAdminMethods_search',
+				itemsTemplate: 'itemAdminMethod',
+				items: _.map(K.Admin.method, function(v,k) {
+					return {
+						name: k
+					}
+				})
+			};
+		}
+	});
+
 	this.route('pageAdminUsers', {
 		path: '/admin/users',
 		template: 'pageAdminUsers',
