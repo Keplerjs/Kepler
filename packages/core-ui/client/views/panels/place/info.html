@@ -9,10 +9,10 @@
 		</p>
 	{{/if}}
 	{{#if url}}
-	
 		<label>{{i18n 'label_url'}}</label>
-		<a class="btn btn-link place-url" href="{{url}}" target="_blank">{{humanUrl url}}</a>
-	
+		<a class="btn btn-link place-url" href="{{url}}" target="_blank">
+			<i class="icon icon-url"></i> {{humanUrl url}}
+		</a>
 	{{/if}}
 
 	{{#if warn}}

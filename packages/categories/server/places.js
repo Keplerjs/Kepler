@@ -1,16 +1,31 @@
 
 Places.after.remove(function(userId, doc) {
-	if(doc.cats && doc.cats.length)
-	Categories.update({name: {$in: doc.cats}, type: 'place'}, {
-		$inc: {rank: -1}
-	},{multi:true});
+	if(doc.cats && doc.cats.length) {
+		Categories.update({name: {$in: doc.cats}, type: 'place'}, {
+			$inc: {rank: -1}
+		},{multi:true});
+	}
 });
 
 Places.after.insert(function(userId, doc) {
-	if(doc.cats && doc.cats.length)
-	Categories.update({name: {$in: doc.cats}, type: 'place'}, {
-		$inc: {rank: 1}
-	},{multi:true});
+	if(doc.cats && doc.cats.length) {
+		_.each(doc.cats, function(cat) {
+
+			let catData = _.extend({}, K.schemas.cat, {
+				name: cat,
+				type: 'place'
+			});
+			delete catData.rank;//path to maintain last value if just exists
+
+			Categories.upsert({
+				type: 'place',
+				name: cat
+			}, {
+				$set: catData,
+				$inc: {rank: 1}
+			});		
+		});
+	}
 });
 
 
@@ -44,11 +59,11 @@ Meteor.methods({
 			});
 
 			_.each(cats, function(cat) {
-				catData = _.extend({}, K.schemas.cat, {
+				let catData = _.extend({}, K.schemas.cat, {
 					name: cat,
 					type: 'place'
 				});
-				delete catData.rank;//path to maintain last value
+				delete catData.rank;//path to maintain last value fi just exists
 
 				Categories.upsert({name: cat, type: 'place'}, {
 					$set: catData,

@@ -14,7 +14,6 @@ Router.map(function() {
 		},
 		waitOn: function() {
 			Session.set('showSidebar', true);
-			//return Meteor.subscribe('usersByDate');
 		}
 	});
 
@@ -23,9 +22,15 @@ Router.map(function() {
 		template: 'panelList',
 		layoutTemplate: 'layoutMap',
 		loadingTemplate: 'pageLoading',
-		waitOn: function() {
-			if(K.Admin.isMe())
+		onBeforeAction: function() {
+			if(K.Admin.isMe()) {
 				K.Admin.loadMethods();
+				this.next();
+			}
+		},
+		waitOn: function() {
+			
+			Session.set('showSidebar', true);
 		},
 		data: function() {
 			if(!this.ready()) return null;

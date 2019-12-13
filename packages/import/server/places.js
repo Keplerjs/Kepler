@@ -84,7 +84,7 @@ Meteor.methods({
 			var placeId = Places.insert(place);
 		}
 		catch(err) {
-			console.log('Import: importPlace Error ', place.name);
+			console.log('Import: importPlace Error ', place.name, err);
 			return false;
 		}
 

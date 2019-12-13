@@ -29,21 +29,24 @@ K.Plugin({
 				"catsMax": 10,
 				"cats": {
 					"place": {
-						"bus": false,
-						"car": false,
-						"house": false,
-						"parking": false,
+						//"bus": false,
+						//"car": false,
+						//"house": false,
+						//"parking": false,
 					},
 					"user": {
-						"person": false,
-						"animal": false,
-						"robot": false,
+						//"person": false,
+						//"animal": false,
+						//"robot": false,
 					}
 				}
 			},
 			"router": {
 				"publicRoutes": {
-					"placePois": false
+					"usersCats": false,
+					"placesCats": false,
+					"panelCatsType": false,
+					"panelCatsName": false,
 				}
 			}
 		}

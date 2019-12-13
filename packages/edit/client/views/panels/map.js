@@ -152,6 +152,10 @@ Template.panelPlaceEdit_edit_map.events({
 	/* //TODO	'keyup .input-editloc': _.debounce(function(e, tmpl) {
 		e.preventDefault();
 	}, 300),*/
+	'click .place-btn-map': function(e, tmpl) {
+		e.preventDefault();
+		this.showLoc();
+	},
 	'click .btn-editsave': function(e,tmpl) {
 		
 		var place = tmpl.data,

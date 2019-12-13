@@ -7,5 +7,6 @@ i18n.map('en', {
 	label_cats: "Categories",
 	label_catsall: "All Categories",
 	label_catshist: "Last used categories",
+	btn_delcatorphan: "Delete Unused",
 	error_cats_exists: "Category {$1} just exists"
 });

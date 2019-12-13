@@ -15,7 +15,7 @@ Meteor.publish('catsActive', function() {
 
 Meteor.publish('catsByName', function(name, type) {
 
-	if(this.userId)
+	if(this.userId || K.settings.public.router.publicRoutes.panelCatsName)
 	{
 		var cur = K.findCatsByName(name, type);
 

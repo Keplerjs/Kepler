@@ -26,14 +26,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.56"
-     inkscape:cx="99.661857"
-     inkscape:cy="678.80058"
+     inkscape:zoom="20.48"
+     inkscape:cx="151.40952"
+     inkscape:cy="324.96957"
      inkscape:document-units="px"
      inkscape:current-layer="g4139"
      showgrid="true"
-     inkscape:window-width="1870"
-     inkscape:window-height="1015"
+     inkscape:window-width="1868"
+     inkscape:window-height="1020"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -23883,6 +23883,26 @@
          d="m 45.041117,549.67878 c 2.416327,0 4.377251,1.96093 4.377251,4.37726 0,2.41632 -1.960924,4.37725 -4.377251,4.37725 -2.416328,0 -4.377252,-1.96093 -4.377252,-4.37725 0,-2.41633 1.960924,-4.37726 4.377252,-4.37726 z"
          style="fill:#545454;fill-opacity:1;stroke:#cc5f00;stroke-width:1.41100049;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          sodipodi:nodetypes="sssss" />
+      <g
+         id="g4170"
+         transform="matrix(0.22767143,0.39433848,-0.3380826,0.19519208,448.2037,712.05257)"
+         style="stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           sodipodi:nodetypes="cssssc"
+           inkscape:connector-curvature="0"
+           transform="scale(-1,1)"
+           id="rect4147"
+           d="m -69.657951,890.13177 v -6.65206 c 0,-4.24179 3.414865,-7.65665 7.656648,-7.65665 4.241783,0 7.656648,3.41486 7.656648,7.65665 v 9.48409 c 0,4.24178 -3.414865,7.65664 -7.656648,7.65664"
+           style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#0069b3;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" />
+        <path
+           inkscape:transform-center-y="8.8868212"
+           inkscape:transform-center-x="-0.0001"
+           style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#0069b3;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+           d="m 54.344855,904.08537 v 6.65206 c 0,4.24179 3.414865,7.65665 7.656648,7.65665 4.241783,0 7.656648,-3.41486 7.656648,-7.65665 v -9.48409 c 0,-4.24178 -3.414865,-7.65664 -7.656648,-7.65664"
+           id="path4166"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="cssssc" />
+      </g>
     </g>
   </g>
   <style

@@ -67,7 +67,7 @@ Kepler.Admin = {
 		Meteor.methods(newDef);
 	},
 
-	loadMethods: function() {	//only client
+	loadMethods: function(cb) {	//only client
 
 		var self = this;
 
@@ -88,6 +88,8 @@ Kepler.Admin = {
 						}
 					});
 					self.loaded = true;
+					if(_.isFunction(cb))
+						cb(names);
 				}
 			});
 		}

@@ -133,6 +133,7 @@ Kepler.Util = {
 	 * @return {[type]}     [description]
 	 */
 	textToColor: function(str) {
+		str = '-'+str;
 		//https://stackoverflow.com/questions/17845584/converting-a-random-string-into-a-hex-colour
 		this.color_codes = {};
 	    return (str in this.color_codes) ? this.color_codes[str] : (this.color_codes[str] = '#'+ ('000000' + (Math.random()*0xFFFFFF<<0).toString(16)).slice(-6));

@@ -63,7 +63,10 @@ K.Admin.methods({
 			});
 			delete catData.rank;//path to maintain last value
 
-			Categories.upsert({name: cat, type: 'user'}, {
+			Categories.upsert({
+				name: cat,
+				type: 'user'
+			}, {
 				$set: catData,
 				$inc: {rank:1}
 			});
@@ -83,6 +86,42 @@ K.Admin.methods({
 
 		console.log('Cats: removeCatsFromPlace', userId, cats);
 	},
+	removeCatsOrphan: function() {
+
+		if(!K.Admin.isMe()) return false;
+
+		Categories.remove({rank: {$lt: 1} });
+
+		console.log('Cats: cleanCatsOrphan');
+	},		
+	updateCatsCountsByType: function(type) {
+		if(!K.Admin.isMe()) return false;
+
+		type = type || 'place';
+
+		var coll = (type==='user') ? Users : Places;
+
+		var n = 0;
+		Categories.find({
+			type: type
+		}).forEach(function(cat) {
+
+			let count = coll.find({cats: cat.name}).count();
+
+			n += Categories.update({
+					name: cat.name,
+					type: type,
+					rank: {$ne: count}
+				}, {
+					$set: {
+						rank: count
+					}
+				});
+			//console.log(n, cat, count)
+		});
+		
+		console.log('Cats: updateAllCatsCounts', type, n);
+	},
 	cleanCatsByPlace: function(placeId, cats) {
 
 		if(!K.Admin.isMe()) return false;
@@ -95,6 +134,8 @@ K.Admin.methods({
 
 		if(!K.Admin.isMe()) return false;
 
+		type = type || 'place';
+
 		if(type==='place')
 			Places.update({}, { $set: {'cats': [] } },{multi:true});
 		else if(type==='user')
@@ -106,14 +147,6 @@ K.Admin.methods({
 
 		console.log('Cats: cleanAllCatsPlaces');
 	},
-	cleanCatsOrphan: function() {
-
-		if(!K.Admin.isMe()) return false;
-
-		Categories.remove({rank: {$lt: 1} });
-
-		console.log('Cats: cleanCatsOrphan');
-	},	
 	cleanCatsByUser: function(userId, cats) {
 
 		if(!K.Admin.isMe()) return false;

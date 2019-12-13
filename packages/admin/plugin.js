@@ -12,8 +12,7 @@ K.Plugin({
 		pageAdminUser: {},
 		pageAdminPlace: {},
 		
-		panelAdmin: {
-			'panelAdmin_admin_methods': {order:0},			
+		panelAdmin: {			
 			'panelAdmin_admin_btns': {order:0}
 		},
 
@@ -53,7 +52,8 @@ K.Plugin({
 		//panelPlace:'itemPlace_admin',
 		
 		panelProfile: {
-			'panelProfile_admin': { order:10, show: ifUserAdmin }
+			'panelProfile_admin': { order:10, show: ifUserAdmin },
+			//'panelAdmin_admin_methods': {order:0, show: ifUserAdmin},
 			//'panelUser_admin': {order:50},
 		},
 		//panelPlaceAdmin:'panelPlaceAdmin_admin_raw',

@@ -2,12 +2,15 @@
 <template name="panelPlaceEdit_edit_map">
 	<div class="row">
 		<div class="col-xs-12">
-			<label class="control-label"><i class="icon icon-map"></i> {{i18n 'label_location'}}/{{i18n 'label_geometry'}}</label>
+			<label class="control-label"><i class="icon icon-geometry"></i> {{i18n 'label_location'}} / {{i18n 'label_geometry'}}</label>
 			<div class="input-group">
 				<input class="input-editloc form-control" type="text" readonly="readonly" value="{{humanLoc loc}}" />
 				<span class="input-group-btn">
 					<a class="btn btn-default" data-toggle="collapse" data-target="#editMap" aria-expanded="false" aria-controls="editMap" href="#">
 						<i class="icon icon-edit"></i>
+					</a>
+					<a class="btn btn-default place-btn-map" data-toggle="collapse" aria-expanded="false" aria-controls="editMap" href="#">
+						<i class="icon icon-map"></i>
 					</a>
 				</span>
 			</div>

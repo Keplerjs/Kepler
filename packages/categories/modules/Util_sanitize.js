@@ -14,6 +14,6 @@ _.extend(K.Util.sanitize, {
 			.replace(/\//g,'')
 			.replace(/[\-\._]/g,'');
 
-		return name;
+		return name.substr(0,25);;
 	}
 });

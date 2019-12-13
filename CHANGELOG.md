@@ -29,6 +29,7 @@
 - plugin edit new addbutton control
 - plugin edit new template panelPlaceEdit_edit_creation
 - plugin categories new template panelPlaceEdit_cats_all
+- plugin categories new admin method updateCatsCountsByType
 - plugin admin use new settings by function
 - theme fix css marker-place icons
 - plugin stats findStatsPlacesByField support array values
