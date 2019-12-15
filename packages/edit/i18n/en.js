@@ -1,6 +1,6 @@
 
 i18n.map('en', {
-	title_edit: "Edit place",
+	title_edit: "Edit mode",
 
 	btn_editinsert: "Add New Place Here!",
 	btn_edit: "Edit",
@@ -19,5 +19,5 @@ i18n.map('en', {
 	error_edit_notUrl: "Url Not Valid",
 	error_edit_notOwner: "Not Owner",
 	error_edit_notMultigeom: "Multi Geometries Not Supported to editing",
-	//error_edit_editing: "Change each field and close to return to public view",	
+	error_edit_editing: "Edit the fields and close to return in public view",	
 });
