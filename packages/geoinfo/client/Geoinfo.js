@@ -28,24 +28,19 @@ Kepler.Geoinfo = {
 
 		Meteor.call('findGeoinfoByLoc', loc, null, function(err, data) {
 
-			if(err){
-				console.log('findGeoinfoByLoc',err)
-			}
-			else if(data) {
+			data = _.extend(data, K.Geoinfo.suncalc(loc));
 
-				data = _.extend(data, K.Geoinfo.suncalc(loc));
+			var feature = K.Util.geo.feature('Point', [loc[1],loc[0]], data);
+			feature.templateMarker = 'markerGeoinfo';
+			feature.templatePopup = 'popupGeojson_geoinfo';
 
-				var feature = K.Util.geo.feature('Point', [loc[1],loc[0]], data);
-				feature.templateMarker = 'markerGeoinfo';
-				feature.templatePopup = 'popupGeojson_geoinfo';
+			var geojson = K.Util.geo.featureColl([feature]);
 
-				var geojson = K.Util.geo.featureColl([feature]);
+			K.Map.hideCursor();
+			K.Map.addGeojson(geojson, function() {
+				K.Map.layers.geojson.invoke('openPopup');
+			});
 
-				K.Map.hideCursor();
-				K.Map.addGeojson(geojson, {noFitBounds: true}, function() {
-					K.Map.layers.geojson.invoke('openPopup');
-				});
-			}
 			if(_.isFunction(cb))
 				cb(geojson);
 		});

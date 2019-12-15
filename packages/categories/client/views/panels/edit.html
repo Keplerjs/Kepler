@@ -2,7 +2,10 @@
 
 <template name="panelPlaceEdit_cats_input">	
 	<div class="form-group">
-		<label>{{i18n 'label_cats'}}</label>
+		<label>
+			<i class="icon icon-cats"></i>
+			{{i18n 'label_cats'}}
+		</label>
 		<div class="clearfix">
 			<input value="{{join getCats}}" data-role="tagsinput" class="input-cats" type="text" />
 		</div>
