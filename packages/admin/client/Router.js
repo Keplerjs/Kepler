@@ -39,11 +39,11 @@ Router.map(function() {
 				className: 'adminMethods',
 				headerTemplate: 'panelAdminMethods_search',
 				itemsTemplate: 'itemAdminMethod',
-				items: _.map(K.Admin.method, function(v,k) {
+				items: _.sortBy(_.map(K.Admin.method, function(v,k) {
 					return {
 						name: k
 					}
-				})
+				}),'name')
 			};
 		}
 	});

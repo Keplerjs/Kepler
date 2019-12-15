@@ -7,7 +7,6 @@ Template.panelAdmin.onCreated(function() {
 
 Template.panelAdmin.onRendered(function() {
 
-	//PATH
 	Session.set('showSidebar', true);
 
 	this.methods.set(_.keys(K.Admin.method))
@@ -18,8 +17,6 @@ Template.panelAdmin.helpers({
 		return Template.instance().methods.get();
 	}
 });
-
-
 
 Template.panelAdminMethods_search.onRendered(function() {
 	var self = this;
