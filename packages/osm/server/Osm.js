@@ -45,8 +45,14 @@ Kepler.Osm = {
 		if(tags.name)
 			place.name = K.Util.sanitize.name(tags.name);
 
+		if(tags.description)
+			place.desc = K.Util.sanitize.text(tags.description);
+
 		if(tags.website)
 			place.url = K.Util.sanitize.url(tags.website);
+		else if(tags['contact:website'])
+			place.url = K.Util.sanitize.url(tags['contact:website']);
+
 		
 		return place;
 	},
