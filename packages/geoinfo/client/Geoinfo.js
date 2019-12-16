@@ -6,7 +6,7 @@ Kepler.Geoinfo = {
 	suncalc: function(loc) {
 		//https://github.com/mourner/suncalc/issues/101
 
-		if(!K.Util.valid.loc(loc)) return false;
+		if(!K.Util.valid.loc(loc)) return {};
 
 		var now = new Date(),
 			utc = new Date(now.getTime() + now.getTimezoneOffset() * 60000),

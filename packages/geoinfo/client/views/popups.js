@@ -2,15 +2,19 @@
 
 Template.tabGeoinfo.helpers({
 	fields: function() {
-//TODO convert to helper
-		var fields = {};
+
+		var self = this,
+			rfields = {},
+			sfields = K.Util.sets(K.settings.public.geoinfo.fields);
 		
-		_.each(this, function(val, field) {
-			if(!!K.settings.public.geoinfo.fields[field])
-				fields[field]= val;
+		_.extend(this, K.Geoinfo.suncalc(this.loc));
+		
+		_.each(sfields, function(val, f) {
+			if(self[f])
+				rfields[f]= self[f];
 		});
 
-		return fields;
+		return rfields;
 	}
 });
 
