@@ -56,6 +56,7 @@ K.Admin.methods({
 				var geoinfo = K.Geoinfo.getFieldsByLoc(place.loc, ff),
 					f = {};
 				if(geoinfo[field]) {
+					f.loc = place.loc;
 					f[geofield] = geoinfo[field];
 					Places.update(place._id, {
 						$set: f
