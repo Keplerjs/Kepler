@@ -73,5 +73,6 @@ K.Admin.methods({
 	stopUpdateAllGeoinfo: function() {
 		if(K.Geoinfo.timer)
 		Meteor.clearInterval(K.Geoinfo.timer);
+	console.log('Geoinfo: startUpdateAllGeoinfo.');
 	}
 });

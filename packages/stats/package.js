@@ -30,6 +30,7 @@ Package.onUse(function(api) {
   ],'client');
 
   api.addFiles([
+    'server/admin.js',
   	'server/Stats.js',
     'server/api.js',
     'server/places.js',
