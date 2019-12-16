@@ -37,8 +37,11 @@ _.extend(Kepler.Map, {
 					K.Profile.setLoc(loc);
 
 					if( !map.getBounds().pad(bboxOffset).contains(loc) ||
-						Math.abs(opts.showLocZoom-map.getZoom())> zoomOffset ) {
-						K.Map.showLoc(loc);
+						Math.abs(opts.showLocZoom - map.getZoom()) > zoomOffset ) {
+						K.Map.showLoc(loc, function() {
+							if(!K.Profile.ready)
+								controls.gps.deactivate();
+						});
 					}
 
 					if(!K.Profile.getOnline())
