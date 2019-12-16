@@ -66,8 +66,10 @@ K.Admin.methods({
 				else
 					console.log('Geoinfo: startUpdateAllGeoinfo error', geoinfo);
 			}
-			else
+			else {
 				Meteor.clearInterval(K.Geoinfo.timer);
+				console.log('Geoinfo: startUpdateAllGeoinfo finish.', field);
+			}
 		}, time);
 	},
 	stopUpdateAllGeoinfo: function() {

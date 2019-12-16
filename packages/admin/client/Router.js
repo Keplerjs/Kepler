@@ -24,10 +24,16 @@ Router.map(function() {
 		loadingTemplate: 'pageLoading',
 		onBeforeAction: function() {
 			var self = this;
-			if(K.Admin.isMe()) {
-				K.Admin.loadMethods();
-				self.next();
+			self.methods = new ReactiveVar([]);
+
+			if(!K.Admin.isMe())
+				history.back()
+			else {
+				K.Admin.loadMethods(function(names) {
+					self.methods.set(names);
+				});
 			}
+			this.next();
 		},
 		waitOn: function() {
 			Session.set('showSidebar', true);
@@ -39,11 +45,9 @@ Router.map(function() {
 				className: 'adminMethods',
 				headerTemplate: 'panelAdminMethods_search',
 				itemsTemplate: 'itemAdminMethod',
-				items: _.sortBy(_.map(K.Admin.method, function(v,k) {
-					return {
-						name: k
-					}
-				}),'name')
+				items: _.map(this.methods.get(), function(v) {
+					return {name: v}
+				})
 			};
 		}
 	});
