@@ -23,13 +23,13 @@ Router.map(function() {
 		layoutTemplate: 'layoutMap',
 		loadingTemplate: 'pageLoading',
 		onBeforeAction: function() {
+			var self = this;
 			if(K.Admin.isMe()) {
 				K.Admin.loadMethods();
-				this.next();
+				self.next();
 			}
 		},
 		waitOn: function() {
-			
 			Session.set('showSidebar', true);
 		},
 		data: function() {

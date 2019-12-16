@@ -90,6 +90,8 @@ Kepler.Admin = {
 					self.loaded = true;
 					if(_.isFunction(cb))
 						cb(names);
+
+					console.log('methods loaded')
 				}
 			});
 		}

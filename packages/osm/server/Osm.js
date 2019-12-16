@@ -52,7 +52,6 @@ Kepler.Osm = {
 			place.url = K.Util.sanitize.url(tags.website);
 		else if(tags['contact:website'])
 			place.url = K.Util.sanitize.url(tags['contact:website']);
-
 		
 		return place;
 	},
