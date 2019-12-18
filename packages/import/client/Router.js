@@ -22,6 +22,7 @@ Router.map(function() {
 				className: 'imports',
 				headerTemplate: 'formImport',
 				itemsTemplate: 'itemImport',
+				sortBy: 'name',
 				items: _.map(K.Profile.data.imports, function(i) {
 					return {
 						name: i

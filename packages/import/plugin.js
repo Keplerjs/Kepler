@@ -2,6 +2,9 @@
 K.Plugin({
 	name: 'import',
 	templates: {
+		panelImport: {},//new placeholder
+		//create new placeholder used from other plugins
+		//
 		panelAdmin: 'panelAdmin_import',
 		tabPlace: 'tabPlace_import'
 	},
