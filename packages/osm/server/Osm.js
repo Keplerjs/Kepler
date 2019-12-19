@@ -65,7 +65,7 @@ Kepler.Osm = {
 		Overpass(query, function(err, resp) {
 			
 			if(err) {
-				console.log('Osm: overpass error', err)
+				console.log('Osm: overpass error', err.message)
 				future.throw(err);
 			}
 			else
@@ -117,11 +117,26 @@ Meteor.methods({
 
 		return K.Osm.findByLoc(loc, opts);
 	},
-
 	findOsmById: function(osmId) {
 		
 		if(!this.userId) return null;
 		
 		return K.Osm.findById(osmId);
+	},
+	findOsmByQuery: function(query) {
+		
+		if(!this.userId) return null;
+
+		query = '[out:json];'+query;
+		//TODO sanitize query string
+
+		console.log("Osm: findOsmByQuery...\n", query);
+
+		var ret = K.Osm.overpassSync(query);
+
+		if(ret && ret.features)
+		console.log('Osm: findOsmByQuery features', ret.features.length);
+
+		return ret;
 	}
 });

@@ -48,6 +48,26 @@ Kepler.Osm = {
 		});
 	},
 
+	loadByQuery: function(query, cb) {
+
+		Meteor.call('findOsmByQuery', query, function(err, geojson) {
+
+			if(err)
+				console.log('loadByQuery error', err)
+			else if(geojson && geojson.features.length) {
+
+				geojson.features = _.map(geojson.features, function(f) {
+					f.templatePopup = 'popupGeojson_osm';
+					return f;
+				});
+				K.Map.hideCursor();
+				K.Map.layers.geojson.clearLayers().addData(geojson);
+			}
+			if(_.isFunction(cb))
+				cb(geojson, err);
+		});
+	},
+
 	importPlace: function(osmId, cb) {
 		
 		Meteor.call('insertPlaceByOsmId', osmId, function(err, placeId) {
@@ -56,7 +76,7 @@ Kepler.Osm = {
 				console.log(err)
 			else {
 				
-				K.Map.layers.geojson.clearLayers();
+				//K.Map.layers.geojson.clearLayers();
 
 				//Router.go('panelPlace', {placeId: placeId});
 				Router.go('panelPlaceEdit', {placeId: placeId});

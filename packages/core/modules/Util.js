@@ -56,13 +56,17 @@ Kepler.Util = {
 	 * @param  {Object} data [description]
 	 * @return {String}      [description]
 	 */
-	tmpl: function(str, data) {
+	tmpl: function(str, data, double) {
 		/*
 		origin Leflet.js
 		 */
-		var templateRe = /\{ *([\w_\-]+) *\}/g;
+		double = double || false;
 
-		return str.replace(templateRe, function (str, key) {
+		var regSingle = /\{ *([\w_\-]+) *\}/g,
+			regDouble = /\{\{ *([\w_\-]+) *\}\}/g,
+			tmplReg = double ? regDouble :regSingle;
+
+		return str.replace(tmplReg, function (str, key) {
 			var value = data[key];
 
 			if (value === undefined) {
