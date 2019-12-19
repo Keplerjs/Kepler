@@ -393,7 +393,8 @@ Kepler.Map = {
 	 * @return {K.Map} [description]
 	 */
 	showCursor: function(loc) {
-		if(this.layers.cursor)
+		loc = loc || this.getCenter();
+		if(this.layers.cursor && this.map.hasLayer(this.layers.cursor))
 			this.layers.cursor.setLoc(loc);
 		return this;
 	},

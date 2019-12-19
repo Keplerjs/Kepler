@@ -42,7 +42,8 @@ L.Cursor = L.Layer.extend({
 	},
 
 	hide: function() {
-		this._map.removeLayer(this.marker);
+		if(this._map)
+			this._map.removeLayer(this.marker);
 	},
 	setLoc: function(latlng) {
 		this.marker.setLatLng(latlng).addTo(this._map).openPopup();

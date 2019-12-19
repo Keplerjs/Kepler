@@ -203,7 +203,6 @@ _.extend(Kepler.Map, {
 					layers.cluster.eachLayer(function(l) {
 						
 						if(bb.contains(l.getLatLng())){
-							console.log(l);
 							l.openTooltip();
 						}
 					});
