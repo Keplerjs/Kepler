@@ -5,6 +5,9 @@ K.Plugin({
 		panelImport: {},//new placeholder
 		//create new placeholder used from other plugins
 		//
+		panelImport: {
+			'panelImport_file':{order:-10}
+		},
 		panelAdmin: 'panelAdmin_import',
 		tabPlace: 'tabPlace_import'
 	},

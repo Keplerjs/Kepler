@@ -38,6 +38,7 @@
 - plugin tracks fix osm query
 - plugin tracks new route to open single track by id
 - plugin admin new panel admin methods
+- plugin import new placeholder panelImport
 
 ## v1.6.8
 - core K.Place.showLoc() and K.Place.showGeometry() support callaback

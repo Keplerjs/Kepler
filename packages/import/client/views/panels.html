@@ -6,10 +6,16 @@
 	</a>
 </template>
 
-<template name="formImport">
+<template name="panelImport">
 
-	{{> pluginsTemplate name='panelImport'}}	
+	{{> pluginsTemplate name='panelImport'}}
 
+	<div class="text-right">
+		<label>{{currentUser.imports.length}} {{i18n 'label_imports'}}</label>
+	</div>
+</template>
+
+<template name="panelImport_file">
 	<div class="row">
 		<div class="col-sm-3 col-xs-4">
 			<label>{{i18n 'label_importname'}}</label>
@@ -35,8 +41,5 @@
 			<label>{{i18n 'label_importpreview'}} {{importCount}}</label>			
 			{{/if}}
 		</div>
-	</div>
-	<div class="text-right">
-		<label>{{currentUser.imports.length}} {{i18n 'label_imports'}}</label>
 	</div>
 </template>

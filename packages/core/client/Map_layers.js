@@ -11,8 +11,13 @@ _.extend(Kepler.Map, {
 		 * @type {L}
 		 */
 		layers.baselayer = new L.TileLayer(opts.layers[opts.layer], {
-			noWrap:true
+			noWrap:true,
+			maxZoom: optsDef.maxZoom,
+			maxNativeZoom: 18
 		});
+		/*map.on('zoomend', function(e) {
+			console.log(e.target.getZoom())
+		});*/
 		/**
 		 * marker users
 		 * @type {L}

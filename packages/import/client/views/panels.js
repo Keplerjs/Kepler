@@ -1,5 +1,5 @@
 
-Template.formImport.onCreated(function() {
+Template.panelImport_file.onCreated(function() {
 
     this.importName = new ReactiveVar('');
 
@@ -7,7 +7,7 @@ Template.formImport.onCreated(function() {
 
 });
 
-Template.formImport.helpers({
+Template.panelImport_file.helpers({
 	importCount: function() {
 		var tmpl = Template.instance();
 		return tmpl.importCount.get();
@@ -42,7 +42,7 @@ Template.formImport.helpers({
 	}
 });
 
-Template.formImport.events({
+Template.panelImport_file.events({
 	'keydown .import-name': _.debounce(function(e, tmpl) {
 		var name$ = tmpl.$('.import-name'),
 			importName = K.Util.sanitize.importName(name$.val());

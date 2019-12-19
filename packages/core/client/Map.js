@@ -60,6 +60,7 @@ Kepler.Map = {
 			center: self.options.center,
 			zoom: self.options.zoom,
 			minZoom: self.options.minZoom,
+			maxZoom: self.options.maxZoom,
 			maxBounds: self.options.maxBounds,
 			attributionControl: false,
 			doubleClickZoom: true,

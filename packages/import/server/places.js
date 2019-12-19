@@ -41,8 +41,6 @@ Meteor.methods({
 					return null;
 				}
 			});
-
-			console.log('Import: places imported ', count);
 		}
 		else if(geo && geo.type && geo.type==='Feature') {
 
@@ -68,6 +66,8 @@ Meteor.methods({
 				}
 			});
 		}
+
+		console.log('Import: places imported ', count);
 
 		return count+' '+i18n('label_imported');
 	},
