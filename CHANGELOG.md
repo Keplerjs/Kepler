@@ -24,6 +24,7 @@
 - core-ui new options K.settings.public.map.query to filter map contents
 - core-ui new default template footer_ui_lang select lang from not logged users
 - lib add meteor reactive-dict
+- plugin edit edit loc by coordinates
 - plugin edit fullscreen for edit map
 - plugin edit highlight marker place on editing
 - plugin edit new addbutton control

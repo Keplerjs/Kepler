@@ -411,9 +411,9 @@ Kepler.Util.geo = {
 		    seconds = m[5] ? Number(m[5]) : 0;
 		    latLon = latLonIndex[m[1]] || latLonIndex[m[6]];
 
-		    if (!inRange(degrees, 0, 180)) throw 'Degrees out of range';
-		    if (!inRange(minutes, 0, 60)) throw 'Minutes out of range';
-		    if (!inRange(seconds, 0, 60)) throw 'Seconds out of range';
+		    if (!inRange(degrees, 0, 180)) return null;// throw 'Degrees out of range';
+		    if (!inRange(minutes, 0, 60)) return null;// throw 'Minutes out of range';
+		    if (!inRange(seconds, 0, 60)) return null;// throw 'Seconds out of range';
 
 		    return {
 		        decDeg: sign * (degrees + minutes / 60 + seconds / 3600),
@@ -427,7 +427,7 @@ Kepler.Util.geo = {
 
 	    m1 = dmsString.match(dmsRe);
 
-	    if (!m1) throw 'Could not parse string';
+	    if (!m1) return null;// throw 'Could not parse string';
 
 	    // If dmsString starts with a hemisphere letter, then the regex can also capture the 
 	    // hemisphere letter for the second coordinate pair if also in the string
@@ -455,7 +455,7 @@ Kepler.Util.geo = {
 	            decDeg1.latLon = 'lat';
 	            decDeg2.latLon = 'lon';
 	        } else {
-	            throw 'Could not parse string';
+	        	return null;//throw 'Could not parse string';
 	        }
 	    }
 
