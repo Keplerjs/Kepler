@@ -24,10 +24,9 @@ var Future = Npm.require('fibers/future'),
 
 Kepler.Osm = {
 
-	osmToPlace: function(osm) {
+	osmToPlace: function(feature) {
 
-		var feature = osm.features[0],
-			tags = feature.properties.tags,
+		var tags = feature.properties.tags,
 			geom = feature.geometry,
 			loc = K.Util.geo.centroid(geom);
 
@@ -106,7 +105,7 @@ Kepler.Osm = {
 
 		console.log('Osm: findOsmById', osmId);
 
-		return geojson;
+		return _.first(geojson.features);
 	}
 };
 
@@ -127,15 +126,15 @@ Meteor.methods({
 		
 		if(!this.userId) return null;
 
-		query = '[out:json];'+query;
+		var i = '[out:json];';
+		query = query.startsWith(i) ? query : i+query;
 		//TODO sanitize query string
 
 		console.log("Osm: findOsmByQuery...\n", query);
 
 		var ret = K.Osm.overpassSync(query);
 
-		if(ret && ret.features)
-		console.log('Osm: findOsmByQuery features', ret.features.length);
+		console.log('Osm: findOsmByQuery features', _.size(ret.features));
 
 		return ret;
 	}

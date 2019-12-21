@@ -131,3 +131,4 @@ Template.registerHelper('randStatus', function(url) {
 		k = _.random(0,s.length-1);
 	return s[k];
 });
+

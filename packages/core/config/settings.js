@@ -1,9 +1,9 @@
 
 Meteor.startup(function() {
 
-	if(Meteor.isServer)	//TODO uncomment when exists a 'debug mode'
+/*	if(Meteor.isServer)	//TODO uncomment when exists a 'debug mode'
 		console.log("Core: METEOR_SETTINGS='"+JSON.stringify(Meteor.settings)+"'");
-	
+	*/
 	_.deepExtend(K.settings, Meteor.settings);
 
 	if(Meteor.isServer) {

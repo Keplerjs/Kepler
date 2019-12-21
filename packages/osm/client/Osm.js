@@ -3,18 +3,16 @@ Kepler.Osm = {
 	
 	loadById: function(osmId) {
 
-		Meteor.call('findOsmById', osmId, function(err, geojson) {
+		Meteor.call('findOsmById', osmId, function(err, feature) {
 
 			if(err)
 				console.log('loadById', err)
-			else if(geojson && geojson.features.length) {
+			else if(feature) {
 
-				geojson.features = _.map(geojson.features, function(f) {
-					f.templatePopup = 'popupGeojson_osm';
-					return f;
-				});
+				feature.templatePopup = 'popupGeojson_osm';
+	
 				K.Map.hideCursor();
-				K.Map.layers.geojson.clearLayers().addData(geojson);
+				K.Map.layers.geojson.clearLayers().addData(feature);
 				K.Map.layers.geojson.invoke('openPopup');
 			}
 		});
