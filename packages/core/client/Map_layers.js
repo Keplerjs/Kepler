@@ -122,12 +122,11 @@ _.extend(Kepler.Map, {
 				}
 
 				return new L.Marker(latlng, {
-						icon: new L.NodeIcon({
-							className: feature.classMarker||'marker-geojson',
-							nodeHtml: div.firstChild
-						})
-					});
-
+					icon: new L.NodeIcon({
+						className: feature.classMarker||'marker-geojson',
+						nodeHtml: div.firstChild
+					})
+				});
 			},
 			onEachFeature: function (feature, layer) {
 				
@@ -135,6 +134,8 @@ _.extend(Kepler.Map, {
 					var div = L.DomUtil.create('div','popup-geojson'),
 						tmpl = Template[feature.templatePopup];
 					
+					feature.layer = layer;
+
 					Blaze.renderWithData(tmpl, feature, div);
 					layer.bindPopup(div, opts.popups);	
 				}
@@ -151,17 +152,16 @@ _.extend(Kepler.Map, {
 		});
 
 		map.on('zoomend moveend', function(e) {
-			var c = map.getCenter(),
-				z = map.getZoom();
+			var c = e.target.getCenter(),
+				z = e.target.getZoom();
 				//autoOpen
 
 			if( layers.geojson.getLayers().length &&
 				z >= opts.dataMinZoom &&
-				(e.target.getBoundsZoom(layers.geojson.getBounds()) - e.target.getZoom() > 2)
+				(map.getBoundsZoom(layers.geojson.getBounds()) - z > 2)
+				//TODO remove geojson only by user
 			) {
 				layers.geojson.clearLayers();
-
-				Router.go('map');
 			}
 
 		    if(z < opts.dataMinZoom) {

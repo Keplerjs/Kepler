@@ -1,0 +1,16 @@
+
+<template name="panelPlaceEdit_osm_reload">
+	<div class="form-group edit-geoinfo">
+		<label class="control-label">
+			<i class="icon icon-osm"></i>
+			{{i18n 'title_placeOsm'}}
+		</label>
+		<br />
+		<a class="btn btn-default  pull-right btn-reload">
+			<i class="icon icon-refresh"></i> {{i18n 'btn_osmreimport'}}
+		</a>
+		{{#with osm}}
+			{{> popupOsm}}
+		{{/with}}
+	</div>
+</template>

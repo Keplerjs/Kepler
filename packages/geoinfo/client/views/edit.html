@@ -1,0 +1,29 @@
+
+<template name="panelPlaceEdit_geoinfo_tips">
+	{{#if geotips.length}}
+	<div class="form-group">
+		<label class="control-label">{{i18n 'label_nametips'}}</label>
+		<div class="geoinfo-nametips">
+		{{#each geotips}}
+			<a class="btn btn-xs btn-default">{{this}}</a>
+		{{/each}}
+		</div>
+	</div>
+	{{/if}}
+</template>
+
+<template name="panelPlaceEdit_geoinfo_reload">
+	<div class="form-group edit-geoinfo">
+		<label class="control-label">
+			<i class="icon icon-geo"></i>
+			{{i18n 'title_geoinfo'}}
+		</label>
+		<br />
+		<a class="btn btn-default  pull-right btn-reload">
+			<i class="icon icon-refresh"></i> {{i18n 'btn_reload'}}
+		</a>
+		{{#with geoinfo}}
+			{{> tabGeoinfo}}
+		{{/with}}
+	</div>
+</template>

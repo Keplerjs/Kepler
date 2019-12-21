@@ -2,6 +2,9 @@
 K.Plugin({
 	name: 'osm',
 	templates: {
+		panelPlaceEdit: {
+			'panelPlaceEdit_osm_reload':{order:5}
+		},
 		tabPlace: 'tabPlace_osm',
 		popupCursor: 'popupCursor_osm'
 	},

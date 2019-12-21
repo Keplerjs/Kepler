@@ -26,6 +26,7 @@ Template.popupGeojson_osm.events({
 		K.Osm.importPlace(osmId, function(placeId) {
 			$(e.target).removeClass('disabled');
 			icon$.removeClass('icon-loader');
+			K.Map.layers.geojson.remove(tmpl.data.layer);
 		});
 	}
 });

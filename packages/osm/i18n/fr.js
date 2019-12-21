@@ -3,7 +3,6 @@ i18n.map('fr', {
 	title_placeOsm: "OpenStreetMap",
 	label_osminfo: "OpenStreetMap info",
 	
-	label_osmid: "Id",
 	label_osmuser: "Utilisateur",
 	label_osmdate: "Date",
 

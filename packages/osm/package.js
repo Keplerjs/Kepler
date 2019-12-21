@@ -26,11 +26,13 @@ Package.onUse(function (api) {
     'i18n/de.js',
     'i18n/es.js',
     'i18n/fr.js',	
-    'collections/osm.js'
+    'collections/places.js'
   ]);
 
   api.addFiles([
     'client/Osm.js',
+    'client/views/edit.html',
+    'client/views/edit.js',
     'client/views/panels.html',
     'client/views/markers.html',
     'client/views/popups.html',

@@ -40,7 +40,9 @@ Package.onUse(function(api) {
     'client/stylesheets/main.css',
     'client/views/markers.html',
     'client/views/panels.html',
-    'client/views/panels.js',
+    //'client/views/panels.js',
+    'client/views/edit.html',
+    'client/views/edit.js',
     'client/views/items.html',
     'client/views/popups.html',
     'client/views/popups.js'
