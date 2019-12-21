@@ -3,13 +3,14 @@
 	<div class="row">
 		<div class="col-xs-12">
 			{{#with rawdata}}
-				<div class="btn-group">
-					<a class="btn btn-default" type="button" data-toggle="collapse" data-target="#rawdata" aria-expanded="false" aria-controls="collapseExample">
-					  {{i18n 'label_rawdata'}}
-					</a>
-				</div>
+				<a class="btn btn-default" type="button" data-toggle="collapse" data-target="#rawdata" aria-expanded="false">
+				  <i class="icon icon-code"></i> {{i18n 'label_rawdata'}}
+				</a>
+				<a class="btn btn-default btn-edit hidden disabled" type="button" data-toggle="collapse">
+				  <i class="icon icon-edit"></i> {{i18n 'btn_save'}}
+				</a>
 				<div id="rawdata" class="collapse collapsed">
-					{{{log this}}}
+					<textarea class="text-data" rows="20" cols="10">{{{this}}}</textarea>
 				</div>
 			{{/with}}
 		</div>

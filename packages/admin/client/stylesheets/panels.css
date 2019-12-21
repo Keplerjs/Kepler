@@ -42,3 +42,11 @@
 	border:none;
 }
 
+#rawdata textarea {
+	width: 100%;
+	float: none;
+	font-family: monospace;
+	font-size: 11px;
+	overflow-x: auto;
+	white-space: nowrap;
+}

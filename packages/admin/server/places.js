@@ -25,17 +25,17 @@ K.Admin.methods({
 		
 		console.log('Admin: removeAllPlaces');
 	},	
-	updatePlace: function(placeName, data) {
+	updatePlace: function(placeId, data) {
 		
 		if(!K.Admin.isMe()) return null;
+		
+		delete data._id;
 
-		var placeData = Places.findOne({name: placeName});
-			
-		Places.update(placeData._id, {
+		Places.update(placeId, {
 			$set: data
 		});
 
-		console.log('Admin: updatePlace', data.name);	
+		console.log('Admin: updatePlace', placeId);	
 	},
 	updatePlaceOwner: function(placeId, userName) {
 		

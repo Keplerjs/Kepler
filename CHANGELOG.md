@@ -33,6 +33,7 @@
 - plugin categories new template panelPlaceEdit_cats_all
 - plugin categories new admin method updateCatsCountsByType
 - plugin admin use new settings by function
+- plugin admin editing of raw data place
 - theme fix css marker-place icons
 - plugin stats findStatsPlacesByField support array values
 - plugin pois support settings.public.pois.typesByTags disabled

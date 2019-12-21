@@ -15,5 +15,7 @@ i18n.map('en', {
 	label_ip: "IP address",
 
 	btn_userdel: "Remove User",
-	btn_addfriends: "Add Friend"
+	btn_addfriends: "Add Friend",
+
+	error_admin_rawedit: "Raw data is wrong"
 });

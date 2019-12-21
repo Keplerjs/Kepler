@@ -5,6 +5,7 @@ Template.panelPlaceEdit_edit_map.onRendered(function() {
 		place = this.data,
 		editMap$ = self.$('#editMap'),
 		editSave$ = self.$('.btn-editsave'),
+		editCanc$ = self.$('.btn-editcanc'),
 		loc$ = self.$('.input-editloc'),		
 		sets = K.settings.public.map;
 
@@ -153,6 +154,12 @@ Template.panelPlaceEdit_edit_map.onRendered(function() {
 
 
 Template.panelPlaceEdit_edit_map.events({
+	'hidden.bs.collapse': function(e,tmpl) {
+		tmpl.$('.btn-editsave, .btn-editcanc').addClass('hidden')
+	},
+	'shown.bs.collapse': function(e,tmpl) {
+		tmpl.$('.btn-editsave, .btn-editcanc').removeClass('hidden')
+	},	
 	'change .input-editloc, keyup .input-editloc': _.debounce(function(e, tmpl) {
 		var oldloc = tmpl.data.loc,
 			loc$ = $(e.target),
@@ -196,7 +203,7 @@ Template.panelPlaceEdit_edit_map.events({
 	'click .btn-editcanc': function(e,tmpl) {
 		tmpl.$('.collapse').trigger('hidden.bs.collapse');
 		tmpl.$('.collapse').trigger('shown.bs.collapse');
-		tmpl.$('.input-editloc').val( K.Util.geo.locRound(tmpl.data.loc) )
+		tmpl.$('.input-editloc').val( tmpl.data.loc )
 		//TODO decide beahvior tmpl.$('.collapse').collapse('hide');
 	},
 });
