@@ -15,7 +15,10 @@
       <div class="list-group-item">
       {{> popupOsm}}
       </div>
-		<a class="btn-osmimport btn btn-default btn-block" href="#">
+      <a class="btn btn-default btn-block" target="_blank" href="https://www.openstreetmap.org/edit?{{osm.properties.type}}={{osm.properties.id}}&amp;editor=id">
+         <i class="icon icon-osm"></i> {{i18n 'btn_osmedit'}}
+      </a>
+		<a class="btn btn-default btn-block btn-osmimport" href="#">
 			<i class="icon icon-add"></i> {{i18n 'btn_osmimport'}}
 		</a>
 	</div>
@@ -36,18 +39,21 @@
        </div>
    </div>
    <div class="row">
-      <div class="col-sm-12">
+      <div class="col-sm-12 text-nowrap">
          <label>{{i18n 'label_osmid'}}</label>
          <a class="btn btn-xs btn-link" href="http://osm.org/{{id}}" target="_blank">{{id}}</a>
+         <br />
          {{#with properties.meta}}
 			 {{#if user}}
 				<label>{{i18n 'label_osmuser'}}</label>
 				<a class="btn btn-xs btn-link" href="http://osm.org/user/{{user}}" target="_blank">{{user}}</a>
-	         {{/if}}
-	         {{#if timestamp}}
+            <br />
+         {{/if}}
+         {{#if timestamp}}
 				<label>{{i18n 'label_osmdate'}}</label>
 				<a class="btn btn-xs disabled">{{numericDate timestamp}}</a>
-	         {{/if}}
+            <br />
+	      {{/if}}
          {{/with}}      
       </div>
    </div>

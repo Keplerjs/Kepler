@@ -30,7 +30,7 @@ Kepler.Osm = {
 			geom = feature.geometry,
 			loc = K.Util.geo.centroid(geom);
 
-		delete feature.geometry;
+		//TODO in settings delete feature.geometry;
 
 		var place = {
 			loc: loc,

@@ -1,4 +1,12 @@
 
+Router.waitOn(function() {
+
+	if(Meteor.user() && _.isEmpty(K.Admin.method)) {
+		K.Admin.loadMethods();
+	}
+
+});
+
 Router.map(function() {
 
 	this.route('panelAdmin', {
@@ -23,17 +31,10 @@ Router.map(function() {
 		layoutTemplate: 'layoutMap',
 		loadingTemplate: 'pageLoading',
 		onBeforeAction: function() {
-			var self = this;
-			self.methods = new ReactiveVar([]);
-
 			if(!K.Admin.isMe())
 				history.back()
-			else {
-				K.Admin.loadMethods(function(names) {
-					self.methods.set(names);
-				});
-			}
-			this.next();
+			else
+				this.next();
 		},
 		waitOn: function() {
 			Session.set('showSidebar', true);
@@ -45,8 +46,8 @@ Router.map(function() {
 				className: 'adminMethods',
 				headerTemplate: 'panelAdminMethods_search',
 				itemsTemplate: 'itemAdminMethod',
-				items: _.map(this.methods.get(), function(v) {
-					return {name: v}
+				items: _.map(_.keys(K.Admin.method), function(k) {
+					return {name: k}
 				})
 			};
 		}

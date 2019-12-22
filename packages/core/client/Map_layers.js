@@ -156,13 +156,13 @@ _.extend(Kepler.Map, {
 				z = e.target.getZoom();
 				//autoOpen
 
-			if( layers.geojson.getLayers().length &&
-				z >= opts.dataMinZoom &&
-				(map.getBoundsZoom(layers.geojson.getBounds()) - z > 2)
+			/*if( layers.geojson.getLayers().length &&
+				z >= opts.dataMinZoom 
+				&&(map.getBoundsZoom(layers.geojson.getBounds()) - z > 2)
 				//TODO remove geojson only by user
 			) {
 				layers.geojson.clearLayers();
-			}
+			}*/
 
 		    if(z < opts.dataMinZoom) {
 		    	if(layers.users)

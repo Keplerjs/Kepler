@@ -50,6 +50,9 @@ K.Plugin({
 			'panelPlace_admin': { order:-20, show: ifUserAdmin },
 			'pageAdmin_admin_raw': { order:20, show: ifUserAdmin }
 		},
+		popupPlace: {
+			'itemPlaceAdmin_admin_btns': { order:10, show: ifUserAdmin }
+		},
 		//panelPlace:'itemPlace_admin',
 		
 		panelProfile: {

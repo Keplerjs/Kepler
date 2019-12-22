@@ -7,7 +7,7 @@ if(Meteor.isClient) {
 		K.Alert.config({
 			effect: '',
 			position: 'bottom',
-			timeout: 68000,
+			timeout: 5000,
 			onRouteClose: false,//dont edit or hide hen sidebar show!
 			html: true,
 			stack: true,

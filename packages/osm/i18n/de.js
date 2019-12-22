@@ -7,6 +7,6 @@ i18n.map('de', {
 	label_osmdate: "Datum",
 
 	btn_osmsearch: "Suche OpenStreetMap",
-	btn_osmimport: "Importiere OpenStreetMap",
+	btn_osmimport: "Importiere als ort",
 	btn_osmedit: "Bearbeiten in OpenStreetMap"
 });

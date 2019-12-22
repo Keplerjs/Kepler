@@ -7,6 +7,6 @@ i18n.map('it', {
 	label_osmdate: "Data",
 
 	btn_osmsearch: "Cerca OpenStreetMap",
-	btn_osmimport: "Importa OpenStreetMap",
+	btn_osmimport: "Importa come luogo",
 	btn_osmedit: "Modifica in OpenStreetMap"
 });

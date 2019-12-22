@@ -215,21 +215,24 @@ Kepler.Map = {
 	 * get current bounding box of map
 	 * @return {Array} "[[sw.lat, sw.lng], [ne.lat, ne.lng]]"
 	 */
-	getBBox: function(pad) {
+	getBBox: function() {
 		if(this.ready()) {
 			this._deps.bbox.depend();
 
-			var bbox = this.map.getBounds(),
-				sw = bbox.getSouthWest(),
-				ne = bbox.getNorthEast();
+			var bb = this.map.getBounds(),
+				sw = bb.getSouthWest(),
+				ne = bb.getNorthEast(),
+				bbox;
 
-			if(this.sidebar.hasClass('expanded')) {
-				var p = this.map.latLngToContainerPoint(sw);
+			if( this.isVisible() &&
+				this.sidebar.hasClass('expanded')
+				) {
+				let p = this.map.latLngToContainerPoint(sw);
 				p.x += this.sidebar.width();
 				sw = this.map.containerPointToLatLng(p);
 			}
 
-			//TODO add pad
+			//TODO add padding
 
 			return K.Util.geo.bboxRound([[sw.lat, sw.lng], [ne.lat, ne.lng]]);
 		}
