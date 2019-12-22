@@ -45,3 +45,4 @@ Kepler = {
  * @global
  */
 K = Kepler;
+M = Meteor;

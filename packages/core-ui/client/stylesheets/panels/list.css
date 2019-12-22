@@ -22,9 +22,6 @@
 	border-bottom:none;
 }
 
-.list-items .list-group-item .btn-group > .btn {
-	padding: 5px;
-}
 .list-footer {
 	position: absolute;
 	bottom: 0;

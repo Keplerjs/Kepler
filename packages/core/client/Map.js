@@ -299,8 +299,12 @@ Kepler.Map = {
 	 * @param  {Function} cb  callback on location shown
 	 * @return {K.Map}       [description]
 	 */
-	showLoc: function(loc, cb) {
+	showLoc: function(loc, zoom, cb) {
 		if(this.ready()) {
+
+			var z = _.isNumber(zoom) ? zoom : this.options.showLocZoom;
+
+			cb = _.isFunction(zoom) ? zoom : cb;
 
 			if(!this.isVisible())
 				Session.set('showSidebar', false);
@@ -313,7 +317,7 @@ Kepler.Map = {
 				});
 			
 			if(loc && K.Util.valid.loc(loc))
-				this.setView( L.latLng(loc) , this.options.showLocZoom);
+				this.setView(L.latLng(loc), z);
 		}
 		return this;
 	},

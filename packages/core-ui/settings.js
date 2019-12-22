@@ -32,8 +32,8 @@ Kepler.settings.public.templates = {
 	"panelSettings": {
 		"panelSettings_ui_bio": { order:-10 },
 		"panelSettings_ui_contact": { order:-10, show:false /*work in progress*/ },
-		"panelSettings_ui_lang": { order:-10 },
 		"panelSettings_ui_map": { order:-10 },
+		"panelSettings_ui_lang": { order:-10 },
 		"panelSettings_ui_block": { order:10 },
 		"panelSettings_ui_account": { order:10 },
 		"panelSettings_ui_version": { order:10 },

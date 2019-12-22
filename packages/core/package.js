@@ -68,7 +68,7 @@ Package.onUse(function(api) {
   ], 'server');
 
   api.export([
-    'Kepler', 'K',
+    'Kepler', 'K', 'M',
     'Places', 'Users'
   ]);
 

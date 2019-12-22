@@ -85,7 +85,7 @@ Kepler.Admin = {
 			if(_.isFunction(cb))
 				cb( _.keys(self.method) );
 
-			console.log('Admin: methods loaded')
+			//console.log('Admin: methods loaded')
 		});
 	}
 };

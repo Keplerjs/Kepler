@@ -9,6 +9,15 @@ Template.popupCursor_share.onRendered(function() {
 	})
 });
 
+Template.popupCursor_share.helpers({
+	url: function() {
+		var data = Template.currentData(),
+			ll = data.loc.join(','),
+			z = K.Map.map.getZoom();
+		return Meteor.absoluteUrl('map/'+ll+','+z);
+	}
+});
+
 Template.popupCursor_share.events({
 	'click .btn-share': function(e,tmpl) {
 		e.preventDefault();

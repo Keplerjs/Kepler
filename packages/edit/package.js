@@ -46,6 +46,7 @@ Package.onUse(function(api) {
     'client/Place_edit.js',
     'client/User_edit.js',
     'client/views/edit.html',
+    'client/views/edit.js',
     'client/views/controls.html',
     'client/views/panels.html',
     'client/views/panels.js',

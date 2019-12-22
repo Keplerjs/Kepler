@@ -37,6 +37,7 @@ Template.popupOsm.helpers({
 
 		var ret = [];
 
+		if(this.properties.tags)
 		_.each(this.properties.tags, function(val, key) {
 			ret.push({
 				key: key,

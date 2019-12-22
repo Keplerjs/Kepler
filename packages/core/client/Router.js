@@ -53,7 +53,7 @@ Router.map(function() {
 		},
 		onAfterAction: function() {
 			if(!this.ready()) return null;
-			
+
 			var loc = K.Util.geo.locRound([this.params.lat, this.params.lng]);
 
 			K.Map.showLoc(loc, function() {

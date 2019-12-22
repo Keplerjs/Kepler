@@ -19,6 +19,10 @@
 	resize: none;
 }
 
+/*.edits .list-items .place-btn.name {
+	text-overflow: ellipsis;
+}*/
+
 #editMap .map {
 	position: relative;
 	height: 320px;
