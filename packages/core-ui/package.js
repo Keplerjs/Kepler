@@ -50,7 +50,6 @@ Package.onUse(function(api) {
     'client/views/footer.js',
     'client/views/formLogin.html',
     'client/views/formLogin.js',
-    'client/views/header.html',
     'client/views/loaders.html',
     'client/views/markers.html',
     'client/views/popups.html',

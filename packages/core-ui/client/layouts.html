@@ -6,11 +6,15 @@
 </template>
 
 <template name="layoutPage">
-	{{> header}}
+	
+	{{> layoutPageHeader}}
+
 	<div class="container-fluid">
 		{{> yield}}
 	</div>
+	
 	{{> footer}}
+
 </template>
 
 <template name="layoutMap">
@@ -33,5 +37,25 @@
 	</div>
 </template>
 
+
+<template name="layoutPageHeader">
+	<header class="navbar navbar-default navbar-fixed-top bg-primary">		
+		<div class="container-fluid">
+			<h4 class="pull-left">
+				<a class="back" href="{{routeBack}}">
+					<i class="icon icon-arrow-l"></i>
+				</a> 
+				{{routeTitle}}
+			</h4>
+			{{#if 1}}
+			<a class="close pull-right" href="{{routeBack}}">
+				<i class="icon icon-close"></i>
+			</a>
+			{{/if}}
+		</div>
+	</header>
+</template>
+
 <template name="empty">
 </template>
+
