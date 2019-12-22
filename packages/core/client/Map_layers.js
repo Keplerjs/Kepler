@@ -152,17 +152,18 @@ _.extend(Kepler.Map, {
 		});
 
 		map.on('zoomend moveend', function(e) {
-			var c = e.target.getCenter(),
+			var //c = e.target.getCenter(),
 				z = e.target.getZoom();
 				//autoOpen
 
-			/*if( layers.geojson.getLayers().length &&
-				z >= opts.dataMinZoom 
-				&&(map.getBoundsZoom(layers.geojson.getBounds()) - z > 2)
+			if( layers.geojson.getLayers().length &&
+				//z >= opts.dataMinZoom 
+				//&&(map.getBoundsZoom(layers.geojson.getBounds()) - z > 2)
 				//TODO remove geojson only by user
+				!e.target.getBounds().intersects(layers.geojson.getBounds())
 			) {
 				layers.geojson.clearLayers();
-			}*/
+			}
 
 		    if(z < opts.dataMinZoom) {
 		    	if(layers.users)
