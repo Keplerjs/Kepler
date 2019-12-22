@@ -16,6 +16,7 @@
 - core new K.settings.public.map.layerPlaces.clusterOpts
 - core new method K.Util.sets()
 - core query K.findPlacesByBBox() support additional query parameter
+- core new K.Map.query() introduce query param to filter map markers(client)
 - core K.Map.showLoc() support zoom level
 - core-ui helper routeIs support array
 - core-ui simplify helper settings now is also object

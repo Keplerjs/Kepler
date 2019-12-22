@@ -106,6 +106,21 @@ _.extend(Kepler.Map, {
 			}
 		});
 
+		/*
+		
+		//TODO fix remove filteres markers 
+		layers.places.once('add', function() {
+			Tracker.autorun(function() {
+
+				var query = self.query();
+
+console.log('update places layer',query)
+				layers.cluster.clearLayers();
+				layers.places.update(layers.places)
+
+			});
+		})*/
+
 		layers.geojson = new L.GeoJSON(null, {
 			style: function (feature) {
 				return feature.style || opts.styles.default;

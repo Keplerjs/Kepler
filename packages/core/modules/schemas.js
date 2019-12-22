@@ -74,6 +74,7 @@ Kepler.schemas = {
 		},	
 		settings: {
 			map: {
+				query: null,
 				layer: null,
 				center: null  //last center of map
 			}

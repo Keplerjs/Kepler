@@ -15,7 +15,7 @@
       <div class="list-group-item">
       {{> popupOsm}}
       </div>
-      <a class="btn btn-default btn-block" target="_blank" href="https://www.openstreetmap.org/edit?{{osm.properties.type}}={{osm.properties.id}}&amp;editor=id">
+      <a class="btn btn-default btn-block" target="_blank" href="{{osmEditUrlById id}}">
          <i class="icon icon-osm"></i> {{i18n 'btn_osmedit'}}
       </a>
 		<a class="btn btn-default btn-block btn-osmimport" href="#">
