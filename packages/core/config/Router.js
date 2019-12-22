@@ -19,6 +19,10 @@ if(Router && Meteor.isClient) {
 		
 		var routeName = this.route.getName();
 
+		//PATCH do display logins button after logout
+		Accounts._loginButtonsSession.set('dropdownVisible', true);
+		Accounts._loginButtonsSession.set('inChangePasswordFlow',true)
+
 		if(!Meteor.user()) {
 			if(Meteor.loggingIn()) {
 				self.render(self.loadingTemplate);
@@ -30,8 +34,6 @@ if(Router && Meteor.isClient) {
 				else {
 					//not logged users
 				}
-				//PATCH do display logins button after logout
-				Accounts._loginButtonsSession.set('dropdownVisible', true);
 			}
 		}
 		else {
@@ -48,7 +50,7 @@ if(Router && Meteor.isClient) {
 						K.Map.setOpts( K.Profile.getOpts('map') );
 				});
 			});
-		}
+		}	
 	});
 
 	Router.onAfterAction(function() {
