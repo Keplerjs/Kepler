@@ -11,9 +11,15 @@
 	text-align: center;
 	list-style: none;
 }
-#login-link-and-dropdown-list > a.login-link-text:first-child,
-.login-link-and-dropdown-list > a.login-link-text:first-child {
+#login-buttons a {
+	text-decoration: none;
+}
+.login-link-and-dropdown-list a.login-link-text {
 	display: none;
+/*	margin-bottom: 20px;
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration:none;*/
 }
 #login-dropdown-list .login-close-text {
 	display: none;

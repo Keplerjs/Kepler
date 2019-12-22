@@ -20,8 +20,9 @@ if(Router && Meteor.isClient) {
 		var routeName = this.route.getName();
 
 		if(!Meteor.user()) {
-			if(Meteor.loggingIn())
+			if(Meteor.loggingIn()) {
 				self.render(self.loadingTemplate);
+			}
 			else {
 				//is not a public route go to login box
 				if(!K.settings.public.router.publicRoutes[routeName])
@@ -29,6 +30,8 @@ if(Router && Meteor.isClient) {
 				else {
 					//not logged users
 				}
+				//PATCH do display logins button after logout
+				Accounts._loginButtonsSession.set('dropdownVisible', true);
 			}
 		}
 		else {

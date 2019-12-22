@@ -47,12 +47,12 @@
 - plugin import new placeholder panelImport
 - plugin new method osm findOsmByQuery
 
-## v1.6.8
+## v1.6.8 - fixes geometry import and osm plugins
 - core K.Place.showLoc() and K.Place.showGeometry() support callaback
 - plugin osm K.Osm.findByLoc() support node and way
 - plugin import reduce MultiGeometry to single one using new method K.Util.sanitize.importGeometry()
 
-## v1.6.7
+## v1.6.7 - Full Geojson Geometry Support
 - core new settings K.settings.public.map.checkinGeometry autocheckin inside place geometry
 - core new method K.Place.showGeometry()
 - core search place name in Fulltext
@@ -115,7 +115,7 @@
 - plugin stats rewritten in submodules
 - plugin stats plugin stats testing bbox support
 
-## v1.6.5
+## v1.6.5 - Place editing improvement
 - new tab in panel place show nearby places
 - replace lib verron:autosize with npm version
 - plugin cats fix K.Util.sanitize.catName
@@ -135,7 +135,7 @@
 - updated leaflet-layerjson
 - remove 3rd party kepler plugins from .meteor/packages
 
-## v1.6.3
+## v1.6.3 - Routing & Caching optimizations
 - renamed all caching settings in cacheTime
 - fix K.Cache.get cacheTime
 - core added default geometry for places
@@ -155,7 +155,7 @@
 - plugin categories K.Admin.cleanCatsOrphan()
 - plugin geoinfo use for each methods K.settings.geoinfo.cacheTime
 
-## v1.6.2
+## v1.6.2 - Routing Point of Interests and Meteor 1.8
 - upgrade to Meteor 1.8.1 and other libs updates
 - new method K.Util.setPath set sub property of object by path string
 - new method K.Util.json2html transform json or literal object into a nested ul list
@@ -173,7 +173,7 @@
 - fix mobile status
 - fix K.Map zoomout geojson reloading
 
-## v1.6.1
+## v1.6.1 - API enhancement and docs
 - new user field loginIp
 - plugin admin new sessions section in user admin panel
 - custom meta and link tags by settings by K.settings.public.router.meta
@@ -185,7 +185,7 @@
 - increased coverage for jsdoc comments in the code
 - plugin admin new option K.settings.admin.emailOnStartup
 
-## v1.6.0
+## v1.6.0 - Administration Categories
 - rename base package from ui to core-ui
 - various fixes
 
@@ -205,7 +205,7 @@
 - plugin categories admin create new cat by name
 - plugin categories admin user and place sections
 
-## v1.5.8
+## v1.5.8 - Advaced Backend and Publish Tools
 - movable places
 - plugin photos support creation new place by exif photo
 - plugin photos show news photos in sidebar
@@ -222,7 +222,7 @@
 - new method K.Util.geo.transformLoc()
 - plugin geoinfo new method updatePlaceGeoinfo() and reload btn in panelEdit
 
-## v1.5.7
+## v1.5.7 - Administration User Interface
 - plugin admin new page admin users
 - plugin admin new page manager users
 - plugin admin new template panelUserAdmin
@@ -237,7 +237,7 @@
 ## v1.5.6
 - various fixes
 
-## v1.5.5
+## v1.5.5 - Publishing Pictures
 - plugin photos resize uploaded photos by settings
 - plugin photos load place photo
 - open photo clicking image avatar
@@ -253,7 +253,7 @@
 - plugin categories, search places by category
 - plugin photos added photo viewr in fullscreen
 
-## v1.5.4
+## v1.5.4 - Upload Contents
 - new plugin photos
 - plugin photos manage users avatars in profile settings
 - generalize plugin upload inputFile_upload template
