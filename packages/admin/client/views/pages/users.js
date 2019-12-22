@@ -54,8 +54,6 @@ Template.itemUserAdmin_admin_btns.onRendered(function() {
 		
 		K.Admin.removeUser(self.data.username);
 		delete K.usersById[self.data.id];
-
-		Session.set('itemSelected',null);
 	});
 });
 

@@ -32,11 +32,15 @@ Template.itemPlaceAdmin_admin_btns.onRendered(function() {
 		e.stopPropagation();
 
 		K.Map.removeItem(self.data);
-		console.log(self.data)
 		K.Admin.removePlace(self.data.id);
 		delete K.placesById[self.data.id];
-
-		Session.set('itemSelected',null);
+		$(e.target).parents('.list-group-item').remove();
+		
+		var r = Router.current().route.getName();
+		if(r=='pageAdminPlace')
+			Router.go('pageAdminPlaces');
+		else if(r=='pageAdminUser')
+			Router.go('pageAdminUsers');
 	});
 });
 
