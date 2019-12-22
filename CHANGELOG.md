@@ -26,6 +26,7 @@
 - core-ui new default template footer_ui_lang select lang from not logged users
 - lib add meteor reactive-dict
 - plugin osm updatePlaceByOsmId
+- plugin osm new helper osmEditUrlById
 - plugin edit edit loc by coordinates
 - plugin edit fullscreen for edit map
 - plugin edit highlight marker place on editing

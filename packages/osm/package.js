@@ -31,6 +31,7 @@ Package.onUse(function (api) {
 
   api.addFiles([
     'client/Osm.js',
+    'client/views/helpers.js',
     'client/views/edit.html',
     'client/views/edit.js',
     'client/views/panels.html',

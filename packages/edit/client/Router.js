@@ -84,11 +84,3 @@ Router.map(function() {
 	});*/
 	
 });
-/*
-setTimeout(function(argumen) {
-	
-	K.Map.controls.switch.add(1,"test1 eccp un titolo molto molto lugno");
-	K.Map.controls.switch.add(2,"query 2")
-	K.Map.controls.switch.add(3,"cose 3");
-
-}, 500);*/

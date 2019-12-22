@@ -1,4 +1,9 @@
 
+Template.controlSwitch.onCreated(function() {
+	
+	
+});
+
 Template.controlSwitch.helpers({
 	switches: function() {
 		return K.Map.controls.switch.dict.all();

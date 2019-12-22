@@ -1,8 +1,8 @@
 
-.inputFile_upload .btn-upload {
+.inputFile_upload .input-group-btn {
 	visibility: hidden;
 }
-.inputFile_upload.selected .btn-upload {
+.inputFile_upload.selected .input-group-btn {
 	visibility: visible;
 }
 .inputFile_upload.loading-bar * {

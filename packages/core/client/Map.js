@@ -37,6 +37,16 @@ Kepler.Map = {
 		return this._deps.ready.get();
 	},
 	/**
+	 * return map query filter
+	 * @param  {Boolean} val [description]
+	 * @return {Boolean}     [description]
+	 */
+	query: function(val) {
+		if(!_.isUndefined(val))
+			this._deps.query.set(val);
+		return this._deps.query.get();
+	},
+	/**
 	 * initialization method
 	 * @param  {String}   div  [description]
 	 * @param  {Object}   opts [description]
@@ -268,6 +278,7 @@ Kepler.Map = {
 	 * @return {K.Map}      [description]
 	 */
 	removeItem: function(item) {
+
 		if(this.ready()) {
 			if(item && item.marker) {
 				//DO NOT REMOVE

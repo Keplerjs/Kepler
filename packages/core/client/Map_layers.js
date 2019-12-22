@@ -88,10 +88,7 @@ _.extend(Kepler.Map, {
 			minShift: opts.bboxMinShift,
 			callData: function(bbox, callback) {
 
-				var query = self.options.query;
-				//TODO conver in reactive to able reload sub
-
-				//console.log('map query',query);
+				var query = self.query();
 
 				var sub = Meteor.subscribe('placesByBBox', bbox, query, function() {
 					//console.log('sub placesByBBox',bbox)

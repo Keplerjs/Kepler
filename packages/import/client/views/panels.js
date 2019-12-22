@@ -1,7 +1,7 @@
 
 Template.panelImport_file.onCreated(function() {
 
-    this.importName = new ReactiveVar('');
+    this.importName = new ReactiveVar(K.Util.timeName());
 
     this.importCount = new ReactiveVar(0);
 

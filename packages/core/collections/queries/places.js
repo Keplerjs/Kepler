@@ -21,9 +21,9 @@ K.extend({
 			return m + place.checkins.length;
 		}, 0);
 	},	
-	findPlacesByBBox: function(bbox, qname) {
+	findPlacesByBBox: function(bbox, queryname) {
 
-		var query = K.queries[qname] || {};
+		var query = K.queries[queryname] || {};
 
 		let sel = _.isFunction(query) ? query() : query;
 
