@@ -164,18 +164,7 @@ console.log('update places layer',query)
 		});
 
 		map.on('zoomend moveend', function(e) {
-			var //c = e.target.getCenter(),
-				z = e.target.getZoom();
-				//autoOpen
-
-			if( layers.geojson.getLayers().length &&
-				//z >= opts.dataMinZoom 
-				//&&(map.getBoundsZoom(layers.geojson.getBounds()) - z > 2)
-				//TODO remove geojson only by user
-				!e.target.getBounds().intersects(layers.geojson.getBounds())
-			) {
-				layers.geojson.clearLayers();
-			}
+			var z = e.target.getZoom();
 
 		    if(z < opts.dataMinZoom) {
 		    	if(layers.users)
@@ -189,6 +178,9 @@ console.log('update places layer',query)
 
 				if(layers.places)
 					map.removeLayer(layers.places);
+
+				if(layers.geojson)
+					map.removeLayer(layers.geojson);
 
 				if(layers.geometries)
 					map.removeLayer(layers.geometries);
@@ -206,20 +198,11 @@ console.log('update places layer',query)
 				if(layers.cluster)
 					map.addLayer(layers.cluster);
 
+				if(layers.geojson)
+					map.addLayer(layers.geojson);
+
 				if(layers.geometries)
 					map.addLayer(layers.geometries);
-
-				/* TODO FIX if(opts.tooltips.autoOpen) {
-					var bb = map.getBounds().pad(-0.7);
-					L.rectangle(bb).addTo(map);
-					
-					layers.cluster.eachLayer(function(l) {
-						
-						if(bb.contains(l.getLatLng())){
-							l.openTooltip();
-						}
-					});
-				}*/
 		    }
 		});
 
