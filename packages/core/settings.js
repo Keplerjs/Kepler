@@ -116,7 +116,7 @@ Kepler.settings = {
 				},
 				"switch": {
 					"enabled": true,
-					"position": "bottomleft"
+					"position": "topright"
 				},
 
 			},

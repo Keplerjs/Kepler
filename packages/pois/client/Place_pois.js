@@ -59,6 +59,7 @@ Kepler.Place.include({
 			}
 			
 			K.Map.addGeojson(poisGeojson, {
+				label: i18n('btn_pois'),
 				clear: true,
 				//noFitBounds: true,//fitbound only the tracks
 				style: K.settings.public.map.styles.pois

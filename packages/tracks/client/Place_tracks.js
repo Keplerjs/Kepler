@@ -34,6 +34,7 @@ Kepler.Place.include({
 				tracksList = K.findTracksById(trackId).fetch();
 
 			K.Map.addGeojson( K.Tracks.tracksToGeojson(tracksList, self), {
+				label: i18n('btn_tracks'),
 				style: K.settings.public.map.styles.tracks
 			});
 		});

@@ -18,6 +18,7 @@
 - core query K.findPlacesByBBox() support additional query parameter
 - core new K.Map.query() introduce query param to filter map markers(client)
 - core K.Map.showLoc() support zoom level
+- core param label in K.Map.addGeojson() show control swich
 - core-ui helper routeIs support array
 - core-ui simplify helper settings now is also object
 - core-ui fix panel close href

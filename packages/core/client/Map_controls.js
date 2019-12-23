@@ -52,7 +52,7 @@ _.extend(Kepler.Map, {
 				}			
 			});
 		}
-/* TODO
+
 		if(opts.controls.switch.enabled) {
 
 			controls.switch = (function() {
@@ -67,21 +67,9 @@ _.extend(Kepler.Map, {
 						.on(divp, 'click', L.DomEvent.stop, divp);
 					return divp;
 				};
-
-				ctrl.dict = new ReactiveDict();
-
-				ctrl.add = function(id, label) {
-					ctrl.dict.set(id, label);
-				}
-				ctrl.remove = function(id) {
-					ctrl.dict.delete(id);
-				}
-				ctrl.all = function() {
-					ctrl.dict.all();
-				}
 				return ctrl;
 			}());
-		}*/
+		}
 
 		if(opts.controls.scale.enabled) {
 			controls.scale = L.control.scale(opts.controls.scale);

@@ -37,7 +37,9 @@ Kepler.Geoinfo = {
 			var geojson = K.Util.geo.featureColl([feature]);
 
 			K.Map.hideCursor();
-			K.Map.addGeojson(geojson, function() {
+			K.Map.addGeojson(geojson, {
+				label: i18n('btn_geosearch')
+			},function() {
 				K.Map.layers.geojson.invoke('openPopup');
 			});
 

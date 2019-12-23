@@ -360,8 +360,6 @@ Kepler.Map = {
 		var self = this;
 		if(this.ready()) {
 
-			geoData = _.isArray(geoData) ? geoData : [geoData];
-
 			if(!this.isVisible())
 				Session.set('showSidebar', false);
 
@@ -370,10 +368,10 @@ Kepler.Map = {
 			if(opts.clear)
 				this.layers.geojson.clearLayers();
 
-			for(var i in geoData) {
-				if(geoData[i] && (geoData[i].features || geoData[i].feature))
-					this.layers.geojson.addData(geoData[i]);
-			}
+			this.layers.geojson.addData(geoData);
+
+			if(opts.label)
+				Session.set('geojsonLabel', opts.label );
 
 			if(opts.style)
 				this.layers.geojson.setStyle(opts.style);

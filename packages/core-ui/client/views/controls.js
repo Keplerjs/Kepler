@@ -1,17 +1,17 @@
 
 Template.controlSwitch.onCreated(function() {
-	
-	
+	Session.set('geojsonLabel','');
 });
 
 Template.controlSwitch.helpers({
-	switches: function() {
-		return K.Map.controls.switch.dict.all();
+	geojsonLabel:  function() {
+		return Session.get('geojsonLabel');
 	}
 });
 
 Template.controlSwitch.events({
 	'click a': function(e,tmpl) {
-		K.Map.controls.switch.remove(this.key);
+		K.Map.cleanGeojson();
+		Session.set('geojsonLabel','');		
 	}
 });

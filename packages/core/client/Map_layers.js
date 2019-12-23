@@ -121,7 +121,7 @@ console.log('update places layer',query)
 			});
 		})*/
 
-		layers.geojson = new L.GeoJSON(null, {
+		layers.geojson = L.geoJSON(null, {
 			style: function (feature) {
 				return feature.style || opts.styles.default;
 			},

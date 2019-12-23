@@ -24,13 +24,9 @@
 	position: absolute;
 	bottom: 0;
 }*/
-.leaflet-bottom.leaflet-left > .leaflet-control.leaflet-control-switch {
+.leaflet-top.leaflet-right > .leaflet-control.leaflet-control-switch {
 	background: none;
 	box-shadow: none;
 	margin-bottom: 20px;
 	padding: 0;
-}
-
-.leaflet-control.leaflet-control-switch a {
-
 }

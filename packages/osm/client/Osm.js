@@ -39,7 +39,10 @@ Kepler.Osm = {
 					return feature;
 				});
 				K.Map.hideCursor();
-				K.Map.addGeojson(geojson, {noFitBounds: true});
+				K.Map.addGeojson(geojson, {
+					label: i18n('btn_osmsearch'),
+					noFitBounds: true
+				});
 			}
 			if(_.isFunction(cb))
 				cb(geojson);
@@ -59,7 +62,10 @@ Kepler.Osm = {
 					return f;
 				});
 				K.Map.hideCursor();
-				K.Map.layers.geojson.clearLayers().addData(geojson);
+				K.Map.addGeojson(geojson, {
+					label: i18n('btn_osmsearch'),
+					noFitBounds: true
+				});
 			}
 			if(_.isFunction(cb))
 				cb(geojson, err);
