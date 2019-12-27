@@ -48,9 +48,7 @@ Router.map(function() {
 			return {
 				title: i18n('label_editplaces'),
 				className: 'edits',
-				//TODO
-				//headerTemplate: 'panelEdits_edit_map',
-				//
+				headerTemplate: 'panelEdits_edit_map',
 				itemsTemplate: 'item_place_edit',
 				items: _.map(K.Profile.data.places, function(id) {
 					return place = K.placeById(id);
@@ -60,27 +58,23 @@ Router.map(function() {
 			};
 		}
 	});
-/*
+
 	this.route('mapPlacesEdit', {
 		path: '/map/edits',	//PATCH use '/' to end otherwise gen a console error
 		template: 'empty',
 		layoutTemplate: 'layoutMap',
 		waitOn: function() {
 			Session.set('showSidebar', false);
+			K.Map.query('placesEdit');
 		},
-		onAfterAction: function() {
+		/*onAfterAction: function() {
 			if(!this.ready()) return null;
-			
-			//K.Map.cleanItems();
-
-			K.Map.setOpts({
-				query: 'placeCheckins'
-			});
-		},
+			K.Map.query('placesEdit');
+		},*/
 		onStop: function(e) {
 			if(!this.ready()) return null;
-			K.Map.setOpts({query: ''});
+			K.Map.query('');
 		}
-	});*/
+	});
 	
 });

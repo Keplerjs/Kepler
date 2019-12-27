@@ -160,7 +160,8 @@ Kepler.Map = {
 			for(var c in this.controls)
 				this.map.removeControl(this.controls[c])
 
-			this.map.remove();	
+			this.map.remove();
+			this.map = null;	
 		}
 		return this;
 	},

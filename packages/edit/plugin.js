@@ -32,7 +32,6 @@ K.Plugin({
 	queries: {
 		placesEdit: function() {
 			var userId = Meteor.userId();
-			console.log('EDIT query placesEdit', userId)
 			return _.isString(userId) ? {userId: userId } : {};
 		}
 	},
