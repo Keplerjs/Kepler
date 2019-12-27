@@ -64,26 +64,16 @@ if(Router && Meteor.isClient) {
 		if(this.ready()) {//} && K.Profile.ready) {
 
 			if(this.route.options.layoutTemplate==='layoutMap') {
-				/*
-				Template.layoutMap.onRendered(function() {
-					K.Map.init($('#map')[0], K.Profile.getOpts('map'));
-				});
-				Template.layoutMap.onDestroyed(function() {
-					K.Map.destroy();
-				});
-				*/
-				//PATCH render map after template layoutMap is rendered
-				//Template.layoutMap.onRendered(function() {
-
 		
+				
 				Meteor.setTimeout(function() {
-					
+
 					if(K.Profile.ready)
 						mapSets = K.Profile.getOpts('map');
-//console.log('map iinit')
+					
 					K.Map.init($('#map')[0], mapSets);
-
-				},500);
+				
+				},300);
 			
 			}
 			else 

@@ -5,6 +5,7 @@
 ## Next version
 - show contents for not logged users can be enabled by settings.route.publicRoutes
 - core new module K.queries, to prefilter every queries before show result by settings.json
+- core move K.settings.queries in  K.settings.public.queries
 - core Plugin templates placeholder show support function value
 - core Place schema is a valid geojson format
 - core node config directory to moved configurations
@@ -18,6 +19,7 @@
 - core query K.findPlacesByBBox() support additional query parameter
 - core new K.Map.query() introduce query param to filter map markers(client)
 - core K.Map.showLoc() support zoom level
+- core K.Map.setOpts() change state
 - core param label in K.Map.addGeojson() show control swich
 - core-ui helper routeIs support array
 - core-ui simplify helper settings now is also object

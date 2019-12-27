@@ -8,7 +8,7 @@ Meteor.startup(function() {
 
 	if(Meteor.isServer) {
 
-		_.deepExtend(K.queries, K.settings.queries);
+		_.deepExtend(K.queries, K.settings.public.queries);
 
 	}
 	else if(Meteor.isClient) {

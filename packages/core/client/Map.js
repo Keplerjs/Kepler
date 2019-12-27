@@ -99,6 +99,7 @@ Kepler.Map = {
 		})
 		.on('moveend zoomend', function(e) {
 			self._deps.bbox.changed();
+			K.zoom = e.target.getZoom();
 		});
 
 		return this;
@@ -121,6 +122,9 @@ Kepler.Map = {
 			opts.center = optsDef.center;
 			opts.zoom = optsDef.zoom;
 		}
+
+		if(this.map)
+			this.map.setView(opts.center, opts.zoom,{animate:false});
 
 		if(!opts.layers[opts.layer])
 			opts.layer = optsDef.layer;
@@ -371,7 +375,7 @@ Kepler.Map = {
 			this.layers.geojson.addData(geoData);
 
 			if(opts.label)
-				Session.set('geojsonLabel', opts.label );
+				Session.set('mapLabel', opts.label );
 
 			if(opts.style)
 				this.layers.geojson.setStyle(opts.style);

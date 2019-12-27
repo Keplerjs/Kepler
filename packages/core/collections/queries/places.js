@@ -23,10 +23,10 @@ K.extend({
 	},	
 	findPlacesByBBox: function(bbox, queryname) {
 
+		//TODO move in public
 		var query = K.queries[queryname] || {};
 
 		let sel = _.isFunction(query) ? query() : query;
-
 		//PATCH while minimongo not supporting $within $box queries
 		if(Meteor.isClient) {
 			
@@ -51,8 +51,6 @@ K.extend({
 					}
 				}
 			});
-		
-			//console.log('QUERY findPlacesByBBox', sel)
 
 			return Places.find(sel, _.deepExtend({}, K.filters.placeItem, {
 					limit: K.settings.public.map.bboxMaxResults

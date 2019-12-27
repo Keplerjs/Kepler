@@ -1,6 +1,9 @@
 
 Template.panelPlaceEdit_edit_info.onRendered(function() {
+	
 	Autosize( this.$('.input-desc') );
+	
+	this.$('.input-name').focus();
 });
 
 Template.panelPlaceEdit_edit_info.events({

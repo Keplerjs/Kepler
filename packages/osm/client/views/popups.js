@@ -37,14 +37,15 @@ Template.popupOsm.helpers({
 
 		var ret = [];
 
-		if(this.properties.tags)
-		_.each(this.properties.tags, function(val, key) {
-			ret.push({
-				key: key,
-				url: 'http://wiki.openstreetmap.org/wiki/Key:'+key,
-				val: val
+		if(this.properties && this.properties.tags) {
+			_.each(this.properties.tags, function(val, key) {
+				ret.push({
+					key: key,
+					url: 'http://wiki.openstreetmap.org/wiki/Key:'+key,
+					val: val
+				});
 			});
-		});
+		}
 
 		return ret;
 	}

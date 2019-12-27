@@ -85,14 +85,16 @@ _.extend(Kepler.Map, {
 			layerTarget: opts.layerPlaces.cluster && layers.cluster,
 			
 			caching: false,
+			updateMarkers: true,
 			minShift: opts.bboxMinShift,
 			callData: function(bbox, callback) {
 
 				var query = self.query();
 
 				var sub = Meteor.subscribe('placesByBBox', bbox, query, function() {
-					//console.log('sub placesByBBox',bbox)
+
 					callback( K.findPlacesByBBox(bbox, query).fetch() );
+					
 				});
 
 				return {
@@ -106,20 +108,15 @@ _.extend(Kepler.Map, {
 			}
 		});
 
-		/*
-		
-		//TODO fix remove filteres markers 
 		layers.places.once('add', function() {
 			Tracker.autorun(function() {
 
 				var query = self.query();
-
-console.log('update places layer',query)
-				layers.cluster.clearLayers();
-				layers.places.update(layers.places)
-
+				
+				if(map.hasLayer(layers.places))
+					layers.places.update();
 			});
-		})*/
+		})
 
 		layers.geojson = L.geoJSON(null, {
 			style: function (feature) {

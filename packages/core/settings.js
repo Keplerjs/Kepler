@@ -6,10 +6,10 @@
  * @type {Object}
  */
 Kepler.settings = {
-	"queries": {
-		/* defined in file /core/modules/queries.js */
-	},
 	"public": {
+		"queries": {
+			/* defined in file /core/modules/queries.js */
+		},		
 		"templates": {
 			/* defined in file /core-ui/settings.js */
 		},
