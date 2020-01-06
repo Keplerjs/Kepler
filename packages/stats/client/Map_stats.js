@@ -34,10 +34,10 @@ Tracker.autorun(function(comp) {
 			K.Map.layers.stats = L.geoJSON([], {
 				pointToLayer: function(point, loc) {
 					var r = point.properties.rank;
-					var radius = Math.min(r, 15);
-						radius = Math.max(r, 5);
+					r = Math.min(r, 15);
+					r = Math.max(r, 5);
 					return L.circleMarker(loc, {
-							radius: radius
+							radius: r
 					}).on('click', function(e) {
 						L.DomEvent.stopPropagation(e);
 						K.Map.map.removeLayer(K.Map.layers.stats);
