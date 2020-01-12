@@ -3,6 +3,9 @@
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
 ## Next version
+...
+
+## v1.7.0 - Public Contents
 - show contents for not logged users can be enabled by settings.route.publicRoutes
 - core new module K.queries, to prefilter every queries before show result by settings.json
 - core move K.settings.queries in  K.settings.public.queries
@@ -40,7 +43,7 @@
 - plugin categories new admin method updateCatsCountsByType
 - plugin admin use new settings by function
 - plugin admin editing of raw data place
-- theme fix css marker-place icons
+- plugin theme fix css marker-place icons
 - plugin stats findStatsPlacesByField support array values
 - plugin pois support settings.public.pois.typesByTags disabled
 - plugin tracks support settings.public.tracks.typesByTags disabled
