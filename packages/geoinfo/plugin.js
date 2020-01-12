@@ -31,6 +31,12 @@ K.Plugin({
 				geoinfo: 1
 			}
 		},
+		placeItem: {
+			fields: {
+				'geoinfo.reg': 1,
+				'geoinfo.naz': 1
+			}
+		},
 		placeSearch: {
 			fields: {
 				'geoinfo.near': 1,
