@@ -1,8 +1,11 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
 [The Official Roadmap](http://bit.ly/KeplerJsRoadmap)
 
 [Downloadable releases](https://github.com/Keplerjs/Kepler/releases)
 
-## Next version
+## [Next Version]
 ...
 
 ## v1.7.0 - Public Contents
