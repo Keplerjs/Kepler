@@ -14,7 +14,7 @@
    inkscape:export-xdpi="90"
    inkscape:export-filename="/home/z4k/www//images/sprite.png"
    sodipodi:docname="sprite.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    version="1.1"
    id="svg2"
    height="810"
@@ -27,16 +27,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="10.24"
-     inkscape:cx="162.54454"
-     inkscape:cy="300.1661"
+     inkscape:cx="180.7536"
+     inkscape:cy="211.55185"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g4222"
      showgrid="true"
-     inkscape:window-width="1068"
-     inkscape:window-height="804"
-     inkscape:window-x="658"
-     inkscape:window-y="34"
-     inkscape:window-maximized="0"
+     inkscape:window-width="1860"
+     inkscape:window-height="1022"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
      inkscape:snap-global="false"
      showguides="true"
      inkscape:guide-bbox="true"
@@ -23909,6 +23909,65 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:40px;font-family:monospace;-inkscape-font-specification:'monospace, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#0069b3;fill-opacity:1;stroke-width:0.39513054px"
          d="m 158.13607,767.2576 v 1.4938 c -1.16948,-0.0602 -2.80419,0.16697 -3.68577,-0.57875 -1.53778,-1.3741 0.24774,-4.13503 -1.05091,-5.61543 -0.69885,-0.47598 -1.1816,-0.45362 -1.94188,-0.45362 v -1.49379 c 0.64749,-0.008 1.52073,-0.003 1.94188,-0.44579 1.07499,-1.47487 -0.36031,-4.2817 1.05091,-5.61544 1.35094,-0.68171 2.24596,-0.57873 3.68577,-0.57873 v 1.48596 c -0.69689,-0.038 -1.45684,-0.0103 -1.99519,0.32849 -0.76075,1.37587 0.30608,3.50414 -0.63968,4.89589 -0.24876,0.34935 -0.69299,0.57354 -1.33267,0.67261 0.63968,0.10949 1.08391,0.34151 1.33267,0.69605 0.76722,1.49728 0.0204,3.26506 0.63968,4.87244 0.65546,0.44652 1.20326,0.33631 1.99519,0.33631 z m 1.60351,0 c 0.69749,0.0409 1.45224,0.003 1.98757,-0.33631 0.76579,-1.37392 -0.28754,-3.47756 0.64729,-4.87244 0.24877,-0.35454 0.69046,-0.58656 1.32506,-0.69605 -0.63968,-0.0991 -1.08391,-0.32326 -1.33267,-0.67261 -0.76086,-1.50205 -0.003,-3.28326 -0.63968,-4.88807 -0.65561,-0.44448 -1.19773,-0.33631 -1.98757,-0.33631 v -1.48596 c 1.15873,0.0612 2.79642,-0.17109 3.66293,0.57873 1.53178,1.38275 -0.23896,4.12054 1.05089,5.61544 0.7116,0.46566 1.1991,0.44579 1.96473,0.44579 v 1.49379 c -0.65774,0.007 -1.53436,0.01 -1.96473,0.45362 -1.07013,1.48293 0.35236,4.27206 -1.05089,5.61543 -1.34013,0.68456 -2.23006,0.57875 -3.66293,0.57875 z"
          inkscape:connector-curvature="0" />
+    </g>
+    <g
+       aria-label="?"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="text4142" />
+    <g
+       id="g4222"
+       transform="translate(166.45167,797.42643)"
+       style="fill:#225577;fill-opacity:1">
+      <path
+         id="path4167"
+         d="m 22.394402,44.97133 c -4.909823,0.06571 -8.836445,4.099606 -8.771117,9.009622 0.06571,4.907891 4.099219,8.835672 9.008849,8.770345 4.908857,-0.0661 8.836252,-4.099991 8.770924,-9.009622 -0.06571,-4.908277 -4.099411,-8.835866 -9.008656,-8.770345 z m -0.02628,14.301748 -0.04909,-7.73e-4 c -0.756101,-0.02243 -1.289159,-0.579445 -1.267705,-1.324335 0.02106,-0.732135 0.567075,-1.263648 1.298243,-1.263648 l 0.04387,7.74e-4 c 0.777168,0.023 1.304234,0.57442 1.282394,1.340764 -0.02165,0.734261 -0.559151,1.247218 -1.307714,1.247218 z M 25.5485,52.960834 c -0.177815,0.252614 -0.568815,0.566303 -1.061479,0.950152 l -0.542529,0.374572 c -0.297841,0.231546 -0.477588,0.449369 -0.545043,0.663714 -0.05315,0.168731 -0.07924,0.213378 -0.08388,0.556638 l -7.73e-4,0.08717 H 21.24324 l 0.006,-0.175302 c 0.02532,-0.720538 0.0431,-1.144395 0.341714,-1.494614 0.468504,-0.550067 1.501958,-1.21552 1.545832,-1.243739 0.14805,-0.111521 0.272908,-0.238504 0.365874,-0.374185 0.217437,-0.299773 0.313689,-0.535765 0.313689,-0.767697 0,-0.321807 -0.09548,-0.619455 -0.284311,-0.884437 -0.181487,-0.255706 -0.526293,-0.385202 -1.024949,-0.385202 -0.494597,0 -0.833219,0.156941 -1.035773,0.478941 -0.208354,0.331084 -0.31369,0.67879 -0.31369,1.034033 v 0.08833 h -2.135947 l 0.0038,-0.09219 c 0.05508,-1.308294 0.522042,-2.250328 1.387344,-2.800009 0.543689,-0.350025 1.22016,-0.527453 2.009504,-0.527453 1.033261,0 1.905522,0.251067 2.592236,0.746244 0.695798,0.501747 1.048723,1.25321 1.048723,2.233512 0,0.548327 -0.173177,1.063412 -0.514892,1.531529 z"
+         inkscape:connector-curvature="0"
+         style="fill:#225577;fill-opacity:1;stroke-width:0.19327731" />
+      <g
+         id="g4169"
+         style="fill:#225577;fill-opacity:1" />
+      <g
+         id="g4171"
+         style="fill:#225577;fill-opacity:1" />
+      <g
+         id="g4173"
+         style="fill:#225577;fill-opacity:1" />
+      <g
+         id="g4175"
+         style="fill:#225577;fill-opacity:1" />
+      <g
+         id="g4177"
+         style="fill:#225577;fill-opacity:1" />
+      <g
+         id="g4179"
+         style="fill:#225577;fill-opacity:1" />
+      <g
+         id="g4181"
+         style="fill:#225577;fill-opacity:1" />
+      <g
+         id="g4183"
+         style="fill:#225577;fill-opacity:1" />
+      <g
+         id="g4185"
+         style="fill:#225577;fill-opacity:1" />
+      <g
+         id="g4187"
+         style="fill:#225577;fill-opacity:1" />
+      <g
+         id="g4189"
+         style="fill:#225577;fill-opacity:1" />
+      <g
+         id="g4191"
+         style="fill:#225577;fill-opacity:1" />
+      <g
+         id="g4193"
+         style="fill:#225577;fill-opacity:1" />
+      <g
+         id="g4195"
+         style="fill:#225577;fill-opacity:1" />
+      <g
+         id="g4197"
+         style="fill:#225577;fill-opacity:1" />
     </g>
   </g>
   <style
