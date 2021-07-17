@@ -41,7 +41,7 @@ Kepler.Geoapi = {
 
 		var data, ret, src = {
 				par: 'val',
-				url: 'http://labs.easyblog.it/maps/geotiff-picker/aspect?lat='+ll[0]+'&lng='+ll[1]
+				url: 'https://opengeo.tech/maps/geotiff-picker/aspect.php?lat='+ll[0]+'&lng='+ll[1]
 			};
 
 		data = httpGet(src.url);
@@ -62,7 +62,7 @@ Kepler.Geoapi = {
 
 		var data, ret, src = {
 				par: 'val',
-				url: 'http://labs.easyblog.it/maps/geotiff-picker/dem?lat='+ll[0]+'&lng='+ll[1]
+				url: 'https://opengeo.tech/maps/geotiff-picker/dem.php?lat='+ll[0]+'&lng='+ll[1]
 			};
 
 		data = httpGet(src.url);
