@@ -8,7 +8,7 @@ i18n.map('de', {
 	title_histplaces: "Letzte Orte",
 	title_friends: "Deine Freunde",
 	title_places: "Orte",
-	title_search: "Suche",	
+	title_search: "Suche",
 	title_placesNearby: "Orte in der Nähe",
 	title_placesNews: "Letzte Orte",
 	title_usersNews: "Letzte Nutzer",
@@ -89,7 +89,7 @@ i18n.map('de', {
 	btn_frienddel: "Freundschaft beenden",
 	btn_friendpending: "Warte...",
 	btn_friendconfirm: "Freundschaft bestätigen!",
-//TODO	
+	
 	btn_friendreceive: "Freundschaftsanfrage",
 	btn_friendaccept: "Freundschaft akzeptieren",
 	btn_friendnew: "Neuer Freund",
