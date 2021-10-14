@@ -15,3 +15,21 @@ A good idea to begin to understand basic functionality is to disable all plugins
 If you want to start kepler adapting to your study case right now, you should take one of the plugin code example, for example keplerjs:share and study its code.
 
 Learn more in [Contribute Documentation](http://docs.keplerjs.io/contribute.html)
+
+## Github Contribution
+
+If you would like to contribute, please note that we are using a [branching model](http://nvie.com/posts/a-successful-git-branching-model/) to structure our git workflow and are following [commit message guidelines](https://api.coala.io/en/latest/Developers/Writing_Good_Commits.html).
+
+For minor bugfixes use the development branch:
+
+	git checkout development
+
+For new features, please create a new branch:
+
+	git checkout -b feature_branch
+
+In every case do a [pull request](https://help.github.com/articles/creating-a-pull-request/) to our development branch. Be sure to pull the latest changes beforehand and fix any emerging conflicts.
+
+To enable console output information and logging for bugfixing and feature development do:
+
+	grunt dev
