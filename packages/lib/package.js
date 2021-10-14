@@ -34,7 +34,7 @@ Package.onUse(function(api) {
     //leaflet plugins deps
     '.npm/package/node_modules/leaflet/dist/leaflet-src.js',
     '.npm/package/node_modules/leaflet/dist/leaflet.css',
-    '.npm/package/node_modules/leaflet-gps/dist/leaflet-gps.src.css',    
+    '.npm/package/node_modules/leaflet-gps/dist/leaflet-gps.src.css',
     '.npm/package/node_modules/leaflet-gps/dist/leaflet-gps.src.js',
     '.npm/package/node_modules/leaflet-layerjson/dist/leaflet-layerjson.src.js',
     //
@@ -44,7 +44,7 @@ Package.onUse(function(api) {
     '.npm/package/node_modules/leaflet-fullscreen/dist/Leaflet.fullscreen.js',
     '.npm/package/node_modules/leaflet-fullscreen/dist/leaflet.fullscreen.css'
   ],'client');
-  
+
   api.addAssets([
     '.npm/package/node_modules/leaflet/dist/images/marker-icon.png',
     '.npm/package/node_modules/leaflet/dist/images/marker-shadow.png',
@@ -70,7 +70,7 @@ Package.onUse(function(api) {
     'accounts-base',
     'accounts-password',
     'accounts-ui',
-    
+
     'accounts-oauth',
     'accounts-facebook',
     'accounts-google',
@@ -80,9 +80,10 @@ Package.onUse(function(api) {
     'bozhao:accounts-instagram@0.2.2',
     'blaze-html-templates@1.1.2',
     //'matb33:collection-hooks@0.8.4',
-    'matb33:collection-hooks@1.0.1',
+    //'matb33:collection-hooks@1.0.1',
+    'matb33:collection-hooks@1.1.0',
     'underscorestring:underscore.string@3.3.4',
-    
+
     'kidovate:bootstrap-slider@0.0.5',
     //TODO use npm
 
@@ -130,5 +131,5 @@ Package.onUse(function(api) {
     'Latinize',
     'sAlert',
   ]);
-  
+
 });
