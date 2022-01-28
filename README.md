@@ -3,7 +3,7 @@
 **The open source full-stack geosocial network platform**
 
 * [Official DEMO](https://demo.keplerjs.io/)
-* [Current Release](https://github.com/Keplerjs/Kepler/releases)
+* [Download last release](https://github.com/Keplerjs/Kepler/releases)
 
 ## Contributors
 
