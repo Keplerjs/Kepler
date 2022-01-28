@@ -46,8 +46,6 @@ Distributed under the [BSD 2-Clause](https://opensource.org/licenses/BSD-2-Claus
 
 ## Contributors
 
-### Code Contributors
-
 This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
 <a href="https://github.com/Keplerjs/Kepler/graphs/contributors"><img src="https://opencollective.com/keplerjs/contributors.svg?width=890&button=false" /></a>
 
