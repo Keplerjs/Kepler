@@ -5,6 +5,11 @@
 * [Official DEMO](https://demo.keplerjs.io/)
 * [Current Version](https://github.com/Keplerjs/Kepler/releases)
 
+## Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+<a href="https://github.com/Keplerjs/Kepler/graphs/contributors"><img src="https://opencollective.com/keplerjs/contributors.svg?width=890&button=false" /></a>
+
 # Links
 
 * [Website](https://keplerjs.io/)
@@ -42,12 +47,6 @@ Eric S. Raymond
 ## Copyright
 Created by [Stefano Cudini](https://github.com/stefanocudini) [@zakis](https://twitter.com/zakis) and other [contributors](https://github.com/Keplerjs/Kepler/graphs/contributors).
 Distributed under the [BSD 2-Clause](https://opensource.org/licenses/BSD-2-Clause) license.
-
-
-## Contributors
-
-This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
-<a href="https://github.com/Keplerjs/Kepler/graphs/contributors"><img src="https://opencollective.com/keplerjs/contributors.svg?width=890&button=false" /></a>
 
 ### Financial Contributors
 
