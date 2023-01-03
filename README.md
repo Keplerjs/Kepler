@@ -1,6 +1,6 @@
 ![KeplerJs](keplerjs.png) 
 
-**The open source full-stack geosocial network platform**
+**The open source geosocial network platform**
 
 * [Official DEMO](https://demo.keplerjs.io/)
 * [Download last release](https://github.com/Keplerjs/Kepler/releases)
