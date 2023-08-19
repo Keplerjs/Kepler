@@ -1,6 +1,6 @@
 BSD 2-Clause License
 
-Copyright (c) 2015-2019, Stefano Cudini
+Copyright (c) 2015-2023, Stefano Cudini
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

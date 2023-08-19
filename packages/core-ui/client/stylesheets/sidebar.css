@@ -44,7 +44,7 @@
 .sidebar > .nav > li > .btn {
     display: block;
 	padding: 4px;
-    margin-right: 4px;	
+    margin-right: 2%;	
     height: 30px;
     font-size: 14px;
     border:none;
@@ -120,7 +120,7 @@ li#navsearch {
     display: none;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 420px) {
     .sidebar {
         width: auto;
         padding: 0;
@@ -145,7 +145,7 @@ li#navsearch {
     .sidebar > .nav > li > .btn {
 		/*padding: 4px 2px;*/
     	margin-right: 0;	    	
-		max-width: 70px;
+		max-width: 80px;
 		overflow:hidden;
 		text-overflow: ellipsis;
     }

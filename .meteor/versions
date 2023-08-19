@@ -28,6 +28,7 @@ ddp-client@2.3.3
 ddp-common@1.4.0
 ddp-rate-limiter@1.0.7
 ddp-server@2.3.0
+demo@1.7.0
 deps@1.0.12
 diff-sequence@1.1.1
 dynamic-import@0.5.1
@@ -69,10 +70,12 @@ keplerjs:core-ui@1.7.0
 keplerjs:edit@1.7.0
 keplerjs:favorites@1.7.0
 keplerjs:geoinfo@1.7.0
+keplerjs:googlemaps@1.7.0
 keplerjs:i18n@1.7.0
 keplerjs:import@1.7.0
 keplerjs:lib@1.7.0
 keplerjs:notifs@1.7.0
+keplerjs:openrouteservice@1.7.0
 keplerjs:osm@1.7.0
 keplerjs:photos@1.7.0
 keplerjs:pois@1.7.0
@@ -81,13 +84,14 @@ keplerjs:stats@1.7.0
 keplerjs:theme@1.7.0
 keplerjs:tracks@1.7.0
 keplerjs:upload@1.7.0
+keplerjs:wunderground@1.7.0
 kidovate:bootstrap-slider@0.0.5
 konecty:user-presence@2.4.0
 less@2.8.0
 livedata@1.0.18
 localstorage@1.2.0
 logging@1.1.20
-matb33:collection-hooks@1.0.1
+matb33:collection-hooks@1.1.0
 meteor@1.9.3
 meteor-base@1.4.0
 minifier-css@1.4.2
