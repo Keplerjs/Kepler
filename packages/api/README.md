@@ -4,5 +4,5 @@ implement a simple RESTful API for basic operations and it is reachable to this 
 
 try on online demo:
 
-[https://demo.keplerjs.io/api](
-https://demo.keplerjs.io/api)
+[https://demo-kepler.opengeo.tech/api](
+https://demo-kepler.opengeo.tech/api)

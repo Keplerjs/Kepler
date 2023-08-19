@@ -2,16 +2,16 @@
 
 **The open source full-stack geosocial network platform**
 
-* [Official DEMO](https://demo.keplerjs.io/)
+* [Official DEMO](https://demo-kepler.opengeo.tech/)
 * [Current Version](https://github.com/Keplerjs/Kepler/releases)
 
 # Links
 
-* [Website](https://keplerjs.io/)
-* [Documentation](https://docs.keplerjs.io/)
+* [Website](https://kepler.opengeo.tech/)
+* [Documentation](https://kepler.opengeo.tech/docs)
 * [Roadmap](https://bit.ly/KeplerJsRoadmap)
 * [News](https://twitter.com/Kepler_JS)
-* [Blog](https://blog.keplerjs.io)
+* [Blog](https://kepler.opengeo.tech/blog)
 * [Plugins](https://atmospherejs.com/keplerjs) 
 * [Issues](https://github.com/keplerjs/kepler/issues)
 
